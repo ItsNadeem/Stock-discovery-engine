@@ -1,0 +1,424 @@
+
+MULTIBAGGER DISCOVERY ENGINE — COMPLETE SETUP GUIDE
+════════════════════════════════════════════════════
+Based on value-picks.blogspot.com + @valuepick methodology
+Paushak ₹74→₹10,000 | EKI ₹150→₹10,000 | Cosmo Ferrites ₹13→₹168+
+
+
+WHAT YOU ARE BUILDING
+─────────────────────
+A free, automated system that scans all 1,800+ NSE stocks every weeknight
+and outputs three lists:
+
+  results/latest.json      → Top 20 confirmed technical breakouts (swing trades)
+  results/watchlist.json   → Top 15 early-stage pre-breakout candidates
+  results/conviction.json  → Stocks appearing in BOTH (highest conviction)
+  results/daily_report.txt → Human-readable combined report
+
+No API keys. No broker account. Cost: ₹0.
+
+
+FILES IN THIS PACKAGE
+─────────────────────
+  engine.py               Layer 1: Swing breakout + fundamental filter
+  pre_breakout_scanner.py Layer 2: Pre-breakout early detection (9 signals)
+  run_all.py              Orchestrator: runs both layers, finds overlap
+  universe.py             NSE symbol fetcher (public NSE CSV)
+  requirements.txt        Dependencies (5 packages)
+  .gitignore              Keeps repo clean
+  results/README.md       Placeholder so git tracks results folder
+  .github/
+    workflows/
+      nightly_scan.yml    GitHub Actions cron (18:45 IST Mon–Fri)
+
+
+════════════════════════════════════════════════════
+STEP 1 — CREATE YOUR GITHUB ACCOUNT (skip if you have one)
+════════════════════════════════════════════════════
+
+1. Go to https://github.com
+2. Click "Sign up"
+3. Enter email, password, username
+4. Verify your email
+5. You're done
+
+
+════════════════════════════════════════════════════
+STEP 2 — CREATE A NEW REPOSITORY
+════════════════════════════════════════════════════
+
+1. After logging in, click the "+" icon (top right) → "New repository"
+
+2. Fill in:
+     Repository name:  multibagger-engine    (or any name you want)
+     Description:      NSE Multibagger Discovery Engine
+     Visibility:       ✅ PUBLIC  ← IMPORTANT
+                       (Public = unlimited free Actions minutes.
+                        Private = 2,000 min/month free, enough for ~28 runs)
+     Initialize:       ✅ Check "Add a README file"
+
+3. Click "Create repository"
+
+You now have an empty repo at:
+  https://github.com/YOUR_USERNAME/multibagger-engine
+
+
+════════════════════════════════════════════════════
+STEP 3 — UPLOAD THE FILES
+════════════════════════════════════════════════════
+
+You need to create this EXACT folder structure in your repo:
+
+  multibagger-engine/
+  ├── .github/
+  │   └── workflows/
+  │       └── nightly_scan.yml
+  ├── results/
+  │   └── README.md
+  ├── engine.py
+  ├── pre_breakout_scanner.py
+  ├── run_all.py
+  ├── universe.py
+  ├── requirements.txt
+  └── .gitignore
+
+
+── METHOD A: GitHub Web Interface (no coding tools needed) ──
+
+GitHub doesn't let you create folders directly, but you can
+create them by typing a path when naming a file.
+
+STEP 3a — Upload the flat files first:
+
+  1. Go to your repo page
+  2. Click "Add file" → "Upload files"
+  3. Drag and drop ALL of these files at once:
+       engine.py
+       pre_breakout_scanner.py
+       run_all.py
+       universe.py
+       requirements.txt
+       .gitignore
+  4. Scroll down, click "Commit changes"
+
+STEP 3b — Create results/README.md:
+
+  1. Click "Add file" → "Create new file"
+  2. In the filename box, type:   results/README.md
+     (Typing the "/" automatically creates the folder)
+  3. In the file content box, paste:
+       # Results
+       Scan outputs are committed here nightly by GitHub Actions.
+  4. Click "Commit new file"
+
+STEP 3c — Create .github/workflows/nightly_scan.yml:
+
+  1. Click "Add file" → "Create new file"
+  2. In the filename box, type:   .github/workflows/nightly_scan.yml
+     (This creates both .github/ and workflows/ folders)
+  3. Copy the ENTIRE contents of nightly_scan.yml from this package
+  4. Paste into the file content box
+  5. Click "Commit new file"
+
+
+── METHOD B: Git Command Line (faster if you have git installed) ──
+
+  git clone https://github.com/YOUR_USERNAME/multibagger-engine.git
+  cd multibagger-engine
+
+  # Copy all files from this package into the folder
+  # (replace /path/to/package with where you extracted the zip)
+  cp /path/to/package/*.py .
+  cp /path/to/package/requirements.txt .
+  cp /path/to/package/.gitignore .
+
+  mkdir -p results .github/workflows
+  cp /path/to/package/results/README.md results/
+  cp /path/to/package/.github/workflows/nightly_scan.yml .github/workflows/
+
+  git add -A
+  git commit -m "Initial setup: Multibagger Discovery Engine"
+  git push
+
+
+════════════════════════════════════════════════════
+STEP 4 — ENABLE GITHUB ACTIONS
+════════════════════════════════════════════════════
+
+1. Go to your repo
+2. Click the "Actions" tab (top navigation)
+3. If you see a yellow banner saying workflows need approval:
+   Click "I understand my workflows, enable them"
+4. You should now see "Nightly NSE Multibagger Scan" in the left sidebar
+
+
+════════════════════════════════════════════════════
+STEP 5 — DO A TEST RUN (RIGHT NOW)
+════════════════════════════════════════════════════
+
+Don't wait for 18:45 IST. Test it immediately:
+
+1. Click the "Actions" tab
+2. Click "Nightly NSE Multibagger Scan" in the left sidebar
+3. Click the "Run workflow" dropdown (right side)
+4. Leave "Branch: main" as is
+5. Click the green "Run workflow" button
+
+6. Refresh the page — you'll see a new run appear with a yellow dot (running)
+7. Click on it to watch the live logs
+
+Expected runtime: 75–90 minutes for full scan.
+(Both layers running on ~1,800 symbols)
+
+While it runs, you'll see logs like:
+  [INFO] Stage 1: Swing breakout scan on 1842 instruments...
+  [INFO]   ✓ Breakout: DIXON.NS  ₹4820  RSI=62.1
+  [INFO] Stage 2: Pre-breakout scanner...
+  [INFO]   [0042] SHANTHI.NS  ₹180  MCap ₹450Cr  Score:0.612 [Murugappa] DEBT↓
+
+
+════════════════════════════════════════════════════
+STEP 6 — READ YOUR RESULTS
+════════════════════════════════════════════════════
+
+After the run completes (green checkmark):
+
+1. Go back to your repo's main Code tab
+2. Open the "results" folder
+3. You'll find:
+
+   daily_report.txt  ← Start here. Open this first every morning.
+   conviction.json   ← Stocks in BOTH layers. Highest conviction.
+   latest.json       ← Layer 1: confirmed breakouts with fundamentals
+   watchlist.json    ← Layer 2: early stage, pre-breakout candidates
+
+The daily_report.txt has three sections:
+
+  SECTION A: CONVICTION LIST ★
+  ─────────────────────────────
+  Stocks confirmed by both technical breakout AND pre-breakout thesis.
+  These are the ones to research deeply.
+
+  SECTION B: TOP 10 TECHNICAL BREAKOUTS
+  ────────────────────────────────────────
+  Layer 1 results. Good for swing trades (2–5× potential).
+  Clear entry (breakout level) and stop-loss (below 52W high).
+
+  SECTION C: TOP 10 PRE-BREAKOUT WATCHLIST
+  ──────────────────────────────────────────
+  Layer 2 results. Research NOW, wait for breakout before entry.
+  These are early-stage — weeks/months before the move.
+
+
+════════════════════════════════════════════════════
+STEP 7 — AUTOMATIC NIGHTLY RUNS
+════════════════════════════════════════════════════
+
+The workflow is already scheduled. It will run automatically at:
+
+  18:45 IST (13:15 UTC) every Monday to Friday
+
+This is 15 minutes after NSE closes (15:30 IST), giving time for
+end-of-day data to settle on yfinance servers.
+
+Every morning when you wake up, fresh results will be waiting in
+your results/ folder, committed automatically by GitHub Actions.
+
+To see the run history: Actions tab → click any past run
+
+
+════════════════════════════════════════════════════
+STEP 8 — WHAT TO DO WITH THE OUTPUT (THE VALUEPICK WAY)
+════════════════════════════════════════════════════
+
+The scanner surfaces names. You do the human part.
+
+For every stock in SECTION A (conviction list):
+
+  1. Search: "[COMPANY NAME] concall transcript" or investor presentation
+     → Read the last 2 concalls. Is management specific and confident?
+     → Vague answers = red flag. Specific numbers = green flag.
+
+  2. Check Screener.in:
+     → https://www.screener.in/company/SYMBOL/
+     → Look at 5-year revenue + profit trend
+     → Is debt actually reducing? (match what engine found)
+     → Check "Other income" — real business vs one-time gains?
+
+  3. Ask yourself the VALUEPICK question:
+     → "Is there a sector tailwind that will last 5–10 years?"
+     → Ageing population, EV, green energy, India manufacturing hub,
+       import substitution, defence indigenisation — these are his themes.
+
+  4. Check if this is the ONLY listed player in its niche
+     → EKI was world's first listed carbon credit company
+     → Cosmo Ferrites = one of very few soft ferrite makers in India
+     → First-mover + tailwind = the 100x formula
+
+  5. Only then — wait for Layer 1 to confirm the breakout
+     → When the same stock appears in BOTH Section A and Section B
+     → That's your signal to size up your position
+
+  6. Have patience.
+     → "Fruits of turnaround only for those with patience" — @valuepick
+     → His Paushak call took 10 YEARS. EKI took 9 months. You won't know which.
+
+
+════════════════════════════════════════════════════
+UNDERSTANDING THE 9 SIGNALS IN LAYER 2
+════════════════════════════════════════════════════
+
+Each pre-breakout candidate is scored on these signals:
+
+1. PROMOTER HOLDING (30% weight)
+   High insider % = promoter conviction
+   Low institutional % = undiscovered by funds (small cap inefficiency)
+
+2. ASSET VALUE (20% weight)
+   Trading near/below book value
+   Market cap below net cash+assets (Max India signal)
+
+3. GROWTH TRAJECTORY (20% weight)
+   Revenue + earnings growth
+   Quarterly acceleration (recent 2 qtrs >> prior 2 qtrs)
+   Improving margins
+
+4. CATALYST (15% weight)
+   BSE announcements scanned for: capacity expansion, JV,
+   preferential allotment, export orders, new business pivot
+
+5. TRUSTED PROMOTER GROUP (10% weight)  ← NEW from Twitter
+   Murugappa, JK Group, Alembic, Cosmo Films, Tata, TVS, Bajaj, etc.
+   30+ groups hardcoded. Filters fraud risk without reading annual reports.
+
+6. DEBT ELIMINATION (5% weight)  ← NEW from Twitter
+   D/E declining meaningfully YoY
+   Near-zero debt or net cash = re-rating trigger
+   (He watched Paushak pay SBI loans for years before the move)
+
+7. PEER P/E DISCOUNT (5% weight)  ← NEW from Twitter
+   Stock P/E vs sector average P/E
+   ≤25% of sector P/E = 💎 EXTREME VALUE (his "Guess The Gem" signal)
+   ≤50% of sector P/E = 💰 DEEP VALUE
+
+8. STAGE CLASSIFIER (informational)
+   🟢 DEEP BASE = near 52W low (ideal entry zone)
+   🟡 EARLY UPTREND = thesis starting to play out
+   🔴 NEAR 52W HIGH = late, don't chase
+   🟠 MID CYCLE = monitor
+
+9. GEM TRIFECTA BONUS
+   If trusted group + deep P/E value + catalyst all fire together:
+   +0.08 bonus score (the "Guess The Gem" combination)
+
+
+════════════════════════════════════════════════════
+CUSTOMISING THE SCANNER
+════════════════════════════════════════════════════
+
+All parameters are in the Config class at the top of each file.
+
+In engine.py → Config:
+  max_price = 2000           Raise to include larger companies
+  min_avg_volume = 75000     Lower for more illiquid candidates
+  max_market_cap_cr = 8000   Raise to include mid-caps
+  rsi_lo / rsi_hi = 48/78    Widen for more candidates
+  top_n = 20                 Change output size
+
+In pre_breakout_scanner.py → PreBreakoutConfig:
+  max_market_cap_cr = 2000   Currently tighter (early stage focus)
+  trusted_groups             Add/remove group names
+  sector_pe_map              Update sector P/E as market conditions change
+  announcement_lookback_days Extend to 180 for slower-moving catalysts
+
+Scoring weights (must sum to 1.0 across all w_ parameters):
+  w_promoter  = 0.25
+  w_valuation = 0.20
+  w_growth    = 0.20
+  w_catalyst  = 0.15
+  w_group     = 0.10
+  w_debt      = 0.05
+  w_pe_value  = 0.05
+  (remaining 0.05 = undiscovered bonus in code)
+
+
+════════════════════════════════════════════════════
+TROUBLESHOOTING
+════════════════════════════════════════════════════
+
+"No breakout candidates found"
+→ Market may be in broad correction — normal. Layer 2 still runs.
+→ Try widening: rsi_hi = 82, volume_surge_multiplier = 1.2
+
+"Run failed after 90 minutes"
+→ GitHub Actions has a 90-min limit on free tier
+→ Solution: in nightly_scan.yml, reduce batch_size to 30
+  or add: max_symbols = 500 to Config (scans only first 500 symbols)
+
+"yfinance returns no data for a symbol"
+→ Normal — some NSE symbols don't have data on Yahoo
+→ Engine skips them automatically
+
+"BSE announcement fetch returns empty"
+→ BSE API occasionally changes endpoints
+→ Engine degrades gracefully — Layer 2 still scores on other signals
+
+Actions workflow not triggering automatically:
+→ Check: Actions tab → the workflow must show as "enabled"
+→ GitHub pauses scheduled workflows after 60 days of repo inactivity
+→ Fix: manually trigger once, or push any commit to the repo
+
+
+════════════════════════════════════════════════════
+FREE TIER LIMITS SUMMARY
+════════════════════════════════════════════════════
+
+  Public repo:   Unlimited Actions minutes  ← Use this
+  Private repo:  2,000 min/month free
+                 This scan = ~80 min/run
+                 = ~25 runs/month = ~1 month of daily runs
+
+  yfinance:      Free, no account needed
+                 Rate-limited but engine handles this with sleeps
+
+  BSE API:       Free, no auth
+                 Occasional downtime handled gracefully
+
+  Storage:       Results committed to git = permanent history
+                 JSON files are small (~50KB each)
+
+
+════════════════════════════════════════════════════
+YOUR REPO WILL LOOK LIKE THIS AFTER FIRST RUN
+════════════════════════════════════════════════════
+
+  multibagger-engine/
+  ├── .github/workflows/nightly_scan.yml
+  ├── results/
+  │   ├── README.md
+  │   ├── daily_report.txt          ← Updated every night
+  │   ├── latest.json               ← Layer 1 top 20
+  │   ├── watchlist.json            ← Layer 2 top 15
+  │   ├── conviction.json           ← Overlap (highest signal)
+  │   ├── scan_20250316.json        ← Dated archive
+  │   ├── watchlist_20250316.json
+  │   └── report_20250316.txt
+  ├── engine.py
+  ├── pre_breakout_scanner.py
+  ├── run_all.py
+  ├── universe.py
+  ├── requirements.txt
+  └── .gitignore
+
+Commit history shows: "scan: 2025-03-16 nightly results [skip ci]"
+One commit per night. Full history of every scan preserved in git.
+
+
+════════════════════════════════════════════════════
+⚠  DISCLAIMER
+════════════════════════════════════════════════════
+For educational and research purposes only.
+Not financial advice. Not a SEBI registered advisor.
+Always do your own due diligence before investing.
+The engine surfaces candidates — you make the decisions.
+════════════════════════════════════════════════════
