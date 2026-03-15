@@ -1,8 +1,6 @@
 
 MULTIBAGGER DISCOVERY ENGINE — COMPLETE SETUP GUIDE
 ════════════════════════════════════════════════════
-Based on value-picks.blogspot.com + @valuepick methodology
-Paushak ₹74→₹10,000 | EKI ₹150→₹10,000 | Cosmo Ferrites ₹13→₹168+
 
 
 WHAT YOU ARE BUILDING
@@ -18,58 +16,8 @@ and outputs three lists:
 No API keys. No broker account. Cost: ₹0.
 
 
-FILES IN THIS PACKAGE
-─────────────────────
-  engine.py               Layer 1: Swing breakout + fundamental filter
-  pre_breakout_scanner.py Layer 2: Pre-breakout early detection (9 signals)
-  run_all.py              Orchestrator: runs both layers, finds overlap
-  universe.py             NSE symbol fetcher (public NSE CSV)
-  requirements.txt        Dependencies (5 packages)
-  .gitignore              Keeps repo clean
-  results/README.md       Placeholder so git tracks results folder
-  .github/
-    workflows/
-      nightly_scan.yml    GitHub Actions cron (18:45 IST Mon–Fri)
 
-
-════════════════════════════════════════════════════
-STEP 1 — CREATE YOUR GITHUB ACCOUNT (skip if you have one)
-════════════════════════════════════════════════════
-
-1. Go to https://github.com
-2. Click "Sign up"
-3. Enter email, password, username
-4. Verify your email
-5. You're done
-
-
-════════════════════════════════════════════════════
-STEP 2 — CREATE A NEW REPOSITORY
-════════════════════════════════════════════════════
-
-1. After logging in, click the "+" icon (top right) → "New repository"
-
-2. Fill in:
-     Repository name:  multibagger-engine    (or any name you want)
-     Description:      NSE Multibagger Discovery Engine
-     Visibility:       ✅ PUBLIC  ← IMPORTANT
-                       (Public = unlimited free Actions minutes.
-                        Private = 2,000 min/month free, enough for ~28 runs)
-     Initialize:       ✅ Check "Add a README file"
-
-3. Click "Create repository"
-
-You now have an empty repo at:
-  https://github.com/YOUR_USERNAME/multibagger-engine
-
-
-════════════════════════════════════════════════════
-STEP 3 — UPLOAD THE FILES
-════════════════════════════════════════════════════
-
-You need to create this EXACT folder structure in your repo:
-
-  multibagger-engine/
+  Stock-discovery-engine/
   ├── .github/
   │   └── workflows/
   │       └── nightly_scan.yml
@@ -83,62 +31,7 @@ You need to create this EXACT folder structure in your repo:
   └── .gitignore
 
 
-── METHOD A: GitHub Web Interface (no coding tools needed) ──
 
-GitHub doesn't let you create folders directly, but you can
-create them by typing a path when naming a file.
-
-STEP 3a — Upload the flat files first:
-
-  1. Go to your repo page
-  2. Click "Add file" → "Upload files"
-  3. Drag and drop ALL of these files at once:
-       engine.py
-       pre_breakout_scanner.py
-       run_all.py
-       universe.py
-       requirements.txt
-       .gitignore
-  4. Scroll down, click "Commit changes"
-
-STEP 3b — Create results/README.md:
-
-  1. Click "Add file" → "Create new file"
-  2. In the filename box, type:   results/README.md
-     (Typing the "/" automatically creates the folder)
-  3. In the file content box, paste:
-       # Results
-       Scan outputs are committed here nightly by GitHub Actions.
-  4. Click "Commit new file"
-
-STEP 3c — Create .github/workflows/nightly_scan.yml:
-
-  1. Click "Add file" → "Create new file"
-  2. In the filename box, type:   .github/workflows/nightly_scan.yml
-     (This creates both .github/ and workflows/ folders)
-  3. Copy the ENTIRE contents of nightly_scan.yml from this package
-  4. Paste into the file content box
-  5. Click "Commit new file"
-
-
-── METHOD B: Git Command Line (faster if you have git installed) ──
-
-  git clone https://github.com/YOUR_USERNAME/multibagger-engine.git
-  cd multibagger-engine
-
-  # Copy all files from this package into the folder
-  # (replace /path/to/package with where you extracted the zip)
-  cp /path/to/package/*.py .
-  cp /path/to/package/requirements.txt .
-  cp /path/to/package/.gitignore .
-
-  mkdir -p results .github/workflows
-  cp /path/to/package/results/README.md results/
-  cp /path/to/package/.github/workflows/nightly_scan.yml .github/workflows/
-
-  git add -A
-  git commit -m "Initial setup: Multibagger Discovery Engine"
-  git push
 
 
 ════════════════════════════════════════════════════
