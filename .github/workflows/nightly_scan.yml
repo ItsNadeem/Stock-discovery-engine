@@ -1,0 +1,113 @@
+name: Nightly NSE Multibagger Scan
+
+on:
+  # ── Runs at 13:15 UTC = 18:45 IST, Mon–Fri (15 min after NSE close) ──
+  schedule:
+    - cron: "15 13 * * 1-5"
+
+  # ── Also lets you trigger manually from the Actions tab ──
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for manual run"
+        required: false
+        default: "Manual trigger"
+
+jobs:
+  scan:
+    name: Run Multibagger Scanner
+    runs-on: ubuntu-latest
+    timeout-minutes: 90       # Full NSE scan can take 60–75 min
+
+    permissions:
+      contents: write         # Needed to commit results back to repo
+
+    steps:
+      # ── 1. Checkout repo ──
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # ── 2. Set up Python ──
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 3. Install dependencies ──
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── 4. Create results directory ──
+      - name: Prepare results dir
+        run: mkdir -p results
+
+      # ── 5. Run full pipeline (Layer 1 + Layer 2) ──
+      - name: Run Full Multibagger Pipeline
+        run: python run_all.py
+
+      # ── 6. Commit all results back to the repo ──
+      - name: Commit scan results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/
+          git diff --staged --quiet || git commit -m "scan: $(date -u '+%Y-%m-%d') nightly results [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 7. Upload all outputs as downloadable artifacts ──
+      - name: Upload scan artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: multibagger-scan-${{ github.run_id }}
+          path: |
+            results/daily_report.txt
+            results/latest.json
+            results/watchlist.json
+            results/conviction.json
+          retention-days: 30
+
+      # ── 8. Write rich summary to GitHub Actions summary page ──
+      - name: Write job summary
+        run: |
+          echo "## 🚀 Multibagger Engine — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "### ★ Conviction Plays (Both Layers)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          data = json.load(open('results/conviction.json'))
+          if data:
+              for s in data[:5]:
+                  print(f\"{s['symbol']:<16} Combined: {s['combined_score']:.3f}  ₹{s['price']}  MCap ₹{s['market_cap_cr']:.0f}Cr\")
+          else:
+              print('No conviction plays today')
+          " >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+          echo "### 📈 Top 5 Breakouts (Layer 1)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          data = json.load(open('results/latest.json'))
+          for s in data[:5]:
+              print(f\"{s['symbol']:<16} Score: {s['composite_score']:.3f}  ₹{s['last_close']}  RSI:{s['rsi']}\")
+          " >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+          echo "### 🔍 Top 5 Pre-Breakout Watchlist (Layer 2)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          data = json.load(open('results/watchlist.json'))
+          for s in data[:5]:
+              cats = s['catalyst']['catalysts']
+              cat_str = cats[0] if cats else 'monitoring'
+              print(f\"{s['symbol']:<16} Score: {s['composite_score']:.3f}  ₹{s['price']}  {cat_str}\")
+          " >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
