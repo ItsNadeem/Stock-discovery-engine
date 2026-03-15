@@ -1,7 +1,7 @@
 """
 pre_breakout_scanner.py — Layer 2: Early-Stage Multibagger Detection
 
-Inspired by valuepicks methodology.
+Inspired by value-picks.blogspot.com + @valuepick (Twitter) methodology.
 30-year Indian market veteran. Verified calls: Paushak ₹74→₹10,000 (140x),
 Tasty Bite ₹165→₹9,420, EKI ₹150→₹10,000 (66x in 9 months).
 
@@ -360,6 +360,242 @@ def analyze_growth(ticker: yf.Ticker, info: dict) -> dict:
     }
 
 
+# ──────────────────────────────────────────────────────
+# NEW: FREE CASH FLOW YIELD
+# Source: 2025 academic study — strongest predictor of multibagger outperformance
+# among 464 confirmed multibagger stocks (stronger than P/E, P/B, earnings growth)
+# ──────────────────────────────────────────────────────
+
+def analyze_fcf(info: dict) -> dict:
+    """
+    FCF Yield = Free Cash Flow / Market Cap.
+    High FCF yield on a small cap = the business generates real cash,
+    not accounting profits. This is what separates EKI (real carbon credits
+    generating real USD cash) from earnings-manipulated stories.
+    """
+    free_cf  = info.get("freeCashflow")
+    mktcap   = info.get("marketCap") or 0
+    revenue  = info.get("totalRevenue") or 0
+    oper_cf  = info.get("operatingCashflow")
+
+    fcf_yield  = None
+    ocf_margin = None
+
+    if free_cf and mktcap > 0:
+        fcf_yield = round((free_cf / mktcap) * 100, 2)
+
+    if oper_cf and revenue > 0:
+        ocf_margin = round((oper_cf / revenue) * 100, 1)
+
+    # Score: best if FCF yield > 5%, excellent if > 10%
+    if fcf_yield is None:
+        fcf_score = 0.3   # neutral — data not available
+    elif fcf_yield <= 0:
+        fcf_score = 0.0   # negative FCF = cash burning
+    else:
+        fcf_score = min(fcf_yield / 10, 1.0)
+
+    flag = None
+    if fcf_yield and fcf_yield > 8:
+        flag = f"💵 HIGH FCF YIELD: {fcf_yield}% (strong cash generation)"
+    elif fcf_yield and fcf_yield > 4:
+        flag = f"💵 FCF Yield: {fcf_yield}%"
+
+    return {
+        "fcf_yield_pct":  fcf_yield,
+        "ocf_margin_pct": ocf_margin,
+        "fcf_score":      round(fcf_score, 3),
+        "flag":           flag,
+    }
+
+
+# ──────────────────────────────────────────────────────
+# NEW: PIOTROSKI F-SCORE
+# 9-point financial health check. Score 8-9 = strong improving financials.
+# Computed entirely from yfinance data. Proven quality filter for Indian small caps.
+# Source: Piotroski (2000) — "Value Investing: The Use of Historical Financial Statements"
+# ──────────────────────────────────────────────────────
+
+def calc_piotroski(ticker: yf.Ticker, info: dict) -> dict:
+    """
+    9 binary signals (0 or 1 each), max score = 9.
+
+    Profitability (4 points):
+      F1. ROA positive this year
+      F2. Operating cash flow positive
+      F3. ROA improved year-over-year
+      F4. Accruals: OCF/Assets > ROA (cash earnings > accounting earnings)
+
+    Leverage / Liquidity (3 points):
+      F5. Long-term debt ratio decreased YoY
+      F6. Current ratio improved YoY
+      F7. No new shares issued (dilution)
+
+    Operating Efficiency (2 points):
+      F8. Gross margin improved YoY
+      F9. Asset turnover improved YoY (revenue / total assets)
+    """
+    score  = 0
+    points = {}
+
+    try:
+        bs  = ticker.balance_sheet
+        fin = ticker.financials
+        cf  = ticker.cashflow
+
+        if bs is None or fin is None or cf is None:
+            return {"piotroski_score": None, "piotroski_details": {}, "piotroski_flag": None}
+        if bs.empty or fin.empty or cf.empty:
+            return {"piotroski_score": None, "piotroski_details": {}, "piotroski_flag": None}
+
+        def row(df, *keys):
+            for k in keys:
+                for idx in df.index:
+                    if k.lower() in str(idx).lower():
+                        row_data = df.loc[idx]
+                        vals = [float(v) if not pd.isna(v) else None for v in row_data.iloc[:2]]
+                        return vals[0], vals[1] if len(vals) > 1 else None
+            return None, None
+
+        # Balance sheet
+        total_assets_now, total_assets_prior  = row(bs, "total assets")
+        lt_debt_now,      lt_debt_prior       = row(bs, "long term debt", "longterm debt")
+        curr_assets_now,  curr_assets_prior   = row(bs, "current assets", "total current assets")
+        curr_liab_now,    curr_liab_prior      = row(bs, "current liabilities", "total current liabilities")
+        shares_now,       shares_prior         = row(bs, "ordinary shares", "common stock", "share issued")
+
+        # Income statement
+        net_income_now,   net_income_prior     = row(fin, "net income")
+        gross_profit_now, gross_profit_prior   = row(fin, "gross profit")
+        revenue_now,      revenue_prior        = row(fin, "total revenue", "revenue")
+
+        # Cash flow
+        ocf_now, _ = row(cf, "operating cash flow", "total cash from operating")
+
+        # Compute ratios
+        roa_now   = net_income_now   / total_assets_now   if (net_income_now and total_assets_now) else None
+        roa_prior = net_income_prior / total_assets_prior if (net_income_prior and total_assets_prior) else None
+        ocf_roa   = ocf_now / total_assets_now            if (ocf_now and total_assets_now) else None
+        gm_now    = gross_profit_now / revenue_now        if (gross_profit_now and revenue_now) else None
+        gm_prior  = gross_profit_prior / revenue_prior    if (gross_profit_prior and revenue_prior) else None
+        at_now    = revenue_now / total_assets_now        if (revenue_now and total_assets_now) else None
+        at_prior  = revenue_prior / total_assets_prior    if (revenue_prior and total_assets_prior) else None
+        lev_now   = lt_debt_now / total_assets_now        if (lt_debt_now and total_assets_now) else 0
+        lev_prior = lt_debt_prior / total_assets_prior    if (lt_debt_prior and total_assets_prior) else 0
+        cr_now    = curr_assets_now / curr_liab_now       if (curr_assets_now and curr_liab_now) else None
+        cr_prior  = curr_assets_prior / curr_liab_prior   if (curr_assets_prior and curr_liab_prior) else None
+
+        # F1: ROA > 0
+        f1 = 1 if (roa_now and roa_now > 0) else 0
+        # F2: OCF > 0
+        f2 = 1 if (ocf_now and ocf_now > 0) else 0
+        # F3: ROA improving
+        f3 = 1 if (roa_now and roa_prior and roa_now > roa_prior) else 0
+        # F4: Cash earnings > accounting earnings (OCF/Assets > ROA)
+        f4 = 1 if (ocf_roa and roa_now and ocf_roa > roa_now) else 0
+        # F5: Leverage reduced
+        f5 = 1 if (lev_now < lev_prior) else 0
+        # F6: Current ratio improved
+        f6 = 1 if (cr_now and cr_prior and cr_now > cr_prior) else 0
+        # F7: No dilution (shares not increased)
+        f7 = 1 if (shares_now and shares_prior and shares_now <= shares_prior * 1.01) else 0
+        # F8: Gross margin improved
+        f8 = 1 if (gm_now and gm_prior and gm_now > gm_prior) else 0
+        # F9: Asset turnover improved
+        f9 = 1 if (at_now and at_prior and at_now > at_prior) else 0
+
+        score   = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9
+        points  = {
+            "F1_roa_positive":     f1, "F2_ocf_positive":      f2,
+            "F3_roa_improving":    f3, "F4_cash_gt_accrual":   f4,
+            "F5_debt_reduced":     f5, "F6_curr_ratio_up":     f6,
+            "F7_no_dilution":      f7, "F8_gross_margin_up":   f8,
+            "F9_asset_turnover_up": f9,
+        }
+
+    except Exception as e:
+        log.debug(f"Piotroski calc failed: {e}")
+        return {"piotroski_score": None, "piotroski_details": {}, "piotroski_flag": None}
+
+    flag = None
+    if score >= 8:
+        flag = f"🏆 PIOTROSKI {score}/9 — Exceptional financial health"
+    elif score >= 6:
+        flag = f"✅ Piotroski {score}/9 — Improving financials"
+
+    return {
+        "piotroski_score":   score,
+        "piotroski_details": points,
+        "piotroski_flag":    flag,
+    }
+
+
+# ──────────────────────────────────────────────────────
+# NEW: P/E EXPANSION TRAJECTORY
+# Is P/E expanding quarter-over-quarter? Expansion = market re-rating begun.
+# Source: Research — "multibaggers need both earnings growth AND P/E expansion"
+# ──────────────────────────────────────────────────────
+
+def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
+    """
+    Detect if P/E has been expanding over recent quarters.
+    A stock going from P/E 5 → 7 → 10 means the market is paying
+    more per unit of earnings — the re-rating has already started.
+    This is earlier than a technical breakout and cheaper to enter.
+    """
+    try:
+        current_pe = info.get("trailingPE")
+        if not current_pe or current_pe <= 0 or current_pe > 200:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        # Use quarterly EPS history to reconstruct trailing P/E over time
+        qe = ticker.quarterly_earnings
+        hist = ticker.history(period="1y", interval="3mo")
+
+        if qe is None or qe.empty or hist is None or hist.empty:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        # Estimate historical P/E at each quarter end
+        # by dividing quarter-end price by trailing 4-quarter EPS
+        eps_vals = qe["Earnings"].dropna().values if "Earnings" in qe.columns else []
+        if len(eps_vals) < 4:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        prices = hist["Close"].dropna()
+        if len(prices) < 3:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        # Build rolling 4-quarter EPS sum (trailing EPS) for last 3 periods
+        pe_history = []
+        for i in range(3):
+            trailing_eps = sum(float(v) for v in eps_vals[i:i+4] if v is not None)
+            if trailing_eps > 0 and i < len(prices):
+                price_at_period = float(prices.iloc[-(i+1)])
+                pe_history.append(round(price_at_period / trailing_eps, 1))
+
+        pe_history.reverse()   # chronological order
+
+        if len(pe_history) < 2:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        pe_expanding  = all(pe_history[i] < pe_history[i+1] for i in range(len(pe_history)-1))
+        pe_trajectory = " → ".join(str(p) for p in pe_history) + f" → {round(current_pe, 1)} (now)"
+
+        flag = None
+        if pe_expanding:
+            flag = f"📈 P/E EXPANDING: {pe_trajectory}"
+
+        return {
+            "pe_expanding":   pe_expanding,
+            "pe_trajectory":  pe_trajectory,
+            "pe_traj_flag":   flag,
+        }
+
+    except Exception as e:
+        log.debug(f"P/E trajectory failed: {e}")
+        return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+
 def analyze_promoter_group(info: dict) -> dict:
     full_text = " ".join([
         (info.get("longName") or ""),
@@ -575,7 +811,9 @@ def classify_price_stage(info: dict, hist: pd.DataFrame) -> str:
 def pre_breakout_composite(
     shareholding: dict, valuation: dict, growth: dict,
     catalyst: dict, group: dict, debt: dict, pe_val: dict,
+    fcf: dict, piotroski: dict, pe_traj: dict,
 ) -> float:
+    # Base score from original signals
     score = (
         shareholding["promoter_score"] * PCFG.w_promoter  +
         valuation["valuation_score"]   * PCFG.w_valuation +
@@ -585,9 +823,22 @@ def pre_breakout_composite(
         debt["debt_score"]             * PCFG.w_debt      +
         pe_val["pe_score"]             * PCFG.w_pe_value
     )
+    # Undiscovered bonus
     score += shareholding["undiscovered_score"] * 0.05
 
-    # "Guess The Gem" trifecta bonus
+    # NEW: FCF yield bonus (strongest academic predictor)
+    score += fcf["fcf_score"] * 0.06
+
+    # NEW: Piotroski bonus — strong improving financials
+    if piotroski["piotroski_score"] is not None:
+        piotroski_norm = piotroski["piotroski_score"] / 9
+        score += piotroski_norm * 0.05
+
+    # NEW: P/E expansion bonus — re-rating already started
+    if pe_traj["pe_expanding"]:
+        score += 0.04
+
+    # "Guess The Gem" trifecta: trusted group + deep value + catalyst
     if group["is_trusted_group"] and pe_val["is_deep_value"] and catalyst["catalyst_score"] >= 0.3:
         score += 0.08
 
@@ -637,6 +888,9 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
             group        = analyze_promoter_group(info)
             debt         = analyze_debt_trajectory(ticker, info)
             pe_val       = analyze_peer_pe_discount(info)
+            fcf          = analyze_fcf(info)                        # NEW
+            piotroski    = calc_piotroski(ticker, info)             # NEW
+            pe_traj      = analyze_pe_trajectory(ticker, info)      # NEW
 
             bse_code      = get_bse_code_from_symbol(symbol)
             announcements = []
@@ -661,13 +915,17 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
                 continue
 
             composite = pre_breakout_composite(
-                shareholding, valuation, growth, catalyst, group, debt, pe_val
+                shareholding, valuation, growth, catalyst, group, debt, pe_val,
+                fcf, piotroski, pe_traj,
             )
 
             all_flags = []
-            if group["flag"]:   all_flags.append(group["flag"])
+            if group["flag"]:           all_flags.append(group["flag"])
             all_flags.extend(debt["flags"])
-            if pe_val["flag"]:  all_flags.append(pe_val["flag"])
+            if pe_val["flag"]:          all_flags.append(pe_val["flag"])
+            if fcf["flag"]:             all_flags.append(fcf["flag"])          # NEW
+            if piotroski["piotroski_flag"]: all_flags.append(piotroski["piotroski_flag"])  # NEW
+            if pe_traj["pe_traj_flag"]: all_flags.append(pe_traj["pe_traj_flag"])  # NEW
             all_flags.extend(catalyst["catalysts"])
 
             results.append({
@@ -683,6 +941,9 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
                 "group":           group,
                 "debt":            debt,
                 "pe_value":        pe_val,
+                "fcf":             fcf,           # NEW
+                "piotroski":       piotroski,     # NEW
+                "pe_trajectory":   pe_traj,       # NEW
                 "all_flags":       all_flags,
                 "bse_code":        bse_code,
                 "scanned_at":      datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
@@ -721,7 +982,8 @@ def generate_pre_breakout_report(candidates: list[dict]) -> str:
         sep,
         "  PRE-BREAKOUT WATCHLIST  —  EARLY STAGE MULTIBAGGER CANDIDATES",
         f"  {now}",
-        "  Signal framework: value picks",
+        "  Signal framework: value-picks.blogspot.com + @valuepick (30yr veteran)",
+        "  v2: Holding companies & passive income businesses excluded",
         sep,
         "  These stocks have NOT broken out yet.",
         "  Monitor for Layer 1 price+volume confirmation before entry.",
@@ -777,15 +1039,23 @@ def generate_pre_breakout_report(candidates: list[dict]) -> str:
 
         if flags:
             lines.append(f"    ── SIGNALS ({len(flags)}) ──")
-            for flag in flags[:6]:
+            for flag in flags[:8]:   # show more signals now
                 lines.append(f"    ▶  {flag}")
         else:
             lines.append("    ── No specific catalyst in last 90 days ──")
+
+        # Show Piotroski score + PE trajectory explicitly if notable
+        p = s.get("piotroski", {})
+        pt = s.get("pe_trajectory", {})
+        if p.get("piotroski_score") is not None:
+            lines.append(f"    Piotroski F-Score: {p['piotroski_score']}/9   "
+                         f"P/E Expanding: {'✓  ' + (pt.get('pe_trajectory') or '') if pt.get('pe_expanding') else '✗'}")
 
         lines += ["", "─" * 72, ""]
 
     lines += [
         sep,
+        "  THE VALUEPICK CHECKLIST (apply manually after scan):",
         "  ✓ Is there a clear sector tailwind (ageing, EV, green energy, manufacturing)?",
         "  ✓ Is management track record clean? (annual report + news search)",
         "  ✓ Is this the only/first listed company in its niche?",
