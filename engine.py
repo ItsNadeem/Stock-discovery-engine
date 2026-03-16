@@ -88,16 +88,26 @@ class Config:
     min_revenue_growth_pct: float  = 8.0
     max_mcap_to_sales: float       = 5.0   # NEW: MCap/Sales ceiling
 
-    # Scoring weights — tuned from backtest results (March 2026)
-    # Evidence: OBV confirmed adds +12.1% avg 3M return vs OBV diverging
-    #           Volume surge adds +4.4% avg 3M return on top of base signals
-    #           These two are the strongest validated signals from 51 historical signals
-    w_breakout:    float = 0.20   # pure breakout distance — least predictive alone
-    w_momentum:    float = 0.18   # price vs EMA55 — directional but noisy
-    w_fundamental: float = 0.22   # quality filter — prevents value traps
-    w_volume:      float = 0.15   # RAISED: volume surge validated as +4.4% lift
-    w_obv:         float = 0.15   # RAISED: OBV validated as +12.1% lift — most proven signal
-    w_rel_str:     float = 0.10   # RS days — accumulation signal, less data to validate yet
+    # Scoring weights — calibrated against full NSE universe (March 2026, n=1,371 signals)
+    #
+    # Full universe backtest findings (2,052 symbols, 500-day lookback):
+    #   - All signals:       hit rate 49.8%, avg 3M +2.7%, alpha +1.1%
+    #   - OBV confirmed:     hit rate 49.3%, avg 3M +2.5%  ← OBV does NOT add edge on full universe
+    #   - OBV diverging:     hit rate 65.2%, avg 3M +7.8%  ← actually outperformed (volume data noise)
+    #   - Volume surge:      hit rate 49.7%, avg 3M +2.3%  ← neutral, no independent edge
+    #   - Tight base (n=11): hit rate 40.0%, avg 3M -1.9%  ← insufficient data, slightly negative
+    #
+    # Key conclusion: Layer 1 alone has no validated edge on the full NSE universe.
+    # Edge only exists when Layer 2 thesis is present AND Layer 1 confirms (conviction list).
+    # OBV on small caps is unreliable due to thin/stale yfinance volume data — do not overweight.
+    #
+    # Previous weights (raised OBV/volume based on 48-stock biased sample) have been reverted.
+    w_breakout:    float = 0.25   # 52W high breakout distance
+    w_momentum:    float = 0.20   # EMA21 vs EMA55 trend strength
+    w_fundamental: float = 0.25   # quality filter — most reliable signal
+    w_volume:      float = 0.10   # volume surge — neutral on full universe
+    w_obv:         float = 0.10   # OBV — unreliable on small cap volume data
+    w_rel_str:     float = 0.10   # RS days — still worth tracking, unvalidated
 
     top_n: int          = 20
     batch_size: int     = 50
@@ -405,10 +415,20 @@ def analyse_technicals(df: pd.DataFrame, symbol: str,
     # ── NEW: OBV signal ──
     obv_bullish, obv_score = calc_obv_signal(df)
 
-    # Hard gate: reject breakouts where OBV is not confirming
-    # BACKTEST RESULT: OBV confirmed = avg +12.2% 3M | OBV diverging = avg +0.1% 3M
-    # The 12.1% lift from this single gate is the strongest validated signal we have.
-    # Tightened from "clearly falling" to "not clearly rising" — require OBV confirmation.
+    # OBV gate: only reject on extreme, sustained negative OBV (clear distribution)
+    #
+    # FULL UNIVERSE FINDING (March 2026, n=1,371):
+    #   OBV confirmed:  avg 3M +2.5%  — no meaningful edge
+    #   OBV diverging:  avg 3M +7.8%  — actually outperformed
+    #
+    # Reason: yfinance volume data for NSE small caps is thin and frequently stale.
+    # OBV slope on a stock with 3 traded days per week is meaningless noise.
+    # The 48-stock result (+12.1% lift) was pure selection bias — we tested HAL, IRFC,
+    # TRENT — liquid large caps where volume data is clean and OBV is valid.
+    #
+    # Decision: Keep OBV in the scoring model (still informative directionally for
+    # liquid stocks) but remove it as a hard reject gate. Only reject on extreme
+    # negative z-score < -1.5 which indicates genuine distribution on a liquid stock.
     obv_s        = obv(df)
     obv_window   = obv_s.iloc[-CFG.obv_trend_window:]
     obv_start    = float(obv_window.iloc[0])
@@ -416,9 +436,8 @@ def analyse_technicals(df: pd.DataFrame, symbol: str,
     obv_std      = float(obv_window.std()) if obv_window.std() > 0 else 1
     obv_slope_z  = (obv_end - obv_start) / obv_std
 
-    # Reject if OBV slope is meaningfully negative (distribution, not accumulation)
-    if obv_slope_z < -0.5:
-        log.debug(f"  {symbol}: OBV diverging (z={obv_slope_z:.2f}) — rejecting breakout")
+    if obv_slope_z < -1.5:
+        log.debug(f"  {symbol}: OBV extreme distribution (z={obv_slope_z:.2f}) — rejecting")
         return None
 
     # ── NEW: Relative strength days ──
@@ -590,13 +609,13 @@ def multibagger_flags(s: dict) -> list[str]:
     flags = []
     fd = s.get("fundamentals", {})
 
-    # ── Backtest-validated combinations (March 2026, n=51 signals) ──
+    # ── Signal combinations ──
     if s.get("obv_bullish") and s.get("vol_surge") and s.get("is_breakout"):
-        flags.append("★ OBV+Vol+Breakout (backtest: avg +15.8% 3M, 64% hit rate)")
+        flags.append("★ OBV + Volume + Breakout (conviction setup)")
     elif s.get("is_breakout") and s.get("vol_surge"):
         flags.append("🚀 52W Breakout + Volume Surge")
     elif s.get("obv_bullish") and s.get("is_breakout"):
-        flags.append("📊 Breakout + OBV Confirmed (backtest: avg +12.2% 3M)")
+        flags.append("📊 Breakout + OBV Confirming")
     if s.get("rs_days", 0) >= 3:
         flags.append(f"💪 RS: Rose {s['rs_days']}× when Nifty fell")
     if s.get("has_tight_base"):
