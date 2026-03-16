@@ -1,0 +1,218 @@
+name: Weekly Backtest & Signal Validation
+
+on:
+  # ── Runs every Sunday at 08:00 IST (02:30 UTC) ──
+  # Markets are closed, yfinance load is low, results ready Monday morning
+  schedule:
+    - cron: "30 2 * * 0"
+
+  # ── Run manually anytime from Actions tab ──
+  # Use this after tuning weights or adding new signals
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Backtest mode"
+        required: false
+        default: "both"
+        type: choice
+        options:
+          - both
+          - a
+          - b
+      tune_weights:
+        description: "Run weight tuning?"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  backtest:
+    name: Run Backtest & Signal Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Prepare results dir
+        run: mkdir -p results
+
+      # ── Run backtest ──
+      - name: Run Backtest
+        run: |
+          MODE="${{ github.event.inputs.mode || 'both' }}"
+          TUNE="${{ github.event.inputs.tune_weights || 'false' }}"
+          if [ "$TUNE" = "true" ]; then
+            python backtest.py --mode "$MODE" --tune
+          else
+            python backtest.py --mode "$MODE"
+          fi
+
+      # ── Commit backtest results ──
+      - name: Commit backtest results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/backtest_*.txt results/backtest_*.json
+          git diff --staged --quiet || git commit -m "backtest: $(date -u '+%Y-%m-%d') results [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Upload as downloadable artifact ──
+      - name: Upload backtest artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backtest-${{ github.run_id }}
+          path: results/backtest_*.txt
+          retention-days: 90
+
+      # ── Write summary to Actions page ──
+      - name: Write job summary
+        run: |
+          echo "## Backtest Results — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          # Find most recent backtest txt and show first 80 lines
+          LATEST=$(ls -t results/backtest_*.txt 2>/dev/null | head -1)
+          if [ -n "$LATEST" ]; then
+            head -80 "$LATEST" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No backtest output found" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      # ── Optional: email backtest summary ──
+      - name: Email backtest summary
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          GMAIL_USER:       ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS:       ${{ secrets.GMAIL_PASS }}
+          NOTIFY_EMAIL:     ${{ secrets.NOTIFY_EMAIL }}
+          SENDER_EMAIL:     ${{ secrets.SENDER_EMAIL }}
+        run: |
+          python - <<'EOF'
+          import os, json, smtplib
+          from email.mime.multipart import MIMEMultipart
+          from email.mime.text import MIMEText
+          from datetime import datetime
+          import glob
+
+          # Find latest backtest report
+          files = sorted(glob.glob("results/backtest_*.txt"), reverse=True)
+          if not files:
+              print("No backtest file found — skipping email")
+              exit(0)
+
+          with open(files[0], encoding="utf-8") as f:
+              report_text = f.read()
+
+          # Load JSON for structured summary
+          json_files = sorted(glob.glob("results/backtest_*.json"), reverse=True)
+          metrics = {}
+          if json_files:
+              try:
+                  with open(json_files[0]) as f:
+                      data = json.load(f)
+                  metrics = data.get("backtest_b_metrics", {})
+              except Exception:
+                  pass
+
+          all_m = metrics.get("all_signals", {})
+          obv_m = metrics.get("with_obv", {})
+          tune  = data.get("weight_tuning", {}) if json_files else {}
+
+          date_str = datetime.utcnow().strftime("%d %b %Y")
+          subject  = f"📊 Backtest Results {date_str}"
+
+          # Simple HTML email
+          hit_rate = all_m.get('hit_rate_3m', 'N/A')
+          avg_3m   = all_m.get('avg_return_3m', 'N/A')
+          alpha    = all_m.get('avg_alpha_3m', 'N/A')
+          obv_3m   = obv_m.get('avg_return_3m', 'N/A')
+
+          tune_row = ""
+          if tune:
+              tune_row = f"""
+              <tr><td style="padding:6px 10px;color:#6b7280">Suggested weights</td>
+              <td style="padding:6px 10px">
+                breakout={tune.get('w_breakout')} momentum={tune.get('w_momentum')}
+                volume={tune.get('w_volume')} OBV={tune.get('w_obv')}
+                (corr={tune.get('correlation')})
+              </td></tr>"""
+
+          html = f"""
+          <html><body style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:20px">
+            <div style="background:#0f172a;border-radius:8px 8px 0 0;padding:16px 20px">
+              <div style="color:#94a3b8;font-size:11px;text-transform:uppercase">Backtest Report</div>
+              <div style="color:#fff;font-size:20px;font-weight:600;margin-top:4px">Signal Validation — {date_str}</div>
+            </div>
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:0 0 8px 8px;padding:20px">
+              <h3 style="font-size:14px;margin:0 0 12px">Layer 1 Historical Performance</h3>
+              <table width="100%" style="border-collapse:collapse;font-size:13px">
+                <tr style="background:#f1f5f9">
+                  <td style="padding:6px 10px;color:#6b7280">Hit rate (3M positive)</td>
+                  <td style="padding:6px 10px;font-weight:600">{hit_rate}%</td>
+                </tr>
+                <tr>
+                  <td style="padding:6px 10px;color:#6b7280">Avg 3M return (all signals)</td>
+                  <td style="padding:6px 10px">{avg_3m}%</td>
+                </tr>
+                <tr style="background:#f1f5f9">
+                  <td style="padding:6px 10px;color:#6b7280">Avg 3M return (OBV confirmed)</td>
+                  <td style="padding:6px 10px;color:#16a34a;font-weight:600">{obv_3m}%</td>
+                </tr>
+                <tr>
+                  <td style="padding:6px 10px;color:#6b7280">Avg alpha vs Nifty (3M)</td>
+                  <td style="padding:6px 10px">{alpha}%</td>
+                </tr>
+                {tune_row}
+              </table>
+              <div style="margin-top:20px;background:#f8fafc;border-radius:6px;padding:12px;
+                          font-family:monospace;font-size:11px;white-space:pre;overflow:auto;
+                          max-height:400px">{ report_text[:3000] }</div>
+              <div style="margin-top:16px;font-size:11px;color:#9ca3af">
+                ⚠ Survivorship bias present in all backtests. Use as directional signal only.
+              </div>
+            </div>
+          </body></html>"""
+
+          notify = os.environ.get("NOTIFY_EMAIL", "")
+          if not notify:
+              print("NOTIFY_EMAIL not set — skipping email")
+              exit(0)
+
+          if os.environ.get("GMAIL_USER") and os.environ.get("GMAIL_PASS"):
+              gmail_user = os.environ["GMAIL_USER"].strip()
+              gmail_pass = "".join(os.environ["GMAIL_PASS"].split())
+              msg = MIMEMultipart("alternative")
+              msg["Subject"] = subject
+              msg["From"]    = f"Multibagger Engine <{gmail_user}>"
+              msg["To"]      = notify
+              msg.attach(MIMEText(html, "html"))
+              with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
+                  s.login(gmail_user, gmail_pass)
+                  s.sendmail(gmail_user, notify, msg.as_string())
+              print(f"✅ Backtest email sent to {notify}")
+          else:
+              print("No email credentials — skipping")
+          EOF
+        continue-on-error: true
