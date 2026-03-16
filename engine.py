@@ -959,6 +959,24 @@ def run_engine(regime: Optional[dict] = None) -> list[dict]:
         log.warning("No momentum candidates today.")
         return []
 
+    # ── CROSS-SECTIONAL PERCENTILE GATE ─────────────────────────────────────
+    # NSE Momentum Index methodology: rank all candidates by volatility-adjusted
+    # momentum score and keep only the top 20% (80th percentile and above).
+    # This is what separates genuine momentum from "above zero" noise.
+    # With ~2,270 symbols, Stage 1 typically passes 300-600 candidates.
+    # After percentile gate: ~60-120 remain for fundamental scoring.
+    if len(breakout_candidates) >= 10:
+        raw_scores = [c["mom_score_raw"] for c in breakout_candidates]
+        percentile_threshold = float(np.percentile(raw_scores, 80))
+        pre_count = len(breakout_candidates)
+        breakout_candidates = [c for c in breakout_candidates
+                                if c["mom_score_raw"] >= percentile_threshold]
+        log.info(
+            f"Cross-sectional gate (top 20%): {pre_count} → {len(breakout_candidates)} "
+            f"(threshold: {percentile_threshold:.3f})"
+        )
+    # ────────────────────────────────────────────────────────────────────────
+
     # STAGE 2: Fundamental filter + scoring
     log.info("Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...")
     ranked = []
