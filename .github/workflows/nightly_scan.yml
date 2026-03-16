@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "15 13 * * 1-5"
 
-  # ── Also lets you trigger manually from the Actions tab ──
+  # ── Trigger manually from the Actions tab ──
   workflow_dispatch:
     inputs:
       reason:
@@ -17,38 +17,46 @@ jobs:
   scan:
     name: Run Multibagger Scanner
     runs-on: ubuntu-latest
-    timeout-minutes: 90       # Full NSE scan can take 60–75 min
+    timeout-minutes: 90
 
     permissions:
-      contents: write         # Needed to commit results back to repo
+      contents: write
 
     steps:
-      # ── 1. Checkout repo ──
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      # ── 2. Set up Python ──
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
 
-      # ── 3. Install dependencies ──
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # ── 4. Create results directory ──
       - name: Prepare results dir
         run: mkdir -p results
 
-      # ── 5. Run full pipeline (Layer 1 + Layer 2) ──
       - name: Run Full Multibagger Pipeline
         run: python run_all.py
 
-      # ── 6. Commit all results back to the repo ──
+      - name: Send email report
+        env:
+          # ── SendGrid (recommended — no App Password needed) ──
+          # Set SENDGRID_API_KEY + NOTIFY_EMAIL + SENDER_EMAIL in repo secrets
+          SENDGRID_API_KEY:  ${{ secrets.SENDGRID_API_KEY }}
+          SENDER_EMAIL:      ${{ secrets.SENDER_EMAIL }}
+          # ── Gmail fallback (needs App Password) ──
+          GMAIL_USER:        ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS:        ${{ secrets.GMAIL_PASS }}
+          # ── Required for both methods ──
+          NOTIFY_EMAIL:      ${{ secrets.NOTIFY_EMAIL }}
+        run: python send_report.py
+        continue-on-error: true
+
       - name: Commit scan results
         run: |
           git config user.name  "github-actions[bot]"
@@ -59,7 +67,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── 7. Upload all outputs as downloadable artifacts ──
       - name: Upload scan artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -69,45 +76,62 @@ jobs:
             results/latest.json
             results/watchlist.json
             results/conviction.json
+            results/regime.json
           retention-days: 30
 
-      # ── 8. Write rich summary to GitHub Actions summary page ──
       - name: Write job summary
         run: |
-          echo "## 🚀 Multibagger Engine — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "## NSE Scan — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          echo "### ★ Conviction Plays (Both Layers)" >> $GITHUB_STEP_SUMMARY
+          echo "### Market Regime" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          r = json.load(open('results/regime.json'))
+          print(f\"Regime: {r.get('regime','?')}  —  {r.get('regime_note','')}\")
+          sc = r.get('smallcap100') or {}
+          if sc:
+              print(f\"SC100: {sc.get('last','?')}  1M: {sc.get('chg_1m_pct','?'):+.1f}%  3M: {sc.get('chg_3m_pct','?'):+.1f}%\")
+          " >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+          echo "### Conviction Plays" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
           data = json.load(open('results/conviction.json'))
           if data:
               for s in data[:5]:
-                  print(f\"{s['symbol']:<16} Combined: {s['combined_score']:.3f}  ₹{s['price']}  MCap ₹{s['market_cap_cr']:.0f}Cr\")
+                  t = s.get('technical', {})
+                  print(f\"{s['symbol']:<16} Score:{s['combined_score']:.3f}  Rs{t.get('rs_days','?')}d  OBV:{'Y' if t.get('obv_bullish') else 'N'}\")
           else:
               print('No conviction plays today')
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-          echo "### 📈 Top 5 Breakouts (Layer 1)" >> $GITHUB_STEP_SUMMARY
+          echo "### Top Breakouts (L1)" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
           data = json.load(open('results/latest.json'))
-          for s in data[:5]:
-              print(f\"{s['symbol']:<16} Score: {s['composite_score']:.3f}  ₹{s['last_close']}  RSI:{s['rsi']}\")
+          if data:
+              for s in data[:5]:
+                  fd = s.get('fundamentals', {})
+                  print(f\"{s['symbol']:<16} {s['composite_score']:.3f}  RSI:{s['rsi']}  FCF:{fd.get('fcf_yield_pct','N/A')}%\")
+          else:
+              print('No breakouts today')
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-          echo "### 🔍 Top 5 Pre-Breakout Watchlist (Layer 2)" >> $GITHUB_STEP_SUMMARY
+          echo "### Pre-Breakout Watchlist (L2)" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
           data = json.load(open('results/watchlist.json'))
           for s in data[:5]:
-              cats = s['catalyst']['catalysts']
-              cat_str = cats[0] if cats else 'monitoring'
-              print(f\"{s['symbol']:<16} Score: {s['composite_score']:.3f}  ₹{s['price']}  {cat_str}\")
+              p = s.get('piotroski', {}).get('piotroski_score')
+              f = s.get('fcf', {}).get('fcf_yield_pct')
+              print(f\"{s['symbol']:<16} {s['composite_score']:.3f}  F:{p}/9  FCF:{f}%\")
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
