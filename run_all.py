@@ -21,6 +21,7 @@ from pre_breakout_scanner import (
     run_pre_breakout_scanner,
     generate_pre_breakout_report,
 )
+from scan_tracker import run_tracker, generate_persistence_section
 
 logging.basicConfig(
     level=logging.INFO,
@@ -279,9 +280,18 @@ def run_all():
     # ── Generate reports ──
     combined_report      = generate_conviction_report(conviction, layer1_results, layer2_results, regime)
     pre_breakout_report  = generate_pre_breakout_report(layer2_results)
-    full_report          = combined_report + "\n\n" + pre_breakout_report
+
+    # ── Run persistence tracker ──
+    log.info("\n▶ Running persistence tracker...")
+    tracker_result  = run_tracker(layer2_results, layer1_results, date_str)
+    watch_now       = tracker_result["watch_now"]
+    persistence_section = generate_persistence_section(tracker_result)
+
+    full_report = combined_report + "\n\n" + pre_breakout_report + "\n\n" + persistence_section
 
     print("\n" + combined_report)
+    if watch_now:
+        log.info(f"  Watch now candidates: {[w['symbol'] for w in watch_now]}")
 
     # ── Save outputs ──
     def save(path, data, is_json=False):
@@ -299,6 +309,7 @@ def run_all():
     save("results/conviction.json",             conviction,     is_json=True)
     save(f"results/regime_{date_str}.json",     regime,         is_json=True)
     save("results/regime.json",                 regime,         is_json=True)
+    save("results/watch_now.json",              watch_now,      is_json=True)
     save(f"results/report_{date_str}.txt",      full_report)
     save("results/daily_report.txt",            full_report)
 
@@ -307,6 +318,8 @@ def run_all():
     log.info(f"   Layer 1 breakouts:  {len(layer1_results)}")
     log.info(f"   Layer 2 watchlist:  {len(layer2_results)}")
     log.info(f"   Conviction plays:   {len(conviction)}")
+    log.info(f"   Watch now:          {len(watch_now)}")
+    log.info(f"   Total tracked:      {tracker_result['total_tracked']}")
 
     return {
         "regime":     regime,
