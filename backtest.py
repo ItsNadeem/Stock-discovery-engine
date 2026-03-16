@@ -753,6 +753,7 @@ def run_backtest_b(
     all_signals:         list[BacktestSignal] = []
     signals_with_obv:    list[BacktestSignal] = []
     signals_without_obv: list[BacktestSignal] = []
+    v4_pending:          list               = []   # (sig, df, idx) tuples for two-pass
     total_scanned = 0
     total_skipped = 0
 
@@ -810,20 +811,30 @@ def run_backtest_b(
                     total_skipped += 1
                     continue
 
-                for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
-                    if scanner_version == "v4":
+                if scanner_version == "v4":
+                    # v4 TWO-PASS: collect (date_idx → mom_score) candidates first,
+                    # then cross-sectional percentile gate is applied after all symbols
+                    # are processed. Store raw candidates in pending list.
+                    for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
                         sig = simulate_v4_scan_on_date(df, sym, idx)
-                    else:
+                        if sig is None:
+                            continue
+                        # Store with the raw mom_score (breakout_score field holds norm_mom)
+                        # and the df + idx so we can measure forward returns in pass 2
+                        v4_pending.append((sig, df.copy(), idx))
+                        sym_signals += 1
+                else:
+                    for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
                         sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
-                    if sig is None:
-                        continue
-                    sig = measure_forward_returns(sig, df, nifty_df, idx)
-                    all_signals.append(sig)
-                    sym_signals += 1
-                    if sig.obv_bullish:
-                        signals_with_obv.append(sig)
-                    else:
-                        signals_without_obv.append(sig)
+                        if sig is None:
+                            continue
+                        sig = measure_forward_returns(sig, df, nifty_df, idx)
+                        all_signals.append(sig)
+                        sym_signals += 1
+                        if sig.obv_bullish:
+                            signals_with_obv.append(sig)
+                        else:
+                            signals_without_obv.append(sig)
 
                 total_scanned += 1
                 if sym_signals > 0:
@@ -834,10 +845,46 @@ def run_backtest_b(
                 total_skipped += 1
 
         log.info(
-            f"  Batch {b_idx+1} done — running total: {len(all_signals)} signals | "
+            f"  Batch {b_idx+1} done — running total: {len(all_signals) + len(v4_pending)} signals | "
             f"scanned: {total_scanned} | skipped: {total_skipped}"
         )
         time.sleep(1.5)   # polite pause between batches
+
+    # ── v4 PASS 2: cross-sectional percentile gate ──────────────────────────
+    # NSE's Momentum Index methodology: rank all stocks by momentum score on
+    # each rebalance date and take only the top quintile (top 20%).
+    # This is what actually works — not "above zero" but "top 20% of universe".
+    if scanner_version == "v4" and v4_pending:
+        log.info(f"\nv4 Pass 2: cross-sectional percentile gate on {len(v4_pending)} raw candidates...")
+
+        # Group candidates by their signal date
+        from collections import defaultdict
+        by_date: dict = defaultdict(list)
+        for item in v4_pending:
+            sig, df, idx = item
+            by_date[sig.signal_date].append(item)
+
+        # On each date, compute 80th percentile threshold and keep top 20%
+        top_pct = 0.80   # top 20% = above 80th percentile
+        passed = kept = 0
+        for date_str, items in sorted(by_date.items()):
+            scores = [item[0].breakout_score for item in items]   # norm_mom stored here
+            if len(scores) < 5:   # too few to rank meaningfully
+                continue
+            threshold = np.percentile(scores, top_pct * 100)
+            for sig, df, idx in items:
+                passed += 1
+                if sig.breakout_score >= threshold:
+                    sig = measure_forward_returns(sig, df, nifty_df, idx)
+                    all_signals.append(sig)
+                    kept += 1
+                    if sig.obv_bullish:
+                        signals_with_obv.append(sig)
+                    else:
+                        signals_without_obv.append(sig)
+
+        log.info(f"  Cross-sectional gate: {passed} raw → {kept} kept "
+                 f"(top 20% per date, {100*kept/max(passed,1):.1f}% pass rate)")
 
     log.info(
         f"\nBacktest B complete:"
