@@ -487,8 +487,8 @@ def simulate_breakout_scan_on_date(
     last_vol   = float(v.iloc[-1])
     avg_vol    = float(v.rolling(20).mean().iloc[-1])
 
-    if avg_vol < 50_000 or not (20 <= last_close <= 2000):
-        return None
+    if avg_vol < 50_000 or last_close < 10:
+        return None   # only reject penny stocks and zero-volume; no price ceiling
 
     e21   = ema(c, 21)
     e55   = ema(c, 55)
@@ -498,14 +498,13 @@ def simulate_breakout_scan_on_date(
     atr_now      = float(atr_s.iloc[-1])
     rolling_high = c.rolling(lookback).max().shift(1)
     high_252     = float(rolling_high.iloc[-1])
-    breakout_lvl = high_252 + atr_now * 0.3
+    breakout_lvl = high_252 + atr_now * _BACKTEST_PARAMS["atr_mult"]
 
-    is_breakout  = last_close >= (high_252 + atr_now * _BACKTEST_PARAMS["atr_mult"])
+    is_breakout  = last_close >= breakout_lvl
     ema_bull     = float(e21.iloc[-1]) > float(e55.iloc[-1])
     last_rsi     = float(rsi_s.iloc[-1])
     rsi_ok       = _BACKTEST_PARAMS["rsi_lo"] <= last_rsi <= _BACKTEST_PARAMS["rsi_hi"]
     vol_surge    = last_vol >= avg_vol * _BACKTEST_PARAMS["vol_mult"]
-    breakout_lvl = high_252 + atr_now * _BACKTEST_PARAMS["atr_mult"]
 
     if not (is_breakout and ema_bull and rsi_ok):
         return None
