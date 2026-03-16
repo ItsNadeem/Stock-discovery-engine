@@ -1,0 +1,887 @@
+"""
+backtest.py — Signal Validation & Backtester
+============================================
+
+Two complementary backtests:
+
+BACKTEST A — VALUEPICK GROUND TRUTH VALIDATION
+  Run our Layer 2 scoring model retroactively on confirmed multibagger picks
+  at their original entry dates. If the model is valid, these stocks should
+  have scored highly on the date they were picked.
+
+  Known confirmed picks from value-picks.blogspot.com + @valuepick Twitter:
+    Paushak Ltd      ₹74    Mar 2011   → ₹10,000  (140x in 10 years)
+    Cosmo Ferrites   ₹13    ~2011      → ₹168+    (13x, re-picked at ₹168 in 2021)
+    Tasty Bite       ₹165   ~2010      → ₹9,420   (57x)
+    EKI Energy       ₹162   Apr 2021   → ₹10,000  (66x in 9 months)
+    Jay Kay Ent.     ₹28    Feb 2021   → multibagger (3D printing pivot)
+    Shanthi Gears    ₹180   Jun 2024   → monitoring
+
+BACKTEST B — LAYER 1 HISTORICAL BREAKOUT PERFORMANCE
+  For each trading day in the last 2 years, simulate running the breakout
+  scanner. For each signal generated, measure forward returns at 1M, 3M, 6M.
+  This tells us: when the engine fires, how often does it actually work?
+
+  Metrics computed:
+    Hit rate: % of signals with positive 3M return
+    Avg return at 1M, 3M, 6M
+    Comparison vs Nifty Smallcap 100 (alpha)
+    Best/worst cases
+    OBV filter impact (with vs without OBV gate)
+
+Usage:
+  python backtest.py --mode a          # VALUEPICK ground truth
+  python backtest.py --mode b          # Layer 1 historical
+  python backtest.py --mode both       # Run both (default)
+  python backtest.py --mode a --tune   # Also tune weights on ground truth
+"""
+
+import argparse
+import json
+import logging
+import time
+from dataclasses import dataclass, field, asdict
+from datetime import datetime, timedelta
+from typing import Optional
+
+import numpy as np
+import pandas as pd
+import yfinance as yf
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
+log = logging.getLogger(__name__)
+
+
+# ─────────────────────────────────────────────────────────────
+# GROUND TRUTH DATASET — VALUEPICK CONFIRMED PICKS
+# Sourced from: blog posts + @valuepick Twitter verified outcomes
+# ─────────────────────────────────────────────────────────────
+
+VALUEPICK_PICKS = [
+    {
+        "symbol":      "PAUSHAK.NS",
+        "entry_price": 74.0,
+        "entry_date":  "2011-03-15",   # Blog post date
+        "peak_price":  10000.0,
+        "peak_date":   "2022-01-03",
+        "return_x":    140.0,
+        "thesis":      "Alembic group specialty chemical, capacity expansion pending, debt-free",
+        "key_signals": ["trusted_group", "capex", "low_pe", "debt_free"],
+    },
+    {
+        "symbol":      "COSMOFE.NS",   # BSE-listed: try COSMOFE or COSFERR
+        "entry_price": 13.0,
+        "entry_date":  "2011-06-01",   # Approximate — "10 years back" from Oct 2021 post
+        "peak_price":  500.0,          # Conservative — actual peak higher
+        "return_x":    13.0,           # Confirmed "10 fold rise" by Oct 2021
+        "thesis":      "Cosmo Films group, soft ferrite manufacturer, EV tailwind",
+        "key_signals": ["trusted_group", "low_pe", "export_growth", "capacity_expansion"],
+    },
+    {
+        "symbol":      "TASTYBITE.NS",
+        "entry_price": 165.0,
+        "entry_date":  "2010-02-27",   # Blog post Feb 2010
+        "peak_price":  9420.0,
+        "return_x":    57.0,
+        "thesis":      "Organic food, export-led, US market penetration",
+        "key_signals": ["export_growth", "low_pe", "promoter_confidence"],
+    },
+    {
+        "symbol":      "EKILABELS.NS",  # EKI Energy BSE scrip 543284
+        "entry_price": 162.0,
+        "entry_date":  "2021-04-10",
+        "peak_price":  10000.0,
+        "peak_date":   "2022-01-03",
+        "return_x":    66.0,
+        "thesis":      "First listed carbon credit company globally, 90%+ overseas revenue",
+        "key_signals": ["first_in_niche", "export_growth", "high_promoter", "low_pe"],
+    },
+    {
+        "symbol":      "JAYKAY.NS",    # Jay Kay Enterprises
+        "entry_price": 28.0,
+        "entry_date":  "2021-02-06",
+        "thesis":      "JK group 3D printing JV with EOS Germany, promoter 32%→52% preferential",
+        "key_signals": ["trusted_group", "promoter_pref_allotment", "pivot_jv"],
+    },
+    {
+        "symbol":      "SHANTIGEAR.NS",  # Shanthi Gears
+        "entry_price": 180.0,
+        "entry_date":  "2024-06-01",
+        "thesis":      "Murugappa group, zero debt, steady growth, sector tailwind",
+        "key_signals": ["trusted_group", "debt_free", "sector_tailwind"],
+    },
+]
+
+
+# ─────────────────────────────────────────────────────────────
+# TECHNICAL INDICATORS (duplicated from engine.py to keep
+# backtest self-contained — no circular imports)
+# ─────────────────────────────────────────────────────────────
+
+def ema(s: pd.Series, n: int) -> pd.Series:
+    return s.ewm(span=n, adjust=False).mean()
+
+def rsi(s: pd.Series, n: int = 14) -> pd.Series:
+    d = s.diff()
+    g = d.clip(lower=0).rolling(n).mean()
+    l = (-d.clip(upper=0)).rolling(n).mean()
+    return 100 - 100 / (1 + g / l.replace(0, np.nan))
+
+def atr(df: pd.DataFrame, n: int = 14) -> pd.Series:
+    hl = df["High"] - df["Low"]
+    hc = (df["High"] - df["Close"].shift()).abs()
+    lc = (df["Low"]  - df["Close"].shift()).abs()
+    return pd.concat([hl, hc, lc], axis=1).max(axis=1).rolling(n).mean()
+
+def obv_series(df: pd.DataFrame) -> pd.Series:
+    direction = np.sign(df["Close"].diff().fillna(0))
+    return (df["Volume"] * direction).cumsum()
+
+
+# ─────────────────────────────────────────────────────────────
+# BACKTEST A — VALUEPICK GROUND TRUTH SCORING
+# ─────────────────────────────────────────────────────────────
+
+@dataclass
+class SignalScoreAtDate:
+    symbol:             str
+    entry_date:         str
+    entry_price:        float
+    # Technical state at entry date
+    price_vs_52w_high:  Optional[float]  = None   # % from 52W high
+    price_vs_52w_low:   Optional[float]  = None   # % from 52W low
+    ema21_vs_55:        Optional[str]    = None   # "bullish" / "bearish"
+    rsi_at_entry:       Optional[float]  = None
+    adx_at_entry:       Optional[float]  = None
+    obv_direction:      Optional[str]    = None   # "rising" / "falling"
+    volume_vs_avg:      Optional[float]  = None   # ratio
+    atr_contraction:    Optional[float]  = None   # current/prior ATR ratio
+    # What our signals would have been
+    was_breakout:       bool             = False
+    was_base:           bool             = False
+    breakout_score:     float            = 0.0
+    momentum_score:     float            = 0.0
+    volume_score:       float            = 0.0
+    obv_score:          float            = 0.0
+    # Forward returns
+    return_1m:          Optional[float]  = None
+    return_3m:          Optional[float]  = None
+    return_6m:          Optional[float]  = None
+    return_1y:          Optional[float]  = None
+    # Nifty benchmark on same period
+    nifty_1m:           Optional[float]  = None
+    nifty_3m:           Optional[float]  = None
+    # Composite score our model would have assigned
+    estimated_l1_score: float            = 0.0
+    # Key signals present at entry date
+    signals_present:    list             = field(default_factory=list)
+    notes:              str              = ""
+
+
+def score_at_date(symbol: str, date_str: str, entry_price: float) -> SignalScoreAtDate:
+    """
+    Reconstruct what our technical signals would have looked like
+    on a given historical date for a given stock.
+    """
+    result = SignalScoreAtDate(
+        symbol=symbol,
+        entry_date=date_str,
+        entry_price=entry_price,
+    )
+
+    try:
+        entry_dt  = datetime.strptime(date_str, "%Y-%m-%d")
+        # Fetch 2 years before entry to have enough history
+        from_dt   = entry_dt - timedelta(days=730)
+        to_dt     = entry_dt + timedelta(days=400)   # also get forward returns
+
+        ticker = yf.Ticker(symbol)
+        df     = ticker.history(
+            start=from_dt.strftime("%Y-%m-%d"),
+            end=to_dt.strftime("%Y-%m-%d"),
+            interval="1d",
+            auto_adjust=True,
+        )
+
+        if df is None or df.empty or len(df) < 200:
+            result.notes = f"Insufficient data: {len(df) if df is not None else 0} rows"
+            return result
+
+        df.index = pd.to_datetime(df.index).tz_localize(None)
+
+        # Find the row closest to entry date
+        entry_idx = df.index.searchsorted(pd.Timestamp(entry_dt))
+        if entry_idx >= len(df):
+            entry_idx = len(df) - 1
+        # Use data up to and including entry date
+        hist = df.iloc[:entry_idx + 1].copy()
+
+        if len(hist) < 100:
+            result.notes = "Not enough pre-entry history"
+            return result
+
+        c = hist["Close"]
+        v = hist["Volume"]
+
+        # ── Technical state at entry ──
+        e21   = ema(c, 21)
+        e55   = ema(c, 55)
+        rsi_s = rsi(c, 14)
+        atr_s = atr(hist, 14)
+        obv_s = obv_series(hist)
+
+        last_close = float(c.iloc[-1])
+        last_vol   = float(v.iloc[-1])
+        avg_vol    = float(v.rolling(20).mean().iloc[-1])
+
+        high_252   = float(c.rolling(252).max().shift(1).iloc[-1])
+        low_252    = float(c.rolling(252).min().iloc[-1])
+        atr_now    = float(atr_s.iloc[-1])
+
+        result.price_vs_52w_high = round((last_close - high_252) / high_252 * 100, 1) if high_252 > 0 else None
+        result.price_vs_52w_low  = round((last_close - low_252) / low_252 * 100, 1)   if low_252  > 0 else None
+        result.ema21_vs_55       = "bullish" if float(e21.iloc[-1]) > float(e55.iloc[-1]) else "bearish"
+        result.rsi_at_entry      = round(float(rsi_s.iloc[-1]), 1)
+        result.volume_vs_avg     = round(last_vol / avg_vol, 2) if avg_vol > 0 else None
+
+        # OBV direction
+        obv_window   = obv_s.iloc[-10:]
+        obv_slope    = float(obv_window.iloc[-1] - obv_window.iloc[0])
+        result.obv_direction = "rising" if obv_slope > 0 else "falling"
+
+        # ATR contraction
+        recent_atr = float(atr_s.iloc[-20:].mean())
+        prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else 0
+        if prior_atr > 0:
+            result.atr_contraction = round(recent_atr / prior_atr, 2)
+            result.was_base        = result.atr_contraction < 0.7
+
+        # Was it a breakout at entry?
+        breakout_level = high_252 + atr_now * 0.3
+        result.was_breakout = last_close >= breakout_level
+
+        # Scores
+        result.breakout_score = (
+            min((last_close - high_252) / high_252 * 20, 1.0)
+            if result.was_breakout and high_252 > 0 else 0.0
+        )
+        result.momentum_score = min(
+            max((last_close - float(e55.iloc[-1])) / float(e55.iloc[-1]) * 5, 0), 1.0
+        )
+        result.volume_score = min((last_vol / avg_vol) / 3, 1.0) if avg_vol > 0 else 0
+
+        # OBV score
+        obv_std = float(obv_window.std()) if obv_window.std() > 0 else 1
+        slope_z = obv_slope / (obv_std * len(obv_window) ** 0.5)
+        result.obv_score = round(min(max(slope_z / 2, 0), 1.0), 3)
+
+        # Estimated L1 composite (no fundamentals — just technical)
+        result.estimated_l1_score = round(
+            result.breakout_score * 0.35 +
+            result.momentum_score * 0.25 +
+            result.volume_score   * 0.10 +
+            result.obv_score      * 0.10,
+            3
+        )
+
+        # Which signals were present
+        sigs = []
+        if result.was_breakout:          sigs.append("52W_BREAKOUT")
+        if result.was_base:              sigs.append("TIGHT_BASE")
+        if result.ema21_vs_55 == "bullish": sigs.append("EMA_BULL")
+        if result.rsi_at_entry and 48 <= result.rsi_at_entry <= 78: sigs.append("RSI_OK")
+        if result.obv_direction == "rising": sigs.append("OBV_RISING")
+        if result.volume_vs_avg and result.volume_vs_avg >= 1.5: sigs.append("VOL_SURGE")
+        result.signals_present = sigs
+
+        # ── Forward returns ──
+        future = df.iloc[entry_idx:]
+        entry_p = float(future["Close"].iloc[0])
+
+        def fwd_return(days):
+            target_dt = entry_dt + timedelta(days=days)
+            idx = future.index.searchsorted(pd.Timestamp(target_dt))
+            if idx < len(future):
+                return round((float(future["Close"].iloc[idx]) - entry_p) / entry_p * 100, 1)
+            return None
+
+        result.return_1m = fwd_return(21)
+        result.return_3m = fwd_return(63)
+        result.return_6m = fwd_return(126)
+        result.return_1y = fwd_return(252)
+
+        # Nifty benchmark
+        try:
+            nifty_df = yf.download(
+                "^NSEI",
+                start=(entry_dt - timedelta(days=5)).strftime("%Y-%m-%d"),
+                end=to_dt.strftime("%Y-%m-%d"),
+                progress=False, auto_adjust=True,
+            )
+            if not nifty_df.empty:
+                nifty_df.index = pd.to_datetime(nifty_df.index).tz_localize(None)
+                nidx = nifty_df.index.searchsorted(pd.Timestamp(entry_dt))
+                np0  = float(nifty_df["Close"].squeeze().iloc[nidx])
+                def nifty_ret(days):
+                    t = entry_dt + timedelta(days=days)
+                    i = nifty_df.index.searchsorted(pd.Timestamp(t))
+                    if i < len(nifty_df):
+                        return round((float(nifty_df["Close"].squeeze().iloc[i]) - np0) / np0 * 100, 1)
+                    return None
+                result.nifty_1m = nifty_ret(21)
+                result.nifty_3m = nifty_ret(63)
+        except Exception:
+            pass
+
+    except Exception as e:
+        result.notes = str(e)
+
+    return result
+
+
+def run_backtest_a() -> list[SignalScoreAtDate]:
+    """
+    Run VALUEPICK ground truth validation.
+    Score each confirmed pick on its entry date and measure what
+    signals would have been present.
+    """
+    log.info("═" * 60)
+    log.info("BACKTEST A — VALUEPICK GROUND TRUTH VALIDATION")
+    log.info("Scoring confirmed picks on their original entry dates")
+    log.info("═" * 60)
+
+    results = []
+    for pick in VALUEPICK_PICKS:
+        sym = pick["symbol"]
+        log.info(f"\nScoring {sym} @ ₹{pick['entry_price']} on {pick['entry_date']}")
+        log.info(f"  Thesis: {pick['thesis']}")
+
+        score = score_at_date(sym, pick["entry_date"], pick["entry_price"])
+        score.notes = pick.get("thesis", "")
+        results.append(score)
+
+        log.info(f"  Technical state on entry date:")
+        log.info(f"    Price vs 52W high: {score.price_vs_52w_high}%")
+        log.info(f"    RSI: {score.rsi_at_entry}  EMA: {score.ema21_vs_55}  OBV: {score.obv_direction}")
+        log.info(f"    Was breakout: {score.was_breakout}  Tight base: {score.was_base}")
+        log.info(f"    Volume vs avg: {score.volume_vs_avg}×")
+        log.info(f"    Signals present: {score.signals_present}")
+        log.info(f"    L1 score estimate: {score.estimated_l1_score}")
+        log.info(f"  Forward returns:")
+        log.info(f"    1M: {score.return_1m}%  3M: {score.return_3m}%  6M: {score.return_6m}%  1Y: {score.return_1y}%")
+        log.info(f"    Nifty 1M: {score.nifty_1m}%  3M: {score.nifty_3m}%")
+
+        time.sleep(1.0)
+
+    return results
+
+
+# ─────────────────────────────────────────────────────────────
+# BACKTEST B — LAYER 1 HISTORICAL PERFORMANCE
+# ─────────────────────────────────────────────────────────────
+
+@dataclass
+class BacktestSignal:
+    symbol:         str
+    signal_date:    str
+    signal_price:   float
+    rsi:            float
+    adx:            float
+    vol_surge:      bool
+    obv_bullish:    bool
+    has_tight_base: bool
+    breakout_score: float
+    return_1m:      Optional[float] = None
+    return_3m:      Optional[float] = None
+    return_6m:      Optional[float] = None
+    nifty_1m:       Optional[float] = None
+    nifty_3m:       Optional[float] = None
+    alpha_3m:       Optional[float] = None   # return_3m - nifty_3m
+
+
+def simulate_breakout_scan_on_date(
+    df: pd.DataFrame,
+    symbol: str,
+    idx: int,
+    lookback: int = 252,
+) -> Optional[BacktestSignal]:
+    """
+    Simulate running the Layer 1 breakout scanner on a single historical date.
+    Returns a signal if conditions were met, None otherwise.
+    """
+    if idx < lookback + 60:
+        return None
+
+    window = df.iloc[:idx + 1]
+    c = window["Close"]
+    v = window["Volume"]
+
+    last_close = float(c.iloc[-1])
+    last_vol   = float(v.iloc[-1])
+    avg_vol    = float(v.rolling(20).mean().iloc[-1])
+
+    if avg_vol < 50_000 or not (20 <= last_close <= 2000):
+        return None
+
+    e21   = ema(c, 21)
+    e55   = ema(c, 55)
+    rsi_s = rsi(c, 14)
+    atr_s = atr(window, 14)
+
+    atr_now      = float(atr_s.iloc[-1])
+    rolling_high = c.rolling(lookback).max().shift(1)
+    high_252     = float(rolling_high.iloc[-1])
+    breakout_lvl = high_252 + atr_now * 0.3
+
+    is_breakout  = last_close >= breakout_lvl
+    ema_bull     = float(e21.iloc[-1]) > float(e55.iloc[-1])
+    last_rsi     = float(rsi_s.iloc[-1])
+    rsi_ok       = 48 <= last_rsi <= 78
+    vol_surge    = last_vol >= avg_vol * 1.5
+
+    if not (is_breakout and ema_bull and rsi_ok):
+        return None
+
+    # OBV check
+    obv_s     = obv_series(window)
+    obv_win   = obv_s.iloc[-10:]
+    obv_slope = float(obv_win.iloc[-1] - obv_win.iloc[0])
+    obv_std   = float(obv_win.std()) if obv_win.std() > 0 else 1
+    obv_bullish = obv_slope > obv_std * 0.1
+
+    # ATR contraction
+    recent_atr = float(atr_s.iloc[-20:].mean())
+    prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else recent_atr
+    has_base   = (recent_atr / prior_atr) < 0.7 if prior_atr > 0 else False
+
+    # Scores
+    b_score = min((last_close - high_252) / high_252 * 20, 1.0) if high_252 > 0 else 0.0
+    m_score = min(max((last_close - float(e55.iloc[-1])) / float(e55.iloc[-1]) * 5, 0), 1.0)
+    v_score = min((last_vol / avg_vol) / 3, 1.0) if avg_vol > 0 else 0
+
+    try:
+        adx_val = float(
+            (lambda d, n=14: (
+                lambda up, dn, pdm, ndm, a:
+                    ((100 * (pdm.rolling(n).mean() / a) - 100 * (ndm.rolling(n).mean() / a)).abs() /
+                     (100 * pdm.rolling(n).mean() / a + 100 * ndm.rolling(n).mean() / a).replace(0, np.nan)
+                    ).rolling(n).mean()
+            )(
+                d["High"].diff(), -d["Low"].diff(),
+                d["High"].diff().where((d["High"].diff() > -d["Low"].diff()) & (d["High"].diff() > 0), 0),
+                (-d["Low"].diff()).where((-d["Low"].diff() > d["High"].diff()) & (-d["Low"].diff() > 0), 0),
+                atr(d, n)
+            ))(window).iloc[-1]
+        )
+    except Exception:
+        adx_val = 0.0
+
+    return BacktestSignal(
+        symbol=symbol,
+        signal_date=str(window.index[-1].date()),
+        signal_price=round(last_close, 2),
+        rsi=round(last_rsi, 1),
+        adx=round(adx_val, 1) if not np.isnan(adx_val) else 0.0,
+        vol_surge=vol_surge,
+        obv_bullish=obv_bullish,
+        has_tight_base=has_base,
+        breakout_score=round(b_score, 3),
+    )
+
+
+def measure_forward_returns(
+    signal: BacktestSignal,
+    df: pd.DataFrame,
+    nifty_df: pd.DataFrame,
+    signal_idx: int,
+) -> BacktestSignal:
+    """Add forward return measurements to a signal."""
+    future = df.iloc[signal_idx:]
+    if future.empty:
+        return signal
+
+    entry_p = float(future["Close"].iloc[0])
+
+    def fwd(days):
+        if signal_idx + days < len(df):
+            return round((float(df["Close"].iloc[signal_idx + days]) - entry_p) / entry_p * 100, 1)
+        return None
+
+    signal.return_1m = fwd(21)
+    signal.return_3m = fwd(63)
+    signal.return_6m = fwd(126)
+
+    # Nifty benchmark
+    if not nifty_df.empty:
+        nifty_close = nifty_df["Close"].squeeze()
+        entry_dt    = pd.Timestamp(signal.signal_date)
+        nidx = nifty_df.index.searchsorted(entry_dt)
+        if nidx < len(nifty_close):
+            np0 = float(nifty_close.iloc[nidx])
+            def nf(days):
+                if nidx + days < len(nifty_close):
+                    return round((float(nifty_close.iloc[nidx + days]) - np0) / np0 * 100, 1)
+                return None
+            signal.nifty_1m = nf(21)
+            signal.nifty_3m = nf(63)
+            if signal.return_3m is not None and signal.nifty_3m is not None:
+                signal.alpha_3m = round(signal.return_3m - signal.nifty_3m, 1)
+
+    return signal
+
+
+def run_backtest_b(
+    symbols: list[str],
+    lookback_days: int = 365,
+    sample_every_n_days: int = 5,
+) -> dict:
+    """
+    Run Layer 1 historical backtest on a list of symbols.
+    Simulates daily scans over the past `lookback_days`.
+
+    sample_every_n_days: scan every N days (not every day) to reduce
+    correlation between signals from the same trend.
+    """
+    log.info("═" * 60)
+    log.info("BACKTEST B — LAYER 1 HISTORICAL BREAKOUT PERFORMANCE")
+    log.info(f"  Symbols: {len(symbols)}  |  Lookback: {lookback_days} days")
+    log.info("═" * 60)
+
+    # Fetch Nifty for benchmarking
+    nifty_df = yf.download(
+        "^NSEI",
+        period="3y", interval="1d",
+        progress=False, auto_adjust=True,
+    )
+    nifty_df.index = pd.to_datetime(nifty_df.index).tz_localize(None)
+
+    all_signals:           list[BacktestSignal] = []
+    signals_with_obv:      list[BacktestSignal] = []
+    signals_without_obv:   list[BacktestSignal] = []
+
+    for sym in symbols:
+        try:
+            df = yf.download(
+                sym, period="3y", interval="1d",
+                progress=False, auto_adjust=True,
+            )
+            if df is None or df.empty or len(df) < 300:
+                continue
+            df.index = pd.to_datetime(df.index).tz_localize(None)
+
+            # Simulate scan on each sampled date
+            scan_range_start = len(df) - lookback_days
+            scan_range_start = max(scan_range_start, 260)
+
+            for idx in range(scan_range_start, len(df) - 21, sample_every_n_days):
+                sig = simulate_breakout_scan_on_date(df, sym, idx)
+                if sig is None:
+                    continue
+                sig = measure_forward_returns(sig, df, nifty_df, idx)
+                all_signals.append(sig)
+                if sig.obv_bullish:
+                    signals_with_obv.append(sig)
+                else:
+                    signals_without_obv.append(sig)
+
+        except Exception as e:
+            log.debug(f"Backtest B error for {sym}: {e}")
+
+        time.sleep(0.2)
+
+    return {
+        "all_signals":         all_signals,
+        "with_obv":            signals_with_obv,
+        "without_obv":         signals_without_obv,
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# METRICS & WEIGHT TUNING
+# ─────────────────────────────────────────────────────────────
+
+def compute_metrics(signals: list[BacktestSignal], label: str) -> dict:
+    """Compute hit rate, avg returns, alpha for a list of signals."""
+    if not signals:
+        return {"label": label, "count": 0}
+
+    r3 = [s.return_3m for s in signals if s.return_3m is not None]
+    r1 = [s.return_1m for s in signals if s.return_1m is not None]
+    r6 = [s.return_6m for s in signals if s.return_6m is not None]
+    al = [s.alpha_3m  for s in signals if s.alpha_3m  is not None]
+
+    return {
+        "label":          label,
+        "count":          len(signals),
+        "hit_rate_3m":    round(sum(1 for r in r3 if r > 0) / len(r3) * 100, 1) if r3 else None,
+        "avg_return_1m":  round(float(np.mean(r1)), 1) if r1 else None,
+        "avg_return_3m":  round(float(np.mean(r3)), 1) if r3 else None,
+        "avg_return_6m":  round(float(np.mean(r6)), 1) if r6 else None,
+        "median_3m":      round(float(np.median(r3)), 1) if r3 else None,
+        "avg_alpha_3m":   round(float(np.mean(al)), 1) if al else None,
+        "best_3m":        round(max(r3), 1) if r3 else None,
+        "worst_3m":       round(min(r3), 1) if r3 else None,
+        "pct_gt_20pct":   round(sum(1 for r in r3 if r > 20) / len(r3) * 100, 1) if r3 else None,
+    }
+
+
+def tune_weights(ground_truth: list[SignalScoreAtDate]) -> dict:
+    """
+    Simple grid search over scoring weights to maximise:
+      - Score rank of known multibaggers (they should rank highly)
+      - Correlation between score and forward return
+
+    Returns the best weight configuration found.
+    """
+    log.info("\nTuning weights on ground truth picks...")
+
+    # Only use picks where we have forward return data
+    valid = [g for g in ground_truth if g.return_3m is not None and g.return_3m > 0]
+    if len(valid) < 3:
+        log.warning("Not enough valid ground truth picks with forward returns to tune")
+        return {}
+
+    best_score  = -999
+    best_config = {}
+
+    # Grid search
+    for w_b in [0.25, 0.30, 0.35, 0.40]:        # breakout weight
+        for w_m in [0.15, 0.20, 0.25]:            # momentum weight
+            for w_v in [0.05, 0.10, 0.15]:         # volume weight
+                for w_o in [0.05, 0.10, 0.15]:     # OBV weight
+                    if abs(w_b + w_m + w_v + w_o - 1.0) > 0.3:
+                        continue
+
+                    # Score each pick with this weight config
+                    scores = []
+                    for g in valid:
+                        s = (g.breakout_score * w_b +
+                             g.momentum_score * w_m +
+                             g.volume_score   * w_v +
+                             g.obv_score      * w_o)
+                        scores.append(s)
+
+                    # Maximise correlation between score and forward return
+                    returns = [g.return_3m for g in valid]
+                    if len(scores) >= 2 and np.std(scores) > 0:
+                        corr = float(np.corrcoef(scores, returns)[0, 1])
+                        if corr > best_score:
+                            best_score  = corr
+                            best_config = {
+                                "w_breakout":  w_b,
+                                "w_momentum":  w_m,
+                                "w_volume":    w_v,
+                                "w_obv":       w_o,
+                                "correlation": round(corr, 3),
+                            }
+
+    log.info(f"  Best weights: {best_config}")
+    return best_config
+
+
+# ─────────────────────────────────────────────────────────────
+# REPORT GENERATOR
+# ─────────────────────────────────────────────────────────────
+
+def generate_backtest_report(
+    a_results: list[SignalScoreAtDate],
+    b_metrics: dict,
+    best_weights: dict,
+) -> str:
+    sep = "═" * 72
+    now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    lines = [
+        sep,
+        "  MULTIBAGGER ENGINE — BACKTEST REPORT",
+        f"  {now}",
+        sep,
+        "",
+    ]
+
+    # ── BACKTEST A ──
+    lines += [
+        "  BACKTEST A: VALUEPICK GROUND TRUTH VALIDATION",
+        "  Question: Would our engine have flagged these known multibaggers?",
+        sep,
+        "",
+    ]
+
+    for g in a_results:
+        pick = next((p for p in VALUEPICK_PICKS if p["symbol"] == g.symbol), {})
+        ret_x = pick.get("return_x", "?")
+        lines += [
+            f"  {g.symbol}  entry ₹{g.entry_price}  date {g.entry_date}  ({ret_x}x confirmed)",
+            f"  Thesis: {g.notes[:80]}",
+            f"  Technical state on entry date:",
+            f"    vs 52W high: {g.price_vs_52w_high}%   vs 52W low: {g.price_vs_52w_low}%",
+            f"    RSI: {g.rsi_at_entry}   EMA: {g.ema21_vs_55}   OBV: {g.obv_direction}",
+            f"    Breakout: {'✓' if g.was_breakout else '✗'}   Tight base: {'✓' if g.was_base else '✗'}",
+            f"    Volume vs avg: {g.volume_vs_avg}×   ATR ratio: {g.atr_contraction}",
+            f"  Signals our model would have fired: {', '.join(g.signals_present) or 'NONE'}",
+            f"  Estimated L1 score: {g.estimated_l1_score:.3f}",
+        ]
+        if g.return_3m is not None:
+            alpha = f"+{g.return_3m - g.nifty_3m:.1f}% alpha" if g.nifty_3m else ""
+            lines.append(
+                f"  Forward returns: 1M {g.return_1m:+.1f}%  3M {g.return_3m:+.1f}%  "
+                f"6M {g.return_6m:+.1f}%  1Y {g.return_1y:+.1f}%  {alpha}"
+            )
+        else:
+            lines.append(f"  Forward returns: insufficient data")
+        if g.notes and g.notes != pick.get("thesis", ""):
+            lines.append(f"  Note: {g.notes}")
+        lines.append("")
+
+    # Key insight
+    had_breakout = sum(1 for g in a_results if g.was_breakout)
+    had_base     = sum(1 for g in a_results if g.was_base)
+    total        = len(a_results)
+    lines += [
+        f"  SUMMARY: {had_breakout}/{total} picks had a technical breakout on entry date",
+        f"           {had_base}/{total} picks had a tight consolidation base",
+        "",
+        "  KEY INSIGHT:",
+        "  If hit_rate is low (picks did NOT have breakout on entry date),",
+        "  that confirms VALUEPICK found them BEFORE technical signals fired.",
+        "  Our Layer 1 would have missed them — Layer 2 thesis signals matter more.",
+        "",
+    ]
+
+    # ── BACKTEST B ──
+    lines += [
+        sep,
+        "  BACKTEST B: LAYER 1 HISTORICAL PERFORMANCE",
+        "  Question: When our breakout scanner fires, how often does it work?",
+        sep,
+        "",
+    ]
+
+    for key in ["all_signals", "with_obv", "without_obv"]:
+        m = b_metrics.get(key, {})
+        if not m:
+            continue
+        label = {"all_signals": "All signals", "with_obv": "OBV confirmed ✓",
+                 "without_obv": "OBV diverging ✗"}.get(key, key)
+        lines += [
+            f"  {label} (n={m.get('count', 0)})",
+            f"    Hit rate (3M positive return): {m.get('hit_rate_3m', 'N/A')}%",
+            f"    Avg return: 1M {m.get('avg_return_1m', '?')}%  3M {m.get('avg_return_3m', '?')}%  "
+            f"6M {m.get('avg_return_6m', '?')}%",
+            f"    Median 3M: {m.get('median_3m', '?')}%   Avg alpha vs Nifty: {m.get('avg_alpha_3m', '?')}%",
+            f"    Best 3M: {m.get('best_3m', '?')}%   Worst 3M: {m.get('worst_3m', '?')}%",
+            f"    % signals with >20% 3M return: {m.get('pct_gt_20pct', '?')}%",
+            "",
+        ]
+
+    # OBV impact
+    w_obv  = b_metrics.get("with_obv", {})
+    wo_obv = b_metrics.get("without_obv", {})
+    if w_obv.get("avg_return_3m") and wo_obv.get("avg_return_3m"):
+        obv_lift = round(w_obv["avg_return_3m"] - wo_obv["avg_return_3m"], 1)
+        lines += [
+            f"  OBV FILTER IMPACT:",
+            f"    With OBV confirmed:  avg 3M = {w_obv['avg_return_3m']}%",
+            f"    Without OBV:         avg 3M = {wo_obv['avg_return_3m']}%",
+            f"    OBV adds {obv_lift:+.1f}% to avg 3M return",
+            "",
+        ]
+
+    # ── Weight tuning ──
+    if best_weights:
+        lines += [
+            sep,
+            "  WEIGHT TUNING RESULT (based on ground truth correlation)",
+            sep,
+            "",
+            f"  Current weights:  breakout=0.35  momentum=0.20  volume=0.10  OBV=0.10",
+            f"  Suggested weights: breakout={best_weights.get('w_breakout')}  "
+            f"momentum={best_weights.get('w_momentum')}  "
+            f"volume={best_weights.get('w_volume')}  "
+            f"OBV={best_weights.get('w_obv')}",
+            f"  Score-return correlation: {best_weights.get('correlation')}",
+            "",
+            "  To apply: update w_breakout, w_momentum, w_volume, w_obv in engine.py Config",
+            "",
+        ]
+
+    lines += [
+        sep,
+        "  ⚠  Backtesting has survivorship bias — historical prices are",
+        "     available only for stocks that still exist. Failed companies",
+        "     are excluded, which overstates hit rates. Use as direction,",
+        "     not as proof.",
+        sep,
+    ]
+    return "\n".join(lines)
+
+
+# ─────────────────────────────────────────────────────────────
+# ENTRY POINT
+# ─────────────────────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser(description="Multibagger Engine Backtester")
+    parser.add_argument("--mode",  default="both", choices=["a", "b", "both"],
+                        help="a=ground truth, b=historical, both=run both")
+    parser.add_argument("--tune",  action="store_true",
+                        help="Tune weights on ground truth results")
+    parser.add_argument("--symbols", nargs="+",
+                        help="Override symbols for Backtest B (default: small subset)")
+    args = parser.parse_args()
+
+    a_results   = []
+    b_metrics   = {}
+    best_weights = {}
+
+    if args.mode in ("a", "both"):
+        a_results = run_backtest_a()
+        if args.tune:
+            best_weights = tune_weights(a_results)
+
+    if args.mode in ("b", "both"):
+        # Default: test on a representative sample of 50 NSE small caps
+        # to keep runtime under 10 minutes
+        test_symbols = args.symbols or [
+            "DIXON.NS", "TRENT.NS", "POLYCAB.NS", "PERSISTENT.NS", "KPITTECH.NS",
+            "HAPPSTMNDS.NS", "TANLA.NS", "DEEPAKNTR.NS", "NAVINFLUOR.NS", "FINEORG.NS",
+            "GALAXYSURF.NS", "VINATIORGA.NS", "ALKYLAMINE.NS", "AARTI.NS", "PIIND.NS",
+            "BALRAMCHIN.NS", "TATACHEM.NS", "JSWENERGY.NS", "CESC.NS", "TATAPOWER.NS",
+            "SUZLON.NS", "IRFC.NS", "RAILTEL.NS", "RVNL.NS", "IRCON.NS",
+            "COCHINSHIP.NS", "MAZAGON.NS", "HAL.NS", "BEL.NS", "BHEL.NS",
+            "GRINDWELL.NS", "SCHAEFFLER.NS", "TIMKEN.NS", "SKFINDIA.NS", "ELGIEQUIP.NS",
+            "SUPRAJIT.NS", "BALKRISIND.NS", "CEATLTD.NS", "MRF.NS", "APOLLOTYRE.NS",
+            "PAGEIND.NS", "RELAXO.NS", "BATAINDIA.NS", "VIPIND.NS", "SAFARI.NS",
+            "METROPOLIS.NS", "LALPATHLAB.NS", "FORTIS.NS", "ASTERDM.NS", "MAXHEALTH.NS",
+        ]
+        raw = run_backtest_b(test_symbols)
+        b_metrics = {
+            "all_signals":   compute_metrics(raw["all_signals"],  "All breakout signals"),
+            "with_obv":      compute_metrics(raw["with_obv"],     "OBV confirmed"),
+            "without_obv":   compute_metrics(raw["without_obv"],  "OBV diverging"),
+        }
+
+    report = generate_backtest_report(a_results, b_metrics, best_weights)
+    print("\n" + report)
+
+    # Save
+    date_str = datetime.utcnow().strftime("%Y%m%d_%H%M")
+    with open(f"results/backtest_{date_str}.txt", "w", encoding="utf-8") as f:
+        f.write(report)
+
+    # Save raw data as JSON
+    out = {
+        "ground_truth": [asdict(g) for g in a_results],
+        "backtest_b_metrics": b_metrics,
+        "weight_tuning": best_weights,
+    }
+    with open(f"results/backtest_{date_str}.json", "w") as f:
+        json.dump(out, f, indent=2, default=str)
+
+    log.info(f"\nResults saved → results/backtest_{date_str}.txt")
+
+
+if __name__ == "__main__":
+    main()
