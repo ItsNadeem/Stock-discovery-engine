@@ -152,20 +152,33 @@ def get_market_regime() -> dict:
                 "ema_stacked": ema_stacked,
             }
 
-        # Regime decision — based on Nifty Smallcap 100 primarily
-        sc = results.get("smallcap100")
-        if sc is None:
-            regime = "UNKNOWN"
-            regime_note = "Could not fetch market data"
-        elif sc["ema_stacked"] and sc["chg_1m_pct"] > 0 and sc["above_200ema"]:
-            regime = "BULL"
+        # Regime decision — Smallcap 100 primary, Nifty 50 fallback
+        # Bug fix: when sc is None, never default to BULL — use n50 data instead
+        sc  = results.get("smallcap100")
+        n50 = results.get("nifty50")
+
+        # Pick the best available benchmark
+        benchmark = sc if sc is not None else n50
+
+        if benchmark is None:
+            regime      = "UNKNOWN"
+            regime_note = "Could not fetch market data from yfinance"
+        elif benchmark["ema_stacked"] and benchmark["chg_1m_pct"] > 0 and benchmark["above_200ema"]:
+            regime      = "BULL"
             regime_note = "All EMAs stacked, index above 200EMA. Breakout conditions favourable."
-        elif not sc["above_200ema"] and sc["chg_3m_pct"] < -10:
-            regime = "BEAR"
-            regime_note = "Index below 200EMA, down >10% in 3 months. High false breakout risk — be selective."
+        elif not benchmark["above_200ema"] and benchmark["chg_3m_pct"] < -10:
+            regime      = "BEAR"
+            regime_note = "Index below 200EMA, down >10% in 3 months. High false breakout risk — be very selective."
+        elif not benchmark["above_200ema"] or benchmark["chg_3m_pct"] < -5:
+            regime      = "BEAR"
+            regime_note = f"Index {'below' if not benchmark['above_200ema'] else 'near'} 200EMA, {benchmark['chg_3m_pct']:+.1f}% in 3 months. Caution."
         else:
-            regime = "NEUTRAL"
+            regime      = "NEUTRAL"
             regime_note = "Mixed signals. Favour high-conviction setups only."
+
+        # Add note if falling back to Nifty 50
+        if sc is None and n50 is not None:
+            regime_note += " (Smallcap 100 data unavailable — using Nifty 50)"
 
         return {
             "regime":      regime,
