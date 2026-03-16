@@ -870,6 +870,244 @@ def classify_price_stage(info: dict, hist: pd.DataFrame) -> str:
 
 
 # ──────────────────────────────────────────────────────
+# PETER LYNCH / GARP SCORING MODULE
+# ──────────────────────────────────────────────────────
+# Lynch's core principles from "One Up on Wall Street" (1989):
+#   1. PEG ratio < 1.0 — pay less than the growth rate (primary tool)
+#   2. Low institutional ownership — undiscovered = upside ahead
+#   3. Net cash position — cash floor, can't go to zero
+#   4. Earnings consistency — 4+ consecutive profitable quarters
+#   5. Inventory vs sales health — rising inventory faster than sales = warning
+#
+# Lynch classified stocks: Fast Growers, Stalwarts, Slow Growers, Cyclicals,
+# Turnarounds, Asset Plays. Fast Growers in stable industries = best multibaggers.
+# VALUEPICK operates with identical instincts: buys before institutions notice.
+# ──────────────────────────────────────────────────────
+
+def calc_lynch_score(ticker: yf.Ticker, info: dict) -> tuple[float, dict]:
+    """
+    Compute Peter Lynch GARP score (0-1).
+    Returns (lynch_score, details_dict).
+
+    Components:
+      PEG ratio          (0.30) — Lynch's primary valuation tool
+      Institutional own  (0.20) — low = undiscovered = Lynch sweet spot
+      Net cash / mcap    (0.20) — balance sheet floor
+      EPS consistency    (0.15) — 4+ consecutive positive quarters
+      Inventory health   (0.15) — inventory growing slower than sales
+    """
+    details = {
+        "peg_ratio":      None,
+        "inst_own_pct":   None,
+        "net_cash_pct":   None,
+        "eps_consistent": None,
+        "inv_health":     None,
+        "lynch_flag":     None,
+    }
+
+    def g(key, default=None):
+        v = info.get(key, default)
+        if v is None or (isinstance(v, float) and (v != v)):
+            return default
+        return v
+
+    lynch_score = 0.0
+    flags = []
+
+    # ── 1. PEG ratio (weight 0.30) ──────────────────────────────
+    # Lynch: PEG < 1.0 = ideal. PEG between 1.0-1.5 = acceptable.
+    # PEG > 2.0 = expensive relative to growth. Negative PEG = skip.
+    # Formula: trailing PE / (revenue growth * 100)
+    # yfinance often lacks official PEG, so compute from components.
+    peg_score = 0.3    # neutral default
+    trailing_pe  = g("trailingPE")
+    rev_growth   = g("revenueGrowth")    # decimal e.g. 0.18 = 18%
+    forward_pe   = g("forwardPE")
+
+    if trailing_pe and trailing_pe > 0 and trailing_pe < 200:
+        if rev_growth and rev_growth > 0.05:
+            rev_growth_pct = rev_growth * 100
+            peg = trailing_pe / rev_growth_pct
+            details["peg_ratio"] = round(peg, 2)
+            if peg < 0.5:
+                peg_score = 1.0
+                flags.append(f"🔥 Lynch PEG {peg:.2f} — Deeply undervalued vs growth")
+            elif peg < 1.0:
+                peg_score = 0.85
+                flags.append(f"✅ Lynch PEG {peg:.2f} — Ideal GARP zone (<1)")
+            elif peg < 1.5:
+                peg_score = 0.60
+                flags.append(f"📊 Lynch PEG {peg:.2f} — Acceptable GARP (<1.5)")
+            elif peg < 2.0:
+                peg_score = 0.35
+            else:
+                peg_score = 0.10   # expensive relative to growth
+        elif trailing_pe < 12:
+            # Low PE even without growth data = value signal
+            peg_score = 0.55
+    elif forward_pe and 0 < forward_pe < 20:
+        peg_score = 0.65   # low forward PE without growth data
+
+    lynch_score += peg_score * 0.30
+
+    # ── 2. Institutional ownership (weight 0.20) ──────────────────
+    # Lynch: "If few institutions own it and only a handful of analysts
+    # have ever heard of it, that's a big plus."
+    # < 10% = nearly undiscovered (ideal)
+    # 10-25% = early stage (good)
+    # 25-50% = being discovered (neutral)
+    # > 50% = fully discovered (no Lynch edge)
+    inst_own_raw = g("institutionsPercentHeld") or g("heldPercentInstitutions") or None
+    inst_score   = 0.3   # neutral default
+
+    if inst_own_raw is not None:
+        inst_pct = inst_own_raw * 100 if inst_own_raw < 1.0 else inst_own_raw
+        details["inst_own_pct"] = round(inst_pct, 1)
+        if inst_pct < 5:
+            inst_score = 1.0
+            flags.append(f"👁️ Undiscovered: {inst_pct:.1f}% institutional holding")
+        elif inst_pct < 15:
+            inst_score = 0.80
+            flags.append(f"🌱 Early stage: {inst_pct:.1f}% institutional (Lynch zone)")
+        elif inst_pct < 30:
+            inst_score = 0.55
+        elif inst_pct < 50:
+            inst_score = 0.30
+        else:
+            inst_score = 0.10   # fully owned, Lynch edge gone
+
+    lynch_score += inst_score * 0.20
+
+    # ── 3. Net cash / Market cap (weight 0.20) ────────────────────
+    # Lynch: companies with significant net cash can't go to zero.
+    # Net cash positive + large = strong floor.
+    # Net cash / Mcap > 20% = Lynch would love it.
+    cash   = g("totalCash", 0) or 0
+    debt   = g("totalDebt", 0) or 0
+    mktcap = g("marketCap", 0) or 0
+
+    net_cash_score = 0.2   # neutral default
+    if mktcap > 0:
+        net_cash = cash - debt
+        net_cash_pct = net_cash / mktcap * 100
+        details["net_cash_pct"] = round(net_cash_pct, 1)
+
+        if net_cash_pct > 30:
+            net_cash_score = 1.0
+            flags.append(f"💰 Net cash {net_cash_pct:.0f}% of MCap — Lynch floor ✓")
+        elif net_cash_pct > 15:
+            net_cash_score = 0.80
+            flags.append(f"💵 Net cash {net_cash_pct:.0f}% of MCap")
+        elif net_cash_pct > 0:
+            net_cash_score = 0.55
+        elif net_cash_pct > -20:
+            net_cash_score = 0.30   # modest net debt
+        else:
+            net_cash_score = 0.05   # heavy debt relative to mcap
+
+    lynch_score += net_cash_score * 0.20
+
+    # ── 4. Earnings consistency (weight 0.15) ─────────────────────
+    # Lynch: consistent earners are more reliable than sporadic ones.
+    # 4+ consecutive profitable quarters = operational stability.
+    eps_score = 0.3   # neutral default
+    try:
+        qis = ticker.quarterly_income_stmt
+        if qis is not None and not qis.empty:
+            for idx in qis.index:
+                if "net income" in str(idx).lower():
+                    row = qis.loc[idx]
+                    vals = [float(v) for v in row.iloc[:6] if v is not None and v == v]
+                    if len(vals) >= 4:
+                        n_positive = sum(1 for v in vals[:4] if v > 0)
+                        details["eps_consistent"] = f"{n_positive}/4 qtrs profitable"
+                        if n_positive == 4:
+                            eps_score = 0.90
+                            flags.append("📈 4/4 profitable quarters (Lynch consistent)")
+                        elif n_positive == 3:
+                            eps_score = 0.60
+                        elif n_positive >= 2:
+                            eps_score = 0.35
+                        else:
+                            eps_score = 0.05
+                    break
+    except Exception:
+        pass
+
+    lynch_score += eps_score * 0.15
+
+    # ── 5. Inventory health (weight 0.15) ─────────────────────────
+    # Lynch: "A simple ratio — when inventories grow faster than sales,
+    # watch out. The company is either discounting or demand is softening."
+    # Healthy: inventory growth ≤ revenue growth
+    # Warning: inventory growing 2× faster than revenue
+    inv_score = 0.5   # neutral default
+    try:
+        qbs  = ticker.quarterly_balance_sheet
+        qfin = ticker.quarterly_financials
+
+        if (qbs is not None and not qbs.empty and
+                qfin is not None and not qfin.empty):
+            # Find inventory row
+            inv_row = None
+            for idx in qbs.index:
+                if "inventor" in str(idx).lower():
+                    inv_row = qbs.loc[idx]
+                    break
+
+            # Find revenue row
+            rev_row = None
+            for idx in qfin.index:
+                if "total revenue" in str(idx).lower() or "revenue" in str(idx).lower():
+                    rev_row = qfin.loc[idx]
+                    break
+
+            if inv_row is not None and rev_row is not None and len(inv_row) >= 4:
+                inv_recent = float(inv_row.iloc[0]) if not pd.isna(inv_row.iloc[0]) else None
+                inv_prior  = float(inv_row.iloc[3]) if not pd.isna(inv_row.iloc[3]) else None
+                rev_recent = float(rev_row.iloc[0]) if not pd.isna(rev_row.iloc[0]) else None
+                rev_prior  = float(rev_row.iloc[3]) if not pd.isna(rev_row.iloc[3]) else None
+
+                if all(v is not None and v > 0 for v in [inv_recent, inv_prior, rev_recent, rev_prior]):
+                    inv_growth = (inv_recent - inv_prior) / inv_prior
+                    rev_growth_q = (rev_recent - rev_prior) / rev_prior
+                    inv_to_rev = inv_growth / max(abs(rev_growth_q), 0.01)
+                    details["inv_health"] = f"inv+{inv_growth*100:.0f}% vs rev+{rev_growth_q*100:.0f}%"
+
+                    if inv_growth < 0:  # falling inventory = positive
+                        inv_score = 0.90
+                    elif inv_to_rev < 0.7:  # inv growing much slower than rev
+                        inv_score = 0.80
+                    elif inv_to_rev < 1.2:  # inv growing roughly in line
+                        inv_score = 0.55
+                    elif inv_to_rev < 2.0:  # inv growing faster — caution
+                        inv_score = 0.25
+                        flags.append("⚠️ Inventory growing faster than revenue (Lynch warning)")
+                    else:
+                        inv_score = 0.05   # danger sign
+                        flags.append("🚨 Inventory surge vs weak revenue (Lynch red flag)")
+    except Exception:
+        pass
+
+    lynch_score += inv_score * 0.15
+
+    # Lynch classification bonus
+    lynch_class = "Unknown"
+    if peg_score >= 0.85 and inst_score >= 0.70:
+        lynch_class = "Fast Grower (undiscovered)"
+    elif net_cash_score >= 0.80 and peg_score >= 0.55:
+        lynch_class = "Asset Play (cash-rich)"
+    elif peg_score >= 0.60 and eps_score >= 0.60:
+        lynch_class = "Stalwart (consistent compounder)"
+
+    details["lynch_class"] = lynch_class
+    details["lynch_flag"]  = f"🔍 Lynch: {lynch_class}" if lynch_class != "Unknown" else None
+    details["lynch_flags"] = flags
+
+    return round(min(lynch_score, 1.0), 4), details
+
+
+# ──────────────────────────────────────────────────────
 # COMPOSITE SCORE
 # ──────────────────────────────────────────────────────
 
@@ -877,6 +1115,7 @@ def pre_breakout_composite(
     shareholding: dict, valuation: dict, growth: dict,
     catalyst: dict, group: dict, debt: dict, pe_val: dict,
     fcf: dict, piotroski: dict, pe_traj: dict,
+    lynch: dict = None,
 ) -> float:
     # Base score from original signals
     score = (
@@ -891,21 +1130,33 @@ def pre_breakout_composite(
     # Undiscovered bonus
     score += shareholding["undiscovered_score"] * 0.05
 
-    # NEW: FCF yield bonus (strongest academic predictor)
+    # FCF yield bonus (strongest academic predictor)
     score += fcf["fcf_score"] * 0.06
 
-    # NEW: Piotroski bonus — strong improving financials
+    # Piotroski bonus — strong improving financials
     if piotroski["piotroski_score"] is not None:
         piotroski_norm = piotroski["piotroski_score"] / 9
         score += piotroski_norm * 0.05
 
-    # NEW: P/E expansion bonus — re-rating already started
+    # P/E expansion bonus — re-rating already started
     if pe_traj["pe_expanding"]:
         score += 0.04
+
+    # Lynch GARP bonus — weights at 0.10 (additive, not replacing)
+    # Reduced from 0.12 to keep total score normalised near 1.0
+    if lynch is not None:
+        score += lynch["lynch_score"] * 0.10
 
     # "Guess The Gem" trifecta: trusted group + deep value + catalyst
     if group["is_trusted_group"] and pe_val["is_deep_value"] and catalyst["catalyst_score"] >= 0.3:
         score += 0.08
+
+    # Lynch + VALUEPICK double signal: undiscovered + catalyst + good PEG
+    if (lynch is not None and lynch.get("inst_own_pct") is not None and
+            lynch["inst_own_pct"] < 20 and
+            catalyst["catalyst_score"] >= 0.2 and
+            lynch.get("peg_ratio") is not None and lynch["peg_ratio"] < 1.5):
+        score += 0.06  # undiscovered GARP + catalyst = Lynch's ideal setup
 
     return round(min(score, 1.0), 4)
 
@@ -953,9 +1204,11 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
             group        = analyze_promoter_group(info)
             debt         = analyze_debt_trajectory(ticker, info)
             pe_val       = analyze_peer_pe_discount(info)
-            fcf          = analyze_fcf(info)                        # NEW
-            piotroski    = calc_piotroski(ticker, info)             # NEW
-            pe_traj      = analyze_pe_trajectory(ticker, info)      # NEW
+            fcf          = analyze_fcf(info)
+            piotroski    = calc_piotroski(ticker, info)
+            pe_traj      = analyze_pe_trajectory(ticker, info)
+            lynch_score_val, lynch_details = calc_lynch_score(ticker, info)
+            lynch_details["lynch_score"] = lynch_score_val
 
             bse_code      = get_bse_code_from_symbol(symbol)
             announcements = []
@@ -995,16 +1248,20 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
 
             composite = pre_breakout_composite(
                 shareholding, valuation, growth, catalyst, group, debt, pe_val,
-                fcf, piotroski, pe_traj,
+                fcf, piotroski, pe_traj, lynch=lynch_details,
             )
 
             all_flags = []
             if group["flag"]:           all_flags.append(group["flag"])
             all_flags.extend(debt["flags"])
             if pe_val["flag"]:          all_flags.append(pe_val["flag"])
-            if fcf["flag"]:             all_flags.append(fcf["flag"])          # NEW
-            if piotroski["piotroski_flag"]: all_flags.append(piotroski["piotroski_flag"])  # NEW
-            if pe_traj["pe_traj_flag"]: all_flags.append(pe_traj["pe_traj_flag"])  # NEW
+            if fcf["flag"]:             all_flags.append(fcf["flag"])
+            if piotroski["piotroski_flag"]: all_flags.append(piotroski["piotroski_flag"])
+            if pe_traj["pe_traj_flag"]: all_flags.append(pe_traj["pe_traj_flag"])
+            # Lynch flags
+            all_flags.extend(lynch_details.get("lynch_flags", []))
+            if lynch_details.get("lynch_flag"):
+                all_flags.append(lynch_details["lynch_flag"])
             all_flags.extend(catalyst["catalysts"])
 
             results.append({
@@ -1020,9 +1277,10 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
                 "group":           group,
                 "debt":            debt,
                 "pe_value":        pe_val,
-                "fcf":             fcf,           # NEW
-                "piotroski":       piotroski,     # NEW
-                "pe_trajectory":   pe_traj,       # NEW
+                "fcf":             fcf,
+                "piotroski":       piotroski,
+                "pe_trajectory":   pe_traj,
+                "lynch":           lynch_details,
                 "all_flags":       all_flags,
                 "bse_code":        bse_code,
                 "scanned_at":      datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
