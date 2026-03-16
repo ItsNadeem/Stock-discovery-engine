@@ -142,9 +142,12 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> st
     for s in layer2[:10]:
         p_score = s.get("piotroski", {}).get("piotroski_score")
         fcf_y   = s.get("fcf", {}).get("fcf_yield_pct")
+        sc      = s.get("screener") or {}
         cats    = s.get("catalyst", {}).get("catalysts", [])
         cat_str = cats[0][:35] if cats else "–"
         grp     = s.get("group", {}).get("matched_group") or "–"
+        roce    = sc.get("roce_pct")
+        roce_display = f"{roce:.1f}%" if roce else ("N/A" if not fcf_y else f"FCF {fcf_y}%")
         l2_rows += f"""
         <tr style="border-bottom:1px solid #e5e7eb">
           <td style="padding:7px 10px;font-weight:500">{s['symbol'].replace('.NS','')}</td>
@@ -152,7 +155,7 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> st
           <td style="padding:7px 10px">₹{s['market_cap_cr']:.0f}Cr</td>
           <td style="padding:7px 10px">{s['composite_score']:.3f}</td>
           <td style="padding:7px 10px">{p_score if p_score is not None else 'N/A'}/9</td>
-          <td style="padding:7px 10px">{fcf_y if fcf_y is not None else 'N/A'}%</td>
+          <td style="padding:7px 10px">{roce_display}</td>
           <td style="padding:7px 10px;color:#6b7280;font-size:11px">{grp}</td>
           <td style="padding:7px 10px;font-size:11px;color:#374151">{cat_str}</td>
         </tr>"""
@@ -168,7 +171,7 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> st
           <th style="padding:6px 10px;text-align:left">MCap</th>
           <th style="padding:6px 10px;text-align:left">Score</th>
           <th style="padding:6px 10px;text-align:left">Piotroski</th>
-          <th style="padding:6px 10px;text-align:left">FCF%</th>
+          <th style="padding:6px 10px;text-align:left">ROCE/FCF</th>
           <th style="padding:6px 10px;text-align:left">Group</th>
           <th style="padding:6px 10px;text-align:left">Top Signal</th>
         </tr>
