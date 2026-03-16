@@ -155,14 +155,48 @@ class PreBreakoutConfig:
 
     announcement_lookback_days: int = 90
 
-    # Scoring weights (w_ fields sum to 1.0; undiscovered bonus is additive)
-    w_promoter:  float = 0.25
-    w_valuation: float = 0.20
-    w_growth:    float = 0.20
-    w_catalyst:  float = 0.15
-    w_group:     float = 0.10
-    w_debt:      float = 0.05
-    w_pe_value:  float = 0.05
+    # ─────────────────────────────────────────────────────────
+    # SCORING WEIGHTS — v3 rebalance
+    #
+    # Problem diagnosed from real runs:
+    #   • Promoter holding (25%) fires on almost every Indian small cap → not differentiated
+    #   • Valuation/P/B (20%) fires on everything near 52W low → not differentiated
+    #   • Catalyst (15%) is the rarest and most predictive signal — severely underweighted
+    #   • Group (10%) fires for a small minority — correctly sized
+    #
+    # Fix: raise catalyst to 30%, cut promoter to 15%, cut valuation to 12%.
+    # Catalyst is now the dominant signal, not a tiebreaker.
+    # This mirrors VALUEPICK's actual method: catalyst-first, valuation-second.
+    # ─────────────────────────────────────────────────────────
+    w_catalyst:  float = 0.30   # raised from 0.15 — now the dominant signal
+    w_growth:    float = 0.22   # raised from 0.20 — earnings quality matters
+    w_group:     float = 0.15   # raised from 0.10 — group pedigree is a real filter
+    w_promoter:  float = 0.15   # cut from 0.25 — ubiquitous, not differentiated
+    w_valuation: float = 0.12   # cut from 0.20 — P/B fires on everything at 52W low
+    w_debt:      float = 0.03   # unchanged in spirit
+    w_pe_value:  float = 0.03   # unchanged in spirit
+
+    # ─────────────────────────────────────────────────────────
+    # TIERED QUALIFICATION GATE — replaces the old flat has_signal check
+    #
+    # TIER 1 (Always qualify): Hard catalyst events — these are rare and
+    #   high-conviction by definition. Any stock with one qualifies immediately.
+    #
+    # TIER 2 (Need 2+ signals): Soft signals that are common alone but meaningful
+    #   in combination. Avoids the "cheap but static" trap.
+    #
+    # TIER 3 (Hard minimum quality): Even if tiers 1/2 pass, reject stocks
+    #   with clearly deteriorating revenue (3 consecutive quarterly declines).
+    # ─────────────────────────────────────────────────────────
+
+    # Tier 1 catalyst threshold — score ≥ this = auto-qualify
+    tier1_catalyst_threshold: float = 0.30   # preferential allotment, capex, JV
+
+    # Tier 2 — need at least this many soft signals
+    tier2_min_signals: int = 2
+
+    # Hard minimum ROCE from Screener (applied post-enrichment re-rank)
+    min_roce_pct: float = 10.0   # below this = likely value trap
 
     top_n: int = 15
 
@@ -882,9 +916,9 @@ def pre_breakout_composite(
 
 def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
     log.info("══════════════════════════════════════════════════════")
-    log.info("  PRE-BREAKOUT SCANNER (Layer 2) v2")
+    log.info("  PRE-BREAKOUT SCANNER (Layer 2) v3")
     log.info("  Method: value-picks.blogspot.com + @valuepick")
-    log.info("  Fixes: holding cos excluded, passive income filtered")
+    log.info("  v3: Catalyst-first sort | Tiered gate | ROCE filter")
     log.info("══════════════════════════════════════════════════════")
     log.info(f"Scanning {len(symbols)} symbols...")
 
@@ -932,18 +966,32 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
             catalyst = detect_catalysts(symbol, announcements)
             stage    = classify_price_stage(info, hist)
 
-            has_signal = (
-                shareholding["insider_pct"] >= PCFG.min_promoter_holding_pct or
-                valuation["trading_near_book"] or
-                growth["growth_accelerating"] or
-                catalyst["catalyst_score"] >= 0.2 or
-                group["is_trusted_group"] or
-                debt["is_near_zero_debt"] or
-                debt["debt_reducing"] or
-                pe_val["is_deep_value"]
-            )
-            if not has_signal:
+            # ── TIERED QUALIFICATION GATE ──────────────────────────────
+            # Tier 1: Hard catalyst = auto-qualify (rare, high-conviction)
+            #   Preferential allotment, capex announcement, JV pivot etc.
+            tier1 = catalyst["catalyst_score"] >= PCFG.tier1_catalyst_threshold
+
+            # Tier 2: Need at least 2 soft signals firing together
+            #   Any single signal alone (high promoter, low P/B, near zero debt)
+            #   is too common to be meaningful. Two together is interesting.
+            soft_signals = [
+                shareholding["insider_pct"] >= PCFG.min_promoter_holding_pct,
+                valuation["trading_near_book"],
+                growth["growth_accelerating"],
+                group["is_trusted_group"],
+                debt["is_near_zero_debt"] or debt["debt_reducing"],
+                pe_val["is_deep_value"],
+                piotroski.get("piotroski_score", 0) is not None and
+                    (piotroski.get("piotroski_score") or 0) >= 6,
+                fcf.get("fcf_score", 0) >= 0.4,
+            ]
+            tier2 = sum(1 for s in soft_signals if s) >= PCFG.tier2_min_signals
+
+            if not (tier1 or tier2):
                 continue
+
+            # Log why it qualified
+            qual_reason = "CATALYST" if tier1 else f"{sum(soft_signals)} soft signals"
 
             composite = pre_breakout_composite(
                 shareholding, valuation, growth, catalyst, group, debt, pe_val,
@@ -980,13 +1028,14 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
                 "scanned_at":      datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
             })
 
-            group_tag = f"[{group['matched_group']}]" if group["is_trusted_group"] else ""
-            debt_tag  = "DEBT↓" if (debt["debt_reducing"] or debt["is_near_zero_debt"]) else ""
-            pe_tag    = f"PE@{pe_val['pe_ratio_to_sector']:.1f}x" if pe_val["stock_pe"] else ""
+            group_tag  = f"[{group['matched_group']}]" if group["is_trusted_group"] else ""
+            debt_tag   = "DEBT↓" if (debt["debt_reducing"] or debt["is_near_zero_debt"]) else ""
+            pe_tag     = f"PE@{pe_val['pe_ratio_to_sector']:.1f}x" if pe_val["stock_pe"] else ""
+            cat_tag    = f"CAT:{catalyst['catalyst_score']:.2f}" if catalyst["catalyst_score"] > 0 else ""
             log.info(
                 f"  [{i+1:04d}] {sym_clean:<14} ₹{price:<7.0f} "
                 f"MCap ₹{mktcap:.0f}Cr Score:{composite:.3f} "
-                f"{group_tag} {debt_tag} {pe_tag} {stage}"
+                f"({qual_reason}) {group_tag} {cat_tag} {debt_tag} {pe_tag}"
             )
 
         except Exception as e:
@@ -994,21 +1043,55 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
 
         time.sleep(0.4)
 
-    results.sort(key=lambda x: x["composite_score"], reverse=True)
+    # ── Sort: catalyst-first, composite-second ──────────────────
+    # A stock with a confirmed catalyst (preferential allotment, capex)
+    # ranks above a stock with a slightly higher composite score but no catalyst.
+    # This directly mirrors VALUEPICK's method: catalyst drives the pick,
+    # valuation confirms it.
+    results.sort(
+        key=lambda x: (
+            -x["catalyst"]["catalyst_score"],   # primary: highest catalyst first
+            -x["composite_score"],               # secondary: highest composite
+        )
+    )
     top_results = results[:PCFG.top_n]
 
     log.info(
         f"Pre-breakout scan complete. "
-        f"Candidates: {len(results)}  |  Excluded (holding/passive): {excluded_ct}"
+        f"Candidates: {len(results)}  |  Excluded (holding/passive): {excluded_ct}  |  "
+        f"With catalyst: {sum(1 for r in results if r['catalyst']['catalyst_score'] >= PCFG.tier1_catalyst_threshold)}"
     )
 
-    # ── Enrich top candidates with Screener.in data ──
-    # Only called on the final shortlist — never on the full universe.
-    # Replaces unreliable yfinance fundamentals with BSE-filing-accurate data.
+    # ── Enrich top candidates with Screener.in data ──────────────
     log.info(f"Enriching top {len(top_results)} candidates with Screener.in...")
     top_results = enrich_with_screener(top_results, max_candidates=PCFG.top_n)
 
-    return top_results
+    # ── Post-Screener ROCE filter + re-rank ──────────────────────
+    # Now that we have accurate ROCE from Screener filings, drop obvious
+    # value traps (low ROCE = capital being destroyed, not compounded).
+    # Only apply if Screener data was successfully fetched.
+    screener_filtered = []
+    roce_rejected     = 0
+    for c in top_results:
+        sc   = c.get("screener") or {}
+        roce = sc.get("roce_pct")
+        if roce is not None and roce < PCFG.min_roce_pct:
+            roce_rejected += 1
+            log.info(f"  ROCE filter: dropping {c['symbol']} (ROCE {roce:.1f}% < {PCFG.min_roce_pct}%)")
+            continue
+        screener_filtered.append(c)
+
+    if roce_rejected > 0:
+        log.info(f"  ROCE filter removed {roce_rejected} value traps from final watchlist")
+
+    # Final re-sort after ROCE filter (same order: catalyst-first)
+    screener_filtered.sort(
+        key=lambda x: (
+            -x["catalyst"]["catalyst_score"],
+            -x["composite_score"],
+        )
+    )
+    return screener_filtered
 
 
 # ──────────────────────────────────────────────────────
