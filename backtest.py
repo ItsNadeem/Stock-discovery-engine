@@ -613,7 +613,7 @@ def simulate_v4_scan_on_date(
     except Exception:
         adx_val = 0.0
 
-    if np.isnan(adx_val) or adx_val < 25.0:
+    if np.isnan(adx_val) or adx_val < 0.20:   # 0.20 = ~ADX 20 on 0-1 scale
         return None
 
     # v4 core: volatility-adjusted momentum score (NSE formula)
@@ -793,15 +793,16 @@ def run_backtest_b(
                     df.columns = df.columns.get_level_values(0)
 
                 df.dropna(subset=["Close", "Volume"], inplace=True)
-                if df.empty or len(df) < 300:
+                # v4 needs 252+60=312 warmup rows; v3 needs ~320 (252 lookback + 60 indicators)
+                min_rows = 330 if scanner_version == "v4" else 300
+                if df.empty or len(df) < min_rows:
                     total_skipped += 1
                     continue
 
                 df.index = pd.to_datetime(df.index).tz_localize(None)
 
-                # Scan window: need 260 warmup rows at the start,
-                # and 21 rows ahead at the end for the 1M forward return
-                warmup           = 260
+                # Scan window: v4 needs 312 warmup rows (252 for 12M momentum + 60 indicators)
+                warmup           = 312 if scanner_version == "v4" else 260
                 scan_range_end   = len(df) - 21
                 scan_range_start = max(len(df) - lookback_days, warmup)
 
