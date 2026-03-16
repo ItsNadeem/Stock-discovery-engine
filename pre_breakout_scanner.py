@@ -50,6 +50,8 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 
+from screener_fetcher import enrich_with_screener
+
 log = logging.getLogger(__name__)
 
 
@@ -993,11 +995,20 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
         time.sleep(0.4)
 
     results.sort(key=lambda x: x["composite_score"], reverse=True)
+    top_results = results[:PCFG.top_n]
+
     log.info(
         f"Pre-breakout scan complete. "
         f"Candidates: {len(results)}  |  Excluded (holding/passive): {excluded_ct}"
     )
-    return results[:PCFG.top_n]
+
+    # ── Enrich top candidates with Screener.in data ──
+    # Only called on the final shortlist — never on the full universe.
+    # Replaces unreliable yfinance fundamentals with BSE-filing-accurate data.
+    log.info(f"Enriching top {len(top_results)} candidates with Screener.in...")
+    top_results = enrich_with_screener(top_results, max_candidates=PCFG.top_n)
+
+    return top_results
 
 
 # ──────────────────────────────────────────────────────
@@ -1029,14 +1040,22 @@ def generate_pre_breakout_report(candidates: list[dict]) -> str:
         dbt   = s.get("debt", {})
         pev   = s.get("pe_value", {})
         flags = s.get("all_flags", [])
+        sc    = s.get("screener")   # Screener.in enrichment (may be None)
+
+        # Use Screener data where available, fall back to yfinance
+        roce_str     = f"{sc['roce_pct']:.1f}%" if sc and sc.get("roce_pct") else "N/A"
+        cagr_str     = f"{sc['rev_cagr_3yr_pct']:.1f}%" if sc and sc.get("rev_cagr_3yr_pct") else "N/A"
+        promoter_str = f"{sc['promoter_pct']:.1f}%" if sc and sc.get("promoter_pct") else f"{sh['insider_pct']:.1f}%"
+        de_str       = f"{sc['de_ratio']:.2f}" if sc and sc.get("de_ratio") is not None else f"{dbt.get('current_de', '?')}"
+        data_src     = "Screener.in ✓" if sc else "yfinance"
 
         lines += [
-            f"#{i:02d}  {s['symbol']:<18}  Score: {s['composite_score']:.3f}",
+            f"#{i:02d}  {s['symbol']:<18}  Score: {s['composite_score']:.3f}  [{data_src}]",
             f"    Price: ₹{s['price']:<8}  MCap: ₹{s['market_cap_cr']:.0f} Cr",
             f"    Stage: {s['price_stage']}",
             "",
             f"    ── OWNERSHIP ──",
-            (f"    Promoter/Insider: {sh['insider_pct']:.1f}%   "
+            (f"    Promoter: {promoter_str}   "
              f"Institutions: {sh['institutional_pct']:.1f}%   "
              f"{'[UNDISCOVERED]' if sh['undiscovered_score'] > 0.6 else ''}"),
             (f"    Group: {grp.get('matched_group') or 'Unknown'}  "
@@ -1044,25 +1063,24 @@ def generate_pre_breakout_report(candidates: list[dict]) -> str:
             "",
             f"    ── VALUATION ──",
             (f"    P/B: {val['pb_ratio']:.2f}   "
-             f"Net Cash: ₹{val['net_cash_cr']:.0f} Cr   "
-             f"Cash/MCap: {val['cash_to_mcap_pct']:.1f}%   "
-             f"{'[NEAR BOOK]' if val['trading_near_book'] else ''}"),
-            (f"    P/E: {pev.get('stock_pe') or 'N/A'}   "
+             f"P/E: {pev.get('stock_pe') or 'N/A'}   "
              f"Sector P/E: {pev.get('sector_pe', '?')}   "
-             f"Ratio: {pev.get('pe_ratio_to_sector') or 'N/A'}x   "
              f"{'💎 DEEP VALUE' if pev.get('is_deep_value') else ''}"),
             "",
+            f"    ── FUNDAMENTALS ({data_src}) ──",
+            (f"    ROCE: {roce_str}   "
+             f"D/E: {de_str}   "
+             f"OPM: {gr['profit_margin_pct']:.1f}%"),
+            (f"    Rev Growth (YoY): {gr['revenue_growth_pct']:.1f}%   "
+             f"3Yr CAGR: {cagr_str}   "
+             f"PAT Growth: {gr['earnings_growth_pct']:.1f}%   "
+             f"Accel: {'✓' if gr['growth_accelerating'] else '✗'}"),
+            "",
             f"    ── DEBT ──",
-            (f"    D/E: {dbt.get('current_de', '?')}   "
+            (f"    D/E: {de_str}   "
              f"Net Debt: ₹{dbt.get('net_debt_cr', '?')} Cr   "
              f"Reducing: {'✓ ' + str(round(dbt.get('debt_reduction_pct', 0), 0)) + '%' if dbt.get('debt_reducing') else '✗'}   "
              f"{'🟢 NET CASH' if dbt.get('is_net_cash') else ''}"),
-            "",
-            f"    ── GROWTH ──",
-            (f"    Rev: {gr['revenue_growth_pct']:.1f}%   "
-             f"Earnings: {gr['earnings_growth_pct']:.1f}%   "
-             f"Margin: {gr['profit_margin_pct']:.1f}%   "
-             f"Accelerating: {'✓' if gr['growth_accelerating'] else '✗'}"),
             "",
         ]
 
