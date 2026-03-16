@@ -473,11 +473,9 @@ def simulate_breakout_scan_on_date(
     lookback: int = 252,
 ) -> Optional[BacktestSignal]:
     """
-    Simulate running the Layer 1 breakout scanner on a single historical date.
-    Returns a signal if conditions were met, None otherwise.
+    v3 scanner: 52W high breakout gate. Kept for comparison vs v4.
+    Full universe result: 49.8% hit rate, +2.7% avg 3M, +1.1% alpha — no edge.
     """
-    # Need at least lookback days of history + 60 for indicator warmup
-    # But don't be more restrictive than necessary — min 120 rows before idx
     min_history = min(lookback + 60, 120)
     if idx < min_history:
         return None
@@ -491,7 +489,7 @@ def simulate_breakout_scan_on_date(
     avg_vol    = float(v.rolling(20).mean().iloc[-1])
 
     if avg_vol < 50_000 or last_close < 10:
-        return None   # only reject penny stocks and zero-volume; no price ceiling
+        return None
 
     e21   = ema(c, 21)
     e55   = ema(c, 55)
@@ -512,19 +510,16 @@ def simulate_breakout_scan_on_date(
     if not (is_breakout and ema_bull and rsi_ok):
         return None
 
-    # ── OBV check ──
-    obv_s     = obv_series(window)
-    obv_win   = obv_s.iloc[-10:]
-    obv_slope = float(obv_win.iloc[-1] - obv_win.iloc[0])
-    obv_std   = float(obv_win.std()) if obv_win.std() > 0 else 1
+    obv_s       = obv_series(window)
+    obv_win     = obv_s.iloc[-10:]
+    obv_slope   = float(obv_win.iloc[-1] - obv_win.iloc[0])
+    obv_std     = float(obv_win.std()) if obv_win.std() > 0 else 1
     obv_bullish = obv_slope > obv_std * 0.1
 
-    # ATR contraction
     recent_atr = float(atr_s.iloc[-20:].mean())
     prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else recent_atr
     has_base   = (recent_atr / prior_atr) < 0.7 if prior_atr > 0 else False
 
-    # Scores
     b_score = min((last_close - high_252) / high_252 * 20, 1.0) if high_252 > 0 else 0.0
     m_score = min(max((last_close - float(e55.iloc[-1])) / float(e55.iloc[-1]) * 5, 0), 1.0)
     v_score = min((last_vol / avg_vol) / 3, 1.0) if avg_vol > 0 else 0
@@ -556,6 +551,123 @@ def simulate_breakout_scan_on_date(
         obv_bullish=obv_bullish,
         has_tight_base=has_base,
         breakout_score=round(b_score, 3),
+    )
+
+
+def simulate_v4_scan_on_date(
+    df: pd.DataFrame,
+    symbol: str,
+    idx: int,
+) -> Optional[BacktestSignal]:
+    """
+    v4 scanner: volatility-adjusted momentum gate (NSE Momentum Index formula).
+    Gates: avg_vol ≥ 150k | ≥50 traded days/63 | EMA21>EMA55 | RSI 48-80
+           | ADX ≥ 25 | mom_score > 0 (above-average 6M+12M vol-adj momentum)
+    """
+    min_history = 252 + 60
+    if idx < min_history:
+        return None
+
+    window = df.iloc[:idx + 1]
+    c = window["Close"]
+    v = window["Volume"]
+
+    last_close = float(c.iloc[-1])
+    last_vol   = float(v.iloc[-1])
+    avg_vol    = float(v.rolling(20).mean().iloc[-1])
+
+    # Liquidity gates
+    if avg_vol < 150_000 or last_close < 10:
+        return None
+    traded_63 = int((v.iloc[-63:] > 0).sum())
+    if traded_63 < 50:
+        return None
+
+    # Indicator gates
+    e21   = ema(c, 21)
+    e55   = ema(c, 55)
+    rsi_s = rsi(c, 14)
+
+    ema_bull = float(e21.iloc[-1]) > float(e55.iloc[-1])
+    last_rsi = float(rsi_s.iloc[-1])
+
+    if not ema_bull:
+        return None
+    if not (48.0 <= last_rsi <= 80.0):
+        return None
+
+    # ADX gate
+    try:
+        adx_s = (lambda d, n=14: (
+            lambda up, dn, pdm, ndm, a:
+                ((100 * (pdm.rolling(n).mean() / a) - 100 * (ndm.rolling(n).mean() / a)).abs() /
+                 (100 * pdm.rolling(n).mean() / a + 100 * ndm.rolling(n).mean() / a).replace(0, np.nan)
+                ).rolling(n).mean()
+        )(
+            d["High"].diff(), -d["Low"].diff(),
+            d["High"].diff().where((d["High"].diff() > -d["Low"].diff()) & (d["High"].diff() > 0), 0),
+            (-d["Low"].diff()).where((-d["Low"].diff() > d["High"].diff()) & (-d["Low"].diff() > 0), 0),
+            atr(d, n)
+        ))(window)
+        adx_val = float(adx_s.iloc[-1])
+    except Exception:
+        adx_val = 0.0
+
+    if np.isnan(adx_val) or adx_val < 25.0:
+        return None
+
+    # v4 core: volatility-adjusted momentum score (NSE formula)
+    if len(c) < 252 + 10:
+        return None
+
+    p_6m  = float(c.iloc[-126])
+    p_12m = float(c.iloc[-252])
+    last  = float(c.iloc[-1])
+
+    ret_6m  = (last - p_6m)  / p_6m
+    ret_12m = (last - p_12m) / p_12m
+
+    daily_ret = c.pct_change().dropna()
+    ann_vol   = float(daily_ret.iloc[-252:].std()) * (252 ** 0.5)
+
+    if ann_vol <= 0.01:
+        return None
+
+    mom_score = ((ret_6m / ann_vol) + (ret_12m / ann_vol)) / 2
+
+    # Gate: must have above-average momentum (> 0)
+    if mom_score <= 0:
+        return None
+
+    # OBV — extreme distribution only
+    obv_s     = obv_series(window)
+    obv_win   = obv_s.iloc[-10:]
+    obv_std_v = float(obv_win.std()) if obv_win.std() > 0 else 1
+    obv_slope_z = (float(obv_win.iloc[-1]) - float(obv_win.iloc[0])) / obv_std_v
+    if obv_slope_z < -1.5:
+        return None
+
+    obv_bullish = obv_slope_z > 0.1
+
+    atr_s      = atr(window, 14)
+    recent_atr = float(atr_s.iloc[-20:].mean())
+    prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else recent_atr
+    has_base   = (recent_atr / prior_atr) < 0.7 if prior_atr > 0 else False
+    vol_surge  = last_vol >= avg_vol * 1.5
+
+    # Normalised score for sorting
+    norm_mom = min(max(mom_score / 2.0, 0.0), 1.0)
+
+    return BacktestSignal(
+        symbol=symbol,
+        signal_date=str(window.index[-1].date()),
+        signal_price=round(last_close, 2),
+        rsi=round(last_rsi, 1),
+        adx=round(adx_val, 1),
+        vol_surge=vol_surge,
+        obv_bullish=obv_bullish,
+        has_tight_base=has_base,
+        breakout_score=round(norm_mom, 3),   # reuse field for mom_score
     )
 
 
@@ -605,6 +717,7 @@ def run_backtest_b(
     lookback_days: int = 500,
     sample_every_n_days: int = 5,
     batch_size: int = 50,
+    scanner_version: str = "v3",   # "v3" = breakout, "v4" = momentum
 ) -> dict:
     """
     Run Layer 1 historical backtest on a list of symbols.
@@ -620,6 +733,7 @@ def run_backtest_b(
     """
     log.info("═" * 60)
     log.info("BACKTEST B — LAYER 1 HISTORICAL BREAKOUT PERFORMANCE")
+    log.info(f"  Scanner:   {scanner_version.upper()}")
     log.info(f"  Symbols:   {len(symbols)}")
     log.info(f"  Lookback:  {lookback_days} days  |  Sample every {sample_every_n_days} days")
     log.info(f"  Batches:   {len(symbols) // batch_size + 1} × {batch_size} symbols")
@@ -696,7 +810,10 @@ def run_backtest_b(
                     continue
 
                 for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
-                    sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
+                    if scanner_version == "v4":
+                        sig = simulate_v4_scan_on_date(df, sym, idx)
+                    else:
+                        sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
                     if sig is None:
                         continue
                     sig = measure_forward_returns(sig, df, nifty_df, idx)
@@ -1012,7 +1129,12 @@ Examples:
                         help="Quick mode: 10 stocks, 200 days (~2 min). Good for iterating.")
     parser.add_argument("--full", action="store_true",
                         help="Full NSE universe (~1,800 symbols, ~11 min). "
-                             "Uses batch downloads. Runs on GitHub Actions weekly.")
+                             "Uses batch downloads. Runs on GitHub Actions monthly.")
+    parser.add_argument("--v4", action="store_true",
+                        help="Use v4 scanner (volatility-adjusted momentum) instead of v3 breakout.")
+    parser.add_argument("--compare", action="store_true",
+                        help="Run both v3 AND v4 side-by-side on the same symbols. "
+                             "Best way to validate whether v4 actually improves results.")
 
     # ── Signal parameter overrides — tune these to optimise ──
     parser.add_argument("--rsi-lo",   type=float, default=48.0,
@@ -1047,6 +1169,8 @@ Examples:
     log.info(f"  Lookback:     {args.lookback} days")
     log.info(f"  Quick mode:   {'YES (10 stocks)' if args.quick else 'NO'}")
     log.info(f"  Full universe:{'YES (~1,800 symbols)' if getattr(args, 'full', False) else 'NO'}")
+    log.info(f"  Scanner:      {'v4 (momentum)' if getattr(args, 'v4', False) else 'v3 (breakout)'}"
+             f"{'  + compare both' if getattr(args, 'compare', False) else ''}")
     log.info("═" * 60)
 
     a_results    = []
@@ -1091,8 +1215,7 @@ Examples:
             ]
             lookback = args.lookback
 
-        # Pass signal params into the backtest via module-level overrides
-        # (avoids threading these through every function signature)
+        # Pass signal params for v3 breakout scanner
         global _BACKTEST_PARAMS
         _BACKTEST_PARAMS = {
             "rsi_lo":   args.rsi_lo,
@@ -1102,18 +1225,51 @@ Examples:
             "adx_min":  args.adx_min,
         }
 
-        raw = run_backtest_b(test_symbols, lookback_days=lookback, sample_every_n_days=5)
-        b_metrics = {
-            "all_signals":   compute_metrics(raw["all_signals"],  "All breakout signals"),
-            "with_obv":      compute_metrics(raw["with_obv"],     "OBV confirmed"),
-            "without_obv":   compute_metrics(raw["without_obv"],  "OBV diverging"),
-            "with_base":     compute_metrics(
-                [s for s in raw["all_signals"] if s.has_tight_base], "Tight base ✓"
-            ),
-            "with_vol":      compute_metrics(
-                [s for s in raw["all_signals"] if s.vol_surge],      "Vol surge ✓"
-            ),
-        }
+        use_v4    = getattr(args, "v4", False)
+        do_compare = getattr(args, "compare", False)
+
+        if do_compare:
+            # Run both v3 and v4 on same symbols for direct comparison
+            log.info("Running v3 (breakout) scanner...")
+            raw_v3 = run_backtest_b(test_symbols, lookback_days=lookback,
+                                     sample_every_n_days=5, scanner_version="v3")
+            log.info("Running v4 (momentum) scanner...")
+            raw_v4 = run_backtest_b(test_symbols, lookback_days=lookback,
+                                     sample_every_n_days=5, scanner_version="v4")
+            b_metrics = {
+                "v3_all":      compute_metrics(raw_v3["all_signals"], "v3 All signals"),
+                "v3_with_obv": compute_metrics(raw_v3["with_obv"],    "v3 OBV confirmed"),
+                "v4_all":      compute_metrics(raw_v4["all_signals"], "v4 All signals"),
+                "v4_with_obv": compute_metrics(raw_v4["with_obv"],    "v4 OBV confirmed"),
+                "v4_vol":      compute_metrics(
+                    [s for s in raw_v4["all_signals"] if s.vol_surge], "v4 Vol surge ✓"
+                ),
+                # Keep these for report compatibility
+                "all_signals":  compute_metrics(raw_v4["all_signals"],  "v4 All signals"),
+                "with_obv":     compute_metrics(raw_v4["with_obv"],     "v4 OBV confirmed"),
+                "without_obv":  compute_metrics(raw_v4["without_obv"],  "v4 OBV diverging"),
+                "with_base":    compute_metrics(
+                    [s for s in raw_v4["all_signals"] if s.has_tight_base], "v4 Tight base ✓"
+                ),
+                "with_vol":     compute_metrics(
+                    [s for s in raw_v4["all_signals"] if s.vol_surge], "v4 Vol surge ✓"
+                ),
+            }
+        else:
+            scanner = "v4" if use_v4 else "v3"
+            raw = run_backtest_b(test_symbols, lookback_days=lookback,
+                                  sample_every_n_days=5, scanner_version=scanner)
+            b_metrics = {
+                "all_signals":   compute_metrics(raw["all_signals"],  f"{scanner} All signals"),
+                "with_obv":      compute_metrics(raw["with_obv"],     f"{scanner} OBV confirmed"),
+                "without_obv":   compute_metrics(raw["without_obv"],  f"{scanner} OBV diverging"),
+                "with_base":     compute_metrics(
+                    [s for s in raw["all_signals"] if s.has_tight_base], f"{scanner} Tight base ✓"
+                ),
+                "with_vol":      compute_metrics(
+                    [s for s in raw["all_signals"] if s.vol_surge], f"{scanner} Vol surge ✓"
+                ),
+            }
 
     report = generate_backtest_report(
         a_results, b_metrics, best_weights,
