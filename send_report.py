@@ -228,8 +228,10 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> st
 
 def send_via_gmail(html: str, subject: str, notify_email: str):
     """Send via Gmail SMTP using an App Password."""
-    gmail_user = os.environ["GMAIL_USER"]
-    gmail_pass = os.environ["GMAIL_PASS"]
+    gmail_user = os.environ["GMAIL_USER"].strip()
+    # Google displays app passwords with spaces/non-breaking spaces between groups
+    # e.g. "xxxx xxxx xxxx xxxx" — strip ALL whitespace before SMTP login
+    gmail_pass = "".join(os.environ["GMAIL_PASS"].split())
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
