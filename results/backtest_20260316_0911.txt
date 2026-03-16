@@ -1,0 +1,115 @@
+════════════════════════════════════════════════════════════════════════
+  MULTIBAGGER ENGINE — BACKTEST REPORT
+  2026-03-16 09:11 UTC
+════════════════════════════════════════════════════════════════════════
+
+  BACKTEST A: VALUEPICK GROUND TRUTH VALIDATION
+  Question: Would our engine have flagged these known multibaggers?
+════════════════════════════════════════════════════════════════════════
+
+  PAUSHAK.NS  entry ₹74.0  date 2011-03-15  (140.0x confirmed)
+  Thesis: Alembic group specialty chemical, capacity expansion pending, debt-free
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: insufficient data
+
+  COSMOFE.NS  entry ₹13.0  date 2011-06-01  (13.0x confirmed)
+  Thesis: Cosmo Films group, soft ferrite manufacturer, EV tailwind
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: insufficient data
+
+  TASTYBITE.NS  entry ₹165.0  date 2010-02-27  (57.0x confirmed)
+  Thesis: Organic food, export-led, US market penetration
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: insufficient data
+
+  EKILABELS.NS  entry ₹162.0  date 2021-04-10  (66.0x confirmed)
+  Thesis: First listed carbon credit company globally, 90%+ overseas revenue
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: insufficient data
+
+  JAYKAY.NS  entry ₹28.0  date 2021-02-06  (?x confirmed)
+  Thesis: JK group 3D printing JV with EOS Germany, promoter 32%→52% preferential
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: insufficient data
+
+  SHANTIGEAR.NS  entry ₹180.0  date 2024-06-01  (?x confirmed)
+  Thesis: Murugappa group, zero debt, steady growth, sector tailwind
+  Technical state on entry date:
+    vs 52W high: -13.7%   vs 52W low: 30.1%
+    RSI: 34.2   EMA: bullish   OBV: falling
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: 0.61×   ATR ratio: 0.81
+  Signals our model would have fired: EMA_BULL
+  Estimated L1 score: 0.020
+  Forward returns: 1M +3.5%  3M +10.5%  6M +8.1%  1Y -11.3%  +7.1% alpha
+
+  SUMMARY: 0/6 picks had a technical breakout on entry date
+           0/6 picks had a tight consolidation base
+
+  KEY INSIGHT:
+  If hit_rate is low (picks did NOT have breakout on entry date),
+  that confirms VALUEPICK found them BEFORE technical signals fired.
+  Our Layer 1 would have missed them — Layer 2 thesis signals matter more.
+
+════════════════════════════════════════════════════════════════════════
+  BACKTEST B: LAYER 1 HISTORICAL PERFORMANCE
+  Question: When our breakout scanner fires, how often does it work?
+════════════════════════════════════════════════════════════════════════
+
+  All signals (n=0)
+    Hit rate (3M positive return): N/A%
+    Avg return: 1M ?%  3M ?%  6M ?%
+    Median 3M: ?%   Avg alpha vs Nifty: ?%
+    Best 3M: ?%   Worst 3M: ?%
+    % signals with >20% 3M return: ?%
+
+  OBV confirmed ✓ (n=0)
+    Hit rate (3M positive return): N/A%
+    Avg return: 1M ?%  3M ?%  6M ?%
+    Median 3M: ?%   Avg alpha vs Nifty: ?%
+    Best 3M: ?%   Worst 3M: ?%
+    % signals with >20% 3M return: ?%
+
+  OBV diverging ✗ (n=0)
+    Hit rate (3M positive return): N/A%
+    Avg return: 1M ?%  3M ?%  6M ?%
+    Median 3M: ?%   Avg alpha vs Nifty: ?%
+    Best 3M: ?%   Worst 3M: ?%
+    % signals with >20% 3M return: ?%
+
+════════════════════════════════════════════════════════════════════════
+  ⚠  Backtesting has survivorship bias — historical prices are
+     available only for stocks that still exist. Failed companies
+     are excluded, which overstates hit rates. Use as direction,
+     not as proof.
+════════════════════════════════════════════════════════════════════════
