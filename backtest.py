@@ -476,7 +476,10 @@ def simulate_breakout_scan_on_date(
     Simulate running the Layer 1 breakout scanner on a single historical date.
     Returns a signal if conditions were met, None otherwise.
     """
-    if idx < lookback + 60:
+    # Need at least lookback days of history + 60 for indicator warmup
+    # But don't be more restrictive than necessary — min 120 rows before idx
+    min_history = min(lookback + 60, 120)
+    if idx < min_history:
         return None
 
     window = df.iloc[:idx + 1]
@@ -627,35 +630,55 @@ def run_backtest_b(
     signals_without_obv:   list[BacktestSignal] = []
 
     for sym in symbols:
+        sym_signals = 0
         try:
             df = yf.download(
                 sym, period="3y", interval="1d",
                 progress=False, auto_adjust=True,
             )
             if df is None or df.empty or len(df) < 300:
+                log.debug(f"  {sym}: skipped ({len(df) if df is not None else 0} rows)")
                 continue
+
+            # yfinance sometimes returns MultiIndex columns for single symbols
+            if isinstance(df.columns, pd.MultiIndex):
+                df.columns = df.columns.get_level_values(0)
+
             df.index = pd.to_datetime(df.index).tz_localize(None)
 
-            # Simulate scan on each sampled date
-            scan_range_start = len(df) - lookback_days
-            scan_range_start = max(scan_range_start, 260)
+            # Start scanning after enough warmup rows (120), not after full lookback.
+            # The breakout lookback (252) is applied internally per call.
+            warmup         = 120
+            scan_range_end = len(df) - 21    # need 21 days ahead for 1M return
+            scan_range_start = max(len(df) - lookback_days, warmup)
 
-            for idx in range(scan_range_start, len(df) - 21, sample_every_n_days):
-                sig = simulate_breakout_scan_on_date(df, sym, idx)
+            if scan_range_start >= scan_range_end:
+                log.debug(f"  {sym}: scan range empty ({scan_range_start} >= {scan_range_end})")
+                continue
+
+            dates_scanned = (scan_range_end - scan_range_start) // sample_every_n_days
+            for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
+                sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
                 if sig is None:
                     continue
                 sig = measure_forward_returns(sig, df, nifty_df, idx)
                 all_signals.append(sig)
+                sym_signals += 1
                 if sig.obv_bullish:
                     signals_with_obv.append(sig)
                 else:
                     signals_without_obv.append(sig)
 
+            log.info(f"  {sym:<16}: scanned {dates_scanned} dates → {sym_signals} signals")
+
         except Exception as e:
-            log.debug(f"Backtest B error for {sym}: {e}")
+            log.warning(f"Backtest B error for {sym}: {type(e).__name__}: {e}")
 
         time.sleep(0.2)
 
+    log.info(f"Backtest B complete: {len(all_signals)} total signals "
+             f"({len(signals_with_obv)} OBV confirmed, "
+             f"{len(signals_without_obv)} OBV diverging)")
     return {
         "all_signals":         all_signals,
         "with_obv":            signals_with_obv,
