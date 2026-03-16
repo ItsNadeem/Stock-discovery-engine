@@ -541,44 +541,73 @@ def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
     Detect if P/E has been expanding over recent quarters.
     A stock going from P/E 5 → 7 → 10 means the market is paying
     more per unit of earnings — the re-rating has already started.
-    This is earlier than a technical breakout and cheaper to enter.
+
+    Fix: ticker.quarterly_earnings is deprecated in yfinance ≥ 0.2.x.
+    Now uses ticker.quarterly_income_stmt and extracts Net Income directly,
+    then divides by shares outstanding to compute quarterly EPS.
     """
     try:
         current_pe = info.get("trailingPE")
         if not current_pe or current_pe <= 0 or current_pe > 200:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # Use quarterly EPS history to reconstruct trailing P/E over time
-        qe = ticker.quarterly_earnings
-        hist = ticker.history(period="1y", interval="3mo")
-
-        if qe is None or qe.empty or hist is None or hist.empty:
+        shares = info.get("sharesOutstanding") or 0
+        if shares <= 0:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # Estimate historical P/E at each quarter end
-        # by dividing quarter-end price by trailing 4-quarter EPS
-        eps_vals = qe["Earnings"].dropna().values if "Earnings" in qe.columns else []
-        if len(eps_vals) < 4:
+        # ── Use quarterly_income_stmt (replaces deprecated quarterly_earnings) ──
+        qis = ticker.quarterly_income_stmt
+        if qis is None or qis.empty:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        # Find the Net Income row — yfinance uses various label spellings
+        net_income_row = None
+        for idx in qis.index:
+            if "net income" in str(idx).lower():
+                net_income_row = qis.loc[idx]
+                break
+
+        if net_income_row is None or len(net_income_row) < 4:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        # quarterly_income_stmt columns are datetime — most recent first
+        # Compute quarterly EPS = net_income / shares
+        quarterly_eps = []
+        for val in net_income_row.iloc[:6]:   # up to 6 quarters back
+            try:
+                eps = float(val) / shares if not pd.isna(val) else None
+                quarterly_eps.append(eps)
+            except Exception:
+                quarterly_eps.append(None)
+
+        if len([v for v in quarterly_eps if v is not None]) < 4:
+            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
+
+        # Get quarter-end closing prices (3-month interval, last 1.5 years)
+        hist = ticker.history(period="18mo", interval="3mo")
+        if hist is None or hist.empty or len(hist) < 3:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
         prices = hist["Close"].dropna()
-        if len(prices) < 3:
-            return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # Build rolling 4-quarter EPS sum (trailing EPS) for last 3 periods
+        # Build rolling 4-quarter trailing EPS and pair with quarter-end price
         pe_history = []
-        for i in range(3):
-            trailing_eps = sum(float(v) for v in eps_vals[i:i+4] if v is not None)
-            if trailing_eps > 0 and i < len(prices):
-                price_at_period = float(prices.iloc[-(i+1)])
-                pe_history.append(round(price_at_period / trailing_eps, 1))
+        for i in range(min(3, len(prices) - 1)):
+            eps_window = [v for v in quarterly_eps[i:i+4] if v is not None]
+            if len(eps_window) < 4:
+                continue
+            trailing_eps = sum(eps_window)
+            if trailing_eps <= 0:
+                continue
+            price_at_period = float(prices.iloc[-(i + 1)])
+            pe_history.append(round(price_at_period / trailing_eps, 1))
 
-        pe_history.reverse()   # chronological order
+        pe_history.reverse()   # oldest → newest
 
         if len(pe_history) < 2:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        pe_expanding  = all(pe_history[i] < pe_history[i+1] for i in range(len(pe_history)-1))
+        pe_expanding  = all(pe_history[j] < pe_history[j+1] for j in range(len(pe_history)-1))
         pe_trajectory = " → ".join(str(p) for p in pe_history) + f" → {round(current_pe, 1)} (now)"
 
         flag = None
