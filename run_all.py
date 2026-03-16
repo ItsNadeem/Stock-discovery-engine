@@ -76,6 +76,10 @@ def find_conviction_plays(layer1: list[dict], layer2: list[dict]) -> list[dict]:
                     "piotroski_score":    s.get("piotroski", {}).get("piotroski_score"),
                     "fcf_yield_pct":      s.get("fcf", {}).get("fcf_yield_pct"),
                     "pe_expanding":       s.get("pe_trajectory", {}).get("pe_expanding"),
+                    "lynch_peg":          s.get("lynch", {}).get("peg_ratio"),
+                    "lynch_inst_pct":     s.get("lynch", {}).get("inst_own_pct"),
+                    "lynch_class":        s.get("lynch", {}).get("lynch_class"),
+                    "lynch_net_cash_pct": s.get("lynch", {}).get("net_cash_pct"),
                 },
                 "scanned_at": s["scanned_at"],
             })
@@ -145,7 +149,7 @@ def generate_conviction_report(
     sep = "═" * 72
     lines = (
         [sep,
-         "  MULTIBAGGER DISCOVERY ENGINE v3 — DAILY COMBINED REPORT",
+         "  MULTIBAGGER DISCOVERY ENGINE v4 — DAILY COMBINED REPORT",
          f"  {now}",
          sep, ""]
         + regime_banner(regime)
@@ -179,6 +183,10 @@ def generate_conviction_report(
                 f"     ROE: {fd.get('roe_pct', '?')}%  D/E: {fd.get('de_ratio', '?')}  "
                 f"Rev Growth: {fd.get('revenue_growth_pct', '?')}%  "
                 f"MCap/Sales: {fd.get('mcap_to_sales', 'N/A')}×",
+                f"     Lynch: PEG {pb.get('lynch_peg', 'N/A')}  "
+                f"Inst% {pb.get('lynch_inst_pct', 'N/A')}  "
+                f"NetCash%MCap {pb.get('lynch_net_cash_pct', 'N/A')}  "
+                f"Class: {pb.get('lynch_class', '?')}",
             ]
             if pb["catalysts"]:
                 lines.append(f"     ▶  {' | '.join(pb['catalysts'][:3])}")
@@ -209,17 +217,29 @@ def generate_conviction_report(
     lines.append("")
 
     # ── Section C: Layer 2 Top 10 ──
-    lines += [sep, "  SECTION C: TOP 10 PRE-BREAKOUT WATCHLIST (Layer 2)", sep, ""]
+    lines += [sep, "  SECTION C: TOP 10 PRE-BREAKOUT WATCHLIST (Layer 2) — Lynch GARP + VALUEPICK", sep, ""]
     for i, s in enumerate(l2[:10], 1):
-        p_score = s.get("piotroski", {}).get("piotroski_score")
-        fcf_y   = s.get("fcf", {}).get("fcf_yield_pct")
-        cat_str = s["catalyst"]["catalysts"][0] if s["catalyst"]["catalysts"] else "–"
+        p_score  = s.get("piotroski", {}).get("piotroski_score")
+        fcf_y    = s.get("fcf", {}).get("fcf_yield_pct")
+        lynch    = s.get("lynch", {})
+        peg      = lynch.get("peg_ratio")
+        inst_pct = lynch.get("inst_own_pct")
+        l_class  = lynch.get("lynch_class", "?")
+        cat_str  = s["catalyst"]["catalysts"][0] if s["catalyst"]["catalysts"] else "–"
+        lynch_str = (
+            f"  PEG:{peg:.2f}" if peg is not None else ""
+        ) + (
+            f"  Inst:{inst_pct:.0f}%" if inst_pct is not None else ""
+        ) + (
+            f"  [{l_class}]" if l_class and l_class != "Unknown" else ""
+        )
         lines.append(
             f"  #{i:02d}  {s['symbol']:<16}  ₹{s['price']:<8}  "
             f"Score: {s['composite_score']:.3f}  "
             f"F-Score: {p_score if p_score is not None else 'N/A'}/9  "
-            f"FCF: {fcf_y if fcf_y is not None else 'N/A'}%  "
-            f"{s['price_stage']}"
+            f"FCF: {fcf_y if fcf_y is not None else 'N/A'}%"
+            + lynch_str +
+            f"  {s['price_stage']}"
         )
         if cat_str != "–":
             lines.append(f"       ▶ {cat_str}")
@@ -229,10 +249,12 @@ def generate_conviction_report(
         sep,
         "  HOW TO USE:",
         "  Section A → Highest conviction. Both technicals AND thesis AND OBV confirmed.",
+        "              Lynch GARP: PEG <1.5 + Inst <20% = undiscovered compounder.",
         "              In bear regime: only act here, nowhere else.",
         "  Section B → Swing trades. Enter on breakout, stop-loss below 52W high.",
         "              Check regime — avoid in BEAR without OBV + RS confirmation.",
-        "  Section C → Research queue. Piotroski ≥ 7 + FCF yield = prioritise these.",
+        "  Section C → Research queue. Piotroski ≥ 7 + FCF yield + PEG <1.5 = prioritise.",
+        "              Lynch 'Fast Grower' class + catalyst = highest priority research.",
         "              Wait for Layer 1 before entry.",
         sep,
         "  ⚠  Educational use only. Not financial advice.",
