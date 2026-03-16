@@ -602,87 +602,139 @@ def measure_forward_returns(
 
 def run_backtest_b(
     symbols: list[str],
-    lookback_days: int = 365,
+    lookback_days: int = 500,
     sample_every_n_days: int = 5,
+    batch_size: int = 50,
 ) -> dict:
     """
     Run Layer 1 historical backtest on a list of symbols.
-    Simulates daily scans over the past `lookback_days`.
 
-    sample_every_n_days: scan every N days (not every day) to reduce
-    correlation between signals from the same trend.
+    Uses batch downloading (50 symbols at a time) — the same pattern
+    as engine.py. This is ~4× faster than sequential per-symbol downloads
+    and is the key optimisation that makes a full 1,800-symbol run feasible
+    in ~11 minutes instead of ~60 minutes.
+
+    For each symbol it simulates running the breakout scanner every
+    sample_every_n_days over the past lookback_days and measures
+    forward returns at 1M, 3M, 6M vs Nifty 50.
     """
     log.info("═" * 60)
     log.info("BACKTEST B — LAYER 1 HISTORICAL BREAKOUT PERFORMANCE")
-    log.info(f"  Symbols: {len(symbols)}  |  Lookback: {lookback_days} days")
+    log.info(f"  Symbols:   {len(symbols)}")
+    log.info(f"  Lookback:  {lookback_days} days  |  Sample every {sample_every_n_days} days")
+    log.info(f"  Batches:   {len(symbols) // batch_size + 1} × {batch_size} symbols")
     log.info("═" * 60)
 
-    # Fetch Nifty for benchmarking
+    # Fetch Nifty once — used to compute alpha for every signal
+    log.info("Fetching Nifty 50 benchmark (4 years)...")
     nifty_df = yf.download(
-        "^NSEI",
-        period="3y", interval="1d",
+        "^NSEI", period="4y", interval="1d",
         progress=False, auto_adjust=True,
     )
+    if isinstance(nifty_df.columns, pd.MultiIndex):
+        nifty_df.columns = nifty_df.columns.get_level_values(0)
     nifty_df.index = pd.to_datetime(nifty_df.index).tz_localize(None)
+    log.info(f"  Nifty: {len(nifty_df)} rows")
 
-    all_signals:           list[BacktestSignal] = []
-    signals_with_obv:      list[BacktestSignal] = []
-    signals_without_obv:   list[BacktestSignal] = []
+    all_signals:         list[BacktestSignal] = []
+    signals_with_obv:    list[BacktestSignal] = []
+    signals_without_obv: list[BacktestSignal] = []
+    total_scanned = 0
+    total_skipped = 0
 
-    for sym in symbols:
-        sym_signals = 0
+    batches = [symbols[i:i + batch_size] for i in range(0, len(symbols), batch_size)]
+
+    for b_idx, batch in enumerate(batches):
+        log.info(f"  Batch {b_idx+1}/{len(batches)} — {batch[0]} … {batch[-1]}")
+
         try:
-            df = yf.download(
-                sym, period="3y", interval="1d",
-                progress=False, auto_adjust=True,
+            raw = yf.download(
+                batch, period="4y", interval="1d",
+                group_by="ticker", auto_adjust=True,
+                progress=False, threads=True,
             )
-            if df is None or df.empty or len(df) < 300:
-                log.debug(f"  {sym}: skipped ({len(df) if df is not None else 0} rows)")
-                continue
-
-            # yfinance sometimes returns MultiIndex columns for single symbols
-            if isinstance(df.columns, pd.MultiIndex):
-                df.columns = df.columns.get_level_values(0)
-
-            df.index = pd.to_datetime(df.index).tz_localize(None)
-
-            # Start scanning after enough warmup rows (120), not after full lookback.
-            # The breakout lookback (252) is applied internally per call.
-            warmup         = 120
-            scan_range_end = len(df) - 21    # need 21 days ahead for 1M return
-            scan_range_start = max(len(df) - lookback_days, warmup)
-
-            if scan_range_start >= scan_range_end:
-                log.debug(f"  {sym}: scan range empty ({scan_range_start} >= {scan_range_end})")
-                continue
-
-            dates_scanned = (scan_range_end - scan_range_start) // sample_every_n_days
-            for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
-                sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
-                if sig is None:
-                    continue
-                sig = measure_forward_returns(sig, df, nifty_df, idx)
-                all_signals.append(sig)
-                sym_signals += 1
-                if sig.obv_bullish:
-                    signals_with_obv.append(sig)
-                else:
-                    signals_without_obv.append(sig)
-
-            log.info(f"  {sym:<16}: scanned {dates_scanned} dates → {sym_signals} signals")
-
         except Exception as e:
-            log.warning(f"Backtest B error for {sym}: {type(e).__name__}: {e}")
+            log.warning(f"  Batch {b_idx+1} download failed: {e}")
+            time.sleep(3)
+            continue
 
-        time.sleep(0.2)
+        for sym in batch:
+            sym_signals = 0
+            try:
+                # Extract this symbol's frame from the batch result
+                if len(batch) == 1:
+                    df = raw.copy()
+                elif isinstance(raw.columns, pd.MultiIndex):
+                    lvl0 = raw.columns.get_level_values(0)
+                    if sym not in lvl0:
+                        total_skipped += 1
+                        continue
+                    df = raw[sym].copy()
+                else:
+                    total_skipped += 1
+                    continue
 
-    log.info(f"Backtest B complete: {len(all_signals)} total signals "
-             f"({len(signals_with_obv)} OBV confirmed, "
-             f"{len(signals_without_obv)} OBV diverging)")
+                # Flatten columns if still MultiIndex after slicing
+                if isinstance(df.columns, pd.MultiIndex):
+                    df.columns = df.columns.get_level_values(0)
+
+                df.dropna(subset=["Close", "Volume"], inplace=True)
+                if df.empty or len(df) < 300:
+                    total_skipped += 1
+                    continue
+
+                df.index = pd.to_datetime(df.index).tz_localize(None)
+
+                # Scan window: need 260 warmup rows at the start,
+                # and 21 rows ahead at the end for the 1M forward return
+                warmup           = 260
+                scan_range_end   = len(df) - 21
+                scan_range_start = max(len(df) - lookback_days, warmup)
+
+                if scan_range_start >= scan_range_end:
+                    total_skipped += 1
+                    continue
+
+                for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
+                    sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
+                    if sig is None:
+                        continue
+                    sig = measure_forward_returns(sig, df, nifty_df, idx)
+                    all_signals.append(sig)
+                    sym_signals += 1
+                    if sig.obv_bullish:
+                        signals_with_obv.append(sig)
+                    else:
+                        signals_without_obv.append(sig)
+
+                total_scanned += 1
+                if sym_signals > 0:
+                    log.info(f"    ✓ {sym:<18}: {sym_signals} signals")
+
+            except Exception as e:
+                log.warning(f"  {sym}: {type(e).__name__}: {e}")
+                total_skipped += 1
+
+        log.info(
+            f"  Batch {b_idx+1} done — running total: {len(all_signals)} signals | "
+            f"scanned: {total_scanned} | skipped: {total_skipped}"
+        )
+        time.sleep(1.5)   # polite pause between batches
+
+    log.info(
+        f"\nBacktest B complete:"
+        f"\n  Total signals:   {len(all_signals)}"
+        f"\n  OBV confirmed:   {len(signals_with_obv)}"
+        f"\n  OBV diverging:   {len(signals_without_obv)}"
+        f"\n  Symbols scanned: {total_scanned}"
+        f"\n  Symbols skipped: {total_skipped}"
+    )
     return {
         "all_signals":         all_signals,
         "with_obv":            signals_with_obv,
         "without_obv":         signals_without_obv,
+        "total_scanned":       total_scanned,
+        "total_skipped":       total_skipped,
     }
 
 
@@ -942,12 +994,12 @@ def main():
 Examples:
   python backtest.py --mode a                    # VALUEPICK ground truth only (~1 min)
   python backtest.py --mode b --quick            # Fast Backtest B on 10 stocks (~2 min)
-  python backtest.py --mode b                    # Full Backtest B on 48 stocks (~15 min)
+  python backtest.py --mode b                    # Backtest B on 48 curated stocks (~5 min)
+  python backtest.py --mode b --full             # Full NSE universe ~1,800 stocks (~11 min)
   python backtest.py --mode both --tune          # Run everything + weight tuning
   python backtest.py --mode b --rsi-lo 45 --rsi-hi 80   # Test different RSI range
   python backtest.py --mode b --atr-mult 0.1    # Loosen breakout gate (more signals)
-  python backtest.py --mode b --vol-mult 1.2    # Lower volume surge threshold
-  python backtest.py --mode b --quick --atr-mult 0.5 --vol-mult 2.0  # Stricter + fast
+  python backtest.py --mode b --full --lookback 365      # 1 year on full universe
         """
     )
     parser.add_argument("--mode", default="both", choices=["a", "b", "both"],
@@ -958,6 +1010,9 @@ Examples:
                         help="Override symbols for Backtest B")
     parser.add_argument("--quick", action="store_true",
                         help="Quick mode: 10 stocks, 200 days (~2 min). Good for iterating.")
+    parser.add_argument("--full", action="store_true",
+                        help="Full NSE universe (~1,800 symbols, ~11 min). "
+                             "Uses batch downloads. Runs on GitHub Actions weekly.")
 
     # ── Signal parameter overrides — tune these to optimise ──
     parser.add_argument("--rsi-lo",   type=float, default=48.0,
@@ -991,6 +1046,7 @@ Examples:
     log.info(f"  ADX min:      {args.adx_min}")
     log.info(f"  Lookback:     {args.lookback} days")
     log.info(f"  Quick mode:   {'YES (10 stocks)' if args.quick else 'NO'}")
+    log.info(f"  Full universe:{'YES (~1,800 symbols)' if getattr(args, 'full', False) else 'NO'}")
     log.info("═" * 60)
 
     a_results    = []
@@ -1003,11 +1059,22 @@ Examples:
             best_weights = tune_weights(a_results)
 
     if args.mode in ("b", "both"):
-        if args.quick:
-            test_symbols = args.symbols or quick_symbols
+        if args.symbols:
+            # Explicit symbol list overrides everything
+            test_symbols = args.symbols
+            lookback     = args.lookback
+        elif args.quick:
+            test_symbols = quick_symbols
             lookback     = min(args.lookback, 200)
+        elif getattr(args, 'full', False):
+            # Full NSE universe — fetch from universe.py
+            log.info("Loading full NSE universe...")
+            from universe import fetch_nse_symbols
+            test_symbols = fetch_nse_symbols()
+            log.info(f"  Universe: {len(test_symbols)} symbols")
+            lookback = args.lookback
         else:
-            test_symbols = args.symbols or [
+            test_symbols = [
                 "DIXON.NS", "DEEPAKNTR.NS", "NAVINFLUOR.NS", "FINEORG.NS",
                 "GALAXYSURF.NS", "VINATIORGA.NS", "ALKYLAMINE.NS", "PIIND.NS",
                 "PERSISTENT.NS", "KPITTECH.NS", "HAPPSTMNDS.NS", "TANLA.NS",
