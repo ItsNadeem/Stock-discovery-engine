@@ -39,6 +39,7 @@ Usage:
 import argparse
 import json
 import logging
+import os
 import time
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timedelta
@@ -54,6 +55,15 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
+# Global signal params — overridden via CLI args for iterative tuning
+_BACKTEST_PARAMS: dict = {
+    "rsi_lo":   48.0,
+    "rsi_hi":   78.0,
+    "atr_mult": 0.3,
+    "vol_mult": 1.5,
+    "adx_min":  18.0,
+}
+
 
 # ─────────────────────────────────────────────────────────────
 # GROUND TRUTH DATASET — VALUEPICK CONFIRMED PICKS
@@ -62,56 +72,77 @@ log = logging.getLogger(__name__)
 
 VALUEPICK_PICKS = [
     {
-        "symbol":      "PAUSHAK.NS",
-        "entry_price": 74.0,
-        "entry_date":  "2011-03-15",   # Blog post date
-        "peak_price":  10000.0,
-        "peak_date":   "2022-01-03",
-        "return_x":    140.0,
-        "thesis":      "Alembic group specialty chemical, capacity expansion pending, debt-free",
-        "key_signals": ["trusted_group", "capex", "low_pe", "debt_free"],
+        # Paushak was BSE-only until Dec 2025 — use .BO for historical data
+        # yfinance has BSE data back to ~2000 for this stock
+        "symbol":        "PAUSHAKLTD.BO",
+        "symbol_alt":    "PAUSHAKLTD.NS",   # NSE listing only from Dec 2025
+        "entry_price":   74.0,
+        "entry_date":    "2011-03-15",
+        "peak_price":    10000.0,
+        "peak_date":     "2022-01-03",
+        "return_x":      140.0,
+        "thesis":        "Alembic group specialty chemical, capacity expansion pending, debt-free",
+        "key_signals":   ["trusted_group", "capex", "low_pe", "debt_free"],
+        "data_note":     "BSE-only until Dec 2025. Using .BO suffix for yfinance historical data.",
     },
     {
-        "symbol":      "COSMOFE.NS",   # BSE-listed: try COSMOFE or COSFERR
-        "entry_price": 13.0,
-        "entry_date":  "2011-06-01",   # Approximate — "10 years back" from Oct 2021 post
-        "peak_price":  500.0,          # Conservative — actual peak higher
-        "return_x":    13.0,           # Confirmed "10 fold rise" by Oct 2021
-        "thesis":      "Cosmo Films group, soft ferrite manufacturer, EV tailwind",
-        "key_signals": ["trusted_group", "low_pe", "export_growth", "capacity_expansion"],
+        # Cosmo Ferrites — BSE-listed, NSE symbol COSMOFERR
+        "symbol":        "COSMOFERR.BO",
+        "symbol_alt":    "COSMOFERR.NS",
+        "entry_price":   13.0,
+        "entry_date":    "2011-06-01",
+        "peak_price":    500.0,
+        "return_x":      13.0,
+        "thesis":        "Cosmo Films group, soft ferrite manufacturer, EV tailwind",
+        "key_signals":   ["trusted_group", "low_pe", "export_growth", "capacity_expansion"],
+        "data_note":     "Entry date approximate — '10 years back' from Oct 2021 blog post.",
     },
     {
-        "symbol":      "TASTYBITE.NS",
-        "entry_price": 165.0,
-        "entry_date":  "2010-02-27",   # Blog post Feb 2010
-        "peak_price":  9420.0,
-        "return_x":    57.0,
-        "thesis":      "Organic food, export-led, US market penetration",
-        "key_signals": ["export_growth", "low_pe", "promoter_confidence"],
+        # Tasty Bite — BSE scrip code 519091, NSE: TASTYBITE
+        # yfinance historical data for Indian small caps before 2015 is patchy
+        "symbol":        "TASTYBITE.BO",
+        "symbol_alt":    "TASTYBITE.NS",
+        "entry_price":   165.0,
+        "entry_date":    "2010-02-27",
+        "peak_price":    9420.0,
+        "return_x":      57.0,
+        "thesis":        "Organic food, export-led, US market penetration",
+        "key_signals":   ["export_growth", "low_pe", "promoter_confidence"],
+        "data_note":     "Pre-2015 Yahoo data very patchy for Indian small caps — may return no data.",
     },
     {
-        "symbol":      "EKILABELS.NS",  # EKI Energy BSE scrip 543284
-        "entry_price": 162.0,
-        "entry_date":  "2021-04-10",
-        "peak_price":  10000.0,
-        "peak_date":   "2022-01-03",
-        "return_x":    66.0,
-        "thesis":      "First listed carbon credit company globally, 90%+ overseas revenue",
-        "key_signals": ["first_in_niche", "export_growth", "high_promoter", "low_pe"],
+        # EKI Energy Services — listed Apr 2021 on BSE SME, NSE symbol EKINDIA
+        # BSE scrip: 543284. Listed at ₹162 on 8 Apr 2021.
+        "symbol":        "EKINDIA.NS",
+        "symbol_alt":    "EKINDIA.BO",
+        "entry_price":   162.0,
+        "entry_date":    "2021-04-10",
+        "peak_price":    10000.0,
+        "peak_date":     "2022-01-03",
+        "return_x":      66.0,
+        "thesis":        "First listed carbon credit company globally, 90%+ overseas revenue",
+        "key_signals":   ["first_in_niche", "export_growth", "high_promoter", "low_pe"],
+        "data_note":     "Listed Apr 2021 — entry date is 2 days post-listing. Limited pre-listing history.",
     },
     {
-        "symbol":      "JAYKAY.NS",    # Jay Kay Enterprises
-        "entry_price": 28.0,
-        "entry_date":  "2021-02-06",
-        "thesis":      "JK group 3D printing JV with EOS Germany, promoter 32%→52% preferential",
-        "key_signals": ["trusted_group", "promoter_pref_allotment", "pivot_jv"],
+        # Jay Kay Enterprises — BSE scrip 530005, very illiquid, sparse yfinance data
+        "symbol":        "JAYKAYENTM.BO",
+        "symbol_alt":    "JAYKAYENTM.NS",
+        "entry_price":   28.0,
+        "entry_date":    "2021-02-06",
+        "thesis":        "JK group 3D printing JV with EOS Germany, promoter 32%→52% preferential",
+        "key_signals":   ["trusted_group", "promoter_pref_allotment", "pivot_jv"],
+        "data_note":     "Extremely illiquid microcap — yfinance data may be missing or stale.",
     },
     {
-        "symbol":      "SHANTIGEAR.NS",  # Shanthi Gears
-        "entry_price": 180.0,
-        "entry_date":  "2024-06-01",
-        "thesis":      "Murugappa group, zero debt, steady growth, sector tailwind",
-        "key_signals": ["trusted_group", "debt_free", "sector_tailwind"],
+        # Shanthi Gears — Murugappa group, NSE: SHANTIGEAR — only recent pick so data available
+        "symbol":        "SHANTIGEAR.NS",
+        "symbol_alt":    "SHANTIGEAR.BO",
+        "entry_price":   180.0,
+        "entry_date":    "2024-06-01",
+        "thesis":        "Murugappa group, zero debt, steady growth, sector tailwind",
+        "key_signals":   ["trusted_group", "debt_free", "sector_tailwind"],
+        "data_note":     "Most recent pick — full data expected.",
     },
 ]
 
@@ -181,10 +212,12 @@ class SignalScoreAtDate:
     notes:              str              = ""
 
 
-def score_at_date(symbol: str, date_str: str, entry_price: float) -> SignalScoreAtDate:
+def score_at_date(symbol: str, date_str: str, entry_price: float,
+                  pick_meta: Optional[dict] = None) -> SignalScoreAtDate:
     """
     Reconstruct what our technical signals would have looked like
     on a given historical date for a given stock.
+    Tries primary symbol first, falls back to symbol_alt if no data found.
     """
     result = SignalScoreAtDate(
         symbol=symbol,
@@ -194,21 +227,50 @@ def score_at_date(symbol: str, date_str: str, entry_price: float) -> SignalScore
 
     try:
         entry_dt  = datetime.strptime(date_str, "%Y-%m-%d")
-        # Fetch 2 years before entry to have enough history
         from_dt   = entry_dt - timedelta(days=730)
-        to_dt     = entry_dt + timedelta(days=400)   # also get forward returns
+        to_dt     = entry_dt + timedelta(days=400)
 
-        ticker = yf.Ticker(symbol)
-        df     = ticker.history(
-            start=from_dt.strftime("%Y-%m-%d"),
-            end=to_dt.strftime("%Y-%m-%d"),
-            interval="1d",
-            auto_adjust=True,
-        )
+        # ── Try primary symbol, fall back to alt symbol ──
+        def fetch_history(sym: str) -> Optional[pd.DataFrame]:
+            try:
+                df = yf.Ticker(sym).history(
+                    start=from_dt.strftime("%Y-%m-%d"),
+                    end=to_dt.strftime("%Y-%m-%d"),
+                    interval="1d",
+                    auto_adjust=True,
+                )
+                if df is not None and not df.empty and len(df) >= 50:
+                    return df
+            except Exception:
+                pass
+            return None
 
-        if df is None or df.empty or len(df) < 200:
-            result.notes = f"Insufficient data: {len(df) if df is not None else 0} rows"
+        df = fetch_history(symbol)
+        if df is None:
+            # Try alternate symbol (e.g. .NS vs .BO)
+            alt = pick_meta.get("symbol_alt") if pick_meta else None
+            if alt and alt != symbol:
+                log.info(f"  {symbol} no data — trying alt symbol {alt}")
+                df = fetch_history(alt)
+                if df is not None:
+                    result.symbol = alt   # note which symbol worked
+
+        if df is None or df.empty:
+            result.notes = (
+                f"No yfinance data found for {symbol}. "
+                f"{pick_meta.get('data_note', '') if pick_meta else ''}"
+            )
             return result
+
+        if len(df) < 200:
+            result.notes = (
+                f"Only {len(df)} rows available — pre-2015 Indian small cap "
+                f"data is sparse on Yahoo Finance. "
+                f"{pick_meta.get('data_note', '') if pick_meta else ''}"
+            )
+            # Continue with what we have if >= 60 rows (enough for basic indicators)
+            if len(df) < 60:
+                return result
 
         df.index = pd.to_datetime(df.index).tz_localize(None)
 
@@ -358,8 +420,10 @@ def run_backtest_a() -> list[SignalScoreAtDate]:
         sym = pick["symbol"]
         log.info(f"\nScoring {sym} @ ₹{pick['entry_price']} on {pick['entry_date']}")
         log.info(f"  Thesis: {pick['thesis']}")
+        if pick.get("data_note"):
+            log.info(f"  Data note: {pick['data_note']}")
 
-        score = score_at_date(sym, pick["entry_date"], pick["entry_price"])
+        score = score_at_date(sym, pick["entry_date"], pick["entry_price"], pick_meta=pick)
         score.notes = pick.get("thesis", "")
         results.append(score)
 
@@ -436,16 +500,17 @@ def simulate_breakout_scan_on_date(
     high_252     = float(rolling_high.iloc[-1])
     breakout_lvl = high_252 + atr_now * 0.3
 
-    is_breakout  = last_close >= breakout_lvl
+    is_breakout  = last_close >= (high_252 + atr_now * _BACKTEST_PARAMS["atr_mult"])
     ema_bull     = float(e21.iloc[-1]) > float(e55.iloc[-1])
     last_rsi     = float(rsi_s.iloc[-1])
-    rsi_ok       = 48 <= last_rsi <= 78
-    vol_surge    = last_vol >= avg_vol * 1.5
+    rsi_ok       = _BACKTEST_PARAMS["rsi_lo"] <= last_rsi <= _BACKTEST_PARAMS["rsi_hi"]
+    vol_surge    = last_vol >= avg_vol * _BACKTEST_PARAMS["vol_mult"]
+    breakout_lvl = high_252 + atr_now * _BACKTEST_PARAMS["atr_mult"]
 
     if not (is_breakout and ema_bull and rsi_ok):
         return None
 
-    # OBV check
+    # ── OBV check ──
     obv_s     = obv_series(window)
     obv_win   = obv_s.iloc[-10:]
     obv_slope = float(obv_win.iloc[-1] - obv_win.iloc[0])
@@ -690,6 +755,7 @@ def generate_backtest_report(
     a_results: list[SignalScoreAtDate],
     b_metrics: dict,
     best_weights: dict,
+    params: dict = None,
 ) -> str:
     sep = "═" * 72
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
@@ -698,8 +764,23 @@ def generate_backtest_report(
         "  MULTIBAGGER ENGINE — BACKTEST REPORT",
         f"  {now}",
         sep,
-        "",
     ]
+
+    # Show what parameters were used — crucial for iterative tuning
+    if params:
+        lines += [
+            "",
+            "  PARAMETERS USED IN THIS RUN:",
+            f"    RSI range:  {params.get('rsi_lo', 48)} – {params.get('rsi_hi', 78)}",
+            f"    ATR mult:   {params.get('atr_mult', 0.3)}   "
+            f"(breakout = 52W high + {params.get('atr_mult', 0.3)}×ATR)",
+            f"    Vol surge:  {params.get('vol_mult', 1.5)}×  avg 20-day volume",
+            f"    ADX min:    {params.get('adx_min', 18)}",
+            f"    Lookback:   {params.get('lookback', 500)} days",
+            f"    Quick mode: {'YES' if params.get('quick') else 'NO'}",
+            "",
+        ]
+    lines.append("")
 
     # ── BACKTEST A ──
     lines += [
@@ -730,7 +811,11 @@ def generate_backtest_report(
                 f"6M {g.return_6m:+.1f}%  1Y {g.return_1y:+.1f}%  {alpha}"
             )
         else:
-            lines.append(f"  Forward returns: insufficient data")
+            # Show the actual reason — much more informative than "insufficient data"
+            note = g.notes if g.notes and g.notes != pick.get("thesis", "") else ""
+            pick_note = pick.get("data_note", "")
+            reason = note or pick_note or "No yfinance data available for this symbol/date"
+            lines.append(f"  Forward returns: ⚠ NOT AVAILABLE — {reason}")
         if g.notes and g.notes != pick.get("thesis", ""):
             lines.append(f"  Note: {g.notes}")
         lines.append("")
@@ -759,12 +844,17 @@ def generate_backtest_report(
         "",
     ]
 
-    for key in ["all_signals", "with_obv", "without_obv"]:
+    for key in ["all_signals", "with_obv", "without_obv", "with_base", "with_vol"]:
         m = b_metrics.get(key, {})
-        if not m:
+        if not m or m.get("count", 0) == 0:
             continue
-        label = {"all_signals": "All signals", "with_obv": "OBV confirmed ✓",
-                 "without_obv": "OBV diverging ✗"}.get(key, key)
+        label = {
+            "all_signals":  "All signals",
+            "with_obv":     "OBV confirmed ✓",
+            "without_obv":  "OBV diverging ✗",
+            "with_base":    "Tight base ✓",
+            "with_vol":     "Volume surge ✓",
+        }.get(key, key)
         lines += [
             f"  {label} (n={m.get('count', 0)})",
             f"    Hit rate (3M positive return): {m.get('hit_rate_3m', 'N/A')}%",
@@ -823,17 +913,66 @@ def generate_backtest_report(
 # ─────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Multibagger Engine Backtester")
-    parser.add_argument("--mode",  default="both", choices=["a", "b", "both"],
+    parser = argparse.ArgumentParser(
+        description="Multibagger Engine Backtester",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python backtest.py --mode a                    # VALUEPICK ground truth only (~1 min)
+  python backtest.py --mode b --quick            # Fast Backtest B on 10 stocks (~2 min)
+  python backtest.py --mode b                    # Full Backtest B on 48 stocks (~15 min)
+  python backtest.py --mode both --tune          # Run everything + weight tuning
+  python backtest.py --mode b --rsi-lo 45 --rsi-hi 80   # Test different RSI range
+  python backtest.py --mode b --atr-mult 0.1    # Loosen breakout gate (more signals)
+  python backtest.py --mode b --vol-mult 1.2    # Lower volume surge threshold
+  python backtest.py --mode b --quick --atr-mult 0.5 --vol-mult 2.0  # Stricter + fast
+        """
+    )
+    parser.add_argument("--mode", default="both", choices=["a", "b", "both"],
                         help="a=ground truth, b=historical, both=run both")
-    parser.add_argument("--tune",  action="store_true",
+    parser.add_argument("--tune", action="store_true",
                         help="Tune weights on ground truth results")
     parser.add_argument("--symbols", nargs="+",
-                        help="Override symbols for Backtest B (default: small subset)")
+                        help="Override symbols for Backtest B")
+    parser.add_argument("--quick", action="store_true",
+                        help="Quick mode: 10 stocks, 200 days (~2 min). Good for iterating.")
+
+    # ── Signal parameter overrides — tune these to optimise ──
+    parser.add_argument("--rsi-lo",   type=float, default=48.0,
+                        help="RSI lower bound (default 48). Lower = more signals.")
+    parser.add_argument("--rsi-hi",   type=float, default=78.0,
+                        help="RSI upper bound (default 78). Higher = more signals.")
+    parser.add_argument("--atr-mult", type=float, default=0.3,
+                        help="ATR buffer multiplier for breakout level (default 0.3). "
+                             "Lower = easier to trigger breakout.")
+    parser.add_argument("--vol-mult", type=float, default=1.5,
+                        help="Volume surge multiplier vs 20-day avg (default 1.5). "
+                             "Lower = more signals, higher = stricter.")
+    parser.add_argument("--adx-min",  type=float, default=18.0,
+                        help="Minimum ADX for trend strength (default 18).")
+    parser.add_argument("--lookback", type=int, default=500,
+                        help="Backtest lookback days (default 500 = ~2 years)")
+
     args = parser.parse_args()
 
-    a_results   = []
-    b_metrics   = {}
+    # Quick mode overrides
+    quick_symbols = [
+        "DIXON.NS", "DEEPAKNTR.NS", "PERSISTENT.NS", "TRENT.NS",
+        "POLYCAB.NS", "HAL.NS", "IRFC.NS", "TATAPOWER.NS", "FORTIS.NS", "BALKRISIND.NS",
+    ]
+
+    log.info("═" * 60)
+    log.info("BACKTEST PARAMETERS")
+    log.info(f"  RSI range:    {args.rsi_lo} – {args.rsi_hi}")
+    log.info(f"  ATR mult:     {args.atr_mult}  (breakout = 52W high + {args.atr_mult}×ATR)")
+    log.info(f"  Vol surge:    {args.vol_mult}×  avg volume")
+    log.info(f"  ADX min:      {args.adx_min}")
+    log.info(f"  Lookback:     {args.lookback} days")
+    log.info(f"  Quick mode:   {'YES (10 stocks)' if args.quick else 'NO'}")
+    log.info("═" * 60)
+
+    a_results    = []
+    b_metrics    = {}
     best_weights = {}
 
     if args.mode in ("a", "both"):
@@ -842,45 +981,70 @@ def main():
             best_weights = tune_weights(a_results)
 
     if args.mode in ("b", "both"):
-        # Default: test on a representative sample of 50 NSE small caps
-        # to keep runtime under 10 minutes
-        test_symbols = args.symbols or [
-            "DIXON.NS", "TRENT.NS", "POLYCAB.NS", "PERSISTENT.NS", "KPITTECH.NS",
-            "HAPPSTMNDS.NS", "TANLA.NS", "DEEPAKNTR.NS", "NAVINFLUOR.NS", "FINEORG.NS",
-            "GALAXYSURF.NS", "VINATIORGA.NS", "ALKYLAMINE.NS", "AARTI.NS", "PIIND.NS",
-            "BALRAMCHIN.NS", "TATACHEM.NS", "JSWENERGY.NS", "CESC.NS", "TATAPOWER.NS",
-            "SUZLON.NS", "IRFC.NS", "RAILTEL.NS", "RVNL.NS", "IRCON.NS",
-            "COCHINSHIP.NS", "MAZAGON.NS", "HAL.NS", "BEL.NS", "BHEL.NS",
-            "GRINDWELL.NS", "SCHAEFFLER.NS", "TIMKEN.NS", "SKFINDIA.NS", "ELGIEQUIP.NS",
-            "SUPRAJIT.NS", "BALKRISIND.NS", "CEATLTD.NS", "MRF.NS", "APOLLOTYRE.NS",
-            "PAGEIND.NS", "RELAXO.NS", "BATAINDIA.NS", "VIPIND.NS", "SAFARI.NS",
-            "METROPOLIS.NS", "LALPATHLAB.NS", "FORTIS.NS", "ASTERDM.NS", "MAXHEALTH.NS",
-        ]
-        raw = run_backtest_b(test_symbols)
+        if args.quick:
+            test_symbols = args.symbols or quick_symbols
+            lookback     = min(args.lookback, 200)
+        else:
+            test_symbols = args.symbols or [
+                "DIXON.NS", "DEEPAKNTR.NS", "NAVINFLUOR.NS", "FINEORG.NS",
+                "GALAXYSURF.NS", "VINATIORGA.NS", "ALKYLAMINE.NS", "PIIND.NS",
+                "PERSISTENT.NS", "KPITTECH.NS", "HAPPSTMNDS.NS", "TANLA.NS",
+                "TRENT.NS", "PAGEIND.NS", "RELAXO.NS", "BATAINDIA.NS", "SAFARI.NS",
+                "POLYCAB.NS", "GRINDWELL.NS", "SCHAEFFLER.NS", "TIMKEN.NS",
+                "SKFINDIA.NS", "ELGIEQUIP.NS", "SUPRAJIT.NS",
+                "BALKRISIND.NS", "CEATLTD.NS", "APOLLOTYRE.NS",
+                "TATAPOWER.NS", "JSWENERGY.NS", "CESC.NS", "SUZLON.NS",
+                "HAL.NS", "BEL.NS", "BHEL.NS", "IRFC.NS", "RAILTEL.NS",
+                "RVNL.NS", "IRCON.NS", "COCHINSHIP.NS",
+                "METROPOLIS.NS", "LALPATHLAB.NS", "FORTIS.NS", "ASTERDM.NS",
+                "BALRAMCHIN.NS", "TATACHEM.NS",
+                "MRF.NS", "VIPIND.NS", "MAXHEALTH.NS",
+            ]
+            lookback = args.lookback
+
+        # Pass signal params into the backtest via module-level overrides
+        # (avoids threading these through every function signature)
+        global _BACKTEST_PARAMS
+        _BACKTEST_PARAMS = {
+            "rsi_lo":   args.rsi_lo,
+            "rsi_hi":   args.rsi_hi,
+            "atr_mult": args.atr_mult,
+            "vol_mult": args.vol_mult,
+            "adx_min":  args.adx_min,
+        }
+
+        raw = run_backtest_b(test_symbols, lookback_days=lookback, sample_every_n_days=5)
         b_metrics = {
             "all_signals":   compute_metrics(raw["all_signals"],  "All breakout signals"),
             "with_obv":      compute_metrics(raw["with_obv"],     "OBV confirmed"),
             "without_obv":   compute_metrics(raw["without_obv"],  "OBV diverging"),
+            "with_base":     compute_metrics(
+                [s for s in raw["all_signals"] if s.has_tight_base], "Tight base ✓"
+            ),
+            "with_vol":      compute_metrics(
+                [s for s in raw["all_signals"] if s.vol_surge],      "Vol surge ✓"
+            ),
         }
 
-    report = generate_backtest_report(a_results, b_metrics, best_weights)
+    report = generate_backtest_report(
+        a_results, b_metrics, best_weights,
+        params=getattr(args, '__dict__', {})
+    )
     print("\n" + report)
 
-    # Save
     date_str = datetime.utcnow().strftime("%Y%m%d_%H%M")
+    os.makedirs("results", exist_ok=True)
     with open(f"results/backtest_{date_str}.txt", "w", encoding="utf-8") as f:
         f.write(report)
-
-    # Save raw data as JSON
-    out = {
-        "ground_truth": [asdict(g) for g in a_results],
-        "backtest_b_metrics": b_metrics,
-        "weight_tuning": best_weights,
-    }
     with open(f"results/backtest_{date_str}.json", "w") as f:
-        json.dump(out, f, indent=2, default=str)
+        json.dump({
+            "params":          getattr(args, '__dict__', {}),
+            "ground_truth":    [asdict(g) for g in a_results],
+            "backtest_b":      b_metrics,
+            "weight_tuning":   best_weights,
+        }, f, indent=2, default=str)
 
-    log.info(f"\nResults saved → results/backtest_{date_str}.txt")
+    log.info(f"Results saved → results/backtest_{date_str}.txt")
 
 
 if __name__ == "__main__":
