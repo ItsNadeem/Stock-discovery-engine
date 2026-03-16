@@ -32,7 +32,8 @@ def regime_color(regime: str) -> str:
     return {"BULL": "#16a34a", "NEUTRAL": "#d97706", "BEAR": "#dc2626"}.get(regime, "#6b7280")
 
 
-def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> str:
+def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
+               watch_now: list = None) -> str:
     date_str   = datetime.utcnow().strftime("%d %b %Y")
     r          = regime.get("regime", "UNKNOWN")
     r_color    = regime_color(r)
@@ -47,7 +48,58 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> st
                    f"1M: {sc.get('chg_1m_pct','?'):+.1f}% &nbsp;|&nbsp; "
                    f"3M: {sc.get('chg_3m_pct','?'):+.1f}%")
 
-    # ── Conviction rows ──
+    # ── Watch Now section ──
+    watch_now_html = ""
+    if watch_now:
+        rows = ""
+        for w in watch_now[:8]:
+            trend = {"rising": "↑", "falling": "↓", "stable": "→", "new": "●"}.get(
+                w.get("score_trend", "new"), "●"
+            )
+            trend_color = {"rising": "#16a34a", "falling": "#dc2626",
+                           "stable": "#6b7280", "new": "#2563eb"}.get(
+                w.get("score_trend", "new"), "#6b7280"
+            )
+            price_str = f"+{w['price_since_first_pct']:.1f}%" if w.get("price_since_first_pct") else "–"
+            cats = w.get("all_catalysts", [])
+            cat_str = cats[0][:30] if cats else "–"
+            rows += f"""
+            <tr style="border-bottom:1px solid #e5e7eb">
+              <td style="padding:8px 10px;font-weight:600">{w['symbol'].replace('.NS','')}</td>
+              <td style="padding:8px 10px;font-weight:700;color:#1e293b">{w['streak']}</td>
+              <td style="padding:8px 10px;color:{trend_color};font-size:16px">{trend}</td>
+              <td style="padding:8px 10px">{w['composite_score']:.3f}</td>
+              <td style="padding:8px 10px">₹{w['price']}</td>
+              <td style="padding:8px 10px;color:#6b7280;font-size:11px">{w.get('first_seen','?')}</td>
+              <td style="padding:8px 10px;color:{'#16a34a' if '+' in price_str else '#6b7280'}">{price_str}</td>
+              <td style="padding:8px 10px;font-size:11px;color:#374151">{cat_str}</td>
+            </tr>"""
+
+        watch_now_html = f"""
+        <h2 style="font-size:16px;margin:24px 0 8px;color:#111">
+          👁 Watch Now — {len(watch_now)} stocks (streak ≥ 3, score stable/rising)
+        </h2>
+        <p style="font-size:12px;color:#6b7280;margin:0 0 10px">
+          These have appeared in Layer 2 for 3+ consecutive scans.
+          Read the concall. Wait for Layer 1 to fire before entering.
+        </p>
+        <table width="100%" cellpadding="0" cellspacing="0"
+               style="border-collapse:collapse;font-size:13px;background:#f0fdf4;
+                      border:1px solid #bbf7d0;border-radius:8px;overflow:hidden">
+          <thead>
+            <tr style="background:#15803d;color:#fff">
+              <th style="padding:8px 10px;text-align:left">Symbol</th>
+              <th style="padding:8px 10px;text-align:left">Streak</th>
+              <th style="padding:8px 10px;text-align:left">Trend</th>
+              <th style="padding:8px 10px;text-align:left">Score</th>
+              <th style="padding:8px 10px;text-align:left">Price</th>
+              <th style="padding:8px 10px;text-align:left">First seen</th>
+              <th style="padding:8px 10px;text-align:left">Since first</th>
+              <th style="padding:8px 10px;text-align:left">Top catalyst</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>"""
     conviction_html = ""
     if conviction:
         rows = ""
@@ -213,6 +265,7 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list) -> st
     <div style="background:#fff;border-radius:0 0 12px 12px;padding:20px 24px;
                 box-shadow:0 1px 3px rgba(0,0,0,0.08)">
 
+      {watch_now_html}
       {conviction_html}
       {l1_html}
       {l2_html}
@@ -313,18 +366,21 @@ if __name__ == "__main__":
     conviction = load("results/conviction.json", [])
     layer1     = load("results/latest.json",     [])
     layer2     = load("results/watchlist.json",  [])
+    watch_now  = load("results/watch_now.json",  [])
 
-    r         = regime.get("regime", "UNKNOWN")
-    date_str  = datetime.utcnow().strftime("%d %b %Y")
-    n_conv    = len(conviction)
-    n_l1      = len(layer1)
+    r        = regime.get("regime", "UNKNOWN")
+    date_str = datetime.utcnow().strftime("%d %b %Y")
+    n_conv   = len(conviction)
+    n_l1     = len(layer1)
+    n_watch  = len(watch_now)
 
-    emoji     = {"BULL": "🟢", "NEUTRAL": "🟡", "BEAR": "🔴"}.get(r, "⚪")
-    subject   = (
+    emoji   = {"BULL": "🟢", "NEUTRAL": "🟡", "BEAR": "🔴"}.get(r, "⚪")
+    subject = (
         f"{emoji} NSE Scan {date_str} — "
-        f"{'★ ' + str(n_conv) + ' Conviction' if n_conv else 'No conviction'} | "
-        f"{n_l1} Breakouts | Regime: {r}"
+        f"{'👁 ' + str(n_watch) + ' Watch Now | ' if n_watch else ''}"
+        f"{'★ ' + str(n_conv) + ' Conviction | ' if n_conv else ''}"
+        f"{n_l1} Breakouts | {r}"
     )
 
-    html = build_html(regime, conviction, layer1, layer2)
+    html = build_html(regime, conviction, layer1, layer2, watch_now)
     send_email(html, subject)
