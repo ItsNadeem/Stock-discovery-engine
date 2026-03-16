@@ -117,7 +117,9 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
                 OBV {'✓' if t.get('obv_bullish') else '✗'} &nbsp;
                 RS {t.get('rs_days','?')}d &nbsp;
                 F-Score {pb.get('piotroski_score','?')} &nbsp;
-                FCF {pb.get('fcf_yield_pct','N/A')}%
+                FCF {pb.get('fcf_yield_pct','N/A')}% &nbsp;
+                PEG {pb.get('lynch',{}).get('peg_ratio','N/A')} &nbsp;
+                Inst {pb.get('lynch',{}).get('inst_own_pct','?')}%
               </td>
               <td style="padding:8px 12px;color:#6b7280;font-size:12px">{s.get('price_stage','')}</td>
             </tr>"""
@@ -192,14 +194,23 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
     # ── Layer 2 rows ──
     l2_rows = ""
     for s in layer2[:10]:
-        p_score = s.get("piotroski", {}).get("piotroski_score")
-        fcf_y   = s.get("fcf", {}).get("fcf_yield_pct")
-        sc      = s.get("screener") or {}
-        cats    = s.get("catalyst", {}).get("catalysts", [])
-        cat_str = cats[0][:35] if cats else "–"
-        grp     = s.get("group", {}).get("matched_group") or "–"
-        roce    = sc.get("roce_pct")
+        p_score  = s.get("piotroski", {}).get("piotroski_score")
+        fcf_y    = s.get("fcf", {}).get("fcf_yield_pct")
+        lynch    = s.get("lynch", {})
+        peg      = lynch.get("peg_ratio")
+        inst_pct = lynch.get("inst_own_pct")
+        sc       = s.get("screener") or {}
+        cats     = s.get("catalyst", {}).get("catalysts", [])
+        cat_str  = cats[0][:35] if cats else "–"
+        grp      = s.get("group", {}).get("matched_group") or "–"
+        roce     = sc.get("roce_pct")
         roce_display = f"{roce:.1f}%" if roce else ("N/A" if not fcf_y else f"FCF {fcf_y}%")
+        peg_display  = f"{peg:.2f}" if peg is not None else "N/A"
+        inst_display = f"{inst_pct:.0f}%" if inst_pct is not None else "N/A"
+        # Colour PEG green if < 1.5
+        peg_color = "#16a34a" if (peg is not None and peg < 1.5) else "#374151"
+        # Colour inst% green if < 20% (undiscovered)
+        inst_color = "#16a34a" if (inst_pct is not None and inst_pct < 20) else "#374151"
         l2_rows += f"""
         <tr style="border-bottom:1px solid #e5e7eb">
           <td style="padding:7px 10px;font-weight:500">{s['symbol'].replace('.NS','')}</td>
@@ -208,12 +219,14 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
           <td style="padding:7px 10px">{s['composite_score']:.3f}</td>
           <td style="padding:7px 10px">{p_score if p_score is not None else 'N/A'}/9</td>
           <td style="padding:7px 10px">{roce_display}</td>
+          <td style="padding:7px 10px;font-weight:500;color:{peg_color}">{peg_display}</td>
+          <td style="padding:7px 10px;font-weight:500;color:{inst_color}">{inst_display}</td>
           <td style="padding:7px 10px;color:#6b7280;font-size:11px">{grp}</td>
           <td style="padding:7px 10px;font-size:11px;color:#374151">{cat_str}</td>
         </tr>"""
 
     l2_html = f"""
-    <h2 style="font-size:16px;margin:24px 0 8px;color:#111">🔍 Pre-Breakout Watchlist (Layer 2)</h2>
+    <h2 style="font-size:16px;margin:24px 0 8px;color:#111">🔍 Pre-Breakout Watchlist (Layer 2) — Lynch GARP + VALUEPICK</h2>
     <table width="100%" cellpadding="0" cellspacing="0"
            style="border-collapse:collapse;font-size:13px">
       <thead>
@@ -224,6 +237,8 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
           <th style="padding:6px 10px;text-align:left">Score</th>
           <th style="padding:6px 10px;text-align:left">Piotroski</th>
           <th style="padding:6px 10px;text-align:left">ROCE/FCF</th>
+          <th style="padding:6px 10px;text-align:left">PEG</th>
+          <th style="padding:6px 10px;text-align:left">Inst%</th>
           <th style="padding:6px 10px;text-align:left">Group</th>
           <th style="padding:6px 10px;text-align:left">Top Signal</th>
         </tr>
