@@ -121,7 +121,12 @@ def regime_banner(regime: dict) -> list[str]:
         lines += [
             "  ℹ  NEUTRAL REGIME: Be selective. Favour stocks with Piotroski ≥ 7 and FCF yield > 3%.",
         ]
-    else:
+    elif r == "UNKNOWN":
+        lines += [
+            "  ⚠  REGIME UNKNOWN: Market data fetch failed — treat as NEUTRAL.",
+            "     Check Nifty 50 data above for manual context.",
+        ]
+    else:  # BULL
         lines += [
             "  ✓  BULL REGIME: Favourable conditions. Standard filters apply.",
         ]
