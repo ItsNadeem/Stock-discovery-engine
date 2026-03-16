@@ -1,13 +1,14 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v3 — DAILY COMBINED REPORT
-  2026-03-16 01:05 UTC
+  2026-03-16 03:06 UTC
 ════════════════════════════════════════════════════════════════════════
 
 ════════════════════════════════════════════════════════════════════════
-  MARKET REGIME:  ⚪ UNKNOWN
-  Could not fetch market data
+  MARKET REGIME:  🔴 BEAR
+  Index below 200EMA, down >10% in 3 months. High false breakout risk — be very selective. (Smallcap 100 data unavailable — using Nifty 50)
   Nifty 50:    23151.0  1M: -10.3%  3M: -10.6%
-  ✓  BULL REGIME: Favourable conditions. Standard filters apply.
+  ⚠  BEAR REGIME: Layer 1 breakouts have elevated false-positive risk.
+     Only act on conviction plays (Section A) with OBV confirmed + RS days ≥ 3.
 ════════════════════════════════════════════════════════════════════════
 
   ★  SECTION A: CONVICTION LIST (In Both Layer 1 + Layer 2)
@@ -36,8 +37,8 @@
   #06  BRNL.NS           ₹17.88     Score: 0.704  F-Score: 8/9  FCF: N/A%  🟢 DEEP BASE (near 52W low)
   #07  DIGIDRIVE.NS      ₹20.89     Score: 0.703  F-Score: 4/9  FCF: N/A%  🟢 DEEP BASE (near 52W low)
   #08  DEN.NS            ₹26.29     Score: 0.698  F-Score: 5/9  FCF: N/A%  🟢 DEEP BASE (near 52W low)
-  #09  PASUPTAC.NS       ₹44.55     Score: 0.692  F-Score: 5/9  FCF: N/A%  🟢 DEEP BASE (near 52W low)
-  #10  NIRAJ.NS          ₹26.4      Score: 0.689  F-Score: 3/9  FCF: N/A%  🟢 DEEP BASE (near 52W low)
+  #09  AMBICAAGAR.NS     ₹23.6      Score: 0.695  F-Score: 9/9  FCF: N/A%  🟢 DEEP BASE (near 52W low)
+  #10  AFIL.NS           ₹7.76      Score: 0.695  F-Score: 4/9  FCF: N/A%  🟠 MID CYCLE
 
 ════════════════════════════════════════════════════════════════════════
   HOW TO USE:
@@ -53,7 +54,7 @@
 
 ════════════════════════════════════════════════════════════════════════
   PRE-BREAKOUT WATCHLIST  —  EARLY STAGE MULTIBAGGER CANDIDATES
-  2026-03-16 01:05 UTC
+  2026-03-16 03:06 UTC
   Signal framework: value-picks.blogspot.com + @valuepick (30yr veteran)
   v2: Holding companies & passive income businesses excluded
 ════════════════════════════════════════════════════════════════════════
@@ -61,23 +62,23 @@
   Monitor for Layer 1 price+volume confirmation before entry.
 ════════════════════════════════════════════════════════════════════════
 
-#01  UYFINCORP.NS        Score: 0.728
+#01  UYFINCORP.NS        Score: 0.728  [yfinance]
     Price: ₹13.52     MCap: ₹257 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 73.7%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 73.7%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.74   Net Cash: ₹16 Cr   Cash/MCap: 6.1%   [NEAR BOOK]
-    P/E: 8.0   Sector P/E: 25.0   Ratio: 0.32x   💎 DEEP VALUE
+    P/B: 0.74   P/E: 8.0   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.01   OPM: 29.5%
+    Rev Growth (YoY): 172.4%   3Yr CAGR: N/A   PAT Growth: 700.0%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.01   Net Debt: ₹-16.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 172.4%   Earnings: 700.0%   Margin: 29.5%   Accelerating: ✓
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -86,23 +87,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#02  HMVL.NS             Score: 0.727
+#02  HMVL.NS             Score: 0.727  [yfinance]
     Price: ₹61.5      MCap: ₹452 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 86.3%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 86.3%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.29   Net Cash: ₹914 Cr   Cash/MCap: 202.1%   [NEAR BOOK]
-    P/E: 6.8   Sector P/E: 25.0   Ratio: 0.27x   💎 DEEP VALUE
+    P/B: 0.29   P/E: 6.8   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.05   OPM: 8.4%
+    Rev Growth (YoY): 7.5%   3Yr CAGR: N/A   PAT Growth: -95.1%   Accel: ✗
 
     ── DEBT ──
     D/E: 0.05   Net Debt: ₹-914.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 7.5%   Earnings: -95.1%   Margin: 8.4%   Accelerating: ✗
 
     ── SIGNALS (4) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -113,23 +114,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#03  SPLIL.NS            Score: 0.721
+#03  SPLIL.NS            Score: 0.721  [yfinance]
     Price: ₹26.2      MCap: ₹76 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 74.9%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 74.9%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.35   Net Cash: ₹79 Cr   Cash/MCap: 104.0%   [NEAR BOOK]
-    P/E: 12.5   Sector P/E: 25.0   Ratio: 0.5x   
+    P/B: 0.35   P/E: 12.5   Sector P/E: 25.0   
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.0   OPM: 7.8%
+    Rev Growth (YoY): -45.2%   3Yr CAGR: N/A   PAT Growth: 720.0%   Accel: ✗
 
     ── DEBT ──
     D/E: 0.0   Net Debt: ₹-79.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: -45.2%   Earnings: 720.0%   Margin: 7.8%   Accelerating: ✗
 
     ── SIGNALS (1) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -137,23 +138,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#04  GEECEE.NS           Score: 0.716
+#04  GEECEE.NS           Score: 0.716  [yfinance]
     Price: ₹264.05    MCap: ₹552 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 80.4%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 80.4%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.66   Net Cash: ₹504 Cr   Cash/MCap: 91.3%   [NEAR BOOK]
-    P/E: 24.7   Sector P/E: 25.0   Ratio: 0.99x   
+    P/B: 0.66   P/E: 24.7   Sector P/E: 25.0   
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.0   OPM: 38.7%
+    Rev Growth (YoY): -72.2%   3Yr CAGR: N/A   PAT Growth: -74.7%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.0   Net Debt: ₹-504.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: -72.2%   Earnings: -74.7%   Margin: 38.7%   Accelerating: ✓
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -162,23 +163,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#05  SHREYANIND.NS       Score: 0.715
+#05  SHREYANIND.NS       Score: 0.715  [yfinance]
     Price: ₹146.65    MCap: ₹203 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 71.4%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 71.4%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.46   Net Cash: ₹201 Cr   Cash/MCap: 99.1%   [NEAR BOOK]
-    P/E: 5.7   Sector P/E: 25.0   Ratio: 0.23x   💎 DEEP VALUE
+    P/B: 0.46   P/E: 5.7   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.13   OPM: 5.6%
+    Rev Growth (YoY): -6.2%   3Yr CAGR: N/A   PAT Growth: 0.0%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.13   Net Debt: ₹-201.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: -6.2%   Earnings: 0.0%   Margin: 5.6%   Accelerating: ✓
 
     ── SIGNALS (3) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -188,23 +189,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#06  BRNL.NS             Score: 0.704
+#06  BRNL.NS             Score: 0.704  [yfinance]
     Price: ₹17.88     MCap: ₹150 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 78.5%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 78.5%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.14   Net Cash: ₹42 Cr   Cash/MCap: 28.2%   [NEAR BOOK]
-    P/E: 5.4   Sector P/E: 22.0   Ratio: 0.25x   💎 DEEP VALUE
+    P/B: 0.14   P/E: 5.4   Sector P/E: 22.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.41   OPM: 18.1%
+    Rev Growth (YoY): -11.9%   3Yr CAGR: N/A   PAT Growth: -84.7%   Accel: ✗
 
     ── DEBT ──
     D/E: 0.41   Net Debt: ₹-42.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: -11.9%   Earnings: -84.7%   Margin: 18.1%   Accelerating: ✗
 
     ── SIGNALS (4) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -215,23 +216,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#07  DIGIDRIVE.NS        Score: 0.703
+#07  DIGIDRIVE.NS        Score: 0.703  [yfinance]
     Price: ₹20.89     MCap: ₹81 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 64.6%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 64.6%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.28   Net Cash: ₹10 Cr   Cash/MCap: 12.0%   [NEAR BOOK]
-    P/E: 6.5   Sector P/E: 25.0   Ratio: 0.26x   💎 DEEP VALUE
+    P/B: 0.28   P/E: 6.5   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.0   OPM: 26.6%
+    Rev Growth (YoY): -18.5%   3Yr CAGR: N/A   PAT Growth: 377.4%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.0   Net Debt: ₹-10.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: -18.5%   Earnings: 377.4%   Margin: 26.6%   Accelerating: ✓
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -240,23 +241,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#08  DEN.NS              Score: 0.698
+#08  DEN.NS              Score: 0.698  [yfinance]
     Price: ₹26.29     MCap: ₹1253 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 75.0%   Institutions: 0.2%   [UNDISCOVERED]
+    Promoter: 75.0%   Institutions: 0.2%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.34   Net Cash: ₹3233 Cr   Cash/MCap: 257.9%   [NEAR BOOK]
-    P/E: 6.6   Sector P/E: 25.0   Ratio: 0.26x   💎 DEEP VALUE
+    P/B: 0.34   P/E: 6.6   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.01   OPM: 19.3%
+    Rev Growth (YoY): -3.7%   3Yr CAGR: N/A   PAT Growth: -5.9%   Accel: ✗
 
     ── DEBT ──
     D/E: 0.01   Net Debt: ₹-3233.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: -3.7%   Earnings: -5.9%   Margin: 19.3%   Accelerating: ✗
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -265,23 +266,73 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#09  PASUPTAC.NS         Score: 0.692
+#09  AMBICAAGAR.NS       Score: 0.695  [yfinance]
+    Price: ₹23.6      MCap: ₹41 Cr
+    Stage: 🟢 DEEP BASE (near 52W low)
+
+    ── OWNERSHIP ──
+    Promoter: 80.0%   Institutions: 0.0%   [UNDISCOVERED]
+    Group: Unknown  
+
+    ── VALUATION ──
+    P/B: 0.36   P/E: 31.9   Sector P/E: 25.0   
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.75   OPM: 0.5%
+    Rev Growth (YoY): 49.9%   3Yr CAGR: N/A   PAT Growth: 195.5%   Accel: ✓
+
+    ── DEBT ──
+    D/E: 0.75   Net Debt: ₹82.0 Cr   Reducing: ✗   
+
+    ── SIGNALS (1) ──
+    ▶  🏆 PIOTROSKI 9/9 — Exceptional financial health
+    Piotroski F-Score: 9/9   P/E Expanding: ✗
+
+────────────────────────────────────────────────────────────────────────
+
+#10  AFIL.NS             Score: 0.695  [yfinance]
+    Price: ₹7.76      MCap: ₹333 Cr
+    Stage: 🟠 MID CYCLE
+
+    ── OWNERSHIP ──
+    Promoter: 50.7%   Institutions: 2.8%   [UNDISCOVERED]
+    Group: Unknown  
+
+    ── VALUATION ──
+    P/B: 0.81   P/E: 8.8   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.94   OPM: 47.5%
+    Rev Growth (YoY): 14.4%   3Yr CAGR: N/A   PAT Growth: 18.2%   Accel: ✓
+
+    ── DEBT ──
+    D/E: 0.94   Net Debt: ₹-347.0 Cr   Reducing: ✗   🟢 NET CASH
+
+    ── SIGNALS (3) ──
+    ▶  🟢 NET CASH (Cash > Debt)
+    ▶  💰 DEEP VALUE: P/E 8.8 vs sector 25 (65% discount)
+    ▶  📈 P/E EXPANDING: 8.4 → 8.8 → 8.8 (now)
+    Piotroski F-Score: 4/9   P/E Expanding: ✓  8.4 → 8.8 → 8.8 (now)
+
+────────────────────────────────────────────────────────────────────────
+
+#11  PASUPTAC.NS         Score: 0.692  [yfinance]
     Price: ₹44.55     MCap: ₹397 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 67.3%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 67.3%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 1.04   Net Cash: ₹4 Cr   Cash/MCap: 1.0%   [NEAR BOOK]
-    P/E: 7.2   Sector P/E: 25.0   Ratio: 0.29x   💎 DEEP VALUE
+    P/B: 1.04   P/E: 7.2   Sector P/E: 25.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.29   OPM: 5.9%
+    Rev Growth (YoY): 54.8%   3Yr CAGR: N/A   PAT Growth: 152.6%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.29   Net Debt: ₹-4.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 54.8%   Earnings: 152.6%   Margin: 5.9%   Accelerating: ✓
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -290,23 +341,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#10  NIRAJ.NS            Score: 0.689
+#12  NIRAJ.NS            Score: 0.689  [yfinance]
     Price: ₹26.4      MCap: ₹158 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 75.4%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 75.4%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.62   Net Cash: ₹22 Cr   Cash/MCap: 14.2%   [NEAR BOOK]
-    P/E: 5.9   Sector P/E: 22.0   Ratio: 0.27x   💎 DEEP VALUE
+    P/B: 0.62   P/E: 5.9   Sector P/E: 22.0   💎 DEEP VALUE
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.01   OPM: 4.1%
+    Rev Growth (YoY): 16.8%   3Yr CAGR: N/A   PAT Growth: 90.0%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.01   Net Debt: ₹-22.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 16.8%   Earnings: 90.0%   Margin: 4.1%   Accelerating: ✓
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -315,23 +366,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#11  HATHWAY.NS          Score: 0.687
+#13  HATHWAY.NS          Score: 0.687  [yfinance]
     Price: ₹9.88      MCap: ₹1749 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 75.0%   Institutions: 0.4%   [UNDISCOVERED]
+    Promoter: 75.0%   Institutions: 0.4%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 0.39   Net Cash: ₹2311 Cr   Cash/MCap: 132.2%   [NEAR BOOK]
-    P/E: 16.7   Sector P/E: 25.0   Ratio: 0.67x   
+    P/B: 0.39   P/E: 16.7   Sector P/E: 25.0   
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.0   OPM: 5.0%
+    Rev Growth (YoY): 5.0%   3Yr CAGR: N/A   PAT Growth: 50.0%   Accel: ✗
 
     ── DEBT ──
     D/E: 0.0   Net Debt: ₹-2311.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 5.0%   Earnings: 50.0%   Margin: 5.0%   Accelerating: ✗
 
     ── SIGNALS (2) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -340,23 +391,23 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#12  TAINWALCHM.NS       Score: 0.686
+#14  TAINWALCHM.NS       Score: 0.686  [yfinance]
     Price: ₹197.0     MCap: ₹184 Cr
     Stage: 🟠 MID CYCLE
 
     ── OWNERSHIP ──
-    Promoter/Insider: 71.8%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 71.8%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 1.07   Net Cash: ₹0 Cr   Cash/MCap: 0.2%   [NEAR BOOK]
-    P/E: 17.4   Sector P/E: 28.0   Ratio: 0.62x   
+    P/B: 1.07   P/E: 17.4   Sector P/E: 28.0   
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.0   OPM: 48.7%
+    Rev Growth (YoY): 119.6%   3Yr CAGR: N/A   PAT Growth: 2029.4%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.0   Net Debt: ₹-0.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 119.6%   Earnings: 2029.4%   Margin: 48.7%   Accelerating: ✓
 
     ── SIGNALS (1) ──
     ▶  🟢 NET CASH (Cash > Debt)
@@ -364,79 +415,28 @@
 
 ────────────────────────────────────────────────────────────────────────
 
-#13  UNIDT.NS            Score: 0.685
+#15  UNIDT.NS            Score: 0.685  [yfinance]
     Price: ₹170.85    MCap: ₹347 Cr
     Stage: 🟢 DEEP BASE (near 52W low)
 
     ── OWNERSHIP ──
-    Promoter/Insider: 82.1%   Institutions: 0.0%   [UNDISCOVERED]
+    Promoter: 82.1%   Institutions: 0.0%   [UNDISCOVERED]
     Group: Unknown  
 
     ── VALUATION ──
-    P/B: 1.28   Net Cash: ₹-27 Cr   Cash/MCap: -7.8%   [NEAR BOOK]
-    P/E: 19.3   Sector P/E: 25.0   Ratio: 0.77x   
+    P/B: 1.28   P/E: 19.3   Sector P/E: 25.0   
+
+    ── FUNDAMENTALS (yfinance) ──
+    ROCE: N/A   D/E: 0.11   OPM: 10.7%
+    Rev Growth (YoY): 49.1%   3Yr CAGR: N/A   PAT Growth: 105.3%   Accel: ✓
 
     ── DEBT ──
     D/E: 0.11   Net Debt: ₹27.0 Cr   Reducing: ✗   
-
-    ── GROWTH ──
-    Rev: 49.1%   Earnings: 105.3%   Margin: 10.7%   Accelerating: ✓
 
     ── SIGNALS (2) ──
     ▶  🟢 NEAR ZERO DEBT (D/E 0.11)
     ▶  ✅ Piotroski 6/9 — Improving financials
     Piotroski F-Score: 6/9   P/E Expanding: ✗
-
-────────────────────────────────────────────────────────────────────────
-
-#14  PONNIERODE.NS       Score: 0.684
-    Price: ₹265.35    MCap: ₹228 Cr
-    Stage: 🟢 DEEP BASE (near 52W low)
-
-    ── OWNERSHIP ──
-    Promoter/Insider: 49.4%   Institutions: 9.5%   [UNDISCOVERED]
-    Group: Unknown  
-
-    ── VALUATION ──
-    P/B: 0.43   Net Cash: ₹43 Cr   Cash/MCap: 18.7%   [NEAR BOOK]
-    P/E: 8.8   Sector P/E: 25.0   Ratio: 0.35x   💎 DEEP VALUE
-
-    ── DEBT ──
-    D/E: 0.0   Net Debt: ₹-43.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 30.8%   Earnings: 293.2%   Margin: 6.2%   Accelerating: ✓
-
-    ── SIGNALS (3) ──
-    ▶  🟢 NET CASH (Cash > Debt)
-    ▶  💰 DEEP VALUE: P/E 8.8 vs sector 25 (65% discount)
-    ▶  📈 P/E EXPANDING: 14.9 → 16.6 → 8.8 (now)
-    Piotroski F-Score: 4/9   P/E Expanding: ✓  14.9 → 16.6 → 8.8 (now)
-
-────────────────────────────────────────────────────────────────────────
-
-#15  HGS.NS              Score: 0.682
-    Price: ₹369.3     MCap: ₹1718 Cr
-    Stage: 🟢 DEEP BASE (near 52W low)
-
-    ── OWNERSHIP ──
-    Promoter/Insider: 78.8%   Institutions: 1.7%   [UNDISCOVERED]
-    Group: Unknown  
-
-    ── VALUATION ──
-    P/B: 0.22   Net Cash: ₹2823 Cr   Cash/MCap: 164.3%   [NEAR BOOK]
-    P/E: 3.4   Sector P/E: 22.0   Ratio: 0.16x   💎 DEEP VALUE
-
-    ── DEBT ──
-    D/E: 0.24   Net Debt: ₹-2823.0 Cr   Reducing: ✗   🟢 NET CASH
-
-    ── GROWTH ──
-    Rev: 1.1%   Earnings: 0.0%   Margin: 1.0%   Accelerating: ✓
-
-    ── SIGNALS (2) ──
-    ▶  🟢 NET CASH (Cash > Debt)
-    ▶  💎 EXTREME VALUE: P/E 3.4 vs sector 22 (1/4 of peers!)
-    Piotroski F-Score: 3/9   P/E Expanding: ✗
 
 ────────────────────────────────────────────────────────────────────────
 

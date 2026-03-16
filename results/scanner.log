@@ -1932,3 +1932,977 @@
 2026-03-16 01:05:52,378 [INFO]    Layer 1 breakouts:  0
 2026-03-16 01:05:52,378 [INFO]    Layer 2 watchlist:  15
 2026-03-16 01:05:52,378 [INFO]    Conviction plays:   0
+2026-03-16 02:20:05,962 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-03-16 02:20:05,962 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v3 — FULL PIPELINE     ║
+2026-03-16 02:20:05,962 [INFO] ║  L1: Breakout + OBV + RS + FCF + MCap/Sales          ║
+2026-03-16 02:20:05,962 [INFO] ║  L2: Pre-Breakout + FCF + Piotroski + P/E Trajectory  ║
+2026-03-16 02:20:05,962 [INFO] ║  Market regime classifier included                    ║
+2026-03-16 02:20:05,962 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-03-16 02:20:05,963 [INFO] 
+▶ Classifying market regime...
+2026-03-16 02:20:07,134 [INFO]   Regime: BEAR  SC100 1M: ?%  3M: ?%
+2026-03-16 02:20:07,134 [INFO]   Index below 200EMA, down >10% in 3 months. High false breakout risk — be very selective. (Smallcap 100 data unavailable — using Nifty 50)
+2026-03-16 02:20:07,135 [INFO] Fetching NSE equity list from NSE archives...
+2026-03-16 02:20:07,581 [INFO] Fetched 2270 NSE symbols
+2026-03-16 02:20:07,582 [INFO] 
+▶ Running Layer 1: Swing Breakout Scanner...
+2026-03-16 02:20:07,582 [INFO] ══════════════════════════════════════════════════════
+2026-03-16 02:20:07,582 [INFO]   MULTIBAGGER DISCOVERY ENGINE v3 — SCAN START
+2026-03-16 02:20:07,583 [INFO]   NEW: OBV filter | RS days | Base quality | FCF | MCap/Sales
+2026-03-16 02:20:07,583 [INFO] ══════════════════════════════════════════════════════
+2026-03-16 02:20:07,585 [INFO] Loaded 2270 symbols from cache
+2026-03-16 02:20:07,585 [INFO] Universe: 2270 NSE symbols
+2026-03-16 02:20:07,585 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-03-16 02:20:07,767 [INFO]   Nifty returns loaded: 61 days
+2026-03-16 02:20:07,767 [INFO] Stage 1: Swing breakout scan (with OBV + RS + Base checks)...
+2026-03-16 02:20:07,767 [INFO]   Batch 1/46 (50 symbols)...
+2026-03-16 02:20:14,753 [INFO]   Batch 2/46 (50 symbols)...
+2026-03-16 02:20:21,783 [INFO]   Batch 3/46 (50 symbols)...
+2026-03-16 02:20:28,972 [INFO]   Batch 4/46 (50 symbols)...
+2026-03-16 02:20:36,314 [INFO]   Batch 5/46 (50 symbols)...
+2026-03-16 02:20:43,442 [INFO]   Batch 6/46 (50 symbols)...
+2026-03-16 02:20:50,800 [INFO]   Batch 7/46 (50 symbols)...
+2026-03-16 02:20:57,871 [INFO]   Batch 8/46 (50 symbols)...
+2026-03-16 02:21:04,874 [INFO]   Batch 9/46 (50 symbols)...
+2026-03-16 02:21:11,914 [INFO]   Batch 10/46 (50 symbols)...
+2026-03-16 02:21:18,810 [INFO]   Batch 11/46 (50 symbols)...
+2026-03-16 02:21:25,659 [INFO]   Batch 12/46 (50 symbols)...
+2026-03-16 02:21:32,794 [INFO]   Batch 13/46 (50 symbols)...
+2026-03-16 02:21:39,555 [INFO]   Batch 14/46 (50 symbols)...
+2026-03-16 02:21:46,193 [INFO]   Batch 15/46 (50 symbols)...
+2026-03-16 02:21:52,944 [INFO]   Batch 16/46 (50 symbols)...
+2026-03-16 02:21:59,909 [INFO]   Batch 17/46 (50 symbols)...
+2026-03-16 02:22:06,845 [INFO]   Batch 18/46 (50 symbols)...
+2026-03-16 02:22:13,861 [INFO]   Batch 19/46 (50 symbols)...
+2026-03-16 02:22:20,584 [INFO]   Batch 20/46 (50 symbols)...
+2026-03-16 02:22:27,563 [INFO]   Batch 21/46 (50 symbols)...
+2026-03-16 02:22:34,394 [INFO]   Batch 22/46 (50 symbols)...
+2026-03-16 02:22:40,071 [INFO]   Batch 23/46 (50 symbols)...
+2026-03-16 02:22:45,630 [INFO]   Batch 24/46 (50 symbols)...
+2026-03-16 02:22:51,009 [INFO]   Batch 25/46 (50 symbols)...
+2026-03-16 02:22:56,638 [INFO]   Batch 26/46 (50 symbols)...
+2026-03-16 02:23:02,073 [INFO]   Batch 27/46 (50 symbols)...
+2026-03-16 02:23:07,553 [INFO]   Batch 28/46 (50 symbols)...
+2026-03-16 02:23:14,124 [INFO]   Batch 29/46 (50 symbols)...
+2026-03-16 02:23:20,453 [INFO]   Batch 30/46 (50 symbols)...
+2026-03-16 02:23:26,876 [INFO]   Batch 31/46 (50 symbols)...
+2026-03-16 02:23:33,548 [INFO]   Batch 32/46 (50 symbols)...
+2026-03-16 02:23:40,045 [INFO]   Batch 33/46 (50 symbols)...
+2026-03-16 02:23:46,552 [INFO]   Batch 34/46 (50 symbols)...
+2026-03-16 02:23:53,128 [INFO]   Batch 35/46 (50 symbols)...
+2026-03-16 02:23:59,364 [INFO]   Batch 36/46 (50 symbols)...
+2026-03-16 02:24:05,964 [INFO]   Batch 37/46 (50 symbols)...
+2026-03-16 02:24:11,976 [INFO]   Batch 38/46 (50 symbols)...
+2026-03-16 02:24:17,475 [INFO]   Batch 39/46 (50 symbols)...
+2026-03-16 02:24:22,792 [INFO]   Batch 40/46 (50 symbols)...
+2026-03-16 02:24:28,283 [INFO]   Batch 41/46 (50 symbols)...
+2026-03-16 02:24:33,805 [INFO]   Batch 42/46 (50 symbols)...
+2026-03-16 02:24:39,278 [INFO]   Batch 43/46 (50 symbols)...
+2026-03-16 02:24:44,788 [INFO]   Batch 44/46 (50 symbols)...
+2026-03-16 02:24:50,208 [INFO]   Batch 45/46 (50 symbols)...
+2026-03-16 02:24:55,680 [INFO]   Batch 46/46 (20 symbols)...
+2026-03-16 02:24:59,230 [INFO] Stage 1 complete. Breakout candidates: 0
+2026-03-16 02:24:59,230 [WARNING] No breakout candidates today.
+2026-03-16 02:24:59,231 [INFO] 
+▶ Running Layer 2: Pre-Breakout Scanner...
+2026-03-16 02:24:59,231 [INFO] ══════════════════════════════════════════════════════
+2026-03-16 02:24:59,231 [INFO]   PRE-BREAKOUT SCANNER (Layer 2) v2
+2026-03-16 02:24:59,231 [INFO]   Method: value-picks.blogspot.com + @valuepick
+2026-03-16 02:24:59,231 [INFO]   Fixes: holding cos excluded, passive income filtered
+2026-03-16 02:24:59,231 [INFO] ══════════════════════════════════════════════════════
+2026-03-16 02:24:59,231 [INFO] Scanning 2270 symbols...
+2026-03-16 02:25:01,961 [INFO]   [0001] 20MICRONS      ₹158     MCap ₹559Cr Score:0.469   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:04,684 [INFO]   [0004] 3IINFOLTD      ₹13      MCap ₹268Cr Score:0.427  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:07,747 [INFO]   [0009] A2ZINFRA       ₹16      MCap ₹282Cr Score:0.313   PE@5.2x 🟠 MID CYCLE
+2026-03-16 02:25:10,052 [INFO]   [0010] AAATECH        ₹91      MCap ₹117Cr Score:0.435  DEBT↓ PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:25:12,350 [INFO]   [0012] AAKASH         ₹10      MCap ₹98Cr Score:0.354    🟠 MID CYCLE
+2026-03-16 02:25:14,514 [INFO]   [0013] AAREYDRUGS     ₹66      MCap ₹187Cr Score:0.397   PE@1.5x 🟠 MID CYCLE
+2026-03-16 02:25:18,868 [INFO]   [0016] AARTECH        ₹41      MCap ₹130Cr Score:0.490   PE@3.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:21,960 [INFO]   [0020] AARTISURF      ₹365     MCap ₹310Cr Score:0.607 [Aarti]  PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:24,128 [INFO]   [0021] AARVI          ₹128     MCap ₹189Cr Score:0.367   PE@0.5x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:25:26,500 [INFO]   [0023] ABAN           ₹26      MCap ₹151Cr Score:0.360  DEBT↓ PE@0.0x 🟡 EARLY UPTREND
+2026-03-16 02:25:29,235 [INFO]   [0027] ABCOTS         ₹404     MCap ₹887Cr Score:0.446   PE@2.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:31,838 [INFO]   [0030] ABINFRA        ₹17      MCap ₹1073Cr Score:0.404   PE@2.1x 🟠 MID CYCLE
+2026-03-16 02:25:37,040 [INFO]   [0039] ACEINTEG       ₹16      MCap ₹16Cr Score:0.276  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:39,488 [INFO]   [0041] ACL            ₹52      MCap ₹480Cr Score:0.420    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:43,650 [INFO]   [0049] ADFFOODS       ₹181     MCap ₹1989Cr Score:0.449  DEBT↓ PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:45,791 [INFO]   [0050] ADL            ₹70      MCap ₹40Cr Score:0.595    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:48,270 [INFO]   [0052] ADROITINFO     ₹9       MCap ₹54Cr Score:0.587   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:50,765 [INFO]   [0053] ADSL           ₹100     MCap ₹565Cr Score:0.516   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:53,310 [INFO]   [0055] ADVANCE        ₹99      MCap ₹635Cr Score:0.457   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:55,935 [INFO]   [0056] ADVANIHOTR     ₹52      MCap ₹479Cr Score:0.517  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:25:58,008 [INFO]   [0057] ADVENTHTL      ₹159     MCap ₹858Cr Score:0.648  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:01,072 [INFO]   [0063] AEROENTER      ₹69      MCap ₹778Cr Score:0.585  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:03,498 [INFO]   [0065] AERONEU        ₹67      MCap ₹173Cr Score:0.547   PE@3.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:06,343 [INFO]   [0069] AFFORDABLE     ₹159     MCap ₹179Cr Score:0.375   PE@1.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:08,530 [INFO]   [0070] AFIL           ₹8       MCap ₹333Cr Score:0.695   PE@0.3x 🟠 MID CYCLE
+2026-03-16 02:26:11,085 [INFO]   [0072] AGARIND        ₹428     MCap ₹640Cr Score:0.536   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:14,089 [INFO]   [0076] AGRITECH       ₹102     MCap ₹61Cr Score:0.314  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:16,237 [INFO]   [0077] AGROPHOS       ₹32      MCap ₹65Cr Score:0.356   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:18,664 [INFO]   [0079] AHCL           ₹115     MCap ₹613Cr Score:0.617  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:20,997 [INFO]   [0080] AHLADA         ₹40      MCap ₹52Cr Score:0.271   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:23,242 [INFO]   [0081] AHLEAST        ₹150     MCap ₹261Cr Score:0.502   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:26,020 [INFO]   [0085] AIRAN          ₹16      MCap ₹197Cr Score:0.635  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:31,380 [INFO]   [0091] AKASH          ₹24      MCap ₹40Cr Score:0.351   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:34,045 [INFO]   [0092] AKG            ₹11      MCap ₹35Cr Score:0.242  DEBT↓ PE@2.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:36,688 [INFO]   [0095] AKSHARCHEM     ₹171     MCap ₹137Cr Score:0.528    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:39,527 [INFO]   [0099] ALANKIT        ₹8       MCap ₹213Cr Score:0.537  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:42,696 [INFO]   [0105] ALKALI         ₹57      MCap ₹58Cr Score:0.470  DEBT↓ PE@2.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:45,834 [INFO]   [0108] ALLCARGO       ₹8       MCap ₹1162Cr Score:0.560  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:48,192 [INFO]   [0110] ALLTIME        ₹199     MCap ₹1304Cr Score:0.467   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:52,154 [INFO]   [0113] ALPA           ₹61      MCap ₹128Cr Score:0.637  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:55,361 [INFO]   [0114] ALPHAGEO       ₹185     MCap ₹118Cr Score:0.587  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:26:57,776 [INFO]   [0116] AMANTA         ₹96      MCap ₹374Cr Score:0.491   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:00,747 [INFO]   [0118] AMBICAAGAR     ₹24      MCap ₹41Cr Score:0.695   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:03,443 [INFO]   [0121] AMDIND         ₹37      MCap ₹71Cr Score:0.540    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:05,820 [INFO]   [0122] AMJLAND        ₹38      MCap ₹156Cr Score:0.677  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:08,272 [INFO]   [0123] AMNPLST        ₹151     MCap ₹833Cr Score:0.465  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:11,469 [INFO]   [0127] ANDHRAPAP      ₹61      MCap ₹1219Cr Score:0.543  DEBT↓ PE@2.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:13,834 [INFO]   [0128] ANDHRSUGAR     ₹71      MCap ₹958Cr Score:0.426  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:16,148 [INFO]   [0130] ANIKINDS       ₹40      MCap ₹114Cr Score:0.543  DEBT↓ PE@2.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:18,838 [INFO]   [0132] ANMOL          ₹11      MCap ₹63Cr Score:0.535   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:21,944 [INFO]   [0137] ANUHPHR        ₹78      MCap ₹790Cr Score:0.509  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:24,917 [INFO]   [0141] APCL           ₹114     MCap ₹335Cr Score:0.415    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:27,774 [INFO]   [0142] APCOTEXIND     ₹360     MCap ₹1877Cr Score:0.450   PE@0.8x 🟠 MID CYCLE
+2026-03-16 02:27:30,151 [INFO]   [0143] APEX           ₹326     MCap ₹1022Cr Score:0.472  DEBT↓ PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:27:33,402 [INFO]   [0148] APOLLOPIPE     ₹401     MCap ₹1761Cr Score:0.391  DEBT↓ PE@5.5x 🟠 MID CYCLE
+2026-03-16 02:27:36,330 [INFO]   [0151] APTECHT        ₹79      MCap ₹463Cr Score:0.534  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:39,051 [INFO]   [0154] ARCHIDPLY      ₹73      MCap ₹146Cr Score:0.423   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:41,187 [INFO]   [0155] ARCHIES        ₹14      MCap ₹46Cr Score:0.501    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:43,592 [INFO]   [0157] ARENTERP       ₹42      MCap ₹13Cr Score:0.483  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:45,918 [INFO]   [0158] ARFIN          ₹74      MCap ₹1257Cr Score:0.431   PE@5.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:48,332 [INFO]   [0159] ARIES          ₹323     MCap ₹420Cr Score:0.561   PE@0.4x 🟠 MID CYCLE
+2026-03-16 02:27:50,762 [INFO]   [0161] ARIHANTSUP     ₹222     MCap ₹961Cr Score:0.412   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:52,973 [INFO]   [0162] ARIS           ₹102     MCap ₹834Cr Score:0.666  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:55,382 [INFO]   [0163] ARKADE         ₹105     MCap ₹1943Cr Score:0.509   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:27:57,784 [INFO]   [0165] AROGRANITE     ₹24      MCap ₹37Cr Score:0.474    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:00,383 [INFO]   [0166] ARROWGREEN     ₹354     MCap ₹534Cr Score:0.525  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:05,155 [INFO]   [0171] ARVEE          ₹148     MCap ₹163Cr Score:0.247  DEBT↓ PE@2.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:08,392 [INFO]   [0176] ASAHISONG      ₹184     MCap ₹218Cr Score:0.534   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:10,738 [INFO]   [0177] ASAL           ₹414     MCap ₹662Cr Score:0.573 [Tata]  PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:13,516 [INFO]   [0181] ASHIMASYN      ₹14      MCap ₹273Cr Score:0.473    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:16,525 [INFO]   [0183] ASHOKAMET      ₹14      MCap ₹35Cr Score:0.610   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:19,129 [INFO]   [0185] ASIANENE       ₹275     MCap ₹1235Cr Score:0.532   PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:28:21,529 [INFO]   [0186] ASIANHOTNR     ₹300     MCap ₹1281Cr Score:0.474   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:24,697 [INFO]   [0188] ASIANTILES     ₹61      MCap ₹1411Cr Score:0.585   PE@0.7x 🟠 MID CYCLE
+2026-03-16 02:28:27,525 [INFO]   [0191] ASPINWALL      ₹211     MCap ₹165Cr Score:0.335   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:35,135 [INFO]   [0198] ATALREAL       ₹22      MCap ₹273Cr Score:0.519   PE@2.2x 🟠 MID CYCLE
+2026-03-16 02:28:37,491 [INFO]   [0199] ATAM           ₹58      MCap ₹67Cr Score:0.440   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:40,092 [INFO]   [0202] ATL            ₹23      MCap ₹679Cr Score:0.446   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:42,694 [INFO]   [0205] ATLASCYCLE     ₹85      MCap ₹55Cr Score:0.450  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:45,246 [INFO]   [0207] ATULAUTO       ₹407     MCap ₹1129Cr Score:0.516   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:48,473 [INFO]   [0212] AURUM          ₹168     MCap ₹1276Cr Score:0.455    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:51,545 [INFO]   [0215] AUTOIND        ₹63      MCap ₹285Cr Score:0.480   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:28:53,808 [INFO]   [0216] AVADHSUGAR     ₹402     MCap ₹805Cr Score:0.580   PE@0.4x 🟠 MID CYCLE
+2026-03-16 02:28:56,731 [INFO]   [0220] AVG            ₹136     MCap ₹205Cr Score:0.488   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:00,000 [INFO]   [0223] AVROIND        ₹132     MCap ₹176Cr Score:0.426   PE@2.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:02,255 [INFO]   [0224] AVTNPL         ₹60      MCap ₹914Cr Score:0.518   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:06,258 [INFO]   [0226] AWHCL          ₹460     MCap ₹1305Cr Score:0.469   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:09,104 [INFO]   [0230] AXITA          ₹9       MCap ₹343Cr Score:0.303    🟠 MID CYCLE
+2026-03-16 02:29:11,564 [INFO]   [0232] AYMSYNTEX      ₹170     MCap ₹996Cr Score:0.476    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:14,002 [INFO]   [0234] BAFNAPH        ₹99      MCap ₹240Cr Score:0.526   PE@0.7x 🟡 EARLY UPTREND
+2026-03-16 02:29:16,377 [INFO]   [0236] BAIDFIN        ₹11      MCap ₹168Cr Score:0.546   PE@0.3x 🟠 MID CYCLE
+2026-03-16 02:29:20,143 [INFO]   [0241] BAJAJHCARE     ₹284     MCap ₹897Cr Score:0.592 [Bajaj]  PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:23,087 [INFO]   [0245] BAJAJINDEF     ₹243     MCap ₹779Cr Score:0.434  DEBT↓ PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:25,314 [INFO]   [0246] BAJEL          ₹138     MCap ₹1598Cr Score:0.500  DEBT↓ PE@5.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:27,966 [INFO]   [0248] BALAJEE        ₹26      MCap ₹209Cr Score:0.570   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:30,374 [INFO]   [0249] BALAJITELE     ₹95      MCap ₹1163Cr Score:0.576  DEBT↓ PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:29:32,836 [INFO]   [0251] BALAXI         ₹19      MCap ₹102Cr Score:0.435  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:35,158 [INFO]   [0252] BALKRISHNA     ₹15      MCap ₹49Cr Score:0.496  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:37,848 [INFO]   [0255] BALPHARMA      ₹69      MCap ₹110Cr Score:0.545   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:40,560 [INFO]   [0258] BANARBEADS     ₹105     MCap ₹70Cr Score:0.549   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:43,560 [INFO]   [0262] BANG           ₹34      MCap ₹46Cr Score:0.618   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:45,702 [INFO]   [0263] BANKA          ₹48      MCap ₹52Cr Score:0.253    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:48,673 [INFO]   [0267] BANSWRAS       ₹113     MCap ₹388Cr Score:0.523   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:51,246 [INFO]   [0269] BASML          ₹20      MCap ₹159Cr Score:0.534   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:54,588 [INFO]   [0275] BBTCL          ₹175     MCap ₹359Cr Score:0.408   PE@0.7x 🟠 MID CYCLE
+2026-03-16 02:29:57,094 [INFO]   [0276] BCG            ₹9       MCap ₹1891Cr Score:0.593  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:29:59,801 [INFO]   [0277] BCLIND         ₹27      MCap ₹808Cr Score:0.533   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:02,217 [INFO]   [0278] BCONCEPTS      ₹230     MCap ₹287Cr Score:0.447   PE@2.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:04,742 [INFO]   [0280] BEARDSELL      ₹24      MCap ₹93Cr Score:0.496   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:07,215 [INFO]   [0282] BEDMUTHA       ₹125     MCap ₹402Cr Score:0.432    🟠 MID CYCLE
+2026-03-16 02:30:09,936 [INFO]   [0284] BELLACASA      ₹269     MCap ₹361Cr Score:0.517   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:13,107 [INFO]   [0289] BESTAGRO       ₹15      MCap ₹530Cr Score:0.515   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:15,855 [INFO]   [0292] BFUTILITIE     ₹425     MCap ₹1602Cr Score:0.447  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:18,999 [INFO]   [0296] BHAGERIA       ₹147     MCap ₹643Cr Score:0.635  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:21,405 [INFO]   [0297] BHAGYANGR      ₹146     MCap ₹467Cr Score:0.577   PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:30:24,819 [INFO]   [0302] BHARATGEAR     ₹97      MCap ₹149Cr Score:0.495   PE@0.5x 🟡 EARLY UPTREND
+2026-03-16 02:30:27,273 [INFO]   [0304] BHARATSE       ₹164     MCap ₹1032Cr Score:0.435   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:29,621 [INFO]   [0305] BHARATWIRE     ₹155     MCap ₹1061Cr Score:0.455  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:32,410 [INFO]   [0309] BIGBLOC        ₹52      MCap ₹731Cr Score:0.416   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:34,747 [INFO]   [0312] BILVYAPAR      ₹6       MCap ₹21Cr Score:0.326  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:37,208 [INFO]   [0314] BIOFILCHEM     ₹30      MCap ₹50Cr Score:0.417  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:39,618 [INFO]   [0315] BIRLACABLE     ₹130     MCap ₹390Cr Score:0.639 [Birla]  PE@1.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:42,348 [INFO]   [0320] BLAL           ₹173     MCap ₹720Cr Score:0.342  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:47,690 [INFO]   [0323] BLKASHYAP      ₹49      MCap ₹1096Cr Score:0.490   PE@2.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:50,999 [INFO]   [0325] BLSE           ₹140     MCap ₹1272Cr Score:0.605  DEBT↓ PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:54,503 [INFO]   [0327] BLUECOAST      ₹21      MCap ₹36Cr Score:0.389  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:30:57,819 [INFO]   [0332] BLUSPRING      ₹46      MCap ₹685Cr Score:0.500    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:00,904 [INFO]   [0333] BMWVENTLTD     ₹60      MCap ₹519Cr Score:0.541   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:03,571 [INFO]   [0334] BODALCHEM      ₹43      MCap ₹544Cr Score:0.541   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:05,937 [INFO]   [0335] BOHRAIND       ₹19      MCap ₹19Cr Score:0.297  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 02:31:08,560 [INFO]   [0338] BORANA         ₹372     MCap ₹991Cr Score:0.542   PE@1.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:11,142 [INFO]   [0341] BOROSCI        ₹105     MCap ₹936Cr Score:0.551  DEBT↓ PE@2.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:13,930 [INFO]   [0345] BPL            ₹49      MCap ₹242Cr Score:0.490    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:16,870 [INFO]   [0349] BRNL           ₹18      MCap ₹150Cr Score:0.704   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:19,253 [INFO]   [0350] BROOKS         ₹58      MCap ₹170Cr Score:0.493  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:24,176 [INFO]   [0353] BSL            ₹126     MCap ₹130Cr Score:0.467   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:26,954 [INFO]   [0355] BTML           ₹7       MCap ₹130Cr Score:0.477   PE@5.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:29,597 [INFO]   [0358] BVCL           ₹39      MCap ₹87Cr Score:0.494    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:31,772 [INFO]   [0359] BYKE           ₹36      MCap ₹189Cr Score:0.466   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:34,149 [INFO]   [0360] CALSOFT        ₹13      MCap ₹79Cr Score:0.399  DEBT↓ PE@2.4x 🟡 EARLY UPTREND
+2026-03-16 02:31:38,145 [INFO]   [0368] CAPACITE       ₹188     MCap ₹1602Cr Score:0.487   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:40,606 [INFO]   [0370] CAPITALSFB     ₹237     MCap ₹1076Cr Score:0.480   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:42,986 [INFO]   [0372] CAPTRUST       ₹12      MCap ₹40Cr Score:0.474    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:46,682 [INFO]   [0380] CCCL           ₹16      MCap ₹701Cr Score:0.652  DEBT↓ PE@0.2x 🟡 EARLY UPTREND
+2026-03-16 02:31:48,995 [INFO]   [0381] CCHHL          ₹12      MCap ₹196Cr Score:0.583  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:52,241 [INFO]   [0387] CELEBRITY      ₹8       MCap ₹46Cr Score:0.317    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:55,041 [INFO]   [0390] CENTENKA       ₹410     MCap ₹897Cr Score:0.537  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:31:58,461 [INFO]   [0391] CENTEXT        ₹19      MCap ₹157Cr Score:0.447   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:00,687 [INFO]   [0393] CENTRUM        ₹24      MCap ₹1065Cr Score:0.393    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:03,932 [INFO]   [0399] CEWATER        ₹246     MCap ₹510Cr Score:0.528   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:06,877 [INFO]   [0404] CHEMBOND       ₹137     MCap ₹184Cr Score:0.549  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:09,250 [INFO]   [0405] CHEMBONDCH     ₹135     MCap ₹363Cr Score:0.503  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:11,561 [INFO]   [0406] CHEMCON        ₹151     MCap ₹553Cr Score:0.598  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:13,811 [INFO]   [0407] CHEMFAB        ₹359     MCap ₹516Cr Score:0.471    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:17,389 [INFO]   [0415] CIFL           ₹26      MCap ₹1036Cr Score:0.460   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:19,912 [INFO]   [0417] CINELINE       ₹84      MCap ₹289Cr Score:0.473    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:22,937 [INFO]   [0423] CLEDUCATE      ₹49      MCap ₹266Cr Score:0.540    🟡 EARLY UPTREND
+2026-03-16 02:32:25,113 [INFO]   [0424] CLSEL          ₹239     MCap ₹1192Cr Score:0.555  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:28,275 [INFO]   [0429] COASTCORP      ₹44      MCap ₹296Cr Score:0.546   PE@0.8x 🟠 MID CYCLE
+2026-03-16 02:32:31,256 [INFO]   [0431] COFFEEDAY      ₹25      MCap ₹526Cr Score:0.373   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:34,425 [INFO]   [0436] COMPUSOFT      ₹15      MCap ₹121Cr Score:0.567   PE@1.8x 🟡 EARLY UPTREND
+2026-03-16 02:32:36,660 [INFO]   [0437] COMSYN         ₹153     MCap ₹611Cr Score:0.492   PE@0.9x 🟠 MID CYCLE
+2026-03-16 02:32:39,442 [INFO]   [0440] CONFIPET       ₹35      MCap ₹1168Cr Score:0.596   PE@0.6x 🟡 EARLY UPTREND
+2026-03-16 02:32:42,702 [INFO]   [0444] CORDSCABLE     ₹150     MCap ₹195Cr Score:0.455   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:45,783 [INFO]   [0449] CPCAP          ₹84      MCap ₹154Cr Score:0.619  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:47,936 [INFO]   [0450] CPEDU          ₹176     MCap ₹320Cr Score:0.410  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:51,137 [INFO]   [0454] CREATIVEYE     ₹7       MCap ₹14Cr Score:0.459  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:53,749 [INFO]   [0456] CREST          ₹325     MCap ₹919Cr Score:0.611   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:32:58,661 [INFO]   [0462] CSLFINANCE     ₹241     MCap ₹542Cr Score:0.611   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:00,800 [INFO]   [0463] CTE            ₹24      MCap ₹47Cr Score:0.456    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:03,158 [INFO]   [0465] CUBEXTUB       ₹90      MCap ₹128Cr Score:0.460   PE@0.6x 🟡 EARLY UPTREND
+2026-03-16 02:33:05,858 [INFO]   [0468] CURAA          ₹114     MCap ₹115Cr Score:0.431    🟠 MID CYCLE
+2026-03-16 02:33:08,363 [INFO]   [0469] CYBERMEDIA     ₹13      MCap ₹27Cr Score:0.354  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:11,309 [INFO]   [0470] CYBERTECH      ₹100     MCap ₹311Cr Score:0.553  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:14,876 [INFO]   [0477] DAMODARIND     ₹24      MCap ₹56Cr Score:0.551   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:18,128 [INFO]   [0483] DBEIL          ₹70      MCap ₹325Cr Score:0.570   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:20,534 [INFO]   [0485] DBOL           ₹98      MCap ₹648Cr Score:0.469   PE@1.1x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:33:23,828 [INFO]   [0490] DCI            ₹260     MCap ₹426Cr Score:0.497   PE@0.7x 🟠 MID CYCLE
+2026-03-16 02:33:26,154 [INFO]   [0491] DCM            ₹59      MCap ₹110Cr Score:0.490  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:28,604 [INFO]   [0493] DCMNVL         ₹111     MCap ₹222Cr Score:0.480   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:30,817 [INFO]   [0495] DCMSIL         ₹64      MCap ₹557Cr Score:0.133  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:33,175 [INFO]   [0496] DCMSRIND       ₹34      MCap ₹927Cr Score:0.462   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:35,843 [INFO]   [0497] DCW            ₹40      MCap ₹1410Cr Score:0.485   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:38,623 [INFO]   [0498] DCXINDIA       ₹174     MCap ₹1938Cr Score:0.486  DEBT↓ PE@6.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:42,652 [INFO]   [0507] DELTACORP      ₹55      MCap ₹1473Cr Score:0.531  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:44,835 [INFO]   [0508] DELTAMAGNT     ₹58      MCap ₹64Cr Score:0.362    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:47,044 [INFO]   [0509] DEN            ₹26      MCap ₹1253Cr Score:0.698  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:49,499 [INFO]   [0511] DENTA          ₹243     MCap ₹649Cr Score:0.552  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:51,922 [INFO]   [0512] DEVIT          ₹25      MCap ₹139Cr Score:0.513   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:54,568 [INFO]   [0513] DEVX           ₹37      MCap ₹332Cr Score:0.483    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:57,358 [INFO]   [0515] DGCONTENT      ₹24      MCap ₹138Cr Score:0.471   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:33:59,856 [INFO]   [0516] DHAMPURSUG     ₹119     MCap ₹767Cr Score:0.539   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:02,020 [INFO]   [0517] DHANBANK       ₹23      MCap ₹914Cr Score:0.549   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:04,746 [INFO]   [0520] DHARMAJ        ₹240     MCap ₹811Cr Score:0.535   PE@0.7x 🟡 EARLY UPTREND
+2026-03-16 02:34:07,620 [INFO]   [0524] DIAMINESQ      ₹223     MCap ₹218Cr Score:0.438  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:10,229 [INFO]   [0527] DIFFNKG        ₹243     MCap ₹902Cr Score:0.563  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:12,395 [INFO]   [0528] DIGIDRIVE      ₹21      MCap ₹81Cr Score:0.703  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:14,764 [INFO]   [0529] DIGISPICE      ₹17      MCap ₹358Cr Score:0.514  DEBT↓ PE@2.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:17,297 [INFO]   [0530] DIGITIDE       ₹82      MCap ₹1218Cr Score:0.405    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:19,728 [INFO]   [0531] DIGJAMLMTD     ₹41      MCap ₹83Cr Score:0.464   PE@2.0x 🟡 EARLY UPTREND
+2026-03-16 02:34:22,993 [INFO]   [0537] DJML           ₹86      MCap ₹296Cr Score:0.451   PE@1.6x 🟠 MID CYCLE
+2026-03-16 02:34:25,497 [INFO]   [0539] DLINKINDIA     ₹388     MCap ₹1378Cr Score:0.450  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:28,009 [INFO]   [0541] DMCC           ₹212     MCap ₹530Cr Score:0.553   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:30,811 [INFO]   [0545] DOLLAR         ₹248     MCap ₹1409Cr Score:0.513   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:33,108 [INFO]   [0546] DOLPHIN        ₹397     MCap ₹1588Cr Score:0.491   PE@1.3x 🟠 MID CYCLE
+2026-03-16 02:34:36,346 [INFO]   [0548] DONEAR         ₹87      MCap ₹452Cr Score:0.510   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:38,810 [INFO]   [0550] DPSCLTD        ₹8       MCap ₹828Cr Score:0.314  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:41,193 [INFO]   [0551] DPWIRES        ₹148     MCap ₹229Cr Score:0.565  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:43,526 [INFO]   [0552] DRCSYSTEMS     ₹13      MCap ₹189Cr Score:0.681  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:45,857 [INFO]   [0553] DREAMFOLKS     ₹72      MCap ₹384Cr Score:0.550  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:48,169 [INFO]   [0556] DSFCL          ₹22      MCap ₹195Cr Score:0.257  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:50,617 [INFO]   [0558] DTIL           ₹128     MCap ₹135Cr Score:0.589    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:53,464 [INFO]   [0561] DWARKESH       ₹38      MCap ₹704Cr Score:0.449   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:56,100 [INFO]   [0562] DYCL           ₹272     MCap ₹1318Cr Score:0.479   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:34:58,502 [INFO]   [0564] DYNPRO         ₹206     MCap ₹256Cr Score:0.419   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:01,087 [INFO]   [0567] EASTSILK       ₹70      MCap ₹35Cr Score:0.609    🟠 MID CYCLE
+2026-03-16 02:35:04,262 [INFO]   [0570] ECOSMOBLTY     ₹127     MCap ₹760Cr Score:0.501  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:09,471 [INFO]   [0578] EIHAHOTELS     ₹300     MCap ₹1828Cr Score:0.522  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:12,238 [INFO]   [0581] EKC            ₹107     MCap ₹1202Cr Score:0.579   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:15,484 [INFO]   [0587] ELGIRUBCO      ₹39      MCap ₹196Cr Score:0.202    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:17,904 [INFO]   [0588] ELIN           ₹118     MCap ₹586Cr Score:0.556  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:20,646 [INFO]   [0591] EMAMIPAP       ₹73      MCap ₹439Cr Score:0.560   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:22,737 [INFO]   [0592] EMAMIREAL      ₹52      MCap ₹228Cr Score:0.393  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:26,143 [INFO]   [0597] EMMBI          ₹81      MCap ₹155Cr Score:0.474   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:28,630 [INFO]   [0599] EMSLIMITED     ₹284     MCap ₹1576Cr Score:0.563   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:31,254 [INFO]   [0602] ENERGYDEV      ₹15      MCap ₹73Cr Score:0.344    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:33,824 [INFO]   [0604] ENIL           ₹106     MCap ₹503Cr Score:0.596   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:36,472 [INFO]   [0608] EPACKPEB       ₹156     MCap ₹1572Cr Score:0.524   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:39,874 [INFO]   [0615] ESAFSFB        ₹24      MCap ₹1252Cr Score:0.548    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:42,554 [INFO]   [0617] ESSARSHPNG     ₹24      MCap ₹494Cr Score:0.397  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:45,345 [INFO]   [0619] ESTER          ₹94      MCap ₹918Cr Score:0.498    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:48,144 [INFO]   [0623] EUROBOND       ₹144     MCap ₹353Cr Score:0.493   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:51,304 [INFO]   [0627] EVERESTIND     ₹361     MCap ₹572Cr Score:0.458    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:54,181 [INFO]   [0630] EXCELSOFT      ₹79      MCap ₹904Cr Score:0.548  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:56,311 [INFO]   [0631] EXICOM         ₹86      MCap ₹1190Cr Score:0.526    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:35:58,948 [INFO]   [0634] EXXARO         ₹7       MCap ₹301Cr Score:0.490   PE@2.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:01,128 [INFO]   [0635] FABTECH        ₹142     MCap ₹632Cr Score:0.454   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:03,680 [INFO]   [0638] FAZE3Q         ₹428     MCap ₹1038Cr Score:0.498   PE@1.3x 🟡 EARLY UPTREND
+2026-03-16 02:36:07,708 [INFO]   [0647] FIBERWEB       ₹36      MCap ₹104Cr Score:0.528  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:10,312 [INFO]   [0649] FILATEX        ₹41      MCap ₹1812Cr Score:0.561  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:13,315 [INFO]   [0653] FINKURVE       ₹57      MCap ₹804Cr Score:0.480   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:15,301 [INFO]   [0654] FINOPB         ₹169     MCap ₹1408Cr Score:0.483   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:19,004 [INFO]   [0664] FMNL           ₹8       MCap ₹49Cr Score:0.476    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:21,167 [INFO]   [0665] FOCUS          ₹68      MCap ₹458Cr Score:0.152  DEBT↓ PE@3.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:23,525 [INFO]   [0666] FOODSIN        ₹56      MCap ₹412Cr Score:0.412   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:28,123 [INFO]   [0679] GANDHAR        ₹131     MCap ₹1281Cr Score:0.589   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:30,876 [INFO]   [0682] GANESHBE       ₹80      MCap ₹572Cr Score:0.550  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:33,175 [INFO]   [0683] GANESHCP       ₹157     MCap ₹634Cr Score:0.543   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:35,789 [INFO]   [0686] GANGESSECU     ₹114     MCap ₹116Cr Score:0.590  DEBT↓ PE@2.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:38,094 [INFO]   [0688] GARUDA         ₹158     MCap ₹1474Cr Score:0.609  DEBT↓ PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:36:43,312 [INFO]   [0696] GEECEE         ₹264     MCap ₹552Cr Score:0.716  DEBT↓ PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:45,591 [INFO]   [0697] GEEKAYWIRE     ₹21      MCap ₹217Cr Score:0.234   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:47,767 [INFO]   [0698] GEMAROMA       ₹173     MCap ₹904Cr Score:0.517   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:50,268 [INFO]   [0699] GENCON         ₹44      MCap ₹251Cr Score:0.468   PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:36:52,630 [INFO]   [0700] GENESYS        ₹276     MCap ₹1153Cr Score:0.481   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:54,805 [INFO]   [0701] GENSOL         ₹23      MCap ₹87Cr Score:0.568   PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:36:57,788 [INFO]   [0707] GFSTEELS       ₹12      MCap ₹36Cr Score:0.379  DEBT↓  🔴 NEAR 52W HIGH (late)
+2026-03-16 02:37:00,742 [INFO]   [0709] GHCLTEXTIL     ₹72      MCap ₹684Cr Score:0.521  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:03,140 [INFO]   [0710] GICHSGFIN      ₹143     MCap ₹771Cr Score:0.304   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:05,290 [INFO]   [0711] GICL           ₹44      MCap ₹491Cr Score:0.216  DEBT↓ PE@6.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:07,926 [INFO]   [0713] GILLANDERS     ₹80      MCap ₹171Cr Score:0.575   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:10,637 [INFO]   [0715] GINNIFILA      ₹37      MCap ₹319Cr Score:0.522   PE@0.4x 🟠 MID CYCLE
+2026-03-16 02:37:13,294 [INFO]   [0718] GKSL           ₹107     MCap ₹844Cr Score:0.284  DEBT↓ PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:16,618 [INFO]   [0724] GLOBAL         ₹97      MCap ₹494Cr Score:0.342  DEBT↓ PE@0.9x 🟠 MID CYCLE
+2026-03-16 02:37:18,795 [INFO]   [0725] GLOBALE        ₹11      MCap ₹11Cr Score:0.458    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:21,048 [INFO]   [0726] GLOBALVECT     ₹156     MCap ₹218Cr Score:0.407    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:23,525 [INFO]   [0728] GLOBECIVIL     ₹45      MCap ₹270Cr Score:0.503   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:26,046 [INFO]   [0731] GLOTTIS        ₹44      MCap ₹407Cr Score:0.489   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:29,616 [INFO]   [0737] GNA            ₹386     MCap ₹1657Cr Score:0.511   PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:37:32,485 [INFO]   [0739] GOACARBON      ₹316     MCap ₹290Cr Score:0.428    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:34,841 [INFO]   [0740] GOCLCORP       ₹240     MCap ₹1192Cr Score:0.680  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:37,339 [INFO]   [0741] GOCOLORS       ₹264     MCap ₹1427Cr Score:0.407   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:39,733 [INFO]   [0742] GODAVARIB      ₹283     MCap ₹1447Cr Score:0.420   PE@1.5x 🟠 MID CYCLE
+2026-03-16 02:37:44,077 [INFO]   [0750] GOKUL          ₹42      MCap ₹416Cr Score:0.603   PE@0.9x 🟠 MID CYCLE
+2026-03-16 02:37:46,321 [INFO]   [0752] GOLDENTOBC     ₹28      MCap ₹50Cr Score:0.414  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:48,695 [INFO]   [0754] GOLDTECH       ₹38      MCap ₹199Cr Score:0.617   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:51,461 [INFO]   [0757] GOYALALUM      ₹6       MCap ₹88Cr Score:0.436  DEBT↓ PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:54,402 [INFO]   [0760] GPTHEALTH      ₹125     MCap ₹1022Cr Score:0.508   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:37:56,737 [INFO]   [0761] GPTINFRA       ₹103     MCap ₹1301Cr Score:0.446   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:00,868 [INFO]   [0770] GREENPOWER     ₹10      MCap ₹1163Cr Score:0.446   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:04,977 [INFO]   [0780] GSLSU          ₹67      MCap ₹283Cr Score:0.509    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:07,642 [INFO]   [0782] GSS            ₹12      MCap ₹31Cr Score:0.423    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:11,540 [INFO]   [0784] GTL            ₹7       MCap ₹104Cr Score:0.246  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:14,658 [INFO]   [0786] GTPL           ₹60      MCap ₹677Cr Score:0.584   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:17,341 [INFO]   [0789] GUJAPOLLO      ₹390     MCap ₹508Cr Score:0.511  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:38:20,540 [INFO]   [0794] GULFPETRO      ₹30      MCap ₹157Cr Score:0.521  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:22,810 [INFO]   [0795] GULPOLY        ₹155     MCap ₹967Cr Score:0.557   PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:38:25,524 [INFO]   [0798] GVPTECH        ₹6       MCap ₹97Cr Score:0.330  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:29,684 [INFO]   [0805] HARDWYN        ₹18      MCap ₹880Cr Score:0.502  DEBT↓ PE@3.4x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:38:32,114 [INFO]   [0806] HARIOMPIPE     ₹316     MCap ₹979Cr Score:0.461   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:36,490 [INFO]   [0809] HATHWAY        ₹10      MCap ₹1749Cr Score:0.687  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:41,097 [INFO]   [0818] HCL-INSYS      ₹12      MCap ₹399Cr Score:0.470 [Infosys] DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:44,900 [INFO]   [0825] HEADSUP        ₹7       MCap ₹15Cr Score:0.486  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:47,152 [INFO]   [0826] HECPROJECT     ₹109     MCap ₹118Cr Score:0.405   PE@0.4x 🟡 EARLY UPTREND
+2026-03-16 02:38:49,843 [INFO]   [0830] HERANBA        ₹174     MCap ₹694Cr Score:0.500    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:52,467 [INFO]   [0834] HEXATRADEX     ₹164     MCap ₹919Cr Score:0.536  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:55,511 [INFO]   [0838] HGM            ₹51      MCap ₹66Cr Score:0.326   PE@5.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:38:57,728 [INFO]   [0839] HGS            ₹369     MCap ₹1718Cr Score:0.682   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:00,229 [INFO]   [0841] HILINFRA       ₹50      MCap ₹359Cr Score:0.495   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:02,663 [INFO]   [0842] HILTON         ₹17      MCap ₹61Cr Score:0.560   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:05,110 [INFO]   [0843] HIMATSEIDE     ₹83      MCap ₹1044Cr Score:0.417   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:07,684 [INFO]   [0846] HINDCON        ₹19      MCap ₹97Cr Score:0.258  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:10,220 [INFO]   [0848] HINDOILEXP     ₹145     MCap ₹1922Cr Score:0.509  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:12,819 [INFO]   [0851] HINDWAREAP     ₹202     MCap ₹1695Cr Score:0.367   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:15,602 [INFO]   [0854] HISARMETAL     ₹154     MCap ₹83Cr Score:0.539   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:18,008 [INFO]   [0855] HITECH         ₹78      MCap ₹1587Cr Score:0.489   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:20,827 [INFO]   [0856] HITECHCORP     ₹131     MCap ₹225Cr Score:0.548   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:23,551 [INFO]   [0859] HLVLTD         ₹7       MCap ₹469Cr Score:0.545  DEBT↓ PE@4.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:25,754 [INFO]   [0860] HMAAGRO        ₹24      MCap ₹1222Cr Score:0.621   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:28,274 [INFO]   [0862] HMVL           ₹62      MCap ₹452Cr Score:0.727  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:31,608 [INFO]   [0868] HPAL           ₹31      MCap ₹289Cr Score:0.532  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:33,976 [INFO]   [0869] HPIL           ₹120     MCap ₹137Cr Score:0.437   PE@4.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:37,306 [INFO]   [0875] HUHTAMAKI      ₹161     MCap ₹1217Cr Score:0.622  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:41,085 [INFO]   [0879] ICDSLTD        ₹54      MCap ₹71Cr Score:0.382  DEBT↓ PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:39:45,335 [INFO]   [0889] IDEAFORGE      ₹403     MCap ₹1743Cr Score:0.411  DEBT↓ PE@0.9x 🟡 EARLY UPTREND
+2026-03-16 02:39:48,837 [INFO]   [0895] IFGLEXPOR      ₹150     MCap ₹1078Cr Score:0.525   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:51,389 [INFO]   [0896] IGARASHI       ₹310     MCap ₹976Cr Score:0.461   PE@2.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:53,712 [INFO]   [0897] IGCL           ₹61      MCap ₹388Cr Score:0.558   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:56,519 [INFO]   [0900] IGPL           ₹340     MCap ₹1047Cr Score:0.511   PE@2.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:39:59,562 [INFO]   [0904] IKIO           ₹128     MCap ₹989Cr Score:0.532  DEBT↓ PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:01,996 [INFO]   [0906] IL&FSENGG      ₹22      MCap ₹290Cr Score:0.419  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:05,929 [INFO]   [0913] INCREDIBLE     ₹33      MCap ₹157Cr Score:0.589  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:09,689 [INFO]   [0921] INDIANCARD     ₹191     MCap ₹115Cr Score:0.666  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:12,027 [INFO]   [0922] INDIANHUME     ₹324     MCap ₹1709Cr Score:0.668   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:15,480 [INFO]   [0928] INDOAMIN       ₹97      MCap ₹704Cr Score:0.485   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:17,814 [INFO]   [0929] INDOBORAX      ₹244     MCap ₹787Cr Score:0.429  DEBT↓ PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:40:19,959 [INFO]   [0930] INDOCO         ₹196     MCap ₹1809Cr Score:0.394   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:22,363 [INFO]   [0931] INDOFARM       ₹125     MCap ₹601Cr Score:0.543   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:24,687 [INFO]   [0932] INDORAMA       ₹33      MCap ₹858Cr Score:0.467   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:27,683 [INFO]   [0936] INDOUS         ₹100     MCap ₹202Cr Score:0.492   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:29,876 [INFO]   [0937] INDOWIND       ₹8       MCap ₹135Cr Score:0.502  DEBT↓ PE@3.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:32,519 [INFO]   [0940] INDTERRAIN     ₹28      MCap ₹144Cr Score:0.506   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:35,375 [INFO]   [0943] INFOBEAN       ₹125     MCap ₹1213Cr Score:0.647  DEBT↓ PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:40:38,340 [INFO]   [0948] INNOVANA       ₹378     MCap ₹781Cr Score:0.492   PE@0.6x 🟡 EARLY UPTREND
+2026-03-16 02:40:41,441 [INFO]   [0953] INSPIRISYS     ₹79      MCap ₹316Cr Score:0.614   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:43,930 [INFO]   [0955] INTENTECH      ₹86      MCap ₹202Cr Score:0.438  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:48,116 [INFO]   [0964] IPL            ₹142     MCap ₹1640Cr Score:0.602  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:51,364 [INFO]   [0970] IRIS           ₹228     MCap ₹469Cr Score:0.524  DEBT↓ PE@1.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:53,801 [INFO]   [0971] IRISDOREME     ₹29      MCap ₹500Cr Score:0.262   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:56,049 [INFO]   [0972] IRMENERGY      ₹213     MCap ₹875Cr Score:0.585  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:40:58,478 [INFO]   [0973] ISFT           ₹71      MCap ₹116Cr Score:0.582  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:00,741 [INFO]   [0975] ISHANCH        ₹53      MCap ₹142Cr Score:0.453    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:04,061 [INFO]   [0980] IVALUE         ₹226     MCap ₹1232Cr Score:0.490   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:06,378 [INFO]   [0981] IVC            ₹7       MCap ₹220Cr Score:0.492  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:08,848 [INFO]   [0982] IVP            ₹127     MCap ₹131Cr Score:0.595   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:11,805 [INFO]   [0986] JAGRAN         ₹62      MCap ₹1343Cr Score:0.639  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:14,224 [INFO]   [0987] JAGSNPHARM     ₹183     MCap ₹1227Cr Score:0.508  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:16,678 [INFO]   [0989] JAICORPLTD     ₹98      MCap ₹1715Cr Score:0.630  DEBT↓ PE@0.4x 🟡 EARLY UPTREND
+2026-03-16 02:41:19,039 [INFO]   [0991] JAIPURKURT     ₹29      MCap ₹50Cr Score:0.339   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:21,353 [INFO]   [0993] JARO           ₹427     MCap ₹946Cr Score:0.535  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:24,075 [INFO]   [0995] JAYAGROGN      ₹170     MCap ₹510Cr Score:0.589   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:26,436 [INFO]   [0996] JAYBARMARU     ₹89      MCap ₹960Cr Score:0.549   PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:41:29,098 [INFO]   [0997] JAYKAY         ₹129     MCap ₹1679Cr Score:0.466  DEBT↓ PE@2.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:31,796 [INFO]   [0999] JAYSREETEA     ₹88      MCap ₹253Cr Score:0.579   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:34,675 [INFO]   [1002] JETFREIGHT     ₹19      MCap ₹87Cr Score:0.457   PE@1.0x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:41:36,865 [INFO]   [1003] JGCHEM         ₹335     MCap ₹1312Cr Score:0.474  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:39,117 [INFO]   [1004] JHS            ₹8       MCap ₹74Cr Score:0.468  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:42,316 [INFO]   [1009] JINDRILL       ₹474     MCap ₹1374Cr Score:0.662  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:45,677 [INFO]   [1014] JITFINFRA      ₹347     MCap ₹893Cr Score:0.427  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:41:48,145 [INFO]   [1017] JKIPL          ₹54      MCap ₹208Cr Score:0.539    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:51,271 [INFO]   [1022] JMA            ₹84      MCap ₹192Cr Score:0.356  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:53,832 [INFO]   [1024] JNKINDIA       ₹234     MCap ₹1307Cr Score:0.610  DEBT↓ PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:41:56,328 [INFO]   [1025] JOCIL          ₹117     MCap ₹104Cr Score:0.321  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:03,129 [INFO]   [1048] JYOTISTRUC     ₹11      MCap ₹1309Cr Score:0.279   PE@1.1x 🟡 EARLY UPTREND
+2026-03-16 02:42:05,430 [INFO]   [1049] KABRAEXTRU     ₹225     MCap ₹789Cr Score:0.414   PE@0.9x 🟡 EARLY UPTREND
+2026-03-16 02:42:07,897 [INFO]   [1051] KAKATCEM       ₹102     MCap ₹80Cr Score:0.570  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:10,330 [INFO]   [1052] KALAMANDIR     ₹101     MCap ₹1489Cr Score:0.504   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:13,279 [INFO]   [1054] KALYANI        ₹138     MCap ₹14Cr Score:0.213  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:15,954 [INFO]   [1057] KAMATHOTEL     ₹189     MCap ₹558Cr Score:0.434   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:18,357 [INFO]   [1058] KAMDHENU       ₹22      MCap ₹621Cr Score:0.535  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:20,946 [INFO]   [1061] KANORICHEM     ₹60      MCap ₹262Cr Score:0.520    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:23,339 [INFO]   [1062] KANPRPLA       ₹165     MCap ₹397Cr Score:0.550   PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:42:27,736 [INFO]   [1065] KARMAENG       ₹38      MCap ₹44Cr Score:0.620  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:30,503 [INFO]   [1068] KAVDEFENCE     ₹61      MCap ₹208Cr Score:0.424  DEBT↓ PE@4.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:32,679 [INFO]   [1069] KAYA           ₹304     MCap ₹462Cr Score:0.330  DEBT↓ PE@0.8x 🟡 EARLY UPTREND
+2026-03-16 02:42:35,270 [INFO]   [1071] KCP            ₹141     MCap ₹1820Cr Score:0.458   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:37,579 [INFO]   [1072] KCPSUGIND      ₹23      MCap ₹264Cr Score:0.494  DEBT↓ PE@2.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:40,298 [INFO]   [1075] KECL           ₹80      MCap ₹532Cr Score:0.437   PE@2.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:43,276 [INFO]   [1078] KELLTONTEC     ₹17      MCap ₹888Cr Score:0.423   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:45,602 [INFO]   [1080] KESORAMIND     ₹8       MCap ₹246Cr Score:0.534    🟠 MID CYCLE
+2026-03-16 02:42:48,544 [INFO]   [1083] KHADIM         ₹101     MCap ₹187Cr Score:0.462   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:50,938 [INFO]   [1084] KHAICHEM       ₹52      MCap ₹502Cr Score:0.587   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:42:53,267 [INFO]   [1085] KHAITANLTD     ₹98      MCap ₹49Cr Score:0.584   PE@0.3x 🟡 EARLY UPTREND
+2026-03-16 02:42:56,546 [INFO]   [1088] KILITCH        ₹307     MCap ₹538Cr Score:0.531   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:01,360 [INFO]   [1100] KMSUGAR        ₹26      MCap ₹235Cr Score:0.644   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:03,810 [INFO]   [1101] KNAGRI         ₹173     MCap ₹433Cr Score:0.270  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:06,330 [INFO]   [1103] KOHINOOR       ₹25      MCap ₹91Cr Score:0.544  DEBT↓ PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:08,758 [INFO]   [1104] KOKUYOCMLN     ₹78      MCap ₹782Cr Score:0.436   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:11,483 [INFO]   [1106] KOPRAN         ₹117     MCap ₹563Cr Score:0.426   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:14,139 [INFO]   [1108] KOTARISUG      ₹24      MCap ₹198Cr Score:0.395   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:16,491 [INFO]   [1109] KOTHARIPET     ₹110     MCap ₹649Cr Score:0.309  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:18,853 [INFO]   [1110] KOTHARIPRO     ₹63      MCap ₹378Cr Score:0.580   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:23,487 [INFO]   [1112] KPEL           ₹281     MCap ₹1903Cr Score:0.465   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:26,874 [INFO]   [1118] KREBSBIO       ₹53      MCap ₹116Cr Score:0.395  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:30,420 [INFO]   [1121] KRISHIVAL      ₹319     MCap ₹817Cr Score:0.583   PE@1.5x 🟡 EARLY UPTREND
+2026-03-16 02:43:32,918 [INFO]   [1123] KRITI          ₹83      MCap ₹437Cr Score:0.447    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:35,159 [INFO]   [1124] KRITIKA        ₹5       MCap ₹134Cr Score:0.221   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:37,426 [INFO]   [1125] KRITINUT       ₹64      MCap ₹321Cr Score:0.570  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:39,972 [INFO]   [1127] KRONOX         ₹112     MCap ₹416Cr Score:0.494  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:42,437 [INFO]   [1128] KROSS          ₹181     MCap ₹1170Cr Score:0.424  DEBT↓ PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:46,380 [INFO]   [1136] KSOLVES        ₹274     MCap ₹649Cr Score:0.479  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:48,490 [INFO]   [1137] KSR            ₹36      MCap ₹67Cr Score:0.456    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:51,254 [INFO]   [1139] KUANTUM        ₹80      MCap ₹694Cr Score:0.620   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:53,765 [INFO]   [1141] LAGNAM         ₹66      MCap ₹117Cr Score:0.305   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:43:55,689 [INFO]   [1142] LAKPRE         ₹5       MCap ₹12Cr Score:0.513  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:43:57,912 [INFO]   [1143] LAL            ₹6       MCap ₹110Cr Score:0.479    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:00,638 [INFO]   [1145] LAMBODHARA     ₹95      MCap ₹99Cr Score:0.595   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:02,902 [INFO]   [1146] LANCORHOL      ₹19      MCap ₹143Cr Score:0.453    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:05,182 [INFO]   [1147] LANDMARK       ₹366     MCap ₹1520Cr Score:0.431 [Mahindra]  PE@2.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:07,622 [INFO]   [1149] LASA           ₹7       MCap ₹36Cr Score:0.473  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:11,871 [INFO]   [1153] LAXMICOT       ₹13      MCap ₹22Cr Score:0.333   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:14,250 [INFO]   [1154] LAXMIDENTL     ₹177     MCap ₹975Cr Score:0.450  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:16,381 [INFO]   [1155] LAXMIINDIA     ₹83      MCap ₹434Cr Score:0.588   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:25,675 [INFO]   [1164] LGHL           ₹262     MCap ₹1312Cr Score:0.195   PE@4.6x 🟡 EARLY UPTREND
+2026-03-16 02:44:27,998 [INFO]   [1165] LIBAS          ₹10      MCap ₹27Cr Score:0.318   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:30,397 [INFO]   [1166] LIBERTSHOE     ₹261     MCap ₹447Cr Score:0.462   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:33,398 [INFO]   [1169] LIKHITHA       ₹142     MCap ₹562Cr Score:0.563  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:35,773 [INFO]   [1170] LINC           ₹100     MCap ₹596Cr Score:0.458  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:39,867 [INFO]   [1178] LOKESHMACH     ₹199     MCap ₹398Cr Score:0.424    🟠 MID CYCLE
+2026-03-16 02:44:42,186 [INFO]   [1179] LORDSCHLO      ₹118     MCap ₹340Cr Score:0.625   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:44,690 [INFO]   [1181] LOTUSEYE       ₹106     MCap ₹220Cr Score:0.401  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:44:46,986 [INFO]   [1182] LOVABLE        ₹67      MCap ₹98Cr Score:0.553  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:49,098 [INFO]   [1183] LOYALTEX       ₹205     MCap ₹106Cr Score:0.495    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:51,367 [INFO]   [1184] LPDC           ₹6       MCap ₹83Cr Score:0.572  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:55,840 [INFO]   [1195] LYKALABS       ₹52      MCap ₹186Cr Score:0.420    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:44:58,956 [INFO]   [1199] MAANALU        ₹128     MCap ₹696Cr Score:0.351   PE@1.8x 🟠 MID CYCLE
+2026-03-16 02:45:01,628 [INFO]   [1201] MADHAV         ₹36      MCap ₹32Cr Score:0.534  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:07,306 [INFO]   [1204] MAGADSUGAR     ₹428     MCap ₹603Cr Score:0.571   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:09,632 [INFO]   [1205] MAGNUM         ₹20      MCap ₹135Cr Score:0.510    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:11,990 [INFO]   [1207] MAHAPEXLTD     ₹114     MCap ₹161Cr Score:0.585  DEBT↓ PE@0.1x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:45:14,568 [INFO]   [1209] MAHEPC         ₹112     MCap ₹314Cr Score:0.496 [Mahindra]  PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:16,781 [INFO]   [1210] MAHESHWARI     ₹42      MCap ₹123Cr Score:0.338   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:20,363 [INFO]   [1217] MALUPAPER      ₹32      MCap ₹56Cr Score:0.422  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:22,825 [INFO]   [1218] MAMATA         ₹384     MCap ₹946Cr Score:0.423  DEBT↓ PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:25,551 [INFO]   [1219] MANAKALUCO     ₹26      MCap ₹172Cr Score:0.427   PE@1.1x 🟡 EARLY UPTREND
+2026-03-16 02:45:28,096 [INFO]   [1220] MANAKCOAT      ₹112     MCap ₹1191Cr Score:0.422   PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:45:30,510 [INFO]   [1221] MANAKSIA       ₹54      MCap ₹351Cr Score:0.644  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:32,886 [INFO]   [1222] MANAKSTEEL     ₹55      MCap ₹357Cr Score:0.676   PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:45:35,707 [INFO]   [1223] MANALIPETC     ₹46      MCap ₹791Cr Score:0.619  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:38,247 [INFO]   [1225] MANBA          ₹122     MCap ₹610Cr Score:0.553   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:40,519 [INFO]   [1226] MANCREDIT      ₹166     MCap ₹351Cr Score:0.546   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:42,784 [INFO]   [1227] MANGALAM       ₹32      MCap ₹50Cr Score:0.461    🟡 EARLY UPTREND
+2026-03-16 02:45:45,972 [INFO]   [1232] MANOMAY        ₹209     MCap ₹378Cr Score:0.444   PE@0.8x 🟠 MID CYCLE
+2026-03-16 02:45:48,517 [INFO]   [1234] MANORG         ₹406     MCap ₹349Cr Score:0.518   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:50,775 [INFO]   [1235] MANUGRAPH      ₹14      MCap ₹44Cr Score:0.576  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:54,015 [INFO]   [1238] MARALOVER      ₹41      MCap ₹169Cr Score:0.508 [Birla]   🟢 DEEP BASE (near 52W low)
+2026-03-16 02:45:56,921 [INFO]   [1242] MARKOLINES     ₹150     MCap ₹331Cr Score:0.468   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:00,557 [INFO]   [1250] MATRIMONY      ₹378     MCap ₹782Cr Score:0.438   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:02,831 [INFO]   [1251] MAWANASUG      ₹77      MCap ₹304Cr Score:0.574  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:05,573 [INFO]   [1254] MAXIND         ₹147     MCap ₹773Cr Score:0.462    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:08,141 [INFO]   [1256] MAZDA          ₹185     MCap ₹371Cr Score:0.511  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:10,831 [INFO]   [1259] MBEL           ₹282     MCap ₹1611Cr Score:0.473   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:13,121 [INFO]   [1260] MBLINFRA       ₹23      MCap ₹349Cr Score:0.597    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:15,557 [INFO]   [1261] MCL            ₹62      MCap ₹168Cr Score:0.251   PE@1.5x 🟡 EARLY UPTREND
+2026-03-16 02:46:19,961 [INFO]   [1263] MCLOUD         ₹22      MCap ₹1306Cr Score:0.501   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:22,907 [INFO]   [1267] MEDICAMEQ      ₹274     MCap ₹371Cr Score:0.462   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:25,537 [INFO]   [1268] MEDICO         ₹41      MCap ₹340Cr Score:0.514   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:28,287 [INFO]   [1271] MEGASTAR       ₹235     MCap ₹266Cr Score:0.525   PE@1.0x 🟠 MID CYCLE
+2026-03-16 02:46:30,493 [INFO]   [1272] MEIL           ₹227     MCap ₹627Cr Score:0.574  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:32,991 [INFO]   [1273] MENONBE        ₹124     MCap ₹694Cr Score:0.559   PE@0.9x 🟠 MID CYCLE
+2026-03-16 02:46:36,414 [INFO]   [1277] MFML           ₹23      MCap ₹24Cr Score:0.535   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:38,909 [INFO]   [1279] MGEL           ₹10      MCap ₹336Cr Score:0.604   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:41,374 [INFO]   [1281] MHLXMIRU       ₹162     MCap ₹172Cr Score:0.576   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:44,741 [INFO]   [1287] MINDTECK       ₹180     MCap ₹578Cr Score:0.488  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:46,997 [INFO]   [1288] MIRCELECTR     ₹24      MCap ₹905Cr Score:0.327    🟠 MID CYCLE
+2026-03-16 02:46:49,571 [INFO]   [1289] MIRZAINT       ₹31      MCap ₹426Cr Score:0.544  DEBT↓ PE@2.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:51,989 [INFO]   [1290] MITCON         ₹52      MCap ₹92Cr Score:0.360   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:54,571 [INFO]   [1292] MKPL           ₹5       MCap ₹192Cr Score:0.480  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:46:59,042 [INFO]   [1296] MOBIKWIK       ₹184     MCap ₹1447Cr Score:0.314   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:01,460 [INFO]   [1297] MODINATUR      ₹282     MCap ₹375Cr Score:0.476   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:03,687 [INFO]   [1298] MODIRUBBER     ₹115     MCap ₹290Cr Score:0.663  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:05,924 [INFO]   [1299] MODIS          ₹300     MCap ₹588Cr Score:0.592  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:08,480 [INFO]   [1300] MODISONLTD     ₹117     MCap ₹380Cr Score:0.574   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:10,844 [INFO]   [1301] MODTHREAD      ₹55      MCap ₹190Cr Score:0.390  DEBT↓ PE@0.7x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:47:13,098 [INFO]   [1302] MOHITIND       ₹23      MCap ₹32Cr Score:0.494    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:15,690 [INFO]   [1304] MOKSH          ₹11      MCap ₹94Cr Score:0.277   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:18,146 [INFO]   [1305] MOL            ₹43      MCap ₹1096Cr Score:0.429   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:20,619 [INFO]   [1306] MOLDTECH       ₹128     MCap ₹369Cr Score:0.531  DEBT↓ PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:23,220 [INFO]   [1307] MOLDTKPAC      ₹499     MCap ₹1658Cr Score:0.269   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:25,619 [INFO]   [1309] MONEYBOXX      ₹64      MCap ₹421Cr Score:0.452    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:28,058 [INFO]   [1311] MORARJEE       ₹7       MCap ₹24Cr Score:0.410  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:47:31,700 [INFO]   [1316] MOTISONS       ₹13      MCap ₹1319Cr Score:0.451  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:34,508 [INFO]   [1317] MOTOGENFIN     ₹20      MCap ₹77Cr Score:0.567  DEBT↓ PE@2.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:37,441 [INFO]   [1322] MSPL           ₹31      MCap ₹1762Cr Score:0.451    🟠 MID CYCLE
+2026-03-16 02:47:40,418 [INFO]   [1327] MTNL           ₹25      MCap ₹1582Cr Score:0.344  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:43,096 [INFO]   [1328] MUFIN          ₹101     MCap ₹1750Cr Score:0.344   PE@3.3x 🟠 MID CYCLE
+2026-03-16 02:47:45,572 [INFO]   [1329] MUFTI          ₹79      MCap ₹516Cr Score:0.524   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:47,841 [INFO]   [1330] MUKANDLTD      ₹121     MCap ₹1760Cr Score:0.423   PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:47:50,061 [INFO]   [1331] MUKKA          ₹22      MCap ₹659Cr Score:0.617   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:52,509 [INFO]   [1332] MUKTAARTS      ₹48      MCap ₹111Cr Score:0.435  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:54,746 [INFO]   [1333] MUNJALAU       ₹77      MCap ₹770Cr Score:0.470   PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:47:57,136 [INFO]   [1334] MUNJALSHOW     ₹121     MCap ₹484Cr Score:0.632  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:47:59,528 [INFO]   [1335] MURUDCERA      ₹29      MCap ₹177Cr Score:0.628   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:01,932 [INFO]   [1336] MUTHOOTCAP     ₹191     MCap ₹314Cr Score:0.545   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:04,552 [INFO]   [1339] MVGJL          ₹149     MCap ₹727Cr Score:0.611   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:09,910 [INFO]   [1344] NAGREEKEXP     ₹23      MCap ₹72Cr Score:0.566   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:12,539 [INFO]   [1346] NAHARINDUS     ₹88      MCap ₹382Cr Score:0.578   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:14,850 [INFO]   [1347] NAHARPOLY      ₹236     MCap ₹585Cr Score:0.655  DEBT↓ PE@0.3x 🟡 EARLY UPTREND
+2026-03-16 02:48:17,170 [INFO]   [1348] NAHARSPING     ₹186     MCap ₹676Cr Score:0.513   PE@1.4x 🟡 EARLY UPTREND
+2026-03-16 02:48:19,527 [INFO]   [1350] NARMADA        ₹31      MCap ₹120Cr Score:0.479   PE@1.1x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:48:21,867 [INFO]   [1351] NATCAPSUQ      ₹148     MCap ₹156Cr Score:0.484    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:24,526 [INFO]   [1353] NATHBIOGEN     ₹143     MCap ₹272Cr Score:0.603   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:27,551 [INFO]   [1358] NAVKARCORP     ₹87      MCap ₹1309Cr Score:0.574  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:31,122 [INFO]   [1365] NCLIND         ₹172     MCap ₹778Cr Score:0.519   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:33,780 [INFO]   [1368] NDLVENTURE     ₹114     MCap ₹384Cr Score:0.465  DEBT↓  🔴 NEAR 52W HIGH (late)
+2026-03-16 02:48:36,300 [INFO]   [1370] NDTV           ₹77      MCap ₹872Cr Score:0.397  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:38,430 [INFO]   [1371] NECCLTD        ₹13      MCap ₹133Cr Score:0.565   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:40,766 [INFO]   [1372] NECLIFE        ₹11      MCap ₹214Cr Score:0.569   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:42,977 [INFO]   [1373] NELCAST        ₹122     MCap ₹1064Cr Score:0.545   PE@1.0x 🟠 MID CYCLE
+2026-03-16 02:48:47,263 [INFO]   [1384] NEXTMEDIA      ₹5       MCap ₹35Cr Score:0.502  DEBT↓ PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:49,746 [INFO]   [1386] NGIL           ₹24      MCap ₹42Cr Score:0.556   PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:53,066 [INFO]   [1392] NIBL           ₹30      MCap ₹75Cr Score:0.538  DEBT↓ PE@0.2x 🟠 MID CYCLE
+2026-03-16 02:48:55,725 [INFO]   [1393] NIITLTD        ₹64      MCap ₹873Cr Score:0.526  DEBT↓ PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:48:58,288 [INFO]   [1395] NILAINFRA      ₹7       MCap ₹281Cr Score:0.539  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:00,636 [INFO]   [1396] NILASPACES     ₹13      MCap ₹526Cr Score:0.533   PE@0.9x 🟡 EARLY UPTREND
+2026-03-16 02:49:03,089 [INFO]   [1398] NINSYS         ₹293     MCap ₹544Cr Score:0.522  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:05,353 [INFO]   [1399] NIPPOBATRY     ₹288     MCap ₹217Cr Score:0.532    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:07,572 [INFO]   [1400] NIRAJ          ₹26      MCap ₹158Cr Score:0.689  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:09,822 [INFO]   [1401] NIRAJISPAT     ₹232     MCap ₹14Cr Score:0.160  DEBT↓ PE@0.4x 🟡 EARLY UPTREND
+2026-03-16 02:49:11,901 [INFO]   [1402] NITCO          ₹65      MCap ₹1485Cr Score:0.282   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:14,350 [INFO]   [1404] NITIRAJ        ₹220     MCap ₹226Cr Score:0.179  DEBT↓ PE@1.0x 🟡 EARLY UPTREND
+2026-03-16 02:49:16,752 [INFO]   [1406] NKIND          ₹60      MCap ₹41Cr Score:0.397  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:20,097 [INFO]   [1411] NORBTEAEXP     ₹89      MCap ₹138Cr Score:0.475    🟠 MID CYCLE
+2026-03-16 02:49:22,542 [INFO]   [1413] NOVAAGRI       ₹27      MCap ₹245Cr Score:0.563   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:24,988 [INFO]   [1415] NRAIL          ₹415     MCap ₹706Cr Score:0.535   PE@1.2x 🟠 MID CYCLE
+2026-03-16 02:49:27,499 [INFO]   [1417] NRL            ₹51      MCap ₹349Cr Score:0.268  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:30,953 [INFO]   [1423] NURECA         ₹257     MCap ₹257Cr Score:0.589  DEBT↓ PE@0.7x 🟠 MID CYCLE
+2026-03-16 02:49:33,741 [INFO]   [1427] OAL            ₹257     MCap ₹865Cr Score:0.487    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:35,924 [INFO]   [1428] OBCL           ₹56      MCap ₹117Cr Score:0.467    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:38,427 [INFO]   [1430] OCCLLTD        ₹87      MCap ₹437Cr Score:0.361  DEBT↓ PE@0.4x 🟡 EARLY UPTREND
+2026-03-16 02:49:40,553 [INFO]   [1431] ODIGMA         ₹22      MCap ₹70Cr Score:0.471  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:43,715 [INFO]   [1434] OILCOUNTUB     ₹44      MCap ₹228Cr Score:0.505  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:46,441 [INFO]   [1437] OMAXAUTO       ₹97      MCap ₹207Cr Score:0.677   PE@0.4x 🟡 EARLY UPTREND
+2026-03-16 02:49:48,732 [INFO]   [1438] OMAXE          ₹71      MCap ₹1295Cr Score:0.414  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:50,844 [INFO]   [1439] OMFREIGHT      ₹73      MCap ₹245Cr Score:0.606  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:53,291 [INFO]   [1440] OMINFRAL       ₹89      MCap ₹855Cr Score:0.556   PE@1.4x 🟡 EARLY UPTREND
+2026-03-16 02:49:56,204 [INFO]   [1444] ONEPOINT       ₹44      MCap ₹1152Cr Score:0.209  DEBT↓ PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:49:58,865 [INFO]   [1447] ONMOBILE       ₹49      MCap ₹522Cr Score:0.438  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:01,219 [INFO]   [1448] ONWARDTEC      ₹240     MCap ₹546Cr Score:0.495   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:03,749 [INFO]   [1450] ORBTEXP        ₹154     MCap ₹408Cr Score:0.643  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:06,469 [INFO]   [1453] ORICONENT      ₹66      MCap ₹1046Cr Score:0.646  DEBT↓ PE@1.3x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:50:08,735 [INFO]   [1454] ORIENTALTL     ₹6       MCap ₹42Cr Score:0.586  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:11,152 [INFO]   [1455] ORIENTBELL     ₹274     MCap ₹405Cr Score:0.543  DEBT↓ PE@2.0x 🟠 MID CYCLE
+2026-03-16 02:50:13,802 [INFO]   [1457] ORIENTCER      ₹36      MCap ₹431Cr Score:0.597   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:16,269 [INFO]   [1459] ORIENTHOT      ₹86      MCap ₹1543Cr Score:0.493   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:18,539 [INFO]   [1460] ORIENTLTD      ₹68      MCap ₹69Cr Score:0.493   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:20,996 [INFO]   [1461] ORIENTPPR      ₹17      MCap ₹353Cr Score:0.463   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:23,140 [INFO]   [1462] ORIENTTECH     ₹270     MCap ₹1239Cr Score:0.435  DEBT↓ PE@1.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:28,029 [INFO]   [1467] OSIAHYPER      ₹6       MCap ₹105Cr Score:0.289   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:30,693 [INFO]   [1468] OSWALAGRO      ₹42      MCap ₹559Cr Score:0.631  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:36,012 [INFO]   [1475] PAKKA          ₹77      MCap ₹346Cr Score:0.433   PE@2.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:38,304 [INFO]   [1476] PALASHSECU     ₹87      MCap ₹87Cr Score:0.648  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:40,499 [INFO]   [1477] PALREDTEC      ₹29      MCap ₹35Cr Score:0.438    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:43,086 [INFO]   [1478] PANACEABIO     ₹325     MCap ₹1993Cr Score:0.429  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:45,265 [INFO]   [1479] PANACHE        ₹298     MCap ₹454Cr Score:0.335   PE@1.8x 🟠 MID CYCLE
+2026-03-16 02:50:47,542 [INFO]   [1480] PANAMAPET      ₹270     MCap ₹1636Cr Score:0.538  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:49,971 [INFO]   [1482] PAR            ₹90      MCap ₹110Cr Score:0.456  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:52,283 [INFO]   [1483] PARACABLES     ₹32      MCap ₹972Cr Score:0.494  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:56,103 [INFO]   [1490] PARSVNATH      ₹7       MCap ₹298Cr Score:0.355  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:50:58,667 [INFO]   [1492] PASUPTAC       ₹45      MCap ₹397Cr Score:0.692   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:01,296 [INFO]   [1495] PATELRMART     ₹167     MCap ₹557Cr Score:0.620   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:03,842 [INFO]   [1496] PATINTLOG      ₹10      MCap ₹68Cr Score:0.463  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:06,333 [INFO]   [1498] PAVNAIND       ₹18      MCap ₹251Cr Score:0.635    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:09,313 [INFO]   [1502] PDMJEPAPER     ₹73      MCap ₹693Cr Score:0.561  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:15,968 [INFO]   [1504] PEARLPOLY      ₹17      MCap ₹29Cr Score:0.534  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:18,569 [INFO]   [1505] PENIND         ₹143     MCap ₹1924Cr Score:0.375   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:21,071 [INFO]   [1506] PENINLAND      ₹15      MCap ₹513Cr Score:0.342    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:24,649 [INFO]   [1512] PFS            ₹28      MCap ₹1767Cr Score:0.303   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:28,537 [INFO]   [1520] PIGL           ₹99      MCap ₹191Cr Score:0.526   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:31,253 [INFO]   [1523] PILITA         ₹7       MCap ₹176Cr Score:0.386   PE@1.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:33,763 [INFO]   [1525] PIONEEREMB     ₹24      MCap ₹74Cr Score:0.473    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:37,020 [INFO]   [1530] PLASTIBLEN     ₹134     MCap ₹347Cr Score:0.532  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:38,995 [INFO]   [1531] PLATIND        ₹205     MCap ₹1161Cr Score:0.447  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:41,406 [INFO]   [1532] PLAZACABLE     ₹35      MCap ₹153Cr Score:0.578   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:44,139 [INFO]   [1536] PNC            ₹20      MCap ₹29Cr Score:0.589  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:48,907 [INFO]   [1541] PODDARMENT     ₹220     MCap ₹233Cr Score:0.598  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:52,303 [INFO]   [1547] PONNIERODE     ₹265     MCap ₹228Cr Score:0.684  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:51:55,492 [INFO]   [1552] PPAP           ₹195     MCap ₹280Cr Score:0.568  DEBT↓ PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:51:58,017 [INFO]   [1553] PPL            ₹194     MCap ₹464Cr Score:0.526  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:00,707 [INFO]   [1556] PRAENG         ₹19      MCap ₹146Cr Score:0.464    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:03,582 [INFO]   [1560] PRAXIS         ₹6       MCap ₹116Cr Score:0.485   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:06,240 [INFO]   [1561] PRECAM         ₹120     MCap ₹1145Cr Score:0.557  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:09,991 [INFO]   [1567] PREMIERPOL     ₹61      MCap ₹635Cr Score:0.540  DEBT↓ PE@0.8x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:52:12,980 [INFO]   [1571] PRIMO          ₹18      MCap ₹427Cr Score:0.506   PE@2.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:15,582 [INFO]   [1573] PRITI          ₹36      MCap ₹48Cr Score:0.302  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:18,021 [INFO]   [1574] PRITIKAUTO     ₹12      MCap ₹203Cr Score:0.588   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:20,437 [INFO]   [1576] PROSTARM       ₹124     MCap ₹731Cr Score:0.585  DEBT↓ PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:22,761 [INFO]   [1578] PROZONER       ₹43      MCap ₹650Cr Score:0.537    🟠 MID CYCLE
+2026-03-16 02:52:26,001 [INFO]   [1581] PRUDMOULI      ₹15      MCap ₹50Cr Score:0.394  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:30,867 [INFO]   [1591] PVSL           ₹88      MCap ₹630Cr Score:0.538    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:33,566 [INFO]   [1593] PYRAMID        ₹146     MCap ₹538Cr Score:0.487   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:35,964 [INFO]   [1595] QUADFUTURE     ₹297     MCap ₹1187Cr Score:0.424  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:38,599 [INFO]   [1597] QUICKHEAL      ₹145     MCap ₹789Cr Score:0.529  DEBT↓ PE@4.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:40,931 [INFO]   [1599] RACE           ₹109     MCap ₹189Cr Score:0.356   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:43,566 [INFO]   [1602] RADHIKAJWE     ₹58      MCap ₹689Cr Score:0.574  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:46,002 [INFO]   [1603] RADIANTCMS     ₹37      MCap ₹391Cr Score:0.584   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:48,418 [INFO]   [1605] RADIOCITY      ₹6       MCap ₹196Cr Score:0.595   PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:51,875 [INFO]   [1611] RAJOOENG       ₹58      MCap ₹1035Cr Score:0.565  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:54,788 [INFO]   [1612] RAJRATAN       ₹372     MCap ₹1891Cr Score:0.498   PE@1.1x 🟠 MID CYCLE
+2026-03-16 02:52:57,358 [INFO]   [1613] RAJRILTD       ₹22      MCap ₹1212Cr Score:0.436   PE@2.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:52:59,777 [INFO]   [1614] RAJSREESUG     ₹28      MCap ₹92Cr Score:0.445    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:01,881 [INFO]   [1615] RAJTV          ₹38      MCap ₹198Cr Score:0.457    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:04,671 [INFO]   [1618] RAMANEWS       ₹36      MCap ₹541Cr Score:0.398  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:53:07,052 [INFO]   [1619] RAMAPHO        ₹111     MCap ₹399Cr Score:0.670   PE@0.3x 🟡 EARLY UPTREND
+2026-03-16 02:53:09,388 [INFO]   [1620] RAMASTEEL      ₹6       MCap ₹924Cr Score:0.376   PE@2.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:12,408 [INFO]   [1623] RAMCOSYS       ₹410     MCap ₹1537Cr Score:0.442   PE@2.3x 🟡 EARLY UPTREND
+2026-03-16 02:53:14,978 [INFO]   [1626] RANASUG        ₹12      MCap ₹179Cr Score:0.468   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:17,855 [INFO]   [1630] RATNAVEER      ₹136     MCap ₹925Cr Score:0.512   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:21,172 [INFO]   [1636] RBZJEWEL       ₹118     MCap ₹472Cr Score:0.600   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:24,608 [INFO]   [1643] REGAAL         ₹88      MCap ₹909Cr Score:0.573   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:26,985 [INFO]   [1644] REGENCERAM     ₹42      MCap ₹112Cr Score:0.517  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:29,414 [INFO]   [1646] RELCHEMQ       ₹114     MCap ₹87Cr Score:0.564   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:31,613 [INFO]   [1647] RELIABLE       ₹109     MCap ₹112Cr Score:0.481   PE@0.3x 🟠 MID CYCLE
+2026-03-16 02:53:36,590 [INFO]   [1652] REMSONSIND     ₹99      MCap ₹347Cr Score:0.442   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:39,293 [INFO]   [1655] REPL           ₹71      MCap ₹129Cr Score:0.318  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:41,512 [INFO]   [1656] REPRO          ₹357     MCap ₹513Cr Score:0.458    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:44,130 [INFO]   [1658] RETAIL         ₹21      MCap ₹17Cr Score:0.532   PE@4.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:46,544 [INFO]   [1659] RGL            ₹102     MCap ₹1096Cr Score:0.586   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:48,615 [INFO]   [1660] RHETAN         ₹25      MCap ₹1956Cr Score:0.531    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:51,264 [INFO]   [1662] RHL            ₹182     MCap ₹316Cr Score:0.672   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:53:53,518 [INFO]   [1663] RICOAUTO       ₹106     MCap ₹1435Cr Score:0.434   PE@1.1x 🟠 MID CYCLE
+2026-03-16 02:53:56,014 [INFO]   [1665] RISHABH        ₹395     MCap ₹1521Cr Score:0.535   PE@0.7x 🟠 MID CYCLE
+2026-03-16 02:53:58,358 [INFO]   [1666] RITCO          ₹204     MCap ₹580Cr Score:0.457   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:00,670 [INFO]   [1668] RKDL           ₹19      MCap ₹46Cr Score:0.471    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:02,837 [INFO]   [1669] RKEC           ₹39      MCap ₹95Cr Score:0.322   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:05,309 [INFO]   [1671] RKSWAMY        ₹96      MCap ₹482Cr Score:0.518  DEBT↓ PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:07,523 [INFO]   [1672] RMDRIP         ₹40      MCap ₹997Cr Score:0.573   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:09,861 [INFO]   [1674] RNBDENIMS      ₹108     MCap ₹969Cr Score:0.441   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:12,725 [INFO]   [1675] ROHLTD         ₹336     MCap ₹922Cr Score:0.467   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:15,830 [INFO]   [1678] ROML           ₹44      MCap ₹66Cr Score:0.462   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:18,543 [INFO]   [1680] ROSSELLIND     ₹46      MCap ₹175Cr Score:0.629   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:21,233 [INFO]   [1682] ROTO           ₹57      MCap ₹1080Cr Score:0.430  DEBT↓ PE@1.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:24,526 [INFO]   [1687] RPPINFRA       ₹69      MCap ₹343Cr Score:0.549   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:27,324 [INFO]   [1688] RPPL           ₹16      MCap ₹117Cr Score:0.286   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:30,252 [INFO]   [1692] RSSOFTWARE     ₹28      MCap ₹72Cr Score:0.349    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:32,690 [INFO]   [1693] RSWM           ₹137     MCap ₹644Cr Score:0.452   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:35,674 [INFO]   [1697] RUBFILA        ₹63      MCap ₹341Cr Score:0.554  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:38,915 [INFO]   [1699] RUBYMILLS      ₹196     MCap ₹655Cr Score:0.598   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:41,320 [INFO]   [1700] RUCHINFRA      ₹5       MCap ₹123Cr Score:0.565   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:43,611 [INFO]   [1701] RUCHIRA        ₹103     MCap ₹308Cr Score:0.589   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:46,493 [INFO]   [1702] RUDRA          ₹17      MCap ₹174Cr Score:0.536   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:48,906 [INFO]   [1703] RUPA           ₹126     MCap ₹1002Cr Score:0.600   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:55,854 [INFO]   [1704] RUSHIL         ₹16      MCap ₹458Cr Score:0.485   PE@1.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:54:59,427 [INFO]   [1709] S&SPOWER       ₹362     MCap ₹447Cr Score:0.504   PE@2.5x 🟠 MID CYCLE
+2026-03-16 02:55:01,866 [INFO]   [1711] SABEVENTS      ₹14      MCap ₹15Cr Score:0.378  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:55:04,043 [INFO]   [1712] SADBHAV        ₹9       MCap ₹151Cr Score:0.317  DEBT↓ PE@0.1x 🟡 EARLY UPTREND
+2026-03-16 02:55:07,177 [INFO]   [1716] SAGARDEEP      ₹23      MCap ₹39Cr Score:0.305   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:10,044 [INFO]   [1719] SAHYADRI       ₹220     MCap ₹241Cr Score:0.629  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:13,061 [INFO]   [1723] SAKHTISUG      ₹15      MCap ₹175Cr Score:0.471   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:15,483 [INFO]   [1724] SAKSOFT        ₹128     MCap ₹1643Cr Score:0.549  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:17,861 [INFO]   [1726] SALASAR        ₹7       MCap ₹1237Cr Score:0.402   PE@2.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:21,798 [INFO]   [1728] SALSTEEL       ₹42      MCap ₹612Cr Score:0.350    🟠 MID CYCLE
+2026-03-16 02:55:24,421 [INFO]   [1730] SAMBHAAV       ₹6       MCap ₹119Cr Score:0.507  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:27,499 [INFO]   [1734] SAMPANN        ₹29      MCap ₹142Cr Score:0.529   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:31,139 [INFO]   [1741] SANGHIIND      ₹51      MCap ₹1318Cr Score:0.381   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:33,783 [INFO]   [1743] SANGINITA      ₹15      MCap ₹39Cr Score:0.265    🔴 NEAR 52W HIGH (late)
+2026-03-16 02:55:36,809 [INFO]   [1747] SANSTAR        ₹84      MCap ₹1527Cr Score:0.465  DEBT↓ PE@2.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:40,545 [INFO]   [1752] SARLAPOLY      ₹75      MCap ₹626Cr Score:0.603   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:43,564 [INFO]   [1756] SATIA          ₹59      MCap ₹593Cr Score:0.675  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:45,881 [INFO]   [1757] SATIN          ₹144     MCap ₹1584Cr Score:0.646   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:48,203 [INFO]   [1758] SAURASHCEM     ₹60      MCap ₹666Cr Score:0.587  DEBT↓ PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:50,596 [INFO]   [1759] SBC            ₹32      MCap ₹1524Cr Score:0.434   PE@3.8x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:55:54,444 [INFO]   [1767] SCHAND         ₹147     MCap ₹519Cr Score:0.544   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:57,292 [INFO]   [1770] SCILAL         ₹43      MCap ₹1991Cr Score:0.549  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:55:59,743 [INFO]   [1771] SCODATUBES     ₹118     MCap ₹707Cr Score:0.519   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:02,240 [INFO]   [1772] SCPL           ₹328     MCap ₹349Cr Score:0.526   PE@0.9x 🔴 NEAR 52W HIGH (late)
+2026-03-16 02:56:04,943 [INFO]   [1773] SDBL           ₹74      MCap ₹1548Cr Score:0.470   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:07,319 [INFO]   [1775] SECMARK        ₹108     MCap ₹118Cr Score:0.516  DEBT↓ PE@2.5x 🟡 EARLY UPTREND
+2026-03-16 02:56:09,587 [INFO]   [1776] SECURKLOUD     ₹21      MCap ₹70Cr Score:0.342  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 02:56:12,101 [INFO]   [1779] SELMC          ₹30      MCap ₹101Cr Score:0.412  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:14,493 [INFO]   [1780] SEMAC          ₹216     MCap ₹69Cr Score:0.534   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:17,130 [INFO]   [1783] SEPC           ₹5       MCap ₹1026Cr Score:0.465   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:19,411 [INFO]   [1784] SERVOTECH      ₹68      MCap ₹1544Cr Score:0.231  DEBT↓ PE@2.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:21,921 [INFO]   [1785] SESHAPAPER     ₹242     MCap ₹1526Cr Score:0.540  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:24,051 [INFO]   [1786] SETCO          ₹18      MCap ₹237Cr Score:0.380  DEBT↓  🟠 MID CYCLE
+2026-03-16 02:56:26,866 [INFO]   [1789] SEYAIND        ₹9       MCap ₹28Cr Score:0.478    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:29,682 [INFO]   [1792] SGIL           ₹500     MCap ₹782Cr Score:0.375   PE@4.3x 🟠 MID CYCLE
+2026-03-16 02:56:32,097 [INFO]   [1793] SGL            ₹11      MCap ₹31Cr Score:0.548    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:35,092 [INFO]   [1797] SHAHALLOYS     ₹58      MCap ₹115Cr Score:0.430  DEBT↓ PE@0.1x 🟠 MID CYCLE
+2026-03-16 02:56:37,797 [INFO]   [1800] SHALBY         ₹143     MCap ₹1535Cr Score:0.454   PE@5.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:40,413 [INFO]   [1801] SHALPAINTS     ₹50      MCap ₹414Cr Score:0.468    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:42,957 [INFO]   [1802] SHANKARA       ₹104     MCap ₹253Cr Score:0.527  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:46,213 [INFO]   [1805] SHANTIGOLD     ₹190     MCap ₹1368Cr Score:0.671   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:49,211 [INFO]   [1809] SHEKHAWATI     ₹12      MCap ₹43Cr Score:0.557  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:52,280 [INFO]   [1810] SHEMAROO       ₹98      MCap ₹268Cr Score:0.517   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:55,265 [INFO]   [1813] SHIVALIK       ₹260     MCap ₹410Cr Score:0.500   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:57,677 [INFO]   [1814] SHIVAMAUTO     ₹16      MCap ₹214Cr Score:0.350    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:56:59,927 [INFO]   [1815] SHIVAMILLS     ₹53      MCap ₹46Cr Score:0.527  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:03,435 [INFO]   [1816] SHIVATEX       ₹144     MCap ₹198Cr Score:0.518   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:08,403 [INFO]   [1818] SHK            ₹122     MCap ₹1696Cr Score:0.564   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:11,465 [INFO]   [1820] SHRADHA        ₹31      MCap ₹183Cr Score:0.333   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:13,710 [INFO]   [1821] SHREDIGCEM     ₹63      MCap ₹932Cr Score:0.367   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:16,257 [INFO]   [1824] SHREEPUSHK     ₹306     MCap ₹989Cr Score:0.515   PE@0.5x 🟡 EARLY UPTREND
+2026-03-16 02:57:18,697 [INFO]   [1825] SHREERAMA      ₹46      MCap ₹617Cr Score:0.466  DEBT↓ PE@0.5x 🟡 EARLY UPTREND
+2026-03-16 02:57:21,223 [INFO]   [1827] SHREYANIND     ₹147     MCap ₹203Cr Score:0.715  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:23,436 [INFO]   [1828] SHRINGARMS     ₹191     MCap ₹1844Cr Score:0.625   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:26,027 [INFO]   [1831] SHRIRAMPPS     ₹72      MCap ₹1226Cr Score:0.522   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:28,646 [INFO]   [1834] SHYAMTEL       ₹10      MCap ₹11Cr Score:0.392  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:31,555 [INFO]   [1835] SICALLOG       ₹65      MCap ₹512Cr Score:0.547  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:34,085 [INFO]   [1837] SIGACHI        ₹19      MCap ₹717Cr Score:0.394    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:36,486 [INFO]   [1838] SIGIND         ₹45      MCap ₹131Cr Score:0.523   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:38,806 [INFO]   [1839] SIGMA          ₹42      MCap ₹432Cr Score:0.560  DEBT↓ PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:57:41,783 [INFO]   [1842] SIGNPOST       ₹240     MCap ₹1282Cr Score:0.510   PE@1.0x 🟠 MID CYCLE
+2026-03-16 02:57:44,249 [INFO]   [1844] SIL            ₹14      MCap ₹88Cr Score:0.512  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:46,642 [INFO]   [1845] SILGO          ₹72      MCap ₹187Cr Score:0.256  DEBT↓ PE@1.1x 🟠 MID CYCLE
+2026-03-16 02:57:49,617 [INFO]   [1847] SILLYMONKS     ₹16      MCap ₹17Cr Score:0.208  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 02:57:52,014 [INFO]   [1848] SILVERTUC      ₹110     MCap ₹1401Cr Score:0.470   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:54,176 [INFO]   [1849] SIMBHALS       ₹8       MCap ₹34Cr Score:0.404  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:56,733 [INFO]   [1850] SIMPLEXINF     ₹172     MCap ₹1357Cr Score:0.438   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:57:59,322 [INFO]   [1851] SINCLAIR       ₹73      MCap ₹373Cr Score:0.524   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:06,084 [INFO]   [1864] SKMEGGPROD     ₹153     MCap ₹805Cr Score:0.601   PE@0.6x 🟠 MID CYCLE
+2026-03-16 02:58:08,655 [INFO]   [1866] SMARTLINK      ₹119     MCap ₹119Cr Score:0.681  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:11,609 [INFO]   [1870] SMLT           ₹66      MCap ₹91Cr Score:0.512  DEBT↓ PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:14,291 [INFO]   [1872] SNOWMAN        ₹35      MCap ₹583Cr Score:0.392   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:17,479 [INFO]   [1874] SOFTTECH       ₹256     MCap ₹354Cr Score:0.569   PE@4.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:20,191 [INFO]   [1877] SOLARWORLD     ₹155     MCap ₹1340Cr Score:0.654   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:22,861 [INFO]   [1879] SOMANYCERA     ₹358     MCap ₹1474Cr Score:0.460   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:25,297 [INFO]   [1881] SOMICONVEY     ₹101     MCap ₹119Cr Score:0.566   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:30,272 [INFO]   [1887] SOUTHWEST      ₹195     MCap ₹587Cr Score:0.538   PE@0.8x 🟠 MID CYCLE
+2026-03-16 02:58:32,867 [INFO]   [1889] SPANDANA       ₹222     MCap ₹1969Cr Score:0.451   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:36,416 [INFO]   [1892] SPECIALITY     ₹98      MCap ₹473Cr Score:0.497   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:39,501 [INFO]   [1894] SPENCERS       ₹31      MCap ₹281Cr Score:0.359  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:42,078 [INFO]   [1895] SPIC           ₹60      MCap ₹1232Cr Score:0.317   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:45,392 [INFO]   [1896] SPLIL          ₹26      MCap ₹76Cr Score:0.721  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:48,317 [INFO]   [1898] SPMLINFRA      ₹166     MCap ₹1292Cr Score:0.572   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:50,774 [INFO]   [1899] SPORTKING      ₹109     MCap ₹1387Cr Score:0.580   PE@0.5x 🟠 MID CYCLE
+2026-03-16 02:58:53,188 [INFO]   [1900] SRD            ₹51      MCap ₹328Cr Score:0.398  DEBT↓ PE@1.1x 🟡 EARLY UPTREND
+2026-03-16 02:58:55,540 [INFO]   [1901] SREEL          ₹191     MCap ₹444Cr Score:0.626  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:58:58,442 [INFO]   [1903] SRGHFL         ₹264     MCap ₹414Cr Score:0.591   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:00,884 [INFO]   [1904] SRHHYPOLTD     ₹433     MCap ₹743Cr Score:0.623  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:03,641 [INFO]   [1905] SRM            ₹380     MCap ₹872Cr Score:0.580   PE@0.5x 🟡 EARLY UPTREND
+2026-03-16 02:59:08,139 [INFO]   [1908] SSDL           ₹58      MCap ₹229Cr Score:0.611  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:10,538 [INFO]   [1910] STALLION       ₹110     MCap ₹1271Cr Score:0.426  DEBT↓ PE@0.9x 🟠 MID CYCLE
+2026-03-16 02:59:12,769 [INFO]   [1911] STANLEY        ₹153     MCap ₹874Cr Score:0.434   PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:15,747 [INFO]   [1915] STARPAPER      ₹133     MCap ₹209Cr Score:0.633  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:18,713 [INFO]   [1917] STCINDIA       ₹103     MCap ₹618Cr Score:0.487  DEBT↓ PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:21,413 [INFO]   [1920] STEELXIND      ₹8       MCap ₹977Cr Score:0.499   PE@2.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:23,791 [INFO]   [1923] STLNETWORK     ₹19      MCap ₹918Cr Score:0.412    🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:26,643 [INFO]   [1925] STOVEKRAFT     ₹500     MCap ₹1655Cr Score:0.435   PE@1.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:29,502 [INFO]   [1929] STYLEBAAZA     ₹245     MCap ₹1831Cr Score:0.372   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:31,956 [INFO]   [1931] SUBEXLTD       ₹8       MCap ₹459Cr Score:0.273  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:34,480 [INFO]   [1933] SUDARCOLOR     ₹325     MCap ₹750Cr Score:0.540  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:37,342 [INFO]   [1936] SUKHJITS       ₹165     MCap ₹516Cr Score:0.496   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:39,858 [INFO]   [1937] SULA           ₹156     MCap ₹1318Cr Score:0.325   PE@1.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:42,182 [INFO]   [1938] SUMEETINDS     ₹29      MCap ₹1516Cr Score:0.640  DEBT↓ PE@0.0x 🟠 MID CYCLE
+2026-03-16 02:59:44,689 [INFO]   [1940] SUMIT          ₹39      MCap ₹176Cr Score:0.317   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:49,377 [INFO]   [1952] SUPERHOUSE     ₹142     MCap ₹157Cr Score:0.556   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:52,858 [INFO]   [1955] SUPREME        ₹51      MCap ₹196Cr Score:0.482  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:56,222 [INFO]   [1960] SURAJEST       ₹218     MCap ₹1045Cr Score:0.596   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 02:59:58,463 [INFO]   [1961] SURAJLTD       ₹226     MCap ₹415Cr Score:0.392    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:00,803 [INFO]   [1962] SURAKSHA       ₹260     MCap ₹1357Cr Score:0.430  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:03,330 [INFO]   [1963] SURANASOL      ₹21      MCap ₹105Cr Score:0.391  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:05,718 [INFO]   [1965] SURYALAXMI     ₹51      MCap ₹98Cr Score:0.503   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:08,269 [INFO]   [1967] SURYODAY       ₹131     MCap ₹1392Cr Score:0.474  DEBT↓ PE@0.8x 🟠 MID CYCLE
+2026-03-16 03:00:10,440 [INFO]   [1968] SUTLEJTEX      ₹31      MCap ₹511Cr Score:0.532   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:16,523 [INFO]   [1982] SYNCOMF        ₹12      MCap ₹1140Cr Score:0.450  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:19,477 [INFO]   [1986] TAINWALCHM     ₹197     MCap ₹184Cr Score:0.686  DEBT↓ PE@0.6x 🟠 MID CYCLE
+2026-03-16 03:00:21,820 [INFO]   [1987] TAJGVK         ₹304     MCap ₹1903Cr Score:0.491  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:23,934 [INFO]   [1988] TAKE           ₹42      MCap ₹609Cr Score:0.227  DEBT↓ PE@0.1x 🟠 MID CYCLE
+2026-03-16 03:00:26,381 [INFO]   [1989] TALBROAUTO     ₹246     MCap ₹1519Cr Score:0.462  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:30,690 [INFO]   [1992] TARAPUR        ₹24      MCap ₹46Cr Score:0.241    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:33,385 [INFO]   [1995] TARMAT         ₹51      MCap ₹128Cr Score:0.593  DEBT↓ PE@1.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:35,885 [INFO]   [1996] TARSONS        ₹192     MCap ₹1020Cr Score:0.508   PE@1.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:40,527 [INFO]   [2009] TBZ            ₹132     MCap ₹879Cr Score:0.629   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:43,242 [INFO]   [2012] TCIEXP         ₹482     MCap ₹1852Cr Score:0.465  DEBT↓ PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:46,882 [INFO]   [2021] TECILCHEM      ₹12      MCap ₹26Cr Score:0.342  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:50,049 [INFO]   [2026] TERASOFT       ₹335     MCap ₹419Cr Score:0.564   PE@0.7x 🟠 MID CYCLE
+2026-03-16 03:00:52,483 [INFO]   [2027] TEXINFRA       ₹86      MCap ₹1093Cr Score:0.524  DEBT↓ PE@3.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:54,777 [INFO]   [2028] TEXMOPIPES     ₹43      MCap ₹126Cr Score:0.477   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:57,359 [INFO]   [2031] TFL            ₹12      MCap ₹68Cr Score:0.452    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:00:59,674 [INFO]   [2032] TGBHOTELS      ₹9       MCap ₹28Cr Score:0.544   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:02,587 [INFO]   [2037] THEMISMED      ₹78      MCap ₹721Cr Score:0.543    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:05,970 [INFO]   [2040] THOMASCOTT     ₹256     MCap ₹377Cr Score:0.461   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:08,840 [INFO]   [2043] TICL           ₹26      MCap ₹408Cr Score:0.625  DEBT↓ PE@0.3x 🟡 EARLY UPTREND
+2026-03-16 03:01:11,345 [INFO]   [2044] TIGERLOGS      ₹28      MCap ₹294Cr Score:0.506   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:14,122 [INFO]   [2047] TIJARIA        ₹5       MCap ₹15Cr Score:0.292  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 03:01:16,506 [INFO]   [2048] TIL            ₹202     MCap ₹1354Cr Score:0.377   PE@0.1x 🟡 EARLY UPTREND
+2026-03-16 03:01:22,937 [INFO]   [2061] TNPETRO        ₹82      MCap ₹735Cr Score:0.550   PE@0.2x 🟡 EARLY UPTREND
+2026-03-16 03:01:25,554 [INFO]   [2062] TNPL           ₹136     MCap ₹941Cr Score:0.418   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:28,263 [INFO]   [2064] TOKYOPLAST     ₹72      MCap ₹68Cr Score:0.533   PE@2.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:30,561 [INFO]   [2065] TOLINS         ₹99      MCap ₹391Cr Score:0.567  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:33,337 [INFO]   [2068] TOTAL          ₹56      MCap ₹90Cr Score:0.265   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:35,611 [INFO]   [2069] TOUCHWOOD      ₹73      MCap ₹81Cr Score:0.295  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:38,290 [INFO]   [2071] TPLPLASTEH     ₹60      MCap ₹468Cr Score:0.487  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:40,358 [INFO]   [2072] TRACXN         ₹33      MCap ₹351Cr Score:0.335  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:42,729 [INFO]   [2074] TRANSWORLD     ₹130     MCap ₹288Cr Score:0.554    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:45,147 [INFO]   [2076] TREEHOUSE      ₹8       MCap ₹35Cr Score:0.404  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 03:01:48,010 [INFO]   [2078] TREL           ₹25      MCap ₹602Cr Score:0.646  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:50,627 [INFO]   [2080] TRF            ₹227     MCap ₹250Cr Score:0.357   PE@1.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:53,364 [INFO]   [2082] TRIGYN         ₹47      MCap ₹146Cr Score:0.599  DEBT↓ PE@1.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:01:57,366 [INFO]   [2090] TTL            ₹9       MCap ₹228Cr Score:0.417    🟡 EARLY UPTREND
+2026-03-16 03:01:59,881 [INFO]   [2092] TVSELECT       ₹367     MCap ₹688Cr Score:0.511 [Tvs]   🟡 EARLY UPTREND
+2026-03-16 03:02:03,813 [INFO]   [2097] TVTODAY        ₹107     MCap ₹639Cr Score:0.555  DEBT↓ PE@1.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:06,054 [INFO]   [2098] TVVISION       ₹5       MCap ₹22Cr Score:0.374  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 03:02:08,631 [INFO]   [2100] UCAL           ₹100     MCap ₹223Cr Score:0.492    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:11,190 [INFO]   [2102] UDS            ₹144     MCap ₹971Cr Score:0.546  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:13,623 [INFO]   [2104] UFBL           ₹212     MCap ₹831Cr Score:0.340    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:16,059 [INFO]   [2106] UFO            ₹65      MCap ₹253Cr Score:0.562   PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:18,348 [INFO]   [2107] UGARSUGAR      ₹37      MCap ₹417Cr Score:0.394   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:20,463 [INFO]   [2108] UGROCAP        ₹88      MCap ₹1350Cr Score:0.533   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:23,164 [INFO]   [2111] UMAEXPORTS     ₹24      MCap ₹82Cr Score:0.549    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:25,490 [INFO]   [2112] UMESLTD        ₹7       MCap ₹18Cr Score:0.495  DEBT↓ PE@2.0x 🔴 NEAR 52W HIGH (late)
+2026-03-16 03:02:27,765 [INFO]   [2113] UMIYA-MRO      ₹80      MCap ₹153Cr Score:0.626   PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:31,041 [INFO]   [2115] UNIDT          ₹171     MCap ₹347Cr Score:0.685  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:33,167 [INFO]   [2116] UNIECOM        ₹96      MCap ₹1074Cr Score:0.452  DEBT↓ PE@1.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:35,682 [INFO]   [2117] UNIENTER       ₹98      MCap ₹684Cr Score:0.587  DEBT↓ PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:37,875 [INFO]   [2118] UNIINFO        ₹12      MCap ₹13Cr Score:0.305   PE@3.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:40,586 [INFO]   [2121] UNIPARTS       ₹440     MCap ₹1984Cr Score:0.575  DEBT↓ PE@0.7x 🟠 MID CYCLE
+2026-03-16 03:02:45,457 [INFO]   [2127] UNIVASTU       ₹65      MCap ₹233Cr Score:0.308   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:48,501 [INFO]   [2132] URAVIDEF       ₹128     MCap ₹147Cr Score:0.410   PE@2.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:53,658 [INFO]   [2136] USK            ₹24      MCap ₹135Cr Score:0.464    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:56,455 [INFO]   [2140] UTTAMSUGAR     ₹191     MCap ₹730Cr Score:0.571   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:02:58,630 [INFO]   [2141] UYFINCORP      ₹14      MCap ₹257Cr Score:0.728  DEBT↓ PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:01,376 [INFO]   [2145] VAISHALI       ₹6       MCap ₹80Cr Score:0.257   PE@2.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:03,725 [INFO]   [2146] VAKRANGEE      ₹6       MCap ₹639Cr Score:0.389  DEBT↓ PE@1.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:05,819 [INFO]   [2147] VALIANTLAB     ₹51      MCap ₹279Cr Score:0.576    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:08,214 [INFO]   [2148] VALIANTORG     ₹207     MCap ₹582Cr Score:0.499   PE@0.9x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:10,544 [INFO]   [2149] VARDHACRLC     ₹33      MCap ₹268Cr Score:0.406  DEBT↓ PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:12,797 [INFO]   [2150] VARDMNPOLY     ₹8       MCap ₹365Cr Score:0.428  DEBT↓ PE@2.3x 🟡 EARLY UPTREND
+2026-03-16 03:03:15,305 [INFO]   [2152] VASCONEQ       ₹33      MCap ₹761Cr Score:0.487   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:17,703 [INFO]   [2153] VASWANI        ₹52      MCap ₹171Cr Score:0.477   PE@7.7x 🟠 MID CYCLE
+2026-03-16 03:03:21,457 [INFO]   [2162] VERANDA        ₹142     MCap ₹1391Cr Score:0.477   PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:23,706 [INFO]   [2163] VERTOZ         ₹36      MCap ₹311Cr Score:0.300  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:26,179 [INFO]   [2165] VETO           ₹99      MCap ₹190Cr Score:0.608  DEBT↓ PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:28,395 [INFO]   [2166] VGL            ₹61      MCap ₹312Cr Score:0.553   PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:31,038 [INFO]   [2169] VHLTD          ₹140     MCap ₹948Cr Score:0.498   PE@1.7x 🔴 NEAR 52W HIGH (late)
+2026-03-16 03:03:33,545 [INFO]   [2170] VIDHIING       ₹300     MCap ₹1505Cr Score:0.400   PE@1.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:35,608 [INFO]   [2171] VIDYAWIRES     ₹53      MCap ₹1124Cr Score:0.472   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:39,085 [INFO]   [2177] VIKRAN         ₹61      MCap ₹1562Cr Score:0.485   PE@1.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:41,448 [INFO]   [2178] VIMTALABS      ₹420     MCap ₹1878Cr Score:0.458  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:44,125 [INFO]   [2180] VINCOFE        ₹125     MCap ₹1826Cr Score:0.466   PE@1.1x 🟠 MID CYCLE
+2026-03-16 03:03:48,615 [INFO]   [2184] VINYLINDIA     ₹191     MCap ₹351Cr Score:0.392  DEBT↓ PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:50,994 [INFO]   [2185] VIPCLOTHNG     ₹18      MCap ₹164Cr Score:0.470   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:53,359 [INFO]   [2187] VIPULLTD       ₹12      MCap ₹163Cr Score:0.416    🟠 MID CYCLE
+2026-03-16 03:03:55,478 [INFO]   [2188] VIRINCHI       ₹18      MCap ₹200Cr Score:0.419    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:03:57,822 [INFO]   [2189] VISAKAIND      ₹58      MCap ₹501Cr Score:0.479   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:00,218 [INFO]   [2190] VISASTEEL      ₹35      MCap ₹451Cr Score:0.433  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 03:04:02,717 [INFO]   [2192] VISHWARAJ      ₹5       MCap ₹118Cr Score:0.338    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:04,808 [INFO]   [2193] VITAL          ₹39      MCap ₹93Cr Score:0.232   PE@1.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:07,298 [INFO]   [2195] VIVIMEDLAB     ₹7       MCap ₹57Cr Score:0.197  DEBT↓  🟡 EARLY UPTREND
+2026-03-16 03:04:09,647 [INFO]   [2197] VLEGOV         ₹13      MCap ₹138Cr Score:0.287  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:12,448 [INFO]   [2201] VMSTMT         ₹40      MCap ₹200Cr Score:0.522   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:15,264 [INFO]   [2204] VPRPL          ₹38      MCap ₹477Cr Score:0.395   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:17,606 [INFO]   [2205] VRAJ           ₹113     MCap ₹372Cr Score:0.599  DEBT↓ PE@0.6x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:20,801 [INFO]   [2209] VSTL           ₹115     MCap ₹218Cr Score:0.532   PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:23,752 [INFO]   [2213] WAAREEINDO     ₹316     MCap ₹1316Cr Score:0.648  DEBT↓ PE@0.2x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:26,476 [INFO]   [2217] WALCHANNAG     ₹151     MCap ₹1022Cr Score:0.356    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:28,771 [INFO]   [2218] WANBURY        ₹249     MCap ₹874Cr Score:0.419   PE@0.4x 🟠 MID CYCLE
+2026-03-16 03:04:31,087 [INFO]   [2219] WCIL           ₹95      MCap ₹970Cr Score:0.475   PE@1.0x 🟡 EARLY UPTREND
+2026-03-16 03:04:33,663 [INFO]   [2222] WEIZMANIND     ₹79      MCap ₹122Cr Score:0.471  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:36,015 [INFO]   [2223] WEL            ₹136     MCap ₹1827Cr Score:0.375   PE@4.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:40,094 [INFO]   [2230] WEWIN          ₹40      MCap ₹40Cr Score:0.589   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:43,614 [INFO]   [2234] WILLAMAGOR     ₹26      MCap ₹29Cr Score:0.617  DEBT↓ PE@0.1x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:49,079 [INFO]   [2242] WORTHPERI      ₹130     MCap ₹205Cr Score:0.554  DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:51,253 [INFO]   [2243] WSI            ₹64      MCap ₹482Cr Score:0.381    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:53,753 [INFO]   [2245] XCHANGING      ₹57      MCap ₹637Cr Score:0.600   PE@0.4x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:55,945 [INFO]   [2246] XELPMOC        ₹96      MCap ₹155Cr Score:0.475  DEBT↓  🟢 DEEP BASE (near 52W low)
+2026-03-16 03:04:58,308 [INFO]   [2248] XTGLOBAL       ₹32      MCap ₹436Cr Score:0.505   PE@1.6x 🟠 MID CYCLE
+2026-03-16 03:05:00,805 [INFO]   [2251] YATRA          ₹100     MCap ₹1566Cr Score:0.491  DEBT↓ PE@1.2x 🟠 MID CYCLE
+2026-03-16 03:05:04,227 [INFO]   [2256] ZEELEARN       ₹5       MCap ₹177Cr Score:0.363   PE@0.7x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:06,242 [INFO]   [2257] ZEEMEDIA       ₹8       MCap ₹487Cr Score:0.378    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:08,601 [INFO]   [2258] ZENITHEXPO     ₹192     MCap ₹111Cr Score:0.564  DEBT↓ PE@0.8x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:10,958 [INFO]   [2259] ZENITHSTL      ₹5       MCap ₹75Cr Score:0.407 [Birla] DEBT↓ PE@0.5x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:13,990 [INFO]   [2263] ZIMLAB         ₹68      MCap ₹329Cr Score:0.491   PE@1.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:16,441 [INFO]   [2265] ZODIACLOTH     ₹72      MCap ₹197Cr Score:0.481    🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:18,966 [INFO]   [2267] ZUARI          ₹201     MCap ₹844Cr Score:0.611   PE@0.0x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:21,635 [INFO]   [2268] ZUARIIND       ₹239     MCap ₹712Cr Score:0.538   PE@0.3x 🟢 DEEP BASE (near 52W low)
+2026-03-16 03:05:22,490 [INFO] Pre-breakout scan complete. Candidates: 867  |  Excluded (holding/passive): 78
+2026-03-16 03:05:22,490 [INFO] Enriching top 15 candidates with Screener.in...
+2026-03-16 03:05:22,490 [INFO] Enriching 15 candidates with Screener.in data...
+2026-03-16 03:05:22,490 [INFO]   [1/15] Screener fetch: UYFINCORP
+2026-03-16 03:05:25,591 [INFO]   [2/15] Screener fetch: HMVL
+2026-03-16 03:05:28,655 [INFO]   [3/15] Screener fetch: SPLIL
+2026-03-16 03:05:31,716 [INFO]   [4/15] Screener fetch: GEECEE
+2026-03-16 03:05:34,788 [INFO]   [5/15] Screener fetch: SHREYANIND
+2026-03-16 03:05:37,854 [INFO]   [6/15] Screener fetch: BRNL
+2026-03-16 03:05:40,918 [INFO]   [7/15] Screener fetch: DIGIDRIVE
+2026-03-16 03:05:43,988 [INFO]   [8/15] Screener fetch: DEN
+2026-03-16 03:05:47,053 [INFO]   [9/15] Screener fetch: AMBICAAGAR
+2026-03-16 03:05:50,111 [INFO]   [10/15] Screener fetch: AFIL
+2026-03-16 03:05:53,183 [INFO]   [11/15] Screener fetch: PASUPTAC
+2026-03-16 03:05:56,246 [INFO]   [12/15] Screener fetch: NIRAJ
+2026-03-16 03:05:59,305 [INFO]   [13/15] Screener fetch: HATHWAY
+2026-03-16 03:06:02,377 [INFO]   [14/15] Screener fetch: TAINWALCHM
+2026-03-16 03:06:05,452 [INFO]   [15/15] Screener fetch: UNIDT
+2026-03-16 03:06:08,510 [INFO] Screener enrichment complete. 0 / 15 fetched successfully.
+2026-03-16 03:06:08,514 [INFO] 
+▶ Finding conviction plays...
+2026-03-16 03:06:08,514 [INFO]   Conviction plays: 0
+2026-03-16 03:06:08,519 [INFO] 
+✅ All outputs saved to results/
+2026-03-16 03:06:08,519 [INFO]    Regime:             BEAR
+2026-03-16 03:06:08,519 [INFO]    Layer 1 breakouts:  0
+2026-03-16 03:06:08,519 [INFO]    Layer 2 watchlist:  15
+2026-03-16 03:06:08,519 [INFO]    Conviction plays:   0

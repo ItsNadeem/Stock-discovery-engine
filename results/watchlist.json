@@ -94,7 +94,9 @@
       "\ud83d\udcb0 DEEP VALUE: P/E 8.0 vs sector 25 (68% discount)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 01:03 UTC"
+    "scanned_at": "2026-03-16 03:02 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "HMVL.NS",
@@ -193,7 +195,9 @@
       "\ud83d\udcc8 P/E EXPANDING: 6.2 \u2192 6.8 \u2192 6.8 (now)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:44 UTC"
+    "scanned_at": "2026-03-16 02:39 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "SPLIL.NS",
@@ -289,7 +293,9 @@
       "\ud83d\udfe2 NET CASH (Cash > Debt)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 01:00 UTC"
+    "scanned_at": "2026-03-16 02:58 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "GEECEE.NS",
@@ -386,7 +392,9 @@
       "\ud83d\udcc8 P/E EXPANDING: 16.3 \u2192 24.7 \u2192 24.7 (now)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:42 UTC"
+    "scanned_at": "2026-03-16 02:36 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "SHREYANIND.NS",
@@ -484,7 +492,9 @@
       "\ud83d\udcc8 P/E EXPANDING: 4.5 \u2192 5.7 \u2192 5.7 (now)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:59 UTC"
+    "scanned_at": "2026-03-16 02:57 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "BRNL.NS",
@@ -583,7 +593,9 @@
       "\ud83d\udcc8 P/E EXPANDING: 0.9 \u2192 5.4 \u2192 5.4 (now)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:37 UTC"
+    "scanned_at": "2026-03-16 02:31 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "DIGIDRIVE.NS",
@@ -680,7 +692,9 @@
       "\ud83d\udcb0 DEEP VALUE: P/E 6.5 vs sector 25 (74% discount)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:40 UTC"
+    "scanned_at": "2026-03-16 02:34 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "DEN.NS",
@@ -777,7 +791,205 @@
       "\ud83d\udcb0 DEEP VALUE: P/E 6.6 vs sector 25 (74% discount)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:39 UTC"
+    "scanned_at": "2026-03-16 02:33 UTC",
+    "screener": null,
+    "screener_flags": []
+  },
+  {
+    "symbol": "AMBICAAGAR.NS",
+    "price": 23.6,
+    "market_cap_cr": 41.0,
+    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
+    "composite_score": 0.6954,
+    "shareholding": {
+      "insider_pct": 80.0,
+      "institutional_pct": 0,
+      "promoter_score": 1.0,
+      "undiscovered_score": 1.0
+    },
+    "valuation": {
+      "market_cap_cr": 41.0,
+      "pb_ratio": 0.36,
+      "net_cash_cr": -82.0,
+      "cash_to_mcap_pct": -203.5,
+      "valuation_score": 0.633,
+      "trading_near_book": true
+    },
+    "growth": {
+      "revenue_growth_pct": 49.9,
+      "earnings_growth_pct": 195.5,
+      "profit_margin_pct": 0.5,
+      "growth_accelerating": true,
+      "growth_score": 0.848
+    },
+    "catalyst": {
+      "catalysts": [],
+      "catalyst_score": 0.0,
+      "promoter_buying_signal": false,
+      "capex_signal": false,
+      "export_signal": false,
+      "recent_announcements": 0
+    },
+    "group": {
+      "matched_group": null,
+      "group_score": 0.0,
+      "is_trusted_group": false,
+      "flag": null
+    },
+    "debt": {
+      "current_de": 0.75,
+      "net_debt_cr": 82.0,
+      "is_net_cash": false,
+      "is_near_zero_debt": false,
+      "debt_reducing": false,
+      "debt_reduction_pct": 0.0,
+      "debt_score": 0.624,
+      "flags": []
+    },
+    "pe_value": {
+      "stock_pe": 31.9,
+      "sector_pe": 25.0,
+      "pe_ratio_to_sector": 1.28,
+      "pe_discount_pct": -27.6,
+      "pe_score": 0.0,
+      "is_deep_value": false,
+      "flag": null,
+      "pe_source": "TTM",
+      "sector_mapped": "Consumer Defensive"
+    },
+    "fcf": {
+      "fcf_yield_pct": null,
+      "ocf_margin_pct": null,
+      "fcf_score": 0.3,
+      "flag": null
+    },
+    "piotroski": {
+      "piotroski_score": 9,
+      "piotroski_details": {
+        "F1_roa_positive": 1,
+        "F2_ocf_positive": 1,
+        "F3_roa_improving": 1,
+        "F4_cash_gt_accrual": 1,
+        "F5_debt_reduced": 1,
+        "F6_curr_ratio_up": 1,
+        "F7_no_dilution": 1,
+        "F8_gross_margin_up": 1,
+        "F9_asset_turnover_up": 1
+      },
+      "piotroski_flag": "\ud83c\udfc6 PIOTROSKI 9/9 \u2014 Exceptional financial health"
+    },
+    "pe_trajectory": {
+      "pe_expanding": false,
+      "pe_trajectory": "85.4 \u2192 58.2 \u2192 31.9 (now)",
+      "pe_traj_flag": null
+    },
+    "all_flags": [
+      "\ud83c\udfc6 PIOTROSKI 9/9 \u2014 Exceptional financial health"
+    ],
+    "bse_code": null,
+    "scanned_at": "2026-03-16 02:27 UTC",
+    "screener": null,
+    "screener_flags": []
+  },
+  {
+    "symbol": "AFIL.NS",
+    "price": 7.76,
+    "market_cap_cr": 333.0,
+    "price_stage": "\ud83d\udfe0 MID CYCLE",
+    "composite_score": 0.6949,
+    "shareholding": {
+      "insider_pct": 50.7,
+      "institutional_pct": 2.8,
+      "promoter_score": 0.676,
+      "undiscovered_score": 0.906
+    },
+    "valuation": {
+      "market_cap_cr": 333.0,
+      "pb_ratio": 0.81,
+      "net_cash_cr": 347.0,
+      "cash_to_mcap_pct": 104.4,
+      "valuation_score": 0.926,
+      "trading_near_book": true
+    },
+    "growth": {
+      "revenue_growth_pct": 14.4,
+      "earnings_growth_pct": 18.2,
+      "profit_margin_pct": 47.5,
+      "growth_accelerating": true,
+      "growth_score": 0.664
+    },
+    "catalyst": {
+      "catalysts": [],
+      "catalyst_score": 0.0,
+      "promoter_buying_signal": false,
+      "capex_signal": false,
+      "export_signal": false,
+      "recent_announcements": 0
+    },
+    "group": {
+      "matched_group": null,
+      "group_score": 0.0,
+      "is_trusted_group": false,
+      "flag": null
+    },
+    "debt": {
+      "current_de": 0.94,
+      "net_debt_cr": -347.0,
+      "is_net_cash": true,
+      "is_near_zero_debt": false,
+      "debt_reducing": false,
+      "debt_reduction_pct": 0.0,
+      "debt_score": 1.0,
+      "flags": [
+        "\ud83d\udfe2 NET CASH (Cash > Debt)"
+      ]
+    },
+    "pe_value": {
+      "stock_pe": 8.8,
+      "sector_pe": 25.0,
+      "pe_ratio_to_sector": 0.35,
+      "pe_discount_pct": 64.7,
+      "pe_score": 0.647,
+      "is_deep_value": true,
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 8.8 vs sector 25 (65% discount)",
+      "pe_source": "TTM",
+      "sector_mapped": "Financial Services"
+    },
+    "fcf": {
+      "fcf_yield_pct": null,
+      "ocf_margin_pct": null,
+      "fcf_score": 0.3,
+      "flag": null
+    },
+    "piotroski": {
+      "piotroski_score": 4,
+      "piotroski_details": {
+        "F1_roa_positive": 1,
+        "F2_ocf_positive": 0,
+        "F3_roa_improving": 1,
+        "F4_cash_gt_accrual": 0,
+        "F5_debt_reduced": 1,
+        "F6_curr_ratio_up": 0,
+        "F7_no_dilution": 0,
+        "F8_gross_margin_up": 1,
+        "F9_asset_turnover_up": 0
+      },
+      "piotroski_flag": null
+    },
+    "pe_trajectory": {
+      "pe_expanding": true,
+      "pe_trajectory": "8.4 \u2192 8.8 \u2192 8.8 (now)",
+      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 8.4 \u2192 8.8 \u2192 8.8 (now)"
+    },
+    "all_flags": [
+      "\ud83d\udfe2 NET CASH (Cash > Debt)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 8.8 vs sector 25 (65% discount)",
+      "\ud83d\udcc8 P/E EXPANDING: 8.4 \u2192 8.8 \u2192 8.8 (now)"
+    ],
+    "bse_code": null,
+    "scanned_at": "2026-03-16 02:26 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "PASUPTAC.NS",
@@ -874,7 +1086,9 @@
       "\ud83d\udcb0 DEEP VALUE: P/E 7.2 vs sector 25 (71% discount)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:54 UTC"
+    "scanned_at": "2026-03-16 02:50 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "NIRAJ.NS",
@@ -971,7 +1185,9 @@
       "\ud83d\udcb0 DEEP VALUE: P/E 5.9 vs sector 22 (73% discount)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:52 UTC"
+    "scanned_at": "2026-03-16 02:49 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "HATHWAY.NS",
@@ -1068,7 +1284,9 @@
       "\u2705 Piotroski 6/9 \u2014 Improving financials"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 00:44 UTC"
+    "scanned_at": "2026-03-16 02:38 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "TAINWALCHM.NS",
@@ -1164,7 +1382,9 @@
       "\ud83d\udfe2 NET CASH (Cash > Debt)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 01:01 UTC"
+    "scanned_at": "2026-03-16 03:00 UTC",
+    "screener": null,
+    "screener_flags": []
   },
   {
     "symbol": "UNIDT.NS",
@@ -1261,201 +1481,8 @@
       "\u2705 Piotroski 6/9 \u2014 Improving financials"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-16 01:03 UTC"
-  },
-  {
-    "symbol": "PONNIERODE.NS",
-    "price": 265.35,
-    "market_cap_cr": 228.0,
-    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6843,
-    "shareholding": {
-      "insider_pct": 49.4,
-      "institutional_pct": 9.5,
-      "promoter_score": 0.658,
-      "undiscovered_score": 0.685
-    },
-    "valuation": {
-      "market_cap_cr": 228.0,
-      "pb_ratio": 0.43,
-      "net_cash_cr": 43.0,
-      "cash_to_mcap_pct": 18.7,
-      "valuation_score": 0.693,
-      "trading_near_book": true
-    },
-    "growth": {
-      "revenue_growth_pct": 30.8,
-      "earnings_growth_pct": 293.2,
-      "profit_margin_pct": 6.2,
-      "growth_accelerating": true,
-      "growth_score": 0.822
-    },
-    "catalyst": {
-      "catalysts": [],
-      "catalyst_score": 0.0,
-      "promoter_buying_signal": false,
-      "capex_signal": false,
-      "export_signal": false,
-      "recent_announcements": 0
-    },
-    "group": {
-      "matched_group": null,
-      "group_score": 0.2,
-      "is_trusted_group": false,
-      "flag": null
-    },
-    "debt": {
-      "current_de": 0.0,
-      "net_debt_cr": -43.0,
-      "is_net_cash": true,
-      "is_near_zero_debt": true,
-      "debt_reducing": false,
-      "debt_reduction_pct": 0.0,
-      "debt_score": 1.0,
-      "flags": [
-        "\ud83d\udfe2 NET CASH (Cash > Debt)"
-      ]
-    },
-    "pe_value": {
-      "stock_pe": 8.8,
-      "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.35,
-      "pe_discount_pct": 64.7,
-      "pe_score": 0.647,
-      "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 8.8 vs sector 25 (65% discount)",
-      "pe_source": "TTM",
-      "sector_mapped": "Consumer Defensive"
-    },
-    "fcf": {
-      "fcf_yield_pct": null,
-      "ocf_margin_pct": null,
-      "fcf_score": 0.3,
-      "flag": null
-    },
-    "piotroski": {
-      "piotroski_score": 4,
-      "piotroski_details": {
-        "F1_roa_positive": 1,
-        "F2_ocf_positive": 1,
-        "F3_roa_improving": 0,
-        "F4_cash_gt_accrual": 0,
-        "F5_debt_reduced": 0,
-        "F6_curr_ratio_up": 0,
-        "F7_no_dilution": 1,
-        "F8_gross_margin_up": 1,
-        "F9_asset_turnover_up": 0
-      },
-      "piotroski_flag": null
-    },
-    "pe_trajectory": {
-      "pe_expanding": true,
-      "pe_trajectory": "14.9 \u2192 16.6 \u2192 8.8 (now)",
-      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 14.9 \u2192 16.6 \u2192 8.8 (now)"
-    },
-    "all_flags": [
-      "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udcb0 DEEP VALUE: P/E 8.8 vs sector 25 (65% discount)",
-      "\ud83d\udcc8 P/E EXPANDING: 14.9 \u2192 16.6 \u2192 8.8 (now)"
-    ],
-    "bse_code": null,
-    "scanned_at": "2026-03-16 00:55 UTC"
-  },
-  {
-    "symbol": "HGS.NS",
-    "price": 369.3,
-    "market_cap_cr": 1718.0,
-    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6821,
-    "shareholding": {
-      "insider_pct": 78.8,
-      "institutional_pct": 1.7,
-      "promoter_score": 1.0,
-      "undiscovered_score": 0.944
-    },
-    "valuation": {
-      "market_cap_cr": 1718.0,
-      "pb_ratio": 0.22,
-      "net_cash_cr": 2823.0,
-      "cash_to_mcap_pct": 164.3,
-      "valuation_score": 1.068,
-      "trading_near_book": true
-    },
-    "growth": {
-      "revenue_growth_pct": 1.1,
-      "earnings_growth_pct": 0,
-      "profit_margin_pct": 1.0,
-      "growth_accelerating": true,
-      "growth_score": 0.222
-    },
-    "catalyst": {
-      "catalysts": [],
-      "catalyst_score": 0.0,
-      "promoter_buying_signal": false,
-      "capex_signal": false,
-      "export_signal": false,
-      "recent_announcements": 0
-    },
-    "group": {
-      "matched_group": null,
-      "group_score": 0.0,
-      "is_trusted_group": false,
-      "flag": null
-    },
-    "debt": {
-      "current_de": 0.24,
-      "net_debt_cr": -2823.0,
-      "is_net_cash": true,
-      "is_near_zero_debt": false,
-      "debt_reducing": false,
-      "debt_reduction_pct": 0.0,
-      "debt_score": 1.0,
-      "flags": [
-        "\ud83d\udfe2 NET CASH (Cash > Debt)"
-      ]
-    },
-    "pe_value": {
-      "stock_pe": 3.4,
-      "sector_pe": 22.0,
-      "pe_ratio_to_sector": 0.16,
-      "pe_discount_pct": 84.4,
-      "pe_score": 0.844,
-      "is_deep_value": true,
-      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 3.4 vs sector 22 (1/4 of peers!)",
-      "pe_source": "Forward",
-      "sector_mapped": "Industrials"
-    },
-    "fcf": {
-      "fcf_yield_pct": null,
-      "ocf_margin_pct": null,
-      "fcf_score": 0.3,
-      "flag": null
-    },
-    "piotroski": {
-      "piotroski_score": 3,
-      "piotroski_details": {
-        "F1_roa_positive": 0,
-        "F2_ocf_positive": 1,
-        "F3_roa_improving": 0,
-        "F4_cash_gt_accrual": 1,
-        "F5_debt_reduced": 0,
-        "F6_curr_ratio_up": 0,
-        "F7_no_dilution": 1,
-        "F8_gross_margin_up": 0,
-        "F9_asset_turnover_up": 0
-      },
-      "piotroski_flag": null
-    },
-    "pe_trajectory": {
-      "pe_expanding": false,
-      "pe_trajectory": null,
-      "pe_traj_flag": null
-    },
-    "all_flags": [
-      "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udc8e EXTREME VALUE: P/E 3.4 vs sector 22 (1/4 of peers!)"
-    ],
-    "bse_code": null,
-    "scanned_at": "2026-03-16 00:44 UTC"
+    "scanned_at": "2026-03-16 03:02 UTC",
+    "screener": null,
+    "screener_flags": []
   }
 ]
