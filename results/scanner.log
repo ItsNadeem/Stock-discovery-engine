@@ -7258,3 +7258,914 @@
 2026-03-19 14:25:30,647 [INFO]    Conviction plays:   0
 2026-03-19 14:25:30,647 [INFO]    Watch now:          6
 2026-03-19 14:25:30,647 [INFO]    Total tracked:      22
+2026-03-20 13:41:28,484 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-03-20 13:41:28,484 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v3 — FULL PIPELINE     ║
+2026-03-20 13:41:28,484 [INFO] ║  L1: Breakout + OBV + RS + FCF + MCap/Sales          ║
+2026-03-20 13:41:28,484 [INFO] ║  L2: Pre-Breakout + FCF + Piotroski + P/E Trajectory  ║
+2026-03-20 13:41:28,484 [INFO] ║  Market regime classifier included                    ║
+2026-03-20 13:41:28,484 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-03-20 13:41:28,484 [INFO] 
+▶ Classifying market regime...
+2026-03-20 13:41:29,035 [INFO]   Regime: BEAR  SC100 1M: ?%  3M: ?%
+2026-03-20 13:41:29,035 [INFO]   Index below 200EMA, down >10% in 3 months. High false breakout risk — be very selective. (Smallcap 100 data unavailable — using Nifty 50)
+2026-03-20 13:41:29,035 [INFO] Fetching NSE equity list from NSE archives...
+2026-03-20 13:41:30,530 [INFO] Fetched 2250 NSE symbols
+2026-03-20 13:41:30,531 [INFO] 
+▶ Running Layer 1: Swing Breakout Scanner...
+2026-03-20 13:41:30,532 [INFO] ══════════════════════════════════════════════════════
+2026-03-20 13:41:30,532 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-03-20 13:41:30,532 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-03-20 13:41:30,532 [INFO] ══════════════════════════════════════════════════════
+2026-03-20 13:41:30,534 [INFO] Loaded 2250 symbols from cache
+2026-03-20 13:41:30,534 [INFO] Universe: 2250 NSE symbols
+2026-03-20 13:41:30,534 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-03-20 13:41:30,598 [INFO]   Nifty returns loaded: 61 days
+2026-03-20 13:41:30,598 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-03-20 13:41:32,831 [INFO]   Sector momentum: {'IT': -24.4, 'Pharma': -0.3, 'Auto': -10.1, 'Metals': 8.8, 'Energy': 3.4, 'FMCG': -13.9, 'Realty': -19.7, 'Infra': -7.3, 'Media': -7.5, 'Midcap': -8.4}
+2026-03-20 13:41:32,831 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-03-20 13:41:32,831 [INFO]   Batch 1/45 (50 symbols)...
+2026-03-20 13:41:40,373 [INFO]     ✓ ABB.NS           ₹6297.0   MomScore=0.73  6M=+16%  12M=+22%  Sector=Other  ADX=27.1
+2026-03-20 13:41:47,481 [INFO]   Batch 2/45 (50 symbols)...
+2026-03-20 13:41:52,847 [INFO]     ✓ AEROFLEX.NS      ₹233.75   MomScore=0.73  6M=+23%  12M=+41%  Sector=Other  ADX=32.5
+2026-03-20 13:42:02,068 [INFO]   Batch 3/45 (50 symbols)...
+2026-03-20 13:42:16,000 [INFO]     ✓ APOLLOPIPE.NS    ₹386.95   MomScore=0.17  6M=-3%  12M=+19%  Sector=Other  ADX=69.5
+2026-03-20 13:42:18,543 [INFO]   Batch 4/45 (50 symbols)...
+2026-03-20 13:42:33,008 [INFO]   Batch 5/45 (50 symbols)...
+2026-03-20 13:42:38,117 [INFO]     ✓ AUROPHARMA.NS    ₹1291.4   MomScore=0.63  6M=+18%  12M=+18%  Sector=Pharma  ADX=27.2
+2026-03-20 13:42:48,162 [INFO]   Batch 6/45 (50 symbols)...
+2026-03-20 13:43:03,997 [INFO]   Batch 7/45 (50 symbols)...
+2026-03-20 13:43:19,210 [INFO]   Batch 8/45 (50 symbols)...
+2026-03-20 13:43:34,236 [INFO]   Batch 9/45 (50 symbols)...
+2026-03-20 13:43:38,095 [INFO]     ✓ CHENNPETRO.NS    ₹1064.75  MomScore=1.42  6M=+43%  12M=+91%  Sector=Energy  ADX=37.0
+2026-03-20 13:43:42,362 [INFO]     ✓ COALINDIA.NS     ₹468.15   MomScore=1.26  6M=+24%  12M=+30%  Sector=Energy  ADX=40.8
+2026-03-20 13:43:50,824 [INFO]   Batch 10/45 (50 symbols)...
+2026-03-20 13:44:05,853 [INFO]   Batch 11/45 (50 symbols)...
+2026-03-20 13:44:19,399 [INFO]     ✓ DRREDDY.NS       ₹1298.9   MomScore=0.28  6M=-2%  12M=+14%  Sector=Pharma  ADX=31.3
+2026-03-20 13:44:22,056 [INFO]   Batch 12/45 (50 symbols)...
+2026-03-20 13:44:36,937 [INFO]   Batch 13/45 (50 symbols)...
+2026-03-20 13:44:53,272 [INFO]   Batch 14/45 (50 symbols)...
+2026-03-20 13:45:08,164 [INFO]   Batch 15/45 (50 symbols)...
+2026-03-20 13:45:16,790 [INFO]     ✓ GODAVARIB.NS     ₹316.9    MomScore=1.08  6M=+12%  12M=+109%  Sector=Other  ADX=37.6
+2026-03-20 13:45:20,118 [INFO]     ✓ GPIL.NS          ₹262.65   MomScore=0.66  6M=+1%  12M=+51%  Sector=Other  ADX=30.3
+2026-03-20 13:45:23,288 [INFO]   Batch 16/45 (50 symbols)...
+2026-03-20 13:45:37,994 [INFO]   Batch 17/45 (50 symbols)...
+2026-03-20 13:45:53,831 [INFO]   Batch 18/45 (50 symbols)...
+2026-03-20 13:46:10,803 [INFO]   Batch 19/45 (50 symbols)...
+2026-03-20 13:46:27,757 [INFO]   Batch 20/45 (50 symbols)...
+2026-03-20 13:46:42,400 [INFO]   Batch 21/45 (50 symbols)...
+2026-03-20 13:46:57,998 [INFO]   Batch 22/45 (50 symbols)...
+2026-03-20 13:47:12,858 [INFO]   Batch 23/45 (50 symbols)...
+2026-03-20 13:47:20,101 [INFO]     ✓ KTKBANK.NS       ₹228.93   MomScore=1.10  6M=+30%  12M=+38%  Sector=Financial Services  ADX=27.2
+2026-03-20 13:47:27,144 [INFO]   Batch 24/45 (50 symbols)...
+2026-03-20 13:47:36,450 [INFO]     ✓ LUPIN.NS         ₹2322.5   MomScore=0.64  6M=+14%  12M=+17%  Sector=Pharma  ADX=27.0
+2026-03-20 13:47:45,003 [INFO]   Batch 25/45 (50 symbols)...
+2026-03-20 13:47:59,781 [INFO]   Batch 26/45 (50 symbols)...
+2026-03-20 13:48:16,643 [INFO]   Batch 27/45 (50 symbols)...
+2026-03-20 13:48:27,032 [INFO]     ✓ NARMADA.NS       ₹32.5     MomScore=1.47  6M=+41%  12M=+91%  Sector=Other  ADX=41.1
+2026-03-20 13:48:27,884 [INFO]     ✓ NATIONALUM.NS    ₹368.5    MomScore=2.37  6M=+79%  12M=+107%  Sector=Other  ADX=30.2
+2026-03-20 13:48:32,641 [INFO]   Batch 28/45 (50 symbols)...
+2026-03-20 13:48:36,783 [INFO]     ✓ NELCAST.NS       ₹119.83   MomScore=0.26  6M=-18%  12M=+50%  Sector=Other  ADX=37.6
+2026-03-20 13:48:47,428 [INFO]   Batch 29/45 (50 symbols)...
+2026-03-20 13:49:02,097 [INFO]   Batch 30/45 (50 symbols)...
+2026-03-20 13:49:16,921 [INFO]   Batch 31/45 (50 symbols)...
+2026-03-20 13:49:33,022 [INFO]   Batch 32/45 (50 symbols)...
+2026-03-20 13:49:48,118 [INFO]   Batch 33/45 (50 symbols)...
+2026-03-20 13:50:04,271 [INFO]   Batch 34/45 (50 symbols)...
+2026-03-20 13:50:19,594 [INFO]   Batch 35/45 (50 symbols)...
+2026-03-20 13:50:34,769 [INFO]   Batch 36/45 (50 symbols)...
+2026-03-20 13:50:50,200 [INFO]   Batch 37/45 (50 symbols)...
+2026-03-20 13:51:04,556 [INFO]   Batch 38/45 (50 symbols)...
+2026-03-20 13:51:08,713 [INFO]     ✓ SMSPHARMA.NS     ₹385.05   MomScore=1.42  6M=+35%  12M=+104%  Sector=Pharma  ADX=31.1
+2026-03-20 13:51:20,821 [INFO]   Batch 39/45 (50 symbols)...
+2026-03-20 13:51:30,118 [INFO]     ✓ SUNPHARMA.NS     ₹1777.1   MomScore=0.36  6M=+8%  12M=+5%  Sector=Pharma  ADX=26.6
+2026-03-20 13:51:36,248 [INFO]   Batch 40/45 (50 symbols)...
+2026-03-20 13:51:50,960 [INFO]   Batch 41/45 (50 symbols)...
+2026-03-20 13:52:02,588 [INFO]     ✓ TIRUPATIFL.NS    ₹46.88    MomScore=0.45  6M=+19%  12M=+29%  Sector=Other  ADX=27.2
+2026-03-20 13:52:07,302 [INFO]   Batch 42/45 (50 symbols)...
+2026-03-20 13:52:22,085 [INFO]   Batch 43/45 (50 symbols)...
+2026-03-20 13:52:37,192 [INFO]   Batch 44/45 (50 symbols)...
+2026-03-20 13:52:51,829 [INFO]   Batch 45/45 (50 symbols)...
+2026-03-20 13:53:05,585 [INFO] Stage 1 complete. Momentum candidates: 17
+2026-03-20 13:53:05,586 [INFO] Cross-sectional gate (top 20%): 17 → 4 (threshold: 1.386)
+2026-03-20 13:53:05,586 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-03-20 13:53:05,938 [INFO]   ✓ NARMADA.NS       score=0.478  mom=1.47  fscore=0.537  FCF=None%
+2026-03-20 13:53:06,582 [INFO]   ✓ SMSPHARMA.NS     score=0.458  mom=1.42  fscore=0.367  FCF=None%
+2026-03-20 13:53:06,882 [INFO] Stage 2 complete. 2 passed → top 2
+2026-03-20 13:53:06,884 [INFO] Results written to results/
+2026-03-20 13:53:06,885 [INFO] 
+▶ Running Layer 2: Pre-Breakout Scanner...
+2026-03-20 13:53:06,885 [INFO] ══════════════════════════════════════════════════════
+2026-03-20 13:53:06,885 [INFO]   PRE-BREAKOUT SCANNER (Layer 2) v3
+2026-03-20 13:53:06,885 [INFO]   Method: value-picks.blogspot.com + @valuepick
+2026-03-20 13:53:06,885 [INFO]   v3: Catalyst-first sort | Tiered gate | ROCE filter
+2026-03-20 13:53:06,885 [INFO] ══════════════════════════════════════════════════════
+2026-03-20 13:53:06,885 [INFO] Scanning 2250 symbols...
+2026-03-20 13:53:09,294 [INFO]   [0001] 20MICRONS      ₹151     MCap ₹535Cr Score:0.401 (3 soft signals)    PE@0.4x
+2026-03-20 13:53:11,858 [INFO]   [0004] 3IINFOLTD      ₹14      MCap ₹287Cr Score:0.393 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 13:53:15,358 [INFO]   [0009] A2ZINFRA       ₹17      MCap ₹292Cr Score:0.294 (3 soft signals)    PE@5.4x
+2026-03-20 13:53:17,692 [INFO]   [0010] AAATECH        ₹93      MCap ₹119Cr Score:0.401 (3 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 13:53:20,212 [INFO]   [0012] AAKASH         ₹9       MCap ₹90Cr Score:0.354 (2 soft signals)    
+2026-03-20 13:53:22,568 [INFO]   [0013] AAREYDRUGS     ₹69      MCap ₹196Cr Score:0.329 (3 soft signals)    PE@1.6x
+2026-03-20 13:53:27,498 [INFO]   [0016] AARTECH        ₹47      MCap ₹148Cr Score:0.420 (3 soft signals)    PE@3.9x
+2026-03-20 13:53:30,273 [INFO]   [0020] AARTISURF      ₹353     MCap ₹299Cr Score:0.584 (3 soft signals) [Aarti]   PE@0.6x
+2026-03-20 13:53:32,889 [INFO]   [0021] AARVI          ₹130     MCap ₹193Cr Score:0.386 (2 soft signals)    PE@0.6x
+2026-03-20 13:53:43,134 [INFO]   [0038] ACEINTEG       ₹17      MCap ₹17Cr Score:0.242 (2 soft signals)   DEBT↓ 
+2026-03-20 13:53:48,717 [INFO]   [0048] ADFFOODS       ₹174     MCap ₹1916Cr Score:0.444 (3 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 13:53:50,846 [INFO]   [0049] ADL            ₹67      MCap ₹38Cr Score:0.467 (3 soft signals)    
+2026-03-20 13:53:53,221 [INFO]   [0051] ADROITINFO     ₹9       MCap ₹51Cr Score:0.524 (2 soft signals)    PE@0.6x
+2026-03-20 13:53:55,462 [INFO]   [0052] ADSL           ₹102     MCap ₹574Cr Score:0.443 (3 soft signals)    PE@0.6x
+2026-03-20 13:53:59,746 [INFO]   [0055] ADVANIHOTR     ₹52      MCap ₹478Cr Score:0.439 (2 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 13:54:01,666 [INFO]   [0056] ADVENTHTL      ₹151     MCap ₹815Cr Score:0.540 (3 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:54:04,708 [INFO]   [0062] AEROENTER      ₹73      MCap ₹823Cr Score:0.485 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 13:54:07,383 [INFO]   [0064] AERONEU        ₹67      MCap ₹173Cr Score:0.448 (2 soft signals)    PE@3.5x
+2026-03-20 13:54:12,137 [INFO]   [0069] AFIL           ₹8       MCap ₹361Cr Score:0.615 (4 soft signals)    PE@0.4x
+2026-03-20 13:54:14,400 [INFO]   [0071] AGARIND        ₹412     MCap ₹617Cr Score:0.443 (4 soft signals)    PE@0.4x
+2026-03-20 13:54:18,196 [INFO]   [0075] AGRITECH       ₹105     MCap ₹63Cr Score:0.256 (2 soft signals)   DEBT↓ 
+2026-03-20 13:54:20,432 [INFO]   [0076] AGROPHOS       ₹32      MCap ₹64Cr Score:0.349 (2 soft signals)    PE@0.5x
+2026-03-20 13:54:22,904 [INFO]   [0078] AHCL           ₹121     MCap ₹644Cr Score:0.595 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:54:27,420 [INFO]   [0080] AHLEAST        ₹151     MCap ₹263Cr Score:0.384 (4 soft signals)    PE@0.3x
+2026-03-20 13:54:30,244 [INFO]   [0084] AIRAN          ₹15      MCap ₹190Cr Score:0.535 (4 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 13:54:36,028 [INFO]   [0090] AKASH          ₹26      MCap ₹43Cr Score:0.326 (2 soft signals)    PE@0.8x
+2026-03-20 13:54:38,012 [INFO]   [0091] AKG            ₹11      MCap ₹34Cr Score:0.230 (3 soft signals)   DEBT↓ PE@2.6x
+2026-03-20 13:54:40,653 [INFO]   [0094] AKSHARCHEM     ₹184     MCap ₹148Cr Score:0.392 (3 soft signals)    
+2026-03-20 13:54:43,693 [INFO]   [0098] ALANKIT        ₹8       MCap ₹205Cr Score:0.477 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 13:54:46,757 [INFO]   [0104] ALKALI         ₹55      MCap ₹56Cr Score:0.352 (4 soft signals)   DEBT↓ PE@2.3x
+2026-03-20 13:54:49,268 [INFO]   [0107] ALLCARGO       ₹8       MCap ₹1211Cr Score:0.520 (4 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 13:54:53,820 [INFO]   [0112] ALPA           ₹60      MCap ₹127Cr Score:0.524 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 13:54:56,048 [INFO]   [0113] ALPHAGEO       ₹185     MCap ₹118Cr Score:0.459 (3 soft signals)   DEBT↓ 
+2026-03-20 13:54:58,409 [INFO]   [0115] AMANTA         ₹96      MCap ₹372Cr Score:0.408 (2 soft signals)    PE@0.8x
+2026-03-20 13:55:00,848 [INFO]   [0117] AMBICAAGAR     ₹23      MCap ₹40Cr Score:0.598 (4 soft signals)    PE@1.3x
+2026-03-20 13:55:03,464 [INFO]   [0120] AMDIND         ₹38      MCap ₹74Cr Score:0.399 (3 soft signals)    
+2026-03-20 13:55:05,827 [INFO]   [0121] AMJLAND        ₹38      MCap ₹157Cr Score:0.547 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 13:55:08,150 [INFO]   [0122] AMNPLST        ₹152     MCap ₹836Cr Score:0.392 (3 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 13:55:11,290 [INFO]   [0126] ANDHRAPAP      ₹60      MCap ₹1201Cr Score:0.435 (3 soft signals)   DEBT↓ PE@2.6x
+2026-03-20 13:55:13,395 [INFO]   [0127] ANDHRSUGAR     ₹71      MCap ₹963Cr Score:0.436 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 13:55:15,659 [INFO]   [0129] ANIKINDS       ₹38      MCap ₹107Cr Score:0.420 (4 soft signals)   DEBT↓ PE@2.5x
+2026-03-20 13:55:18,042 [INFO]   [0131] ANMOL          ₹10      MCap ₹60Cr Score:0.464 (3 soft signals)    PE@0.2x
+2026-03-20 13:55:20,782 [INFO]   [0136] ANUHPHR        ₹74      MCap ₹748Cr Score:0.461 (2 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:55:25,305 [INFO]   [0141] APCOTEXIND     ₹351     MCap ₹1831Cr Score:0.412 (2 soft signals)    PE@0.8x
+2026-03-20 13:55:27,522 [INFO]   [0142] APEX           ₹376     MCap ₹1179Cr Score:0.367 (3 soft signals)   DEBT↓ PE@1.4x
+2026-03-20 13:55:30,831 [INFO]   [0147] APOLLOPIPE     ₹387     MCap ₹1699Cr Score:0.350 (2 soft signals)   DEBT↓ PE@5.3x
+2026-03-20 13:55:33,559 [INFO]   [0150] APTECHT        ₹79      MCap ₹460Cr Score:0.504 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 13:55:35,904 [INFO]   [0152] AQYLON         ₹65      MCap ₹1661Cr Score:0.410 (3 soft signals)    PE@4.8x
+2026-03-20 13:55:38,123 [INFO]   [0153] ARCHIDPLY      ₹69      MCap ₹139Cr Score:0.326 (2 soft signals)    PE@1.2x
+2026-03-20 13:55:40,697 [INFO]   [0154] ARCHIES        ₹13      MCap ₹45Cr Score:0.368 (3 soft signals)    
+2026-03-20 13:55:42,799 [INFO]   [0156] ARENTERP       ₹39      MCap ₹12Cr Score:0.363 (3 soft signals)   DEBT↓ 
+2026-03-20 13:55:47,967 [INFO]   [0158] ARIES          ₹339     MCap ₹441Cr Score:0.503 (5 soft signals)    PE@0.4x
+2026-03-20 13:55:52,132 [INFO]   [0161] ARIS           ₹104     MCap ₹848Cr Score:0.592 (5 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 13:55:57,015 [INFO]   [0164] AROGRANITE     ₹23      MCap ₹35Cr Score:0.352 (2 soft signals)    
+2026-03-20 13:55:59,274 [INFO]   [0165] ARROWGREEN     ₹378     MCap ₹571Cr Score:0.443 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 13:56:07,459 [INFO]   [0174] ASAHISONG      ₹207     MCap ₹245Cr Score:0.402 (3 soft signals)    PE@0.6x
+2026-03-20 13:56:09,688 [INFO]   [0175] ASAL           ₹417     MCap ₹666Cr Score:0.579 (3 soft signals) [Tata]   PE@1.4x
+2026-03-20 13:56:12,338 [INFO]   [0179] ASHIMASYN      ₹14      MCap ₹271Cr Score:0.345 (2 soft signals)    
+2026-03-20 13:56:14,633 [INFO]   [0181] ASHOKAMET      ₹14      MCap ₹36Cr Score:0.505 (3 soft signals)    PE@0.2x
+2026-03-20 13:56:19,658 [INFO]   [0184] ASIANHOTNR     ₹288     MCap ₹1228Cr Score:0.398 (2 soft signals)    PE@0.6x
+2026-03-20 13:56:22,081 [INFO]   [0186] ASIANTILES     ₹60      MCap ₹1797Cr Score:0.519 (3 soft signals)    PE@0.7x
+2026-03-20 13:56:33,561 [INFO]   [0203] ATLASCYCLE     ₹81      MCap ₹53Cr Score:0.342 (3 soft signals)   DEBT↓ 
+2026-03-20 13:56:35,976 [INFO]   [0205] ATULAUTO       ₹417     MCap ₹1157Cr Score:0.479 (3 soft signals)    PE@1.3x
+2026-03-20 13:56:39,021 [INFO]   [0210] AURUM          ₹171     MCap ₹1300Cr Score:0.393 (2 soft signals)    
+2026-03-20 13:56:43,592 [INFO]   [0214] AVADHSUGAR     ₹456     MCap ₹913Cr Score:0.503 (3 soft signals)    PE@0.5x
+2026-03-20 13:56:46,309 [INFO]   [0218] AVG            ₹173     MCap ₹261Cr Score:0.421 (3 soft signals)    PE@0.6x
+2026-03-20 13:56:54,247 [INFO]   [0224] AWHCL          ₹439     MCap ₹1244Cr Score:0.427 (3 soft signals)    PE@0.7x
+2026-03-20 13:56:57,187 [INFO]   [0228] AXITA          ₹9       MCap ₹339Cr Score:0.257 (2 soft signals)    
+2026-03-20 13:56:59,689 [INFO]   [0230] AYMSYNTEX      ₹183     MCap ₹1074Cr Score:0.368 (2 soft signals)    
+2026-03-20 13:57:04,378 [INFO]   [0234] BAIDFIN        ₹11      MCap ₹168Cr Score:0.465 (4 soft signals)    PE@0.3x
+2026-03-20 13:57:07,387 [INFO]   [0239] BAJAJHCARE     ₹313     MCap ₹989Cr Score:0.560 (2 soft signals) [Bajaj]   PE@0.6x
+2026-03-20 13:57:10,447 [INFO]   [0243] BAJAJINDEF     ₹233     MCap ₹745Cr Score:0.365 (2 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 13:57:12,474 [INFO]   [0244] BAJEL          ₹163     MCap ₹1888Cr Score:0.418 (3 soft signals)   DEBT↓ PE@6.9x
+2026-03-20 13:57:14,816 [INFO]   [0246] BALAJEE        ₹25      MCap ₹202Cr Score:0.466 (2 soft signals)    PE@0.6x
+2026-03-20 13:57:17,852 [INFO]   [0247] BALAJITELE     ₹84      MCap ₹1020Cr Score:0.456 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 13:57:20,323 [INFO]   [0249] BALAXI         ₹18      MCap ₹97Cr Score:0.407 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 13:57:22,324 [INFO]   [0250] BALKRISHNA     ₹15      MCap ₹49Cr Score:0.420 (2 soft signals)   DEBT↓ 
+2026-03-20 13:57:25,695 [INFO]   [0253] BALPHARMA      ₹68      MCap ₹108Cr Score:0.475 (4 soft signals)    PE@0.4x
+2026-03-20 13:57:28,373 [INFO]   [0256] BANARBEADS     ₹110     MCap ₹73Cr Score:0.457 (3 soft signals)    PE@1.5x
+2026-03-20 13:57:31,316 [INFO]   [0260] BANG           ₹35      MCap ₹47Cr Score:0.500 (5 soft signals)    PE@0.4x
+2026-03-20 13:57:33,749 [INFO]   [0261] BANKA          ₹49      MCap ₹53Cr Score:0.241 (2 soft signals)    
+2026-03-20 13:57:36,646 [INFO]   [0265] BANSWRAS       ₹112     MCap ₹385Cr Score:0.405 (2 soft signals)    PE@0.6x
+2026-03-20 13:57:39,102 [INFO]   [0267] BASML          ₹20      MCap ₹160Cr Score:0.445 (4 soft signals)    PE@0.3x
+2026-03-20 13:57:42,738 [INFO]   [0273] BBTCL          ₹170     MCap ₹349Cr Score:0.355 (2 soft signals)    PE@0.7x
+2026-03-20 13:57:45,013 [INFO]   [0274] BCG            ₹9       MCap ₹1780Cr Score:0.556 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 13:57:47,251 [INFO]   [0275] BCLIND         ₹27      MCap ₹800Cr Score:0.452 (3 soft signals)    PE@0.3x
+2026-03-20 13:57:49,243 [INFO]   [0276] BCONCEPTS      ₹228     MCap ₹285Cr Score:0.385 (2 soft signals)    PE@2.2x
+2026-03-20 13:57:51,553 [INFO]   [0278] BEARDSELL      ₹24      MCap ₹93Cr Score:0.392 (4 soft signals)    PE@0.5x
+2026-03-20 13:57:53,894 [INFO]   [0280] BEDMUTHA       ₹115     MCap ₹372Cr Score:0.353 (2 soft signals)    
+2026-03-20 13:57:56,298 [INFO]   [0282] BELLACASA      ₹259     MCap ₹347Cr Score:0.438 (2 soft signals)    PE@0.7x
+2026-03-20 13:57:59,214 [INFO]   [0287] BESTAGRO       ₹14      MCap ₹518Cr Score:0.415 (4 soft signals)    PE@0.3x
+2026-03-20 13:58:02,101 [INFO]   [0290] BFUTILITIE     ₹422     MCap ₹1590Cr Score:0.400 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:58:04,684 [INFO]   [0293] BHAGERIA       ₹141     MCap ₹619Cr Score:0.547 (6 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 13:58:06,799 [INFO]   [0294] BHAGYANGR      ₹146     MCap ₹467Cr Score:0.520 (2 soft signals)    PE@0.5x
+2026-03-20 13:58:12,593 [INFO]   [0298] BHARATGEAR     ₹98      MCap ₹151Cr Score:0.437 (4 soft signals)    PE@0.5x
+2026-03-20 13:58:15,348 [INFO]   [0300] BHARATSE       ₹159     MCap ₹1002Cr Score:0.431 (2 soft signals)    PE@1.0x
+2026-03-20 13:58:17,740 [INFO]   [0301] BHARATWIRE     ₹164     MCap ₹1127Cr Score:0.390 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 13:58:20,381 [INFO]   [0305] BIGBLOC        ₹50      MCap ₹710Cr Score:0.346 (2 soft signals)    PE@0.6x
+2026-03-20 13:58:22,894 [INFO]   [0308] BILVYAPAR      ₹6       MCap ₹20Cr Score:0.267 (2 soft signals)   DEBT↓ 
+2026-03-20 13:58:25,192 [INFO]   [0310] BIOFILCHEM     ₹30      MCap ₹50Cr Score:0.347 (2 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:58:27,631 [INFO]   [0311] BIRLACABLE     ₹129     MCap ₹386Cr Score:0.591 (4 soft signals) [Birla]   PE@1.7x
+2026-03-20 13:58:30,463 [INFO]   [0316] BLAL           ₹164     MCap ₹688Cr Score:0.294 (2 soft signals)   DEBT↓ 
+2026-03-20 13:58:34,906 [INFO]   [0321] BLSE           ₹144     MCap ₹1309Cr Score:0.552 (4 soft signals)   DEBT↓ PE@1.1x
+2026-03-20 13:58:37,094 [INFO]   [0322] BLUECOAST      ₹20      MCap ₹35Cr Score:0.305 (2 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 13:58:40,031 [INFO]   [0327] BLUSPRING      ₹46      MCap ₹681Cr Score:0.399 (3 soft signals)    
+2026-03-20 13:58:41,961 [INFO]   [0328] BMWVENTLTD     ₹58      MCap ₹505Cr Score:0.442 (3 soft signals)    PE@0.6x
+2026-03-20 13:58:44,069 [INFO]   [0329] BODALCHEM      ₹55      MCap ₹688Cr Score:0.433 (3 soft signals)    PE@0.8x
+2026-03-20 13:58:46,371 [INFO]   [0330] BOHRAIND       ₹17      MCap ₹18Cr Score:0.241 (2 soft signals)   DEBT↓ 
+2026-03-20 13:58:48,906 [INFO]   [0333] BORANA         ₹345     MCap ₹919Cr Score:0.498 (2 soft signals)    PE@1.6x
+2026-03-20 13:58:51,442 [INFO]   [0336] BOROSCI        ₹105     MCap ₹931Cr Score:0.478 (3 soft signals)   DEBT↓ PE@2.3x
+2026-03-20 13:58:53,935 [INFO]   [0340] BPL            ₹47      MCap ₹231Cr Score:0.375 (3 soft signals)    
+2026-03-20 13:58:57,048 [INFO]   [0344] BRNL           ₹19      MCap ₹158Cr Score:0.564 (4 soft signals)    PE@0.3x
+2026-03-20 13:59:00,236 [INFO]   [0345] BROOKS         ₹53      MCap ₹155Cr Score:0.432 (4 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 13:59:04,503 [INFO]   [0348] BSL            ₹123     MCap ₹127Cr Score:0.391 (3 soft signals)    PE@1.4x
+2026-03-20 13:59:07,526 [INFO]   [0350] BTML           ₹6       MCap ₹117Cr Score:0.430 (2 soft signals)    PE@5.2x
+2026-03-20 13:59:10,076 [INFO]   [0353] BVCL           ₹39      MCap ₹88Cr Score:0.365 (3 soft signals)    
+2026-03-20 13:59:12,465 [INFO]   [0354] BYKE           ₹33      MCap ₹172Cr Score:0.386 (2 soft signals)    PE@1.2x
+2026-03-20 13:59:14,739 [INFO]   [0355] CALSOFT        ₹13      MCap ₹78Cr Score:0.407 (2 soft signals)   DEBT↓ PE@2.4x
+2026-03-20 13:59:20,423 [INFO]   [0363] CAPACITE       ₹224     MCap ₹1903Cr Score:0.425 (3 soft signals)    PE@0.4x
+2026-03-20 13:59:22,653 [INFO]   [0365] CAPITALSFB     ₹240     MCap ₹1090Cr Score:0.436 (4 soft signals)    PE@0.3x
+2026-03-20 13:59:24,880 [INFO]   [0367] CAPTRUST       ₹12      MCap ₹40Cr Score:0.343 (2 soft signals)    
+2026-03-20 13:59:28,922 [INFO]   [0375] CCCL           ₹15      MCap ₹669Cr Score:0.619 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 13:59:31,626 [INFO]   [0376] CCHHL          ₹12      MCap ₹200Cr Score:0.479 (3 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 13:59:36,828 [INFO]   [0385] CENTENKA       ₹417     MCap ₹914Cr Score:0.482 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:59:39,289 [INFO]   [0386] CENTEXT        ₹19      MCap ₹152Cr Score:0.390 (2 soft signals)    PE@0.6x
+2026-03-20 13:59:41,961 [INFO]   [0388] CENTRUM        ₹26      MCap ₹1163Cr Score:0.308 (2 soft signals)    
+2026-03-20 13:59:44,997 [INFO]   [0394] CEWATER        ₹283     MCap ₹586Cr Score:0.429 (3 soft signals)    PE@0.4x
+2026-03-20 13:59:49,137 [INFO]   [0399] CHEMBOND       ₹126     MCap ₹170Cr Score:0.451 (5 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 13:59:51,293 [INFO]   [0400] CHEMBONDCH     ₹128     MCap ₹344Cr Score:0.408 (3 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 13:59:53,363 [INFO]   [0401] CHEMCON        ₹147     MCap ₹537Cr Score:0.500 (4 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 13:59:55,561 [INFO]   [0402] CHEMFAB        ₹357     MCap ₹513Cr Score:0.341 (2 soft signals)    
+2026-03-20 13:59:59,422 [INFO]   [0410] CIFL           ₹26      MCap ₹1002Cr Score:0.350 (2 soft signals)    PE@1.0x
+2026-03-20 14:00:01,825 [INFO]   [0412] CINELINE       ₹88      MCap ₹302Cr Score:0.393 (3 soft signals)    
+2026-03-20 14:00:04,738 [INFO]   [0417] CLEDUCATE      ₹47      MCap ₹254Cr Score:0.454 (3 soft signals)    
+2026-03-20 14:00:06,880 [INFO]   [0418] CLSEL          ₹233     MCap ₹1161Cr Score:0.472 (3 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:00:09,700 [INFO]   [0422] COASTCORP      ₹43      MCap ₹293Cr Score:0.497 (3 soft signals)    PE@0.8x
+2026-03-20 14:00:14,799 [INFO]   [0429] COMPUSOFT      ₹13      MCap ₹103Cr Score:0.446 (2 soft signals)    PE@1.5x
+2026-03-20 14:00:17,090 [INFO]   [0430] COMSYN         ₹153     MCap ₹613Cr Score:0.429 (2 soft signals)    PE@0.9x
+2026-03-20 14:00:19,853 [INFO]   [0433] CONFIPET       ₹36      MCap ₹1207Cr Score:0.520 (2 soft signals)    PE@0.6x
+2026-03-20 14:00:22,584 [INFO]   [0437] CORDSCABLE     ₹148     MCap ₹192Cr Score:0.379 (2 soft signals)    PE@0.5x
+2026-03-20 14:00:25,455 [INFO]   [0442] CPCAP          ₹83      MCap ₹152Cr Score:0.480 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:00:27,587 [INFO]   [0443] CPEDU          ₹164     MCap ₹299Cr Score:0.325 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:00:30,521 [INFO]   [0447] CREATIVEYE     ₹6       MCap ₹13Cr Score:0.342 (3 soft signals)   DEBT↓ 
+2026-03-20 14:00:32,952 [INFO]   [0449] CREST          ₹330     MCap ₹934Cr Score:0.508 (3 soft signals)    PE@0.8x
+2026-03-20 14:00:37,941 [INFO]   [0455] CSLFINANCE     ₹247     MCap ₹555Cr Score:0.533 (4 soft signals)    PE@0.3x
+2026-03-20 14:00:39,982 [INFO]   [0456] CTE            ₹23      MCap ₹45Cr Score:0.339 (2 soft signals)    
+2026-03-20 14:00:44,381 [INFO]   [0461] CURAA          ₹119     MCap ₹120Cr Score:0.344 (2 soft signals)    
+2026-03-20 14:00:46,540 [INFO]   [0462] CYBERMEDIA     ₹13      MCap ₹27Cr Score:0.274 (2 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:00:49,075 [INFO]   [0463] CYBERTECH      ₹110     MCap ₹343Cr Score:0.490 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:00:53,044 [INFO]   [0470] DAMODARIND     ₹24      MCap ₹56Cr Score:0.423 (4 soft signals)    PE@0.2x
+2026-03-20 14:00:56,531 [INFO]   [0476] DBEIL          ₹73      MCap ₹340Cr Score:0.461 (3 soft signals)    PE@0.4x
+2026-03-20 14:00:59,054 [INFO]   [0478] DBOL           ₹99      MCap ₹651Cr Score:0.361 (2 soft signals)    PE@1.1x
+2026-03-20 14:01:03,760 [INFO]   [0484] DCM            ₹61      MCap ₹114Cr Score:0.420 (3 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:01:06,100 [INFO]   [0486] DCMNVL         ₹112     MCap ₹223Cr Score:0.377 (3 soft signals)    PE@1.1x
+2026-03-20 14:01:10,067 [INFO]   [0489] DCMSRIND       ₹35      MCap ₹959Cr Score:0.385 (3 soft signals)    PE@0.1x
+2026-03-20 14:01:12,890 [INFO]   [0490] DCW            ₹40      MCap ₹1402Cr Score:0.421 (3 soft signals)    PE@1.0x
+2026-03-20 14:01:15,033 [INFO]   [0491] DCXINDIA       ₹164     MCap ₹1824Cr Score:0.413 (4 soft signals)   DEBT↓ PE@6.3x
+2026-03-20 14:01:17,651 [INFO]   [0494] DEEDEV         ₹267     MCap ₹1852Cr Score:0.459 (2 soft signals)    PE@1.0x
+2026-03-20 14:01:20,884 [INFO]   [0500] DELTACORP      ₹54      MCap ₹1443Cr Score:0.479 (4 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:01:23,409 [INFO]   [0501] DELTAMAGNT     ₹53      MCap ₹59Cr Score:0.284 (2 soft signals)    
+2026-03-20 14:01:25,499 [INFO]   [0502] DEN            ₹26      MCap ₹1237Cr Score:0.564 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:01:27,750 [INFO]   [0504] DENTA          ₹242     MCap ₹645Cr Score:0.468 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:01:30,031 [INFO]   [0505] DEVIT          ₹28      MCap ₹155Cr Score:0.429 (3 soft signals)    PE@0.1x
+2026-03-20 14:01:32,075 [INFO]   [0506] DEVX           ₹38      MCap ₹341Cr Score:0.379 (3 soft signals)    
+2026-03-20 14:01:34,811 [INFO]   [0508] DGCONTENT      ₹24      MCap ₹139Cr Score:0.413 (3 soft signals)    PE@0.9x
+2026-03-20 14:01:37,040 [INFO]   [0509] DHAMPURSUG     ₹127     MCap ₹815Cr Score:0.461 (4 soft signals)    PE@0.5x
+2026-03-20 14:01:39,243 [INFO]   [0510] DHANBANK       ₹22      MCap ₹884Cr Score:0.504 (4 soft signals)    PE@0.4x
+2026-03-20 14:01:41,954 [INFO]   [0513] DHARMAJ        ₹240     MCap ₹812Cr Score:0.433 (2 soft signals)    PE@0.7x
+2026-03-20 14:01:44,550 [INFO]   [0517] DIAMINESQ      ₹222     MCap ₹217Cr Score:0.329 (3 soft signals)   DEBT↓ 
+2026-03-20 14:01:46,805 [INFO]   [0519] DICIND         ₹498     MCap ₹457Cr Score:0.460 (4 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:01:49,203 [INFO]   [0520] DIFFNKG        ₹255     MCap ₹946Cr Score:0.511 (2 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:01:51,211 [INFO]   [0521] DIGIDRIVE      ₹20      MCap ₹78Cr Score:0.607 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:01:53,452 [INFO]   [0522] DIGISPICE      ₹17      MCap ₹353Cr Score:0.396 (2 soft signals)   DEBT↓ PE@2.5x
+2026-03-20 14:01:55,780 [INFO]   [0523] DIGITIDE       ₹73      MCap ₹1086Cr Score:0.318 (2 soft signals)    
+2026-03-20 14:01:57,838 [INFO]   [0524] DIGJAMLMTD     ₹39      MCap ₹79Cr Score:0.423 (2 soft signals)    PE@1.9x
+2026-03-20 14:02:00,929 [INFO]   [0529] DJML           ₹80      MCap ₹276Cr Score:0.419 (2 soft signals)    PE@1.5x
+2026-03-20 14:02:03,351 [INFO]   [0531] DLINKINDIA     ₹394     MCap ₹1400Cr Score:0.415 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:02:05,674 [INFO]   [0533] DMCC           ₹219     MCap ₹548Cr Score:0.492 (3 soft signals)    PE@0.8x
+2026-03-20 14:02:08,256 [INFO]   [0537] DOLLAR         ₹260     MCap ₹1478Cr Score:0.417 (2 soft signals)    PE@0.6x
+2026-03-20 14:02:10,413 [INFO]   [0538] DOLPHIN        ₹385     MCap ₹1539Cr Score:0.424 (3 soft signals)    PE@1.2x
+2026-03-20 14:02:12,822 [INFO]   [0540] DONEAR         ₹86      MCap ₹447Cr Score:0.417 (2 soft signals)    PE@0.5x
+2026-03-20 14:02:15,077 [INFO]   [0542] DPSCLTD        ₹8       MCap ₹775Cr Score:0.306 (4 soft signals)   DEBT↓ 
+2026-03-20 14:02:17,157 [INFO]   [0543] DPWIRES        ₹143     MCap ₹222Cr Score:0.451 (4 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:02:19,179 [INFO]   [0544] DRCSYSTEMS     ₹13      MCap ₹190Cr Score:0.623 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:02:21,281 [INFO]   [0545] DREAMFOLKS     ₹71      MCap ₹376Cr Score:0.461 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:02:23,650 [INFO]   [0548] DSFCL          ₹22      MCap ₹191Cr Score:0.242 (2 soft signals)   DEBT↓ 
+2026-03-20 14:02:25,945 [INFO]   [0550] DTIL           ₹127     MCap ₹135Cr Score:0.462 (3 soft signals)    
+2026-03-20 14:02:28,941 [INFO]   [0553] DWARKESH       ₹40      MCap ₹735Cr Score:0.389 (3 soft signals)    PE@1.5x
+2026-03-20 14:02:31,152 [INFO]   [0554] DYCL           ₹269     MCap ₹1306Cr Score:0.448 (2 soft signals)    PE@0.7x
+2026-03-20 14:02:33,473 [INFO]   [0556] DYNPRO         ₹220     MCap ₹274Cr Score:0.339 (3 soft signals)    PE@0.6x
+2026-03-20 14:02:36,777 [INFO]   [0561] ECOSMOBLTY     ₹112     MCap ₹671Cr Score:0.478 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:02:41,760 [INFO]   [0568] EIHAHOTELS     ₹302     MCap ₹1838Cr Score:0.470 (4 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:02:44,353 [INFO]   [0571] EKC            ₹104     MCap ₹1170Cr Score:0.494 (3 soft signals)    PE@0.5x
+2026-03-20 14:02:49,514 [INFO]   [0578] ELIN           ₹117     MCap ₹582Cr Score:0.507 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:02:52,109 [INFO]   [0581] EMAMIPAP       ₹68      MCap ₹413Cr Score:0.465 (2 soft signals)    PE@0.6x
+2026-03-20 14:02:54,102 [INFO]   [0582] EMAMIREAL      ₹60      MCap ₹263Cr Score:0.298 (2 soft signals)   DEBT↓ 
+2026-03-20 14:02:57,057 [INFO]   [0587] EMMBI          ₹76      MCap ₹147Cr Score:0.366 (3 soft signals)    PE@0.8x
+2026-03-20 14:02:59,570 [INFO]   [0589] EMSLIMITED     ₹297     MCap ₹1651Cr Score:0.472 (2 soft signals)    PE@0.6x
+2026-03-20 14:03:04,457 [INFO]   [0594] ENIL           ₹106     MCap ₹505Cr Score:0.492 (5 soft signals)    PE@0.4x
+2026-03-20 14:03:06,993 [INFO]   [0598] EPACKPEB       ₹149     MCap ₹1493Cr Score:0.459 (2 soft signals)    PE@0.8x
+2026-03-20 14:03:10,185 [INFO]   [0605] ESAFSFB        ₹23      MCap ₹1189Cr Score:0.437 (2 soft signals)    
+2026-03-20 14:03:12,499 [INFO]   [0607] ESSARSHPNG     ₹24      MCap ₹490Cr Score:0.305 (2 soft signals)   DEBT↓ 
+2026-03-20 14:03:14,778 [INFO]   [0609] ESTER          ₹92      MCap ₹893Cr Score:0.385 (3 soft signals)    
+2026-03-20 14:03:17,421 [INFO]   [0613] EUROBOND       ₹147     MCap ₹359Cr Score:0.422 (2 soft signals)    PE@0.7x
+2026-03-20 14:03:20,187 [INFO]   [0617] EVERESTIND     ₹326     MCap ₹517Cr Score:0.354 (2 soft signals)    
+2026-03-20 14:03:22,563 [INFO]   [0620] EXCELSOFT      ₹77      MCap ₹881Cr Score:0.504 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:03:24,800 [INFO]   [0621] EXICOM         ₹88      MCap ₹1231Cr Score:0.425 (2 soft signals)    
+2026-03-20 14:03:27,464 [INFO]   [0624] EXXARO         ₹7       MCap ₹306Cr Score:0.385 (2 soft signals)    PE@2.2x
+2026-03-20 14:03:33,479 [INFO]   [0628] FAZE3Q         ₹408     MCap ₹989Cr Score:0.381 (2 soft signals)    PE@1.3x
+2026-03-20 14:03:37,088 [INFO]   [0636] FIBERWEB       ₹35      MCap ₹102Cr Score:0.438 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:03:41,102 [INFO]   [0638] FILATEX        ₹41      MCap ₹1806Cr Score:0.473 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:03:43,800 [INFO]   [0642] FINKURVE       ₹55      MCap ₹777Cr Score:0.405 (2 soft signals)    PE@1.4x
+2026-03-20 14:03:49,284 [INFO]   [0653] FMNL           ₹8       MCap ₹46Cr Score:0.357 (2 soft signals)    
+2026-03-20 14:03:53,483 [INFO]   [0655] FOODSIN        ₹54      MCap ₹396Cr Score:0.349 (2 soft signals)    PE@0.5x
+2026-03-20 14:03:58,247 [INFO]   [0668] GANDHAR        ₹132     MCap ₹1297Cr Score:0.519 (4 soft signals)    PE@0.5x
+2026-03-20 14:04:00,763 [INFO]   [0671] GANESHBE       ₹76      MCap ₹550Cr Score:0.447 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:04:03,103 [INFO]   [0672] GANESHCP       ₹174     MCap ₹703Cr Score:0.452 (3 soft signals)    PE@0.5x
+2026-03-20 14:04:05,664 [INFO]   [0675] GANGESSECU     ₹112     MCap ₹114Cr Score:0.460 (3 soft signals)   DEBT↓ PE@2.7x
+2026-03-20 14:04:08,745 [INFO]   [0677] GARUDA         ₹160     MCap ₹1487Cr Score:0.583 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:04:11,277 [INFO]   [0681] GAUDIUMIVF     ₹77      MCap ₹561Cr Score:0.290 (2 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:04:13,799 [INFO]   [0684] GEECEE         ₹263     MCap ₹550Cr Score:0.588 (4 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:04:16,030 [INFO]   [0685] GEEKAYWIRE     ₹21      MCap ₹219Cr Score:0.228 (2 soft signals)    PE@0.3x
+2026-03-20 14:04:18,015 [INFO]   [0686] GEMAROMA       ₹171     MCap ₹893Cr Score:0.417 (2 soft signals)    PE@1.1x
+2026-03-20 14:04:20,297 [INFO]   [0687] GENCON         ₹43      MCap ₹247Cr Score:0.363 (2 soft signals)    PE@1.1x
+2026-03-20 14:04:22,443 [INFO]   [0688] GENESYS        ₹270     MCap ₹1127Cr Score:0.442 (3 soft signals)    PE@0.9x
+2026-03-20 14:04:25,580 [INFO]   [0695] GHCLTEXTIL     ₹76      MCap ₹723Cr Score:0.488 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:04:27,938 [INFO]   [0696] GICHSGFIN      ₹142     MCap ₹769Cr Score:0.290 (2 soft signals)    PE@0.2x
+2026-03-20 14:04:32,664 [INFO]   [0699] GILLANDERS     ₹79      MCap ₹169Cr Score:0.450 (4 soft signals)    PE@0.4x
+2026-03-20 14:04:35,217 [INFO]   [0701] GINNIFILA      ₹38      MCap ₹325Cr Score:0.416 (4 soft signals)    PE@0.4x
+2026-03-20 14:04:37,654 [INFO]   [0704] GKSL           ₹106     MCap ₹837Cr Score:0.336 (2 soft signals)   DEBT↓ PE@1.4x
+2026-03-20 14:04:40,577 [INFO]   [0710] GLOBAL         ₹99      MCap ₹505Cr Score:0.408 (3 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:04:42,588 [INFO]   [0711] GLOBALE        ₹11      MCap ₹11Cr Score:0.337 (2 soft signals)    
+2026-03-20 14:04:44,812 [INFO]   [0712] GLOBALVECT     ₹156     MCap ₹219Cr Score:0.343 (3 soft signals)    
+2026-03-20 14:04:47,194 [INFO]   [0714] GLOBECIVIL     ₹43      MCap ₹257Cr Score:0.384 (3 soft signals)    PE@0.8x
+2026-03-20 14:04:49,730 [INFO]   [0717] GLOTTIS        ₹43      MCap ₹399Cr Score:0.381 (2 soft signals)    PE@0.5x
+2026-03-20 14:04:54,814 [INFO]   [0725] GOACARBON      ₹305     MCap ₹281Cr Score:0.343 (2 soft signals)    
+2026-03-20 14:04:56,995 [INFO]   [0726] GOCLCORP       ₹236     MCap ₹1173Cr Score:0.572 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:04:59,084 [INFO]   [0727] GOCOLORS       ₹275     MCap ₹1488Cr Score:0.331 (2 soft signals)    PE@0.8x
+2026-03-20 14:05:01,765 [INFO]   [0728] GODAVARIB      ₹317     MCap ₹1622Cr Score:0.388 (2 soft signals)    PE@1.6x
+2026-03-20 14:05:05,208 [INFO]   [0736] GOKUL          ₹43      MCap ₹425Cr Score:0.501 (4 soft signals)    PE@0.9x
+2026-03-20 14:05:07,255 [INFO]   [0738] GOLDENTOBC     ₹28      MCap ₹49Cr Score:0.346 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:05:09,649 [INFO]   [0740] GOLDTECH       ₹40      MCap ₹209Cr Score:0.517 (2 soft signals)    PE@0.9x
+2026-03-20 14:05:12,077 [INFO]   [0743] GOYALALUM      ₹6       MCap ₹84Cr Score:0.368 (3 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 14:05:14,596 [INFO]   [0746] GPTHEALTH      ₹121     MCap ₹990Cr Score:0.478 (2 soft signals)    PE@0.7x
+2026-03-20 14:05:16,665 [INFO]   [0747] GPTINFRA       ₹104     MCap ₹1309Cr Score:0.382 (2 soft signals)    PE@0.7x
+2026-03-20 14:05:23,890 [INFO]   [0766] GSLSU          ₹58      MCap ₹244Cr Score:0.382 (2 soft signals)    
+2026-03-20 14:05:26,355 [INFO]   [0768] GSS            ₹11      MCap ₹28Cr Score:0.325 (2 soft signals)    
+2026-03-20 14:05:30,098 [INFO]   [0770] GTL            ₹6       MCap ₹100Cr Score:0.221 (2 soft signals)   DEBT↓ 
+2026-03-20 14:05:32,394 [INFO]   [0772] GTPL           ₹59      MCap ₹664Cr Score:0.474 (2 soft signals)    PE@0.6x
+2026-03-20 14:05:34,955 [INFO]   [0775] GUJAPOLLO      ₹447     MCap ₹582Cr Score:0.407 (3 soft signals)   DEBT↓ 
+2026-03-20 14:05:37,868 [INFO]   [0780] GULFPETRO      ₹28      MCap ₹146Cr Score:0.435 (4 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:05:39,902 [INFO]   [0781] GULPOLY        ₹156     MCap ₹972Cr Score:0.458 (3 soft signals)    PE@0.5x
+2026-03-20 14:05:42,511 [INFO]   [0784] GVPTECH        ₹7       MCap ₹110Cr Score:0.289 (3 soft signals)   DEBT↓ 
+2026-03-20 14:05:44,995 [INFO]   [0787] HALDER         ₹255     MCap ₹317Cr Score:0.357 (2 soft signals)    
+2026-03-20 14:05:47,802 [INFO]   [0791] HARDWYN        ₹19      MCap ₹923Cr Score:0.406 (3 soft signals)   DEBT↓ PE@3.6x
+2026-03-20 14:06:02,088 [INFO]   [0795] HATHWAY        ₹10      MCap ₹1742Cr Score:0.555 (4 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:06:05,899 [INFO]   [0804] HCL-INSYS      ₹12      MCap ₹386Cr Score:0.432 (4 soft signals) [Infosys]  DEBT↓ 
+2026-03-20 14:06:08,930 [INFO]   [0810] HEADSUP        ₹7       MCap ₹14Cr Score:0.416 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:06:11,054 [INFO]   [0811] HECPROJECT     ₹107     MCap ₹116Cr Score:0.443 (3 soft signals)    PE@0.4x
+2026-03-20 14:06:13,890 [INFO]   [0815] HERANBA        ₹179     MCap ₹718Cr Score:0.361 (2 soft signals)    
+2026-03-20 14:06:16,721 [INFO]   [0819] HEXATRADEX     ₹160     MCap ₹894Cr Score:0.389 (3 soft signals)   DEBT↓ 
+2026-03-20 14:06:19,505 [INFO]   [0823] HGM            ₹45      MCap ₹59Cr Score:0.352 (2 soft signals)    PE@4.4x
+2026-03-20 14:06:21,622 [INFO]   [0824] HGS            ₹362     MCap ₹1686Cr Score:0.532 (4 soft signals)    PE@0.1x
+2026-03-20 14:06:24,057 [INFO]   [0826] HILINFRA       ₹48      MCap ₹346Cr Score:0.399 (2 soft signals)    PE@0.5x
+2026-03-20 14:06:26,461 [INFO]   [0827] HILTON         ₹16      MCap ₹57Cr Score:0.527 (3 soft signals)    PE@0.3x
+2026-03-20 14:06:28,845 [INFO]   [0828] HIMATSEIDE     ₹79      MCap ₹997Cr Score:0.352 (4 soft signals)    PE@0.5x
+2026-03-20 14:06:31,865 [INFO]   [0831] HINDCON        ₹18      MCap ₹94Cr Score:0.238 (2 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:06:34,291 [INFO]   [0833] HINDOILEXP     ₹128     MCap ₹1698Cr Score:0.475 (5 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:06:39,011 [INFO]   [0839] HISARMETAL     ₹139     MCap ₹75Cr Score:0.424 (3 soft signals)    PE@1.2x
+2026-03-20 14:06:41,537 [INFO]   [0840] HITECH         ₹76      MCap ₹1532Cr Score:0.462 (4 soft signals)    PE@0.8x
+2026-03-20 14:06:43,799 [INFO]   [0841] HITECHCORP     ₹141     MCap ₹242Cr Score:0.425 (2 soft signals)    PE@1.3x
+2026-03-20 14:06:46,254 [INFO]   [0843] HLEGLAS        ₹286     MCap ₹1988Cr Score:0.430 (2 soft signals)    PE@1.3x
+2026-03-20 14:06:48,328 [INFO]   [0844] HLVLTD         ₹7       MCap ₹456Cr Score:0.440 (3 soft signals)   DEBT↓ PE@4.0x
+2026-03-20 14:06:50,276 [INFO]   [0845] HMAAGRO        ₹24      MCap ₹1200Cr Score:0.535 (4 soft signals)    PE@0.3x
+2026-03-20 14:06:52,888 [INFO]   [0847] HMVL           ₹63      MCap ₹464Cr Score:0.584 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:06:56,884 [INFO]   [0853] HPAL           ₹31      MCap ₹284Cr Score:0.390 (2 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:07:01,217 [INFO]   [0855] HPL            ₹284     MCap ₹1823Cr Score:0.437 (2 soft signals)    PE@0.8x
+2026-03-20 14:07:04,288 [INFO]   [0860] HUHTAMAKI      ₹163     MCap ₹1230Cr Score:0.534 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:07:07,101 [INFO]   [0864] ICDSLTD        ₹44      MCap ₹57Cr Score:0.314 (2 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:07:10,965 [INFO]   [0874] IDEAFORGE      ₹418     MCap ₹1809Cr Score:0.380 (3 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:07:14,205 [INFO]   [0880] IFGLEXPOR      ₹145     MCap ₹1043Cr Score:0.431 (3 soft signals)    PE@1.4x
+2026-03-20 14:07:16,396 [INFO]   [0881] IGARASHI       ₹315     MCap ₹991Cr Score:0.383 (2 soft signals)    PE@2.9x
+2026-03-20 14:07:18,493 [INFO]   [0882] IGCL           ₹59      MCap ₹371Cr Score:0.478 (4 soft signals)    PE@0.4x
+2026-03-20 14:07:21,070 [INFO]   [0885] IGPL           ₹385     MCap ₹1187Cr Score:0.394 (3 soft signals)    PE@2.5x
+2026-03-20 14:07:23,601 [INFO]   [0889] IKIO           ₹117     MCap ₹906Cr Score:0.455 (4 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 14:07:25,743 [INFO]   [0891] IL&FSENGG      ₹23      MCap ₹307Cr Score:0.328 (2 soft signals)   DEBT↓ 
+2026-03-20 14:07:29,058 [INFO]   [0898] INCREDIBLE     ₹33      MCap ₹156Cr Score:0.485 (5 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:07:32,786 [INFO]   [0906] INDIANCARD     ₹182     MCap ₹109Cr Score:0.532 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:07:35,234 [INFO]   [0907] INDIANHUME     ₹324     MCap ₹1708Cr Score:0.576 (4 soft signals)    PE@0.1x
+2026-03-20 14:07:38,446 [INFO]   [0913] INDOAMIN       ₹88      MCap ₹641Cr Score:0.395 (2 soft signals)    PE@0.3x
+2026-03-20 14:07:40,559 [INFO]   [0914] INDOBORAX      ₹244     MCap ₹787Cr Score:0.386 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:07:44,713 [INFO]   [0916] INDOFARM       ₹126     MCap ₹605Cr Score:0.432 (3 soft signals)    PE@0.9x
+2026-03-20 14:07:47,150 [INFO]   [0917] INDORAMA       ₹31      MCap ₹819Cr Score:0.394 (3 soft signals)    PE@0.2x
+2026-03-20 14:07:49,998 [INFO]   [0921] INDOUS         ₹104     MCap ₹210Cr Score:0.396 (2 soft signals)    PE@0.6x
+2026-03-20 14:07:52,059 [INFO]   [0922] INDOWIND       ₹9       MCap ₹142Cr Score:0.416 (3 soft signals)   DEBT↓ PE@3.9x
+2026-03-20 14:07:55,781 [INFO]   [0925] INDTERRAIN     ₹28      MCap ₹142Cr Score:0.409 (4 soft signals)    PE@0.1x
+2026-03-20 14:07:58,288 [INFO]   [0928] INFOBEAN       ₹140     MCap ₹1355Cr Score:0.612 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:08:03,887 [INFO]   [0938] INSPIRISYS     ₹77      MCap ₹307Cr Score:0.565 (4 soft signals)    PE@0.3x
+2026-03-20 14:08:07,054 [INFO]   [0940] INTENTECH      ₹84      MCap ₹197Cr Score:0.376 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:08:10,442 [INFO]   [0949] IPL            ₹137     MCap ₹1579Cr Score:0.543 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:08:13,564 [INFO]   [0955] IRIS           ₹227     MCap ₹466Cr Score:0.498 (4 soft signals)   DEBT↓ PE@1.6x
+2026-03-20 14:08:17,306 [INFO]   [0957] IRMENERGY      ₹199     MCap ₹818Cr Score:0.481 (4 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:08:19,465 [INFO]   [0958] ISFT           ₹66      MCap ₹107Cr Score:0.430 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:08:22,119 [INFO]   [0960] ISHANCH        ₹51      MCap ₹135Cr Score:0.340 (3 soft signals)    
+2026-03-20 14:08:24,774 [INFO]   [0965] IVALUE         ₹235     MCap ₹1286Cr Score:0.429 (3 soft signals)    PE@0.5x
+2026-03-20 14:08:27,155 [INFO]   [0966] IVC            ₹7       MCap ₹218Cr Score:0.412 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:08:29,506 [INFO]   [0967] IVP            ₹131     MCap ₹136Cr Score:0.491 (3 soft signals)    PE@0.3x
+2026-03-20 14:08:32,237 [INFO]   [0971] JAGRAN         ₹61      MCap ₹1331Cr Score:0.537 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:08:34,349 [INFO]   [0972] JAGSNPHARM     ₹183     MCap ₹1229Cr Score:0.447 (3 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:08:36,872 [INFO]   [0974] JAICORPLTD     ₹102     MCap ₹1794Cr Score:0.535 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:08:39,073 [INFO]   [0976] JAIPURKURT     ₹29      MCap ₹49Cr Score:0.329 (2 soft signals)    PE@0.5x
+2026-03-20 14:08:41,551 [INFO]   [0978] JARO           ₹486     MCap ₹1077Cr Score:0.480 (2 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:08:44,488 [INFO]   [0980] JAYAGROGN      ₹168     MCap ₹503Cr Score:0.465 (4 soft signals)    PE@0.4x
+2026-03-20 14:08:46,596 [INFO]   [0981] JAYBARMARU     ₹86      MCap ₹930Cr Score:0.473 (2 soft signals)    PE@0.5x
+2026-03-20 14:08:48,794 [INFO]   [0982] JAYKAY         ₹133     MCap ₹1729Cr Score:0.433 (2 soft signals)   DEBT↓ PE@2.6x
+2026-03-20 14:08:51,144 [INFO]   [0984] JAYSREETEA     ₹81      MCap ₹233Cr Score:0.506 (4 soft signals)    PE@0.2x
+2026-03-20 14:08:53,928 [INFO]   [0987] JETFREIGHT     ₹18      MCap ₹83Cr Score:0.393 (3 soft signals)    PE@1.0x
+2026-03-20 14:08:56,126 [INFO]   [0988] JGCHEM         ₹332     MCap ₹1301Cr Score:0.419 (3 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:08:58,492 [INFO]   [0989] JHS            ₹8       MCap ₹69Cr Score:0.366 (4 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:09:02,260 [INFO]   [0994] JINDRILL       ₹475     MCap ₹1378Cr Score:0.555 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:09:05,675 [INFO]   [0999] JITFINFRA      ₹316     MCap ₹814Cr Score:0.366 (3 soft signals)   DEBT↓ 
+2026-03-20 14:09:08,359 [INFO]   [1002] JKIPL          ₹52      MCap ₹198Cr Score:0.422 (2 soft signals)    
+2026-03-20 14:09:11,524 [INFO]   [1007] JMA            ₹81      MCap ₹184Cr Score:0.352 (3 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:09:13,908 [INFO]   [1009] JNKINDIA       ₹238     MCap ₹1329Cr Score:0.582 (3 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 14:09:16,211 [INFO]   [1010] JOCIL          ₹110     MCap ₹98Cr Score:0.311 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:09:24,992 [INFO]   [1033] KABRAEXTRU     ₹209     MCap ₹731Cr Score:0.343 (2 soft signals)    PE@0.8x
+2026-03-20 14:09:27,645 [INFO]   [1035] KAKATCEM       ₹100     MCap ₹78Cr Score:0.430 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:09:30,102 [INFO]   [1036] KALAMANDIR     ₹101     MCap ₹1488Cr Score:0.420 (4 soft signals)    PE@0.5x
+2026-03-20 14:09:32,752 [INFO]   [1038] KALYANI        ₹138     MCap ₹14Cr Score:0.231 (3 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:09:35,444 [INFO]   [1041] KAMATHOTEL     ₹183     MCap ₹538Cr Score:0.389 (2 soft signals)    PE@0.7x
+2026-03-20 14:09:37,734 [INFO]   [1042] KAMDHENU       ₹21      MCap ₹596Cr Score:0.485 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:09:40,459 [INFO]   [1045] KANORICHEM     ₹63      MCap ₹275Cr Score:0.376 (2 soft signals)    
+2026-03-20 14:09:42,625 [INFO]   [1046] KANPRPLA       ₹179     MCap ₹429Cr Score:0.456 (2 soft signals)    PE@0.6x
+2026-03-20 14:09:47,676 [INFO]   [1049] KARMAENG       ₹39      MCap ₹45Cr Score:0.533 (4 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:09:50,436 [INFO]   [1052] KAVDEFENCE     ₹61      MCap ₹323Cr Score:0.396 (3 soft signals)   DEBT↓ PE@4.1x
+2026-03-20 14:09:52,494 [INFO]   [1053] KAYA           ₹283     MCap ₹430Cr Score:0.293 (2 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:09:54,869 [INFO]   [1055] KCP            ₹138     MCap ₹1773Cr Score:0.395 (3 soft signals)    PE@0.5x
+2026-03-20 14:09:57,115 [INFO]   [1056] KCPSUGIND      ₹24      MCap ₹270Cr Score:0.408 (4 soft signals)   DEBT↓ PE@2.6x
+2026-03-20 14:09:59,561 [INFO]   [1059] KECL           ₹83      MCap ₹556Cr Score:0.413 (2 soft signals)    PE@2.4x
+2026-03-20 14:10:02,125 [INFO]   [1062] KELLTONTEC     ₹16      MCap ₹849Cr Score:0.388 (3 soft signals)    PE@0.3x
+2026-03-20 14:10:04,373 [INFO]   [1064] KESORAMIND     ₹8       MCap ₹250Cr Score:0.440 (3 soft signals)    
+2026-03-20 14:10:06,934 [INFO]   [1067] KHADIM         ₹88      MCap ₹162Cr Score:0.349 (3 soft signals)    PE@0.8x
+2026-03-20 14:10:08,994 [INFO]   [1068] KHAICHEM       ₹49      MCap ₹476Cr Score:0.515 (3 soft signals)    PE@0.3x
+2026-03-20 14:10:11,230 [INFO]   [1069] KHAITANLTD     ₹96      MCap ₹48Cr Score:0.512 (2 soft signals)    PE@0.3x
+2026-03-20 14:10:17,276 [INFO]   [1084] KMSUGAR        ₹26      MCap ₹237Cr Score:0.516 (4 soft signals)    PE@0.2x
+2026-03-20 14:10:19,352 [INFO]   [1085] KNAGRI         ₹171     MCap ₹428Cr Score:0.253 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:10:21,623 [INFO]   [1087] KOHINOOR       ₹23      MCap ₹84Cr Score:0.495 (4 soft signals)   DEBT↓ PE@0.0x
+2026-03-20 14:10:23,753 [INFO]   [1088] KOKUYOCMLN     ₹77      MCap ₹772Cr Score:0.366 (2 soft signals)    PE@1.3x
+2026-03-20 14:10:26,110 [INFO]   [1090] KOPRAN         ₹118     MCap ₹571Cr Score:0.352 (3 soft signals)    PE@1.0x
+2026-03-20 14:10:28,869 [INFO]   [1092] KOTARISUG      ₹24      MCap ₹196Cr Score:0.378 (2 soft signals)    PE@1.5x
+2026-03-20 14:10:31,290 [INFO]   [1093] KOTHARIPET     ₹111     MCap ₹652Cr Score:0.315 (2 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:10:33,889 [INFO]   [1094] KOTHARIPRO     ₹64      MCap ₹384Cr Score:0.445 (3 soft signals)    PE@0.1x
+2026-03-20 14:10:35,927 [INFO]   [1095] KOTYARK        ₹371     MCap ₹381Cr Score:0.196 (2 soft signals)    PE@5.2x
+2026-03-20 14:10:38,173 [INFO]   [1096] KPEL           ₹279     MCap ₹1891Cr Score:0.468 (2 soft signals)    PE@0.6x
+2026-03-20 14:10:41,086 [INFO]   [1102] KREBSBIO       ₹48      MCap ₹104Cr Score:0.303 (2 soft signals)   DEBT↓ 
+2026-03-20 14:10:43,635 [INFO]   [1105] KRISHIVAL      ₹320     MCap ₹820Cr Score:0.533 (3 soft signals)    PE@1.5x
+2026-03-20 14:10:49,508 [INFO]   [1109] KRITINUT       ₹64      MCap ₹319Cr Score:0.476 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:10:52,019 [INFO]   [1111] KRONOX         ₹111     MCap ₹411Cr Score:0.410 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:10:54,518 [INFO]   [1112] KROSS          ₹172     MCap ₹1108Cr Score:0.373 (2 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:10:58,157 [INFO]   [1120] KSOLVES        ₹275     MCap ₹653Cr Score:0.441 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:11:00,246 [INFO]   [1121] KSR            ₹36      MCap ₹68Cr Score:0.344 (2 soft signals)    
+2026-03-20 14:11:02,814 [INFO]   [1123] KUANTUM        ₹78      MCap ₹677Cr Score:0.495 (3 soft signals)    PE@0.5x
+2026-03-20 14:11:05,611 [INFO]   [1125] LAGNAM         ₹64      MCap ₹113Cr Score:0.304 (3 soft signals)    PE@0.3x
+2026-03-20 14:11:07,957 [INFO]   [1127] LAL            ₹7       MCap ₹123Cr Score:0.376 (2 soft signals)    
+2026-03-20 14:11:10,460 [INFO]   [1129] LAMBODHARA     ₹95      MCap ₹98Cr Score:0.475 (4 soft signals)    PE@0.5x
+2026-03-20 14:11:12,622 [INFO]   [1130] LANCORHOL      ₹21      MCap ₹153Cr Score:0.346 (2 soft signals)    
+2026-03-20 14:11:16,414 [INFO]   [1131] LANDMARK       ₹360     MCap ₹1496Cr Score:0.429 (3 soft signals) [Mahindra]   PE@2.5x
+2026-03-20 14:11:18,758 [INFO]   [1133] LASA           ₹7       MCap ₹36Cr Score:0.357 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:11:23,147 [INFO]   [1137] LAXMICOT       ₹13      MCap ₹22Cr Score:0.292 (3 soft signals)    PE@0.1x
+2026-03-20 14:11:25,551 [INFO]   [1138] LAXMIDENTL     ₹174     MCap ₹955Cr Score:0.402 (4 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:11:27,868 [INFO]   [1139] LAXMIINDIA     ₹83      MCap ₹431Cr Score:0.587 (4 soft signals)    PE@0.4x
+2026-03-20 14:11:36,331 [INFO]   [1149] LIBAS          ₹10      MCap ₹26Cr Score:0.268 (2 soft signals)    PE@0.1x
+2026-03-20 14:11:38,771 [INFO]   [1150] LIBERTSHOE     ₹248     MCap ₹426Cr Score:0.379 (2 soft signals)    PE@1.5x
+2026-03-20 14:11:41,391 [INFO]   [1153] LIKHITHA       ₹142     MCap ₹562Cr Score:0.475 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:11:43,551 [INFO]   [1154] LINC           ₹103     MCap ₹612Cr Score:0.417 (3 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:11:46,948 [INFO]   [1162] LOKESHMACH     ₹198     MCap ₹397Cr Score:0.351 (2 soft signals)    
+2026-03-20 14:11:48,989 [INFO]   [1163] LORDSCHLO      ₹119     MCap ₹341Cr Score:0.543 (3 soft signals)    PE@0.4x
+2026-03-20 14:11:51,472 [INFO]   [1165] LOTUSEYE       ₹109     MCap ₹227Cr Score:0.322 (2 soft signals)   DEBT↓ 
+2026-03-20 14:11:54,536 [INFO]   [1166] LOVABLE        ₹65      MCap ₹96Cr Score:0.461 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:11:57,072 [INFO]   [1167] LOYALTEX       ₹200     MCap ₹96Cr Score:0.358 (2 soft signals)    
+2026-03-20 14:11:59,313 [INFO]   [1168] LPDC           ₹6       MCap ₹82Cr Score:0.498 (2 soft signals)   DEBT↓ 
+2026-03-20 14:12:03,444 [INFO]   [1179] LYKALABS       ₹55      MCap ₹196Cr Score:0.325 (2 soft signals)    
+2026-03-20 14:12:08,695 [INFO]   [1185] MADHAV         ₹34      MCap ₹31Cr Score:0.406 (5 soft signals)   DEBT↓ 
+2026-03-20 14:12:13,543 [INFO]   [1188] MAGADSUGAR     ₹459     MCap ₹647Cr Score:0.453 (3 soft signals)    PE@0.3x
+2026-03-20 14:12:15,551 [INFO]   [1189] MAGNUM         ₹18      MCap ₹124Cr Score:0.373 (3 soft signals)    
+2026-03-20 14:12:17,945 [INFO]   [1191] MAHAPEXLTD     ₹56      MCap ₹80Cr Score:0.473 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:12:20,662 [INFO]   [1193] MAHEPC         ₹116     MCap ₹324Cr Score:0.466 (2 soft signals) [Mahindra]   PE@1.0x
+2026-03-20 14:12:22,815 [INFO]   [1194] MAHESHWARI     ₹44      MCap ₹131Cr Score:0.375 (3 soft signals)    PE@0.3x
+2026-03-20 14:12:26,211 [INFO]   [1201] MALUPAPER      ₹32      MCap ₹56Cr Score:0.329 (2 soft signals)   DEBT↓ 
+2026-03-20 14:12:28,501 [INFO]   [1202] MAMATA         ₹374     MCap ₹920Cr Score:0.367 (3 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:12:30,714 [INFO]   [1203] MANAKALUCO     ₹25      MCap ₹164Cr Score:0.332 (2 soft signals)    PE@1.0x
+2026-03-20 14:12:32,927 [INFO]   [1204] MANAKCOAT      ₹106     MCap ₹1125Cr Score:0.349 (2 soft signals)    PE@1.2x
+2026-03-20 14:12:35,369 [INFO]   [1205] MANAKSIA       ₹50      MCap ₹329Cr Score:0.517 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:12:38,252 [INFO]   [1206] MANAKSTEEL     ₹52      MCap ₹343Cr Score:0.603 (3 soft signals)    PE@0.5x
+2026-03-20 14:12:40,864 [INFO]   [1207] MANALIPETC     ₹46      MCap ₹786Cr Score:0.562 (4 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:12:43,288 [INFO]   [1209] MANBA          ₹114     MCap ₹574Cr Score:0.487 (3 soft signals)    PE@0.5x
+2026-03-20 14:12:45,676 [INFO]   [1210] MANCREDIT      ₹170     MCap ₹361Cr Score:0.493 (2 soft signals)    PE@1.1x
+2026-03-20 14:12:47,777 [INFO]   [1211] MANGALAM       ₹30      MCap ₹48Cr Score:0.346 (3 soft signals)    
+2026-03-20 14:12:50,568 [INFO]   [1216] MANOMAY        ₹203     MCap ₹367Cr Score:0.331 (2 soft signals)    PE@0.8x
+2026-03-20 14:12:52,948 [INFO]   [1218] MANORG         ₹400     MCap ₹344Cr Score:0.452 (3 soft signals)    PE@0.5x
+2026-03-20 14:12:55,171 [INFO]   [1219] MANUGRAPH      ₹12      MCap ₹38Cr Score:0.483 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:12:57,481 [INFO]   [1222] MARALOVER      ₹40      MCap ₹167Cr Score:0.458 (3 soft signals) [Birla]   
+2026-03-20 14:13:03,425 [INFO]   [1234] MATRIMONY      ₹423     MCap ₹875Cr Score:0.415 (2 soft signals)    PE@1.1x
+2026-03-20 14:13:05,400 [INFO]   [1235] MAWANASUG      ₹83      MCap ₹326Cr Score:0.465 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:13:09,750 [INFO]   [1240] MAZDA          ₹171     MCap ₹343Cr Score:0.429 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:13:12,206 [INFO]   [1243] MBEL           ₹271     MCap ₹1549Cr Score:0.412 (2 soft signals)    PE@0.8x
+2026-03-20 14:13:14,243 [INFO]   [1244] MBLINFRA       ₹22      MCap ₹338Cr Score:0.461 (3 soft signals)    
+2026-03-20 14:13:16,501 [INFO]   [1245] MCL            ₹61      MCap ₹166Cr Score:0.307 (2 soft signals)    PE@1.4x
+2026-03-20 14:13:20,817 [INFO]   [1247] MCLOUD         ₹22      MCap ₹1284Cr Score:0.437 (3 soft signals)    PE@0.4x
+2026-03-20 14:13:25,998 [INFO]   [1252] MEDICO         ₹38      MCap ₹317Cr Score:0.471 (3 soft signals)    PE@0.8x
+2026-03-20 14:13:28,461 [INFO]   [1255] MEGASTAR       ₹250     MCap ₹283Cr Score:0.485 (2 soft signals)    PE@1.1x
+2026-03-20 14:13:30,612 [INFO]   [1256] MEIL           ₹231     MCap ₹640Cr Score:0.475 (4 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:13:32,825 [INFO]   [1257] MENONBE        ₹118     MCap ₹662Cr Score:0.527 (2 soft signals)    PE@0.8x
+2026-03-20 14:13:35,436 [INFO]   [1261] MFML           ₹23      MCap ₹24Cr Score:0.398 (3 soft signals)    PE@0.2x
+2026-03-20 14:13:37,579 [INFO]   [1263] MGEL           ₹10      MCap ₹346Cr Score:0.523 (3 soft signals)    PE@0.4x
+2026-03-20 14:13:39,921 [INFO]   [1265] MHLXMIRU       ₹167     MCap ₹177Cr Score:0.492 (3 soft signals)    PE@0.3x
+2026-03-20 14:13:43,077 [INFO]   [1271] MINDTECK       ₹170     MCap ₹545Cr Score:0.394 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:13:45,604 [INFO]   [1272] MIRCELECTR     ₹25      MCap ₹942Cr Score:0.290 (3 soft signals)    
+2026-03-20 14:13:47,916 [INFO]   [1273] MIRZAINT       ₹29      MCap ₹406Cr Score:0.436 (4 soft signals)   DEBT↓ PE@1.9x
+2026-03-20 14:13:50,028 [INFO]   [1274] MITCON         ₹53      MCap ₹94Cr Score:0.356 (2 soft signals)    PE@1.0x
+2026-03-20 14:13:56,256 [INFO]   [1281] MODINATUR      ₹300     MCap ₹399Cr Score:0.391 (3 soft signals)    PE@0.4x
+2026-03-20 14:13:58,333 [INFO]   [1282] MODIRUBBER     ₹110     MCap ₹277Cr Score:0.559 (4 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:14:00,329 [INFO]   [1283] MODIS          ₹317     MCap ₹620Cr Score:0.542 (3 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:14:02,411 [INFO]   [1284] MODISONLTD     ₹126     MCap ₹409Cr Score:0.497 (2 soft signals)    PE@0.4x
+2026-03-20 14:14:04,545 [INFO]   [1285] MODTHREAD      ₹45      MCap ₹156Cr Score:0.337 (2 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:14:06,587 [INFO]   [1286] MOHITIND       ₹23      MCap ₹32Cr Score:0.365 (2 soft signals)    
+2026-03-20 14:14:08,807 [INFO]   [1288] MOKSH          ₹10      MCap ₹87Cr Score:0.245 (2 soft signals)    PE@0.3x
+2026-03-20 14:14:10,880 [INFO]   [1289] MOL            ₹43      MCap ₹1084Cr Score:0.351 (3 soft signals)    PE@1.1x
+2026-03-20 14:14:13,130 [INFO]   [1290] MOLDTECH       ₹123     MCap ₹355Cr Score:0.515 (4 soft signals)   DEBT↓ PE@1.4x
+2026-03-20 14:14:15,496 [INFO]   [1293] MONEYBOXX      ₹62      MCap ₹435Cr Score:0.379 (3 soft signals)    
+2026-03-20 14:14:17,594 [INFO]   [1295] MORARJEE       ₹6       MCap ₹22Cr Score:0.341 (3 soft signals)   DEBT↓ 
+2026-03-20 14:14:20,536 [INFO]   [1300] MOTISONS       ₹13      MCap ₹1308Cr Score:0.387 (3 soft signals)   DEBT↓ 
+2026-03-20 14:14:22,708 [INFO]   [1301] MOTOGENFIN     ₹20      MCap ₹78Cr Score:0.468 (3 soft signals)   DEBT↓ PE@2.4x
+2026-03-20 14:14:28,122 [INFO]   [1311] MTNL           ₹25      MCap ₹1559Cr Score:0.293 (2 soft signals)   DEBT↓ 
+2026-03-20 14:14:30,439 [INFO]   [1313] MUFTI          ₹75      MCap ₹488Cr Score:0.443 (4 soft signals)    PE@0.4x
+2026-03-20 14:14:32,690 [INFO]   [1314] MUKANDLTD      ₹126     MCap ₹1832Cr Score:0.384 (2 soft signals)    PE@1.2x
+2026-03-20 14:14:34,787 [INFO]   [1315] MUKKA          ₹21      MCap ₹634Cr Score:0.504 (3 soft signals)    PE@0.6x
+2026-03-20 14:14:36,868 [INFO]   [1316] MUKTAARTS      ₹42      MCap ₹98Cr Score:0.347 (3 soft signals)   DEBT↓ 
+2026-03-20 14:14:41,696 [INFO]   [1318] MUNJALSHOW     ₹120     MCap ₹482Cr Score:0.533 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:14:43,889 [INFO]   [1319] MURUDCERA      ₹29      MCap ₹178Cr Score:0.501 (3 soft signals)    PE@0.7x
+2026-03-20 14:14:45,920 [INFO]   [1320] MUTHOOTCAP     ₹197     MCap ₹323Cr Score:0.460 (3 soft signals)    PE@1.1x
+2026-03-20 14:14:48,615 [INFO]   [1323] MVGJL          ₹143     MCap ₹699Cr Score:0.524 (4 soft signals)    PE@0.2x
+2026-03-20 14:14:53,038 [INFO]   [1328] NAGREEKEXP     ₹21      MCap ₹67Cr Score:0.414 (3 soft signals)    PE@1.1x
+2026-03-20 14:14:55,149 [INFO]   [1330] NAHARINDUS     ₹90      MCap ₹390Cr Score:0.447 (4 soft signals)    PE@0.4x
+2026-03-20 14:14:57,995 [INFO]   [1331] NAHARPOLY      ₹238     MCap ₹588Cr Score:0.540 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:15:00,188 [INFO]   [1332] NAHARSPING     ₹211     MCap ₹759Cr Score:0.434 (3 soft signals)    PE@1.6x
+2026-03-20 14:15:04,005 [INFO]   [1335] NATCAPSUQ      ₹145     MCap ₹153Cr Score:0.356 (3 soft signals)    
+2026-03-20 14:15:06,464 [INFO]   [1337] NATHBIOGEN     ₹140     MCap ₹266Cr Score:0.504 (3 soft signals)    PE@0.2x
+2026-03-20 14:15:09,210 [INFO]   [1342] NAVKARCORP     ₹83      MCap ₹1246Cr Score:0.469 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:15:12,461 [INFO]   [1349] NCLIND         ₹170     MCap ₹768Cr Score:0.445 (3 soft signals)    PE@0.5x
+2026-03-20 14:15:15,222 [INFO]   [1352] NDLVENTURE     ₹114     MCap ₹384Cr Score:0.393 (2 soft signals)   DEBT↓ 
+2026-03-20 14:15:17,511 [INFO]   [1354] NDTV           ₹70      MCap ₹789Cr Score:0.318 (2 soft signals)   DEBT↓ 
+2026-03-20 14:15:19,755 [INFO]   [1355] NECCLTD        ₹13      MCap ₹130Cr Score:0.450 (2 soft signals)    PE@0.7x
+2026-03-20 14:15:21,748 [INFO]   [1356] NECLIFE        ₹11      MCap ₹213Cr Score:0.466 (4 soft signals)    PE@0.1x
+2026-03-20 14:15:24,053 [INFO]   [1357] NELCAST        ₹120     MCap ₹1045Cr Score:0.457 (2 soft signals)    PE@1.0x
+2026-03-20 14:15:28,437 [INFO]   [1369] NGIL           ₹24      MCap ₹43Cr Score:0.462 (4 soft signals)    PE@0.0x
+2026-03-20 14:15:31,591 [INFO]   [1375] NIBL           ₹29      MCap ₹71Cr Score:0.459 (3 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:15:33,790 [INFO]   [1376] NIITLTD        ₹60      MCap ₹814Cr Score:0.457 (4 soft signals)   DEBT↓ PE@1.4x
+2026-03-20 14:15:36,140 [INFO]   [1378] NILAINFRA      ₹7       MCap ₹279Cr Score:0.467 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:15:40,681 [INFO]   [1381] NINSYS         ₹290     MCap ₹539Cr Score:0.464 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:15:42,963 [INFO]   [1382] NIPPOBATRY     ₹294     MCap ₹223Cr Score:0.394 (2 soft signals)    
+2026-03-20 14:15:45,140 [INFO]   [1383] NIRAJ          ₹25      MCap ₹152Cr Score:0.588 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:15:47,318 [INFO]   [1384] NIRAJISPAT     ₹196     MCap ₹12Cr Score:0.179 (2 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:15:49,364 [INFO]   [1385] NITCO          ₹81      MCap ₹1865Cr Score:0.295 (2 soft signals)    PE@0.1x
+2026-03-20 14:15:52,064 [INFO]   [1387] NITIRAJ        ₹218     MCap ₹223Cr Score:0.196 (2 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:15:54,540 [INFO]   [1389] NKIND          ₹65      MCap ₹44Cr Score:0.304 (2 soft signals)   DEBT↓ 
+2026-03-20 14:15:57,594 [INFO]   [1394] NORBTEAEXP     ₹90      MCap ₹140Cr Score:0.414 (3 soft signals)    
+2026-03-20 14:15:59,769 [INFO]   [1396] NOVAAGRI       ₹23      MCap ₹205Cr Score:0.487 (4 soft signals)    PE@0.5x
+2026-03-20 14:16:02,058 [INFO]   [1398] NRAIL          ₹420     MCap ₹715Cr Score:0.434 (3 soft signals)    PE@1.3x
+2026-03-20 14:16:04,444 [INFO]   [1400] NRL            ₹50      MCap ₹346Cr Score:0.322 (2 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:16:07,557 [INFO]   [1406] NURECA         ₹238     MCap ₹238Cr Score:0.522 (5 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:16:10,037 [INFO]   [1410] OAL            ₹253     MCap ₹850Cr Score:0.383 (2 soft signals)    
+2026-03-20 14:16:12,068 [INFO]   [1411] OBCL           ₹56      MCap ₹118Cr Score:0.338 (2 soft signals)    
+2026-03-20 14:16:14,658 [INFO]   [1413] OCCLLTD        ₹88      MCap ₹439Cr Score:0.315 (3 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:16:16,597 [INFO]   [1414] ODIGMA         ₹23      MCap ₹72Cr Score:0.388 (4 soft signals)   DEBT↓ 
+2026-03-20 14:16:19,281 [INFO]   [1417] OILCOUNTUB     ₹41      MCap ₹215Cr Score:0.382 (4 soft signals)   DEBT↓ 
+2026-03-20 14:16:21,990 [INFO]   [1420] OMAXAUTO       ₹98      MCap ₹211Cr Score:0.587 (4 soft signals)    PE@0.4x
+2026-03-20 14:16:24,065 [INFO]   [1421] OMAXE          ₹72      MCap ₹1318Cr Score:0.335 (3 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:16:26,171 [INFO]   [1422] OMFREIGHT      ₹71      MCap ₹238Cr Score:0.491 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:16:28,571 [INFO]   [1423] OMINFRAL       ₹83      MCap ₹804Cr Score:0.480 (3 soft signals)    PE@1.3x
+2026-03-20 14:16:34,307 [INFO]   [1430] ONMOBILE       ₹49      MCap ₹524Cr Score:0.361 (3 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:16:36,546 [INFO]   [1431] ONWARDTEC      ₹239     MCap ₹545Cr Score:0.450 (2 soft signals)    PE@0.4x
+2026-03-20 14:16:38,859 [INFO]   [1433] ORBTEXP        ₹149     MCap ₹395Cr Score:0.546 (6 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:16:41,143 [INFO]   [1436] ORICONENT      ₹68      MCap ₹1066Cr Score:0.540 (4 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 14:16:43,233 [INFO]   [1437] ORIENTALTL     ₹5       MCap ₹37Cr Score:0.529 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:16:45,314 [INFO]   [1438] ORIENTBELL     ₹275     MCap ₹407Cr Score:0.458 (4 soft signals)   DEBT↓ PE@2.0x
+2026-03-20 14:16:47,676 [INFO]   [1440] ORIENTCER      ₹39      MCap ₹462Cr Score:0.510 (2 soft signals)    PE@0.8x
+2026-03-20 14:16:50,375 [INFO]   [1442] ORIENTHOT      ₹92      MCap ₹1640Cr Score:0.431 (2 soft signals)    PE@1.2x
+2026-03-20 14:16:52,548 [INFO]   [1443] ORIENTLTD      ₹58      MCap ₹59Cr Score:0.375 (3 soft signals)    PE@0.4x
+2026-03-20 14:16:54,689 [INFO]   [1444] ORIENTPPR      ₹16      MCap ₹332Cr Score:0.362 (3 soft signals)    PE@0.2x
+2026-03-20 14:16:57,254 [INFO]   [1445] ORIENTTECH     ₹263     MCap ₹1204Cr Score:0.354 (2 soft signals)   DEBT↓ PE@1.9x
+2026-03-20 14:17:02,885 [INFO]   [1451] OSWALAGRO      ₹42      MCap ₹565Cr Score:0.531 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:17:07,889 [INFO]   [1458] PAKKA          ₹85      MCap ₹383Cr Score:0.368 (2 soft signals)    PE@2.5x
+2026-03-20 14:17:09,963 [INFO]   [1459] PALASHSECU     ₹86      MCap ₹87Cr Score:0.504 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:17:12,156 [INFO]   [1460] PALREDTEC      ₹29      MCap ₹35Cr Score:0.343 (2 soft signals)    
+2026-03-20 14:17:14,735 [INFO]   [1462] PANACHE        ₹310     MCap ₹473Cr Score:0.401 (2 soft signals)    PE@1.9x
+2026-03-20 14:17:17,430 [INFO]   [1463] PANAMAPET      ₹263     MCap ₹1589Cr Score:0.442 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:17:19,738 [INFO]   [1465] PAR            ₹87      MCap ₹107Cr Score:0.467 (3 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:17:21,936 [INFO]   [1466] PARACABLES     ₹35      MCap ₹1066Cr Score:0.430 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:17:25,111 [INFO]   [1473] PARSVNATH      ₹7       MCap ₹286Cr Score:0.303 (2 soft signals)   DEBT↓ 
+2026-03-20 14:17:27,483 [INFO]   [1475] PASUPTAC       ₹45      MCap ₹397Cr Score:0.617 (4 soft signals)    PE@0.3x
+2026-03-20 14:17:29,866 [INFO]   [1478] PATELRMART     ₹167     MCap ₹559Cr Score:0.556 (4 soft signals)    PE@0.6x
+2026-03-20 14:17:32,370 [INFO]   [1479] PATINTLOG      ₹9       MCap ₹65Cr Score:0.392 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:17:34,716 [INFO]   [1481] PAVNAIND       ₹18      MCap ₹253Cr Score:0.527 (3 soft signals)    
+2026-03-20 14:17:37,717 [INFO]   [1485] PDMJEPAPER     ₹71      MCap ₹677Cr Score:0.465 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:17:40,090 [INFO]   [1487] PEARLPOLY      ₹16      MCap ₹27Cr Score:0.406 (3 soft signals)   DEBT↓ 
+2026-03-20 14:17:42,180 [INFO]   [1488] PENIND         ₹143     MCap ₹1928Cr Score:0.340 (2 soft signals)    PE@0.7x
+2026-03-20 14:17:46,995 [INFO]   [1495] PFS            ₹27      MCap ₹1755Cr Score:0.275 (3 soft signals)    PE@0.2x
+2026-03-20 14:17:50,139 [INFO]   [1503] PIGL           ₹100     MCap ₹196Cr Score:0.468 (3 soft signals)    PE@0.7x
+2026-03-20 14:17:52,672 [INFO]   [1506] PILITA         ₹7       MCap ₹175Cr Score:0.327 (2 soft signals)    PE@1.6x
+2026-03-20 14:17:54,934 [INFO]   [1508] PIONEEREMB     ₹25      MCap ₹77Cr Score:0.368 (3 soft signals)    
+2026-03-20 14:17:58,535 [INFO]   [1513] PLASTIBLEN     ₹134     MCap ₹348Cr Score:0.435 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:18:00,459 [INFO]   [1514] PLATIND        ₹204     MCap ₹1155Cr Score:0.373 (2 soft signals)   DEBT↓ 
+2026-03-20 14:18:02,528 [INFO]   [1515] PLAZACABLE     ₹33      MCap ₹145Cr Score:0.502 (3 soft signals)    PE@1.3x
+2026-03-20 14:18:05,342 [INFO]   [1519] PNC            ₹21      MCap ₹30Cr Score:0.456 (3 soft signals)   DEBT↓ 
+2026-03-20 14:18:08,502 [INFO]   [1524] PODDARMENT     ₹214     MCap ₹227Cr Score:0.471 (3 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:18:11,679 [INFO]   [1530] PONNIERODE     ₹275     MCap ₹236Cr Score:0.634 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:18:14,502 [INFO]   [1535] PPAP           ₹198     MCap ₹284Cr Score:0.448 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:18:16,665 [INFO]   [1536] PPL            ₹189     MCap ₹453Cr Score:0.457 (3 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:18:19,820 [INFO]   [1540] PRAENG         ₹19      MCap ₹136Cr Score:0.347 (3 soft signals)    
+2026-03-20 14:18:22,557 [INFO]   [1544] PRAXIS         ₹7       MCap ₹122Cr Score:0.434 (2 soft signals)    PE@0.1x
+2026-03-20 14:18:24,743 [INFO]   [1545] PRECAM         ₹117     MCap ₹1116Cr Score:0.463 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:18:27,126 [INFO]   [1546] PRECOT         ₹484     MCap ₹581Cr Score:0.287 (2 soft signals)    PE@0.6x
+2026-03-20 14:18:31,030 [INFO]   [1551] PREMIERPOL     ₹60      MCap ₹628Cr Score:0.488 (3 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:18:33,756 [INFO]   [1555] PRIMO          ₹18      MCap ₹439Cr Score:0.414 (3 soft signals)    PE@2.8x
+2026-03-20 14:18:36,224 [INFO]   [1557] PRITI          ₹38      MCap ₹51Cr Score:0.284 (2 soft signals)   DEBT↓ PE@1.3x
+2026-03-20 14:18:38,622 [INFO]   [1558] PRITIKAUTO     ₹12      MCap ₹201Cr Score:0.520 (3 soft signals)    PE@0.6x
+2026-03-20 14:18:41,160 [INFO]   [1560] PROSTARM       ₹128     MCap ₹753Cr Score:0.542 (3 soft signals)   DEBT↓ PE@1.5x
+2026-03-20 14:18:43,434 [INFO]   [1562] PROZONER       ₹45      MCap ₹684Cr Score:0.456 (2 soft signals)    
+2026-03-20 14:18:46,022 [INFO]   [1565] PRUDMOULI      ₹12      MCap ₹39Cr Score:0.353 (4 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:18:50,061 [INFO]   [1575] PVSL           ₹85      MCap ₹609Cr Score:0.450 (3 soft signals)    
+2026-03-20 14:18:54,592 [INFO]   [1579] QUADFUTURE     ₹300     MCap ₹1200Cr Score:0.349 (2 soft signals)   DEBT↓ 
+2026-03-20 14:18:56,923 [INFO]   [1581] QUICKHEAL      ₹145     MCap ₹785Cr Score:0.445 (2 soft signals)   DEBT↓ PE@4.7x
+2026-03-20 14:19:01,739 [INFO]   [1585] RADHIKAJWE     ₹58      MCap ₹682Cr Score:0.493 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:19:03,887 [INFO]   [1586] RADIANTCMS     ₹36      MCap ₹382Cr Score:0.510 (4 soft signals)    PE@0.5x
+2026-03-20 14:19:06,442 [INFO]   [1588] RADIOCITY      ₹5       MCap ₹182Cr Score:0.452 (4 soft signals)    PE@0.0x
+2026-03-20 14:19:09,993 [INFO]   [1594] RAJOOENG       ₹56      MCap ₹999Cr Score:0.557 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:19:15,717 [INFO]   [1597] RAJSREESUG     ₹28      MCap ₹94Cr Score:0.354 (2 soft signals)    
+2026-03-20 14:19:20,607 [INFO]   [1600] RAMANEWS       ₹33      MCap ₹496Cr Score:0.315 (2 soft signals)   DEBT↓ 
+2026-03-20 14:19:22,981 [INFO]   [1601] RAMAPHO        ₹116     MCap ₹416Cr Score:0.569 (4 soft signals)    PE@0.3x
+2026-03-20 14:19:25,221 [INFO]   [1602] RAMASTEEL      ₹5       MCap ₹885Cr Score:0.323 (2 soft signals)    PE@2.4x
+2026-03-20 14:19:27,775 [INFO]   [1605] RAMCOSYS       ₹395     MCap ₹1479Cr Score:0.404 (3 soft signals)    PE@2.2x
+2026-03-20 14:19:30,395 [INFO]   [1608] RANASUG        ₹12      MCap ₹178Cr Score:0.397 (3 soft signals)    PE@0.2x
+2026-03-20 14:19:33,360 [INFO]   [1612] RATNAVEER      ₹140     MCap ₹949Cr Score:0.427 (2 soft signals)    PE@0.5x
+2026-03-20 14:19:36,566 [INFO]   [1618] RBZJEWEL       ₹114     MCap ₹455Cr Score:0.516 (4 soft signals)    PE@0.3x
+2026-03-20 14:19:39,932 [INFO]   [1625] REGAAL         ₹70      MCap ₹719Cr Score:0.523 (4 soft signals)    PE@0.6x
+2026-03-20 14:19:42,034 [INFO]   [1626] REGENCERAM     ₹41      MCap ₹109Cr Score:0.431 (4 soft signals)   DEBT↓ 
+2026-03-20 14:19:44,729 [INFO]   [1628] RELCHEMQ       ₹114     MCap ₹87Cr Score:0.457 (3 soft signals)    PE@0.6x
+2026-03-20 14:19:46,858 [INFO]   [1629] RELIABLE       ₹122     MCap ₹126Cr Score:0.372 (2 soft signals)    PE@0.4x
+2026-03-20 14:19:51,941 [INFO]   [1637] REPL           ₹70      MCap ₹128Cr Score:0.267 (2 soft signals)   DEBT↓ PE@1.5x
+2026-03-20 14:19:54,394 [INFO]   [1638] REPRO          ₹366     MCap ₹526Cr Score:0.365 (2 soft signals)    
+2026-03-20 14:19:56,686 [INFO]   [1640] RETAIL         ₹19      MCap ₹16Cr Score:0.408 (3 soft signals)    PE@4.0x
+2026-03-20 14:19:59,202 [INFO]   [1641] RGL            ₹93      MCap ₹1003Cr Score:0.503 (4 soft signals)    PE@0.4x
+2026-03-20 14:20:03,163 [INFO]   [1644] RHL            ₹174     MCap ₹302Cr Score:0.574 (4 soft signals)    PE@0.4x
+2026-03-20 14:20:12,580 [INFO]   [1650] RKDL           ₹19      MCap ₹45Cr Score:0.360 (2 soft signals)    
+2026-03-20 14:20:14,893 [INFO]   [1651] RKEC           ₹34      MCap ₹82Cr Score:0.302 (4 soft signals)    PE@0.2x
+2026-03-20 14:20:17,597 [INFO]   [1653] RKSWAMY        ₹86      MCap ₹435Cr Score:0.425 (2 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:20:19,985 [INFO]   [1654] RMDRIP         ₹43      MCap ₹1070Cr Score:0.535 (2 soft signals)    PE@1.3x
+2026-03-20 14:20:22,383 [INFO]   [1656] RNBDENIMS      ₹83      MCap ₹750Cr Score:0.373 (2 soft signals)    PE@1.1x
+2026-03-20 14:20:24,776 [INFO]   [1657] ROHLTD         ₹314     MCap ₹861Cr Score:0.452 (2 soft signals)    PE@0.9x
+2026-03-20 14:20:28,162 [INFO]   [1660] ROML           ₹44      MCap ₹65Cr Score:0.413 (4 soft signals)    PE@0.5x
+2026-03-20 14:20:30,619 [INFO]   [1662] ROSSELLIND     ₹47      MCap ₹177Cr Score:0.532 (4 soft signals)    PE@0.5x
+2026-03-20 14:20:33,051 [INFO]   [1664] ROTO           ₹57      MCap ₹1071Cr Score:0.382 (3 soft signals)   DEBT↓ PE@1.6x
+2026-03-20 14:20:36,173 [INFO]   [1669] RPPINFRA       ₹68      MCap ₹336Cr Score:0.429 (2 soft signals)    PE@0.7x
+2026-03-20 14:20:38,495 [INFO]   [1670] RPPL           ₹15      MCap ₹113Cr Score:0.262 (2 soft signals)    PE@0.3x
+2026-03-20 14:20:43,207 [INFO]   [1676] RSWM           ₹132     MCap ₹623Cr Score:0.365 (3 soft signals)    PE@1.3x
+2026-03-20 14:20:45,766 [INFO]   [1680] RUBFILA        ₹61      MCap ₹331Cr Score:0.443 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:20:48,227 [INFO]   [1682] RUBYMILLS      ₹201     MCap ₹672Cr Score:0.496 (2 soft signals)    PE@0.6x
+2026-03-20 14:20:50,594 [INFO]   [1684] RUCHIRA        ₹103     MCap ₹307Cr Score:0.467 (4 soft signals)    PE@0.2x
+2026-03-20 14:20:52,775 [INFO]   [1685] RUDRA          ₹16      MCap ₹162Cr Score:0.443 (3 soft signals)    PE@0.5x
+2026-03-20 14:20:54,848 [INFO]   [1686] RUPA           ₹124     MCap ₹986Cr Score:0.461 (4 soft signals)    PE@0.6x
+2026-03-20 14:20:57,033 [INFO]   [1687] RUSHIL         ₹16      MCap ₹456Cr Score:0.381 (2 soft signals)    PE@1.9x
+2026-03-20 14:21:00,029 [INFO]   [1692] S&SPOWER       ₹328     MCap ₹404Cr Score:0.459 (2 soft signals)    PE@2.3x
+2026-03-20 14:21:02,237 [INFO]   [1694] SABEVENTS      ₹11      MCap ₹12Cr Score:0.290 (2 soft signals)   DEBT↓ 
+2026-03-20 14:21:04,312 [INFO]   [1695] SADBHAV        ₹7       MCap ₹126Cr Score:0.273 (4 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:21:06,942 [INFO]   [1699] SAGARDEEP      ₹23      MCap ₹39Cr Score:0.304 (2 soft signals)    PE@0.8x
+2026-03-20 14:21:09,617 [INFO]   [1702] SAHYADRI       ₹240     MCap ₹263Cr Score:0.514 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:21:12,348 [INFO]   [1706] SAKHTISUG      ₹15      MCap ₹175Cr Score:0.371 (3 soft signals)    PE@0.4x
+2026-03-20 14:21:14,599 [INFO]   [1707] SAKSOFT        ₹120     MCap ₹1529Cr Score:0.488 (4 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:21:17,050 [INFO]   [1709] SALASAR        ₹7       MCap ₹1214Cr Score:0.340 (2 soft signals)    PE@2.8x
+2026-03-20 14:21:22,077 [INFO]   [1713] SAMBHAAV       ₹6       MCap ₹109Cr Score:0.382 (4 soft signals)   DEBT↓ 
+2026-03-20 14:21:24,832 [INFO]   [1717] SAMPANN        ₹28      MCap ₹139Cr Score:0.524 (4 soft signals)    PE@0.4x
+2026-03-20 14:21:28,023 [INFO]   [1724] SANGHIIND      ₹50      MCap ₹1303Cr Score:0.311 (2 soft signals)    PE@0.3x
+2026-03-20 14:21:30,780 [INFO]   [1726] SANGINITA      ₹17      MCap ₹44Cr Score:0.221 (2 soft signals)    
+2026-03-20 14:21:33,555 [INFO]   [1730] SANSTAR        ₹82      MCap ₹1502Cr Score:0.355 (2 soft signals)   DEBT↓ PE@2.8x
+2026-03-20 14:21:36,245 [INFO]   [1734] SARLAPOLY      ₹83      MCap ₹693Cr Score:0.490 (4 soft signals)    PE@0.5x
+2026-03-20 14:21:38,982 [INFO]   [1738] SATIA          ₹60      MCap ₹598Cr Score:0.589 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:21:41,229 [INFO]   [1739] SATIN          ₹145     MCap ₹1597Cr Score:0.608 (4 soft signals)    PE@0.3x
+2026-03-20 14:21:43,501 [INFO]   [1740] SAURASHCEM     ₹59      MCap ₹661Cr Score:0.476 (4 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:21:49,080 [INFO]   [1749] SCHAND         ₹146     MCap ₹516Cr Score:0.444 (4 soft signals)    PE@0.4x
+2026-03-20 14:21:51,639 [INFO]   [1752] SCILAL         ₹42      MCap ₹1940Cr Score:0.448 (3 soft signals)   DEBT↓ 
+2026-03-20 14:21:53,582 [INFO]   [1753] SCODATUBES     ₹125     MCap ₹748Cr Score:0.450 (3 soft signals)    PE@1.6x
+2026-03-20 14:21:55,648 [INFO]   [1754] SCPL           ₹301     MCap ₹320Cr Score:0.477 (2 soft signals)    PE@0.8x
+2026-03-20 14:21:58,067 [INFO]   [1755] SDBL           ₹75      MCap ₹1558Cr Score:0.405 (2 soft signals)    PE@0.7x
+2026-03-20 14:22:00,941 [INFO]   [1757] SECMARK        ₹106     MCap ₹116Cr Score:0.441 (4 soft signals)   DEBT↓ PE@2.5x
+2026-03-20 14:22:03,065 [INFO]   [1758] SECURKLOUD     ₹22      MCap ₹73Cr Score:0.285 (3 soft signals)   DEBT↓ 
+2026-03-20 14:22:05,413 [INFO]   [1760] SEJALLTD       ₹482     MCap ₹487Cr Score:0.490 (3 soft signals)    PE@1.1x
+2026-03-20 14:22:07,461 [INFO]   [1761] SELMC          ₹29      MCap ₹96Cr Score:0.314 (3 soft signals)   DEBT↓ 
+2026-03-20 14:22:09,533 [INFO]   [1762] SEMAC          ₹275     MCap ₹88Cr Score:0.431 (3 soft signals)    PE@1.1x
+2026-03-20 14:22:12,419 [INFO]   [1765] SEPC           ₹5       MCap ₹1003Cr Score:0.461 (2 soft signals)    PE@0.9x
+2026-03-20 14:22:14,437 [INFO]   [1766] SERVOTECH      ₹69      MCap ₹1552Cr Score:0.275 (2 soft signals)   DEBT↓ PE@2.5x
+2026-03-20 14:22:16,629 [INFO]   [1767] SESHAPAPER     ₹259     MCap ₹1633Cr Score:0.480 (3 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:22:18,680 [INFO]   [1768] SETCO          ₹16      MCap ₹211Cr Score:0.299 (3 soft signals)   DEBT↓ 
+2026-03-20 14:22:21,250 [INFO]   [1771] SEYAIND        ₹10      MCap ₹30Cr Score:0.340 (2 soft signals)    
+2026-03-20 14:22:23,924 [INFO]   [1775] SGL            ₹10      MCap ₹29Cr Score:0.437 (3 soft signals)    
+2026-03-20 14:22:26,658 [INFO]   [1779] SHAHALLOYS     ₹61      MCap ₹121Cr Score:0.356 (3 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:22:30,867 [INFO]   [1783] SHALPAINTS     ₹45      MCap ₹374Cr Score:0.361 (2 soft signals)    
+2026-03-20 14:22:33,188 [INFO]   [1784] SHANKARA       ₹109     MCap ₹263Cr Score:0.411 (5 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:22:35,593 [INFO]   [1787] SHANTIGOLD     ₹185     MCap ₹1331Cr Score:0.611 (4 soft signals)    PE@0.4x
+2026-03-20 14:22:38,664 [INFO]   [1791] SHEKHAWATI     ₹12      MCap ₹40Cr Score:0.474 (3 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:22:40,720 [INFO]   [1792] SHEMAROO       ₹96      MCap ₹262Cr Score:0.386 (4 soft signals)    PE@0.1x
+2026-03-20 14:22:43,668 [INFO]   [1795] SHIVALIK       ₹234     MCap ₹368Cr Score:0.378 (2 soft signals)    PE@1.3x
+2026-03-20 14:22:45,782 [INFO]   [1796] SHIVAMAUTO     ₹16      MCap ₹212Cr Score:0.275 (2 soft signals)    
+2026-03-20 14:22:47,833 [INFO]   [1797] SHIVAMILLS     ₹53      MCap ₹46Cr Score:0.386 (4 soft signals)   DEBT↓ 
+2026-03-20 14:22:50,330 [INFO]   [1798] SHIVATEX       ₹134     MCap ₹183Cr Score:0.412 (4 soft signals)    PE@0.4x
+2026-03-20 14:22:54,901 [INFO]   [1800] SHK            ₹125     MCap ₹1728Cr Score:0.491 (3 soft signals)    PE@0.4x
+2026-03-20 14:22:57,242 [INFO]   [1802] SHRADHA        ₹32      MCap ₹187Cr Score:0.337 (2 soft signals)    PE@0.4x
+2026-03-20 14:23:02,066 [INFO]   [1806] SHREEPUSHK     ₹298     MCap ₹967Cr Score:0.436 (2 soft signals)    PE@0.5x
+2026-03-20 14:23:04,259 [INFO]   [1807] SHREERAMA      ₹44      MCap ₹595Cr Score:0.415 (3 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:23:06,964 [INFO]   [1809] SHREYANIND     ₹150     MCap ₹208Cr Score:0.567 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:23:09,089 [INFO]   [1810] SHRINGARMS     ₹190     MCap ₹1834Cr Score:0.587 (3 soft signals)    PE@0.8x
+2026-03-20 14:23:11,411 [INFO]   [1813] SHRIRAMPPS     ₹68      MCap ₹1167Cr Score:0.474 (3 soft signals)    PE@0.7x
+2026-03-20 14:23:14,088 [INFO]   [1816] SHYAMTEL       ₹9       MCap ₹10Cr Score:0.303 (2 soft signals)   DEBT↓ 
+2026-03-20 14:23:16,237 [INFO]   [1817] SICALLOG       ₹65      MCap ₹529Cr Score:0.483 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:23:18,650 [INFO]   [1819] SIGACHI        ₹19      MCap ₹726Cr Score:0.327 (3 soft signals)    
+2026-03-20 14:23:21,115 [INFO]   [1820] SIGIND         ₹43      MCap ₹127Cr Score:0.439 (4 soft signals)    PE@0.3x
+2026-03-20 14:23:23,289 [INFO]   [1821] SIGMA          ₹40      MCap ₹408Cr Score:0.509 (2 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:23:25,905 [INFO]   [1824] SIGNPOST       ₹235     MCap ₹1256Cr Score:0.470 (2 soft signals)    PE@1.0x
+2026-03-20 14:23:28,353 [INFO]   [1826] SIL            ₹14      MCap ₹89Cr Score:0.402 (4 soft signals)   DEBT↓ 
+2026-03-20 14:23:30,609 [INFO]   [1827] SILGO          ₹72      MCap ₹188Cr Score:0.252 (2 soft signals)   DEBT↓ PE@1.1x
+2026-03-20 14:23:33,003 [INFO]   [1829] SILLYMONKS     ₹16      MCap ₹17Cr Score:0.200 (2 soft signals)   DEBT↓ 
+2026-03-20 14:23:37,137 [INFO]   [1831] SIMBHALS       ₹7       MCap ₹31Cr Score:0.301 (4 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:23:39,378 [INFO]   [1832] SIMPLEXINF     ₹165     MCap ₹1307Cr Score:0.375 (3 soft signals)    PE@0.7x
+2026-03-20 14:23:47,714 [INFO]   [1846] SKMEGGPROD     ₹155     MCap ₹817Cr Score:0.560 (2 soft signals)    PE@0.6x
+2026-03-20 14:23:50,170 [INFO]   [1848] SMARTLINK      ₹120     MCap ₹120Cr Score:0.562 (6 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:23:53,123 [INFO]   [1852] SMLT           ₹66      MCap ₹91Cr Score:0.387 (3 soft signals)   DEBT↓ PE@1.1x
+2026-03-20 14:23:55,351 [INFO]   [1854] SNOWMAN        ₹34      MCap ₹572Cr Score:0.323 (2 soft signals)    PE@1.1x
+2026-03-20 14:24:00,084 [INFO]   [1859] SOLARWORLD     ₹160     MCap ₹1384Cr Score:0.595 (2 soft signals)    PE@0.6x
+2026-03-20 14:24:03,463 [INFO]   [1861] SOMANYCERA     ₹378     MCap ₹1558Cr Score:0.401 (2 soft signals)    PE@1.1x
+2026-03-20 14:24:06,456 [INFO]   [1863] SOMICONVEY     ₹100     MCap ₹119Cr Score:0.489 (2 soft signals)    PE@1.0x
+2026-03-20 14:24:11,353 [INFO]   [1869] SOUTHWEST      ₹204     MCap ₹615Cr Score:0.496 (2 soft signals)    PE@0.8x
+2026-03-20 14:24:13,639 [INFO]   [1871] SPANDANA       ₹208     MCap ₹1844Cr Score:0.368 (3 soft signals)    PE@0.3x
+2026-03-20 14:24:16,435 [INFO]   [1874] SPECIALITY     ₹96      MCap ₹466Cr Score:0.407 (3 soft signals)    PE@0.9x
+2026-03-20 14:24:18,825 [INFO]   [1876] SPENCERS       ₹29      MCap ₹266Cr Score:0.299 (2 soft signals)   DEBT↓ 
+2026-03-20 14:24:21,263 [INFO]   [1877] SPIC           ₹61      MCap ₹1251Cr Score:0.315 (2 soft signals)    PE@0.2x
+2026-03-20 14:24:23,595 [INFO]   [1878] SPLIL          ₹26      MCap ₹75Cr Score:0.569 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:24:25,999 [INFO]   [1880] SPMLINFRA      ₹168     MCap ₹1317Cr Score:0.529 (3 soft signals)    PE@1.1x
+2026-03-20 14:24:28,076 [INFO]   [1881] SPORTKING      ₹117     MCap ₹1493Cr Score:0.455 (3 soft signals)    PE@0.5x
+2026-03-20 14:24:30,392 [INFO]   [1882] SRD            ₹44      MCap ₹284Cr Score:0.335 (2 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:24:32,604 [INFO]   [1883] SREEL          ₹186     MCap ₹432Cr Score:0.547 (4 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:24:34,828 [INFO]   [1885] SRGHFL         ₹248     MCap ₹389Cr Score:0.531 (3 soft signals)    PE@0.5x
+2026-03-20 14:24:37,114 [INFO]   [1886] SRHHYPOLTD     ₹431     MCap ₹739Cr Score:0.505 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:24:39,212 [INFO]   [1887] SRM            ₹404     MCap ₹927Cr Score:0.524 (2 soft signals)    PE@0.5x
+2026-03-20 14:24:42,952 [INFO]   [1889] SSDL           ₹56      MCap ₹223Cr Score:0.501 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:24:46,249 [INFO]   [1891] STALLION       ₹115     MCap ₹1331Cr Score:0.364 (2 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:24:48,315 [INFO]   [1892] STANLEY        ₹145     MCap ₹828Cr Score:0.374 (2 soft signals)    PE@1.4x
+2026-03-20 14:24:50,935 [INFO]   [1896] STARPAPER      ₹131     MCap ₹206Cr Score:0.510 (4 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:24:53,375 [INFO]   [1898] STCINDIA       ₹107     MCap ₹645Cr Score:0.403 (3 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:24:56,647 [INFO]   [1901] STEELXIND      ₹7       MCap ₹923Cr Score:0.404 (3 soft signals)    PE@1.9x
+2026-03-20 14:24:58,856 [INFO]   [1904] STLNETWORK     ₹19      MCap ₹910Cr Score:0.350 (3 soft signals)    
+2026-03-20 14:25:01,353 [INFO]   [1906] STOVEKRAFT     ₹499     MCap ₹1651Cr Score:0.407 (3 soft signals)    PE@1.8x
+2026-03-20 14:25:03,337 [INFO]   [1907] STUDDS         ₹491     MCap ₹1931Cr Score:0.341 (2 soft signals)   DEBT↓ PE@0.9x
+2026-03-20 14:25:06,392 [INFO]   [1910] STYLEBAAZA     ₹243     MCap ₹1812Cr Score:0.344 (2 soft signals)    PE@1.1x
+2026-03-20 14:25:08,678 [INFO]   [1912] SUBEXLTD       ₹8       MCap ₹451Cr Score:0.271 (3 soft signals)   DEBT↓ 
+2026-03-20 14:25:11,354 [INFO]   [1914] SUDARCOLOR     ₹312     MCap ₹721Cr Score:0.441 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:25:13,650 [INFO]   [1917] SUKHJITS       ₹163     MCap ₹508Cr Score:0.393 (3 soft signals)    PE@1.2x
+2026-03-20 14:25:18,051 [INFO]   [1919] SUMEETINDS     ₹29      MCap ₹1547Cr Score:0.521 (5 soft signals)   DEBT↓ PE@0.0x
+2026-03-20 14:25:20,410 [INFO]   [1921] SUMIT          ₹45      MCap ₹202Cr Score:0.297 (2 soft signals)    PE@0.8x
+2026-03-20 14:25:24,802 [INFO]   [1933] SUPERHOUSE     ₹140     MCap ₹154Cr Score:0.434 (3 soft signals)    PE@0.9x
+2026-03-20 14:25:28,216 [INFO]   [1936] SUPREME        ₹51      MCap ₹200Cr Score:0.376 (3 soft signals)   DEBT↓ 
+2026-03-20 14:25:31,040 [INFO]   [1941] SURAJEST       ₹201     MCap ₹966Cr Score:0.461 (3 soft signals)    PE@0.4x
+2026-03-20 14:25:35,387 [INFO]   [1943] SURAKSHA       ₹260     MCap ₹1356Cr Score:0.402 (3 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:25:37,569 [INFO]   [1944] SURANASOL      ₹22      MCap ₹109Cr Score:0.321 (3 soft signals)   DEBT↓ 
+2026-03-20 14:25:39,912 [INFO]   [1946] SURYALAXMI     ₹52      MCap ₹100Cr Score:0.417 (2 soft signals)    PE@0.8x
+2026-03-20 14:25:42,221 [INFO]   [1948] SURYODAY       ₹124     MCap ₹1313Cr Score:0.432 (4 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:25:44,272 [INFO]   [1949] SUTLEJTEX      ₹29      MCap ₹485Cr Score:0.410 (4 soft signals)    PE@0.2x
+2026-03-20 14:25:49,007 [INFO]   [1963] SYNCOMF        ₹12      MCap ₹1108Cr Score:0.421 (3 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:25:51,973 [INFO]   [1967] TAINWALCHM     ₹181     MCap ₹170Cr Score:0.617 (4 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:25:54,201 [INFO]   [1968] TAJGVK         ₹302     MCap ₹1893Cr Score:0.423 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:25:56,404 [INFO]   [1969] TAKE           ₹37      MCap ₹546Cr Score:0.226 (2 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:25:58,552 [INFO]   [1970] TALBROAUTO     ₹237     MCap ₹1460Cr Score:0.398 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:26:02,566 [INFO]   [1973] TARAPUR        ₹26      MCap ₹52Cr Score:0.214 (2 soft signals)    
+2026-03-20 14:26:05,098 [INFO]   [1976] TARMAT         ₹53      MCap ₹132Cr Score:0.483 (3 soft signals)   DEBT↓ PE@1.8x
+2026-03-20 14:26:11,544 [INFO]   [1990] TBZ            ₹129     MCap ₹862Cr Score:0.545 (4 soft signals)    PE@0.2x
+2026-03-20 14:26:14,080 [INFO]   [1993] TCIEXP         ₹498     MCap ₹1914Cr Score:0.396 (2 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:26:17,576 [INFO]   [2002] TECILCHEM      ₹13      MCap ₹28Cr Score:0.270 (2 soft signals)   DEBT↓ 
+2026-03-20 14:26:20,382 [INFO]   [2007] TERASOFT       ₹332     MCap ₹415Cr Score:0.547 (3 soft signals)    PE@0.7x
+2026-03-20 14:26:22,674 [INFO]   [2008] TEXINFRA       ₹89      MCap ₹1136Cr Score:0.435 (3 soft signals)   DEBT↓ PE@4.0x
+2026-03-20 14:26:24,704 [INFO]   [2009] TEXMOPIPES     ₹40      MCap ₹118Cr Score:0.387 (4 soft signals)    PE@0.3x
+2026-03-20 14:26:28,861 [INFO]   [2013] TGBHOTELS      ₹8       MCap ₹24Cr Score:0.413 (5 soft signals)    PE@0.5x
+2026-03-20 14:26:31,750 [INFO]   [2018] THEMISMED      ₹75      MCap ₹694Cr Score:0.451 (2 soft signals)    
+2026-03-20 14:26:36,470 [INFO]   [2024] TICL           ₹26      MCap ₹399Cr Score:0.534 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:26:38,641 [INFO]   [2025] TIGERLOGS      ₹25      MCap ₹266Cr Score:0.425 (3 soft signals)    PE@0.5x
+2026-03-20 14:26:41,674 [INFO]   [2029] TIL            ₹187     MCap ₹1252Cr Score:0.295 (2 soft signals)    PE@0.1x
+2026-03-20 14:26:47,782 [INFO]   [2042] TNPETRO        ₹82      MCap ₹740Cr Score:0.480 (3 soft signals)    PE@0.2x
+2026-03-20 14:26:50,601 [INFO]   [2043] TNPL           ₹130     MCap ₹902Cr Score:0.342 (3 soft signals)    PE@1.2x
+2026-03-20 14:26:52,993 [INFO]   [2045] TOKYOPLAST     ₹70      MCap ₹66Cr Score:0.417 (3 soft signals)    PE@2.5x
+2026-03-20 14:26:55,577 [INFO]   [2046] TOLINS         ₹99      MCap ₹390Cr Score:0.497 (4 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:26:58,074 [INFO]   [2049] TOTAL          ₹52      MCap ₹84Cr Score:0.251 (2 soft signals)    PE@0.3x
+2026-03-20 14:27:00,551 [INFO]   [2050] TOUCHWOOD      ₹68      MCap ₹76Cr Score:0.301 (2 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:27:02,894 [INFO]   [2052] TPLPLASTEH     ₹61      MCap ₹475Cr Score:0.430 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:27:05,190 [INFO]   [2053] TRACXN         ₹32      MCap ₹343Cr Score:0.306 (3 soft signals)   DEBT↓ 
+2026-03-20 14:27:07,488 [INFO]   [2055] TRANSWORLD     ₹135     MCap ₹298Cr Score:0.411 (3 soft signals)    
+2026-03-20 14:27:09,936 [INFO]   [2057] TREEHOUSE      ₹9       MCap ₹38Cr Score:0.331 (3 soft signals)   DEBT↓ 
+2026-03-20 14:27:12,230 [INFO]   [2059] TREL           ₹25      MCap ₹619Cr Score:0.548 (5 soft signals)   DEBT↓ PE@0.4x
+2026-03-20 14:27:15,096 [INFO]   [2061] TRF            ₹230     MCap ₹254Cr Score:0.319 (2 soft signals)    PE@1.9x
+2026-03-20 14:27:17,443 [INFO]   [2063] TRIGYN         ₹48      MCap ₹147Cr Score:0.477 (4 soft signals)   DEBT↓ PE@1.7x
+2026-03-20 14:27:23,492 [INFO]   [2073] TVSELECT       ₹405     MCap ₹760Cr Score:0.483 (4 soft signals) [Tvs]   
+2026-03-20 14:27:26,763 [INFO]   [2078] TVTODAY        ₹101     MCap ₹601Cr Score:0.457 (4 soft signals)   DEBT↓ PE@1.4x
+2026-03-20 14:27:29,080 [INFO]   [2079] TVVISION       ₹5       MCap ₹21Cr Score:0.282 (2 soft signals)   DEBT↓ 
+2026-03-20 14:27:31,461 [INFO]   [2081] UCAL           ₹97      MCap ₹216Cr Score:0.358 (2 soft signals)    
+2026-03-20 14:27:33,590 [INFO]   [2083] UDS            ₹138     MCap ₹933Cr Score:0.478 (5 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:27:36,060 [INFO]   [2085] UFBL           ₹235     MCap ₹920Cr Score:0.297 (2 soft signals)    
+2026-03-20 14:27:38,273 [INFO]   [2087] UFO            ₹64      MCap ₹247Cr Score:0.464 (4 soft signals)    PE@0.5x
+2026-03-20 14:27:42,415 [INFO]   [2089] UGROCAP        ₹94      MCap ₹1446Cr Score:0.493 (4 soft signals)    PE@0.3x
+2026-03-20 14:27:45,331 [INFO]   [2092] UMAEXPORTS     ₹21      MCap ₹71Cr Score:0.419 (3 soft signals)    
+2026-03-20 14:27:47,613 [INFO]   [2093] UMESLTD        ₹7       MCap ₹17Cr Score:0.488 (2 soft signals)   DEBT↓ PE@2.0x
+2026-03-20 14:27:49,850 [INFO]   [2094] UMIYA-MRO      ₹81      MCap ₹154Cr Score:0.539 (5 soft signals)    PE@0.1x
+2026-03-20 14:27:52,336 [INFO]   [2096] UNIDT          ₹158     MCap ₹320Cr Score:0.619 (5 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:27:54,315 [INFO]   [2097] UNIECOM        ₹92      MCap ₹1030Cr Score:0.461 (4 soft signals)   DEBT↓ PE@1.7x
+2026-03-20 14:27:56,598 [INFO]   [2098] UNIENTER       ₹96      MCap ₹671Cr Score:0.473 (3 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:28:04,765 [INFO]   [2109] UNIVPHOTO      ₹455     MCap ₹498Cr Score:0.448 (4 soft signals)   DEBT↓ 
+2026-03-20 14:28:10,922 [INFO]   [2116] USK            ₹23      MCap ₹127Cr Score:0.337 (2 soft signals)    
+2026-03-20 14:28:13,746 [INFO]   [2120] UTTAMSUGAR     ₹230     MCap ₹881Cr Score:0.508 (4 soft signals)    PE@0.3x
+2026-03-20 14:28:15,705 [INFO]   [2121] UYFINCORP      ₹13      MCap ₹245Cr Score:0.640 (5 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:28:18,649 [INFO]   [2125] VAISHALI       ₹6       MCap ₹78Cr Score:0.247 (2 soft signals)    PE@2.9x
+2026-03-20 14:28:20,934 [INFO]   [2126] VAKRANGEE      ₹6       MCap ₹617Cr Score:0.374 (2 soft signals)   DEBT↓ PE@1.7x
+2026-03-20 14:28:23,355 [INFO]   [2127] VALIANTLAB     ₹61      MCap ₹332Cr Score:0.450 (2 soft signals)    
+2026-03-20 14:28:25,534 [INFO]   [2128] VALIANTORG     ₹269     MCap ₹757Cr Score:0.440 (3 soft signals)    PE@1.1x
+2026-03-20 14:28:27,495 [INFO]   [2129] VARDHACRLC     ₹32      MCap ₹261Cr Score:0.397 (2 soft signals)   DEBT↓ PE@1.0x
+2026-03-20 14:28:29,731 [INFO]   [2130] VARDMNPOLY     ₹8       MCap ₹355Cr Score:0.353 (2 soft signals)   DEBT↓ PE@2.2x
+2026-03-20 14:28:32,251 [INFO]   [2132] VASCONEQ       ₹32      MCap ₹725Cr Score:0.419 (3 soft signals)    PE@0.4x
+2026-03-20 14:28:34,227 [INFO]   [2133] VASWANI        ₹52      MCap ₹172Cr Score:0.378 (2 soft signals)    PE@7.7x
+2026-03-20 14:28:37,886 [INFO]   [2142] VERANDA        ₹138     MCap ₹1346Cr Score:0.426 (2 soft signals)    PE@0.6x
+2026-03-20 14:28:40,019 [INFO]   [2143] VERTOZ         ₹38      MCap ₹321Cr Score:0.297 (3 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:28:43,214 [INFO]   [2145] VETO           ₹93      MCap ₹178Cr Score:0.552 (6 soft signals)   DEBT↓ PE@0.3x
+2026-03-20 14:28:45,358 [INFO]   [2146] VGL            ₹57      MCap ₹296Cr Score:0.504 (3 soft signals)    PE@0.2x
+2026-03-20 14:28:47,889 [INFO]   [2149] VHLTD          ₹144     MCap ₹972Cr Score:0.427 (2 soft signals)    PE@1.8x
+2026-03-20 14:28:52,177 [INFO]   [2151] VIDYAWIRES     ₹54      MCap ₹1153Cr Score:0.447 (2 soft signals)    PE@1.0x
+2026-03-20 14:28:55,368 [INFO]   [2157] VIKRAN         ₹61      MCap ₹1571Cr Score:0.412 (2 soft signals)    PE@1.0x
+2026-03-20 14:28:57,483 [INFO]   [2158] VIMTALABS      ₹427     MCap ₹1913Cr Score:0.406 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:29:00,226 [INFO]   [2160] VINCOFE        ₹132     MCap ₹1923Cr Score:0.496 (2 soft signals)    PE@1.1x
+2026-03-20 14:29:04,255 [INFO]   [2164] VINYLINDIA     ₹193     MCap ₹355Cr Score:0.347 (3 soft signals)   DEBT↓ PE@0.7x
+2026-03-20 14:29:06,500 [INFO]   [2165] VIPCLOTHNG     ₹17      MCap ₹156Cr Score:0.342 (3 soft signals)    PE@0.8x
+2026-03-20 14:29:08,822 [INFO]   [2167] VIPULLTD       ₹11      MCap ₹160Cr Score:0.315 (2 soft signals)    
+2026-03-20 14:29:10,820 [INFO]   [2168] VIRINCHI       ₹17      MCap ₹183Cr Score:0.324 (3 soft signals)    
+2026-03-20 14:29:12,823 [INFO]   [2169] VISAKAIND      ₹57      MCap ₹493Cr Score:0.391 (4 soft signals)    PE@0.4x
+2026-03-20 14:29:14,843 [INFO]   [2170] VISASTEEL      ₹30      MCap ₹391Cr Score:0.357 (2 soft signals)   DEBT↓ 
+2026-03-20 14:29:17,238 [INFO]   [2173] VITAL          ₹37      MCap ₹89Cr Score:0.207 (2 soft signals)    PE@1.1x
+2026-03-20 14:29:22,066 [INFO]   [2177] VLEGOV         ₹11      MCap ₹120Cr Score:0.270 (2 soft signals)   DEBT↓ 
+2026-03-20 14:29:24,905 [INFO]   [2181] VMSTMT         ₹41      MCap ₹205Cr Score:0.396 (3 soft signals)    PE@0.4x
+2026-03-20 14:29:27,530 [INFO]   [2184] VPRPL          ₹37      MCap ₹462Cr Score:0.330 (2 soft signals)    PE@0.8x
+2026-03-20 14:29:30,005 [INFO]   [2185] VRAJ           ₹110     MCap ₹362Cr Score:0.498 (3 soft signals)   DEBT↓ PE@0.6x
+2026-03-20 14:29:32,915 [INFO]   [2189] VSTL           ₹113     MCap ₹215Cr Score:0.440 (2 soft signals)    PE@0.8x
+2026-03-20 14:29:35,511 [INFO]   [2193] WAAREEINDO     ₹385     MCap ₹1602Cr Score:0.599 (5 soft signals)   DEBT↓ PE@0.2x
+2026-03-20 14:29:38,261 [INFO]   [2197] WALCHANNAG     ₹148     MCap ₹1005Cr Score:0.331 (2 soft signals)    
+2026-03-20 14:29:40,452 [INFO]   [2198] WANBURY        ₹248     MCap ₹872Cr Score:0.416 (2 soft signals)    PE@0.4x
+2026-03-20 14:29:42,495 [INFO]   [2199] WCIL           ₹92      MCap ₹942Cr Score:0.378 (2 soft signals)    PE@1.0x
+2026-03-20 14:29:45,215 [INFO]   [2202] WEIZMANIND     ₹76      MCap ₹118Cr Score:0.370 (2 soft signals)   DEBT↓ 
+2026-03-20 14:29:50,343 [INFO]   [2210] WEWIN          ₹42      MCap ₹43Cr Score:0.487 (5 soft signals)    PE@0.3x
+2026-03-20 14:29:53,086 [INFO]   [2214] WILLAMAGOR     ₹26      MCap ₹28Cr Score:0.564 (5 soft signals)   DEBT↓ PE@0.1x
+2026-03-20 14:29:58,314 [INFO]   [2222] WORTHPERI      ₹126     MCap ₹199Cr Score:0.464 (5 soft signals)   DEBT↓ PE@0.5x
+2026-03-20 14:30:02,352 [INFO]   [2225] XCHANGING      ₹57      MCap ₹632Cr Score:0.511 (3 soft signals)    PE@0.4x
+2026-03-20 14:30:04,373 [INFO]   [2226] XELPMOC        ₹90      MCap ₹146Cr Score:0.383 (3 soft signals)   DEBT↓ 
+2026-03-20 14:30:07,031 [INFO]   [2228] XTGLOBAL       ₹30      MCap ₹402Cr Score:0.461 (2 soft signals)    PE@1.5x
+2026-03-20 14:30:09,642 [INFO]   [2231] YATRA          ₹107     MCap ₹1682Cr Score:0.424 (4 soft signals)   DEBT↓ PE@1.2x
+2026-03-20 14:30:12,872 [INFO]   [2236] ZEELEARN       ₹5       MCap ₹167Cr Score:0.291 (3 soft signals)    PE@0.7x
+2026-03-20 14:30:14,956 [INFO]   [2237] ZEEMEDIA       ₹7       MCap ₹462Cr Score:0.348 (2 soft signals)    
+2026-03-20 14:30:17,043 [INFO]   [2238] ZENITHEXPO     ₹188     MCap ₹109Cr Score:0.455 (3 soft signals)   DEBT↓ PE@0.8x
+2026-03-20 14:30:19,093 [INFO]   [2239] ZENITHSTL      ₹5       MCap ₹72Cr Score:0.407 (5 soft signals) [Birla]  DEBT↓ PE@0.5x
+2026-03-20 14:30:23,579 [INFO]   [2243] ZIMLAB         ₹68      MCap ₹330Cr Score:0.359 (3 soft signals)    PE@1.3x
+2026-03-20 14:30:25,970 [INFO]   [2245] ZODIACLOTH     ₹67      MCap ₹183Cr Score:0.363 (2 soft signals)    
+2026-03-20 14:30:28,506 [INFO]   [2247] ZUARI          ₹197     MCap ₹830Cr Score:0.500 (4 soft signals)    PE@0.0x
+2026-03-20 14:30:30,812 [INFO]   [2248] ZUARIIND       ₹230     MCap ₹686Cr Score:0.442 (3 soft signals)    PE@0.3x
+2026-03-20 14:30:31,543 [INFO] Pre-breakout scan complete. Candidates: 774  |  Excluded (holding/passive): 75  |  With catalyst: 0
+2026-03-20 14:30:31,544 [INFO] Enriching top 15 candidates with Screener.in...
+2026-03-20 14:30:31,544 [INFO] Enriching 15 candidates with Screener.in data...
+2026-03-20 14:30:31,544 [INFO]   [1/15] Screener fetch: UYFINCORP
+2026-03-20 14:30:34,521 [INFO]   [2/15] Screener fetch: PONNIERODE
+2026-03-20 14:30:37,416 [INFO]   [3/15] Screener fetch: DRCSYSTEMS
+2026-03-20 14:30:40,385 [INFO]   [4/15] Screener fetch: CCCL
+2026-03-20 14:30:43,304 [INFO]   [5/15] Screener fetch: UNIDT
+2026-03-20 14:30:46,198 [INFO]   [6/15] Screener fetch: PASUPTAC
+2026-03-20 14:30:49,135 [INFO]   [7/15] Screener fetch: TAINWALCHM
+2026-03-20 14:30:52,098 [INFO]   [8/15] Screener fetch: AFIL
+2026-03-20 14:30:55,052 [INFO]   [9/15] Screener fetch: INFOBEAN
+2026-03-20 14:30:58,049 [INFO]   [10/15] Screener fetch: SHANTIGOLD
+2026-03-20 14:31:00,941 [INFO]   [11/15] Screener fetch: SATIN
+2026-03-20 14:31:03,866 [INFO]   [12/15] Screener fetch: DIGIDRIVE
+2026-03-20 14:31:06,791 [INFO]   [13/15] Screener fetch: MANAKSTEEL
+2026-03-20 14:31:09,720 [INFO]   [14/15] Screener fetch: WAAREEINDO
+2026-03-20 14:31:12,688 [INFO]   [15/15] Screener fetch: AMBICAAGAR
+2026-03-20 14:31:15,559 [INFO] Screener enrichment complete. 0 / 15 fetched successfully.
+2026-03-20 14:31:15,563 [INFO] 
+▶ Finding conviction plays...
+2026-03-20 14:31:15,563 [INFO]   Conviction plays: 0
+2026-03-20 14:31:15,563 [INFO] 
+▶ Running persistence tracker...
+2026-03-20 14:31:15,563 [INFO] ▶ Running scan history tracker...
+2026-03-20 14:31:15,570 [INFO]   Tracker complete: 15 stocks enriched, 8 'watch now', 22 total in history
+2026-03-20 14:31:15,571 [INFO]   Watch now candidates: ['PONNIERODE.NS', 'UNIDT.NS', 'PASUPTAC.NS', 'SHANTIGOLD.NS', 'SATIN.NS', 'MANAKSTEEL.NS', 'INFOBEAN.NS', 'WAAREEINDO.NS']
+2026-03-20 14:31:15,575 [INFO] 
+✅ All outputs saved to results/
+2026-03-20 14:31:15,575 [INFO]    Regime:             BEAR
+2026-03-20 14:31:15,575 [INFO]    Layer 1 breakouts:  2
+2026-03-20 14:31:15,575 [INFO]    Layer 2 watchlist:  15
+2026-03-20 14:31:15,576 [INFO]    Conviction plays:   0
+2026-03-20 14:31:15,576 [INFO]    Watch now:          8
+2026-03-20 14:31:15,576 [INFO]    Total tracked:      22
