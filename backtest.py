@@ -458,6 +458,12 @@ class BacktestSignal:
     obv_bullish:    bool
     has_tight_base: bool
     breakout_score: float
+    # v4.1 new fields
+    macd_expanding: bool  = False
+    macd_positive:  bool  = False
+    has_hh_hl:      bool  = False
+    bb_squeeze_exp: bool  = False
+    bb_pct_b:       float = 0.5
     return_1m:      Optional[float] = None
     return_3m:      Optional[float] = None
     return_6m:      Optional[float] = None
@@ -560,9 +566,10 @@ def simulate_v4_scan_on_date(
     idx: int,
 ) -> Optional[BacktestSignal]:
     """
-    v4 scanner: volatility-adjusted momentum gate (NSE Momentum Index formula).
+    v4.1 scanner: volatility-adjusted momentum + MACD + BB + price structure.
     Gates: avg_vol ≥ 150k | ≥50 traded days/63 | EMA21>EMA55 | RSI 48-80
-           | ADX ≥ 25 | mom_score > 0 (above-average 6M+12M vol-adj momentum)
+           | ADX ≥ 25 | price structure not broken (no LL/LH)
+           | mom_score > 0 (above-average 6M+12M vol-adj momentum)
     """
     min_history = 252 + 60
     if idx < min_history:
@@ -596,7 +603,7 @@ def simulate_v4_scan_on_date(
     if not (48.0 <= last_rsi <= 80.0):
         return None
 
-    # ADX gate
+    # ADX gate (inline lambda — produces 0-1 scale, threshold 0.20 = ~ADX 20)
     try:
         adx_s = (lambda d, n=14: (
             lambda up, dn, pdm, ndm, a:
@@ -613,10 +620,43 @@ def simulate_v4_scan_on_date(
     except Exception:
         adx_val = 0.0
 
-    if np.isnan(adx_val) or adx_val < 0.20:   # 0.20 = ~ADX 20 on 0-1 scale
+    if np.isnan(adx_val) or adx_val < 0.20:
         return None
 
-    # v4 core: volatility-adjusted momentum score (NSE formula)
+    # ── v4.1 NEW Gate: Price structure (HH/HL) ──
+    # Reject stocks making lower highs + lower lows despite positive momentum
+    try:
+        lookback = 10
+        w_struct = c.iloc[-lookback * 2:]
+        highs_s, lows_s = [], []
+        for i in range(1, len(w_struct) - 1):
+            if float(w_struct.iloc[i]) > float(w_struct.iloc[i-1]) and float(w_struct.iloc[i]) > float(w_struct.iloc[i+1]):
+                highs_s.append(float(w_struct.iloc[i]))
+            if float(w_struct.iloc[i]) < float(w_struct.iloc[i-1]) and float(w_struct.iloc[i]) < float(w_struct.iloc[i+1]):
+                lows_s.append(float(w_struct.iloc[i]))
+
+        has_hh_hl = False
+        has_ll_lh = False
+        if len(highs_s) >= 2:
+            hh_ok = highs_s[-1] > highs_s[-2]
+        else:
+            hh_ok = None
+        if len(lows_s) >= 2:
+            hl_ok = lows_s[-1] > lows_s[-2]
+        else:
+            hl_ok = None
+
+        has_hh_hl = (hh_ok is True and hl_ok is True)
+        has_ll_lh = (hh_ok is False or hl_ok is False)
+
+        # Hard gate: broken structure = reject
+        if has_ll_lh:
+            return None
+    except Exception:
+        has_hh_hl = False
+        has_ll_lh = False
+
+    # v4.1 core: volatility-adjusted momentum score (NSE formula)
     if len(c) < 252 + 10:
         return None
 
@@ -636,26 +676,62 @@ def simulate_v4_scan_on_date(
     mom_score = ((ret_6m / ann_vol) + (ret_12m / ann_vol)) / 2
 
     # Gate: must have above-average momentum (> 0)
+    # Cross-sectional percentile applied in Pass 2 of run_backtest_b
     if mom_score <= 0:
         return None
 
+    # ── v4.1 NEW: MACD histogram ──
+    try:
+        ema_fast_s  = c.ewm(span=12, adjust=False).mean()
+        ema_slow_s  = c.ewm(span=26, adjust=False).mean()
+        macd_line_s = ema_fast_s - ema_slow_s
+        sig_line_s  = macd_line_s.ewm(span=9, adjust=False).mean()
+        hist_s      = macd_line_s - sig_line_s
+        last_hist   = float(hist_s.iloc[-1])
+        prev_hist   = float(hist_s.iloc[-2]) if len(hist_s) > 1 else 0.0
+        macd_expanding = (abs(last_hist) > abs(prev_hist)) and last_hist > 0
+        macd_positive  = last_hist > 0
+    except Exception:
+        macd_expanding = False
+        macd_positive  = False
+
+    # ── v4.1 NEW: Bollinger Band %B + squeeze ──
+    try:
+        n_bb  = 20
+        mid_b = c.rolling(n_bb).mean()
+        std_b = c.rolling(n_bb).std()
+        upper_b = mid_b + 2.0 * std_b
+        lower_b = mid_b - 2.0 * std_b
+        band_range = float(upper_b.iloc[-1]) - float(lower_b.iloc[-1])
+        pct_b = (last - float(lower_b.iloc[-1])) / band_range if band_range > 0 else 0.5
+        bw_series_b = (upper_b - lower_b) / mid_b.replace(0, np.nan)
+        bw_now      = float(bw_series_b.iloc[-1]) if not np.isnan(bw_series_b.iloc[-1]) else 0.1
+        bw_hist_b   = bw_series_b.iloc[-120:].dropna()
+        bw_pct25    = float(bw_hist_b.quantile(0.25)) if len(bw_hist_b) >= 20 else bw_now
+        recent_bw_b = bw_series_b.iloc[-10:]
+        was_squeeze = bool((recent_bw_b <= bw_pct25).any())
+        bb_squeeze_exp = was_squeeze and bw_now > bw_pct25 and bw_now > float(recent_bw_b.min())
+    except Exception:
+        pct_b = 0.5
+        bb_squeeze_exp = False
+
     # OBV — extreme distribution only
-    obv_s     = obv_series(window)
-    obv_win   = obv_s.iloc[-10:]
-    obv_std_v = float(obv_win.std()) if obv_win.std() > 0 else 1
-    obv_slope_z = (float(obv_win.iloc[-1]) - float(obv_win.iloc[0])) / obv_std_v
+    obv_s_     = obv_series(window)
+    obv_win_   = obv_s_.iloc[-10:]
+    obv_std_v  = float(obv_win_.std()) if obv_win_.std() > 0 else 1
+    obv_slope_z = (float(obv_win_.iloc[-1]) - float(obv_win_.iloc[0])) / obv_std_v
     if obv_slope_z < -1.5:
         return None
 
     obv_bullish = obv_slope_z > 0.1
 
-    atr_s      = atr(window, 14)
-    recent_atr = float(atr_s.iloc[-20:].mean())
-    prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else recent_atr
+    atr_s_     = atr(window, 14)
+    recent_atr = float(atr_s_.iloc[-20:].mean())
+    prior_atr  = float(atr_s_.iloc[-80:-20].mean()) if len(atr_s_) >= 80 else recent_atr
     has_base   = (recent_atr / prior_atr) < 0.7 if prior_atr > 0 else False
     vol_surge  = last_vol >= avg_vol * 1.5
 
-    # Normalised score for sorting
+    # Normalised score for cross-sectional ranking in Pass 2
     norm_mom = min(max(mom_score / 2.0, 0.0), 1.0)
 
     return BacktestSignal(
@@ -667,7 +743,13 @@ def simulate_v4_scan_on_date(
         vol_surge=vol_surge,
         obv_bullish=obv_bullish,
         has_tight_base=has_base,
-        breakout_score=round(norm_mom, 3),   # reuse field for mom_score
+        breakout_score=round(norm_mom, 3),
+        # v4.1 new fields
+        macd_expanding=macd_expanding,
+        macd_positive=macd_positive,
+        has_hh_hl=has_hh_hl,
+        bb_squeeze_exp=bb_squeeze_exp,
+        bb_pct_b=round(pct_b, 3),
     )
 
 
@@ -886,18 +968,33 @@ def run_backtest_b(
         log.info(f"  Cross-sectional gate: {passed} raw → {kept} kept "
                  f"(top 20% per date, {100*kept/max(passed,1):.1f}% pass rate)")
 
+    # ── v4.1 signal subgroups for analysis ──────────────────────────────────
+    signals_macd_exp   = [s for s in all_signals if s.macd_expanding]
+    signals_hh_hl      = [s for s in all_signals if s.has_hh_hl]
+    signals_bb_squeeze = [s for s in all_signals if s.bb_squeeze_exp]
+    # Triple confluence: all three new signals firing together
+    signals_triple     = [s for s in all_signals if s.macd_expanding and s.has_hh_hl and s.bb_squeeze_exp]
+
     log.info(
         f"\nBacktest B complete:"
-        f"\n  Total signals:   {len(all_signals)}"
-        f"\n  OBV confirmed:   {len(signals_with_obv)}"
-        f"\n  OBV diverging:   {len(signals_without_obv)}"
-        f"\n  Symbols scanned: {total_scanned}"
-        f"\n  Symbols skipped: {total_skipped}"
+        f"\n  Total signals:    {len(all_signals)}"
+        f"\n  OBV confirmed:    {len(signals_with_obv)}"
+        f"\n  OBV diverging:    {len(signals_without_obv)}"
+        f"\n  MACD expanding:   {len(signals_macd_exp)}"
+        f"\n  HH/HL structure:  {len(signals_hh_hl)}"
+        f"\n  BB squeeze→exp:   {len(signals_bb_squeeze)}"
+        f"\n  Triple confluence:{len(signals_triple)}"
+        f"\n  Symbols scanned:  {total_scanned}"
+        f"\n  Symbols skipped:  {total_skipped}"
     )
     return {
         "all_signals":         all_signals,
         "with_obv":            signals_with_obv,
         "without_obv":         signals_without_obv,
+        "with_macd_exp":       signals_macd_exp,
+        "with_hh_hl":          signals_hh_hl,
+        "with_bb_squeeze":     signals_bb_squeeze,
+        "with_triple":         signals_triple,
         "total_scanned":       total_scanned,
         "total_skipped":       total_skipped,
     }
@@ -1088,11 +1185,15 @@ def generate_backtest_report(
         if not m or m.get("count", 0) == 0:
             continue
         label = {
-            "all_signals":  "All signals",
-            "with_obv":     "OBV confirmed ✓",
-            "without_obv":  "OBV diverging ✗",
-            "with_base":    "Tight base ✓",
-            "with_vol":     "Volume surge ✓",
+            "all_signals":   "All signals",
+            "with_obv":      "OBV confirmed ✓",
+            "without_obv":   "OBV diverging ✗",
+            "with_base":     "Tight base ✓",
+            "with_vol":      "Volume surge ✓",
+            "with_macd_exp": "MACD expanding ✓ (v4.1)",
+            "with_hh_hl":    "HH/HL structure ✓ (v4.1)",
+            "with_bb_sq":    "BB squeeze→exp ✓ (v4.1)",
+            "with_triple":   "★ Triple confluence (v4.1)",
         }.get(key, key)
         lines += [
             f"  {label} (n={m.get('count', 0)})",
@@ -1117,6 +1218,33 @@ def generate_backtest_report(
             f"    OBV adds {obv_lift:+.1f}% to avg 3M return",
             "",
         ]
+
+    # v4.1 new signal analysis
+    triple  = b_metrics.get("with_triple", {})
+    macd_m  = b_metrics.get("with_macd_exp", {}) or b_metrics.get("v4_macd_exp", {})
+    hh_m    = b_metrics.get("with_hh_hl", {}) or b_metrics.get("v4_hh_hl", {})
+    bb_m    = b_metrics.get("with_bb_sq", {}) or b_metrics.get("v4_bb_sq", {})
+    all_m   = b_metrics.get("all_signals", {})
+
+    if macd_m.get("count") or hh_m.get("count") or bb_m.get("count"):
+        lines += [
+            f"  v4.1 NEW SIGNAL ANALYSIS:",
+        ]
+        if all_m.get("avg_return_3m") is not None:
+            lines.append(f"    All signals baseline:      avg 3M = {all_m['avg_return_3m']}%")
+        if macd_m.get("avg_return_3m") is not None:
+            lift = round(float(macd_m['avg_return_3m']) - float(all_m.get('avg_return_3m', 0) or 0), 1)
+            lines.append(f"    MACD expanding (n={macd_m['count']}): avg 3M = {macd_m['avg_return_3m']}%  ({lift:+.1f}% vs baseline)")
+        if hh_m.get("avg_return_3m") is not None:
+            lift = round(float(hh_m['avg_return_3m']) - float(all_m.get('avg_return_3m', 0) or 0), 1)
+            lines.append(f"    HH/HL structure (n={hh_m['count']}):  avg 3M = {hh_m['avg_return_3m']}%  ({lift:+.1f}% vs baseline)")
+        if bb_m.get("avg_return_3m") is not None:
+            lift = round(float(bb_m['avg_return_3m']) - float(all_m.get('avg_return_3m', 0) or 0), 1)
+            lines.append(f"    BB squeeze→exp (n={bb_m['count']}):   avg 3M = {bb_m['avg_return_3m']}%  ({lift:+.1f}% vs baseline)")
+        if triple.get("count"):
+            lift = round(float(triple['avg_return_3m'] or 0) - float(all_m.get('avg_return_3m', 0) or 0), 1)
+            lines.append(f"    ★ Triple confluence (n={triple['count']}):  avg 3M = {triple.get('avg_return_3m','?')}%  ({lift:+.1f}% vs baseline)")
+        lines.append("")
 
     # ── Weight tuning ──
     if best_weights:
@@ -1281,26 +1409,28 @@ Examples:
             log.info("Running v3 (breakout) scanner...")
             raw_v3 = run_backtest_b(test_symbols, lookback_days=lookback,
                                      sample_every_n_days=5, scanner_version="v3")
-            log.info("Running v4 (momentum) scanner...")
+            log.info("Running v4.1 (momentum + MACD + BB + structure) scanner...")
             raw_v4 = run_backtest_b(test_symbols, lookback_days=lookback,
                                      sample_every_n_days=5, scanner_version="v4")
             b_metrics = {
                 "v3_all":      compute_metrics(raw_v3["all_signals"], "v3 All signals"),
                 "v3_with_obv": compute_metrics(raw_v3["with_obv"],    "v3 OBV confirmed"),
-                "v4_all":      compute_metrics(raw_v4["all_signals"], "v4 All signals"),
-                "v4_with_obv": compute_metrics(raw_v4["with_obv"],    "v4 OBV confirmed"),
-                "v4_vol":      compute_metrics(
-                    [s for s in raw_v4["all_signals"] if s.vol_surge], "v4 Vol surge ✓"
-                ),
+                "v4_all":      compute_metrics(raw_v4["all_signals"], "v4.1 All signals"),
+                "v4_with_obv": compute_metrics(raw_v4["with_obv"],    "v4.1 OBV confirmed"),
+                # v4.1 new signal subgroups
+                "v4_macd_exp": compute_metrics(raw_v4["with_macd_exp"],   "v4.1 MACD expanding ✓"),
+                "v4_hh_hl":    compute_metrics(raw_v4["with_hh_hl"],      "v4.1 HH/HL structure ✓"),
+                "v4_bb_sq":    compute_metrics(raw_v4["with_bb_squeeze"],  "v4.1 BB squeeze→exp ✓"),
+                "v4_triple":   compute_metrics(raw_v4["with_triple"],      "v4.1 Triple confluence ★"),
                 # Keep these for report compatibility
-                "all_signals":  compute_metrics(raw_v4["all_signals"],  "v4 All signals"),
-                "with_obv":     compute_metrics(raw_v4["with_obv"],     "v4 OBV confirmed"),
-                "without_obv":  compute_metrics(raw_v4["without_obv"],  "v4 OBV diverging"),
+                "all_signals":  compute_metrics(raw_v4["all_signals"],  "v4.1 All signals"),
+                "with_obv":     compute_metrics(raw_v4["with_obv"],     "v4.1 OBV confirmed"),
+                "without_obv":  compute_metrics(raw_v4["without_obv"],  "v4.1 OBV diverging"),
                 "with_base":    compute_metrics(
-                    [s for s in raw_v4["all_signals"] if s.has_tight_base], "v4 Tight base ✓"
+                    [s for s in raw_v4["all_signals"] if s.has_tight_base], "v4.1 Tight base ✓"
                 ),
                 "with_vol":     compute_metrics(
-                    [s for s in raw_v4["all_signals"] if s.vol_surge], "v4 Vol surge ✓"
+                    [s for s in raw_v4["all_signals"] if s.vol_surge], "v4.1 Vol surge ✓"
                 ),
             }
         else:
@@ -1318,6 +1448,14 @@ Examples:
                     [s for s in raw["all_signals"] if s.vol_surge], f"{scanner} Vol surge ✓"
                 ),
             }
+            # v4.1 specific subgroup analysis
+            if scanner == "v4":
+                b_metrics.update({
+                    "with_macd_exp": compute_metrics(raw["with_macd_exp"],  "v4.1 MACD expanding ✓"),
+                    "with_hh_hl":    compute_metrics(raw["with_hh_hl"],     "v4.1 HH/HL structure ✓"),
+                    "with_bb_sq":    compute_metrics(raw["with_bb_squeeze"], "v4.1 BB squeeze→exp ✓"),
+                    "with_triple":   compute_metrics(raw["with_triple"],     "v4.1 Triple confluence ★"),
+                })
 
     report = generate_backtest_report(
         a_results, b_metrics, best_weights,
