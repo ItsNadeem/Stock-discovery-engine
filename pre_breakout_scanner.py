@@ -51,6 +51,7 @@ import numpy as np
 import yfinance as yf
 
 from screener_fetcher import enrich_with_screener
+from public_data_fetcher import fetch_all_public_signals
 
 log = logging.getLogger(__name__)
 
@@ -168,13 +169,14 @@ class PreBreakoutConfig:
     # Catalyst is now the dominant signal, not a tiebreaker.
     # This mirrors VALUEPICK's actual method: catalyst-first, valuation-second.
     # ─────────────────────────────────────────────────────────
-    w_catalyst:  float = 0.30   # raised from 0.15 — now the dominant signal
-    w_growth:    float = 0.22   # raised from 0.20 — earnings quality matters
-    w_group:     float = 0.15   # raised from 0.10 — group pedigree is a real filter
-    w_promoter:  float = 0.15   # cut from 0.25 — ubiquitous, not differentiated
-    w_valuation: float = 0.12   # cut from 0.20 — P/B fires on everything at 52W low
-    w_debt:      float = 0.03   # unchanged in spirit
-    w_pe_value:  float = 0.03   # unchanged in spirit
+    w_catalyst:  float = 0.28   # raised from 0.15 — now the dominant signal
+    w_growth:    float = 0.20   # earnings quality
+    w_group:     float = 0.14   # group pedigree
+    w_promoter:  float = 0.14   # promoter holding
+    w_valuation: float = 0.11   # P/B valuation
+    w_public:    float = 0.08   # NEW: insider buying + pledge + bulk deals
+    w_debt:      float = 0.03
+    w_pe_value:  float = 0.02
 
     # ─────────────────────────────────────────────────────────
     # TIERED QUALIFICATION GATE — replaces the old flat has_signal check
@@ -1116,6 +1118,7 @@ def pre_breakout_composite(
     catalyst: dict, group: dict, debt: dict, pe_val: dict,
     fcf: dict, piotroski: dict, pe_traj: dict,
     lynch: dict = None,
+    public_data: dict = None,
 ) -> float:
     # Base score from original signals
     score = (
@@ -1142,10 +1145,21 @@ def pre_breakout_composite(
     if pe_traj["pe_expanding"]:
         score += 0.04
 
-    # Lynch GARP bonus — weights at 0.10 (additive, not replacing)
-    # Reduced from 0.12 to keep total score normalised near 1.0
+    # Lynch GARP bonus
     if lynch is not None:
         score += lynch["lynch_score"] * 0.10
+
+    # NEW: Public domain signals bonus (insider buying + pledge health + bulk deals)
+    if public_data is not None:
+        score += public_data["public_score"] * PCFG.w_public
+
+        # Hard penalty: high pledge is a disqualifier regardless of other signals
+        if public_data.get("is_high_pledge"):
+            score = min(score, 0.45)
+
+        # Strong bonus: promoter open-market buying + catalyst = highest conviction
+        if public_data.get("promoter_buying") and catalyst["catalyst_score"] >= 0.2:
+            score += 0.07
 
     # "Guess The Gem" trifecta: trusted group + deep value + catalyst
     if group["is_trusted_group"] and pe_val["is_deep_value"] and catalyst["catalyst_score"] >= 0.3:
@@ -1156,7 +1170,7 @@ def pre_breakout_composite(
             lynch["inst_own_pct"] < 20 and
             catalyst["catalyst_score"] >= 0.2 and
             lynch.get("peg_ratio") is not None and lynch["peg_ratio"] < 1.5):
-        score += 0.06  # undiscovered GARP + catalyst = Lynch's ideal setup
+        score += 0.06
 
     return round(min(score, 1.0), 4)
 
@@ -1165,11 +1179,14 @@ def pre_breakout_composite(
 # MAIN SCANNER
 # ──────────────────────────────────────────────────────
 
-def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
+def run_pre_breakout_scanner(
+    symbols: list[str],
+    nse_session=None,
+    universe_deals: dict = None,
+) -> list[dict]:
     log.info("══════════════════════════════════════════════════════")
-    log.info("  PRE-BREAKOUT SCANNER (Layer 2) v3")
-    log.info("  Method: value-picks.blogspot.com + @valuepick")
-    log.info("  v3: Catalyst-first sort | Tiered gate | ROCE filter")
+    log.info("  PRE-BREAKOUT SCANNER (Layer 2) v4")
+    log.info("  Method: VALUEPICK + Lynch GARP + Insider/Pledge/Bulk")
     log.info("══════════════════════════════════════════════════════")
     log.info(f"Scanning {len(symbols)} symbols...")
 
@@ -1210,6 +1227,18 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
             lynch_score_val, lynch_details = calc_lynch_score(ticker, info)
             lynch_details["lynch_score"] = lynch_score_val
 
+            # NEW: public domain signals (insider buying, pledge, bulk deals)
+            public_data = None
+            if universe_deals is not None:
+                try:
+                    public_data = fetch_all_public_signals(
+                        symbol, info,
+                        universe_deals=universe_deals,
+                        session=nse_session,
+                    )
+                except Exception as pe:
+                    log.debug(f"  {sym_clean}: public_data failed — {pe}")
+
             bse_code      = get_bse_code_from_symbol(symbol)
             announcements = []
             if bse_code:
@@ -1249,6 +1278,7 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
             composite = pre_breakout_composite(
                 shareholding, valuation, growth, catalyst, group, debt, pe_val,
                 fcf, piotroski, pe_traj, lynch=lynch_details,
+                public_data=public_data,
             )
 
             all_flags = []
@@ -1262,6 +1292,9 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
             all_flags.extend(lynch_details.get("lynch_flags", []))
             if lynch_details.get("lynch_flag"):
                 all_flags.append(lynch_details["lynch_flag"])
+            # Public domain flags
+            if public_data:
+                all_flags.extend(public_data.get("public_flags", []))
             all_flags.extend(catalyst["catalysts"])
 
             results.append({
@@ -1281,6 +1314,7 @@ def run_pre_breakout_scanner(symbols: list[str]) -> list[dict]:
                 "piotroski":       piotroski,
                 "pe_trajectory":   pe_traj,
                 "lynch":           lynch_details,
+                "public_data":     public_data,
                 "all_flags":       all_flags,
                 "bse_code":        bse_code,
                 "scanned_at":      datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
