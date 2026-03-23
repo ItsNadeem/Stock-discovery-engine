@@ -22,6 +22,7 @@ from pre_breakout_scanner import (
     generate_pre_breakout_report,
 )
 from scan_tracker import run_tracker, generate_persistence_section
+from public_data_fetcher import init_public_data
 
 logging.basicConfig(
     level=logging.INFO,
@@ -80,6 +81,13 @@ def find_conviction_plays(layer1: list[dict], layer2: list[dict]) -> list[dict]:
                     "lynch_inst_pct":     s.get("lynch", {}).get("inst_own_pct"),
                     "lynch_class":        s.get("lynch", {}).get("lynch_class"),
                     "lynch_net_cash_pct": s.get("lynch", {}).get("net_cash_pct"),
+                    # Public domain signals
+                    "promoter_buying":    (s.get("public_data") or {}).get("promoter_buying"),
+                    "insider_value_cr":   (s.get("public_data") or {}).get("insider_value_cr"),
+                    "pledge_pct":         (s.get("public_data") or {}).get("pledge_pct"),
+                    "has_bulk_deal":      (s.get("public_data") or {}).get("has_bulk_deal"),
+                    "institutional_buying": (s.get("public_data") or {}).get("institutional_buying"),
+                    "public_flags":       (s.get("public_data") or {}).get("public_flags", []),
                 },
                 "scanned_at": s["scanned_at"],
             })
@@ -187,7 +195,14 @@ def generate_conviction_report(
                 f"Inst% {pb.get('lynch_inst_pct', 'N/A')}  "
                 f"NetCash%MCap {pb.get('lynch_net_cash_pct', 'N/A')}  "
                 f"Class: {pb.get('lynch_class', '?')}",
+                f"     Public: PromoterBuying {'✓' if pb.get('promoter_buying') else '–'}  "
+                f"InsiderVal ₹{pb.get('insider_value_cr', 0):.1f}Cr  "
+                f"Pledge {pb.get('pledge_pct', 'N/A')}%  "
+                f"BulkDeal {'✓' if pb.get('has_bulk_deal') else '–'}  "
+                f"InstBuy {'✓' if pb.get('institutional_buying') else '–'}",
             ]
+            if pb.get("public_flags"):
+                lines.append(f"     ▶ (Public) {' | '.join(pb['public_flags'][:2])}")
             if pb["catalysts"]:
                 lines.append(f"     ▶  {' | '.join(pb['catalysts'][:3])}")
             lines.append("")
@@ -217,15 +232,17 @@ def generate_conviction_report(
     lines.append("")
 
     # ── Section C: Layer 2 Top 10 ──
-    lines += [sep, "  SECTION C: TOP 10 PRE-BREAKOUT WATCHLIST (Layer 2) — Lynch GARP + VALUEPICK", sep, ""]
+    lines += [sep, "  SECTION C: TOP 10 PRE-BREAKOUT WATCHLIST (Layer 2) — Lynch GARP + VALUEPICK + Public Data", sep, ""]
     for i, s in enumerate(l2[:10], 1):
         p_score  = s.get("piotroski", {}).get("piotroski_score")
         fcf_y    = s.get("fcf", {}).get("fcf_yield_pct")
         lynch    = s.get("lynch", {})
+        pub      = s.get("public_data") or {}
         peg      = lynch.get("peg_ratio")
         inst_pct = lynch.get("inst_own_pct")
         l_class  = lynch.get("lynch_class", "?")
         cat_str  = s["catalyst"]["catalysts"][0] if s["catalyst"]["catalysts"] else "–"
+
         lynch_str = (
             f"  PEG:{peg:.2f}" if peg is not None else ""
         ) + (
@@ -233,16 +250,28 @@ def generate_conviction_report(
         ) + (
             f"  [{l_class}]" if l_class and l_class != "Unknown" else ""
         )
+
+        pub_str = ""
+        if pub:
+            if pub.get("promoter_buying"):
+                pub_str += f"  🧑‍💼Insider ₹{pub.get('insider_value_cr',0):.1f}Cr"
+            if pub.get("institutional_buying"):
+                pub_str += f"  🏦BulkBuy"
+            if pub.get("pledge_pct") is not None and pub["pledge_pct"] <= 0:
+                pub_str += "  ✅NoPledge"
+            elif pub.get("is_high_pledge"):
+                pub_str += f"  🚨Pledge{pub.get('pledge_pct','?')}%"
+
         lines.append(
             f"  #{i:02d}  {s['symbol']:<16}  ₹{s['price']:<8}  "
             f"Score: {s['composite_score']:.3f}  "
             f"F-Score: {p_score if p_score is not None else 'N/A'}/9  "
             f"FCF: {fcf_y if fcf_y is not None else 'N/A'}%"
-            + lynch_str +
+            + lynch_str + pub_str +
             f"  {s['price_stage']}"
         )
         if cat_str != "–":
-            lines.append(f"       ▶ {cat_str}")
+            lines.append(f"       ▶ Catalyst: {cat_str}")
     lines.append("")
 
     lines += [
@@ -250,12 +279,14 @@ def generate_conviction_report(
         "  HOW TO USE:",
         "  Section A → Highest conviction. Both technicals AND thesis AND OBV confirmed.",
         "              Lynch GARP: PEG <1.5 + Inst <20% = undiscovered compounder.",
+        "              Public: Promoter buying + zero pledge = VALUEPICK signature.",
         "              In bear regime: only act here, nowhere else.",
         "  Section B → Swing trades. Enter on breakout, stop-loss below 52W high.",
         "              Check regime — avoid in BEAR without OBV + RS confirmation.",
-        "  Section C → Research queue. Piotroski ≥ 7 + FCF yield + PEG <1.5 = prioritise.",
-        "              Lynch 'Fast Grower' class + catalyst = highest priority research.",
-        "              Wait for Layer 1 before entry.",
+        "  Section C → Research queue. Piotroski ≥ 7 + FCF + PEG <1.5 = prioritise.",
+        "              🧑‍💼 Insider buying icon = highest priority. Pledged = avoid.",
+        "              Lynch 'Fast Grower' + catalyst + insider buying = ideal setup.",
+        "              Wait for Layer 1 confirmation before entry.",
         sep,
         "  ⚠  Educational use only. Not financial advice.",
         sep,
@@ -265,10 +296,9 @@ def generate_conviction_report(
 
 def run_all():
     log.info("╔══════════════════════════════════════════════════════╗")
-    log.info("║  MULTIBAGGER DISCOVERY ENGINE v3 — FULL PIPELINE     ║")
-    log.info("║  L1: Breakout + OBV + RS + FCF + MCap/Sales          ║")
-    log.info("║  L2: Pre-Breakout + FCF + Piotroski + P/E Trajectory  ║")
-    log.info("║  Market regime classifier included                    ║")
+    log.info("║  MULTIBAGGER DISCOVERY ENGINE v4 — FULL PIPELINE     ║")
+    log.info("║  L1: Volatility-adj momentum | Sector | Percentile   ║")
+    log.info("║  L2: VALUEPICK + Lynch GARP + Insider + Pledge + Bulk║")
     log.info("╚══════════════════════════════════════════════════════╝")
 
     date_str = datetime.utcnow().strftime("%Y%m%d")
@@ -291,8 +321,15 @@ def run_all():
         layer1_results = []
 
     # ── Layer 2 ──
-    log.info("\n▶ Running Layer 2: Pre-Breakout Scanner...")
-    layer2_results = run_pre_breakout_scanner(symbols)
+    log.info("\n▶ Initialising public data (NSE insider trades, bulk deals)...")
+    nse_session, universe_deals = init_public_data()
+
+    log.info("\n▶ Running Layer 2: Pre-Breakout Scanner (VALUEPICK + Lynch + Public)...")
+    layer2_results = run_pre_breakout_scanner(
+        symbols,
+        nse_session=nse_session,
+        universe_deals=universe_deals,
+    )
 
     # ── Conviction plays ──
     log.info("\n▶ Finding conviction plays...")
