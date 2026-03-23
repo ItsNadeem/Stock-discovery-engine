@@ -1,10 +1,157 @@
 [
   {
-    "symbol": "UYFINCORP.NS",
-    "price": 12.87,
-    "market_cap_cr": 245.0,
+    "symbol": "ALEMBICLTD.NS",
+    "price": 75.33,
+    "market_cap_cr": 1934.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6399,
+    "composite_score": 0.6619,
+    "shareholding": {
+      "insider_pct": 72.2,
+      "institutional_pct": 0.9,
+      "promoter_score": 0.963,
+      "undiscovered_score": 0.971
+    },
+    "valuation": {
+      "market_cap_cr": 1934.0,
+      "pb_ratio": 0.76,
+      "net_cash_cr": 73.0,
+      "cash_to_mcap_pct": 3.8,
+      "valuation_score": 0.552,
+      "trading_near_book": true
+    },
+    "growth": {
+      "revenue_growth_pct": 28.3,
+      "earnings_growth_pct": -8.2,
+      "profit_margin_pct": 132.7,
+      "growth_accelerating": false,
+      "growth_score": 0.465
+    },
+    "catalyst": {
+      "catalysts": [],
+      "catalyst_score": 0.0,
+      "promoter_buying_signal": false,
+      "capex_signal": false,
+      "export_signal": false,
+      "recent_announcements": 0
+    },
+    "group": {
+      "matched_group": "Alembic",
+      "group_score": 0.8,
+      "is_trusted_group": true,
+      "flag": "\ud83c\udfdb\ufe0f Alembic Group"
+    },
+    "debt": {
+      "current_de": 0.0,
+      "net_debt_cr": -73.0,
+      "is_net_cash": true,
+      "is_near_zero_debt": true,
+      "debt_reducing": false,
+      "debt_reduction_pct": 0.0,
+      "debt_score": 1.0,
+      "flags": [
+        "\ud83d\udfe2 NET CASH (Cash > Debt)"
+      ]
+    },
+    "pe_value": {
+      "stock_pe": 6.1,
+      "sector_pe": 25.0,
+      "pe_ratio_to_sector": 0.24,
+      "pe_discount_pct": 75.7,
+      "pe_score": 0.757,
+      "is_deep_value": true,
+      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 6.1 vs sector 25 (1/4 of peers!)",
+      "pe_source": "TTM",
+      "sector_mapped": "Real Estate"
+    },
+    "fcf": {
+      "fcf_yield_pct": null,
+      "ocf_margin_pct": null,
+      "fcf_score": 0.3,
+      "flag": null
+    },
+    "piotroski": {
+      "piotroski_score": 7,
+      "piotroski_details": {
+        "F1_roa_positive": 1,
+        "F2_ocf_positive": 1,
+        "F3_roa_improving": 1,
+        "F4_cash_gt_accrual": 0,
+        "F5_debt_reduced": 0,
+        "F6_curr_ratio_up": 1,
+        "F7_no_dilution": 1,
+        "F8_gross_margin_up": 1,
+        "F9_asset_turnover_up": 1
+      },
+      "piotroski_flag": "\u2705 Piotroski 7/9 \u2014 Improving financials"
+    },
+    "pe_trajectory": {
+      "pe_expanding": false,
+      "pe_trajectory": "7.3 \u2192 6.1 \u2192 6.1 (now)",
+      "pe_traj_flag": null
+    },
+    "lynch": {
+      "peg_ratio": 0.21,
+      "inst_own_pct": 0.9,
+      "net_cash_pct": 3.8,
+      "eps_consistent": "4/4 qtrs profitable",
+      "inv_health": null,
+      "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
+      "lynch_class": "Fast Grower (undiscovered)",
+      "lynch_flags": [
+        "\ud83d\udd25 Lynch PEG 0.21 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udc41\ufe0f Undiscovered: 0.9% institutional holding",
+        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
+      ],
+      "lynch_score": 0.82
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 72.2,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "all_flags": [
+      "\ud83c\udfdb\ufe0f Alembic Group",
+      "\ud83d\udfe2 NET CASH (Cash > Debt)",
+      "\ud83d\udc8e EXTREME VALUE: P/E 6.1 vs sector 25 (1/4 of peers!)",
+      "\u2705 Piotroski 7/9 \u2014 Improving financials",
+      "\ud83d\udd25 Lynch PEG 0.21 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udc41\ufe0f Undiscovered: 0.9% institutional holding",
+      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
+      "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
+    ],
+    "bse_code": null,
+    "scanned_at": "2026-03-23 14:06 UTC",
+    "screener": null,
+    "screener_flags": [],
+    "persistence": {
+      "days_in_watchlist": 1,
+      "streak": 0,
+      "score_trend": "stable",
+      "score_7d_delta": null,
+      "first_seen": "20260323",
+      "peak_score": 0.662,
+      "price_since_first_pct": 0.0,
+      "all_catalysts": []
+    }
+  },
+  {
+    "symbol": "UYFINCORP.NS",
+    "price": 12.11,
+    "market_cap_cr": 230.0,
+    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
+    "composite_score": 0.6279,
     "shareholding": {
       "insider_pct": 73.7,
       "institutional_pct": 0,
@@ -12,11 +159,11 @@
       "undiscovered_score": 1.0
     },
     "valuation": {
-      "market_cap_cr": 245.0,
-      "pb_ratio": 0.7,
+      "market_cap_cr": 230.0,
+      "pb_ratio": 0.66,
       "net_cash_cr": 16.0,
-      "cash_to_mcap_pct": 6.4,
-      "valuation_score": 0.576,
+      "cash_to_mcap_pct": 6.8,
+      "valuation_score": 0.588,
       "trading_near_book": true
     },
     "growth": {
@@ -53,13 +200,13 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 7.7,
+      "stock_pe": 7.2,
       "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.31,
-      "pe_discount_pct": 69.4,
-      "pe_score": 0.694,
+      "pe_ratio_to_sector": 0.29,
+      "pe_discount_pct": 71.2,
+      "pe_score": 0.712,
       "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 7.7 vs sector 25 (69% discount)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 7.2 vs sector 25 (71% discount)",
       "pe_source": "TTM",
       "sector_mapped": "Financial Services"
     },
@@ -86,13 +233,13 @@
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "15.8 \u2192 7.7 \u2192 7.7 (now)",
+      "pe_trajectory": "15.8 \u2192 7.2 \u2192 7.2 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
       "peg_ratio": 0.04,
       "inst_own_pct": null,
-      "net_cash_pct": 6.4,
+      "net_cash_pct": 6.8,
       "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
@@ -103,34 +250,51 @@
       ],
       "lynch_score": 0.68
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 73.7,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udcb0 DEEP VALUE: P/E 7.7 vs sector 25 (69% discount)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 7.2 vs sector 25 (71% discount)",
       "\ud83d\udd25 Lynch PEG 0.04 \u2014 Deeply undervalued vs growth",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
       "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:28 UTC",
+    "scanned_at": "2026-03-23 14:46 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
+      "days_in_watchlist": 7,
+      "streak": 5,
       "score_trend": "rising",
-      "score_7d_delta": 0.046,
+      "score_7d_delta": 0.02,
       "first_seen": "20260316",
       "peak_score": 0.64,
-      "price_since_first_pct": -3.3,
+      "price_since_first_pct": -9.0,
       "all_catalysts": []
     }
   },
   {
     "symbol": "PONNIERODE.NS",
-    "price": 275.0,
-    "market_cap_cr": 236.0,
+    "price": 262.35,
+    "market_cap_cr": 226.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6339,
+    "composite_score": 0.6258,
     "shareholding": {
       "insider_pct": 49.4,
       "institutional_pct": 9.5,
@@ -138,11 +302,11 @@
       "undiscovered_score": 0.685
     },
     "valuation": {
-      "market_cap_cr": 236.0,
-      "pb_ratio": 0.44,
+      "market_cap_cr": 226.0,
+      "pb_ratio": 0.42,
       "net_cash_cr": 43.0,
-      "cash_to_mcap_pct": 18.1,
-      "valuation_score": 0.686,
+      "cash_to_mcap_pct": 18.9,
+      "valuation_score": 0.695,
       "trading_near_book": true
     },
     "growth": {
@@ -179,13 +343,13 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 9.1,
+      "stock_pe": 8.7,
       "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.37,
-      "pe_discount_pct": 63.5,
-      "pe_score": 0.635,
+      "pe_ratio_to_sector": 0.35,
+      "pe_discount_pct": 65.1,
+      "pe_score": 0.651,
       "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 9.1 vs sector 25 (63% discount)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 8.7 vs sector 25 (65% discount)",
       "pe_source": "TTM",
       "sector_mapped": "Consumer Defensive"
     },
@@ -212,54 +376,71 @@
     },
     "pe_trajectory": {
       "pe_expanding": true,
-      "pe_trajectory": "14.9 \u2192 17.2 \u2192 9.1 (now)",
-      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 14.9 \u2192 17.2 \u2192 9.1 (now)"
+      "pe_trajectory": "14.9 \u2192 16.4 \u2192 8.7 (now)",
+      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 14.9 \u2192 16.4 \u2192 8.7 (now)"
     },
     "lynch": {
-      "peg_ratio": 0.3,
+      "peg_ratio": 0.28,
       "inst_own_pct": 9.5,
-      "net_cash_pct": 18.1,
+      "net_cash_pct": 18.9,
       "eps_consistent": "3/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
       "lynch_class": "Fast Grower (undiscovered)",
       "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.30 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udd25 Lynch PEG 0.28 \u2014 Deeply undervalued vs growth",
         "\ud83c\udf31 Early stage: 9.5% institutional (Lynch zone)",
-        "\ud83d\udcb5 Net cash 18% of MCap"
+        "\ud83d\udcb5 Net cash 19% of MCap"
       ],
       "lynch_score": 0.785
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 49.4,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udcb0 DEEP VALUE: P/E 9.1 vs sector 25 (63% discount)",
-      "\ud83d\udcc8 P/E EXPANDING: 14.9 \u2192 17.2 \u2192 9.1 (now)",
-      "\ud83d\udd25 Lynch PEG 0.30 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udcb0 DEEP VALUE: P/E 8.7 vs sector 25 (65% discount)",
+      "\ud83d\udcc8 P/E EXPANDING: 14.9 \u2192 16.4 \u2192 8.7 (now)",
+      "\ud83d\udd25 Lynch PEG 0.28 \u2014 Deeply undervalued vs growth",
       "\ud83c\udf31 Early stage: 9.5% institutional (Lynch zone)",
-      "\ud83d\udcb5 Net cash 18% of MCap",
+      "\ud83d\udcb5 Net cash 19% of MCap",
       "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:18 UTC",
+    "scanned_at": "2026-03-23 14:34 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
+      "days_in_watchlist": 7,
+      "streak": 5,
       "score_trend": "rising",
-      "score_7d_delta": 0.052,
+      "score_7d_delta": 0.023,
       "first_seen": "20260316",
       "peak_score": 0.635,
-      "price_since_first_pct": 4.0,
+      "price_since_first_pct": -0.8,
       "all_catalysts": []
     }
   },
   {
     "symbol": "DRCSYSTEMS.NS",
-    "price": 13.2,
-    "market_cap_cr": 190.0,
+    "price": 12.87,
+    "market_cap_cr": 185.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6234,
+    "composite_score": 0.6158,
     "shareholding": {
       "insider_pct": 76.2,
       "institutional_pct": 0,
@@ -267,11 +448,11 @@
       "undiscovered_score": 1.0
     },
     "valuation": {
-      "market_cap_cr": 190.0,
-      "pb_ratio": 2.42,
+      "market_cap_cr": 185.0,
+      "pb_ratio": 2.36,
       "net_cash_cr": 2.0,
       "cash_to_mcap_pct": 1.3,
-      "valuation_score": 0.145,
+      "valuation_score": 0.159,
       "trading_near_book": false
     },
     "growth": {
@@ -308,13 +489,13 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 10.0,
+      "stock_pe": 9.8,
       "sector_pe": 30.0,
       "pe_ratio_to_sector": 0.33,
-      "pe_discount_pct": 66.7,
-      "pe_score": 0.667,
+      "pe_discount_pct": 67.5,
+      "pe_score": 0.675,
       "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 10.0 vs sector 30 (67% discount)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 9.8 vs sector 30 (68% discount)",
       "pe_source": "TTM",
       "sector_mapped": "Technology"
     },
@@ -341,11 +522,11 @@
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "13.2 \u2192 10.3 \u2192 10.0 (now)",
+      "pe_trajectory": "13.2 \u2192 10.0 \u2192 9.8 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
-      "peg_ratio": 0.17,
+      "peg_ratio": 0.16,
       "inst_own_pct": null,
       "net_cash_pct": 1.3,
       "eps_consistent": "4/4 qtrs profitable",
@@ -353,40 +534,57 @@
       "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
       "lynch_class": "Stalwart (consistent compounder)",
       "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.17 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udd25 Lynch PEG 0.16 \u2014 Deeply undervalued vs growth",
         "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
       ],
       "lynch_score": 0.68
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 76.2,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udcb0 DEEP VALUE: P/E 10.0 vs sector 30 (67% discount)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 9.8 vs sector 30 (68% discount)",
       "\ud83c\udfc6 PIOTROSKI 9/9 \u2014 Exceptional financial health",
-      "\ud83d\udd25 Lynch PEG 0.17 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udd25 Lynch PEG 0.16 \u2014 Deeply undervalued vs growth",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
       "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:02 UTC",
+    "scanned_at": "2026-03-23 14:15 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 5,
-      "streak": 0,
+      "days_in_watchlist": 6,
+      "streak": 1,
       "score_trend": "rising",
-      "score_7d_delta": 0.066,
+      "score_7d_delta": 0.039,
       "first_seen": "20260316",
       "peak_score": 0.629,
-      "price_since_first_pct": 5.2,
+      "price_since_first_pct": 2.5,
       "all_catalysts": []
     }
   },
   {
     "symbol": "CCCL.NS",
-    "price": 14.97,
-    "market_cap_cr": 669.0,
+    "price": 14.32,
+    "market_cap_cr": 640.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6191,
+    "composite_score": 0.6154,
     "shareholding": {
       "insider_pct": 66.5,
       "institutional_pct": 8.9,
@@ -394,11 +592,11 @@
       "undiscovered_score": 0.703
     },
     "valuation": {
-      "market_cap_cr": 669.0,
-      "pb_ratio": 2.42,
+      "market_cap_cr": 640.0,
+      "pb_ratio": 2.32,
       "net_cash_cr": 158.0,
-      "cash_to_mcap_pct": 23.7,
-      "valuation_score": 0.233,
+      "cash_to_mcap_pct": 24.7,
+      "valuation_score": 0.263,
       "trading_near_book": false
     },
     "growth": {
@@ -435,13 +633,13 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 4.7,
+      "stock_pe": 4.5,
       "sector_pe": 22.0,
-      "pe_ratio_to_sector": 0.21,
-      "pe_discount_pct": 78.6,
-      "pe_score": 0.786,
+      "pe_ratio_to_sector": 0.2,
+      "pe_discount_pct": 79.5,
+      "pe_score": 0.795,
       "is_deep_value": true,
-      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 4.7 vs sector 22 (1/4 of peers!)",
+      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 4.5 vs sector 22 (1/4 of peers!)",
       "pe_source": "TTM",
       "sector_mapped": "Industrials"
     },
@@ -468,13 +666,13 @@
     },
     "pe_trajectory": {
       "pe_expanding": true,
-      "pe_trajectory": "4.7 \u2192 6.1 \u2192 4.7 (now)",
-      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 4.7 \u2192 6.1 \u2192 4.7 (now)"
+      "pe_trajectory": "4.7 \u2192 5.8 \u2192 4.5 (now)",
+      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 4.7 \u2192 5.8 \u2192 4.5 (now)"
     },
     "lynch": {
       "peg_ratio": 0.11,
       "inst_own_pct": 8.9,
-      "net_cash_pct": 23.7,
+      "net_cash_pct": 24.7,
       "eps_consistent": "3/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
@@ -482,418 +680,58 @@
       "lynch_flags": [
         "\ud83d\udd25 Lynch PEG 0.11 \u2014 Deeply undervalued vs growth",
         "\ud83c\udf31 Early stage: 8.9% institutional (Lynch zone)",
-        "\ud83d\udcb5 Net cash 24% of MCap"
+        "\ud83d\udcb5 Net cash 25% of MCap"
       ],
       "lynch_score": 0.785
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 66.5,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udc8e EXTREME VALUE: P/E 4.7 vs sector 22 (1/4 of peers!)",
+      "\ud83d\udc8e EXTREME VALUE: P/E 4.5 vs sector 22 (1/4 of peers!)",
       "\u2705 Piotroski 7/9 \u2014 Improving financials",
-      "\ud83d\udcc8 P/E EXPANDING: 4.7 \u2192 6.1 \u2192 4.7 (now)",
+      "\ud83d\udcc8 P/E EXPANDING: 4.7 \u2192 5.8 \u2192 4.5 (now)",
       "\ud83d\udd25 Lynch PEG 0.11 \u2014 Deeply undervalued vs growth",
       "\ud83c\udf31 Early stage: 8.9% institutional (Lynch zone)",
-      "\ud83d\udcb5 Net cash 24% of MCap",
+      "\ud83d\udcb5 Net cash 25% of MCap",
       "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 13:59 UTC",
+    "scanned_at": "2026-03-23 14:11 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 5,
-      "streak": 0,
+      "days_in_watchlist": 6,
+      "streak": 1,
       "score_trend": "rising",
-      "score_7d_delta": 0.078,
+      "score_7d_delta": 0.05,
       "first_seen": "20260316",
       "peak_score": 0.62,
-      "price_since_first_pct": -0.1,
-      "all_catalysts": []
-    }
-  },
-  {
-    "symbol": "UNIDT.NS",
-    "price": 157.58,
-    "market_cap_cr": 320.0,
-    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6187,
-    "shareholding": {
-      "insider_pct": 82.1,
-      "institutional_pct": 0,
-      "promoter_score": 1.0,
-      "undiscovered_score": 1.0
-    },
-    "valuation": {
-      "market_cap_cr": 320.0,
-      "pb_ratio": 1.18,
-      "net_cash_cr": -27.0,
-      "cash_to_mcap_pct": -8.4,
-      "valuation_score": 0.436,
-      "trading_near_book": true
-    },
-    "growth": {
-      "revenue_growth_pct": 49.1,
-      "earnings_growth_pct": 105.3,
-      "profit_margin_pct": 10.7,
-      "growth_accelerating": true,
-      "growth_score": 0.997
-    },
-    "catalyst": {
-      "catalysts": [],
-      "catalyst_score": 0.0,
-      "promoter_buying_signal": false,
-      "capex_signal": false,
-      "export_signal": false,
-      "recent_announcements": 0
-    },
-    "group": {
-      "matched_group": null,
-      "group_score": 0.0,
-      "is_trusted_group": false,
-      "flag": null
-    },
-    "debt": {
-      "current_de": 0.11,
-      "net_debt_cr": 27.0,
-      "is_net_cash": false,
-      "is_near_zero_debt": true,
-      "debt_reducing": false,
-      "debt_reduction_pct": 0.0,
-      "debt_score": 0.8,
-      "flags": [
-        "\ud83d\udfe2 NEAR ZERO DEBT (D/E 0.11)"
-      ]
-    },
-    "pe_value": {
-      "stock_pe": 17.8,
-      "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.71,
-      "pe_discount_pct": 28.9,
-      "pe_score": 0.289,
-      "is_deep_value": false,
-      "flag": null,
-      "pe_source": "TTM",
-      "sector_mapped": "Energy"
-    },
-    "fcf": {
-      "fcf_yield_pct": null,
-      "ocf_margin_pct": null,
-      "fcf_score": 0.3,
-      "flag": null
-    },
-    "piotroski": {
-      "piotroski_score": 6,
-      "piotroski_details": {
-        "F1_roa_positive": 1,
-        "F2_ocf_positive": 1,
-        "F3_roa_improving": 1,
-        "F4_cash_gt_accrual": 0,
-        "F5_debt_reduced": 0,
-        "F6_curr_ratio_up": 1,
-        "F7_no_dilution": 1,
-        "F8_gross_margin_up": 0,
-        "F9_asset_turnover_up": 1
-      },
-      "piotroski_flag": "\u2705 Piotroski 6/9 \u2014 Improving financials"
-    },
-    "pe_trajectory": {
-      "pe_expanding": false,
-      "pe_trajectory": "23.2 \u2192 17.7 \u2192 17.8 (now)",
-      "pe_traj_flag": null
-    },
-    "lynch": {
-      "peg_ratio": 0.36,
-      "inst_own_pct": null,
-      "net_cash_pct": -8.4,
-      "eps_consistent": "4/4 qtrs profitable",
-      "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
-      "lynch_class": "Stalwart (consistent compounder)",
-      "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.36 \u2014 Deeply undervalued vs growth",
-        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
-      ],
-      "lynch_score": 0.63
-    },
-    "all_flags": [
-      "\ud83d\udfe2 NEAR ZERO DEBT (D/E 0.11)",
-      "\u2705 Piotroski 6/9 \u2014 Improving financials",
-      "\ud83d\udd25 Lynch PEG 0.36 \u2014 Deeply undervalued vs growth",
-      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
-      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
-    ],
-    "bse_code": null,
-    "scanned_at": "2026-03-20 14:27 UTC",
-    "screener": null,
-    "screener_flags": [],
-    "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
-      "score_trend": "rising",
-      "score_7d_delta": 0.044,
-      "first_seen": "20260316",
-      "peak_score": 0.621,
-      "price_since_first_pct": -4.6,
-      "all_catalysts": []
-    }
-  },
-  {
-    "symbol": "PASUPTAC.NS",
-    "price": 44.58,
-    "market_cap_cr": 397.0,
-    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6174,
-    "shareholding": {
-      "insider_pct": 67.3,
-      "institutional_pct": 0,
-      "promoter_score": 0.897,
-      "undiscovered_score": 1.0
-    },
-    "valuation": {
-      "market_cap_cr": 397.0,
-      "pb_ratio": 1.04,
-      "net_cash_cr": 4.0,
-      "cash_to_mcap_pct": 1.0,
-      "valuation_score": 0.475,
-      "trading_near_book": true
-    },
-    "growth": {
-      "revenue_growth_pct": 54.8,
-      "earnings_growth_pct": 152.6,
-      "profit_margin_pct": 5.9,
-      "growth_accelerating": true,
-      "growth_score": 0.958
-    },
-    "catalyst": {
-      "catalysts": [],
-      "catalyst_score": 0.0,
-      "promoter_buying_signal": false,
-      "capex_signal": false,
-      "export_signal": false,
-      "recent_announcements": 0
-    },
-    "group": {
-      "matched_group": null,
-      "group_score": 0.0,
-      "is_trusted_group": false,
-      "flag": null
-    },
-    "debt": {
-      "current_de": 0.29,
-      "net_debt_cr": -4.0,
-      "is_net_cash": true,
-      "is_near_zero_debt": false,
-      "debt_reducing": false,
-      "debt_reduction_pct": 0.0,
-      "debt_score": 1.0,
-      "flags": [
-        "\ud83d\udfe2 NET CASH (Cash > Debt)"
-      ]
-    },
-    "pe_value": {
-      "stock_pe": 7.2,
-      "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.29,
-      "pe_discount_pct": 71.1,
-      "pe_score": 0.711,
-      "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 7.2 vs sector 25 (71% discount)",
-      "pe_source": "TTM",
-      "sector_mapped": "Consumer Cyclical"
-    },
-    "fcf": {
-      "fcf_yield_pct": null,
-      "ocf_margin_pct": null,
-      "fcf_score": 0.3,
-      "flag": null
-    },
-    "piotroski": {
-      "piotroski_score": 5,
-      "piotroski_details": {
-        "F1_roa_positive": 1,
-        "F2_ocf_positive": 1,
-        "F3_roa_improving": 1,
-        "F4_cash_gt_accrual": 0,
-        "F5_debt_reduced": 0,
-        "F6_curr_ratio_up": 0,
-        "F7_no_dilution": 1,
-        "F8_gross_margin_up": 1,
-        "F9_asset_turnover_up": 0
-      },
-      "piotroski_flag": null
-    },
-    "pe_trajectory": {
-      "pe_expanding": false,
-      "pe_trajectory": "12.1 \u2192 7.2 \u2192 7.2 (now)",
-      "pe_traj_flag": null
-    },
-    "lynch": {
-      "peg_ratio": 0.13,
-      "inst_own_pct": null,
-      "net_cash_pct": 1.0,
-      "eps_consistent": "4/4 qtrs profitable",
-      "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
-      "lynch_class": "Stalwart (consistent compounder)",
-      "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
-        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
-      ],
-      "lynch_score": 0.68
-    },
-    "all_flags": [
-      "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udcb0 DEEP VALUE: P/E 7.2 vs sector 25 (71% discount)",
-      "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
-      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
-      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
-    ],
-    "bse_code": null,
-    "scanned_at": "2026-03-20 14:17 UTC",
-    "screener": null,
-    "screener_flags": [],
-    "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
-      "score_trend": "rising",
-      "score_7d_delta": 0.045,
-      "first_seen": "20260316",
-      "peak_score": 0.618,
-      "price_since_first_pct": -0.0,
-      "all_catalysts": []
-    }
-  },
-  {
-    "symbol": "TAINWALCHM.NS",
-    "price": 181.4,
-    "market_cap_cr": 170.0,
-    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6172,
-    "shareholding": {
-      "insider_pct": 71.8,
-      "institutional_pct": 0,
-      "promoter_score": 0.957,
-      "undiscovered_score": 1.0
-    },
-    "valuation": {
-      "market_cap_cr": 170.0,
-      "pb_ratio": 0.99,
-      "net_cash_cr": 0.0,
-      "cash_to_mcap_pct": 0.3,
-      "valuation_score": 0.484,
-      "trading_near_book": true
-    },
-    "growth": {
-      "revenue_growth_pct": 119.6,
-      "earnings_growth_pct": 2029.4,
-      "profit_margin_pct": 48.7,
-      "growth_accelerating": true,
-      "growth_score": 1.0
-    },
-    "catalyst": {
-      "catalysts": [],
-      "catalyst_score": 0.0,
-      "promoter_buying_signal": false,
-      "capex_signal": false,
-      "export_signal": false,
-      "recent_announcements": 0
-    },
-    "group": {
-      "matched_group": null,
-      "group_score": 0.0,
-      "is_trusted_group": false,
-      "flag": null
-    },
-    "debt": {
-      "current_de": 0.0,
-      "net_debt_cr": -0.0,
-      "is_net_cash": true,
-      "is_near_zero_debt": true,
-      "debt_reducing": false,
-      "debt_reduction_pct": 0.0,
-      "debt_score": 1.0,
-      "flags": [
-        "\ud83d\udfe2 NET CASH (Cash > Debt)"
-      ]
-    },
-    "pe_value": {
-      "stock_pe": 16.0,
-      "sector_pe": 28.0,
-      "pe_ratio_to_sector": 0.57,
-      "pe_discount_pct": 42.9,
-      "pe_score": 0.429,
-      "is_deep_value": false,
-      "flag": null,
-      "pe_source": "TTM",
-      "sector_mapped": "Basic Materials"
-    },
-    "fcf": {
-      "fcf_yield_pct": null,
-      "ocf_margin_pct": null,
-      "fcf_score": 0.3,
-      "flag": null
-    },
-    "piotroski": {
-      "piotroski_score": 3,
-      "piotroski_details": {
-        "F1_roa_positive": 1,
-        "F2_ocf_positive": 0,
-        "F3_roa_improving": 0,
-        "F4_cash_gt_accrual": 0,
-        "F5_debt_reduced": 0,
-        "F6_curr_ratio_up": 0,
-        "F7_no_dilution": 1,
-        "F8_gross_margin_up": 1,
-        "F9_asset_turnover_up": 0
-      },
-      "piotroski_flag": null
-    },
-    "pe_trajectory": {
-      "pe_expanding": false,
-      "pe_trajectory": "26.5 \u2192 16.0 \u2192 16.0 (now)",
-      "pe_traj_flag": null
-    },
-    "lynch": {
-      "peg_ratio": 0.13,
-      "inst_own_pct": null,
-      "net_cash_pct": 0.3,
-      "eps_consistent": "4/4 qtrs profitable",
-      "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
-      "lynch_class": "Stalwart (consistent compounder)",
-      "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
-        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
-      ],
-      "lynch_score": 0.68
-    },
-    "all_flags": [
-      "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
-      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
-      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
-    ],
-    "bse_code": null,
-    "scanned_at": "2026-03-20 14:25 UTC",
-    "screener": null,
-    "screener_flags": [],
-    "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
-      "score_trend": "rising",
-      "score_7d_delta": 0.046,
-      "first_seen": "20260316",
-      "peak_score": 0.617,
-      "price_since_first_pct": -1.7,
+      "price_since_first_pct": -4.5,
       "all_catalysts": []
     }
   },
   {
     "symbol": "AFIL.NS",
-    "price": 8.47,
-    "market_cap_cr": 361.0,
+    "price": 8.05,
+    "market_cap_cr": 344.0,
     "price_stage": "\ud83d\udfe0 MID CYCLE",
-    "composite_score": 0.6151,
+    "composite_score": 0.612,
     "shareholding": {
       "insider_pct": 50.7,
       "institutional_pct": 2.8,
@@ -901,11 +739,11 @@
       "undiscovered_score": 0.906
     },
     "valuation": {
-      "market_cap_cr": 361.0,
-      "pb_ratio": 0.88,
+      "market_cap_cr": 344.0,
+      "pb_ratio": 0.84,
       "net_cash_cr": 347.0,
-      "cash_to_mcap_pct": 96.1,
-      "valuation_score": 0.893,
+      "cash_to_mcap_pct": 101.1,
+      "valuation_score": 0.919,
       "trading_near_book": true
     },
     "growth": {
@@ -942,13 +780,13 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 9.6,
+      "stock_pe": 9.1,
       "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.39,
-      "pe_discount_pct": 61.5,
-      "pe_score": 0.615,
+      "pe_ratio_to_sector": 0.37,
+      "pe_discount_pct": 63.4,
+      "pe_score": 0.634,
       "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 9.6 vs sector 25 (62% discount)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 9.1 vs sector 25 (63% discount)",
       "pe_source": "TTM",
       "sector_mapped": "Financial Services"
     },
@@ -975,56 +813,73 @@
     },
     "pe_trajectory": {
       "pe_expanding": true,
-      "pe_trajectory": "8.4 \u2192 9.6 \u2192 9.6 (now)",
-      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 8.4 \u2192 9.6 \u2192 9.6 (now)"
+      "pe_trajectory": "8.4 \u2192 9.1 \u2192 9.1 (now)",
+      "pe_traj_flag": "\ud83d\udcc8 P/E EXPANDING: 8.4 \u2192 9.1 \u2192 9.1 (now)"
     },
     "lynch": {
-      "peg_ratio": 0.67,
+      "peg_ratio": 0.64,
       "inst_own_pct": 2.8,
-      "net_cash_pct": 96.1,
+      "net_cash_pct": 101.1,
       "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
       "lynch_class": "Fast Grower (undiscovered)",
       "lynch_flags": [
-        "\u2705 Lynch PEG 0.67 \u2014 Ideal GARP zone (<1)",
+        "\u2705 Lynch PEG 0.64 \u2014 Ideal GARP zone (<1)",
         "\ud83d\udc41\ufe0f Undiscovered: 2.8% institutional holding",
-        "\ud83d\udcb0 Net cash 96% of MCap \u2014 Lynch floor \u2713",
+        "\ud83d\udcb0 Net cash 101% of MCap \u2014 Lynch floor \u2713",
         "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
       ],
       "lynch_score": 0.865
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 50.7,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udcb0 DEEP VALUE: P/E 9.6 vs sector 25 (62% discount)",
-      "\ud83d\udcc8 P/E EXPANDING: 8.4 \u2192 9.6 \u2192 9.6 (now)",
-      "\u2705 Lynch PEG 0.67 \u2014 Ideal GARP zone (<1)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 9.1 vs sector 25 (63% discount)",
+      "\ud83d\udcc8 P/E EXPANDING: 8.4 \u2192 9.1 \u2192 9.1 (now)",
+      "\u2705 Lynch PEG 0.64 \u2014 Ideal GARP zone (<1)",
       "\ud83d\udc41\ufe0f Undiscovered: 2.8% institutional holding",
-      "\ud83d\udcb0 Net cash 96% of MCap \u2014 Lynch floor \u2713",
+      "\ud83d\udcb0 Net cash 101% of MCap \u2014 Lynch floor \u2713",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
       "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 13:54 UTC",
+    "scanned_at": "2026-03-23 14:05 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 5,
-      "streak": 0,
+      "days_in_watchlist": 6,
+      "streak": 1,
       "score_trend": "rising",
-      "score_7d_delta": 0.082,
+      "score_7d_delta": 0.053,
       "first_seen": "20260316",
       "peak_score": 0.615,
-      "price_since_first_pct": 4.1,
+      "price_since_first_pct": -1.1,
       "all_catalysts": []
     }
   },
   {
     "symbol": "INFOBEAN.NS",
-    "price": 139.73,
-    "market_cap_cr": 1355.0,
+    "price": 131.42,
+    "market_cap_cr": 1274.0,
     "price_stage": "\ud83d\udfe0 MID CYCLE",
-    "composite_score": 0.6116,
+    "composite_score": 0.612,
     "shareholding": {
       "insider_pct": 78.4,
       "institutional_pct": 1.0,
@@ -1032,11 +887,11 @@
       "undiscovered_score": 0.966
     },
     "valuation": {
-      "market_cap_cr": 1355.0,
-      "pb_ratio": 3.7,
+      "market_cap_cr": 1274.0,
+      "pb_ratio": 3.48,
       "net_cash_cr": 193.0,
-      "cash_to_mcap_pct": 14.2,
-      "valuation_score": 0.057,
+      "cash_to_mcap_pct": 15.1,
+      "valuation_score": 0.061,
       "trading_near_book": false
     },
     "growth": {
@@ -1073,11 +928,11 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 18.0,
+      "stock_pe": 16.9,
       "sector_pe": 30.0,
-      "pe_ratio_to_sector": 0.6,
-      "pe_discount_pct": 40.1,
-      "pe_score": 0.401,
+      "pe_ratio_to_sector": 0.56,
+      "pe_discount_pct": 43.7,
+      "pe_score": 0.437,
       "is_deep_value": false,
       "flag": null,
       "pe_source": "TTM",
@@ -1110,49 +965,496 @@
       "pe_traj_flag": null
     },
     "lynch": {
-      "peg_ratio": 0.45,
+      "peg_ratio": 0.43,
       "inst_own_pct": 1.0,
-      "net_cash_pct": 14.2,
+      "net_cash_pct": 15.1,
       "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
       "lynch_class": "Fast Grower (undiscovered)",
       "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.45 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udd25 Lynch PEG 0.43 \u2014 Deeply undervalued vs growth",
         "\ud83d\udc41\ufe0f Undiscovered: 1.0% institutional holding",
+        "\ud83d\udcb5 Net cash 15% of MCap",
         "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
       ],
-      "lynch_score": 0.82
+      "lynch_score": 0.87
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 78.4,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
     },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
       "\ud83c\udfc6 PIOTROSKI 8/9 \u2014 Exceptional financial health",
-      "\ud83d\udd25 Lynch PEG 0.45 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udd25 Lynch PEG 0.43 \u2014 Deeply undervalued vs growth",
       "\ud83d\udc41\ufe0f Undiscovered: 1.0% institutional holding",
+      "\ud83d\udcb5 Net cash 15% of MCap",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
       "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:07 UTC",
+    "scanned_at": "2026-03-23 14:22 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 4,
-      "streak": 3,
+      "days_in_watchlist": 5,
+      "streak": 4,
       "score_trend": "stable",
       "score_7d_delta": -0.006,
       "first_seen": "20260317",
       "peak_score": 0.618,
-      "price_since_first_pct": 6.0,
+      "price_since_first_pct": -0.3,
+      "all_catalysts": []
+    }
+  },
+  {
+    "symbol": "UNIDT.NS",
+    "price": 160.98,
+    "market_cap_cr": 327.0,
+    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
+    "composite_score": 0.6093,
+    "shareholding": {
+      "insider_pct": 82.1,
+      "institutional_pct": 0,
+      "promoter_score": 1.0,
+      "undiscovered_score": 1.0
+    },
+    "valuation": {
+      "market_cap_cr": 327.0,
+      "pb_ratio": 1.21,
+      "net_cash_cr": -27.0,
+      "cash_to_mcap_pct": -8.2,
+      "valuation_score": 0.43,
+      "trading_near_book": true
+    },
+    "growth": {
+      "revenue_growth_pct": 49.1,
+      "earnings_growth_pct": 105.3,
+      "profit_margin_pct": 10.7,
+      "growth_accelerating": true,
+      "growth_score": 0.997
+    },
+    "catalyst": {
+      "catalysts": [],
+      "catalyst_score": 0.0,
+      "promoter_buying_signal": false,
+      "capex_signal": false,
+      "export_signal": false,
+      "recent_announcements": 0
+    },
+    "group": {
+      "matched_group": null,
+      "group_score": 0.0,
+      "is_trusted_group": false,
+      "flag": null
+    },
+    "debt": {
+      "current_de": 0.11,
+      "net_debt_cr": 27.0,
+      "is_net_cash": false,
+      "is_near_zero_debt": true,
+      "debt_reducing": false,
+      "debt_reduction_pct": 0.0,
+      "debt_score": 0.8,
+      "flags": [
+        "\ud83d\udfe2 NEAR ZERO DEBT (D/E 0.11)"
+      ]
+    },
+    "pe_value": {
+      "stock_pe": 18.1,
+      "sector_pe": 25.0,
+      "pe_ratio_to_sector": 0.73,
+      "pe_discount_pct": 27.4,
+      "pe_score": 0.274,
+      "is_deep_value": false,
+      "flag": null,
+      "pe_source": "TTM",
+      "sector_mapped": "Energy"
+    },
+    "fcf": {
+      "fcf_yield_pct": null,
+      "ocf_margin_pct": null,
+      "fcf_score": 0.3,
+      "flag": null
+    },
+    "piotroski": {
+      "piotroski_score": 6,
+      "piotroski_details": {
+        "F1_roa_positive": 1,
+        "F2_ocf_positive": 1,
+        "F3_roa_improving": 1,
+        "F4_cash_gt_accrual": 0,
+        "F5_debt_reduced": 0,
+        "F6_curr_ratio_up": 1,
+        "F7_no_dilution": 1,
+        "F8_gross_margin_up": 0,
+        "F9_asset_turnover_up": 1
+      },
+      "piotroski_flag": "\u2705 Piotroski 6/9 \u2014 Improving financials"
+    },
+    "pe_trajectory": {
+      "pe_expanding": false,
+      "pe_trajectory": "23.2 \u2192 18.1 \u2192 18.1 (now)",
+      "pe_traj_flag": null
+    },
+    "lynch": {
+      "peg_ratio": 0.37,
+      "inst_own_pct": null,
+      "net_cash_pct": -8.2,
+      "eps_consistent": "4/4 qtrs profitable",
+      "inv_health": null,
+      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
+      "lynch_class": "Stalwart (consistent compounder)",
+      "lynch_flags": [
+        "\ud83d\udd25 Lynch PEG 0.37 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
+      ],
+      "lynch_score": 0.63
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 82.1,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "all_flags": [
+      "\ud83d\udfe2 NEAR ZERO DEBT (D/E 0.11)",
+      "\u2705 Piotroski 6/9 \u2014 Improving financials",
+      "\ud83d\udd25 Lynch PEG 0.37 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
+      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
+    ],
+    "bse_code": null,
+    "scanned_at": "2026-03-23 14:46 UTC",
+    "screener": null,
+    "screener_flags": [],
+    "persistence": {
+      "days_in_watchlist": 7,
+      "streak": 5,
+      "score_trend": "rising",
+      "score_7d_delta": 0.021,
+      "first_seen": "20260316",
+      "peak_score": 0.621,
+      "price_since_first_pct": -2.6,
+      "all_catalysts": []
+    }
+  },
+  {
+    "symbol": "TAINWALCHM.NS",
+    "price": 174.57,
+    "market_cap_cr": 163.0,
+    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
+    "composite_score": 0.6087,
+    "shareholding": {
+      "insider_pct": 71.8,
+      "institutional_pct": 0,
+      "promoter_score": 0.957,
+      "undiscovered_score": 1.0
+    },
+    "valuation": {
+      "market_cap_cr": 163.0,
+      "pb_ratio": 0.95,
+      "net_cash_cr": 0.0,
+      "cash_to_mcap_pct": 0.3,
+      "valuation_score": 0.493,
+      "trading_near_book": true
+    },
+    "growth": {
+      "revenue_growth_pct": 119.6,
+      "earnings_growth_pct": 2029.4,
+      "profit_margin_pct": 48.7,
+      "growth_accelerating": true,
+      "growth_score": 1.0
+    },
+    "catalyst": {
+      "catalysts": [],
+      "catalyst_score": 0.0,
+      "promoter_buying_signal": false,
+      "capex_signal": false,
+      "export_signal": false,
+      "recent_announcements": 0
+    },
+    "group": {
+      "matched_group": null,
+      "group_score": 0.0,
+      "is_trusted_group": false,
+      "flag": null
+    },
+    "debt": {
+      "current_de": 0.0,
+      "net_debt_cr": -0.0,
+      "is_net_cash": true,
+      "is_near_zero_debt": true,
+      "debt_reducing": false,
+      "debt_reduction_pct": 0.0,
+      "debt_score": 1.0,
+      "flags": [
+        "\ud83d\udfe2 NET CASH (Cash > Debt)"
+      ]
+    },
+    "pe_value": {
+      "stock_pe": 15.4,
+      "sector_pe": 28.0,
+      "pe_ratio_to_sector": 0.55,
+      "pe_discount_pct": 45.1,
+      "pe_score": 0.451,
+      "is_deep_value": false,
+      "flag": null,
+      "pe_source": "TTM",
+      "sector_mapped": "Basic Materials"
+    },
+    "fcf": {
+      "fcf_yield_pct": null,
+      "ocf_margin_pct": null,
+      "fcf_score": 0.3,
+      "flag": null
+    },
+    "piotroski": {
+      "piotroski_score": 3,
+      "piotroski_details": {
+        "F1_roa_positive": 1,
+        "F2_ocf_positive": 0,
+        "F3_roa_improving": 0,
+        "F4_cash_gt_accrual": 0,
+        "F5_debt_reduced": 0,
+        "F6_curr_ratio_up": 0,
+        "F7_no_dilution": 1,
+        "F8_gross_margin_up": 1,
+        "F9_asset_turnover_up": 0
+      },
+      "piotroski_flag": null
+    },
+    "pe_trajectory": {
+      "pe_expanding": false,
+      "pe_trajectory": "26.5 \u2192 15.4 \u2192 15.4 (now)",
+      "pe_traj_flag": null
+    },
+    "lynch": {
+      "peg_ratio": 0.13,
+      "inst_own_pct": null,
+      "net_cash_pct": 0.3,
+      "eps_consistent": "4/4 qtrs profitable",
+      "inv_health": null,
+      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
+      "lynch_class": "Stalwart (consistent compounder)",
+      "lynch_flags": [
+        "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
+      ],
+      "lynch_score": 0.68
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 71.8,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "all_flags": [
+      "\ud83d\udfe2 NET CASH (Cash > Debt)",
+      "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
+      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
+    ],
+    "bse_code": null,
+    "scanned_at": "2026-03-23 14:43 UTC",
+    "screener": null,
+    "screener_flags": [],
+    "persistence": {
+      "days_in_watchlist": 7,
+      "streak": 5,
+      "score_trend": "rising",
+      "score_7d_delta": 0.021,
+      "first_seen": "20260316",
+      "peak_score": 0.617,
+      "price_since_first_pct": -5.4,
+      "all_catalysts": []
+    }
+  },
+  {
+    "symbol": "PASUPTAC.NS",
+    "price": 42.05,
+    "market_cap_cr": 375.0,
+    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
+    "composite_score": 0.6081,
+    "shareholding": {
+      "insider_pct": 67.3,
+      "institutional_pct": 0,
+      "promoter_score": 0.897,
+      "undiscovered_score": 1.0
+    },
+    "valuation": {
+      "market_cap_cr": 375.0,
+      "pb_ratio": 0.98,
+      "net_cash_cr": 4.0,
+      "cash_to_mcap_pct": 1.1,
+      "valuation_score": 0.489,
+      "trading_near_book": true
+    },
+    "growth": {
+      "revenue_growth_pct": 54.8,
+      "earnings_growth_pct": 152.6,
+      "profit_margin_pct": 5.9,
+      "growth_accelerating": true,
+      "growth_score": 0.958
+    },
+    "catalyst": {
+      "catalysts": [],
+      "catalyst_score": 0.0,
+      "promoter_buying_signal": false,
+      "capex_signal": false,
+      "export_signal": false,
+      "recent_announcements": 0
+    },
+    "group": {
+      "matched_group": null,
+      "group_score": 0.0,
+      "is_trusted_group": false,
+      "flag": null
+    },
+    "debt": {
+      "current_de": 0.29,
+      "net_debt_cr": -4.0,
+      "is_net_cash": true,
+      "is_near_zero_debt": false,
+      "debt_reducing": false,
+      "debt_reduction_pct": 0.0,
+      "debt_score": 1.0,
+      "flags": [
+        "\ud83d\udfe2 NET CASH (Cash > Debt)"
+      ]
+    },
+    "pe_value": {
+      "stock_pe": 6.8,
+      "sector_pe": 25.0,
+      "pe_ratio_to_sector": 0.27,
+      "pe_discount_pct": 72.7,
+      "pe_score": 0.727,
+      "is_deep_value": true,
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 6.8 vs sector 25 (73% discount)",
+      "pe_source": "TTM",
+      "sector_mapped": "Consumer Cyclical"
+    },
+    "fcf": {
+      "fcf_yield_pct": null,
+      "ocf_margin_pct": null,
+      "fcf_score": 0.3,
+      "flag": null
+    },
+    "piotroski": {
+      "piotroski_score": 5,
+      "piotroski_details": {
+        "F1_roa_positive": 1,
+        "F2_ocf_positive": 1,
+        "F3_roa_improving": 1,
+        "F4_cash_gt_accrual": 0,
+        "F5_debt_reduced": 0,
+        "F6_curr_ratio_up": 0,
+        "F7_no_dilution": 1,
+        "F8_gross_margin_up": 1,
+        "F9_asset_turnover_up": 0
+      },
+      "piotroski_flag": null
+    },
+    "pe_trajectory": {
+      "pe_expanding": false,
+      "pe_trajectory": "12.1 \u2192 6.8 \u2192 6.8 (now)",
+      "pe_traj_flag": null
+    },
+    "lynch": {
+      "peg_ratio": 0.12,
+      "inst_own_pct": null,
+      "net_cash_pct": 1.1,
+      "eps_consistent": "4/4 qtrs profitable",
+      "inv_health": null,
+      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
+      "lynch_class": "Stalwart (consistent compounder)",
+      "lynch_flags": [
+        "\ud83d\udd25 Lynch PEG 0.12 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
+      ],
+      "lynch_score": 0.68
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 67.3,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "all_flags": [
+      "\ud83d\udfe2 NET CASH (Cash > Debt)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 6.8 vs sector 25 (73% discount)",
+      "\ud83d\udd25 Lynch PEG 0.12 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
+      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
+    ],
+    "bse_code": null,
+    "scanned_at": "2026-03-23 14:33 UTC",
+    "screener": null,
+    "screener_flags": [],
+    "persistence": {
+      "days_in_watchlist": 7,
+      "streak": 5,
+      "score_trend": "rising",
+      "score_7d_delta": 0.02,
+      "first_seen": "20260316",
+      "peak_score": 0.618,
+      "price_since_first_pct": -5.7,
       "all_catalysts": []
     }
   },
   {
     "symbol": "SHANTIGOLD.NS",
-    "price": 184.62,
-    "market_cap_cr": 1331.0,
+    "price": 176.33,
+    "market_cap_cr": 1271.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6107,
+    "composite_score": 0.6041,
     "shareholding": {
       "insider_pct": 76.3,
       "institutional_pct": 0,
@@ -1160,11 +1462,11 @@
       "undiscovered_score": 1.0
     },
     "valuation": {
-      "market_cap_cr": 1331.0,
-      "pb_ratio": 2.05,
+      "market_cap_cr": 1271.0,
+      "pb_ratio": 1.95,
       "net_cash_cr": -125.0,
-      "cash_to_mcap_pct": -9.4,
-      "valuation_score": 0.229,
+      "cash_to_mcap_pct": -9.9,
+      "valuation_score": 0.251,
       "trading_near_book": false
     },
     "growth": {
@@ -1199,13 +1501,13 @@
       "flags": []
     },
     "pe_value": {
-      "stock_pe": 10.3,
+      "stock_pe": 9.9,
       "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.41,
-      "pe_discount_pct": 58.7,
-      "pe_score": 0.587,
+      "pe_ratio_to_sector": 0.4,
+      "pe_discount_pct": 60.5,
+      "pe_score": 0.605,
       "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 10.3 vs sector 25 (59% discount)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 9.9 vs sector 25 (60% discount)",
       "pe_source": "TTM",
       "sector_mapped": "Consumer Cyclical"
     },
@@ -1232,13 +1534,13 @@
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "16.3 \u2192 10.9 \u2192 10.3 (now)",
+      "pe_trajectory": "16.3 \u2192 10.5 \u2192 9.9 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
       "peg_ratio": 0.09,
       "inst_own_pct": null,
-      "net_cash_pct": -9.4,
+      "net_cash_pct": -9.9,
       "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
@@ -1249,54 +1551,71 @@
       ],
       "lynch_score": 0.63
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 76.3,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
-      "\ud83d\udcb0 DEEP VALUE: P/E 10.3 vs sector 25 (59% discount)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 9.9 vs sector 25 (60% discount)",
       "\u2705 Piotroski 7/9 \u2014 Improving financials",
       "\ud83d\udd25 Lynch PEG 0.09 \u2014 Deeply undervalued vs growth",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
       "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:22 UTC",
+    "scanned_at": "2026-03-23 14:39 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
-      "score_trend": "rising",
-      "score_7d_delta": 0.04,
+      "days_in_watchlist": 7,
+      "streak": 5,
+      "score_trend": "stable",
+      "score_7d_delta": 0.019,
       "first_seen": "20260316",
       "peak_score": 0.612,
-      "price_since_first_pct": 1.3,
+      "price_since_first_pct": -3.3,
       "all_catalysts": []
     }
   },
   {
-    "symbol": "SATIN.NS",
-    "price": 145.16,
-    "market_cap_cr": 1597.0,
+    "symbol": "MANAKSTEEL.NS",
+    "price": 48.13,
+    "market_cap_cr": 315.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6078,
+    "composite_score": 0.5967,
     "shareholding": {
-      "insider_pct": 57.4,
-      "institutional_pct": 5.9,
-      "promoter_score": 0.766,
-      "undiscovered_score": 0.805
+      "insider_pct": 74.7,
+      "institutional_pct": 0,
+      "promoter_score": 0.997,
+      "undiscovered_score": 1.0
     },
     "valuation": {
-      "market_cap_cr": 1597.0,
-      "pb_ratio": 0.61,
-      "net_cash_cr": -6946.0,
-      "cash_to_mcap_pct": -435.1,
-      "valuation_score": 0.574,
+      "market_cap_cr": 315.0,
+      "pb_ratio": 1.03,
+      "net_cash_cr": -51.0,
+      "cash_to_mcap_pct": -16.3,
+      "valuation_score": 0.472,
       "trading_near_book": true
     },
     "growth": {
-      "revenue_growth_pct": 61.6,
-      "earnings_growth_pct": 403.1,
-      "profit_margin_pct": 15.2,
+      "revenue_growth_pct": 98.1,
+      "earnings_growth_pct": 320.0,
+      "profit_margin_pct": 2.5,
       "growth_accelerating": true,
-      "growth_score": 1.0
+      "growth_score": 0.938
     },
     "catalyst": {
       "catalysts": [],
@@ -1308,30 +1627,30 @@
     },
     "group": {
       "matched_group": null,
-      "group_score": 0.2,
+      "group_score": 0.0,
       "is_trusted_group": false,
       "flag": null
     },
     "debt": {
-      "current_de": 3.68,
-      "net_debt_cr": 6946.0,
+      "current_de": 0.66,
+      "net_debt_cr": 51.0,
       "is_net_cash": false,
       "is_near_zero_debt": false,
       "debt_reducing": false,
       "debt_reduction_pct": 0.0,
-      "debt_score": 0.0,
+      "debt_score": 0.668,
       "flags": []
     },
     "pe_value": {
-      "stock_pe": 8.3,
+      "stock_pe": 12.5,
       "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.33,
-      "pe_discount_pct": 66.7,
-      "pe_score": 0.667,
+      "pe_ratio_to_sector": 0.5,
+      "pe_discount_pct": 50.1,
+      "pe_score": 0.501,
       "is_deep_value": true,
-      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 8.3 vs sector 25 (67% discount)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 12.5 vs sector 25 (50% discount)",
       "pe_source": "TTM",
-      "sector_mapped": "Financial Services"
+      "sector_mapped": "Basic Materials"
     },
     "fcf": {
       "fcf_yield_pct": null,
@@ -1343,65 +1662,80 @@
       "piotroski_score": 5,
       "piotroski_details": {
         "F1_roa_positive": 1,
-        "F2_ocf_positive": 0,
+        "F2_ocf_positive": 1,
         "F3_roa_improving": 0,
-        "F4_cash_gt_accrual": 0,
-        "F5_debt_reduced": 1,
+        "F4_cash_gt_accrual": 1,
+        "F5_debt_reduced": 0,
         "F6_curr_ratio_up": 1,
         "F7_no_dilution": 1,
         "F8_gross_margin_up": 0,
-        "F9_asset_turnover_up": 1
+        "F9_asset_turnover_up": 0
       },
       "piotroski_flag": null
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "13.5 \u2192 10.4 \u2192 8.3 (now)",
+      "pe_trajectory": "21.1 \u2192 12.5 \u2192 12.5 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
       "peg_ratio": 0.13,
-      "inst_own_pct": 5.9,
-      "net_cash_pct": -435.1,
+      "inst_own_pct": null,
+      "net_cash_pct": -16.3,
       "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
-      "lynch_class": "Fast Grower (undiscovered)",
+      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
+      "lynch_class": "Stalwart (consistent compounder)",
       "lynch_flags": [
         "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
-        "\ud83c\udf31 Early stage: 5.9% institutional (Lynch zone)",
         "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
       ],
-      "lynch_score": 0.68
+      "lynch_score": 0.63
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 74.7,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
     },
     "all_flags": [
-      "\ud83d\udcb0 DEEP VALUE: P/E 8.3 vs sector 25 (67% discount)",
+      "\ud83d\udcb0 DEEP VALUE: P/E 12.5 vs sector 25 (50% discount)",
       "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
-      "\ud83c\udf31 Early stage: 5.9% institutional (Lynch zone)",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
-      "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
+      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:21 UTC",
+    "scanned_at": "2026-03-23 14:27 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 6,
-      "streak": 4,
+      "days_in_watchlist": 7,
+      "streak": 5,
       "score_trend": "rising",
-      "score_7d_delta": 0.045,
+      "score_7d_delta": 0.02,
       "first_seen": "20260316",
-      "peak_score": 0.608,
-      "price_since_first_pct": 0.4,
+      "peak_score": 0.603,
+      "price_since_first_pct": -8.4,
       "all_catalysts": []
     }
   },
   {
     "symbol": "DIGIDRIVE.NS",
-    "price": 20.08,
-    "market_cap_cr": 78.0,
+    "price": 19.67,
+    "market_cap_cr": 76.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6074,
+    "composite_score": 0.5965,
     "shareholding": {
       "insider_pct": 64.6,
       "institutional_pct": 0.0,
@@ -1409,11 +1743,11 @@
       "undiscovered_score": 1.0
     },
     "valuation": {
-      "market_cap_cr": 78.0,
+      "market_cap_cr": 76.0,
       "pb_ratio": 0.27,
       "net_cash_cr": 10.0,
-      "cash_to_mcap_pct": 12.4,
-      "valuation_score": 0.704,
+      "cash_to_mcap_pct": 12.7,
+      "valuation_score": 0.707,
       "trading_near_book": true
     },
     "growth": {
@@ -1450,13 +1784,13 @@
       ]
     },
     "pe_value": {
-      "stock_pe": 6.2,
+      "stock_pe": 6.1,
       "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.25,
-      "pe_discount_pct": 75.1,
-      "pe_score": 0.751,
+      "pe_ratio_to_sector": 0.24,
+      "pe_discount_pct": 75.6,
+      "pe_score": 0.756,
       "is_deep_value": true,
-      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 6.2 vs sector 25 (1/4 of peers!)",
+      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 6.1 vs sector 25 (1/4 of peers!)",
       "pe_source": "TTM",
       "sector_mapped": "Consumer Cyclical"
     },
@@ -1483,13 +1817,13 @@
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "10.3 \u2192 6.2 \u2192 6.2 (now)",
+      "pe_trajectory": "10.3 \u2192 6.1 \u2192 6.1 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
       "peg_ratio": null,
       "inst_own_pct": 0.0,
-      "net_cash_pct": 12.4,
+      "net_cash_pct": 12.7,
       "eps_consistent": "3/4 qtrs profitable",
       "inv_health": null,
       "lynch_flag": null,
@@ -1499,172 +1833,67 @@
       ],
       "lynch_score": 0.64
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 64.6,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
       "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udc8e EXTREME VALUE: P/E 6.2 vs sector 25 (1/4 of peers!)",
+      "\ud83d\udc8e EXTREME VALUE: P/E 6.1 vs sector 25 (1/4 of peers!)",
       "\ud83d\udc41\ufe0f Undiscovered: 0.0% institutional holding"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:01 UTC",
-    "screener": null,
-    "screener_flags": [],
-    "persistence": {
-      "days_in_watchlist": 5,
-      "streak": 0,
-      "score_trend": "rising",
-      "score_7d_delta": 0.064,
-      "first_seen": "20260316",
-      "peak_score": 0.607,
-      "price_since_first_pct": -0.8,
-      "all_catalysts": []
-    }
-  },
-  {
-    "symbol": "MANAKSTEEL.NS",
-    "price": 52.33,
-    "market_cap_cr": 343.0,
-    "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.6026,
-    "shareholding": {
-      "insider_pct": 74.7,
-      "institutional_pct": 0,
-      "promoter_score": 0.997,
-      "undiscovered_score": 1.0
-    },
-    "valuation": {
-      "market_cap_cr": 343.0,
-      "pb_ratio": 1.12,
-      "net_cash_cr": -51.0,
-      "cash_to_mcap_pct": -15.0,
-      "valuation_score": 0.451,
-      "trading_near_book": true
-    },
-    "growth": {
-      "revenue_growth_pct": 98.1,
-      "earnings_growth_pct": 320.0,
-      "profit_margin_pct": 2.5,
-      "growth_accelerating": true,
-      "growth_score": 0.938
-    },
-    "catalyst": {
-      "catalysts": [],
-      "catalyst_score": 0.0,
-      "promoter_buying_signal": false,
-      "capex_signal": false,
-      "export_signal": false,
-      "recent_announcements": 0
-    },
-    "group": {
-      "matched_group": null,
-      "group_score": 0.0,
-      "is_trusted_group": false,
-      "flag": null
-    },
-    "debt": {
-      "current_de": 0.66,
-      "net_debt_cr": 51.0,
-      "is_net_cash": false,
-      "is_near_zero_debt": false,
-      "debt_reducing": false,
-      "debt_reduction_pct": 0.0,
-      "debt_score": 0.668,
-      "flags": []
-    },
-    "pe_value": {
-      "stock_pe": 13.6,
-      "sector_pe": 25.0,
-      "pe_ratio_to_sector": 0.54,
-      "pe_discount_pct": 45.8,
-      "pe_score": 0.458,
-      "is_deep_value": false,
-      "flag": null,
-      "pe_source": "TTM",
-      "sector_mapped": "Basic Materials"
-    },
-    "fcf": {
-      "fcf_yield_pct": null,
-      "ocf_margin_pct": null,
-      "fcf_score": 0.3,
-      "flag": null
-    },
-    "piotroski": {
-      "piotroski_score": 5,
-      "piotroski_details": {
-        "F1_roa_positive": 1,
-        "F2_ocf_positive": 1,
-        "F3_roa_improving": 0,
-        "F4_cash_gt_accrual": 1,
-        "F5_debt_reduced": 0,
-        "F6_curr_ratio_up": 1,
-        "F7_no_dilution": 1,
-        "F8_gross_margin_up": 0,
-        "F9_asset_turnover_up": 0
-      },
-      "piotroski_flag": null
-    },
-    "pe_trajectory": {
-      "pe_expanding": false,
-      "pe_trajectory": "21.1 \u2192 13.6 \u2192 13.6 (now)",
-      "pe_traj_flag": null
-    },
-    "lynch": {
-      "peg_ratio": 0.14,
-      "inst_own_pct": null,
-      "net_cash_pct": -15.0,
-      "eps_consistent": "4/4 qtrs profitable",
-      "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
-      "lynch_class": "Stalwart (consistent compounder)",
-      "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.14 \u2014 Deeply undervalued vs growth",
-        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
-      ],
-      "lynch_score": 0.63
-    },
-    "all_flags": [
-      "\ud83d\udd25 Lynch PEG 0.14 \u2014 Deeply undervalued vs growth",
-      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
-      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
-    ],
-    "bse_code": null,
-    "scanned_at": "2026-03-20 14:12 UTC",
+    "scanned_at": "2026-03-23 14:14 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
       "days_in_watchlist": 6,
-      "streak": 4,
+      "streak": 1,
       "score_trend": "rising",
-      "score_7d_delta": 0.042,
+      "score_7d_delta": 0.039,
       "first_seen": "20260316",
-      "peak_score": 0.603,
-      "price_since_first_pct": -0.4,
+      "peak_score": 0.607,
+      "price_since_first_pct": -2.8,
       "all_catalysts": []
     }
   },
   {
-    "symbol": "WAAREEINDO.NS",
-    "price": 385.15,
-    "market_cap_cr": 1602.0,
+    "symbol": "SATIN.NS",
+    "price": 142.62,
+    "market_cap_cr": 1569.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.5986,
+    "composite_score": 0.5949,
     "shareholding": {
-      "insider_pct": 76.3,
-      "institutional_pct": 0,
-      "promoter_score": 1.0,
-      "undiscovered_score": 1.0
+      "insider_pct": 57.4,
+      "institutional_pct": 5.9,
+      "promoter_score": 0.766,
+      "undiscovered_score": 0.805
     },
     "valuation": {
-      "market_cap_cr": 1602.0,
-      "pb_ratio": 7.87,
-      "net_cash_cr": 9.0,
-      "cash_to_mcap_pct": 0.5,
-      "valuation_score": 0.002,
-      "trading_near_book": false
+      "market_cap_cr": 1569.0,
+      "pb_ratio": 0.6,
+      "net_cash_cr": -6946.0,
+      "cash_to_mcap_pct": -442.8,
+      "valuation_score": 0.576,
+      "trading_near_book": true
     },
     "growth": {
-      "revenue_growth_pct": 93.7,
-      "earnings_growth_pct": 305.3,
-      "profit_margin_pct": 31.0,
+      "revenue_growth_pct": 61.6,
+      "earnings_growth_pct": 403.1,
+      "profit_margin_pct": 15.2,
       "growth_accelerating": true,
       "growth_score": 1.0
     },
@@ -1678,32 +1907,30 @@
     },
     "group": {
       "matched_group": null,
-      "group_score": 0.0,
+      "group_score": 0.2,
       "is_trusted_group": false,
       "flag": null
     },
     "debt": {
-      "current_de": 0.02,
-      "net_debt_cr": -9.0,
-      "is_net_cash": true,
-      "is_near_zero_debt": true,
+      "current_de": 3.68,
+      "net_debt_cr": 6946.0,
+      "is_net_cash": false,
+      "is_near_zero_debt": false,
       "debt_reducing": false,
       "debt_reduction_pct": 0.0,
-      "debt_score": 1.0,
-      "flags": [
-        "\ud83d\udfe2 NET CASH (Cash > Debt)"
-      ]
+      "debt_score": 0.0,
+      "flags": []
     },
     "pe_value": {
-      "stock_pe": 6.5,
-      "sector_pe": 30.0,
-      "pe_ratio_to_sector": 0.22,
-      "pe_discount_pct": 78.2,
-      "pe_score": 0.782,
+      "stock_pe": 8.2,
+      "sector_pe": 25.0,
+      "pe_ratio_to_sector": 0.33,
+      "pe_discount_pct": 67.3,
+      "pe_score": 0.673,
       "is_deep_value": true,
-      "flag": "\ud83d\udc8e EXTREME VALUE: P/E 6.5 vs sector 30 (1/4 of peers!)",
+      "flag": "\ud83d\udcb0 DEEP VALUE: P/E 8.2 vs sector 25 (67% discount)",
       "pe_source": "TTM",
-      "sector_mapped": "Technology"
+      "sector_mapped": "Financial Services"
     },
     "fcf": {
       "fcf_yield_pct": null,
@@ -1712,88 +1939,105 @@
       "flag": null
     },
     "piotroski": {
-      "piotroski_score": 7,
+      "piotroski_score": 5,
       "piotroski_details": {
         "F1_roa_positive": 1,
-        "F2_ocf_positive": 1,
-        "F3_roa_improving": 1,
-        "F4_cash_gt_accrual": 1,
+        "F2_ocf_positive": 0,
+        "F3_roa_improving": 0,
+        "F4_cash_gt_accrual": 0,
         "F5_debt_reduced": 1,
         "F6_curr_ratio_up": 1,
         "F7_no_dilution": 1,
         "F8_gross_margin_up": 0,
-        "F9_asset_turnover_up": 0
+        "F9_asset_turnover_up": 1
       },
-      "piotroski_flag": "\u2705 Piotroski 7/9 \u2014 Improving financials"
+      "piotroski_flag": null
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "8.2 \u2192 7.7 \u2192 6.5 (now)",
+      "pe_trajectory": "13.5 \u2192 10.2 \u2192 8.2 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
-      "peg_ratio": 0.07,
-      "inst_own_pct": null,
-      "net_cash_pct": 0.5,
+      "peg_ratio": 0.13,
+      "inst_own_pct": 5.9,
+      "net_cash_pct": -442.8,
       "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
-      "lynch_class": "Stalwart (consistent compounder)",
+      "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
+      "lynch_class": "Fast Grower (undiscovered)",
       "lynch_flags": [
-        "\ud83d\udd25 Lynch PEG 0.07 \u2014 Deeply undervalued vs growth",
+        "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
+        "\ud83c\udf31 Early stage: 5.9% institutional (Lynch zone)",
         "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
       ],
       "lynch_score": 0.68
     },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 57.4,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
     "all_flags": [
-      "\ud83d\udfe2 NET CASH (Cash > Debt)",
-      "\ud83d\udc8e EXTREME VALUE: P/E 6.5 vs sector 30 (1/4 of peers!)",
-      "\u2705 Piotroski 7/9 \u2014 Improving financials",
-      "\ud83d\udd25 Lynch PEG 0.07 \u2014 Deeply undervalued vs growth",
+      "\ud83d\udcb0 DEEP VALUE: P/E 8.2 vs sector 25 (67% discount)",
+      "\ud83d\udd25 Lynch PEG 0.13 \u2014 Deeply undervalued vs growth",
+      "\ud83c\udf31 Early stage: 5.9% institutional (Lynch zone)",
       "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
-      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
+      "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 14:29 UTC",
+    "scanned_at": "2026-03-23 14:38 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 4,
-      "streak": 3,
+      "days_in_watchlist": 7,
+      "streak": 5,
       "score_trend": "stable",
-      "score_7d_delta": -0.001,
-      "first_seen": "20260317",
-      "peak_score": 0.6,
-      "price_since_first_pct": 15.7,
+      "score_7d_delta": 0.018,
+      "first_seen": "20260316",
+      "peak_score": 0.608,
+      "price_since_first_pct": -1.4,
       "all_catalysts": []
     }
   },
   {
-    "symbol": "AMBICAAGAR.NS",
-    "price": 23.28,
-    "market_cap_cr": 40.0,
+    "symbol": "SOLARWORLD.NS",
+    "price": 147.06,
+    "market_cap_cr": 1275.0,
     "price_stage": "\ud83d\udfe2 DEEP BASE (near 52W low)",
-    "composite_score": 0.5984,
+    "composite_score": 0.5947,
     "shareholding": {
-      "insider_pct": 80.0,
-      "institutional_pct": 0,
+      "insider_pct": 77.9,
+      "institutional_pct": 8.6,
       "promoter_score": 1.0,
-      "undiscovered_score": 1.0
+      "undiscovered_score": 0.712
     },
     "valuation": {
-      "market_cap_cr": 40.0,
-      "pb_ratio": 0.36,
-      "net_cash_cr": -82.0,
-      "cash_to_mcap_pct": -206.3,
-      "valuation_score": 0.634,
+      "market_cap_cr": 1275.0,
+      "pb_ratio": 1.47,
+      "net_cash_cr": 416.0,
+      "cash_to_mcap_pct": 32.6,
+      "valuation_score": 0.498,
       "trading_near_book": true
     },
     "growth": {
-      "revenue_growth_pct": 49.9,
-      "earnings_growth_pct": 195.5,
-      "profit_margin_pct": 0.5,
+      "revenue_growth_pct": 183.7,
+      "earnings_growth_pct": -3.6,
+      "profit_margin_pct": 8.4,
       "growth_accelerating": true,
-      "growth_score": 0.848
+      "growth_score": 0.676
     },
     "catalyst": {
       "catalysts": [],
@@ -1805,30 +2049,32 @@
     },
     "group": {
       "matched_group": null,
-      "group_score": 0.0,
+      "group_score": 0.2,
       "is_trusted_group": false,
       "flag": null
     },
     "debt": {
-      "current_de": 0.75,
-      "net_debt_cr": 82.0,
-      "is_net_cash": false,
+      "current_de": 0.24,
+      "net_debt_cr": -416.0,
+      "is_net_cash": true,
       "is_near_zero_debt": false,
       "debt_reducing": false,
       "debt_reduction_pct": 0.0,
-      "debt_score": 0.624,
-      "flags": []
+      "debt_score": 1.0,
+      "flags": [
+        "\ud83d\udfe2 NET CASH (Cash > Debt)"
+      ]
     },
     "pe_value": {
-      "stock_pe": 31.9,
-      "sector_pe": 25.0,
-      "pe_ratio_to_sector": 1.28,
-      "pe_discount_pct": -27.6,
-      "pe_score": 0.0,
+      "stock_pe": 15.8,
+      "sector_pe": 30.0,
+      "pe_ratio_to_sector": 0.53,
+      "pe_discount_pct": 47.5,
+      "pe_score": 0.475,
       "is_deep_value": false,
       "flag": null,
       "pe_source": "TTM",
-      "sector_mapped": "Consumer Defensive"
+      "sector_mapped": "Technology"
     },
     "fcf": {
       "fcf_yield_pct": null,
@@ -1837,55 +2083,78 @@
       "flag": null
     },
     "piotroski": {
-      "piotroski_score": 9,
+      "piotroski_score": 5,
       "piotroski_details": {
         "F1_roa_positive": 1,
         "F2_ocf_positive": 1,
-        "F3_roa_improving": 1,
-        "F4_cash_gt_accrual": 1,
-        "F5_debt_reduced": 1,
+        "F3_roa_improving": 0,
+        "F4_cash_gt_accrual": 0,
+        "F5_debt_reduced": 0,
         "F6_curr_ratio_up": 1,
         "F7_no_dilution": 1,
         "F8_gross_margin_up": 1,
-        "F9_asset_turnover_up": 1
+        "F9_asset_turnover_up": 0
       },
-      "piotroski_flag": "\ud83c\udfc6 PIOTROSKI 9/9 \u2014 Exceptional financial health"
+      "piotroski_flag": null
     },
     "pe_trajectory": {
       "pe_expanding": false,
-      "pe_trajectory": "85.4 \u2192 57.4 \u2192 31.9 (now)",
+      "pe_trajectory": "20.2 \u2192 11.5 \u2192 15.8 (now)",
       "pe_traj_flag": null
     },
     "lynch": {
-      "peg_ratio": 0.64,
-      "inst_own_pct": null,
-      "net_cash_pct": -206.3,
-      "eps_consistent": "3/4 qtrs profitable",
+      "peg_ratio": 0.09,
+      "inst_own_pct": 8.6,
+      "net_cash_pct": 32.6,
+      "eps_consistent": "4/4 qtrs profitable",
       "inv_health": null,
-      "lynch_flag": "\ud83d\udd0d Lynch: Stalwart (consistent compounder)",
-      "lynch_class": "Stalwart (consistent compounder)",
+      "lynch_flag": "\ud83d\udd0d Lynch: Fast Grower (undiscovered)",
+      "lynch_class": "Fast Grower (undiscovered)",
       "lynch_flags": [
-        "\u2705 Lynch PEG 0.64 \u2014 Ideal GARP zone (<1)"
+        "\ud83d\udd25 Lynch PEG 0.09 \u2014 Deeply undervalued vs growth",
+        "\ud83c\udf31 Early stage: 8.6% institutional (Lynch zone)",
+        "\ud83d\udcb0 Net cash 33% of MCap \u2014 Lynch floor \u2713",
+        "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)"
       ],
-      "lynch_score": 0.49
+      "lynch_score": 0.87
+    },
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 77.9,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
     },
     "all_flags": [
-      "\ud83c\udfc6 PIOTROSKI 9/9 \u2014 Exceptional financial health",
-      "\u2705 Lynch PEG 0.64 \u2014 Ideal GARP zone (<1)",
-      "\ud83d\udd0d Lynch: Stalwart (consistent compounder)"
+      "\ud83d\udfe2 NET CASH (Cash > Debt)",
+      "\ud83d\udd25 Lynch PEG 0.09 \u2014 Deeply undervalued vs growth",
+      "\ud83c\udf31 Early stage: 8.6% institutional (Lynch zone)",
+      "\ud83d\udcb0 Net cash 33% of MCap \u2014 Lynch floor \u2713",
+      "\ud83d\udcc8 4/4 profitable quarters (Lynch consistent)",
+      "\ud83d\udd0d Lynch: Fast Grower (undiscovered)"
     ],
     "bse_code": null,
-    "scanned_at": "2026-03-20 13:55 UTC",
+    "scanned_at": "2026-03-23 14:41 UTC",
     "screener": null,
     "screener_flags": [],
     "persistence": {
-      "days_in_watchlist": 4,
+      "days_in_watchlist": 2,
       "streak": 0,
-      "score_trend": "rising",
-      "score_7d_delta": 0.033,
-      "first_seen": "20260316",
-      "peak_score": 0.599,
-      "price_since_first_pct": 3.1,
+      "score_trend": "stable",
+      "score_7d_delta": -0.0,
+      "first_seen": "20260319",
+      "peak_score": 0.595,
+      "price_since_first_pct": -7.5,
       "all_catalysts": []
     }
   }
