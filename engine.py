@@ -118,20 +118,25 @@ class Config:
     min_revenue_growth_pct: float  = 5.0   # loosened — sector context matters more
     max_mcap_to_sales: float       = 8.0   # loosened — high quality cos deserve premium
 
-    # ── Scoring weights v4 — momentum-first, fundamentals as quality gate ──
+    # ── Scoring weights v4.1 — added MACD, BB, structure ──
     #
     # Research basis:
     #   - Volatility-adjusted momentum (6M+12M) is NSE's validated formula
-    #   - Sector momentum is structural — stocks in hot sectors outperform at scale
-    #   - Fundamental quality prevents momentum traps (high momentum + bad balance sheet)
-    #   - OBV/volume/base: useful but unreliable on yfinance small cap data
+    #   - MACD histogram expanding = momentum accelerating (new)
+    #   - Bollinger %B + squeeze expansion = breakout precursor (new)
+    #   - HH/HL price structure = structural trend confirmation (new)
+    #   - Sector momentum is structural — stocks in hot sectors outperform
+    #   - Fundamental quality prevents momentum traps
     #
-    w_mom_score:   float = 0.35   # NEW: volatility-adjusted momentum z-score (primary)
-    w_fundamental: float = 0.25   # quality filter (unchanged)
-    w_rel_str:     float = 0.15   # RS days — stock holding up on down-market days
-    w_momentum:    float = 0.10   # EMA trend confirmation (secondary momentum signal)
-    w_volume:      float = 0.08   # volume (reduced — unreliable on small caps)
-    w_obv:         float = 0.07   # OBV (reduced — unreliable on small caps)
+    w_mom_score:   float = 0.30   # volatility-adjusted momentum z-score (primary)
+    w_fundamental: float = 0.20   # quality filter
+    w_macd:        float = 0.12   # NEW: MACD histogram direction/expansion
+    w_bb:          float = 0.10   # NEW: Bollinger %B + squeeze
+    w_structure:   float = 0.08   # NEW: HH/HL price structure
+    w_rel_str:     float = 0.10   # RS days — stock holding up on down-market days
+    w_momentum:    float = 0.06   # EMA trend confirmation
+    w_volume:      float = 0.04   # volume
+    w_obv:         float = 0.00   # OBV removed from scoring (unreliable on small caps)
 
     top_n: int          = 20
     batch_size: int     = 50
@@ -278,6 +283,219 @@ def adx(df: pd.DataFrame, n: int = 14) -> pd.Series:
     ndi  = 100 * ndm.rolling(n).mean() / atr_
     dx   = (100 * (pdi - ndi).abs() / (pdi + ndi).replace(0, np.nan))
     return dx.rolling(n).mean()
+
+
+def di_spread(df: pd.DataFrame, n: int = 14) -> tuple[float, float]:
+    """Return (+DI, -DI) values. +DI >> -DI = buyers firmly in control."""
+    try:
+        up   = df["High"].diff()
+        down = -df["Low"].diff()
+        pdm  = up.where((up > down) & (up > 0), 0.0)
+        ndm  = down.where((down > up) & (down > 0), 0.0)
+        atr_ = atr(df, n)
+        pdi  = float((100 * pdm.rolling(n).mean() / atr_).iloc[-1])
+        ndi  = float((100 * ndm.rolling(n).mean() / atr_).iloc[-1])
+        return round(pdi, 1), round(ndi, 1)
+    except Exception:
+        return 0.0, 0.0
+
+
+def macd_signal(c: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9) -> dict:
+    """
+    MACD indicator: histogram direction + zero-line relationship.
+
+    Returns:
+      macd_hist:         current histogram value
+      hist_expanding:    histogram is growing (momentum accelerating)
+      hist_positive:     histogram is above zero
+      macd_above_signal: MACD line above signal line
+      macd_score:        0-1 composite score
+    """
+    try:
+        ema_fast = c.ewm(span=fast, adjust=False).mean()
+        ema_slow = c.ewm(span=slow, adjust=False).mean()
+        macd_line = ema_fast - ema_slow
+        sig_line  = macd_line.ewm(span=signal, adjust=False).mean()
+        hist      = macd_line - sig_line
+
+        last_hist  = float(hist.iloc[-1])
+        prev_hist  = float(hist.iloc[-2]) if len(hist) > 1 else 0.0
+        hist_exp   = abs(last_hist) > abs(prev_hist) and last_hist > 0
+        hist_pos   = last_hist > 0
+        macd_above = float(macd_line.iloc[-1]) > float(sig_line.iloc[-1])
+
+        # Score: best when histogram positive AND expanding (accelerating momentum)
+        if hist_pos and hist_exp and macd_above:
+            score = 0.90
+        elif hist_pos and macd_above:
+            score = 0.70
+        elif hist_pos and not macd_above:
+            score = 0.45   # fading but still positive
+        elif not hist_pos and not macd_above:
+            score = 0.10   # bearish
+        else:
+            score = 0.30
+
+        return {
+            "macd_hist":         round(last_hist, 4),
+            "hist_expanding":    hist_exp,
+            "hist_positive":     hist_pos,
+            "macd_above_signal": macd_above,
+            "macd_score":        score,
+        }
+    except Exception:
+        return {
+            "macd_hist": 0.0, "hist_expanding": False,
+            "hist_positive": False, "macd_above_signal": False,
+            "macd_score": 0.3,
+        }
+
+
+def bollinger_signals(c: pd.Series, n: int = 20, k: float = 2.0) -> dict:
+    """
+    Bollinger Band %B and bandwidth.
+
+    %B = (price - lower) / (upper - lower)
+      0 = at lower band, 1 = at upper band, 0.5 = at midline
+      0.6-0.95 = ideal swing entry zone (above midline, not extreme)
+
+    Bandwidth = (upper - lower) / midline
+      Squeeze = bandwidth < 50th percentile of last 120 days
+      Expanding = bandwidth growing from squeeze = breakout precursor
+
+    Returns:
+      pct_b:             0-1, position within bands
+      bandwidth:         (upper-lower)/mid normalised
+      is_squeeze:        bandwidth in bottom 25% of 120-day range
+      squeeze_expanding: was in squeeze, now expanding = breakout signal
+      bb_score:          0-1 composite
+    """
+    try:
+        mid  = c.rolling(n).mean()
+        std  = c.rolling(n).std()
+        upper = mid + k * std
+        lower = mid - k * std
+
+        last_close = float(c.iloc[-1])
+        last_upper = float(upper.iloc[-1])
+        last_lower = float(lower.iloc[-1])
+        last_mid   = float(mid.iloc[-1])
+        band_range = last_upper - last_lower
+
+        pct_b = (last_close - last_lower) / band_range if band_range > 0 else 0.5
+
+        # Bandwidth history for squeeze detection
+        bw_series = (upper - lower) / mid.replace(0, np.nan)
+        bw_now    = float(bw_series.iloc[-1]) if not np.isnan(bw_series.iloc[-1]) else 0.1
+        bw_hist   = bw_series.iloc[-120:].dropna()
+        bw_pct25  = float(bw_hist.quantile(0.25)) if len(bw_hist) >= 20 else bw_now
+
+        is_squeeze = bw_now <= bw_pct25
+
+        # Was in squeeze recently (last 10 days) but not now = expanding from squeeze
+        recent_bw        = bw_series.iloc[-10:]
+        was_in_squeeze   = bool((recent_bw <= bw_pct25).any())
+        squeeze_expanding = was_in_squeeze and not is_squeeze and bw_now > float(recent_bw.min())
+
+        # Score: %B 0.6-0.85 = ideal breakout zone; squeeze expanding = bonus
+        if 0.60 <= pct_b <= 0.85:
+            bb_score = 0.80
+        elif 0.85 < pct_b <= 0.95:
+            bb_score = 0.65   # strong but approaching upper band
+        elif 0.95 < pct_b:
+            bb_score = 0.35   # extended above upper band
+        elif 0.45 <= pct_b < 0.60:
+            bb_score = 0.55   # mid-band pullback, OK
+        else:
+            bb_score = 0.20   # below midline
+
+        if squeeze_expanding:
+            bb_score = min(bb_score + 0.15, 1.0)
+
+        return {
+            "pct_b":             round(pct_b, 3),
+            "bandwidth":         round(bw_now, 4),
+            "is_squeeze":        is_squeeze,
+            "squeeze_expanding": squeeze_expanding,
+            "bb_score":          round(bb_score, 3),
+        }
+    except Exception:
+        return {
+            "pct_b": 0.5, "bandwidth": 0.1, "is_squeeze": False,
+            "squeeze_expanding": False, "bb_score": 0.3,
+        }
+
+
+def price_structure(c: pd.Series, lookback: int = 10) -> dict:
+    """
+    Check if price is making Higher Highs and Higher Lows (confirmed uptrend).
+
+    Uses swing pivots over the last `lookback` bars:
+    - HH: most recent swing high > prior swing high
+    - HL: most recent swing low  > prior swing low
+
+    HH + HL = structural uptrend confirmed
+    Any lower high = warning even if EMA is bullish
+
+    Returns:
+      has_hh_hl:      bool — structural uptrend
+      has_ll_lh:      bool — structural downtrend (disqualifier)
+      structure_score: 0-1
+      structure_note:  string description
+    """
+    try:
+        window = c.iloc[-lookback * 2:]  # need double for pivot detection
+
+        # Simple pivot detection: local max/min over 3-bar windows
+        highs = []
+        lows  = []
+        for i in range(1, len(window) - 1):
+            if float(window.iloc[i]) > float(window.iloc[i-1]) and float(window.iloc[i]) > float(window.iloc[i+1]):
+                highs.append(float(window.iloc[i]))
+            if float(window.iloc[i]) < float(window.iloc[i-1]) and float(window.iloc[i]) < float(window.iloc[i+1]):
+                lows.append(float(window.iloc[i]))
+
+        has_hh_hl = False
+        has_ll_lh = False
+        note      = "Insufficient pivots"
+
+        if len(highs) >= 2:
+            hh = highs[-1] > highs[-2]   # most recent high > prior high
+        else:
+            hh = None
+
+        if len(lows) >= 2:
+            hl = lows[-1] > lows[-2]    # most recent low > prior low
+        else:
+            hl = None
+
+        if hh is True and hl is True:
+            has_hh_hl = True
+            note      = "HH+HL — Structural uptrend confirmed"
+        elif hh is False or hl is False:
+            has_ll_lh = True
+            note      = "Structure weakening — lower high or lower low"
+        else:
+            note = "Structure neutral"
+
+        if has_hh_hl:
+            score = 0.85
+        elif has_ll_lh:
+            score = 0.10
+        else:
+            score = 0.45
+
+        return {
+            "has_hh_hl":      has_hh_hl,
+            "has_ll_lh":      has_ll_lh,
+            "structure_score": score,
+            "structure_note":  note,
+        }
+    except Exception:
+        return {
+            "has_hh_hl": False, "has_ll_lh": False,
+            "structure_score": 0.45, "structure_note": "Error",
+        }
 
 
 def obv(df: pd.DataFrame) -> pd.Series:
@@ -587,6 +805,13 @@ def analyse_technicals(df: pd.DataFrame, symbol: str,
     if mom_score <= 0:
         return None
 
+    # ── NEW Gate 8: Price structure must not be broken ──
+    # Compute structure early so it can gate (saves computing OBV/RS on rejects)
+    struct_data = price_structure(c)
+    if struct_data["has_ll_lh"]:
+        log.debug(f"  {symbol}: broken structure (LL/LH) — rejecting despite positive momentum")
+        return None
+
     # ── OBV: only as extreme distribution gate ──
     obv_bullish, obv_score = calc_obv_signal(df)
     obv_s      = obv(df)
@@ -601,6 +826,15 @@ def analyse_technicals(df: pd.DataFrame, symbol: str,
 
     # ── Consolidation base ──
     has_tight_base, base_score = calc_base_quality(df)
+
+    # ── NEW v4.1: MACD histogram ──
+    macd_data = macd_signal(c)
+
+    # ── NEW v4.1: Bollinger Band %B + squeeze ──
+    bb_data = bollinger_signals(c)
+
+    # ── NEW v4.1: +DI / -DI spread ──
+    pdi_val, ndi_val = di_spread(df)
 
     # ── 52W high context (kept for reference, not gating) ──
     rolling_high = c.rolling(CFG.mom_12m_days).max().shift(1)
@@ -644,16 +878,31 @@ def analyse_technicals(df: pd.DataFrame, symbol: str,
         "adx_ok":           True,               # already gated above
         "price_chg_3m_pct": round(chg_3m_pct, 1),
         # v4 momentum signals
-        "mom_score_raw":    round(mom_score, 4),     # NSE-formula raw score
-        "mom_6m_pct":       round(mom_6m_pct, 1),    # 6M return %
-        "mom_12m_pct":      round(mom_12m_pct, 1),   # 12M return %
+        "mom_score_raw":    round(mom_score, 4),
+        "mom_6m_pct":       round(mom_6m_pct, 1),
+        "mom_12m_pct":      round(mom_12m_pct, 1),
         "sector":           sector,
         "sector_3m_ret":    sector_momentum.get(sector) if sector_momentum else None,
         "traded_days_63":   traded_days,
         # Scores for composite
-        "mom_score":        round(norm_mom_score, 3),   # primary momentum signal
-        "momentum_score":   round(momentum_score, 3),   # EMA confirmation
+        "mom_score":        round(norm_mom_score, 3),
+        "momentum_score":   round(momentum_score, 3),
         "volume_score":     round(volume_score, 3),
+        # v4.1 NEW signals
+        "macd_hist":        macd_data["macd_hist"],
+        "macd_expanding":   macd_data["hist_expanding"],
+        "macd_positive":    macd_data["hist_positive"],
+        "macd_score":       macd_data["macd_score"],
+        "bb_pct_b":         bb_data["pct_b"],
+        "bb_squeeze":       bb_data["is_squeeze"],
+        "bb_squeeze_exp":   bb_data["squeeze_expanding"],
+        "bb_score":         bb_data["bb_score"],
+        "has_hh_hl":        struct_data["has_hh_hl"],
+        "has_ll_lh":        struct_data["has_ll_lh"],
+        "structure_score":  struct_data["structure_score"],
+        "structure_note":   struct_data["structure_note"],
+        "pdi":              pdi_val,
+        "ndi":              ndi_val,
         # Legacy signals (retained for report/conviction logic)
         "obv_bullish":      obv_bullish,
         "obv_score":        obv_score,
@@ -761,12 +1010,14 @@ def get_fundamentals(symbol: str) -> tuple[float, dict]:
 # ─────────────────────────────────────────────────────────────
 def composite_score(tech: dict, fscore: float) -> float:
     return round(
-        tech["mom_score"]      * CFG.w_mom_score   +   # v4: volatility-adjusted momentum
-        fscore                 * CFG.w_fundamental  +
-        tech["rs_score"]       * CFG.w_rel_str      +
-        tech["momentum_score"] * CFG.w_momentum     +
-        tech["volume_score"]   * CFG.w_volume       +
-        tech["obv_score"]      * CFG.w_obv,
+        tech["mom_score"]       * CFG.w_mom_score   +   # vol-adjusted momentum
+        fscore                  * CFG.w_fundamental  +
+        tech["macd_score"]      * CFG.w_macd         +   # NEW: MACD histogram
+        tech["bb_score"]        * CFG.w_bb            +   # NEW: Bollinger %B
+        tech["structure_score"] * CFG.w_structure     +   # NEW: HH/HL structure
+        tech["rs_score"]        * CFG.w_rel_str       +
+        tech["momentum_score"]  * CFG.w_momentum      +
+        tech["volume_score"]    * CFG.w_volume,
         4
     )
 
@@ -778,19 +1029,29 @@ def multibagger_flags(s: dict) -> list[str]:
     flags = []
     fd = s.get("fundamentals", {})
 
-    # ── Signal combinations ──
+    # ── v4.1 NEW signal combinations ──
+    if s.get("macd_expanding") and s.get("has_hh_hl") and s.get("bb_squeeze_exp"):
+        flags.append("★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup)")
+    elif s.get("macd_expanding") and s.get("has_hh_hl"):
+        flags.append("🚀 MACD Expanding + Structural Uptrend (HH/HL)")
+    elif s.get("bb_squeeze_exp"):
+        flags.append("🔵 Bollinger Squeeze Expanding — Breakout Imminent")
+    elif s.get("macd_positive") and s.get("has_hh_hl"):
+        flags.append("📈 MACD Positive + HH/HL Structure")
+
+    # ── Legacy signals ──
     if s.get("obv_bullish") and s.get("vol_surge") and s.get("is_breakout"):
-        flags.append("★ OBV + Volume + Breakout (conviction setup)")
+        flags.append("★ OBV + Volume + 52W Breakout")
     elif s.get("is_breakout") and s.get("vol_surge"):
         flags.append("🚀 52W Breakout + Volume Surge")
-    elif s.get("obv_bullish") and s.get("is_breakout"):
-        flags.append("📊 Breakout + OBV Confirming")
     if s.get("rs_days", 0) >= 3:
         flags.append(f"💪 RS: Rose {s['rs_days']}× when Nifty fell")
-    if s.get("has_tight_base"):
-        flags.append("🔵 Tight Base Before Breakout")
-    if s.get("adx_ok") and s.get("adx", 0) > 25:
-        flags.append(f"📈 Strong Trend (ADX {s['adx']})")
+    if s.get("has_tight_base") or s.get("bb_squeeze"):
+        flags.append("🔵 Volatility Compression / Tight Base")
+    if s.get("adx_ok") and s.get("adx", 0) > 30:
+        pdi = s.get("pdi", 0)
+        ndi = s.get("ndi", 0)
+        flags.append(f"📈 Strong Trend ADX {s['adx']} (+DI {pdi} / -DI {ndi})")
     if s.get("price_chg_3m_pct", 0) > 25:
         flags.append(f"⚡ 3M Return +{s['price_chg_3m_pct']}%")
     if (fd.get("fcf_yield_pct") or 0) > 5:
@@ -801,8 +1062,6 @@ def multibagger_flags(s: dict) -> list[str]:
         flags.append(f"✅ ROE {fd['roe_pct']}%")
     if (fd.get("de_ratio") or 1) < 0.3:
         flags.append("🛡️ Nearly Debt-Free")
-    if (fd.get("mcap_to_sales") or 99) < 1.0:
-        flags.append(f"🏷️ MCap/Sales {fd['mcap_to_sales']}× (cheap on revenue)")
 
     return flags
 
@@ -857,9 +1116,12 @@ def generate_report(top_n: list[dict], regime: dict) -> str:
             f"Sector: {s.get('sector','?')}  SectorMom3M: {s.get('sector_3m_ret','?')}%",
             f"    MomScore: {s.get('mom_score_raw',0):.2f}  6M: {s.get('mom_6m_pct',0):+.1f}%  "
             f"12M: {s.get('mom_12m_pct',0):+.1f}%  3M: {s.get('price_chg_3m_pct',0):+.1f}%",
+            f"    MACD: {'↑Expanding' if s.get('macd_expanding') else ('Positive' if s.get('macd_positive') else '–')}  "
+            f"BB%B: {s.get('bb_pct_b',0):.2f}  BBSqueeze: {'→Expanding!' if s.get('bb_squeeze_exp') else ('Yes' if s.get('bb_squeeze') else '–')}  "
+            f"Structure: {'HH/HL✓' if s.get('has_hh_hl') else ('⚠LL/LH' if s.get('has_ll_lh') else '–')}  "
+            f"+DI:{s.get('pdi',0):.0f}/-DI:{s.get('ndi',0):.0f}",
             f"    RS Days: {s.get('rs_days','?')}  OBV: {'✓' if s.get('obv_bullish') else '✗'}  "
-            f"52W Breakout: {'✓' if s.get('is_breakout') else '✗'}  "
-            f"Tight Base: {'✓' if s.get('has_tight_base') else '–'}",
+            f"52W Break: {'✓' if s.get('is_breakout') else '✗'}",
             f"    Fundamental Score: {s['fundamental_score']:.2f}   "
             f"ROE: {fd.get('roe_pct', '?')}%   "
             f"D/E: {fd.get('de_ratio', '?')}   "
