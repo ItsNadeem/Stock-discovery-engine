@@ -197,6 +197,7 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
         p_score  = s.get("piotroski", {}).get("piotroski_score")
         fcf_y    = s.get("fcf", {}).get("fcf_yield_pct")
         lynch    = s.get("lynch", {})
+        pub      = s.get("public_data") or {}
         peg      = lynch.get("peg_ratio")
         inst_pct = lynch.get("inst_own_pct")
         sc       = s.get("screener") or {}
@@ -207,10 +208,25 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
         roce_display = f"{roce:.1f}%" if roce else ("N/A" if not fcf_y else f"FCF {fcf_y}%")
         peg_display  = f"{peg:.2f}" if peg is not None else "N/A"
         inst_display = f"{inst_pct:.0f}%" if inst_pct is not None else "N/A"
-        # Colour PEG green if < 1.5
-        peg_color = "#16a34a" if (peg is not None and peg < 1.5) else "#374151"
-        # Colour inst% green if < 20% (undiscovered)
-        inst_color = "#16a34a" if (inst_pct is not None and inst_pct < 20) else "#374151"
+        peg_color    = "#16a34a" if (peg is not None and peg < 1.5) else "#374151"
+        inst_color   = "#16a34a" if (inst_pct is not None and inst_pct < 20) else "#374151"
+
+        # Public domain signals display
+        pub_parts = []
+        if pub.get("promoter_buying"):
+            pub_parts.append(f"🧑‍💼₹{pub.get('insider_value_cr',0):.1f}Cr")
+        if pub.get("institutional_buying"):
+            pub_parts.append("🏦Bulk")
+        if pub.get("pledge_pct") is not None:
+            if pub["pledge_pct"] <= 0:
+                pub_parts.append("✅NoPledge")
+            elif pub.get("is_high_pledge"):
+                pub_parts.append(f"🚨{pub['pledge_pct']:.0f}%Pledge")
+        pub_display = " ".join(pub_parts) if pub_parts else "–"
+        pub_color   = "#16a34a" if pub.get("promoter_buying") else (
+                      "#dc2626" if pub.get("is_high_pledge") else "#374151"
+        )
+
         l2_rows += f"""
         <tr style="border-bottom:1px solid #e5e7eb">
           <td style="padding:7px 10px;font-weight:500">{s['symbol'].replace('.NS','')}</td>
@@ -221,12 +237,13 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
           <td style="padding:7px 10px">{roce_display}</td>
           <td style="padding:7px 10px;font-weight:500;color:{peg_color}">{peg_display}</td>
           <td style="padding:7px 10px;font-weight:500;color:{inst_color}">{inst_display}</td>
+          <td style="padding:7px 10px;font-weight:500;color:{pub_color};font-size:11px">{pub_display}</td>
           <td style="padding:7px 10px;color:#6b7280;font-size:11px">{grp}</td>
           <td style="padding:7px 10px;font-size:11px;color:#374151">{cat_str}</td>
         </tr>"""
 
     l2_html = f"""
-    <h2 style="font-size:16px;margin:24px 0 8px;color:#111">🔍 Pre-Breakout Watchlist (Layer 2) — Lynch GARP + VALUEPICK</h2>
+    <h2 style="font-size:16px;margin:24px 0 8px;color:#111">🔍 Pre-Breakout Watchlist (Layer 2) — Lynch GARP + VALUEPICK + Public Data</h2>
     <table width="100%" cellpadding="0" cellspacing="0"
            style="border-collapse:collapse;font-size:13px">
       <thead>
@@ -239,6 +256,7 @@ def build_html(regime: dict, conviction: list, layer1: list, layer2: list,
           <th style="padding:6px 10px;text-align:left">ROCE/FCF</th>
           <th style="padding:6px 10px;text-align:left">PEG</th>
           <th style="padding:6px 10px;text-align:left">Inst%</th>
+          <th style="padding:6px 10px;text-align:left">Insider/Pledge</th>
           <th style="padding:6px 10px;text-align:left">Group</th>
           <th style="padding:6px 10px;text-align:left">Top Signal</th>
         </tr>
