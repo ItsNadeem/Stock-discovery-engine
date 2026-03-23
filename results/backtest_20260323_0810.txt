@@ -1,0 +1,143 @@
+════════════════════════════════════════════════════════════════════════
+  MULTIBAGGER ENGINE — BACKTEST REPORT
+  2026-03-23 08:10 UTC
+════════════════════════════════════════════════════════════════════════
+
+  PARAMETERS USED IN THIS RUN:
+    RSI range:  48.0 – 78.0
+    ATR mult:   0.3   (breakout = 52W high + 0.3×ATR)
+    Vol surge:  1.5×  avg 20-day volume
+    ADX min:    18.0
+    Lookback:   500 days
+    Quick mode: NO
+
+
+  BACKTEST A: VALUEPICK GROUND TRUTH VALIDATION
+  Question: Would our engine have flagged these known multibaggers?
+════════════════════════════════════════════════════════════════════════
+
+  PAUSHAKLTD.BO  entry ₹74.0  date 2011-03-15  (140.0x confirmed)
+  Thesis: Alembic group specialty chemical, capacity expansion pending, debt-free
+  Technical state on entry date:
+    vs 52W high: -14.2%   vs 52W low: 76.4%
+    RSI: 73.7   EMA: bullish   OBV: rising
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: 0.01×   ATR ratio: 1.08
+  Signals our model would have fired: EMA_BULL, RSI_OK, OBV_RISING
+  Estimated L1 score: 0.281
+  Forward returns: 1M -25.4%  3M -31.3%  6M -31.5%  1Y -49.9%  +-31.1% alpha
+
+  COSMOFERR.BO  entry ₹13.0  date 2011-06-01  (13.0x confirmed)
+  Thesis: Cosmo Films group, soft ferrite manufacturer, EV tailwind
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: ⚠ NOT AVAILABLE — Entry date approximate — '10 years back' from Oct 2021 blog post.
+
+  TASTYBITE.BO  entry ₹165.0  date 2010-02-27  (57.0x confirmed)
+  Thesis: Organic food, export-led, US market penetration
+  Technical state on entry date:
+    vs 52W high: -0.4%   vs 52W low: 1075.9%
+    RSI: 57.7   EMA: bullish   OBV: rising
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: 0.14×   ATR ratio: 1.39
+  Signals our model would have fired: EMA_BULL, RSI_OK, OBV_RISING
+  Estimated L1 score: 0.223
+  Forward returns: 1M -2.5%  3M +54.0%  6M +33.6%  1Y +24.9%  +49.9% alpha
+
+  EKINDIA.NS  entry ₹162.0  date 2021-04-10  (66.0x confirmed)
+  Thesis: First listed carbon credit company globally, 90%+ overseas revenue
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: ⚠ NOT AVAILABLE — Listed Apr 2021 — entry date is 2 days post-listing. Limited pre-listing history.
+
+  JAYKAYENTM.BO  entry ₹28.0  date 2021-02-06  (?x confirmed)
+  Thesis: JK group 3D printing JV with EOS Germany, promoter 32%→52% preferential
+  Technical state on entry date:
+    vs 52W high: None%   vs 52W low: None%
+    RSI: None   EMA: None   OBV: None
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: None×   ATR ratio: None
+  Signals our model would have fired: NONE
+  Estimated L1 score: 0.000
+  Forward returns: ⚠ NOT AVAILABLE — Extremely illiquid microcap — yfinance data may be missing or stale.
+
+  SHANTIGEAR.NS  entry ₹180.0  date 2024-06-01  (?x confirmed)
+  Thesis: Murugappa group, zero debt, steady growth, sector tailwind
+  Technical state on entry date:
+    vs 52W high: -13.7%   vs 52W low: 30.1%
+    RSI: 34.2   EMA: bullish   OBV: falling
+    Breakout: ✗   Tight base: ✗
+    Volume vs avg: 0.61×   ATR ratio: 0.81
+  Signals our model would have fired: EMA_BULL
+  Estimated L1 score: 0.020
+  Forward returns: 1M +3.5%  3M +10.5%  6M +8.1%  1Y -11.3%  +7.1% alpha
+
+  SUMMARY: 0/6 picks had a technical breakout on entry date
+           0/6 picks had a tight consolidation base
+
+  KEY INSIGHT:
+  If hit_rate is low (picks did NOT have breakout on entry date),
+  that confirms VALUEPICK found them BEFORE technical signals fired.
+  Our Layer 1 would have missed them — Layer 2 thesis signals matter more.
+
+════════════════════════════════════════════════════════════════════════
+  BACKTEST B: LAYER 1 HISTORICAL PERFORMANCE
+  Question: When our breakout scanner fires, how often does it work?
+════════════════════════════════════════════════════════════════════════
+
+  All signals (n=4267)
+    Hit rate (3M positive return): 50.2%
+    Avg return: 1M 1.5%  3M 3.9%  6M 0.7%
+    Median 3M: 0.2%   Avg alpha vs Nifty: 1.7%
+    Best 3M: 242.7%   Worst 3M: -87.4%
+    % signals with >20% 3M return: 20.2%
+
+  OBV confirmed ✓ (n=3735)
+    Hit rate (3M positive return): 50.0%
+    Avg return: 1M 1.5%  3M 3.9%  6M 0.7%
+    Median 3M: 0.0%   Avg alpha vs Nifty: 1.7%
+    Best 3M: 242.7%   Worst 3M: -87.4%
+    % signals with >20% 3M return: 20.3%
+
+  OBV diverging ✗ (n=532)
+    Hit rate (3M positive return): 51.9%
+    Avg return: 1M 1.8%  3M 3.9%  6M 1.2%
+    Median 3M: 0.9%   Avg alpha vs Nifty: 1.8%
+    Best 3M: 169.2%   Worst 3M: -61.7%
+    % signals with >20% 3M return: 20.2%
+
+  Tight base ✓ (n=52)
+    Hit rate (3M positive return): 44.9%
+    Avg return: 1M 1.0%  3M 4.7%  6M -4.5%
+    Median 3M: -3.0%   Avg alpha vs Nifty: 3.2%
+    Best 3M: 95.3%   Worst 3M: -44.9%
+    % signals with >20% 3M return: 22.4%
+
+  Volume surge ✓ (n=686)
+    Hit rate (3M positive return): 51.1%
+    Avg return: 1M 1.6%  3M 4.1%  6M 1.7%
+    Median 3M: 0.6%   Avg alpha vs Nifty: 1.2%
+    Best 3M: 139.5%   Worst 3M: -87.2%
+    % signals with >20% 3M return: 22.5%
+
+  OBV FILTER IMPACT:
+    With OBV confirmed:  avg 3M = 3.9%
+    Without OBV:         avg 3M = 3.9%
+    OBV adds +0.0% to avg 3M return
+
+════════════════════════════════════════════════════════════════════════
+  ⚠  Backtesting has survivorship bias — historical prices are
+     available only for stocks that still exist. Failed companies
+     are excluded, which overstates hit rates. Use as direction,
+     not as proof.
+════════════════════════════════════════════════════════════════════════
