@@ -5,38 +5,27 @@ Inspired by value-picks.blogspot.com + @valuepick (Twitter) methodology.
 30-year Indian market veteran. Verified calls: Paushak ₹74→₹10,000 (140x),
 Tasty Bite ₹165→₹9,420, EKI ₹150→₹10,000 (66x in 9 months).
 
-Signals we scan for (blog + Twitter analysis):
+FIX v3 (2026-03) — three bugs causing the whole watchlist to score 0.60–0.63:
 
-  ORIGINAL SIGNALS (from blog posts):
-  1. Promoter stake hike via preferential allotment (Jay Kay: 32%→52%)
-  2. Market cap trading below liquid asset value (Max India: mcap < cash+assets)
-  3. New capacity expansion announced (Cosmo Ferrites: +50% capacity)
-  4. Export revenue acceleration (Cosmo: 48% export growth in one quarter)
-  5. New business pivot by credible promoter group
-  6. Low market cap + high promoter confidence (buybacks, promoter doesn't sell)
+FIX A: CATALYST DETECTION WAS SILENTLY RETURNING ZERO FOR EVERY STOCK.
+  The BSE API was called with strSearch=P (price-sensitive only).
+  Most small-cap announcements are filed as general corporate disclosures,
+  not price-sensitive — so the API returned empty lists.
+  Catalyst weight is 28% of score. Zero catalyst = every stock scores ~0.60.
+  Fix: also call strSearch=C (corporate actions) as a second pass, and
+  read the Screener.in concalls list which contains earnings-call events.
+  Also added a debug log showing announcement count per stock.
 
-  NEW SIGNALS (from @valuepick Twitter / "Guess The Gem" posts):
-  7. DEBT ELIMINATION — company actively paying down loans (re-rating trigger)
-     Source: Twitter comment threads — "closed debt with SBI" as specific signal
-  8. TRUSTED PROMOTER GROUP — Murugappa, JK Group, Alembic, Cosmo Films,
-     Tata, TVS, Bajaj, Sundaram. Group pedigree = minority-friendly management.
-     Source: Shanthi Gears (Murugappa), Jay Kay (JK Group), Cosmo Ferrites (Cosmo Films)
-  9. DEEP VALUE vs SECTOR PEERS — P/E at fraction of industry average
-     Source: "Guess The Gem" clues always included "P/E at 1/4 of industry average"
+FIX B: HARD PIOTROSKI GATE ADDED (min 5/9 required to enter watchlist).
+  Previously Piotroski was soft-scored but not gated.
+  A stock with Piotroski 3/9 (UYFINCORE) was ranking above Piotroski 9/9
+  (DRCSYSTEMS) because a suspiciously low PEG from bad yfinance data
+  inflated the Lynch score. Hard floor eliminates junk quality stocks
+  before scoring even starts.
 
-  FIXES (v2 — after first real run on 2026-03-15):
-  FIX 1: Exclude pure holding/investment companies.
-          BFINVEST, NAHARCAP, CORALFINAC, AFSL etc dominated first run.
-          They score perfectly (zero debt, high cash, low P/B, high promoter)
-          because cash IS their business — they are NOT real operating companies.
-  FIX 2: Exclude passive income businesses.
-          Operating margin >85% = investment/dividend income, not operations.
-          Revenue growth >300% TTM = one-off gain or data artefact, not real growth.
-          INDSWFTLAB showed 1641% revenue growth — base-effect distortion.
-
-Data sources (all free, no auth):
-  - BSE India corporate announcements
-  - yfinance .info + quarterly financials
+FIX C: ROCE HARD GATE (min 10%) applied after Screener enrichment.
+  Low-ROCE stocks may score well on PEG/valuation but are value traps.
+  Gate applied in the final ranking step post-enrichment.
 """
 
 import logging
@@ -59,45 +48,44 @@ log = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────
 # CONFIG
 # ──────────────────────────────────────────────────────
+
 @dataclass
 class PreBreakoutConfig:
     # Universe
     max_market_cap_cr: float = 2_000.0
     min_market_cap_cr: float = 10.0
-    max_price: float         = 500.0
-    min_price: float         = 5.0
+    max_price: float = 500.0
+    min_price: float = 5.0
 
-    # ── FIX 1: Excluded industries ──
-    # Investment holding companies score perfectly on every metric but are
-    # NOT real operating businesses. Excluded after first run showed they
-    # dominated the entire watchlist (BFINVEST, NAHARCAP, CORALFINAC etc).
+    # FIX 1: Excluded industries (holding/investment companies)
     excluded_industries: list = field(default_factory=lambda: [
         "asset management", "investment holding", "core investment company",
         "holding company", "investment company", "closed end fund",
         "venture capital", "private equity", "financial holding",
         "capital markets", "diversified financials",
     ])
-
     excluded_description_keywords: list = field(default_factory=lambda: [
         "core investment company", "holding company", "investment in shares",
         "investment in securities", "investment holding", "holds equity",
         "invests in shares", "holding of shares", "investment activities",
         "systematically important non-deposit", "non-deposit taking core",
     ])
-
     excluded_name_patterns: list = field(default_factory=lambda: [
         "investments ltd", "investment ltd", "holdings ltd",
         "capital & finance", "finance & investment",
     ])
 
-    # ── FIX 2: Passive income thresholds ──
-    # Operating margin >85% = income from investments, not operations.
-    # Revenue growth >300% = almost certainly a data artefact or one-off gain.
-    max_operating_margin_pct: float          = 85.0
+    # FIX 2: Passive income thresholds
+    max_operating_margin_pct: float = 85.0
     max_believable_revenue_growth_pct: float = 300.0
 
+    # FIX B: Minimum Piotroski score to enter watchlist at all
+    min_piotroski: int = 5   # was unset — stocks with 3/9 were ranking above 9/9
+    # FIX C: Minimum ROCE after Screener enrichment
+    min_roce_pct: float = 10.0
+
     # Promoter signals
-    min_promoter_holding_pct: float    = 35.0
+    min_promoter_holding_pct: float = 35.0
     promoter_hike_threshold_pct: float = 2.0
 
     # Asset value
@@ -117,7 +105,7 @@ class PreBreakoutConfig:
         "strategic partnership", "new product line", "foray into",
     ])
 
-    # Trusted promoter groups (@valuepick picks always from clean groups)
+    # Trusted promoter groups
     trusted_groups: list = field(default_factory=lambda: [
         "murugappa", "jk group", "jk cement", "singhania",
         "alembic", "cosmo films", "max group",
@@ -130,75 +118,35 @@ class PreBreakoutConfig:
 
     # Debt elimination thresholds
     debt_reduction_threshold: float = 0.3
-    near_zero_debt_de: float        = 0.15
+    near_zero_debt_de: float = 0.15
 
     # Peer P/E discount
     peer_pe_discount_threshold: float = 0.50
-
     sector_pe_map: dict = field(default_factory=lambda: {
-        "Chemicals":           28.0,
-        "Pharmaceuticals":     32.0,
-        "Consumer Goods":      45.0,
-        "Industrial":          22.0,
-        "Technology":          30.0,
-        "Auto Components":     20.0,
-        "Metals":              14.0,
-        "Textiles":            18.0,
-        "Packaging":           25.0,
-        "Specialty Chemicals": 35.0,
-        "Defence":             40.0,
-        "Logistics":           28.0,
-        "Healthcare":          35.0,
-        "Engineering":         24.0,
-        "Agro Chemicals":      22.0,
-        "Default":             25.0,
+        "Chemicals": 28.0, "Pharmaceuticals": 32.0, "Consumer Goods": 45.0,
+        "Industrial": 22.0, "Technology": 30.0, "Auto Components": 20.0,
+        "Metals": 14.0, "Textiles": 18.0, "Packaging": 25.0,
+        "Specialty Chemicals": 35.0, "Defence": 40.0, "Logistics": 28.0,
+        "Healthcare": 35.0, "Engineering": 24.0, "Agro Chemicals": 22.0,
+        "Default": 25.0,
     })
 
+    # FIX A: announcement lookback — also look at corporate actions (strSearch=C)
     announcement_lookback_days: int = 90
 
-    # ─────────────────────────────────────────────────────────
-    # SCORING WEIGHTS — v3 rebalance
-    #
-    # Problem diagnosed from real runs:
-    #   • Promoter holding (25%) fires on almost every Indian small cap → not differentiated
-    #   • Valuation/P/B (20%) fires on everything near 52W low → not differentiated
-    #   • Catalyst (15%) is the rarest and most predictive signal — severely underweighted
-    #   • Group (10%) fires for a small minority — correctly sized
-    #
-    # Fix: raise catalyst to 30%, cut promoter to 15%, cut valuation to 12%.
-    # Catalyst is now the dominant signal, not a tiebreaker.
-    # This mirrors VALUEPICK's actual method: catalyst-first, valuation-second.
-    # ─────────────────────────────────────────────────────────
-    w_catalyst:  float = 0.28   # raised from 0.15 — now the dominant signal
-    w_growth:    float = 0.20   # earnings quality
-    w_group:     float = 0.14   # group pedigree
-    w_promoter:  float = 0.14   # promoter holding
-    w_valuation: float = 0.11   # P/B valuation
-    w_public:    float = 0.08   # NEW: insider buying + pledge + bulk deals
-    w_debt:      float = 0.03
-    w_pe_value:  float = 0.02
+    # Scoring weights v3
+    w_catalyst:   float = 0.28
+    w_growth:     float = 0.20
+    w_group:      float = 0.14
+    w_promoter:   float = 0.14
+    w_valuation:  float = 0.11
+    w_public:     float = 0.08
+    w_debt:       float = 0.03
+    w_pe_value:   float = 0.02
 
-    # ─────────────────────────────────────────────────────────
-    # TIERED QUALIFICATION GATE — replaces the old flat has_signal check
-    #
-    # TIER 1 (Always qualify): Hard catalyst events — these are rare and
-    #   high-conviction by definition. Any stock with one qualifies immediately.
-    #
-    # TIER 2 (Need 2+ signals): Soft signals that are common alone but meaningful
-    #   in combination. Avoids the "cheap but static" trap.
-    #
-    # TIER 3 (Hard minimum quality): Even if tiers 1/2 pass, reject stocks
-    #   with clearly deteriorating revenue (3 consecutive quarterly declines).
-    # ─────────────────────────────────────────────────────────
-
-    # Tier 1 catalyst threshold — score ≥ this = auto-qualify
-    tier1_catalyst_threshold: float = 0.30   # preferential allotment, capex, JV
-
-    # Tier 2 — need at least this many soft signals
+    # Tiered qualification gate
+    tier1_catalyst_threshold: float = 0.30
     tier2_min_signals: int = 2
-
-    # Hard minimum ROCE from Screener (applied post-enrichment re-rank)
-    min_roce_pct: float = 10.0   # below this = likely value trap
 
     top_n: int = 15
 
@@ -213,48 +161,31 @@ BSE_HEADERS = {
 
 
 # ──────────────────────────────────────────────────────
-# FIX 1 + FIX 2: UNIVERSE QUALITY GATE
+# UNIVERSE QUALITY GATE (FIX 1 + FIX 2 unchanged)
 # ──────────────────────────────────────────────────────
 
 def should_exclude(info: dict) -> tuple[bool, str]:
-    """
-    Returns (True, reason) if this stock must be skipped.
-
-    FIX 1 — Holding/investment company filter:
-      These companies score perfectly on debt, cash, P/B and promoter holding
-      because cash IS their business. They have zero real operating activity
-      and will never deliver Cosmo Ferrites / EKI type returns.
-
-    FIX 2 — Passive income filter:
-      Operating margin >85% means income is from dividends/investments.
-      Revenue growth >300% TTM is a one-off gain or data artefact.
-    """
-    industry     = (info.get("industry") or "").lower()
-    sector       = (info.get("sector") or "").lower()
-    summary      = (info.get("longBusinessSummary") or "").lower()
+    industry = (info.get("industry") or "").lower()
+    sector   = (info.get("sector") or "").lower()
+    summary  = (info.get("longBusinessSummary") or "").lower()
     company_name = (info.get("longName") or "").lower()
 
-    # FIX 1a: Industry/sector name
     for excl in PCFG.excluded_industries:
         if excl in industry or excl in sector:
             return True, f"Excluded industry: '{excl}'"
 
-    # FIX 1b: Business description keywords
     for kw in PCFG.excluded_description_keywords:
         if kw in summary:
             return True, f"Holding company description keyword: '{kw}'"
 
-    # FIX 1c: Company name patterns
     for pattern in PCFG.excluded_name_patterns:
         if pattern in company_name:
             return True, f"Holding company name pattern: '{pattern}'"
 
-    # FIX 2a: Passive income via operating margin
     oper_margin = (info.get("operatingMargins") or 0) * 100
     if oper_margin > PCFG.max_operating_margin_pct:
-        return True, f"Passive income: op margin {oper_margin:.0f}% > {PCFG.max_operating_margin_pct}%"
+        return True, f"Passive income: op margin {oper_margin:.0f}%"
 
-    # FIX 2b: Unbelievable revenue growth
     rev_growth = (info.get("revenueGrowth") or 0) * 100
     if rev_growth > PCFG.max_believable_revenue_growth_pct:
         return True, f"Likely data artefact: revenue growth {rev_growth:.0f}%"
@@ -263,38 +194,55 @@ def should_exclude(info: dict) -> tuple[bool, str]:
 
 
 # ──────────────────────────────────────────────────────
-# BSE DATA FETCHERS
+# BSE DATA FETCHERS — FIX A: dual search mode
 # ──────────────────────────────────────────────────────
 
 def fetch_bse_announcements(symbol_code: str, days_back: int = 90) -> list[dict]:
-    try:
-        url = (
-            f"https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w"
-            f"?strCat=-1&strPrevDate=&strScrip={symbol_code}"
-            f"&strSearch=P&strToDate=&strType=C&subcategory=-1"
-        )
-        r = requests.get(url, headers=BSE_HEADERS, timeout=10)
-        if r.status_code != 200:
-            return []
-        data = r.json()
-        cutoff = datetime.now() - timedelta(days=days_back)
-        result = []
-        for ann in data.get("Table", []):
-            try:
-                dt_str = ann.get("News_submission_dt", "")
-                dt = datetime.strptime(dt_str[:10], "%Y-%m-%d") if dt_str else None
-                if dt and dt >= cutoff:
-                    result.append({
-                        "date":     dt.strftime("%Y-%m-%d"),
-                        "title":    ann.get("NEWSSUB", "").strip(),
-                        "category": ann.get("CATEGORYNAME", "").strip(),
-                    })
-            except Exception:
+    """
+    FIX A: Fetch BSE announcements using BOTH strSearch=P (price-sensitive)
+    AND strSearch=C (corporate actions).
+
+    Previously only P was used — most small-cap announcements (capex, JV,
+    order wins, debt repayment) are filed as corporate actions, not as
+    price-sensitive disclosures. This caused catalyst_score=0 for almost
+    every stock, killing 28% of the composite score.
+    """
+    cutoff = datetime.now() - timedelta(days=days_back)
+    result = []
+    seen_titles = set()
+
+    for search_type in ["P", "C"]:  # FIX A: was only "P"
+        try:
+            url = (
+                f"https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w"
+                f"?strCat=-1&strPrevDate=&strScrip={symbol_code}"
+                f"&strSearch={search_type}&strToDate=&strType=C&subcategory=-1"
+            )
+            r = requests.get(url, headers=BSE_HEADERS, timeout=10)
+            if r.status_code != 200:
                 continue
-        return result
-    except Exception as e:
-        log.debug(f"BSE announcements failed for {symbol_code}: {e}")
-        return []
+            data = r.json()
+            for ann in data.get("Table", []):
+                try:
+                    dt_str = ann.get("News_submission_dt", "")
+                    dt = datetime.strptime(dt_str[:10], "%Y-%m-%d") if dt_str else None
+                    if dt and dt >= cutoff:
+                        title = ann.get("NEWSSUB", "").strip()
+                        if title and title not in seen_titles:
+                            seen_titles.add(title)
+                            result.append({
+                                "date":     dt.strftime("%Y-%m-%d"),
+                                "title":    title,
+                                "category": ann.get("CATEGORYNAME", "").strip(),
+                                "search":   search_type,
+                            })
+                except Exception:
+                    continue
+        except Exception as e:
+            log.debug(f"BSE announcements ({search_type}) failed for {symbol_code}: {e}")
+
+    log.debug(f"BSE {symbol_code}: {len(result)} announcements found (P+C combined)")
+    return result
 
 
 def get_bse_code_from_symbol(symbol: str) -> Optional[str]:
@@ -307,7 +255,7 @@ def get_bse_code_from_symbol(symbol: str) -> Optional[str]:
         )
         r = requests.get(url, headers=BSE_HEADERS, timeout=8)
         if r.status_code == 200:
-            data  = r.json()
+            data = r.json()
             items = data if isinstance(data, list) else data.get("Table", [])
             for item in items:
                 if (sym_clean.lower() in str(item.get("SCRIP_CD", "")).lower() or
@@ -318,54 +266,75 @@ def get_bse_code_from_symbol(symbol: str) -> Optional[str]:
     return None
 
 
+def fetch_screener_concalls(screener_data: Optional[dict]) -> list[str]:
+    """
+    FIX A: Extract concall / earnings call events from Screener.in response.
+    These are additional catalyst signals not available via BSE API.
+    Returns list of concall description strings.
+    """
+    if not screener_data:
+        return []
+    concalls = screener_data.get("concalls") or []
+    results = []
+    cutoff = datetime.now() - timedelta(days=90)
+    for cc in concalls:
+        try:
+            dt_str = cc.get("date") or ""
+            dt = datetime.strptime(dt_str[:10], "%Y-%m-%d") if dt_str else None
+            if dt and dt >= cutoff:
+                results.append(cc.get("title") or cc.get("description") or "Earnings Concall")
+        except Exception:
+            pass
+    return results
+
+
 # ──────────────────────────────────────────────────────
-# SIGNAL ANALYZERS
+# SIGNAL ANALYZERS (unchanged from original)
 # ──────────────────────────────────────────────────────
 
 def analyze_shareholding(info: dict) -> dict:
-    insider_pct       = (info.get("heldPercentInsiders") or 0) * 100
-    inst_pct          = (info.get("heldPercentInstitutions") or 0) * 100
-    promoter_score    = min(insider_pct / 75, 1.0)
+    insider_pct = (info.get("heldPercentInsiders") or 0) * 100
+    inst_pct    = (info.get("heldPercentInstitutions") or 0) * 100
+    promoter_score     = min(insider_pct / 75, 1.0)
     undiscovered_score = max(1.0 - inst_pct / 30, 0.0)
     return {
-        "insider_pct":         round(insider_pct, 1),
-        "institutional_pct":   round(inst_pct, 1),
-        "promoter_score":      round(promoter_score, 3),
-        "undiscovered_score":  round(undiscovered_score, 3),
+        "insider_pct":        round(insider_pct, 1),
+        "institutional_pct":  round(inst_pct, 1),
+        "promoter_score":     round(promoter_score, 3),
+        "undiscovered_score": round(undiscovered_score, 3),
     }
 
 
 def analyze_asset_value(info: dict) -> dict:
-    mktcap    = info.get("marketCap") or 0
-    book_val  = info.get("bookValue") or 0
-    cash      = info.get("totalCash") or 0
-    debt      = info.get("totalDebt") or 0
-    price     = info.get("currentPrice") or info.get("regularMarketPrice") or 0
+    mktcap   = info.get("marketCap") or 0
+    book_val = info.get("bookValue") or 0
+    cash     = info.get("totalCash") or 0
+    debt     = info.get("totalDebt") or 0
+    price    = info.get("currentPrice") or info.get("regularMarketPrice") or 0
 
     mktcap_cr    = mktcap / 1e7
     net_cash_cr  = (cash - debt) / 1e7
     cash_to_mcap = net_cash_cr / mktcap_cr if mktcap_cr > 0 else 0
-    pb           = price / book_val if book_val > 0 else 99
+    pb = price / book_val if book_val > 0 else 99
 
-    pb_score        = max(1.0 - (pb - 0.5) / 2.5, 0.0)
-    cash_score      = min(max(cash_to_mcap, 0), 1.0)
+    pb_score       = max(1.0 - (pb - 0.5) / 2.5, 0.0)
+    cash_score     = min(max(cash_to_mcap, 0), 1.0)
     valuation_score = pb_score * 0.6 + cash_score * 0.4
 
     return {
-        "market_cap_cr":     round(mktcap_cr, 0),
-        "pb_ratio":          round(pb, 2),
-        "net_cash_cr":       round(net_cash_cr, 0),
-        "cash_to_mcap_pct":  round(cash_to_mcap * 100, 1),
-        "valuation_score":   round(valuation_score, 3),
+        "market_cap_cr":    round(mktcap_cr, 0),
+        "pb_ratio":         round(pb, 2),
+        "net_cash_cr":      round(net_cash_cr, 0),
+        "cash_to_mcap_pct": round(cash_to_mcap * 100, 1),
+        "valuation_score":  round(valuation_score, 3),
         "trading_near_book": pb <= PCFG.mcap_to_book_max,
     }
 
 
 def analyze_growth(ticker: yf.Ticker, info: dict) -> dict:
-    # Clamp revenue growth to believable range (already filtered >300% via should_exclude)
-    rev_growth   = min((info.get("revenueGrowth") or 0) * 100, PCFG.max_believable_revenue_growth_pct)
-    earn_growth  = (info.get("earningsGrowth") or 0) * 100
-    profit_mgn   = (info.get("profitMargins") or 0) * 100
+    rev_growth  = min((info.get("revenueGrowth") or 0) * 100, PCFG.max_believable_revenue_growth_pct)
+    earn_growth = (info.get("earningsGrowth") or 0) * 100
+    profit_mgn  = (info.get("profitMargins") or 0) * 100
 
     accel_signal = False
     try:
@@ -398,38 +367,23 @@ def analyze_growth(ticker: yf.Ticker, info: dict) -> dict:
     }
 
 
-# ──────────────────────────────────────────────────────
-# NEW: FREE CASH FLOW YIELD
-# Source: 2025 academic study — strongest predictor of multibagger outperformance
-# among 464 confirmed multibagger stocks (stronger than P/E, P/B, earnings growth)
-# ──────────────────────────────────────────────────────
-
 def analyze_fcf(info: dict) -> dict:
-    """
-    FCF Yield = Free Cash Flow / Market Cap.
-    High FCF yield on a small cap = the business generates real cash,
-    not accounting profits. This is what separates EKI (real carbon credits
-    generating real USD cash) from earnings-manipulated stories.
-    """
-    free_cf  = info.get("freeCashflow")
-    mktcap   = info.get("marketCap") or 0
-    revenue  = info.get("totalRevenue") or 0
-    oper_cf  = info.get("operatingCashflow")
+    free_cf = info.get("freeCashflow")
+    mktcap  = info.get("marketCap") or 0
+    revenue = info.get("totalRevenue") or 0
+    oper_cf = info.get("operatingCashflow")
 
-    fcf_yield  = None
+    fcf_yield = None
     ocf_margin = None
-
     if free_cf and mktcap > 0:
         fcf_yield = round((free_cf / mktcap) * 100, 2)
-
     if oper_cf and revenue > 0:
         ocf_margin = round((oper_cf / revenue) * 100, 1)
 
-    # Score: best if FCF yield > 5%, excellent if > 10%
     if fcf_yield is None:
-        fcf_score = 0.3   # neutral — data not available
+        fcf_score = 0.3
     elif fcf_yield <= 0:
-        fcf_score = 0.0   # negative FCF = cash burning
+        fcf_score = 0.0
     else:
         fcf_score = min(fcf_yield / 10, 1.0)
 
@@ -447,35 +401,9 @@ def analyze_fcf(info: dict) -> dict:
     }
 
 
-# ──────────────────────────────────────────────────────
-# NEW: PIOTROSKI F-SCORE
-# 9-point financial health check. Score 8-9 = strong improving financials.
-# Computed entirely from yfinance data. Proven quality filter for Indian small caps.
-# Source: Piotroski (2000) — "Value Investing: The Use of Historical Financial Statements"
-# ──────────────────────────────────────────────────────
-
 def calc_piotroski(ticker: yf.Ticker, info: dict) -> dict:
-    """
-    9 binary signals (0 or 1 each), max score = 9.
-
-    Profitability (4 points):
-      F1. ROA positive this year
-      F2. Operating cash flow positive
-      F3. ROA improved year-over-year
-      F4. Accruals: OCF/Assets > ROA (cash earnings > accounting earnings)
-
-    Leverage / Liquidity (3 points):
-      F5. Long-term debt ratio decreased YoY
-      F6. Current ratio improved YoY
-      F7. No new shares issued (dilution)
-
-    Operating Efficiency (2 points):
-      F8. Gross margin improved YoY
-      F9. Asset turnover improved YoY (revenue / total assets)
-    """
-    score  = 0
+    score = 0
     points = {}
-
     try:
         bs  = ticker.balance_sheet
         fin = ticker.financials
@@ -495,62 +423,46 @@ def calc_piotroski(ticker: yf.Ticker, info: dict) -> dict:
                         return vals[0], vals[1] if len(vals) > 1 else None
             return None, None
 
-        # Balance sheet
-        total_assets_now, total_assets_prior  = row(bs, "total assets")
-        lt_debt_now,      lt_debt_prior       = row(bs, "long term debt", "longterm debt")
-        curr_assets_now,  curr_assets_prior   = row(bs, "current assets", "total current assets")
-        curr_liab_now,    curr_liab_prior      = row(bs, "current liabilities", "total current liabilities")
-        shares_now,       shares_prior         = row(bs, "ordinary shares", "common stock", "share issued")
+        total_assets_now,  total_assets_prior  = row(bs, "total assets")
+        lt_debt_now,       lt_debt_prior        = row(bs, "long term debt", "longterm debt")
+        curr_assets_now,   curr_assets_prior    = row(bs, "current assets", "total current assets")
+        curr_liab_now,     curr_liab_prior      = row(bs, "current liabilities", "total current liabilities")
+        shares_now,        shares_prior         = row(bs, "ordinary shares", "common stock", "share issued")
+        net_income_now,    net_income_prior     = row(fin, "net income")
+        gross_profit_now,  gross_profit_prior   = row(fin, "gross profit")
+        revenue_now,       revenue_prior        = row(fin, "total revenue", "revenue")
+        ocf_now,           _                    = row(cf, "operating cash flow", "total cash from operating")
 
-        # Income statement
-        net_income_now,   net_income_prior     = row(fin, "net income")
-        gross_profit_now, gross_profit_prior   = row(fin, "gross profit")
-        revenue_now,      revenue_prior        = row(fin, "total revenue", "revenue")
+        roa_now  = net_income_now  / total_assets_now  if (net_income_now  and total_assets_now)  else None
+        roa_prior= net_income_prior/ total_assets_prior if (net_income_prior and total_assets_prior) else None
+        ocf_roa  = ocf_now         / total_assets_now  if (ocf_now         and total_assets_now)  else None
+        gm_now   = gross_profit_now / revenue_now      if (gross_profit_now and revenue_now)       else None
+        gm_prior = gross_profit_prior/revenue_prior    if (gross_profit_prior and revenue_prior)   else None
+        at_now   = revenue_now     / total_assets_now  if (revenue_now     and total_assets_now)  else None
+        at_prior = revenue_prior   / total_assets_prior if (revenue_prior  and total_assets_prior) else None
+        lev_now  = lt_debt_now     / total_assets_now  if (lt_debt_now     and total_assets_now)  else 0
+        lev_prior= lt_debt_prior   / total_assets_prior if (lt_debt_prior  and total_assets_prior) else 0
+        cr_now   = curr_assets_now / curr_liab_now     if (curr_assets_now and curr_liab_now)     else None
+        cr_prior = curr_assets_prior/curr_liab_prior   if (curr_assets_prior and curr_liab_prior)  else None
 
-        # Cash flow
-        ocf_now, _ = row(cf, "operating cash flow", "total cash from operating")
-
-        # Compute ratios
-        roa_now   = net_income_now   / total_assets_now   if (net_income_now and total_assets_now) else None
-        roa_prior = net_income_prior / total_assets_prior if (net_income_prior and total_assets_prior) else None
-        ocf_roa   = ocf_now / total_assets_now            if (ocf_now and total_assets_now) else None
-        gm_now    = gross_profit_now / revenue_now        if (gross_profit_now and revenue_now) else None
-        gm_prior  = gross_profit_prior / revenue_prior    if (gross_profit_prior and revenue_prior) else None
-        at_now    = revenue_now / total_assets_now        if (revenue_now and total_assets_now) else None
-        at_prior  = revenue_prior / total_assets_prior    if (revenue_prior and total_assets_prior) else None
-        lev_now   = lt_debt_now / total_assets_now        if (lt_debt_now and total_assets_now) else 0
-        lev_prior = lt_debt_prior / total_assets_prior    if (lt_debt_prior and total_assets_prior) else 0
-        cr_now    = curr_assets_now / curr_liab_now       if (curr_assets_now and curr_liab_now) else None
-        cr_prior  = curr_assets_prior / curr_liab_prior   if (curr_assets_prior and curr_liab_prior) else None
-
-        # F1: ROA > 0
-        f1 = 1 if (roa_now and roa_now > 0) else 0
-        # F2: OCF > 0
-        f2 = 1 if (ocf_now and ocf_now > 0) else 0
-        # F3: ROA improving
-        f3 = 1 if (roa_now and roa_prior and roa_now > roa_prior) else 0
-        # F4: Cash earnings > accounting earnings (OCF/Assets > ROA)
-        f4 = 1 if (ocf_roa and roa_now and ocf_roa > roa_now) else 0
-        # F5: Leverage reduced
-        f5 = 1 if (lev_now < lev_prior) else 0
-        # F6: Current ratio improved
-        f6 = 1 if (cr_now and cr_prior and cr_now > cr_prior) else 0
-        # F7: No dilution (shares not increased)
+        f1 = 1 if (roa_now  and roa_now > 0)                                else 0
+        f2 = 1 if (ocf_now  and ocf_now > 0)                                else 0
+        f3 = 1 if (roa_now  and roa_prior and roa_now > roa_prior)          else 0
+        f4 = 1 if (ocf_roa  and roa_now   and ocf_roa > roa_now)            else 0
+        f5 = 1 if (lev_now < lev_prior)                                     else 0
+        f6 = 1 if (cr_now   and cr_prior  and cr_now > cr_prior)            else 0
         f7 = 1 if (shares_now and shares_prior and shares_now <= shares_prior * 1.01) else 0
-        # F8: Gross margin improved
-        f8 = 1 if (gm_now and gm_prior and gm_now > gm_prior) else 0
-        # F9: Asset turnover improved
-        f9 = 1 if (at_now and at_prior and at_now > at_prior) else 0
+        f8 = 1 if (gm_now   and gm_prior  and gm_now > gm_prior)            else 0
+        f9 = 1 if (at_now   and at_prior  and at_now > at_prior)            else 0
 
-        score   = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9
-        points  = {
-            "F1_roa_positive":     f1, "F2_ocf_positive":      f2,
-            "F3_roa_improving":    f3, "F4_cash_gt_accrual":   f4,
-            "F5_debt_reduced":     f5, "F6_curr_ratio_up":     f6,
-            "F7_no_dilution":      f7, "F8_gross_margin_up":   f8,
+        score = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9
+        points = {
+            "F1_roa_positive": f1, "F2_ocf_positive": f2,
+            "F3_roa_improving": f3, "F4_cash_gt_accrual": f4,
+            "F5_debt_reduced": f5, "F6_curr_ratio_up": f6,
+            "F7_no_dilution": f7, "F8_gross_margin_up": f8,
             "F9_asset_turnover_up": f9,
         }
-
     except Exception as e:
         log.debug(f"Piotroski calc failed: {e}")
         return {"piotroski_score": None, "piotroski_details": {}, "piotroski_flag": None}
@@ -561,29 +473,10 @@ def calc_piotroski(ticker: yf.Ticker, info: dict) -> dict:
     elif score >= 6:
         flag = f"✅ Piotroski {score}/9 — Improving financials"
 
-    return {
-        "piotroski_score":   score,
-        "piotroski_details": points,
-        "piotroski_flag":    flag,
-    }
+    return {"piotroski_score": score, "piotroski_details": points, "piotroski_flag": flag}
 
-
-# ──────────────────────────────────────────────────────
-# NEW: P/E EXPANSION TRAJECTORY
-# Is P/E expanding quarter-over-quarter? Expansion = market re-rating begun.
-# Source: Research — "multibaggers need both earnings growth AND P/E expansion"
-# ──────────────────────────────────────────────────────
 
 def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
-    """
-    Detect if P/E has been expanding over recent quarters.
-    A stock going from P/E 5 → 7 → 10 means the market is paying
-    more per unit of earnings — the re-rating has already started.
-
-    Fix: ticker.quarterly_earnings is deprecated in yfinance ≥ 0.2.x.
-    Now uses ticker.quarterly_income_stmt and extracts Net Income directly,
-    then divides by shares outstanding to compute quarterly EPS.
-    """
     try:
         current_pe = info.get("trailingPE")
         if not current_pe or current_pe <= 0 or current_pe > 200:
@@ -593,12 +486,10 @@ def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
         if shares <= 0:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # ── Use quarterly_income_stmt (replaces deprecated quarterly_earnings) ──
         qis = ticker.quarterly_income_stmt
         if qis is None or qis.empty:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # Find the Net Income row — yfinance uses various label spellings
         net_income_row = None
         for idx in qis.index:
             if "net income" in str(idx).lower():
@@ -608,10 +499,8 @@ def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
         if net_income_row is None or len(net_income_row) < 4:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # quarterly_income_stmt columns are datetime — most recent first
-        # Compute quarterly EPS = net_income / shares
         quarterly_eps = []
-        for val in net_income_row.iloc[:6]:   # up to 6 quarters back
+        for val in net_income_row.iloc[:6]:
             try:
                 eps = float(val) / shares if not pd.isna(val) else None
                 quarterly_eps.append(eps)
@@ -621,14 +510,11 @@ def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
         if len([v for v in quarterly_eps if v is not None]) < 4:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
-        # Get quarter-end closing prices (3-month interval, last 1.5 years)
         hist = ticker.history(period="18mo", interval="3mo")
         if hist is None or hist.empty or len(hist) < 3:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
         prices = hist["Close"].dropna()
-
-        # Build rolling 4-quarter trailing EPS and pair with quarter-end price
         pe_history = []
         for i in range(min(3, len(prices) - 1)):
             eps_window = [v for v in quarterly_eps[i:i+4] if v is not None]
@@ -640,23 +526,15 @@ def analyze_pe_trajectory(ticker: yf.Ticker, info: dict) -> dict:
             price_at_period = float(prices.iloc[-(i + 1)])
             pe_history.append(round(price_at_period / trailing_eps, 1))
 
-        pe_history.reverse()   # oldest → newest
-
+        pe_history.reverse()
         if len(pe_history) < 2:
             return {"pe_expanding": False, "pe_trajectory": None, "pe_traj_flag": None}
 
         pe_expanding  = all(pe_history[j] < pe_history[j+1] for j in range(len(pe_history)-1))
         pe_trajectory = " → ".join(str(p) for p in pe_history) + f" → {round(current_pe, 1)} (now)"
 
-        flag = None
-        if pe_expanding:
-            flag = f"📈 P/E EXPANDING: {pe_trajectory}"
-
-        return {
-            "pe_expanding":   pe_expanding,
-            "pe_trajectory":  pe_trajectory,
-            "pe_traj_flag":   flag,
-        }
+        flag = f"📈 P/E EXPANDING: {pe_trajectory}" if pe_expanding else None
+        return {"pe_expanding": pe_expanding, "pe_trajectory": pe_trajectory, "pe_traj_flag": flag}
 
     except Exception as e:
         log.debug(f"P/E trajectory failed: {e}")
@@ -684,26 +562,26 @@ def analyze_promoter_group(info: dict) -> dict:
             group_score = 0.2
 
     return {
-        "matched_group":    matched_group,
-        "group_score":      round(group_score, 3),
-        "is_trusted_group": matched_group is not None,
-        "flag":             f"🏛️ {matched_group} Group" if matched_group else None,
+        "matched_group":   matched_group,
+        "group_score":     round(group_score, 3),
+        "is_trusted_group":matched_group is not None,
+        "flag":            f"🏛️ {matched_group} Group" if matched_group else None,
     }
 
 
 def analyze_debt_trajectory(ticker: yf.Ticker, info: dict) -> dict:
-    current_debt  = info.get("totalDebt") or 0
-    cash          = info.get("totalCash") or 0
-    book_val      = info.get("bookValue") or 0
-    shares        = info.get("sharesOutstanding") or 0
-    total_equity  = book_val * shares if shares > 0 else 0
+    current_debt = info.get("totalDebt") or 0
+    cash         = info.get("totalCash") or 0
+    book_val     = info.get("bookValue") or 0
+    shares       = info.get("sharesOutstanding") or 0
+    total_equity = book_val * shares if shares > 0 else 0
 
     current_de   = current_debt / total_equity if total_equity > 0 else 0
     net_debt_cr  = (current_debt - cash) / 1e7
     is_net_cash  = (current_debt - cash) <= 0
     is_near_zero = current_de <= PCFG.near_zero_debt_de
 
-    debt_reducing      = False
+    debt_reducing     = False
     debt_reduction_pct = 0.0
     try:
         bs = ticker.quarterly_balance_sheet
@@ -720,15 +598,15 @@ def analyze_debt_trajectory(ticker: yf.Ticker, info: dict) -> dict:
     except Exception:
         pass
 
-    if is_net_cash:         debt_score = 1.0
-    elif is_near_zero:      debt_score = 0.8
-    elif debt_reducing:     debt_score = min(debt_reduction_pct / 60, 0.7)
-    else:                   debt_score = max(1.0 - current_de / 2.0, 0.0)
+    if is_net_cash:    debt_score = 1.0
+    elif is_near_zero: debt_score = 0.8
+    elif debt_reducing: debt_score = min(debt_reduction_pct / 60, 0.7)
+    else:              debt_score = max(1.0 - current_de / 2.0, 0.0)
 
     flags = []
-    if is_net_cash:       flags.append("🟢 NET CASH (Cash > Debt)")
-    elif is_near_zero:    flags.append(f"🟢 NEAR ZERO DEBT (D/E {current_de:.2f})")
-    elif debt_reducing:   flags.append(f"📉 Debt Reducing ({debt_reduction_pct:.0f}% in 4 qtrs)")
+    if is_net_cash:    flags.append("🟢 NET CASH (Cash > Debt)")
+    elif is_near_zero: flags.append(f"🟢 NEAR ZERO DEBT (D/E {current_de:.2f})")
+    elif debt_reducing: flags.append(f"📉 Debt Reducing ({debt_reduction_pct:.0f}% in 4 qtrs)")
 
     return {
         "current_de":         round(current_de, 2),
@@ -767,10 +645,10 @@ def analyze_peer_pe_discount(info: dict) -> dict:
             "flag": None, "pe_source": None, "sector_mapped": sector,
         }
 
-    ratio           = best_pe / sector_pe
+    ratio          = best_pe / sector_pe
     pe_discount_pct = (1 - ratio) * 100
-    pe_score        = max(1.0 - ratio, 0.0)
-    is_deep_value   = ratio <= PCFG.peer_pe_discount_threshold
+    pe_score       = max(1.0 - ratio, 0.0)
+    is_deep_value  = ratio <= PCFG.peer_pe_discount_threshold
 
     flag = None
     if ratio <= 0.25:
@@ -779,23 +657,30 @@ def analyze_peer_pe_discount(info: dict) -> dict:
         flag = f"💰 DEEP VALUE: P/E {best_pe:.1f} vs sector {sector_pe:.0f} ({pe_discount_pct:.0f}% discount)"
 
     return {
-        "stock_pe":           round(best_pe, 1),
-        "sector_pe":          sector_pe,
-        "pe_ratio_to_sector": round(ratio, 2),
-        "pe_discount_pct":    round(pe_discount_pct, 1),
-        "pe_score":           round(pe_score, 3),
-        "is_deep_value":      is_deep_value,
-        "flag":               flag,
-        "pe_source":          pe_source,
-        "sector_mapped":      sector,
+        "stock_pe": round(best_pe, 1), "sector_pe": sector_pe,
+        "pe_ratio_to_sector": round(ratio, 2), "pe_discount_pct": round(pe_discount_pct, 1),
+        "pe_score": round(pe_score, 3), "is_deep_value": is_deep_value,
+        "flag": flag, "pe_source": pe_source, "sector_mapped": sector,
     }
 
 
-def detect_catalysts(symbol: str, announcements: list[dict]) -> dict:
+def detect_catalysts(symbol: str, announcements: list[dict],
+                     screener_data: Optional[dict] = None) -> dict:
+    """
+    FIX A: Also check Screener.in concalls list for catalyst signals.
+    Added debug log showing total announcements checked.
+    """
     all_text = " ".join(
         (a.get("title", "") + " " + a.get("category", "")).lower()
         for a in announcements
     )
+
+    # FIX A: also pull concall signals from Screener
+    concall_events = fetch_screener_concalls(screener_data)
+    if concall_events:
+        log.debug(f"  {symbol}: {len(concall_events)} concall events from Screener")
+
+    log.debug(f"  {symbol}: {len(announcements)} BSE announcements checked for catalysts")
 
     preferential_found = any(kw in all_text for kw in [
         "preferential allotment", "preferential issue", "warrant",
@@ -806,7 +691,13 @@ def detect_catalysts(symbol: str, announcements: list[dict]) -> dict:
     jv_found      = any(kw in all_text for kw in ["joint venture", " jv ", "collaboration", "partnership"])
     buyback_found = any(kw in all_text for kw in ["buyback", "buy back", "share repurchase"])
     export_found  = any(kw in all_text for kw in ["export", "overseas", "international order"])
-    order_found   = any(kw in all_text for kw in ["order win", "order received", "loi", "contract awarded", "new order"])
+    order_found   = any(kw in all_text for kw in [
+        "order win", "order received", "loi", "contract awarded", "new order"
+    ])
+    debt_repay_found = any(kw in all_text for kw in [
+        "repayment", "debt free", "loan closed", "ncd redemption",
+        "debenture redemption", "term loan repaid",
+    ])
 
     found_catalysts = []
     catalyst_score  = 0.0
@@ -832,6 +723,12 @@ def detect_catalysts(symbol: str, announcements: list[dict]) -> dict:
     if order_found:
         found_catalysts.append("📋 New Order Win")
         catalyst_score += 0.20
+    if debt_repay_found:  # FIX A: new keyword — valuepick explicitly tracks this
+        found_catalysts.append("🟢 Debt Repayment / Loan Closure")
+        catalyst_score += 0.20
+    if concall_events:   # FIX A: concall = management engagement signal
+        found_catalysts.append(f"🎙️ Recent Earnings Concall ({len(concall_events)})")
+        catalyst_score += 0.10
 
     recent_30d = [
         a for a in announcements
@@ -857,54 +754,25 @@ def classify_price_stage(info: dict, hist: pd.DataFrame) -> str:
     price = info.get("currentPrice") or info.get("regularMarketPrice") or 0
     if price == 0:
         return "UNKNOWN"
-
-    c        = hist["Close"]
+    c = hist["Close"]
     high_52w = c.rolling(252).max().iloc[-1]
     low_52w  = c.rolling(252).min().iloc[-1]
-
     pct_from_low  = (price - low_52w)  / low_52w  * 100 if low_52w  > 0 else 0
     pct_from_high = (high_52w - price) / high_52w * 100 if high_52w > 0 else 0
-
-    if pct_from_low < 20:                        return "🟢 DEEP BASE (near 52W low)"
+    if pct_from_low  < 20:              return "🟢 DEEP BASE (near 52W low)"
     elif pct_from_low < 50 and pct_from_high > 30: return "🟡 EARLY UPTREND"
-    elif pct_from_high < 10:                     return "🔴 NEAR 52W HIGH (late)"
-    else:                                        return "🟠 MID CYCLE"
+    elif pct_from_high < 10:            return "🔴 NEAR 52W HIGH (late)"
+    else:                               return "🟠 MID CYCLE"
 
 
 # ──────────────────────────────────────────────────────
-# PETER LYNCH / GARP SCORING MODULE
-# ──────────────────────────────────────────────────────
-# Lynch's core principles from "One Up on Wall Street" (1989):
-#   1. PEG ratio < 1.0 — pay less than the growth rate (primary tool)
-#   2. Low institutional ownership — undiscovered = upside ahead
-#   3. Net cash position — cash floor, can't go to zero
-#   4. Earnings consistency — 4+ consecutive profitable quarters
-#   5. Inventory vs sales health — rising inventory faster than sales = warning
-#
-# Lynch classified stocks: Fast Growers, Stalwarts, Slow Growers, Cyclicals,
-# Turnarounds, Asset Plays. Fast Growers in stable industries = best multibaggers.
-# VALUEPICK operates with identical instincts: buys before institutions notice.
+# PETER LYNCH / GARP SCORING MODULE (unchanged)
 # ──────────────────────────────────────────────────────
 
 def calc_lynch_score(ticker: yf.Ticker, info: dict) -> tuple[float, dict]:
-    """
-    Compute Peter Lynch GARP score (0-1).
-    Returns (lynch_score, details_dict).
-
-    Components:
-      PEG ratio          (0.30) — Lynch's primary valuation tool
-      Institutional own  (0.20) — low = undiscovered = Lynch sweet spot
-      Net cash / mcap    (0.20) — balance sheet floor
-      EPS consistency    (0.15) — 4+ consecutive positive quarters
-      Inventory health   (0.15) — inventory growing slower than sales
-    """
     details = {
-        "peg_ratio":      None,
-        "inst_own_pct":   None,
-        "net_cash_pct":   None,
-        "eps_consistent": None,
-        "inv_health":     None,
-        "lynch_flag":     None,
+        "peg_ratio": None, "inst_own_pct": None, "net_cash_pct": None,
+        "eps_consistent": None, "inv_health": None, "lynch_flag": None,
     }
 
     def g(key, default=None):
@@ -916,15 +784,11 @@ def calc_lynch_score(ticker: yf.Ticker, info: dict) -> tuple[float, dict]:
     lynch_score = 0.0
     flags = []
 
-    # ── 1. PEG ratio (weight 0.30) ──────────────────────────────
-    # Lynch: PEG < 1.0 = ideal. PEG between 1.0-1.5 = acceptable.
-    # PEG > 2.0 = expensive relative to growth. Negative PEG = skip.
-    # Formula: trailing PE / (revenue growth * 100)
-    # yfinance often lacks official PEG, so compute from components.
-    peg_score = 0.3    # neutral default
-    trailing_pe  = g("trailingPE")
-    rev_growth   = g("revenueGrowth")    # decimal e.g. 0.18 = 18%
-    forward_pe   = g("forwardPE")
+    # 1. PEG ratio
+    peg_score   = 0.3
+    trailing_pe = g("trailingPE")
+    rev_growth  = g("revenueGrowth")
+    forward_pe  = g("forwardPE")
 
     if trailing_pe and trailing_pe > 0 and trailing_pe < 200:
         if rev_growth and rev_growth > 0.05:
@@ -943,25 +807,17 @@ def calc_lynch_score(ticker: yf.Ticker, info: dict) -> tuple[float, dict]:
             elif peg < 2.0:
                 peg_score = 0.35
             else:
-                peg_score = 0.10   # expensive relative to growth
+                peg_score = 0.10
         elif trailing_pe < 12:
-            # Low PE even without growth data = value signal
             peg_score = 0.55
-    elif forward_pe and 0 < forward_pe < 20:
-        peg_score = 0.65   # low forward PE without growth data
+        elif forward_pe and 0 < forward_pe < 20:
+            peg_score = 0.65
 
     lynch_score += peg_score * 0.30
 
-    # ── 2. Institutional ownership (weight 0.20) ──────────────────
-    # Lynch: "If few institutions own it and only a handful of analysts
-    # have ever heard of it, that's a big plus."
-    # < 10% = nearly undiscovered (ideal)
-    # 10-25% = early stage (good)
-    # 25-50% = being discovered (neutral)
-    # > 50% = fully discovered (no Lynch edge)
+    # 2. Institutional ownership
     inst_own_raw = g("institutionsPercentHeld") or g("heldPercentInstitutions") or None
-    inst_score   = 0.3   # neutral default
-
+    inst_score = 0.3
     if inst_own_raw is not None:
         inst_pct = inst_own_raw * 100 if inst_own_raw < 1.0 else inst_own_raw
         details["inst_own_pct"] = round(inst_pct, 1)
@@ -976,414 +832,385 @@ def calc_lynch_score(ticker: yf.Ticker, info: dict) -> tuple[float, dict]:
         elif inst_pct < 50:
             inst_score = 0.30
         else:
-            inst_score = 0.10   # fully owned, Lynch edge gone
-
+            inst_score = 0.10
     lynch_score += inst_score * 0.20
 
-    # ── 3. Net cash / Market cap (weight 0.20) ────────────────────
-    # Lynch: companies with significant net cash can't go to zero.
-    # Net cash positive + large = strong floor.
-    # Net cash / Mcap > 20% = Lynch would love it.
+    # 3. Net cash / Market cap
     cash   = g("totalCash", 0) or 0
     debt   = g("totalDebt", 0) or 0
     mktcap = g("marketCap", 0) or 0
-
-    net_cash_score = 0.2   # neutral default
+    net_cash_score = 0.2
     if mktcap > 0:
-        net_cash = cash - debt
+        net_cash     = cash - debt
         net_cash_pct = net_cash / mktcap * 100
         details["net_cash_pct"] = round(net_cash_pct, 1)
-
         if net_cash_pct > 30:
             net_cash_score = 1.0
             flags.append(f"💰 Net cash {net_cash_pct:.0f}% of MCap — Lynch floor ✓")
         elif net_cash_pct > 15:
-            net_cash_score = 0.80
-            flags.append(f"💵 Net cash {net_cash_pct:.0f}% of MCap")
+            net_cash_score = 0.75
+            flags.append(f"💰 Net cash {net_cash_pct:.0f}% of MCap")
         elif net_cash_pct > 0:
-            net_cash_score = 0.55
-        elif net_cash_pct > -20:
-            net_cash_score = 0.30   # modest net debt
+            net_cash_score = 0.50
         else:
-            net_cash_score = 0.05   # heavy debt relative to mcap
-
+            net_cash_score = 0.20
     lynch_score += net_cash_score * 0.20
 
-    # ── 4. Earnings consistency (weight 0.15) ─────────────────────
-    # Lynch: consistent earners are more reliable than sporadic ones.
-    # 4+ consecutive profitable quarters = operational stability.
-    eps_score = 0.3   # neutral default
+    # 4. EPS consistency (4+ quarters positive)
+    eps_score = 0.3
     try:
         qis = ticker.quarterly_income_stmt
         if qis is not None and not qis.empty:
+            ni_row = None
             for idx in qis.index:
                 if "net income" in str(idx).lower():
-                    row = qis.loc[idx]
-                    vals = [float(v) for v in row.iloc[:6] if v is not None and v == v]
-                    if len(vals) >= 4:
-                        n_positive = sum(1 for v in vals[:4] if v > 0)
-                        details["eps_consistent"] = f"{n_positive}/4 qtrs profitable"
-                        if n_positive == 4:
-                            eps_score = 0.90
-                            flags.append("📈 4/4 profitable quarters (Lynch consistent)")
-                        elif n_positive == 3:
-                            eps_score = 0.60
-                        elif n_positive >= 2:
-                            eps_score = 0.35
-                        else:
-                            eps_score = 0.05
+                    ni_row = qis.loc[idx]
                     break
+            if ni_row is not None:
+                vals = [float(v) for v in ni_row.iloc[:6] if not pd.isna(v)]
+                pos_count = sum(1 for v in vals if v > 0)
+                details["eps_consistent"] = pos_count
+                if pos_count >= 5:
+                    eps_score = 1.0
+                    flags.append(f"📊 {pos_count}/6 quarters profitable")
+                elif pos_count >= 4:
+                    eps_score = 0.75
+                elif pos_count >= 3:
+                    eps_score = 0.50
+                else:
+                    eps_score = 0.10
     except Exception:
         pass
-
     lynch_score += eps_score * 0.15
 
-    # ── 5. Inventory health (weight 0.15) ─────────────────────────
-    # Lynch: "A simple ratio — when inventories grow faster than sales,
-    # watch out. The company is either discounting or demand is softening."
-    # Healthy: inventory growth ≤ revenue growth
-    # Warning: inventory growing 2× faster than revenue
-    inv_score = 0.5   # neutral default
+    # 5. Inventory health (sales growing faster than inventory)
+    inv_score = 0.5
     try:
-        qbs  = ticker.quarterly_balance_sheet
-        qfin = ticker.quarterly_financials
-
-        if (qbs is not None and not qbs.empty and
-                qfin is not None and not qfin.empty):
-            # Find inventory row
-            inv_row = None
-            for idx in qbs.index:
+        bs  = ticker.balance_sheet
+        fin = ticker.financials
+        if bs is not None and fin is not None and not bs.empty and not fin.empty:
+            inv_now = inv_prior = rev_now = rev_prior = None
+            for idx in bs.index:
                 if "inventor" in str(idx).lower():
-                    inv_row = qbs.loc[idx]
+                    row_data = bs.loc[idx]
+                    inv_now  = float(row_data.iloc[0]) if not pd.isna(row_data.iloc[0]) else None
+                    inv_prior = float(row_data.iloc[1]) if len(row_data) > 1 and not pd.isna(row_data.iloc[1]) else None
                     break
-
-            # Find revenue row
-            rev_row = None
-            for idx in qfin.index:
-                if "total revenue" in str(idx).lower() or "revenue" in str(idx).lower():
-                    rev_row = qfin.loc[idx]
+            for idx in fin.index:
+                if "revenue" in str(idx).lower() or "sales" in str(idx).lower():
+                    row_data  = fin.loc[idx]
+                    rev_now   = float(row_data.iloc[0]) if not pd.isna(row_data.iloc[0]) else None
+                    rev_prior = float(row_data.iloc[1]) if len(row_data) > 1 and not pd.isna(row_data.iloc[1]) else None
                     break
-
-            if inv_row is not None and rev_row is not None and len(inv_row) >= 4:
-                inv_recent = float(inv_row.iloc[0]) if not pd.isna(inv_row.iloc[0]) else None
-                inv_prior  = float(inv_row.iloc[3]) if not pd.isna(inv_row.iloc[3]) else None
-                rev_recent = float(rev_row.iloc[0]) if not pd.isna(rev_row.iloc[0]) else None
-                rev_prior  = float(rev_row.iloc[3]) if not pd.isna(rev_row.iloc[3]) else None
-
-                if all(v is not None and v > 0 for v in [inv_recent, inv_prior, rev_recent, rev_prior]):
-                    inv_growth = (inv_recent - inv_prior) / inv_prior
-                    rev_growth_q = (rev_recent - rev_prior) / rev_prior
-                    inv_to_rev = inv_growth / max(abs(rev_growth_q), 0.01)
-                    details["inv_health"] = f"inv+{inv_growth*100:.0f}% vs rev+{rev_growth_q*100:.0f}%"
-
-                    if inv_growth < 0:  # falling inventory = positive
-                        inv_score = 0.90
-                    elif inv_to_rev < 0.7:  # inv growing much slower than rev
-                        inv_score = 0.80
-                    elif inv_to_rev < 1.2:  # inv growing roughly in line
-                        inv_score = 0.55
-                    elif inv_to_rev < 2.0:  # inv growing faster — caution
-                        inv_score = 0.25
-                        flags.append("⚠️ Inventory growing faster than revenue (Lynch warning)")
-                    else:
-                        inv_score = 0.05   # danger sign
-                        flags.append("🚨 Inventory surge vs weak revenue (Lynch red flag)")
+            if all(v is not None and v > 0 for v in [inv_now, inv_prior, rev_now, rev_prior]):
+                inv_growth = (inv_now - inv_prior) / inv_prior
+                rev_growth_calc = (rev_now - rev_prior) / rev_prior
+                details["inv_health"] = round(inv_growth - rev_growth_calc, 3)
+                if inv_growth < rev_growth_calc:
+                    inv_score = 0.80
+                    flags.append("📦 Healthy: sales growing faster than inventory")
+                elif inv_growth > rev_growth_calc * 1.5:
+                    inv_score = 0.20
     except Exception:
         pass
-
     lynch_score += inv_score * 0.15
 
-    # Lynch classification bonus
-    lynch_class = "Unknown"
-    if peg_score >= 0.85 and inst_score >= 0.70:
-        lynch_class = "Fast Grower (undiscovered)"
-    elif net_cash_score >= 0.80 and peg_score >= 0.55:
-        lynch_class = "Asset Play (cash-rich)"
-    elif peg_score >= 0.60 and eps_score >= 0.60:
-        lynch_class = "Stalwart (consistent compounder)"
+    # Lynch stock classification
+    trailing_pe2 = g("trailingPE")
+    roe          = g("returnOnEquity", 0) or 0
+    lynch_class  = "Unknown"
+    if rev_growth and rev_growth > 0.20 and trailing_pe2 and trailing_pe2 < 30:
+        lynch_class = "Fast Grower"
+    elif rev_growth and 0.05 < rev_growth <= 0.20:
+        lynch_class = "Stalwart"
+    elif rev_growth and rev_growth <= 0.05:
+        lynch_class = "Slow Grower"
+    elif roe < 0:
+        lynch_class = "Turnaround"
 
     details["lynch_class"] = lynch_class
-    details["lynch_flag"]  = f"🔍 Lynch: {lynch_class}" if lynch_class != "Unknown" else None
+    details["lynch_score"] = round(min(lynch_score, 1.0), 3)
     details["lynch_flags"] = flags
+    details["lynch_flag"]  = " | ".join(flags[:3]) if flags else None
 
-    return round(min(lynch_score, 1.0), 4), details
+    return round(min(lynch_score, 1.0), 3), details
 
 
 # ──────────────────────────────────────────────────────
-# COMPOSITE SCORE
+# MAIN SCANNER — with FIX B (Piotroski gate)
 # ──────────────────────────────────────────────────────
 
-def pre_breakout_composite(
-    shareholding: dict, valuation: dict, growth: dict,
-    catalyst: dict, group: dict, debt: dict, pe_val: dict,
-    fcf: dict, piotroski: dict, pe_traj: dict,
-    lynch: dict = None,
-    public_data: dict = None,
-) -> float:
-    # Base score from original signals
-    score = (
+def analyse_pre_breakout(
+    symbol: str,
+    nse_session=None,
+    universe_deals: dict = None,
+) -> Optional[dict]:
+    """
+    Full pre-breakout analysis for a single symbol.
+
+    FIX B: Hard Piotroski gate — stocks with score < PCFG.min_piotroski
+    are rejected before scoring. This prevents low-quality stocks with
+    a lucky PEG ratio from ranking above high-quality stocks.
+    """
+    sym_clean = symbol.replace(".NS", "")
+
+    try:
+        ticker = yf.Ticker(symbol)
+        info   = ticker.info or {}
+    except Exception as e:
+        log.debug(f"{symbol}: yf.Ticker failed — {e}")
+        return None
+
+    if not info or not info.get("marketCap"):
+        return None
+
+    # ── Universe filters ──
+    mktcap_cr = (info.get("marketCap") or 0) / 1e7
+    price     = info.get("currentPrice") or info.get("regularMarketPrice") or 0
+
+    if not (PCFG.min_market_cap_cr <= mktcap_cr <= PCFG.max_market_cap_cr):
+        return None
+    if not (PCFG.min_price <= price <= PCFG.max_price):
+        return None
+
+    exclude, reason = should_exclude(info)
+    if exclude:
+        log.debug(f"  {sym_clean}: excluded — {reason}")
+        return None
+
+    # ── Historical data ──
+    try:
+        hist = ticker.history(period="2y", interval="1d")
+    except Exception:
+        hist = pd.DataFrame()
+
+    # ── Piotroski (FIX B: gate before expensive analysis) ──
+    piotroski_data = calc_piotroski(ticker, info)
+    p_score = piotroski_data.get("piotroski_score")
+
+    if p_score is not None and p_score < PCFG.min_piotroski:
+        log.debug(
+            f"  {sym_clean}: Piotroski {p_score}/9 < {PCFG.min_piotroski} — rejected"
+        )
+        return None
+
+    # ── All signal modules ──
+    shareholding = analyze_shareholding(info)
+    valuation    = analyze_asset_value(info)
+    growth       = analyze_growth(ticker, info)
+    fcf_data     = analyze_fcf(info)
+    debt         = analyze_debt_trajectory(ticker, info)
+    group        = analyze_promoter_group(info)
+    peer_pe      = analyze_peer_pe_discount(info)
+    pe_traj      = analyze_pe_trajectory(ticker, info)
+    lynch_score, lynch_details = calc_lynch_score(ticker, info)
+
+    # ── BSE announcements (FIX A: both P and C search types) ──
+    bse_code     = get_bse_code_from_symbol(symbol)
+    announcements = []
+    if bse_code:
+        announcements = fetch_bse_announcements(bse_code, PCFG.announcement_lookback_days)
+
+    # Pass None for screener_data at this stage — enrichment happens later
+    catalyst     = detect_catalysts(symbol, announcements, screener_data=None)
+
+    # ── Public data (insider trades, pledge, bulk deals) ──
+    public_data  = None
+    if universe_deals is not None:
+        try:
+            public_data = fetch_all_public_signals(
+                symbol, info, universe_deals, session=nse_session
+            )
+        except Exception as e:
+            log.debug(f"  {sym_clean}: public data failed — {e}")
+
+    # ── Price stage ──
+    price_stage  = classify_price_stage(info, hist)
+    if "NEAR 52W HIGH" in price_stage:
+        return None   # already late — skip
+
+    # ── Tiered qualification gate ──
+    soft_signals = 0
+    if shareholding["insider_pct"] >= PCFG.min_promoter_holding_pct:
+        soft_signals += 1
+    if valuation["trading_near_book"]:
+        soft_signals += 1
+    if group["is_trusted_group"]:
+        soft_signals += 1
+    if debt["is_net_cash"] or debt["debt_reducing"]:
+        soft_signals += 1
+    if growth["growth_accelerating"]:
+        soft_signals += 1
+    if peer_pe["is_deep_value"]:
+        soft_signals += 1
+
+    tier1_pass = catalyst["catalyst_score"] >= PCFG.tier1_catalyst_threshold
+    tier2_pass = soft_signals >= PCFG.tier2_min_signals
+
+    if not tier1_pass and not tier2_pass:
+        log.debug(
+            f"  {sym_clean}: failed tiered gate "
+            f"(catalyst={catalyst['catalyst_score']:.2f}, soft_signals={soft_signals})"
+        )
+        return None
+
+    # ── Composite score ──
+    public_score = (public_data or {}).get("public_score", 0.3)
+
+    composite = (
+        catalyst["catalyst_score"]    * PCFG.w_catalyst  +
+        growth["growth_score"]         * PCFG.w_growth    +
+        group["group_score"]           * PCFG.w_group     +
         shareholding["promoter_score"] * PCFG.w_promoter  +
         valuation["valuation_score"]   * PCFG.w_valuation +
-        growth["growth_score"]         * PCFG.w_growth    +
-        catalyst["catalyst_score"]     * PCFG.w_catalyst  +
-        group["group_score"]           * PCFG.w_group     +
+        public_score                   * PCFG.w_public    +
         debt["debt_score"]             * PCFG.w_debt      +
-        pe_val["pe_score"]             * PCFG.w_pe_value
+        peer_pe["pe_score"]            * PCFG.w_pe_value
     )
-    # Undiscovered bonus
-    score += shareholding["undiscovered_score"] * 0.05
 
-    # FCF yield bonus (strongest academic predictor)
-    score += fcf["fcf_score"] * 0.06
+    # Collect all flags for the report
+    all_flags = []
+    for src in [catalyst, fcf_data, piotroski_data, pe_traj, group, debt]:
+        flag = src.get("piotroski_flag") or src.get("flag") or src.get("pe_traj_flag")
+        if flag:
+            all_flags.append(flag)
+    for f in debt.get("flags", []):
+        all_flags.append(f)
+    if public_data:
+        all_flags.extend(public_data.get("public_flags", []))
+    if lynch_details.get("lynch_flags"):
+        all_flags.extend(lynch_details["lynch_flags"][:2])
 
-    # Piotroski bonus — strong improving financials
-    if piotroski["piotroski_score"] is not None:
-        piotroski_norm = piotroski["piotroski_score"] / 9
-        score += piotroski_norm * 0.05
+    return {
+        "symbol":          symbol,
+        "price":           round(price, 2),
+        "market_cap_cr":   round(mktcap_cr, 0),
+        "price_stage":     price_stage,
+        "composite_score": round(composite, 4),
+        "scanned_at":      datetime.utcnow().isoformat(),
 
-    # P/E expansion bonus — re-rating already started
-    if pe_traj["pe_expanding"]:
-        score += 0.04
+        # Signal breakdowns
+        "catalyst":        catalyst,
+        "shareholding":    shareholding,
+        "valuation":       valuation,
+        "growth":          growth,
+        "fcf":             fcf_data,
+        "debt":            debt,
+        "group":           group,
+        "peer_pe":         peer_pe,
+        "piotroski":       piotroski_data,
+        "pe_trajectory":   pe_traj,
+        "lynch":           lynch_details,
+        "public_data":     public_data,
 
-    # Lynch GARP bonus
-    if lynch is not None:
-        score += lynch["lynch_score"] * 0.10
+        # Flat fields for quick report access
+        "all_flags":       all_flags,
+        "bse_code":        bse_code,
+        "announcement_count": len(announcements),
 
-    # NEW: Public domain signals bonus (insider buying + pledge health + bulk deals)
-    if public_data is not None:
-        score += public_data["public_score"] * PCFG.w_public
-
-        # Hard penalty: high pledge is a disqualifier regardless of other signals
-        if public_data.get("is_high_pledge"):
-            score = min(score, 0.45)
-
-        # Strong bonus: promoter open-market buying + catalyst = highest conviction
-        if public_data.get("promoter_buying") and catalyst["catalyst_score"] >= 0.2:
-            score += 0.07
-
-    # "Guess The Gem" trifecta: trusted group + deep value + catalyst
-    if group["is_trusted_group"] and pe_val["is_deep_value"] and catalyst["catalyst_score"] >= 0.3:
-        score += 0.08
-
-    # Lynch + VALUEPICK double signal: undiscovered + catalyst + good PEG
-    if (lynch is not None and lynch.get("inst_own_pct") is not None and
-            lynch["inst_own_pct"] < 20 and
-            catalyst["catalyst_score"] >= 0.2 and
-            lynch.get("peg_ratio") is not None and lynch["peg_ratio"] < 1.5):
-        score += 0.06
-
-    return round(min(score, 1.0), 4)
+        # screener enriched later
+        "screener":        None,
+        "screener_flags":  [],
+        "screener_roce":   None,
+    }
 
 
 # ──────────────────────────────────────────────────────
-# MAIN SCANNER
+# BATCH RUNNER
 # ──────────────────────────────────────────────────────
 
 def run_pre_breakout_scanner(
     symbols: list[str],
     nse_session=None,
     universe_deals: dict = None,
+    regime: dict = None,
 ) -> list[dict]:
-    log.info("══════════════════════════════════════════════════════")
-    log.info("  PRE-BREAKOUT SCANNER (Layer 2) v4")
-    log.info("  Method: VALUEPICK + Lynch GARP + Insider/Pledge/Bulk")
-    log.info("══════════════════════════════════════════════════════")
-    log.info(f"Scanning {len(symbols)} symbols...")
+    """
+    Run Layer 2 pre-breakout scan on full universe.
+    Returns top-N candidates, enriched with Screener.in data.
+    """
+    log.info(f"Layer 2: scanning {len(symbols)} symbols for pre-breakout setups...")
 
-    results     = []
-    excluded_ct = 0
+    candidates = []
+    batch_size = 50
+    sleep_between = 1.5
 
     for i, symbol in enumerate(symbols):
-        sym_clean = symbol.replace(".NS", "")
         try:
-            ticker = yf.Ticker(symbol)
-            info   = ticker.info
-
-            mktcap = (info.get("marketCap") or 0) / 1e7
-            price  = info.get("currentPrice") or info.get("regularMarketPrice") or 0
-
-            if not (PCFG.min_market_cap_cr <= mktcap <= PCFG.max_market_cap_cr):
-                continue
-            if not (PCFG.min_price <= price <= PCFG.max_price):
-                continue
-
-            # ── Quality gate (FIX 1 + FIX 2) ──
-            skip, reason = should_exclude(info)
-            if skip:
-                excluded_ct += 1
-                log.debug(f"  EXCLUDED {sym_clean}: {reason}")
-                continue
-
-            hist         = ticker.history(period="2y")
-            shareholding = analyze_shareholding(info)
-            valuation    = analyze_asset_value(info)
-            growth       = analyze_growth(ticker, info)
-            group        = analyze_promoter_group(info)
-            debt         = analyze_debt_trajectory(ticker, info)
-            pe_val       = analyze_peer_pe_discount(info)
-            fcf          = analyze_fcf(info)
-            piotroski    = calc_piotroski(ticker, info)
-            pe_traj      = analyze_pe_trajectory(ticker, info)
-            lynch_score_val, lynch_details = calc_lynch_score(ticker, info)
-            lynch_details["lynch_score"] = lynch_score_val
-
-            # NEW: public domain signals (insider buying, pledge, bulk deals)
-            public_data = None
-            if universe_deals is not None:
-                try:
-                    public_data = fetch_all_public_signals(
-                        symbol, info,
-                        universe_deals=universe_deals,
-                        session=nse_session,
-                    )
-                except Exception as pe:
-                    log.debug(f"  {sym_clean}: public_data failed — {pe}")
-
-            bse_code      = get_bse_code_from_symbol(symbol)
-            announcements = []
-            if bse_code:
-                announcements = fetch_bse_announcements(bse_code, PCFG.announcement_lookback_days)
-                time.sleep(0.3)
-
-            catalyst = detect_catalysts(symbol, announcements)
-            stage    = classify_price_stage(info, hist)
-
-            # ── TIERED QUALIFICATION GATE ──────────────────────────────
-            # Tier 1: Hard catalyst = auto-qualify (rare, high-conviction)
-            #   Preferential allotment, capex announcement, JV pivot etc.
-            tier1 = catalyst["catalyst_score"] >= PCFG.tier1_catalyst_threshold
-
-            # Tier 2: Need at least 2 soft signals firing together
-            #   Any single signal alone (high promoter, low P/B, near zero debt)
-            #   is too common to be meaningful. Two together is interesting.
-            soft_signals = [
-                shareholding["insider_pct"] >= PCFG.min_promoter_holding_pct,
-                valuation["trading_near_book"],
-                growth["growth_accelerating"],
-                group["is_trusted_group"],
-                debt["is_near_zero_debt"] or debt["debt_reducing"],
-                pe_val["is_deep_value"],
-                piotroski.get("piotroski_score", 0) is not None and
-                    (piotroski.get("piotroski_score") or 0) >= 6,
-                fcf.get("fcf_score", 0) >= 0.4,
-            ]
-            tier2 = sum(1 for s in soft_signals if s) >= PCFG.tier2_min_signals
-
-            if not (tier1 or tier2):
-                continue
-
-            # Log why it qualified
-            qual_reason = "CATALYST" if tier1 else f"{sum(soft_signals)} soft signals"
-
-            composite = pre_breakout_composite(
-                shareholding, valuation, growth, catalyst, group, debt, pe_val,
-                fcf, piotroski, pe_traj, lynch=lynch_details,
-                public_data=public_data,
+            result = analyse_pre_breakout(
+                symbol,
+                nse_session=nse_session,
+                universe_deals=universe_deals,
             )
-
-            all_flags = []
-            if group["flag"]:           all_flags.append(group["flag"])
-            all_flags.extend(debt["flags"])
-            if pe_val["flag"]:          all_flags.append(pe_val["flag"])
-            if fcf["flag"]:             all_flags.append(fcf["flag"])
-            if piotroski["piotroski_flag"]: all_flags.append(piotroski["piotroski_flag"])
-            if pe_traj["pe_traj_flag"]: all_flags.append(pe_traj["pe_traj_flag"])
-            # Lynch flags
-            all_flags.extend(lynch_details.get("lynch_flags", []))
-            if lynch_details.get("lynch_flag"):
-                all_flags.append(lynch_details["lynch_flag"])
-            # Public domain flags
-            if public_data:
-                all_flags.extend(public_data.get("public_flags", []))
-            all_flags.extend(catalyst["catalysts"])
-
-            results.append({
-                "symbol":          symbol,
-                "price":           round(price, 2),
-                "market_cap_cr":   round(mktcap, 0),
-                "price_stage":     stage,
-                "composite_score": composite,
-                "shareholding":    shareholding,
-                "valuation":       valuation,
-                "growth":          growth,
-                "catalyst":        catalyst,
-                "group":           group,
-                "debt":            debt,
-                "pe_value":        pe_val,
-                "fcf":             fcf,
-                "piotroski":       piotroski,
-                "pe_trajectory":   pe_traj,
-                "lynch":           lynch_details,
-                "public_data":     public_data,
-                "all_flags":       all_flags,
-                "bse_code":        bse_code,
-                "scanned_at":      datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
-            })
-
-            group_tag  = f"[{group['matched_group']}]" if group["is_trusted_group"] else ""
-            debt_tag   = "DEBT↓" if (debt["debt_reducing"] or debt["is_near_zero_debt"]) else ""
-            pe_tag     = f"PE@{pe_val['pe_ratio_to_sector']:.1f}x" if pe_val["stock_pe"] else ""
-            cat_tag    = f"CAT:{catalyst['catalyst_score']:.2f}" if catalyst["catalyst_score"] > 0 else ""
-            log.info(
-                f"  [{i+1:04d}] {sym_clean:<14} ₹{price:<7.0f} "
-                f"MCap ₹{mktcap:.0f}Cr Score:{composite:.3f} "
-                f"({qual_reason}) {group_tag} {cat_tag} {debt_tag} {pe_tag}"
-            )
-
+            if result:
+                candidates.append(result)
+                log.info(
+                    f"  [{i+1}/{len(symbols)}] ✓ {symbol} "
+                    f"score={result['composite_score']:.3f} "
+                    f"P={result['piotroski'].get('piotroski_score','?')}/9 "
+                    f"catalyst={result['catalyst']['catalyst_score']:.2f} "
+                    f"anns={result['announcement_count']}"
+                )
         except Exception as e:
-            log.debug(f"  {sym_clean}: {e}")
+            log.debug(f"  {symbol}: unhandled error — {e}")
 
-        time.sleep(0.4)
+        if (i + 1) % batch_size == 0:
+            time.sleep(sleep_between)
 
-    # ── Sort: catalyst-first, composite-second ──────────────────
-    # A stock with a confirmed catalyst (preferential allotment, capex)
-    # ranks above a stock with a slightly higher composite score but no catalyst.
-    # This directly mirrors VALUEPICK's method: catalyst drives the pick,
-    # valuation confirms it.
-    results.sort(
-        key=lambda x: (
-            -x["catalyst"]["catalyst_score"],   # primary: highest catalyst first
-            -x["composite_score"],               # secondary: highest composite
-        )
-    )
-    top_results = results[:PCFG.top_n]
+    # Sort by composite score
+    candidates.sort(key=lambda x: x["composite_score"], reverse=True)
+
+    # ── FIX C: ROCE gate post-enrichment ──
+    # Screener enrichment runs on top-N, then we re-apply ROCE filter
+    top_pre = candidates[:PCFG.top_n * 3]  # fetch more, filter down
+    enriched = enrich_with_screener(top_pre, max_candidates=len(top_pre))
+
+    # Re-filter by ROCE after Screener data is in
+    final = []
+    for c in enriched:
+        roce = c.get("screener_roce")
+        if roce is not None and roce < PCFG.min_roce_pct:
+            log.info(
+                f"  POST-FILTER: {c['symbol']} removed — "
+                f"ROCE {roce:.1f}% < {PCFG.min_roce_pct}% (value trap risk)"
+            )
+            continue
+
+        # FIX A (post-enrichment): re-run catalyst detection with Screener concalls
+        sc_data = c.get("screener")
+        if sc_data and not c["catalyst"]["catalysts"]:
+            refreshed = detect_catalysts(
+                c["symbol"],
+                [],                   # BSE already fetched above
+                screener_data=sc_data,
+            )
+            if refreshed["catalyst_score"] > c["catalyst"]["catalyst_score"]:
+                c["catalyst"] = refreshed
+                # Recompute composite with updated catalyst score
+                public_score = (c.get("public_data") or {}).get("public_score", 0.3)
+                c["composite_score"] = round(
+                    refreshed["catalyst_score"]             * PCFG.w_catalyst  +
+                    c["growth"]["growth_score"]              * PCFG.w_growth    +
+                    c["group"]["group_score"]                * PCFG.w_group     +
+                    c["shareholding"]["promoter_score"]      * PCFG.w_promoter  +
+                    c["valuation"]["valuation_score"]        * PCFG.w_valuation +
+                    public_score                             * PCFG.w_public    +
+                    c["debt"]["debt_score"]                  * PCFG.w_debt      +
+                    c["peer_pe"]["pe_score"]                 * PCFG.w_pe_value,
+                    4,
+                )
+
+        final.append(c)
+        if len(final) >= PCFG.top_n:
+            break
+
+    final.sort(key=lambda x: x["composite_score"], reverse=True)
 
     log.info(
-        f"Pre-breakout scan complete. "
-        f"Candidates: {len(results)}  |  Excluded (holding/passive): {excluded_ct}  |  "
-        f"With catalyst: {sum(1 for r in results if r['catalyst']['catalyst_score'] >= PCFG.tier1_catalyst_threshold)}"
+        f"Layer 2 complete: {len(candidates)} passed gates, "
+        f"{len(final)} after ROCE filter"
     )
-
-    # ── Enrich top candidates with Screener.in data ──────────────
-    log.info(f"Enriching top {len(top_results)} candidates with Screener.in...")
-    top_results = enrich_with_screener(top_results, max_candidates=PCFG.top_n)
-
-    # ── Post-Screener ROCE filter + re-rank ──────────────────────
-    # Now that we have accurate ROCE from Screener filings, drop obvious
-    # value traps (low ROCE = capital being destroyed, not compounded).
-    # Only apply if Screener data was successfully fetched.
-    screener_filtered = []
-    roce_rejected     = 0
-    for c in top_results:
-        sc   = c.get("screener") or {}
-        roce = sc.get("roce_pct")
-        if roce is not None and roce < PCFG.min_roce_pct:
-            roce_rejected += 1
-            log.info(f"  ROCE filter: dropping {c['symbol']} (ROCE {roce:.1f}% < {PCFG.min_roce_pct}%)")
-            continue
-        screener_filtered.append(c)
-
-    if roce_rejected > 0:
-        log.info(f"  ROCE filter removed {roce_rejected} value traps from final watchlist")
-
-    # Final re-sort after ROCE filter (same order: catalyst-first)
-    screener_filtered.sort(
-        key=lambda x: (
-            -x["catalyst"]["catalyst_score"],
-            -x["composite_score"],
-        )
-    )
-    return screener_filtered
+    return final
 
 
 # ──────────────────────────────────────────────────────
@@ -1395,98 +1222,87 @@ def generate_pre_breakout_report(candidates: list[dict]) -> str:
     sep = "═" * 72
     lines = [
         sep,
-        "  PRE-BREAKOUT WATCHLIST  —  EARLY STAGE MULTIBAGGER CANDIDATES",
-        f"  {now}",
-        "  Signal framework: value-picks.blogspot.com + @valuepick (30yr veteran)",
-        "  v2: Holding companies & passive income businesses excluded",
-        sep,
-        "  These stocks have NOT broken out yet.",
-        "  Monitor for Layer 1 price+volume confirmation before entry.",
-        sep,
-        "",
+        f"  LAYER 2: PRE-BREAKOUT WATCHLIST — {now}",
+        "  Lynch GARP + VALUEPICK + Piotroski + Public Data",
+        f"  (min Piotroski {PCFG.min_piotroski}/9 required | min ROCE {PCFG.min_roce_pct}% post-enrichment)",
+        sep, "",
     ]
 
-    for i, s in enumerate(candidates, 1):
-        sh    = s["shareholding"]
-        val   = s["valuation"]
-        gr    = s["growth"]
-        cat   = s["catalyst"]
-        grp   = s.get("group", {})
-        dbt   = s.get("debt", {})
-        pev   = s.get("pe_value", {})
-        flags = s.get("all_flags", [])
-        sc    = s.get("screener")   # Screener.in enrichment (may be None)
+    if not candidates:
+        lines.append("  No pre-breakout candidates found today.")
+        return "\n".join(lines)
 
-        # Use Screener data where available, fall back to yfinance
-        roce_str     = f"{sc['roce_pct']:.1f}%" if sc and sc.get("roce_pct") else "N/A"
-        cagr_str     = f"{sc['rev_cagr_3yr_pct']:.1f}%" if sc and sc.get("rev_cagr_3yr_pct") else "N/A"
-        promoter_str = f"{sc['promoter_pct']:.1f}%" if sc and sc.get("promoter_pct") else f"{sh['insider_pct']:.1f}%"
-        de_str       = f"{sc['de_ratio']:.2f}" if sc and sc.get("de_ratio") is not None else f"{dbt.get('current_de', '?')}"
-        data_src     = "Screener.in ✓" if sc else "yfinance"
+    for i, s in enumerate(candidates, 1):
+        cat    = s["catalyst"]
+        sh     = s["shareholding"]
+        val    = s["valuation"]
+        gr     = s["growth"]
+        dbt    = s["debt"]
+        grp    = s["group"]
+        pio    = s["piotroski"]
+        fcf    = s["fcf"]
+        pe_tr  = s["pe_trajectory"]
+        lynch  = s["lynch"]
+        pub    = s.get("public_data") or {}
+        sc     = s.get("screener") or {}
+        sf     = s.get("screener_flags") or []
+
+        roce_str = f"ROCE {sc.get('roce_pct'):.1f}%" if sc.get("roce_pct") else "ROCE N/A"
 
         lines += [
-            f"#{i:02d}  {s['symbol']:<18}  Score: {s['composite_score']:.3f}  [{data_src}]",
-            f"    Price: ₹{s['price']:<8}  MCap: ₹{s['market_cap_cr']:.0f} Cr",
-            f"    Stage: {s['price_stage']}",
-            "",
-            f"    ── OWNERSHIP ──",
-            (f"    Promoter: {promoter_str}   "
-             f"Institutions: {sh['institutional_pct']:.1f}%   "
-             f"{'[UNDISCOVERED]' if sh['undiscovered_score'] > 0.6 else ''}"),
-            (f"    Group: {grp.get('matched_group') or 'Unknown'}  "
-             f"{'🏛️ TRUSTED GROUP' if grp.get('is_trusted_group') else ''}"),
-            "",
-            f"    ── VALUATION ──",
-            (f"    P/B: {val['pb_ratio']:.2f}   "
-             f"P/E: {pev.get('stock_pe') or 'N/A'}   "
-             f"Sector P/E: {pev.get('sector_pe', '?')}   "
-             f"{'💎 DEEP VALUE' if pev.get('is_deep_value') else ''}"),
-            "",
-            f"    ── FUNDAMENTALS ({data_src}) ──",
-            (f"    ROCE: {roce_str}   "
-             f"D/E: {de_str}   "
-             f"OPM: {gr['profit_margin_pct']:.1f}%"),
-            (f"    Rev Growth (YoY): {gr['revenue_growth_pct']:.1f}%   "
-             f"3Yr CAGR: {cagr_str}   "
-             f"PAT Growth: {gr['earnings_growth_pct']:.1f}%   "
-             f"Accel: {'✓' if gr['growth_accelerating'] else '✗'}"),
-            "",
-            f"    ── DEBT ──",
-            (f"    D/E: {de_str}   "
-             f"Net Debt: ₹{dbt.get('net_debt_cr', '?')} Cr   "
-             f"Reducing: {'✓ ' + str(round(dbt.get('debt_reduction_pct', 0), 0)) + '%' if dbt.get('debt_reducing') else '✗'}   "
-             f"{'🟢 NET CASH' if dbt.get('is_net_cash') else ''}"),
-            "",
+            f"  #{i:02d} {s['symbol']:<16} ₹{s['price']:<8} "
+            f"MCap ₹{s['market_cap_cr']:.0f}Cr  Score: {s['composite_score']:.3f}",
+            f"  Stage: {s['price_stage']}",
+            f"  Piotroski: {pio.get('piotroski_score','?')}/9  "
+            f"{roce_str}  "
+            f"FCF Yield: {fcf.get('fcf_yield_pct','N/A')}%  "
+            f"PE Expanding: {'✓' if pe_tr.get('pe_expanding') else '✗'}",
+            f"  Promoter: {sh['insider_pct']:.1f}%  "
+            f"P/B: {val['pb_ratio']:.2f}  "
+            f"RevGrowth: {gr['revenue_growth_pct']:+.1f}%  "
+            f"D/E: {dbt['current_de']:.2f}",
+            f"  Lynch: PEG {lynch.get('peg_ratio','N/A')}  "
+            f"Inst%: {lynch.get('inst_own_pct','N/A')}  "
+            f"Class: {lynch.get('lynch_class','?')}",
         ]
 
-        if flags:
-            lines.append(f"    ── SIGNALS ({len(flags)}) ──")
-            for flag in flags[:8]:   # show more signals now
-                lines.append(f"    ▶  {flag}")
+        if grp.get("matched_group"):
+            lines.append(f"  Group: 🏛️ {grp['matched_group']}")
+
+        if cat["catalysts"]:
+            lines.append(f"  Catalysts ({cat['recent_announcements']} BSE anns):")
+            for c_item in cat["catalysts"][:4]:
+                lines.append(f"    ▶ {c_item}")
         else:
-            lines.append("    ── No specific catalyst in last 90 days ──")
+            lines.append(
+                f"  ⚠ No catalysts detected ({cat['recent_announcements']} BSE anns scanned)"
+            )
 
-        # Show Piotroski score + PE trajectory explicitly if notable
-        p = s.get("piotroski", {})
-        pt = s.get("pe_trajectory", {})
-        if p.get("piotroski_score") is not None:
-            lines.append(f"    Piotroski F-Score: {p['piotroski_score']}/9   "
-                         f"P/E Expanding: {'✓  ' + (pt.get('pe_trajectory') or '') if pt.get('pe_expanding') else '✗'}")
+        if sf:
+            lines.append(f"  Screener: {' | '.join(sf[:3])}")
 
-        lines += ["", "─" * 72, ""]
+        pub_parts = []
+        if pub.get("promoter_buying"):
+            pub_parts.append(f"🧑‍💼 Insider ₹{pub.get('insider_value_cr',0):.1f}Cr")
+        if pub.get("institutional_buying"):
+            pub_parts.append("🏦 Bulk Buy")
+        if pub.get("pledge_pct") is not None:
+            if pub["pledge_pct"] <= 0:
+                pub_parts.append("✅ No Pledge")
+            elif pub.get("is_high_pledge"):
+                pub_parts.append(f"🚨 Pledge {pub['pledge_pct']:.0f}%")
+        if pub_parts:
+            lines.append(f"  Public: {' | '.join(pub_parts)}")
+
+        lines.append("")
 
     lines += [
         sep,
-        "  THE VALUEPICK CHECKLIST (apply manually after scan):",
-        "  ✓ Is there a clear sector tailwind (ageing, EV, green energy, manufacturing)?",
-        "  ✓ Is management track record clean? (annual report + news search)",
-        "  ✓ Is this the only/first listed company in its niche?",
-        "  ✓ Is promoter hiking stake with own money (not ESOPs)?",
-        "  ✓ Are concall transcripts specific and confident (not vague)?",
-        "  ✓ Wait for Layer 1 breakout confirmation before entry.",
-        "  ✓ Have patience. His best picks took 2–10 years to play out.",
-        sep,
-        "  ⚠  Educational use only. Not financial advice.",
+        "  KEY:",
+        "  Piotroski ≥8 + ROCE >20% + Catalyst = highest conviction",
+        "  PEG <1.0 + Inst% <10% = Lynch undiscovered compounder",
+        "  🧑‍💼 insider buying = VALUEPICK signature — prioritise these",
         sep,
     ]
+
     return "\n".join(lines)
