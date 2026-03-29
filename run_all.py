@@ -1,20 +1,10 @@
 """
-run_all.py — Master Orchestrator v4.1
+run_all.py — Master Orchestrator v5
 
-Runs Layer 1 (Swing Breakout) + Layer 2 (Pre-Breakout) in sequence.
-Market regime classifier runs first and banners every report.
-
-FIX v4.1 (2026-03):
-- Pass regime dict into run_tracker() so is_watch_now() can apply
-  bear-regime stricter gates (was always using NEUTRAL defaults).
-- Pass regime into generate_persistence_section() for report header.
-- Layer 2 run_pre_breakout_scanner() receives regime for future use.
-
-Outputs:
-  results/latest.json       → Layer 1 top 20
-  results/watchlist.json    → Layer 2 top 15
-  results/conviction.json   → Stocks in BOTH layers (highest conviction)
-  results/daily_report.txt  → Combined human-readable report
+Changes from v4:
+- Layer 2 now runs multibagger_dna.py + concall_analyser.py
+- Conviction report shows DNA grade and concall flags
+- regime passed through to tracker
 """
 
 import json
@@ -24,10 +14,7 @@ from datetime import datetime
 
 from universe import fetch_nse_symbols
 from engine import run_engine, get_market_regime, generate_report as generate_l1_report
-from pre_breakout_scanner import (
-    run_pre_breakout_scanner,
-    generate_pre_breakout_report,
-)
+from pre_breakout_scanner import run_pre_breakout_scanner, generate_pre_breakout_report
 from scan_tracker import run_tracker, generate_persistence_section
 from public_data_fetcher import init_public_data
 
@@ -40,370 +27,221 @@ logging.basicConfig(
     ],
 )
 log = logging.getLogger(__name__)
-
 os.makedirs("results", exist_ok=True)
 
 
-def find_conviction_plays(layer1: list[dict], layer2: list[dict]) -> list[dict]:
-    """Stocks in BOTH layers = highest conviction."""
-    l1_symbols = {s["symbol"] for s in layer1}
-    conviction  = []
-
+def find_conviction_plays(layer1, layer2):
+    l1_syms = {s["symbol"] for s in layer1}
+    out = []
     for s in layer2:
-        if s["symbol"] in l1_symbols:
-            l1_data = next(x for x in layer1 if x["symbol"] == s["symbol"])
-            conviction.append({
-                "symbol":          s["symbol"],
-                "price":           s["price"],
-                "market_cap_cr":   s["market_cap_cr"],
-                "price_stage":     s["price_stage"],
-                "layer1_score":    l1_data["composite_score"],
-                "layer2_score":    s["composite_score"],
-                "combined_score":  round(
-                    l1_data["composite_score"] * 0.5 + s["composite_score"] * 0.5, 4
-                ),
+        if s["symbol"] in l1_syms:
+            l1 = next(x for x in layer1 if x["symbol"] == s["symbol"])
+            dna = s.get("dna", {})
+            out.append({
+                "symbol":       s["symbol"],
+                "price":        s["price"],
+                "market_cap_cr":s["market_cap_cr"],
+                "price_stage":  s["price_stage"],
+                "layer1_score": l1["composite_score"],
+                "layer2_score": s["composite_score"],
+                "combined_score": round(l1["composite_score"]*0.5 + s["composite_score"]*0.5, 4),
+                "dna_grade":    dna.get("dna_grade","?"),
+                "dna_score":    dna.get("dna_score", 0),
+                "rev_accel":    dna.get("rev_accel_score", 0),
+                "dna_flags":    dna.get("dna_flags", []),
+                "concall":      s.get("concall") or {},
+                "piotroski":    s.get("piotroski_score"),
+                "screener_roce":(s.get("screener") or {}).get("roce_pct"),
                 "technical": {
-                    "rsi":              l1_data.get("rsi"),
-                    "adx":              l1_data.get("adx"),
-                    "week52_high":      l1_data.get("week52_high"),
-                    "breakout_level":   l1_data.get("breakout_level"),
-                    "vol_surge":        l1_data.get("vol_surge"),
-                    "ema_bullish":      l1_data.get("ema_bullish"),
-                    "price_chg_3m_pct": l1_data.get("price_chg_3m_pct"),
-                    "obv_bullish":      l1_data.get("obv_bullish"),
-                    "rs_days":          l1_data.get("rs_days"),
-                    "has_tight_base":   l1_data.get("has_tight_base"),
+                    "rsi": l1.get("rsi"), "adx": l1.get("adx"),
+                    "vol_surge": l1.get("vol_surge"),
+                    "obv_bullish": l1.get("obv_bullish"),
+                    "rs_days": l1.get("rs_days"),
+                    "price_chg_3m_pct": l1.get("price_chg_3m_pct"),
                 },
-                "fundamental": l1_data.get("fundamentals", {}),
-                "pre_breakout": {
-                    "catalysts":          s["catalyst"]["catalysts"],
-                    "promoter_pct":       s["shareholding"]["insider_pct"],
-                    "pb_ratio":           s["valuation"]["pb_ratio"],
-                    "net_cash_cr":        s["valuation"]["net_cash_cr"],
-                    "growth_accelerating":s["growth"]["growth_accelerating"],
-                    "revenue_growth_pct": s["growth"]["revenue_growth_pct"],
-                    "piotroski_score":    s.get("piotroski", {}).get("piotroski_score"),
-                    "fcf_yield_pct":      s.get("fcf", {}).get("fcf_yield_pct"),
-                    "pe_expanding":       s.get("pe_trajectory", {}).get("pe_expanding"),
-                    "lynch_peg":          s.get("lynch", {}).get("peg_ratio"),
-                    "lynch_inst_pct":     s.get("lynch", {}).get("inst_own_pct"),
-                    "lynch_class":        s.get("lynch", {}).get("lynch_class"),
-                    "lynch_net_cash_pct": s.get("lynch", {}).get("net_cash_pct"),
-                    "promoter_buying":    (s.get("public_data") or {}).get("promoter_buying"),
-                    "insider_value_cr":   (s.get("public_data") or {}).get("insider_value_cr"),
-                    "pledge_pct":         (s.get("public_data") or {}).get("pledge_pct"),
-                    "has_bulk_deal":      (s.get("public_data") or {}).get("has_bulk_deal"),
-                    "institutional_buying":(s.get("public_data") or {}).get("institutional_buying"),
-                    "public_flags":       (s.get("public_data") or {}).get("public_flags", []),
+                "public": {
+                    "promoter_buying": (s.get("public_data") or {}).get("promoter_buying"),
+                    "insider_value_cr": (s.get("public_data") or {}).get("insider_value_cr"),
+                    "pledge_pct": (s.get("public_data") or {}).get("pledge_pct"),
+                    "public_flags": (s.get("public_data") or {}).get("public_flags", []),
                 },
                 "scanned_at": s["scanned_at"],
             })
+    out.sort(key=lambda x: x["combined_score"], reverse=True)
+    return out
 
-    conviction.sort(key=lambda x: x["combined_score"], reverse=True)
-    return conviction
 
-
-def regime_banner(regime: dict) -> list[str]:
+def regime_banner(regime):
     r     = regime.get("regime", "UNKNOWN")
-    emoji = {"BULL": "🟢", "NEUTRAL": "🟡", "BEAR": "🔴", "UNKNOWN": "⚪"}.get(r, "⚪")
+    emoji = {"BULL":"🟢","NEUTRAL":"🟡","BEAR":"🔴","UNKNOWN":"⚪"}.get(r,"⚪")
     sc    = regime.get("smallcap100") or {}
     n50   = regime.get("nifty50") or {}
-    sep   = "═" * 72
-
-    lines = [
-        sep,
-        f"  MARKET REGIME: {emoji} {r}",
-        f"  {regime.get('regime_note', '')}",
-    ]
-
+    sep   = "═"*72
+    lines = [sep, f"  MARKET REGIME: {emoji} {r}", f"  {regime.get('regime_note','')}"]
     if sc:
         lines.append(
-            f"  Nifty SC100: {sc.get('last', '?')} "
-            f"1M: {sc.get('chg_1m_pct', '?'):+.1f}% "
-            f"3M: {sc.get('chg_3m_pct', '?'):+.1f}% "
-            f"EMA Stack: {'✓' if sc.get('ema_stacked') else '✗'} "
-            f"Above 200EMA: {'✓' if sc.get('above_200ema') else '✗'}"
+            f"  Nifty SC100: {sc.get('last','?')} "
+            f"1M:{sc.get('chg_1m_pct','?'):+.1f}% 3M:{sc.get('chg_3m_pct','?'):+.1f}% "
+            f"EMA Stack:{'✓' if sc.get('ema_stacked') else '✗'} "
+            f"Above 200EMA:{'✓' if sc.get('above_200ema') else '✗'}"
         )
     if n50:
-        lines.append(
-            f"  Nifty 50:   {n50.get('last', '?')} "
-            f"1M: {n50.get('chg_1m_pct', '?'):+.1f}% "
-            f"3M: {n50.get('chg_3m_pct', '?'):+.1f}%"
-        )
-
-    if r == "BEAR":
-        lines += [
-            "  ⚠ BEAR REGIME: Layer 1 breakouts have elevated false-positive risk.",
-            "  Watch Now list tightened: Piotroski ≥7 OR catalyst required.",
-            "  Only act on conviction plays (Section A).",
-        ]
-    elif r == "NEUTRAL":
-        lines += [
-            "  ℹ NEUTRAL REGIME: Be selective. Piotroski ≥7 + FCF yield >3% + catalyst.",
-            "  Watch Now list tightened: Piotroski ≥7 OR catalyst required.",
-        ]
-    elif r == "UNKNOWN":
-        lines += ["  ⚠ REGIME UNKNOWN: treat as NEUTRAL."]
+        lines.append(f"  Nifty 50: {n50.get('last','?')} "
+                     f"1M:{n50.get('chg_1m_pct','?'):+.1f}% 3M:{n50.get('chg_3m_pct','?'):+.1f}%")
+    if r=="BEAR":
+        lines.append("  ⚠ BEAR: Act only on conviction plays with DNA Grade A + insider buying.")
+    elif r=="NEUTRAL":
+        lines.append("  ℹ NEUTRAL: DNA Grade A + concall forward guidance required.")
     else:
-        lines += ["  ✓ BULL REGIME: Favourable conditions. Standard filters apply."]
-
+        lines.append("  ✓ BULL: Standard filters apply.")
     lines.append(sep)
     return lines
 
 
-def generate_conviction_report(
-    conviction: list[dict],
-    l1: list[dict],
-    l2: list[dict],
-    regime: dict,
-) -> str:
+def generate_conviction_report(conviction, l1, l2, regime):
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-    sep = "═" * 72
+    sep = "═"*72
+    lines = ([sep,"  MULTIBAGGER DISCOVERY ENGINE v5 — DAILY REPORT",f"  {now}",sep,""]
+             + regime_banner(regime) + [""])
 
-    lines = (
-        [sep,
-         "  MULTIBAGGER DISCOVERY ENGINE v4.1 — DAILY COMBINED REPORT",
-         f"  {now}",
-         sep, ""]
-        + regime_banner(regime)
-        + [""]
-    )
-
-    # Section A: Conviction plays
     lines += [
-        "  ★ SECTION A: CONVICTION LIST (In Both Layer 1 + Layer 2)",
-        "  Confirmed technical breakout AND early-stage thesis verified",
+        "  ★ SECTION A: CONVICTION LIST (Layer 1 + Layer 2 overlap)",
+        "  Technical breakout confirmed AND multibagger DNA validated",
         sep, "",
     ]
-
     if conviction:
         for i, s in enumerate(conviction, 1):
-            t  = s["technical"]
-            pb = s["pre_breakout"]
-            fd = s["fundamental"]
+            t   = s["technical"]
+            pub = s["public"]
+            cc  = s.get("concall") or {}
             lines += [
-                f"★ #{i} {s['symbol']:<16} Combined Score: {s['combined_score']:.3f}",
-                f"   Price: ₹{s['price']:<8} MCap: ₹{s['market_cap_cr']:.0f} Cr",
-                f"   Stage: {s['price_stage']}",
-                f"   L1: {s['layer1_score']:.3f} | L2: {s['layer2_score']:.3f}",
-                f"   RSI: {t['rsi']} ADX: {t['adx']} OBV: {'✓' if t.get('obv_bullish') else '✗'} "
-                f"RS Days: {t.get('rs_days', '?')} Base: {'Tight ✓' if t.get('has_tight_base') else '–'}",
-                f"   3M: {t['price_chg_3m_pct']:+.1f}% Vol Surge: {'✓' if t['vol_surge'] else '✗'}",
-                f"   Piotroski: {pb.get('piotroski_score','?')}/9  "
-                f"FCF Yield: {pb.get('fcf_yield_pct','N/A')}%  "
-                f"PE Expanding: {'✓' if pb.get('pe_expanding') else '✗'}",
-                f"   ROE: {fd.get('roe_pct','?')}%  D/E: {fd.get('de_ratio','?')}  "
-                f"RevGrowth: {fd.get('revenue_growth_pct','?')}%  "
-                f"MCap/Sales: {fd.get('mcap_to_sales','N/A')}×",
-                f"   Lynch: PEG {pb.get('lynch_peg','N/A')}  "
-                f"Inst% {pb.get('lynch_inst_pct','N/A')}  "
-                f"NetCash%MCap {pb.get('lynch_net_cash_pct','N/A')}  "
-                f"Class: {pb.get('lynch_class','?')}",
-                f"   Public: PromoterBuying {'✓' if pb.get('promoter_buying') else '–'}  "
-                f"InsiderVal ₹{pb.get('insider_value_cr',0):.1f}Cr  "
-                f"Pledge {pb.get('pledge_pct','N/A')}%  "
-                f"BulkDeal {'✓' if pb.get('has_bulk_deal') else '–'}  "
-                f"InstBuy {'✓' if pb.get('institutional_buying') else '–'}",
+                f"★ #{i} {s['symbol']:<16} Combined:{s['combined_score']:.3f}",
+                f"   Price:₹{s['price']}  MCap:₹{s['market_cap_cr']:.0f}Cr  {s['price_stage']}",
+                f"   L1:{s['layer1_score']:.3f}  L2:{s['layer2_score']:.3f}",
+                f"   DNA:{s['dna_score']:.3f} [{s['dna_grade']}]  RevAccel:{s['rev_accel']:.2f}",
+                f"   Piotroski:{s['piotroski']}/9  ROCE:{s['screener_roce'] or 'N/A'}%",
+                f"   RSI:{t['rsi']} ADX:{t['adx']} OBV:{'✓' if t.get('obv_bullish') else '✗'}"
+                f" RS:{t.get('rs_days','?')}d 3M:{t.get('price_chg_3m_pct',0):+.1f}%",
+                f"   Public: Insider:{'✓' if pub.get('promoter_buying') else '–'}"
+                f" ₹{pub.get('insider_value_cr',0):.1f}Cr"
+                f" Pledge:{pub.get('pledge_pct','N/A')}%",
             ]
-            if pb.get("public_flags"):
-                lines.append(f"   ▶ (Public) {' | '.join(pb['public_flags'][:2])}")
-            if pb["catalysts"]:
-                lines.append(f"   ▶ {' | '.join(pb['catalysts'][:3])}")
+            for f in s.get("dna_flags",[])[:2]:
+                lines.append(f"   ▶ {f}")
+            if cc.get("tier1_signals"):
+                lines.append(f"   🎙️ {cc['tier1_signals'][0][:80]}")
+                if cc.get("manual_review"):
+                    lines.append("   ★ READ FULL CONCALL TRANSCRIPT")
             lines.append("")
     else:
         lines += [
-            "  No overlap today between Layer 1 and Layer 2.",
-            "  This is normal in bear/neutral regimes.",
-            "  Monitor Layer 2 watchlist and wait for Layer 1 to fire.",
+            "  No overlap today — normal in bear/neutral regimes.",
+            "  Monitor Layer 2 for DNA Grade A stocks approaching Layer 1 breakout.",
             "",
         ]
 
-    # Section B: Layer 1 top 10
-    lines += [sep, "  SECTION B: TOP 10 TECHNICAL BREAKOUTS (Layer 1)", sep, ""]
-    if l1:
-        for i, s in enumerate(l1[:10], 1):
-            fd = s.get("fundamentals", {})
-            lines.append(
-                f"  #{i:02d} {s['symbol']:<16} ₹{s['last_close']:<8} "
-                f"Score: {s['composite_score']:.3f}  RSI: {s['rsi']}  "
-                f"OBV: {'✓' if s.get('obv_bullish') else '✗'}  "
-                f"RS: {s.get('rs_days','?')}d  "
-                f"3M: {s['price_chg_3m_pct']:+.1f}%  "
-                f"FCF: {fd.get('fcf_yield_pct','N/A')}%"
-            )
-    else:
-        lines.append("  No breakout candidates today.")
+    lines += [sep, "  SECTION B: LAYER 1 BREAKOUTS (Technical)", sep, ""]
+    for i, s in enumerate(l1[:10], 1):
+        lines.append(
+            f"  #{i:02d} {s['symbol']:<16} ₹{s['last_close']:<8}"
+            f" Score:{s['composite_score']:.3f} RSI:{s['rsi']}"
+            f" OBV:{'✓' if s.get('obv_bullish') else '✗'}"
+            f" RS:{s.get('rs_days','?')}d 3M:{s['price_chg_3m_pct']:+.1f}%"
+        )
     lines.append("")
 
-    # Section C: Layer 2 top 10
-    lines += [
-        sep,
-        "  SECTION C: TOP 10 PRE-BREAKOUT WATCHLIST (Layer 2)",
-        "  Lynch GARP + VALUEPICK + Piotroski ≥5 + ROCE ≥10% + Public Data",
-        sep,
-    ]
-
+    lines += [sep, "  SECTION C: LAYER 2 — MULTIBAGGER WATCHLIST (DNA Ranked)", sep, ""]
     for i, s in enumerate(l2[:10], 1):
-        p_score  = s.get("piotroski", {}).get("piotroski_score")
-        fcf_y    = s.get("fcf", {}).get("fcf_yield_pct")
-        lynch    = s.get("lynch", {})
-        pub      = s.get("public_data") or {}
-        sc       = s.get("screener") or {}
-        peg      = lynch.get("peg_ratio")
-        inst_pct = lynch.get("inst_own_pct")
-        l_class  = lynch.get("lynch_class", "?")
-        roce     = sc.get("roce_pct")
-
-        cat_str  = s["catalyst"]["catalysts"][0] if s["catalyst"]["catalysts"] else "– (no BSE catalyst found)"
-        ann_count = s.get("announcement_count", 0)
-
-        lynch_str = (
-            (f" PEG:{peg:.2f}" if peg is not None else "") +
-            (f" Inst:{inst_pct:.0f}%" if inst_pct is not None else "") +
-            (f" [{l_class}]" if l_class and l_class != "Unknown" else "")
-        )
-        roce_str = f" ROCE:{roce:.1f}%" if roce is not None else " ROCE:N/A"
-
-        pub_str = ""
-        if pub.get("promoter_buying"):
-            pub_str += f" 🧑‍💼Insider ₹{pub.get('insider_value_cr',0):.1f}Cr"
-        if pub.get("institutional_buying"):
-            pub_str += " 🏦BulkBuy"
-        if pub.get("pledge_pct") is not None and pub["pledge_pct"] <= 0:
-            pub_str += " ✅NoPledge"
-        elif pub.get("is_high_pledge"):
-            pub_str += f" 🚨Pledge{pub.get('pledge_pct','?')}%"
-
+        dna = s.get("dna",{})
+        sc  = s.get("screener") or {}
+        cc  = s.get("concall") or {}
         lines.append(
-            f"  #{i:02d} {s['symbol']:<16} ₹{s['price']:<8} "
-            f"Score: {s['composite_score']:.3f}  "
-            f"F:{p_score if p_score is not None else '?'}/9"
-            f"{roce_str}  FCF:{fcf_y if fcf_y is not None else 'N/A'}%"
-            + lynch_str + pub_str +
-            f"  {s['price_stage']}"
+            f"  #{i:02d} {s['symbol']:<16} ₹{s['price']:<8} ₹{s['market_cap_cr']:.0f}Cr"
+            f" Score:{s['composite_score']:.3f}"
+            f" DNA:{dna.get('dna_score',0):.3f}[{dna.get('dna_grade','?')[:1]}]"
+            f" P:{s['piotroski_score']}/9"
+            f" ROCE:{sc.get('roce_pct','N/A')}%"
         )
-        lines.append(
-            f"       Catalyst ({ann_count} BSE anns): {cat_str}"
-        )
+        if dna.get("dna_flags"):
+            lines.append(f"       ▶ {dna['dna_flags'][0]}")
+        if cc.get("manual_review"):
+            lines.append(f"       🎙️ READ CONCALL — forward signals found")
     lines.append("")
 
     lines += [
         sep,
-        "  HOW TO USE:",
-        "  Section A → Highest conviction. Both technicals AND thesis confirmed.",
-        "  Section B → Swing trades. Enter on breakout with OBV + RS confirmation.",
-        "  Section C → Research queue. Piotroski ≥8 + ROCE >20% + catalyst = first.",
-        "  Watch Now → Persistent names. Wait for Layer 1 before entry.",
-        f"  In {regime.get('regime','?')} regime: {'act only on Section A' if regime.get('regime')=='BEAR' else 'standard filters apply'}.",
+        "  HOW TO ACT:",
+        "  Section A: Both technicals + DNA confirmed. Highest priority.",
+        "  Section B: Swing entry. Wait for volume + OBV confirmation.",
+        "  Section C: Research queue. DNA Grade A + concall review first.",
+        "  DNA Grade A (≥0.75) stocks: read concall before doing anything else.",
+        "  🧑‍💼 Insider buying = buy more aggressively, smaller position size.",
         sep,
-        "  ⚠ Educational use only. Not financial advice.",
+        "  ⚠ Educational only. Not financial advice.",
         sep,
     ]
-
     return "\n".join(lines)
 
 
 def run_all():
     log.info("╔══════════════════════════════════════════════════════╗")
-    log.info("║  MULTIBAGGER DISCOVERY ENGINE v4.1 — FULL PIPELINE  ║")
-    log.info("║  L1: Vol-adj momentum | Sector | Percentile         ║")
-    log.info("║  L2: VALUEPICK + Lynch + Piotroski≥5 + ROCE≥10%    ║")
+    log.info("║  MULTIBAGGER DISCOVERY ENGINE v5                    ║")
+    log.info("║  L1: Momentum  L2: DNA + Concall + Screener        ║")
     log.info("╚══════════════════════════════════════════════════════╝")
 
     date_str = datetime.utcnow().strftime("%Y%m%d")
 
-    # Market regime
-    log.info("\n▶ Classifying market regime...")
-    regime   = get_market_regime()
-    r        = regime.get("regime", "UNKNOWN")
-    sc       = regime.get("smallcap100") or {}
-    log.info(f"  Regime: {r}  SC100 1M: {sc.get('chg_1m_pct','?')}%  3M: {sc.get('chg_3m_pct','?')}%")
-    log.info(f"  {regime.get('regime_note','')}")
+    log.info("\n▶ Market regime...")
+    regime = get_market_regime()
+    log.info(f"  {regime.get('regime')} — {regime.get('regime_note','')}")
 
-    # Universe
     symbols = fetch_nse_symbols()
 
-    # Layer 1
-    log.info("\n▶ Running Layer 1: Swing Breakout Scanner...")
-    layer1_results = run_engine(regime=regime)
-    if not layer1_results:
-        layer1_results = []
+    log.info("\n▶ Layer 1: Swing Breakout...")
+    layer1 = run_engine(regime=regime) or []
 
-    # Layer 2
-    log.info("\n▶ Initialising public data (NSE insider trades, bulk deals)...")
+    log.info("\n▶ Public data (insider / bulk deals)...")
     nse_session, universe_deals = init_public_data()
 
-    log.info("\n▶ Running Layer 2: Pre-Breakout Scanner...")
-    layer2_results = run_pre_breakout_scanner(
-        symbols,
-        nse_session=nse_session,
-        universe_deals=universe_deals,
-        regime=regime,   # FIX: pass regime
+    log.info("\n▶ Layer 2: Multibagger DNA scan...")
+    layer2 = run_pre_breakout_scanner(
+        symbols, nse_session=nse_session,
+        universe_deals=universe_deals, regime=regime,
     )
 
-    # Conviction plays
-    log.info("\n▶ Finding conviction plays...")
-    conviction = find_conviction_plays(layer1_results, layer2_results)
-    log.info(f"  Conviction plays: {len(conviction)}")
+    log.info("\n▶ Conviction plays...")
+    conviction = find_conviction_plays(layer1, layer2)
+    log.info(f"  {len(conviction)} conviction plays")
 
-    # Reports
-    combined_report      = generate_conviction_report(conviction, layer1_results, layer2_results, regime)
-    pre_breakout_report  = generate_pre_breakout_report(layer2_results)
+    combined  = generate_conviction_report(conviction, layer1, layer2, regime)
+    l2_report = generate_pre_breakout_report(layer2)
 
-    # Persistence tracker — FIX: pass regime so bear gate applies
-    log.info("\n▶ Running persistence tracker...")
-    tracker_result = run_tracker(
-        layer2_results,
-        layer1_results,
-        date_str,
-        regime=regime,   # FIX: was not passed before
-    )
-    watch_now          = tracker_result["watch_now"]
-    persistence_section = generate_persistence_section(
-        tracker_result,
-        regime=regime,   # FIX: pass regime for report header
-    )
+    log.info("\n▶ Persistence tracker...")
+    tracker   = run_tracker(layer2, layer1, date_str, regime=regime)
+    watch_now = tracker["watch_now"]
+    persist   = generate_persistence_section(tracker, regime=regime)
 
-    full_report = combined_report + "\n\n" + pre_breakout_report + "\n\n" + persistence_section
+    full_report = combined + "\n\n" + l2_report + "\n\n" + persist
+    print("\n" + combined)
 
-    print("\n" + combined_report)
-    if watch_now:
-        log.info(f"  Watch now candidates: {[w['symbol'] for w in watch_now]}")
-
-    # Save outputs
     def save(path, data, is_json=False):
         with open(path, "w", encoding="utf-8") as f:
-            if is_json:
-                json.dump(data, f, indent=2, default=str)
-            else:
-                f.write(data)
+            json.dump(data, f, indent=2, default=str) if is_json else f.write(data)
 
-    save(f"results/scan_{date_str}.json",       layer1_results,  is_json=True)
-    save("results/latest.json",                 layer1_results,  is_json=True)
-    save(f"results/watchlist_{date_str}.json",  layer2_results,  is_json=True)
-    save("results/watchlist.json",              layer2_results,  is_json=True)
-    save(f"results/conviction_{date_str}.json", conviction,      is_json=True)
-    save("results/conviction.json",             conviction,      is_json=True)
-    save(f"results/regime_{date_str}.json",     regime,          is_json=True)
-    save("results/regime.json",                 regime,          is_json=True)
-    save("results/watch_now.json",              watch_now,       is_json=True)
+    save(f"results/scan_{date_str}.json",       layer1,     is_json=True)
+    save("results/latest.json",                 layer1,     is_json=True)
+    save(f"results/watchlist_{date_str}.json",  layer2,     is_json=True)
+    save("results/watchlist.json",              layer2,     is_json=True)
+    save(f"results/conviction_{date_str}.json", conviction, is_json=True)
+    save("results/conviction.json",             conviction, is_json=True)
+    save(f"results/regime_{date_str}.json",     regime,     is_json=True)
+    save("results/regime.json",                 regime,     is_json=True)
+    save("results/watch_now.json",              watch_now,  is_json=True)
     save(f"results/report_{date_str}.txt",      full_report)
     save("results/daily_report.txt",            full_report)
 
-    log.info("\n✅ All outputs saved to results/")
-    log.info(f"  Regime:           {r}")
-    log.info(f"  Layer 1 breakouts:{len(layer1_results)}")
-    log.info(f"  Layer 2 watchlist:{len(layer2_results)}")
-    log.info(f"  Conviction plays: {len(conviction)}")
-    log.info(f"  Watch now:        {len(watch_now)}")
-    log.info(f"  Total tracked:    {tracker_result['total_tracked']}")
-
-    return {
-        "regime":    regime,
-        "layer1":    layer1_results,
-        "layer2":    layer2_results,
-        "conviction":conviction,
-    }
+    log.info(f"\n✅ Done — L1:{len(layer1)} L2:{len(layer2)} Conviction:{len(conviction)} WatchNow:{len(watch_now)}")
+    return {"regime": regime, "layer1": layer1, "layer2": layer2, "conviction": conviction}
 
 
 if __name__ == "__main__":
