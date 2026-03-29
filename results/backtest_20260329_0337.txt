@@ -1,0 +1,83 @@
+════════════════════════════════════════════════════════════════════════
+  MULTIBAGGER ENGINE — BACKTEST REPORT
+  2026-03-29 03:37 UTC
+════════════════════════════════════════════════════════════════════════
+
+  PARAMETERS USED IN THIS RUN:
+    RSI range:  48.0 – 78.0
+    ATR mult:   0.3   (breakout = 52W high + 0.3×ATR)
+    Vol surge:  1.5×  avg 20-day volume
+    ADX min:    18.0
+    Lookback:   500 days
+    Quick mode: NO
+
+
+  BACKTEST A: VALUEPICK GROUND TRUTH VALIDATION
+  Question: Would our engine have flagged these known multibaggers?
+════════════════════════════════════════════════════════════════════════
+
+  SUMMARY: 0/0 picks had a technical breakout on entry date
+           0/0 picks had a tight consolidation base
+
+  KEY INSIGHT:
+  If hit_rate is low (picks did NOT have breakout on entry date),
+  that confirms VALUEPICK found them BEFORE technical signals fired.
+  Our Layer 1 would have missed them — Layer 2 thesis signals matter more.
+
+════════════════════════════════════════════════════════════════════════
+  BACKTEST B: LAYER 1 HISTORICAL PERFORMANCE
+  Question: When our breakout scanner fires, how often does it work?
+════════════════════════════════════════════════════════════════════════
+
+  All signals (n=92)
+    Hit rate (3M positive return): 59.3%
+    Avg return: 1M 4.2%  3M 12.5%  6M 2.9%
+    Median 3M: 7.8%   Avg alpha vs Nifty: 8.6%
+    Best 3M: 131.0%   Worst 3M: -33.6%
+    % signals with >20% 3M return: 39.6%
+
+  OBV confirmed ✓ (n=82)
+    Hit rate (3M positive return): 60.5%
+    Avg return: 1M 4.4%  3M 12.8%  6M 4.2%
+    Median 3M: 7.8%   Avg alpha vs Nifty: 8.8%
+    Best 3M: 131.0%   Worst 3M: -33.6%
+    % signals with >20% 3M return: 38.3%
+
+  OBV diverging ✗ (n=10)
+    Hit rate (3M positive return): 50.0%
+    Avg return: 1M 2.6%  3M 10.3%  6M -7.0%
+    Median 3M: 9.7%   Avg alpha vs Nifty: 7.2%
+    Best 3M: 43.8%   Worst 3M: -29.0%
+    % signals with >20% 3M return: 50.0%
+
+  Tight base ✓ (n=4)
+    Hit rate (3M positive return): 75.0%
+    Avg return: 1M 13.0%  3M 45.6%  6M 25.4%
+    Median 3M: 42.0%   Avg alpha vs Nifty: 37.9%
+    Best 3M: 107.9%   Worst 3M: -9.3%
+    % signals with >20% 3M return: 75.0%
+
+  Volume surge ✓ (n=17)
+    Hit rate (3M positive return): 37.5%
+    Avg return: 1M 0.8%  3M 3.5%  6M -8.9%
+    Median 3M: -3.8%   Avg alpha vs Nifty: -0.8%
+    Best 3M: 96.6%   Worst 3M: -33.6%
+    % signals with >20% 3M return: 18.8%
+
+  OBV FILTER IMPACT:
+    With OBV confirmed:  avg 3M = 12.8%
+    Without OBV:         avg 3M = 10.3%
+    OBV adds +2.5% to avg 3M return
+
+  v4.1 NEW SIGNAL ANALYSIS:
+    All signals baseline:      avg 3M = 12.5%
+    MACD expanding (n=31): avg 3M = 7.9%  (-4.6% vs baseline)
+    HH/HL structure (n=90):  avg 3M = 12.8%  (+0.3% vs baseline)
+    BB squeeze→exp (n=20):   avg 3M = 7.8%  (-4.7% vs baseline)
+
+════════════════════════════════════════════════════════════════════════
+  ⚠  Backtesting has survivorship bias — historical prices are
+     available only for stocks that still exist. Failed companies
+     are excluded, which overstates hit rates. Use as direction,
+     not as proof.
+════════════════════════════════════════════════════════════════════════
