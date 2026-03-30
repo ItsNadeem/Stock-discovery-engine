@@ -1,0 +1,82 @@
+════════════════════════════════════════════════════════════════════
+  BACKTEST REPORT — 20260330_0842
+  Mode: all | Scanner: compare | Universe: Full ~1800
+════════════════════════════════════════════════════════════════════
+
+  BACKTEST A — VALUEPICK GROUND TRUTH
+
+  PAUSHAKLTD.BO  Entry:₹74.0 on 2011-03-15
+  Thesis: Alembic group specialty chemical, capacity expansion, debt-free
+  Signals: ['EMA_BULL', 'RSI_OK', 'OBV_RISING']  L1score:0.346
+  Returns: 1M:-25.4% 3M:-31.3% 6M:-31.5% 1Y:-49.9%
+  Nifty:   1M:8.4% 3M:-0.2%
+
+
+  COSMOFERR.BO  Entry:₹13.0 on 2011-06-01
+  Thesis: Cosmo Films group, soft ferrite, EV tailwind
+  Signals: []  L1score:0.0
+  Returns: 1M:None% 3M:None% 6M:None% 1Y:None%
+  Nifty:   1M:None% 3M:None%
+  No data. Entry date approximate.
+
+  TASTYBITE.BO  Entry:₹165.0 on 2010-02-27
+  Thesis: Organic food, export-led, US market penetration
+  Signals: ['EMA_BULL', 'RSI_OK', 'OBV_RISING']  L1score:0.284
+  Returns: 1M:-2.5% 3M:54.0% 6M:33.6% 1Y:24.9%
+  Nifty:   1M:3.8% 3M:4.1%
+
+
+  EKINDIA.NS  Entry:₹162.0 on 2021-04-10
+  Thesis: First listed carbon credit company, 90%+ overseas revenue
+  Signals: []  L1score:0.0
+  Returns: 1M:None% 3M:None% 6M:None% 1Y:None%
+  Nifty:   1M:None% 3M:None%
+  No data. Listed Apr 2021 — minimal history at entry.
+
+  JAYKAYENTM.BO  Entry:₹28.0 on 2021-02-06
+  Thesis: JK group 3D printing JV with EOS Germany, promoter pref allotment
+  Signals: []  L1score:0.0
+  Returns: 1M:None% 3M:None% 6M:None% 1Y:None%
+  Nifty:   1M:None% 3M:None%
+  No data. Extremely illiquid microcap.
+
+  SHANTIGEAR.NS  Entry:₹180.0 on 2024-06-01
+  Thesis: Murugappa group, zero debt, steady growth, sector tailwind
+  Signals: ['EMA_BULL']  L1score:0.02
+  Returns: 1M:3.5% 3M:10.5% 6M:8.1% 1Y:-11.3%
+  Nifty:   1M:1.2% 3M:3.4%
+
+
+
+  BACKTEST C — DNA SCORER VALIDATION
+
+  Passed (DNA ≥0.50): 0/6
+
+  ❌ PAUSHAKLTD.BO        DNA:0.251[D] rev:0.30 promo:0.35 cat:0.10 (140.0x)
+  ❌ COSMOFERR.BO         DNA:0.271[D] rev:0.30 promo:0.35 cat:0.10 (13.0x)
+  ❌ TASTYBITE.BO         DNA:0.251[D] rev:0.30 promo:0.35 cat:0.10 (57.0x)
+  ❌ EKINDIA.NS           DNA:0.271[D] rev:0.30 promo:0.35 cat:0.10 (66.0x)
+  ❌ JAYKAYENTM.BO        DNA:0.271[D] rev:0.30 promo:0.35 cat:0.10 (?x)
+  ❌ SHANTIGEAR.NS        DNA:0.326[D] rev:0.30 promo:0.35 cat:0.10 (?x)
+
+
+  BACKTEST B — LAYER 1 HISTORICAL PERFORMANCE
+
+  [v3 all] n=275 hit=39.6% avg3M=-4.1% alpha=-2.9% median=-6.5%
+  [v3 OBV confirmed] n=270 hit=39.0% avg3M=-4.3% alpha=-2.9% median=-7.2%
+  [v4 all (top-20% momentum)] n=1132 hit=39.2% avg3M=-2.2% alpha=-1.8% median=-5.1%
+  [v4 OBV confirmed] n=980 hit=39.8% avg3M=-1.7% alpha=-1.3% median=-4.7%
+
+  v3 vs v4 VERDICT:
+  v3 = 52W breakout (legacy baseline — keep for comparison)
+  v4 = volatility-adjusted momentum (NSE formula)
+  If v4 alpha > v3 alpha: momentum filter is adding value.
+  If spread is small: regime or universe choice matters more.
+
+════════════════════════════════════════════════════════════════════
+  SURVIVORSHIP BIAS NOTE:
+  This backtest uses current constituents — delisted stocks are missing.
+  Hit rates are overstated. Use directionally, not as proof of edge.
+  DNA Backtest C uses only 6 ground truth picks — too few for statistics.
+  Its value is sanity-checking the model, not proving it works.
+════════════════════════════════════════════════════════════════════
