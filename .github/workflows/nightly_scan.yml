@@ -1,11 +1,11 @@
 name: Nightly NSE Multibagger Scan
 
 on:
-  # ── Runs at 13:15 UTC = 18:45 IST, Mon–Fri (15 min after NSE close) ──
+  # Runs at 13:15 UTC = 18:45 IST, Mon–Fri (15 min after NSE close)
   schedule:
     - cron: "15 13 * * 1-5"
 
-  # ── Trigger manually from the Actions tab ──
+  # Manual trigger from Actions tab
   workflow_dispatch:
     inputs:
       reason:
@@ -15,9 +15,9 @@ on:
 
 jobs:
   scan:
-    name: Run Multibagger Scanner
+    name: Run Multibagger Scanner v5
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120   # v5 adds concall fetching — needs extra time
 
     permissions:
       contents: write
@@ -45,21 +45,17 @@ jobs:
 
       - name: Send email report
         env:
-          # ── SendGrid (recommended — no App Password needed) ──
-          # Set SENDGRID_API_KEY + NOTIFY_EMAIL + SENDER_EMAIL in repo secrets
-          SENDGRID_API_KEY:  ${{ secrets.SENDGRID_API_KEY }}
-          SENDER_EMAIL:      ${{ secrets.SENDER_EMAIL }}
-          # ── Gmail fallback (needs App Password) ──
-          GMAIL_USER:        ${{ secrets.GMAIL_USER }}
-          GMAIL_PASS:        ${{ secrets.GMAIL_PASS }}
-          # ── Required for both methods ──
-          NOTIFY_EMAIL:      ${{ secrets.NOTIFY_EMAIL }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDER_EMAIL:     ${{ secrets.SENDER_EMAIL }}
+          GMAIL_USER:       ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS:       ${{ secrets.GMAIL_PASS }}
+          NOTIFY_EMAIL:     ${{ secrets.NOTIFY_EMAIL }}
         run: python send_report.py
         continue-on-error: true
 
       - name: Commit scan results
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add results/
           git diff --staged --quiet || git commit -m "scan: $(date -u '+%Y-%m-%d') nightly results [skip ci]"
@@ -81,7 +77,7 @@ jobs:
 
       - name: Write job summary
         run: |
-          echo "## NSE Scan — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "## NSE Scan v5 — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           echo "### Market Regime" >> $GITHUB_STEP_SUMMARY
@@ -89,49 +85,58 @@ jobs:
           python -c "
           import json
           r = json.load(open('results/regime.json'))
-          print(f\"Regime: {r.get('regime','?')}  —  {r.get('regime_note','')}\")
+          print(f\"Regime: {r.get('regime','?')} — {r.get('regime_note','')}\")
           sc = r.get('smallcap100') or {}
           if sc:
-              print(f\"SC100: {sc.get('last','?')}  1M: {sc.get('chg_1m_pct','?'):+.1f}%  3M: {sc.get('chg_3m_pct','?'):+.1f}%\")
+              print(f\"SC100: {sc.get('last','?')} 1M: {sc.get('chg_1m_pct','?'):+.1f}% 3M: {sc.get('chg_3m_pct','?'):+.1f}%\")
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-          echo "### Conviction Plays" >> $GITHUB_STEP_SUMMARY
+          echo "### Conviction Plays (L1 + L2 overlap)" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
           data = json.load(open('results/conviction.json'))
           if data:
               for s in data[:5]:
-                  t = s.get('technical', {})
-                  print(f\"{s['symbol']:<16} Score:{s['combined_score']:.3f}  Rs{t.get('rs_days','?')}d  OBV:{'Y' if t.get('obv_bullish') else 'N'}\")
+                  dna = s.get('dna_score', '?')
+                  grade = s.get('dna_grade','?')[:1] if s.get('dna_grade') else '?'
+                  print(f\"{s['symbol']:<16} Score:{s['combined_score']:.3f} DNA:{dna:.3f}[{grade}]\")
           else:
               print('No conviction plays today')
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-          echo "### Top Breakouts (L1)" >> $GITHUB_STEP_SUMMARY
+          echo "### Top Breakouts (Layer 1)" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
           data = json.load(open('results/latest.json'))
           if data:
               for s in data[:5]:
-                  fd = s.get('fundamentals', {})
-                  print(f\"{s['symbol']:<16} {s['composite_score']:.3f}  RSI:{s['rsi']}  FCF:{fd.get('fcf_yield_pct','N/A')}%\")
+                  print(f\"{s['symbol']:<16} {s['composite_score']:.3f} RSI:{s['rsi']} OBV:{'Y' if s.get('obv_bullish') else 'N'} 3M:{s['price_chg_3m_pct']:+.1f}%\")
           else:
               print('No breakouts today')
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-          echo "### Pre-Breakout Watchlist (L2)" >> $GITHUB_STEP_SUMMARY
+          echo "### Multibagger Watchlist (Layer 2) — DNA Ranked" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
           data = json.load(open('results/watchlist.json'))
-          for s in data[:5]:
-              p = s.get('piotroski', {}).get('piotroski_score')
-              f = s.get('fcf', {}).get('fcf_yield_pct')
-              print(f\"{s['symbol']:<16} {s['composite_score']:.3f}  F:{p}/9  FCF:{f}%\")
+          for s in data[:10]:
+              dna   = s.get('dna', {})
+              sc    = s.get('screener') or {}
+              cc    = s.get('concall') or {}
+              grade = dna.get('dna_grade','?')[:1] if dna.get('dna_grade') else '?'
+              rev   = dna.get('rev_accel_score', 0)
+              roce  = sc.get('roce_pct','N/A')
+              conc  = '🎙️' if cc.get('manual_review') else ' '
+              print(f\"{conc} {s['symbol']:<16} {s['composite_score']:.3f} DNA:{dna.get('dna_score',0):.3f}[{grade}] rev:{rev:.2f} ROCE:{roce}%\")
           " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Legend:** 🎙️ = concall forward signal found — read transcript before acting" >> $GITHUB_STEP_SUMMARY
+          echo "DNA Grade A (≥0.75) = matches confirmed multibagger pattern" >> $GITHUB_STEP_SUMMARY
