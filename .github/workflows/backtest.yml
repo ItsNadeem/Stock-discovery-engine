@@ -1,13 +1,11 @@
 name: Weekly Backtest & Signal Validation
 
 on:
-  # ── Two scheduled runs inside a single 'schedule:' key ──
-  # GitHub YAML only allows one schedule block — multiple crons go inside it.
-  # Weekly:  Sunday 08:00 IST (02:30 UTC) — 48-stock v3 vs v4 comparison
-  # Monthly: 1st of month 06:00 IST (00:30 UTC) — full 1,800-symbol v4 run
+  # Weekly Sunday 08:00 IST (02:30 UTC) — 48-stock v3 vs v4 comparison
+  # Monthly 1st 06:00 IST (00:30 UTC)  — full universe + DNA validation
   schedule:
-    - cron: "30 2 * * 0"   # Weekly Sunday
-    - cron: "30 0 1 * *"   # Monthly 1st
+    - cron: "30 2 * * 0"    # Weekly Sunday
+    - cron: "30 0 1 * *"    # Monthly 1st
 
   workflow_dispatch:
     inputs:
@@ -16,28 +14,27 @@ on:
         required: false
         default: "both"
         type: choice
-        options: [both, a, b]
-      tune_weights:
-        description: "Run weight tuning on ground truth?"
-        required: false
-        default: "false"
-        type: choice
-        options: ["true", "false"]
+        options:
+          - both    # A (ground truth) + B (L1 historical) — default weekly
+          - all     # A + B + C (DNA validation) — use for model changes
+          - a       # Ground truth only (quick, ~2 min)
+          - b       # L1 historical only
+          - c       # DNA scorer validation only (new — validates multibagger_dna.py)
       full_universe:
-        description: "Full NSE universe (~1,800 symbols, ~15 min)?"
+        description: "Full NSE universe (~1,800 symbols, ~45 min)?"
         required: false
         default: "false"
         type: choice
         options: ["true", "false"]
       scanner:
-        description: "Which scanner to use?"
+        description: "Which L1 scanner to benchmark?"
         required: false
         default: "compare"
         type: choice
         options:
-          - compare    # run v3 AND v4 side-by-side (recommended — shows improvement)
-          - v4         # v4 only (volatility-adjusted momentum, NSE formula)
-          - v3         # v3 only (52W breakout — legacy baseline)
+          - compare   # v3 AND v4 side-by-side (recommended — shows improvement)
+          - v4        # v4 only (volatility-adjusted momentum)
+          - v3        # v3 only (52W breakout — legacy baseline, do NOT remove)
 
 jobs:
   backtest:
@@ -69,30 +66,28 @@ jobs:
       - name: Run Backtest
         run: |
           MODE="${{ github.event.inputs.mode || 'both' }}"
-          TUNE="${{ github.event.inputs.tune_weights || 'false' }}"
           FULL="${{ github.event.inputs.full_universe || 'false' }}"
           SCANNER="${{ github.event.inputs.scanner || 'compare' }}"
 
-          # Scheduled run logic — detect which cron fired
+          # Scheduled run logic
           if [ "${{ github.event_name }}" = "schedule" ]; then
             CRON="${{ github.event.schedule }}"
             if [ "$CRON" = "30 0 1 * *" ]; then
-              # Monthly: full universe, v4 only
+              # Monthly: full universe + DNA validation
               FULL="true"
-              MODE="b"
-              SCANNER="v4"
-              echo "Monthly full-universe v4 run"
+              MODE="all"
+              SCANNER="compare"
+              echo "Monthly: full universe + DNA validation (mode=all)"
             else
               # Weekly Sunday: 48-stock v3 vs v4 comparison
               FULL="false"
-              MODE="b"
+              MODE="both"
               SCANNER="compare"
-              echo "Weekly 48-stock v3 vs v4 comparison"
+              echo "Weekly: 48-stock v3 vs v4 comparison (mode=both)"
             fi
           fi
 
           CMD="python backtest.py --mode $MODE"
-          [ "$TUNE"    = "true"    ] && CMD="$CMD --tune"
           [ "$FULL"    = "true"    ] && CMD="$CMD --full"
           [ "$SCANNER" = "v4"      ] && CMD="$CMD --v4"
           [ "$SCANNER" = "compare" ] && CMD="$CMD --compare"
@@ -102,7 +97,7 @@ jobs:
 
       - name: Commit backtest results
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add results/backtest_*.txt results/backtest_*.json
           git diff --staged --quiet || git commit -m "backtest: $(date -u '+%Y-%m-%d') results [skip ci]"
@@ -119,7 +114,7 @@ jobs:
 
       - name: Write job summary
         run: |
-          echo "## Backtest Results — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
+          echo "## Backtest — $(date -u '+%Y-%m-%d')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           python - <<'PYEOF' >> $GITHUB_STEP_SUMMARY
           import json, glob
@@ -128,43 +123,58 @@ jobs:
               print("No JSON found"); exit(0)
           with open(files[0]) as f:
               d = json.load(f)
-          b      = d.get("backtest_b", {})
-          params = d.get("params", {})
-          is_full    = params.get("full", False)
-          is_compare = params.get("compare", False)
-          is_v4      = params.get("v4", False)
-          scope   = "Full universe (~1,800)" if is_full else "48 curated stocks"
-          scanner = "v3 vs v4" if is_compare else ("v4 momentum" if is_v4 else "v3 breakout")
-          print(f"**Scanner:** {scanner}  |  **Scope:** {scope}")
+          b = d.get("backtest_b", {})
+          c = d.get("backtest_c", [])
+          p = d.get("params", {})
+
+          scope   = "Full ~1,800" if p.get("full") else "48 curated"
+          scanner = "v3 vs v4" if p.get("compare") else ("v4" if p.get("v4") else "v3")
+          print(f"**Scanner:** {scanner} | **Scope:** {scope}")
           print("")
-          if is_compare and "v3_all" in b and "v4_all" in b:
+
+          if "v3_all" in b and "v4_all" in b:
               v3, v4 = b["v3_all"], b["v4_all"]
               print("| Metric | v3 (breakout) | v4 (momentum) |")
-              print("|--------|---------------|---------------|")
+              print("|--------|:-------------:|:-------------:|")
               for label, key in [("Signals","count"),("Hit rate 3M","hit_rate_3m"),
                                   ("Avg 3M return","avg_return_3m"),("Alpha","avg_alpha_3m"),
                                   ("Median 3M","median_3m"),("Best 3M","best_3m")]:
                   print(f"| {label} | {v3.get(key,'?')} | {v4.get(key,'?')} |")
-          else:
-              m = b.get("all_signals", {})
+          elif b:
+              m = b.get("v4_all") or b.get("v3_all") or {}
               print("| Metric | Value |")
               print("|--------|-------|")
               for label, key in [("Signals","count"),("Hit rate 3M","hit_rate_3m"),
-                                  ("Avg 3M return","avg_return_3m"),("Alpha","avg_alpha_3m"),
-                                  ("Median 3M","median_3m"),("Best 3M","best_3m")]:
+                                  ("Avg 3M return","avg_return_3m"),("Alpha","avg_alpha_3m")]:
                   print(f"| {label} | {m.get(key,'?')} |")
+
+          if c:
+              print("")
+              print("### DNA Scorer Validation (Backtest C)")
+              passed = sum(1 for r in c if r.get("pass"))
+              print(f"Confirmed picks scoring ≥0.50: **{passed}/{len(c)}**")
+              print("")
+              print("| Stock | DNA Score | Grade | RevAccel | Known Return |")
+              print("|-------|:---------:|:-----:|:--------:|:------------:|")
+              for r in c:
+                  if "error" in r:
+                      print(f"| {r['symbol']} | ERROR | – | – | – |")
+                  else:
+                      s = "✅" if r["pass"] else "❌"
+                      print(f"| {s} {r['symbol']} | {r['dna_score']:.3f} | {r['dna_grade'][:1]} | {r['rev_accel']:.2f} | {r['known_return']}x |")
           PYEOF
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           LATEST=$(ls -t results/backtest_*.txt 2>/dev/null | head -1)
-          [ -n "$LATEST" ] && head -120 "$LATEST" >> $GITHUB_STEP_SUMMARY || echo "No txt found" >> $GITHUB_STEP_SUMMARY
+          [ -n "$LATEST" ] && head -100 "$LATEST" >> $GITHUB_STEP_SUMMARY || echo "No txt found" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Email backtest summary
         env:
-          GMAIL_USER:    ${{ secrets.GMAIL_USER }}
-          GMAIL_PASS:    ${{ secrets.GMAIL_PASS }}
-          NOTIFY_EMAIL:  ${{ secrets.NOTIFY_EMAIL }}
+          GMAIL_USER:   ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS:   ${{ secrets.GMAIL_PASS }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
         run: |
           python - <<'EOF'
           import os, json, smtplib, glob
@@ -173,88 +183,93 @@ jobs:
           from datetime import datetime
 
           files = sorted(glob.glob("results/backtest_*.json"), reverse=True)
-          if not files:
-              print("No backtest JSON — skipping"); exit(0)
-          with open(files[0]) as f:
-              data = json.load(f)
+          if not files: print("No backtest JSON — skipping"); exit(0)
+          with open(files[0]) as f: data = json.load(f)
 
-          b         = data.get("backtest_b", {})
-          params    = data.get("params", {})
-          is_full   = params.get("full", False)
-          is_v4     = params.get("v4", False)
-          is_compare = params.get("compare", False)
-          scope     = "Full universe (~1,800)" if is_full else "48 curated stocks"
-          scanner   = "v3 vs v4 comparison" if is_compare else ("v4 momentum" if is_v4 else "v3 breakout")
-          date_str  = datetime.utcnow().strftime("%d %b %Y")
+          b = data.get("backtest_b", {})
+          c = data.get("backtest_c", [])
+          p = data.get("params", {})
+          scope   = "Full ~1,800" if p.get("full") else "48 curated"
+          scanner = "v3 vs v4" if p.get("compare") else ("v4" if p.get("v4") else "v3")
+          date_str = datetime.utcnow().strftime("%d %b %Y")
 
           def cell(v, good=False):
-              c = "#16a34a" if good else "#111827"
-              return f'<td style="padding:7px 10px;font-weight:500;color:{c};font-size:13px">{v}</td>'
-
+              col = "#16a34a" if good else "#111827"
+              return f'<td style="padding:7px 10px;font-weight:500;color:{col};font-size:13px">{v}</td>'
           def hcell(v):
               return f'<th style="padding:7px 10px;text-align:left;font-size:11px;color:#6b7280;background:#f8fafc">{v}</th>'
 
-          if is_compare and "v3_all" in b and "v4_all" in b:
+          rows = ""
+          subject = f"📊 Backtest {date_str} — {scanner} | {scope}"
+
+          if "v3_all" in b and "v4_all" in b:
               v3, v4 = b["v3_all"], b["v4_all"]
-              subject = f"📊 Backtest {date_str} — v3 vs v4 | {scope}"
-              metrics = [("Signals (n)","count"),("Hit rate 3M","hit_rate_3m"),
-                         ("Avg return 3M","avg_return_3m"),("Alpha vs Nifty","avg_alpha_3m"),
-                         ("Median 3M","median_3m"),("Best 3M","best_3m")]
-              header = f"<tr>{hcell('Metric')}{hcell('v3 breakout')}{hcell('v4 momentum')}</tr>"
-              rows = header
-              for label, key in metrics:
-                  v3v = v3.get(key, "?")
-                  v4v = v4.get(key, "?")
-                  try: better = float(str(v4v)) > float(str(v3v))
+              rows = f"<tr>{hcell('Metric')}{hcell('v3 breakout')}{hcell('v4 momentum')}</tr>"
+              for label, key in [("Signals","count"),("Hit rate 3M","hit_rate_3m"),
+                                  ("Avg 3M return","avg_return_3m"),("Alpha","avg_alpha_3m"),
+                                  ("Median 3M","median_3m")]:
+                  v3v = v3.get(key,"?"); v4v = v4.get(key,"?")
+                  try: better = float(str(v4v).replace("%","").replace("+","")) > float(str(v3v).replace("%","").replace("+",""))
                   except: better = False
-                  rows += f"<tr style='border-bottom:1px solid #f1f5f9'><td style='padding:7px 10px;color:#6b7280;font-size:12px'>{label}</td>{cell(v3v)}{cell(v4v, better)}</tr>"
-          else:
-              all_m = b.get("all_signals", {})
-              obv_m = b.get("with_obv", {})
-              n     = all_m.get("count","?")
-              subject = f"📊 Backtest {date_str} — {scanner} | {n} signals"
-              metrics = [("Signals (n)","count"),("Hit rate 3M","hit_rate_3m"),
-                         ("Avg return 3M","avg_return_3m"),("Alpha vs Nifty","avg_alpha_3m"),
-                         ("Median 3M","median_3m"),("Best 3M","best_3m")]
-              rows = ""
-              for label, key in metrics:
-                  highlight = key in ("avg_alpha_3m","avg_return_3m")
-                  rows += (f"<tr style='border-bottom:1px solid #f1f5f9'>"
-                           f"<td style='padding:7px 10px;color:#6b7280;font-size:12px'>{label}</td>"
-                           f"{cell(all_m.get(key,'?'), highlight)}</tr>")
+                  rows += f"<tr style='border-bottom:1px solid #f1f5f9'><td style='padding:7px 10px;color:#6b7280;font-size:12px'>{label}</td>{cell(v3v)}{cell(v4v,better)}</tr>"
+          elif b:
+              m = b.get("v4_all") or b.get("v3_all") or {}
+              for label, key in [("Signals","count"),("Hit rate 3M","hit_rate_3m"),
+                                  ("Avg 3M","avg_return_3m"),("Alpha","avg_alpha_3m")]:
+                  rows += f"<tr><td style='padding:7px 10px;color:#6b7280;font-size:12px'>{label}</td>{cell(m.get(key,'?'))}</tr>"
+
+          dna_rows = ""
+          if c:
+              dna_rows = "<h3 style='color:#1e293b;margin-top:20px'>DNA Scorer Validation</h3>"
+              passed = sum(1 for r in c if r.get("pass"))
+              dna_rows += f"<p style='color:#374151;font-size:13px'>Confirmed picks ≥0.50: <strong>{passed}/{len(c)}</strong></p>"
+              dna_rows += "<table width='100%' style='border-collapse:collapse;font-size:12px'>"
+              dna_rows += f"<tr>{hcell('Stock')}{hcell('DNA')}{hcell('Grade')}{hcell('RevAccel')}{hcell('Known')}</tr>"
+              for r in c:
+                  if "error" in r:
+                      dna_rows += f"<tr><td>{r['symbol']}</td><td colspan=4>ERROR</td></tr>"
+                  else:
+                      s = "✅" if r["pass"] else "❌"
+                      dna_rows += (f"<tr style='border-bottom:1px solid #f1f5f9'>"
+                                   f"<td style='padding:5px 8px'>{s} {r['symbol']}</td>"
+                                   f"<td style='padding:5px 8px'>{r['dna_score']:.3f}</td>"
+                                   f"<td style='padding:5px 8px'>{r['dna_grade'][:1]}</td>"
+                                   f"<td style='padding:5px 8px'>{r['rev_accel']:.2f}</td>"
+                                   f"<td style='padding:5px 8px'>{r['known_return']}x</td></tr>")
+              dna_rows += "</table>"
 
           txt_file = sorted(glob.glob("results/backtest_*.txt"), reverse=True)
-          preview  = open(txt_file[0]).read()[:3000] if txt_file else ""
+          preview  = open(txt_file[0]).read()[:2500] if txt_file else ""
 
           html = f"""<html><body style="font-family:-apple-system,sans-serif;max-width:660px;margin:0 auto;padding:20px">
           <div style="background:#0f172a;border-radius:8px 8px 0 0;padding:16px 20px">
             <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:1px">Backtest Report</div>
             <div style="color:#fff;font-size:20px;font-weight:600;margin-top:4px">Signal Validation — {date_str}</div>
-            <div style="color:#64748b;font-size:12px;margin-top:4px">{scanner} &middot; {scope}</div>
+            <div style="color:#64748b;font-size:12px;margin-top:4px">{scanner} · {scope}</div>
           </div>
           <div style="background:#fff;border:1px solid #e5e7eb;border-radius:0 0 8px 8px;padding:20px">
             <table width="100%" style="border-collapse:collapse">{rows}</table>
+            {dna_rows}
             <div style="margin-top:20px;background:#f8fafc;border-radius:6px;padding:12px;
-                        font-family:monospace;font-size:11px;white-space:pre;overflow:auto;
-                        max-height:500px;color:#374151">{preview}</div>
+                 font-family:monospace;font-size:11px;white-space:pre;overflow:auto;
+                 max-height:400px;color:#374151">{preview}</div>
             <div style="margin-top:12px;font-size:11px;color:#9ca3af">
-              ⚠ Survivorship bias present. Use directionally, not as proof.
+              ⚠ Survivorship bias present. DNA validation uses 6 picks — directional only.
             </div>
           </div></body></html>"""
 
           notify = os.environ.get("NOTIFY_EMAIL","")
           if not notify: print("NOTIFY_EMAIL not set"); exit(0)
-          gmail_user = os.environ.get("GMAIL_USER","").strip()
-          gmail_pass = "".join(os.environ.get("GMAIL_PASS","").split())
-          if not gmail_user or not gmail_pass: print("No Gmail creds"); exit(0)
+          gu = os.environ.get("GMAIL_USER","").strip()
+          gp = "".join(os.environ.get("GMAIL_PASS","").split())
+          if not gu or not gp: print("No Gmail creds"); exit(0)
           msg = MIMEMultipart("alternative")
           msg["Subject"] = subject
-          msg["From"]    = f"Multibagger Engine <{gmail_user}>"
+          msg["From"]    = f"Multibagger Engine <{gu}>"
           msg["To"]      = notify
           msg.attach(MIMEText(html,"html"))
           with smtplib.SMTP_SSL("smtp.gmail.com",465) as s:
-              s.login(gmail_user, gmail_pass)
-              s.sendmail(gmail_user, notify, msg.as_string())
+              s.login(gu,gp); s.sendmail(gu,notify,msg.as_string())
           print(f"✅ Email sent to {notify}")
           EOF
         continue-on-error: true
