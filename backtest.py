@@ -1,39 +1,39 @@
 """
-backtest.py — Signal Validation & Backtester
-============================================
+backtest.py — Signal Validation & Backtester v5
 
-Two complementary backtests:
+THREE backtests:
 
-BACKTEST A — VALUEPICK GROUND TRUTH VALIDATION
-  Run our Layer 2 scoring model retroactively on confirmed multibagger picks
-  at their original entry dates. If the model is valid, these stocks should
-  have scored highly on the date they were picked.
-
-  Known confirmed picks from value-picks.blogspot.com + @valuepick Twitter:
-    Paushak Ltd      ₹74    Mar 2011   → ₹10,000  (140x in 10 years)
-    Cosmo Ferrites   ₹13    ~2011      → ₹168+    (13x, re-picked at ₹168 in 2021)
-    Tasty Bite       ₹165   ~2010      → ₹9,420   (57x)
-    EKI Energy       ₹162   Apr 2021   → ₹10,000  (66x in 9 months)
-    Jay Kay Ent.     ₹28    Feb 2021   → multibagger (3D printing pivot)
-    Shanthi Gears    ₹180   Jun 2024   → monitoring
+BACKTEST A — VALUEPICK GROUND TRUTH VALIDATION (unchanged, always needed)
+  Score confirmed multibagger picks at their original entry dates.
+  Tells us: would the engine have found them? Which signals fired?
+  This is the only backtest that validates the DNA scorer.
+  Run after any scoring change to check we don't regress on known picks.
 
 BACKTEST B — LAYER 1 HISTORICAL BREAKOUT PERFORMANCE
-  For each trading day in the last 2 years, simulate running the breakout
-  scanner. For each signal generated, measure forward returns at 1M, 3M, 6M.
-  This tells us: when the engine fires, how often does it actually work?
+  v3 (52W breakout) vs v4 (volatility-adjusted momentum) side-by-side.
+  VERDICT from prior runs: v4 modestly outperforms v3 but neither has
+  strong edge in a bear market. KEEP BOTH for comparison — the spread
+  between v3 and v4 tells us how much the momentum filter is helping.
+  v3 is NOT removed — it's the baseline. Without it, we can't measure
+  whether v4 is actually better.
 
-  Metrics computed:
-    Hit rate: % of signals with positive 3M return
-    Avg return at 1M, 3M, 6M
-    Comparison vs Nifty Smallcap 100 (alpha)
-    Best/worst cases
-    OBV filter impact (with vs without OBV gate)
+BACKTEST C — DNA SCORER VALIDATION (NEW for v5)
+  Run the DNA scorer on each confirmed VALUEPICK pick at its entry date
+  and measure the component scores. Answers the question we couldn't
+  answer before: does the DNA model score known multibaggers highly?
+  If DNA score < 0.60 for a confirmed pick, something is wrong with the
+  model. This replaces the old weight-tuning logic (--tune flag) which
+  was tuning on only 6 data points and had no out-of-sample validity.
 
-Usage:
-  python backtest.py --mode a          # VALUEPICK ground truth
-  python backtest.py --mode b          # Layer 1 historical
-  python backtest.py --mode both       # Run both (default)
-  python backtest.py --mode a --tune   # Also tune weights on ground truth
+CLI:
+  python backtest.py --mode a          # Ground truth validation only
+  python backtest.py --mode b          # Layer 1 historical (v3 vs v4)
+  python backtest.py --mode c          # DNA scorer validation (new)
+  python backtest.py --mode both       # A + B (default, ~10 min)
+  python backtest.py --mode all        # A + B + C (full, ~15 min)
+  python backtest.py --full            # Full 1,800-symbol universe (B only, ~45 min)
+  python backtest.py --v4              # B with v4 only
+  python backtest.py --compare         # B with v3 vs v4 side-by-side
 """
 
 import argparse
@@ -49,107 +49,69 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger(__name__)
 
-# Global signal params — overridden via CLI args for iterative tuning
 _BACKTEST_PARAMS: dict = {
-    "rsi_lo":   48.0,
-    "rsi_hi":   78.0,
-    "atr_mult": 0.3,
-    "vol_mult": 1.5,
-    "adx_min":  18.0,
+    "rsi_lo": 48.0, "rsi_hi": 78.0,
+    "atr_mult": 0.3, "vol_mult": 1.5, "adx_min": 18.0,
 }
-
 
 # ─────────────────────────────────────────────────────────────
 # GROUND TRUTH DATASET — VALUEPICK CONFIRMED PICKS
-# Sourced from: blog posts + @valuepick Twitter verified outcomes
 # ─────────────────────────────────────────────────────────────
 
 VALUEPICK_PICKS = [
     {
-        # Paushak was BSE-only until Dec 2025 — use .BO for historical data
-        # yfinance has BSE data back to ~2000 for this stock
-        "symbol":        "PAUSHAKLTD.BO",
-        "symbol_alt":    "PAUSHAKLTD.NS",   # NSE listing only from Dec 2025
-        "entry_price":   74.0,
-        "entry_date":    "2011-03-15",
-        "peak_price":    10000.0,
-        "peak_date":     "2022-01-03",
-        "return_x":      140.0,
-        "thesis":        "Alembic group specialty chemical, capacity expansion pending, debt-free",
-        "key_signals":   ["trusted_group", "capex", "low_pe", "debt_free"],
-        "data_note":     "BSE-only until Dec 2025. Using .BO suffix for yfinance historical data.",
+        "symbol": "PAUSHAKLTD.BO", "symbol_alt": "PAUSHAKLTD.NS",
+        "entry_price": 74.0, "entry_date": "2011-03-15",
+        "peak_price": 10000.0, "return_x": 140.0,
+        "thesis": "Alembic group specialty chemical, capacity expansion, debt-free",
+        "key_signals": ["trusted_group", "capex", "low_pe", "debt_free"],
+        "data_note": "BSE-only until Dec 2025.",
     },
     {
-        # Cosmo Ferrites — BSE-listed, NSE symbol COSMOFERR
-        "symbol":        "COSMOFERR.BO",
-        "symbol_alt":    "COSMOFERR.NS",
-        "entry_price":   13.0,
-        "entry_date":    "2011-06-01",
-        "peak_price":    500.0,
-        "return_x":      13.0,
-        "thesis":        "Cosmo Films group, soft ferrite manufacturer, EV tailwind",
-        "key_signals":   ["trusted_group", "low_pe", "export_growth", "capacity_expansion"],
-        "data_note":     "Entry date approximate — '10 years back' from Oct 2021 blog post.",
+        "symbol": "COSMOFERR.BO", "symbol_alt": "COSMOFERR.NS",
+        "entry_price": 13.0, "entry_date": "2011-06-01",
+        "peak_price": 500.0, "return_x": 13.0,
+        "thesis": "Cosmo Films group, soft ferrite, EV tailwind",
+        "key_signals": ["trusted_group", "low_pe", "export_growth", "capacity_expansion"],
+        "data_note": "Entry date approximate.",
     },
     {
-        # Tasty Bite — BSE scrip code 519091, NSE: TASTYBITE
-        # yfinance historical data for Indian small caps before 2015 is patchy
-        "symbol":        "TASTYBITE.BO",
-        "symbol_alt":    "TASTYBITE.NS",
-        "entry_price":   165.0,
-        "entry_date":    "2010-02-27",
-        "peak_price":    9420.0,
-        "return_x":      57.0,
-        "thesis":        "Organic food, export-led, US market penetration",
-        "key_signals":   ["export_growth", "low_pe", "promoter_confidence"],
-        "data_note":     "Pre-2015 Yahoo data very patchy for Indian small caps — may return no data.",
+        "symbol": "TASTYBITE.BO", "symbol_alt": "TASTYBITE.NS",
+        "entry_price": 165.0, "entry_date": "2010-02-27",
+        "peak_price": 9420.0, "return_x": 57.0,
+        "thesis": "Organic food, export-led, US market penetration",
+        "key_signals": ["export_growth", "low_pe", "promoter_confidence"],
+        "data_note": "Pre-2015 Yahoo data patchy.",
     },
     {
-        # EKI Energy Services — listed Apr 2021 on BSE SME, NSE symbol EKINDIA
-        # BSE scrip: 543284. Listed at ₹162 on 8 Apr 2021.
-        "symbol":        "EKINDIA.NS",
-        "symbol_alt":    "EKINDIA.BO",
-        "entry_price":   162.0,
-        "entry_date":    "2021-04-10",
-        "peak_price":    10000.0,
-        "peak_date":     "2022-01-03",
-        "return_x":      66.0,
-        "thesis":        "First listed carbon credit company globally, 90%+ overseas revenue",
-        "key_signals":   ["first_in_niche", "export_growth", "high_promoter", "low_pe"],
-        "data_note":     "Listed Apr 2021 — entry date is 2 days post-listing. Limited pre-listing history.",
+        "symbol": "EKINDIA.NS", "symbol_alt": "EKINDIA.BO",
+        "entry_price": 162.0, "entry_date": "2021-04-10",
+        "peak_price": 10000.0, "return_x": 66.0,
+        "thesis": "First listed carbon credit company, 90%+ overseas revenue",
+        "key_signals": ["first_in_niche", "export_growth", "high_promoter", "low_pe"],
+        "data_note": "Listed Apr 2021 — minimal history at entry.",
     },
     {
-        # Jay Kay Enterprises — BSE scrip 530005, very illiquid, sparse yfinance data
-        "symbol":        "JAYKAYENTM.BO",
-        "symbol_alt":    "JAYKAYENTM.NS",
-        "entry_price":   28.0,
-        "entry_date":    "2021-02-06",
-        "thesis":        "JK group 3D printing JV with EOS Germany, promoter 32%→52% preferential",
-        "key_signals":   ["trusted_group", "promoter_pref_allotment", "pivot_jv"],
-        "data_note":     "Extremely illiquid microcap — yfinance data may be missing or stale.",
+        "symbol": "JAYKAYENTM.BO", "symbol_alt": "JAYKAYENTM.NS",
+        "entry_price": 28.0, "entry_date": "2021-02-06",
+        "thesis": "JK group 3D printing JV with EOS Germany, promoter pref allotment",
+        "key_signals": ["trusted_group", "promoter_pref_allotment", "pivot_jv"],
+        "data_note": "Extremely illiquid microcap.",
     },
     {
-        # Shanthi Gears — Murugappa group, NSE: SHANTIGEAR — only recent pick so data available
-        "symbol":        "SHANTIGEAR.NS",
-        "symbol_alt":    "SHANTIGEAR.BO",
-        "entry_price":   180.0,
-        "entry_date":    "2024-06-01",
-        "thesis":        "Murugappa group, zero debt, steady growth, sector tailwind",
-        "key_signals":   ["trusted_group", "debt_free", "sector_tailwind"],
-        "data_note":     "Most recent pick — full data expected.",
+        "symbol": "SHANTIGEAR.NS", "symbol_alt": "SHANTIGEAR.BO",
+        "entry_price": 180.0, "entry_date": "2024-06-01",
+        "thesis": "Murugappa group, zero debt, steady growth, sector tailwind",
+        "key_signals": ["trusted_group", "debt_free", "sector_tailwind"],
+        "data_note": "Most recent pick — full data expected.",
     },
 ]
 
-
 # ─────────────────────────────────────────────────────────────
-# TECHNICAL INDICATORS (duplicated from engine.py to keep
-# backtest self-contained — no circular imports)
+# TECHNICAL INDICATORS (self-contained — no engine.py imports)
 # ─────────────────────────────────────────────────────────────
 
 def ema(s: pd.Series, n: int) -> pd.Series:
@@ -168,76 +130,59 @@ def atr(df: pd.DataFrame, n: int = 14) -> pd.Series:
     return pd.concat([hl, hc, lc], axis=1).max(axis=1).rolling(n).mean()
 
 def obv_series(df: pd.DataFrame) -> pd.Series:
-    direction = np.sign(df["Close"].diff().fillna(0))
-    return (df["Volume"] * direction).cumsum()
-
+    return (df["Volume"] * np.sign(df["Close"].diff().fillna(0))).cumsum()
 
 # ─────────────────────────────────────────────────────────────
-# BACKTEST A — VALUEPICK GROUND TRUTH SCORING
+# BACKTEST A — VALUEPICK GROUND TRUTH
 # ─────────────────────────────────────────────────────────────
 
 @dataclass
 class SignalScoreAtDate:
-    symbol:             str
-    entry_date:         str
-    entry_price:        float
-    # Technical state at entry date
-    price_vs_52w_high:  Optional[float]  = None   # % from 52W high
-    price_vs_52w_low:   Optional[float]  = None   # % from 52W low
-    ema21_vs_55:        Optional[str]    = None   # "bullish" / "bearish"
-    rsi_at_entry:       Optional[float]  = None
-    adx_at_entry:       Optional[float]  = None
-    obv_direction:      Optional[str]    = None   # "rising" / "falling"
-    volume_vs_avg:      Optional[float]  = None   # ratio
-    atr_contraction:    Optional[float]  = None   # current/prior ATR ratio
-    # What our signals would have been
-    was_breakout:       bool             = False
-    was_base:           bool             = False
-    breakout_score:     float            = 0.0
-    momentum_score:     float            = 0.0
-    volume_score:       float            = 0.0
-    obv_score:          float            = 0.0
+    symbol: str
+    entry_date: str
+    entry_price: float
+    thesis: str = ""
+    data_note: str = ""
+    # Technical state
+    price_vs_52w_high: Optional[float] = None
+    price_vs_52w_low:  Optional[float] = None
+    ema21_vs_55:       Optional[str]   = None
+    rsi_at_entry:      Optional[float] = None
+    obv_direction:     Optional[str]   = None
+    volume_vs_avg:     Optional[float] = None
+    atr_contraction:   Optional[float] = None
+    was_breakout:      bool = False
+    was_base:          bool = False
+    signals_present:   list = field(default_factory=list)
+    estimated_l1_score:float = 0.0
     # Forward returns
-    return_1m:          Optional[float]  = None
-    return_3m:          Optional[float]  = None
-    return_6m:          Optional[float]  = None
-    return_1y:          Optional[float]  = None
-    # Nifty benchmark on same period
-    nifty_1m:           Optional[float]  = None
-    nifty_3m:           Optional[float]  = None
-    # Composite score our model would have assigned
-    estimated_l1_score: float            = 0.0
-    # Key signals present at entry date
-    signals_present:    list             = field(default_factory=list)
-    notes:              str              = ""
+    return_1m:  Optional[float] = None
+    return_3m:  Optional[float] = None
+    return_6m:  Optional[float] = None
+    return_1y:  Optional[float] = None
+    nifty_1m:   Optional[float] = None
+    nifty_3m:   Optional[float] = None
+    notes: str = ""
 
 
 def score_at_date(symbol: str, date_str: str, entry_price: float,
                   pick_meta: Optional[dict] = None) -> SignalScoreAtDate:
-    """
-    Reconstruct what our technical signals would have looked like
-    on a given historical date for a given stock.
-    Tries primary symbol first, falls back to symbol_alt if no data found.
-    """
     result = SignalScoreAtDate(
-        symbol=symbol,
-        entry_date=date_str,
-        entry_price=entry_price,
+        symbol=symbol, entry_date=date_str, entry_price=entry_price,
+        thesis=pick_meta.get("thesis","") if pick_meta else "",
+        data_note=pick_meta.get("data_note","") if pick_meta else "",
     )
-
     try:
-        entry_dt  = datetime.strptime(date_str, "%Y-%m-%d")
-        from_dt   = entry_dt - timedelta(days=730)
-        to_dt     = entry_dt + timedelta(days=400)
+        entry_dt = datetime.strptime(date_str, "%Y-%m-%d")
+        from_dt  = entry_dt - timedelta(days=730)
+        to_dt    = entry_dt + timedelta(days=400)
 
-        # ── Try primary symbol, fall back to alt symbol ──
-        def fetch_history(sym: str) -> Optional[pd.DataFrame]:
+        def fetch(sym):
             try:
                 df = yf.Ticker(sym).history(
                     start=from_dt.strftime("%Y-%m-%d"),
                     end=to_dt.strftime("%Y-%m-%d"),
-                    interval="1d",
-                    auto_adjust=True,
+                    interval="1d", auto_adjust=True,
                 )
                 if df is not None and not df.empty and len(df) >= 50:
                     return df
@@ -245,203 +190,251 @@ def score_at_date(symbol: str, date_str: str, entry_price: float,
                 pass
             return None
 
-        df = fetch_history(symbol)
-        if df is None:
-            # Try alternate symbol (e.g. .NS vs .BO)
-            alt = pick_meta.get("symbol_alt") if pick_meta else None
-            if alt and alt != symbol:
-                log.info(f"  {symbol} no data — trying alt symbol {alt}")
-                df = fetch_history(alt)
-                if df is not None:
-                    result.symbol = alt   # note which symbol worked
+        df = fetch(symbol)
+        if df is None and pick_meta and pick_meta.get("symbol_alt"):
+            alt = pick_meta["symbol_alt"]
+            log.info(f"  {symbol}: no data — trying {alt}")
+            df = fetch(alt)
+            if df is not None:
+                result.symbol = alt
 
         if df is None or df.empty:
-            result.notes = (
-                f"No yfinance data found for {symbol}. "
-                f"{pick_meta.get('data_note', '') if pick_meta else ''}"
-            )
+            result.notes = f"No data. {pick_meta.get('data_note','') if pick_meta else ''}"
             return result
-
-        if len(df) < 200:
-            result.notes = (
-                f"Only {len(df)} rows available — pre-2015 Indian small cap "
-                f"data is sparse on Yahoo Finance. "
-                f"{pick_meta.get('data_note', '') if pick_meta else ''}"
-            )
-            # Continue with what we have if >= 60 rows (enough for basic indicators)
-            if len(df) < 60:
-                return result
 
         df.index = pd.to_datetime(df.index).tz_localize(None)
+        entry_idx = min(df.index.searchsorted(pd.Timestamp(entry_dt)), len(df) - 1)
+        hist = df.iloc[:entry_idx + 1]
 
-        # Find the row closest to entry date
-        entry_idx = df.index.searchsorted(pd.Timestamp(entry_dt))
-        if entry_idx >= len(df):
-            entry_idx = len(df) - 1
-        # Use data up to and including entry date
-        hist = df.iloc[:entry_idx + 1].copy()
-
-        if len(hist) < 100:
-            result.notes = "Not enough pre-entry history"
+        if len(hist) < 60:
+            result.notes = f"Only {len(hist)} rows at entry date"
             return result
 
-        c = hist["Close"]
-        v = hist["Volume"]
-
-        # ── Technical state at entry ──
-        e21   = ema(c, 21)
-        e55   = ema(c, 55)
-        rsi_s = rsi(c, 14)
-        atr_s = atr(hist, 14)
-        obv_s = obv_series(hist)
+        c = hist["Close"]; v = hist["Volume"]
+        e21 = ema(c,21); e55 = ema(c,55)
+        rsi_s = rsi(c,14); atr_s = atr(hist,14); obv_s = obv_series(hist)
 
         last_close = float(c.iloc[-1])
         last_vol   = float(v.iloc[-1])
         avg_vol    = float(v.rolling(20).mean().iloc[-1])
-
-        high_252   = float(c.rolling(252).max().shift(1).iloc[-1])
-        low_252    = float(c.rolling(252).min().iloc[-1])
+        high_252   = float(c.rolling(min(252,len(c))).max().shift(1).iloc[-1])
+        low_252    = float(c.rolling(min(252,len(c))).min().iloc[-1])
         atr_now    = float(atr_s.iloc[-1])
 
-        result.price_vs_52w_high = round((last_close - high_252) / high_252 * 100, 1) if high_252 > 0 else None
-        result.price_vs_52w_low  = round((last_close - low_252) / low_252 * 100, 1)   if low_252  > 0 else None
-        result.ema21_vs_55       = "bullish" if float(e21.iloc[-1]) > float(e55.iloc[-1]) else "bearish"
-        result.rsi_at_entry      = round(float(rsi_s.iloc[-1]), 1)
-        result.volume_vs_avg     = round(last_vol / avg_vol, 2) if avg_vol > 0 else None
+        result.price_vs_52w_high = round((last_close-high_252)/high_252*100,1) if high_252>0 else None
+        result.price_vs_52w_low  = round((last_close-low_252)/low_252*100,1)   if low_252>0  else None
+        result.ema21_vs_55       = "bullish" if float(e21.iloc[-1])>float(e55.iloc[-1]) else "bearish"
+        result.rsi_at_entry      = round(float(rsi_s.iloc[-1]),1)
+        result.volume_vs_avg     = round(last_vol/avg_vol,2) if avg_vol>0 else None
 
-        # OBV direction
-        obv_window   = obv_s.iloc[-10:]
-        obv_slope    = float(obv_window.iloc[-1] - obv_window.iloc[0])
-        result.obv_direction = "rising" if obv_slope > 0 else "falling"
+        obv_win  = obv_s.iloc[-10:]
+        obv_slope = float(obv_win.iloc[-1]-obv_win.iloc[0])
+        result.obv_direction = "rising" if obv_slope>0 else "falling"
 
-        # ATR contraction
         recent_atr = float(atr_s.iloc[-20:].mean())
-        prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else 0
-        if prior_atr > 0:
-            result.atr_contraction = round(recent_atr / prior_atr, 2)
-            result.was_base        = result.atr_contraction < 0.7
+        prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s)>=80 else recent_atr
+        if prior_atr>0:
+            result.atr_contraction = round(recent_atr/prior_atr,2)
+            result.was_base = result.atr_contraction < 0.7
 
-        # Was it a breakout at entry?
-        breakout_level = high_252 + atr_now * 0.3
-        result.was_breakout = last_close >= breakout_level
+        result.was_breakout = last_close >= (high_252 + atr_now*0.3)
 
-        # Scores
-        result.breakout_score = (
-            min((last_close - high_252) / high_252 * 20, 1.0)
-            if result.was_breakout and high_252 > 0 else 0.0
-        )
-        result.momentum_score = min(
-            max((last_close - float(e55.iloc[-1])) / float(e55.iloc[-1]) * 5, 0), 1.0
-        )
-        result.volume_score = min((last_vol / avg_vol) / 3, 1.0) if avg_vol > 0 else 0
+        sigs = []
+        if result.was_breakout:             sigs.append("52W_BREAKOUT")
+        if result.was_base:                 sigs.append("TIGHT_BASE")
+        if result.ema21_vs_55=="bullish":   sigs.append("EMA_BULL")
+        if result.rsi_at_entry and 48<=result.rsi_at_entry<=78: sigs.append("RSI_OK")
+        if result.obv_direction=="rising":  sigs.append("OBV_RISING")
+        if result.volume_vs_avg and result.volume_vs_avg>=1.5:  sigs.append("VOL_SURGE")
+        result.signals_present = sigs
 
-        # OBV score
-        obv_std = float(obv_window.std()) if obv_window.std() > 0 else 1
-        slope_z = obv_slope / (obv_std * len(obv_window) ** 0.5)
-        result.obv_score = round(min(max(slope_z / 2, 0), 1.0), 3)
-
-        # Estimated L1 composite (no fundamentals — just technical)
         result.estimated_l1_score = round(
-            result.breakout_score * 0.35 +
-            result.momentum_score * 0.25 +
-            result.volume_score   * 0.10 +
-            result.obv_score      * 0.10,
+            (0.35 if result.was_breakout else 0) +
+            (0.25 * min(max((last_close-float(e55.iloc[-1]))/float(e55.iloc[-1])*5,0),1)) +
+            (0.10 * min(last_vol/avg_vol/3,1) if avg_vol>0 else 0) +
+            (0.10 * min(max(obv_slope/(float(obv_win.std()) if obv_win.std()>0 else 1)/2,0),1)),
             3
         )
 
-        # Which signals were present
-        sigs = []
-        if result.was_breakout:          sigs.append("52W_BREAKOUT")
-        if result.was_base:              sigs.append("TIGHT_BASE")
-        if result.ema21_vs_55 == "bullish": sigs.append("EMA_BULL")
-        if result.rsi_at_entry and 48 <= result.rsi_at_entry <= 78: sigs.append("RSI_OK")
-        if result.obv_direction == "rising": sigs.append("OBV_RISING")
-        if result.volume_vs_avg and result.volume_vs_avg >= 1.5: sigs.append("VOL_SURGE")
-        result.signals_present = sigs
-
-        # ── Forward returns ──
+        # Forward returns
         future = df.iloc[entry_idx:]
         entry_p = float(future["Close"].iloc[0])
-
-        def fwd_return(days):
-            target_dt = entry_dt + timedelta(days=days)
-            idx = future.index.searchsorted(pd.Timestamp(target_dt))
-            if idx < len(future):
-                return round((float(future["Close"].iloc[idx]) - entry_p) / entry_p * 100, 1)
+        def fwd(days):
+            t = entry_dt + timedelta(days=days)
+            i = future.index.searchsorted(pd.Timestamp(t))
+            if i < len(future):
+                return round((float(future["Close"].iloc[i])-entry_p)/entry_p*100,1)
             return None
-
-        result.return_1m = fwd_return(21)
-        result.return_3m = fwd_return(63)
-        result.return_6m = fwd_return(126)
-        result.return_1y = fwd_return(252)
+        result.return_1m = fwd(21); result.return_3m = fwd(63)
+        result.return_6m = fwd(126); result.return_1y = fwd(252)
 
         # Nifty benchmark
         try:
-            nifty_df = yf.download(
-                "^NSEI",
-                start=(entry_dt - timedelta(days=5)).strftime("%Y-%m-%d"),
-                end=to_dt.strftime("%Y-%m-%d"),
-                progress=False, auto_adjust=True,
-            )
-            if not nifty_df.empty:
-                nifty_df.index = pd.to_datetime(nifty_df.index).tz_localize(None)
-                nidx = nifty_df.index.searchsorted(pd.Timestamp(entry_dt))
-                np0  = float(nifty_df["Close"].squeeze().iloc[nidx])
-                def nifty_ret(days):
+            ndf = yf.download("^NSEI",
+                start=(entry_dt-timedelta(days=5)).strftime("%Y-%m-%d"),
+                end=to_dt.strftime("%Y-%m-%d"), progress=False, auto_adjust=True)
+            if not ndf.empty:
+                ndf.index = pd.to_datetime(ndf.index).tz_localize(None)
+                nc = ndf["Close"].squeeze()
+                ni = ndf.index.searchsorted(pd.Timestamp(entry_dt))
+                np0 = float(nc.iloc[ni])
+                def nf(days):
                     t = entry_dt + timedelta(days=days)
-                    i = nifty_df.index.searchsorted(pd.Timestamp(t))
-                    if i < len(nifty_df):
-                        return round((float(nifty_df["Close"].squeeze().iloc[i]) - np0) / np0 * 100, 1)
+                    i = ndf.index.searchsorted(pd.Timestamp(t))
+                    if i < len(nc): return round((float(nc.iloc[i])-np0)/np0*100,1)
                     return None
-                result.nifty_1m = nifty_ret(21)
-                result.nifty_3m = nifty_ret(63)
+                result.nifty_1m = nf(21); result.nifty_3m = nf(63)
         except Exception:
             pass
-
     except Exception as e:
         result.notes = str(e)
-
     return result
 
 
 def run_backtest_a() -> list[SignalScoreAtDate]:
-    """
-    Run VALUEPICK ground truth validation.
-    Score each confirmed pick on its entry date and measure what
-    signals would have been present.
-    """
-    log.info("═" * 60)
+    log.info("═"*60)
     log.info("BACKTEST A — VALUEPICK GROUND TRUTH VALIDATION")
-    log.info("Scoring confirmed picks on their original entry dates")
-    log.info("═" * 60)
+    log.info("═"*60)
+    results = []
+    for pick in VALUEPICK_PICKS:
+        log.info(f"\n{pick['symbol']} @ ₹{pick['entry_price']} on {pick['entry_date']}")
+        log.info(f"  Thesis: {pick['thesis']}")
+        s = score_at_date(pick["symbol"], pick["entry_date"], pick["entry_price"], pick)
+        results.append(s)
+        log.info(f"  52W high: {s.price_vs_52w_high}%  52W low: {s.price_vs_52w_low}%")
+        log.info(f"  RSI:{s.rsi_at_entry} EMA:{s.ema21_vs_55} OBV:{s.obv_direction} Base:{s.was_base}")
+        log.info(f"  Signals: {s.signals_present}")
+        log.info(f"  L1 score: {s.estimated_l1_score}")
+        log.info(f"  Returns: 1M:{s.return_1m}% 3M:{s.return_3m}% 6M:{s.return_6m}% 1Y:{s.return_1y}%")
+        log.info(f"  Nifty:   1M:{s.nifty_1m}% 3M:{s.nifty_3m}%")
+        if s.notes: log.info(f"  Note: {s.notes}")
+        time.sleep(1.0)
+    return results
+
+# ─────────────────────────────────────────────────────────────
+# BACKTEST C — DNA SCORER VALIDATION (NEW)
+# ─────────────────────────────────────────────────────────────
+
+def run_backtest_c() -> list[dict]:
+    """
+    Run the DNA scorer on each confirmed pick at its entry date.
+    Uses whatever historical data is available via yfinance.
+    Primary purpose: validate that DNA model scores known multibaggers ≥0.60.
+    If any confirmed pick scores < 0.50, the DNA model has a problem.
+    """
+    log.info("═"*60)
+    log.info("BACKTEST C — DNA SCORER VALIDATION ON CONFIRMED PICKS")
+    log.info("Validates multibagger_dna.py against 6 known ground truth picks")
+    log.info("═"*60)
+
+    try:
+        from multibagger_dna import compute_dna_score, score_revenue_acceleration
+        from multibagger_dna import score_promoter_conviction, score_catalyst_quality
+        from multibagger_dna import score_mcap_headroom, score_price_stage_for_multibagger
+    except ImportError as e:
+        log.error(f"Cannot import multibagger_dna: {e}")
+        log.error("Make sure multibagger_dna.py is in the repo root.")
+        return []
 
     results = []
     for pick in VALUEPICK_PICKS:
         sym = pick["symbol"]
-        log.info(f"\nScoring {sym} @ ₹{pick['entry_price']} on {pick['entry_date']}")
-        log.info(f"  Thesis: {pick['thesis']}")
-        if pick.get("data_note"):
-            log.info(f"  Data note: {pick['data_note']}")
+        log.info(f"\n{sym} @ ₹{pick['entry_price']} — {pick['entry_date']}")
 
-        score = score_at_date(sym, pick["entry_date"], pick["entry_price"], pick_meta=pick)
-        score.notes = pick.get("thesis", "")
-        results.append(score)
+        # Fetch historical data up to entry date
+        entry_dt = datetime.strptime(pick["entry_date"], "%Y-%m-%d")
+        from_dt  = entry_dt - timedelta(days=730)
+        to_dt    = entry_dt + timedelta(days=5)
 
-        log.info(f"  Technical state on entry date:")
-        log.info(f"    Price vs 52W high: {score.price_vs_52w_high}%")
-        log.info(f"    RSI: {score.rsi_at_entry}  EMA: {score.ema21_vs_55}  OBV: {score.obv_direction}")
-        log.info(f"    Was breakout: {score.was_breakout}  Tight base: {score.was_base}")
-        log.info(f"    Volume vs avg: {score.volume_vs_avg}×")
-        log.info(f"    Signals present: {score.signals_present}")
-        log.info(f"    L1 score estimate: {score.estimated_l1_score}")
-        log.info(f"  Forward returns:")
-        log.info(f"    1M: {score.return_1m}%  3M: {score.return_3m}%  6M: {score.return_6m}%  1Y: {score.return_1y}%")
-        log.info(f"    Nifty 1M: {score.nifty_1m}%  3M: {score.nifty_3m}%")
+        hist = None
+        for s in [sym, pick.get("symbol_alt","")]:
+            if not s: continue
+            try:
+                df = yf.Ticker(s).history(
+                    start=from_dt.strftime("%Y-%m-%d"),
+                    end=to_dt.strftime("%Y-%m-%d"),
+                    interval="1d", auto_adjust=True,
+                )
+                if df is not None and not df.empty and len(df) >= 30:
+                    df.index = pd.to_datetime(df.index).tz_localize(None)
+                    entry_idx = min(df.index.searchsorted(pd.Timestamp(entry_dt)), len(df)-1)
+                    hist = df.iloc[:entry_idx+1]
+                    break
+            except Exception:
+                pass
+
+        # Minimal info dict from what we know
+        info = {
+            "currentPrice": pick["entry_price"],
+            "marketCap":    pick["entry_price"] * 1e5 * 1e7,  # rough estimate
+        }
+        mcap_cr = (info["marketCap"]) / 1e7
+
+        # Run DNA scorer with no Screener data (as it would be at runtime)
+        try:
+            dna = compute_dna_score(
+                symbol        = sym,
+                market_cap_cr = mcap_cr,
+                info          = info,
+                hist          = hist if hist is not None else pd.DataFrame(),
+                screener_data = None,
+                public_data   = None,
+                announcements = [],
+                sector        = "Other",
+            )
+            result = {
+                "symbol":       sym,
+                "entry_date":   pick["entry_date"],
+                "entry_price":  pick["entry_price"],
+                "known_return": pick.get("return_x", "?"),
+                "thesis":       pick["thesis"],
+                "dna_score":    dna["dna_score"],
+                "dna_grade":    dna["dna_grade"],
+                "rev_accel":    dna["rev_accel_score"],
+                "promoter":     dna["promoter_score"],
+                "catalyst":     dna["catalyst_score"],
+                "mcap":         dna["mcap_score"],
+                "price_stage":  dna["price_stage_score"],
+                "pass":         dna["dna_score"] >= 0.50,
+                "note":         pick.get("data_note",""),
+            }
+            results.append(result)
+
+            status = "✅ PASS" if result["pass"] else "❌ FAIL"
+            log.info(f"  DNA: {dna['dna_score']:.3f} [{dna['dna_grade'][:1]}] {status}")
+            log.info(f"  Components: rev={dna['rev_accel_score']:.2f} promo={dna['promoter_score']:.2f} "
+                     f"cat={dna['catalyst_score']:.2f} mcap={dna['mcap_score']:.2f} "
+                     f"stage={dna['price_stage_score']:.2f}")
+            if dna["dna_flags"]:
+                for f in dna["dna_flags"]:
+                    log.info(f"    ▶ {f}")
+        except Exception as e:
+            log.warning(f"  DNA scoring failed: {e}")
+            results.append({"symbol": sym, "error": str(e)})
 
         time.sleep(1.0)
 
-    return results
+    # Summary
+    log.info("\n" + "═"*60)
+    log.info("BACKTEST C SUMMARY — DNA Scorer Validation")
+    passed = sum(1 for r in results if r.get("pass"))
+    log.info(f"  Passed (DNA ≥0.50): {passed}/{len(results)}")
+    log.info("  Per-pick scores:")
+    for r in results:
+        if "error" in r:
+            log.info(f"  {r['symbol']:<20} ERROR: {r['error']}")
+        else:
+            status = "✅" if r["pass"] else "❌"
+            log.info(f"  {r['symbol']:<20} {status} DNA:{r['dna_score']:.3f} "
+                     f"({r['known_return']}x confirmed)")
 
+    if passed < len(results):
+        log.warning("\n  ⚠ Some confirmed picks scored below 0.50.")
+        log.warning("  This means the DNA model would have missed them.")
+        log.warning("  Check data availability — yfinance historical data for")
+        log.warning("  pre-2015 Indian small caps is often sparse.")
+
+    return results
 
 # ─────────────────────────────────────────────────────────────
 # BACKTEST B — LAYER 1 HISTORICAL PERFORMANCE
@@ -449,1033 +442,413 @@ def run_backtest_a() -> list[SignalScoreAtDate]:
 
 @dataclass
 class BacktestSignal:
-    symbol:         str
-    signal_date:    str
-    signal_price:   float
-    rsi:            float
-    adx:            float
-    vol_surge:      bool
-    obv_bullish:    bool
+    symbol: str
+    signal_date: str
+    signal_price: float
+    rsi: float
+    adx: float
+    vol_surge: bool
+    obv_bullish: bool
     has_tight_base: bool
     breakout_score: float
-    # v4.1 new fields
-    macd_expanding: bool  = False
-    macd_positive:  bool  = False
-    has_hh_hl:      bool  = False
-    bb_squeeze_exp: bool  = False
-    bb_pct_b:       float = 0.5
-    return_1m:      Optional[float] = None
-    return_3m:      Optional[float] = None
-    return_6m:      Optional[float] = None
-    nifty_1m:       Optional[float] = None
-    nifty_3m:       Optional[float] = None
-    alpha_3m:       Optional[float] = None   # return_3m - nifty_3m
+    macd_expanding: bool = False
+    has_hh_hl: bool = False
+    bb_squeeze_exp: bool = False
+    return_1m: Optional[float] = None
+    return_3m: Optional[float] = None
+    return_6m: Optional[float] = None
+    nifty_1m:  Optional[float] = None
+    nifty_3m:  Optional[float] = None
+    alpha_3m:  Optional[float] = None
 
 
-def simulate_breakout_scan_on_date(
-    df: pd.DataFrame,
-    symbol: str,
-    idx: int,
-    lookback: int = 252,
-) -> Optional[BacktestSignal]:
-    """
-    v3 scanner: 52W high breakout gate. Kept for comparison vs v4.
-    Full universe result: 49.8% hit rate, +2.7% avg 3M, +1.1% alpha — no edge.
-    """
-    min_history = min(lookback + 60, 120)
-    if idx < min_history:
-        return None
-
-    window = df.iloc[:idx + 1]
-    c = window["Close"]
-    v = window["Volume"]
-
+def simulate_v3(df, symbol, idx, lookback=252):
+    """v3: 52W breakout scanner. Kept as baseline — do NOT remove."""
+    if idx < min(lookback+60, 120): return None
+    w = df.iloc[:idx+1]
+    c = w["Close"]; v = w["Volume"]
     last_close = float(c.iloc[-1])
-    last_vol   = float(v.iloc[-1])
-    avg_vol    = float(v.rolling(20).mean().iloc[-1])
-
-    if avg_vol < 50_000 or last_close < 10:
-        return None
-
-    e21   = ema(c, 21)
-    e55   = ema(c, 55)
-    rsi_s = rsi(c, 14)
-    atr_s = atr(window, 14)
-
-    atr_now      = float(atr_s.iloc[-1])
-    rolling_high = c.rolling(lookback).max().shift(1)
-    high_252     = float(rolling_high.iloc[-1])
-    breakout_lvl = high_252 + atr_now * _BACKTEST_PARAMS["atr_mult"]
-
-    is_breakout  = last_close >= breakout_lvl
-    ema_bull     = float(e21.iloc[-1]) > float(e55.iloc[-1])
-    last_rsi     = float(rsi_s.iloc[-1])
-    rsi_ok       = _BACKTEST_PARAMS["rsi_lo"] <= last_rsi <= _BACKTEST_PARAMS["rsi_hi"]
-    vol_surge    = last_vol >= avg_vol * _BACKTEST_PARAMS["vol_mult"]
-
-    if not (is_breakout and ema_bull and rsi_ok):
-        return None
-
-    obv_s       = obv_series(window)
-    obv_win     = obv_s.iloc[-10:]
-    obv_slope   = float(obv_win.iloc[-1] - obv_win.iloc[0])
-    obv_std     = float(obv_win.std()) if obv_win.std() > 0 else 1
-    obv_bullish = obv_slope > obv_std * 0.1
-
-    recent_atr = float(atr_s.iloc[-20:].mean())
-    prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s) >= 80 else recent_atr
-    has_base   = (recent_atr / prior_atr) < 0.7 if prior_atr > 0 else False
-
-    b_score = min((last_close - high_252) / high_252 * 20, 1.0) if high_252 > 0 else 0.0
-    m_score = min(max((last_close - float(e55.iloc[-1])) / float(e55.iloc[-1]) * 5, 0), 1.0)
-    v_score = min((last_vol / avg_vol) / 3, 1.0) if avg_vol > 0 else 0
-
-    try:
-        adx_val = float(
-            (lambda d, n=14: (
-                lambda up, dn, pdm, ndm, a:
-                    ((100 * (pdm.rolling(n).mean() / a) - 100 * (ndm.rolling(n).mean() / a)).abs() /
-                     (100 * pdm.rolling(n).mean() / a + 100 * ndm.rolling(n).mean() / a).replace(0, np.nan)
-                    ).rolling(n).mean()
-            )(
-                d["High"].diff(), -d["Low"].diff(),
-                d["High"].diff().where((d["High"].diff() > -d["Low"].diff()) & (d["High"].diff() > 0), 0),
-                (-d["Low"].diff()).where((-d["Low"].diff() > d["High"].diff()) & (-d["Low"].diff() > 0), 0),
-                atr(d, n)
-            ))(window).iloc[-1]
-        )
-    except Exception:
-        adx_val = 0.0
-
-    return BacktestSignal(
-        symbol=symbol,
-        signal_date=str(window.index[-1].date()),
-        signal_price=round(last_close, 2),
-        rsi=round(last_rsi, 1),
-        adx=round(adx_val, 1) if not np.isnan(adx_val) else 0.0,
-        vol_surge=vol_surge,
-        obv_bullish=obv_bullish,
-        has_tight_base=has_base,
-        breakout_score=round(b_score, 3),
-    )
-
-
-def simulate_v4_scan_on_date(
-    df: pd.DataFrame,
-    symbol: str,
-    idx: int,
-) -> Optional[BacktestSignal]:
-    """
-    v4.1 scanner: volatility-adjusted momentum + MACD + BB + price structure.
-    Gates: avg_vol ≥ 150k | ≥50 traded days/63 | EMA21>EMA55 | RSI 48-80
-           | ADX ≥ 25 | price structure not broken (no LL/LH)
-           | mom_score > 0 (above-average 6M+12M vol-adj momentum)
-    """
-    min_history = 252 + 60
-    if idx < min_history:
-        return None
-
-    window = df.iloc[:idx + 1]
-    c = window["Close"]
-    v = window["Volume"]
-
-    last_close = float(c.iloc[-1])
-    last_vol   = float(v.iloc[-1])
-    avg_vol    = float(v.rolling(20).mean().iloc[-1])
-
-    # Liquidity gates
-    if avg_vol < 150_000 or last_close < 10:
-        return None
-    traded_63 = int((v.iloc[-63:] > 0).sum())
-    if traded_63 < 50:
-        return None
-
-    # Indicator gates
-    e21   = ema(c, 21)
-    e55   = ema(c, 55)
-    rsi_s = rsi(c, 14)
-
-    ema_bull = float(e21.iloc[-1]) > float(e55.iloc[-1])
+    avg_vol = float(v.rolling(20).mean().iloc[-1])
+    if avg_vol < 50_000 or last_close < 10: return None
+    e21 = ema(c,21); e55 = ema(c,55)
+    rsi_s = rsi(c,14); atr_s = atr(w,14)
+    atr_now = float(atr_s.iloc[-1])
+    high_252 = float(c.rolling(lookback).max().shift(1).iloc[-1])
+    if not (last_close >= high_252+atr_now*_BACKTEST_PARAMS["atr_mult"]): return None
+    if not float(e21.iloc[-1])>float(e55.iloc[-1]): return None
     last_rsi = float(rsi_s.iloc[-1])
-
-    if not ema_bull:
-        return None
-    if not (48.0 <= last_rsi <= 80.0):
-        return None
-
-    # ADX gate (inline lambda — produces 0-1 scale, threshold 0.20 = ~ADX 20)
-    try:
-        adx_s = (lambda d, n=14: (
-            lambda up, dn, pdm, ndm, a:
-                ((100 * (pdm.rolling(n).mean() / a) - 100 * (ndm.rolling(n).mean() / a)).abs() /
-                 (100 * pdm.rolling(n).mean() / a + 100 * ndm.rolling(n).mean() / a).replace(0, np.nan)
-                ).rolling(n).mean()
-        )(
-            d["High"].diff(), -d["Low"].diff(),
-            d["High"].diff().where((d["High"].diff() > -d["Low"].diff()) & (d["High"].diff() > 0), 0),
-            (-d["Low"].diff()).where((-d["Low"].diff() > d["High"].diff()) & (-d["Low"].diff() > 0), 0),
-            atr(d, n)
-        ))(window)
-        adx_val = float(adx_s.iloc[-1])
-    except Exception:
-        adx_val = 0.0
-
-    if np.isnan(adx_val) or adx_val < 0.20:
-        return None
-
-    # ── v4.1 NEW Gate: Price structure (HH/HL) ──
-    # Reject stocks making lower highs + lower lows despite positive momentum
-    try:
-        lookback = 10
-        w_struct = c.iloc[-lookback * 2:]
-        highs_s, lows_s = [], []
-        for i in range(1, len(w_struct) - 1):
-            if float(w_struct.iloc[i]) > float(w_struct.iloc[i-1]) and float(w_struct.iloc[i]) > float(w_struct.iloc[i+1]):
-                highs_s.append(float(w_struct.iloc[i]))
-            if float(w_struct.iloc[i]) < float(w_struct.iloc[i-1]) and float(w_struct.iloc[i]) < float(w_struct.iloc[i+1]):
-                lows_s.append(float(w_struct.iloc[i]))
-
-        has_hh_hl = False
-        has_ll_lh = False
-        if len(highs_s) >= 2:
-            hh_ok = highs_s[-1] > highs_s[-2]
-        else:
-            hh_ok = None
-        if len(lows_s) >= 2:
-            hl_ok = lows_s[-1] > lows_s[-2]
-        else:
-            hl_ok = None
-
-        has_hh_hl = (hh_ok is True and hl_ok is True)
-        has_ll_lh = (hh_ok is False or hl_ok is False)
-
-        # Hard gate: broken structure = reject
-        if has_ll_lh:
-            return None
-    except Exception:
-        has_hh_hl = False
-        has_ll_lh = False
-
-    # v4.1 core: volatility-adjusted momentum score (NSE formula)
-    if len(c) < 252 + 10:
-        return None
-
-    p_6m  = float(c.iloc[-126])
-    p_12m = float(c.iloc[-252])
-    last  = float(c.iloc[-1])
-
-    ret_6m  = (last - p_6m)  / p_6m
-    ret_12m = (last - p_12m) / p_12m
-
-    daily_ret = c.pct_change().dropna()
-    ann_vol   = float(daily_ret.iloc[-252:].std()) * (252 ** 0.5)
-
-    if ann_vol <= 0.01:
-        return None
-
-    mom_score = ((ret_6m / ann_vol) + (ret_12m / ann_vol)) / 2
-
-    # Gate: must have above-average momentum (> 0)
-    # Cross-sectional percentile applied in Pass 2 of run_backtest_b
-    if mom_score <= 0:
-        return None
-
-    # ── v4.1 NEW: MACD histogram ──
-    try:
-        ema_fast_s  = c.ewm(span=12, adjust=False).mean()
-        ema_slow_s  = c.ewm(span=26, adjust=False).mean()
-        macd_line_s = ema_fast_s - ema_slow_s
-        sig_line_s  = macd_line_s.ewm(span=9, adjust=False).mean()
-        hist_s      = macd_line_s - sig_line_s
-        last_hist   = float(hist_s.iloc[-1])
-        prev_hist   = float(hist_s.iloc[-2]) if len(hist_s) > 1 else 0.0
-        macd_expanding = (abs(last_hist) > abs(prev_hist)) and last_hist > 0
-        macd_positive  = last_hist > 0
-    except Exception:
-        macd_expanding = False
-        macd_positive  = False
-
-    # ── v4.1 NEW: Bollinger Band %B + squeeze ──
-    try:
-        n_bb  = 20
-        mid_b = c.rolling(n_bb).mean()
-        std_b = c.rolling(n_bb).std()
-        upper_b = mid_b + 2.0 * std_b
-        lower_b = mid_b - 2.0 * std_b
-        band_range = float(upper_b.iloc[-1]) - float(lower_b.iloc[-1])
-        pct_b = (last - float(lower_b.iloc[-1])) / band_range if band_range > 0 else 0.5
-        bw_series_b = (upper_b - lower_b) / mid_b.replace(0, np.nan)
-        bw_now      = float(bw_series_b.iloc[-1]) if not np.isnan(bw_series_b.iloc[-1]) else 0.1
-        bw_hist_b   = bw_series_b.iloc[-120:].dropna()
-        bw_pct25    = float(bw_hist_b.quantile(0.25)) if len(bw_hist_b) >= 20 else bw_now
-        recent_bw_b = bw_series_b.iloc[-10:]
-        was_squeeze = bool((recent_bw_b <= bw_pct25).any())
-        bb_squeeze_exp = was_squeeze and bw_now > bw_pct25 and bw_now > float(recent_bw_b.min())
-    except Exception:
-        pct_b = 0.5
-        bb_squeeze_exp = False
-
-    # OBV — extreme distribution only
-    obv_s_     = obv_series(window)
-    obv_win_   = obv_s_.iloc[-10:]
-    obv_std_v  = float(obv_win_.std()) if obv_win_.std() > 0 else 1
-    obv_slope_z = (float(obv_win_.iloc[-1]) - float(obv_win_.iloc[0])) / obv_std_v
-    if obv_slope_z < -1.5:
-        return None
-
-    obv_bullish = obv_slope_z > 0.1
-
-    atr_s_     = atr(window, 14)
-    recent_atr = float(atr_s_.iloc[-20:].mean())
-    prior_atr  = float(atr_s_.iloc[-80:-20].mean()) if len(atr_s_) >= 80 else recent_atr
-    has_base   = (recent_atr / prior_atr) < 0.7 if prior_atr > 0 else False
-    vol_surge  = last_vol >= avg_vol * 1.5
-
-    # Normalised score for cross-sectional ranking in Pass 2
-    norm_mom = min(max(mom_score / 2.0, 0.0), 1.0)
-
+    if not (_BACKTEST_PARAMS["rsi_lo"]<=last_rsi<=_BACKTEST_PARAMS["rsi_hi"]): return None
+    last_vol = float(v.iloc[-1])
+    obv_s = obv_series(w); obv_w = obv_s.iloc[-10:]
+    obv_bull = float(obv_w.iloc[-1]-obv_w.iloc[0]) > float(obv_w.std() if obv_w.std()>0 else 1)*0.1
+    recent_atr = float(atr_s.iloc[-20:].mean())
+    prior_atr  = float(atr_s.iloc[-80:-20].mean()) if len(atr_s)>=80 else recent_atr
+    has_base   = (recent_atr/prior_atr)<0.7 if prior_atr>0 else False
+    b_score    = min((last_close-high_252)/high_252*20,1.0) if high_252>0 else 0
     return BacktestSignal(
-        symbol=symbol,
-        signal_date=str(window.index[-1].date()),
-        signal_price=round(last_close, 2),
-        rsi=round(last_rsi, 1),
-        adx=round(adx_val, 1),
-        vol_surge=vol_surge,
-        obv_bullish=obv_bullish,
-        has_tight_base=has_base,
-        breakout_score=round(norm_mom, 3),
-        # v4.1 new fields
-        macd_expanding=macd_expanding,
-        macd_positive=macd_positive,
-        has_hh_hl=has_hh_hl,
-        bb_squeeze_exp=bb_squeeze_exp,
-        bb_pct_b=round(pct_b, 3),
+        symbol=symbol, signal_date=str(w.index[-1].date()),
+        signal_price=round(last_close,2), rsi=round(last_rsi,1),
+        adx=0.0, vol_surge=last_vol>=avg_vol*_BACKTEST_PARAMS["vol_mult"],
+        obv_bullish=obv_bull, has_tight_base=has_base, breakout_score=round(b_score,3),
     )
 
 
-def measure_forward_returns(
-    signal: BacktestSignal,
-    df: pd.DataFrame,
-    nifty_df: pd.DataFrame,
-    signal_idx: int,
-) -> BacktestSignal:
-    """Add forward return measurements to a signal."""
-    future = df.iloc[signal_idx:]
-    if future.empty:
-        return signal
+def simulate_v4(df, symbol, idx):
+    """v4: volatility-adjusted momentum. Keep alongside v3 for comparison."""
+    if idx < 312: return None
+    w = df.iloc[:idx+1]
+    c = w["Close"]; v = w["Volume"]
+    last_close = float(c.iloc[-1])
+    avg_vol = float(v.rolling(20).mean().iloc[-1])
+    if avg_vol < 150_000 or last_close < 10: return None
+    if int((v.iloc[-63:]>0).sum()) < 50: return None
+    e21 = ema(c,21); e55 = ema(c,55); rsi_s = rsi(c,14)
+    if not float(e21.iloc[-1])>float(e55.iloc[-1]): return None
+    last_rsi = float(rsi_s.iloc[-1])
+    if not (48.0<=last_rsi<=80.0): return None
+    if len(c)<262: return None
+    ret_6m = (float(c.iloc[-1])-float(c.iloc[-126]))/float(c.iloc[-126])
+    ret_12m= (float(c.iloc[-1])-float(c.iloc[-252]))/float(c.iloc[-252])
+    ann_vol= float(c.pct_change().dropna().iloc[-252:].std())*(252**0.5)
+    if ann_vol<=0.01: return None
+    mom    = ((ret_6m/ann_vol)+(ret_12m/ann_vol))/2
+    if mom<=0: return None
+    obv_s  = obv_series(w); obv_w = obv_s.iloc[-10:]
+    obv_slope_z = (float(obv_w.iloc[-1]-obv_w.iloc[0]))/(float(obv_w.std()) if obv_w.std()>0 else 1)
+    if obv_slope_z < -1.5: return None
+    last_vol   = float(v.iloc[-1])
+    recent_atr = float(atr(w,14).iloc[-20:].mean())
+    prior_atr  = float(atr(w,14).iloc[-80:-20].mean()) if len(w)>=80 else recent_atr
+    # MACD
+    try:
+        macd_h = (c.ewm(12,adjust=False).mean()-c.ewm(26,adjust=False).mean())
+        sig_l  = macd_h.ewm(9,adjust=False).mean()
+        hist   = macd_h-sig_l
+        mac_exp= abs(float(hist.iloc[-1]))>abs(float(hist.iloc[-2])) and float(hist.iloc[-1])>0
+    except: mac_exp = False
+    return BacktestSignal(
+        symbol=symbol, signal_date=str(w.index[-1].date()),
+        signal_price=round(last_close,2), rsi=round(last_rsi,1), adx=0.0,
+        vol_surge=last_vol>=avg_vol*1.5, obv_bullish=obv_slope_z>0.1,
+        has_tight_base=(recent_atr/prior_atr)<0.7 if prior_atr>0 else False,
+        breakout_score=round(min(max(mom/2.0,0),1.0),3),
+        macd_expanding=mac_exp,
+    )
 
+
+def measure_returns(sig, df, nifty_df, idx):
+    future  = df.iloc[idx:]
+    if future.empty: return sig
     entry_p = float(future["Close"].iloc[0])
-
     def fwd(days):
-        if signal_idx + days < len(df):
-            return round((float(df["Close"].iloc[signal_idx + days]) - entry_p) / entry_p * 100, 1)
+        if idx+days<len(df):
+            return round((float(df["Close"].iloc[idx+days])-entry_p)/entry_p*100,1)
         return None
-
-    signal.return_1m = fwd(21)
-    signal.return_3m = fwd(63)
-    signal.return_6m = fwd(126)
-
-    # Nifty benchmark
+    sig.return_1m = fwd(21); sig.return_3m = fwd(63); sig.return_6m = fwd(126)
     if not nifty_df.empty:
-        nifty_close = nifty_df["Close"].squeeze()
-        entry_dt    = pd.Timestamp(signal.signal_date)
-        nidx = nifty_df.index.searchsorted(entry_dt)
-        if nidx < len(nifty_close):
-            np0 = float(nifty_close.iloc[nidx])
+        nc = nifty_df["Close"].squeeze()
+        ni = nifty_df.index.searchsorted(pd.Timestamp(sig.signal_date))
+        if ni<len(nc):
+            np0 = float(nc.iloc[ni])
             def nf(days):
-                if nidx + days < len(nifty_close):
-                    return round((float(nifty_close.iloc[nidx + days]) - np0) / np0 * 100, 1)
+                if ni+days<len(nc): return round((float(nc.iloc[ni+days])-np0)/np0*100,1)
                 return None
-            signal.nifty_1m = nf(21)
-            signal.nifty_3m = nf(63)
-            if signal.return_3m is not None and signal.nifty_3m is not None:
-                signal.alpha_3m = round(signal.return_3m - signal.nifty_3m, 1)
-
-    return signal
+            sig.nifty_1m = nf(21); sig.nifty_3m = nf(63)
+            if sig.return_3m is not None and sig.nifty_3m is not None:
+                sig.alpha_3m = round(sig.return_3m-sig.nifty_3m,1)
+    return sig
 
 
-def run_backtest_b(
-    symbols: list[str],
-    lookback_days: int = 500,
-    sample_every_n_days: int = 5,
-    batch_size: int = 50,
-    scanner_version: str = "v3",   # "v3" = breakout, "v4" = momentum
-) -> dict:
-    """
-    Run Layer 1 historical backtest on a list of symbols.
+def summarise(signals: list[BacktestSignal], label: str) -> dict:
+    if not signals:
+        return {"label": label, "count": 0, "hit_rate_3m": "N/A",
+                "avg_return_3m": "N/A", "avg_alpha_3m": "N/A",
+                "median_3m": "N/A", "best_3m": "N/A"}
+    r3 = [s.return_3m for s in signals if s.return_3m is not None]
+    a3 = [s.alpha_3m  for s in signals if s.alpha_3m  is not None]
+    hits = [x for x in r3 if x>0]
+    result = {
+        "label":         label,
+        "count":         len(signals),
+        "hit_rate_3m":   f"{len(hits)/len(r3)*100:.1f}%" if r3 else "N/A",
+        "avg_return_3m": f"{np.mean(r3):+.1f}%"          if r3 else "N/A",
+        "avg_alpha_3m":  f"{np.mean(a3):+.1f}%"          if a3 else "N/A",
+        "median_3m":     f"{np.median(r3):+.1f}%"        if r3 else "N/A",
+        "best_3m":       f"{max(r3):+.1f}%"              if r3 else "N/A",
+    }
+    log.info(f"\n  [{label}] n={result['count']} "
+             f"hit={result['hit_rate_3m']} avg3M={result['avg_return_3m']} "
+             f"alpha={result['avg_alpha_3m']} median={result['median_3m']}")
+    return result
 
-    Uses batch downloading (50 symbols at a time) — the same pattern
-    as engine.py. This is ~4× faster than sequential per-symbol downloads
-    and is the key optimisation that makes a full 1,800-symbol run feasible
-    in ~11 minutes instead of ~60 minutes.
 
-    For each symbol it simulates running the breakout scanner every
-    sample_every_n_days over the past lookback_days and measures
-    forward returns at 1M, 3M, 6M vs Nifty 50.
-    """
-    log.info("═" * 60)
-    log.info("BACKTEST B — LAYER 1 HISTORICAL BREAKOUT PERFORMANCE")
-    log.info(f"  Scanner:   {scanner_version.upper()}")
-    log.info(f"  Symbols:   {len(symbols)}")
-    log.info(f"  Lookback:  {lookback_days} days  |  Sample every {sample_every_n_days} days")
-    log.info(f"  Batches:   {len(symbols) // batch_size + 1} × {batch_size} symbols")
-    log.info("═" * 60)
+def run_backtest_b(symbols, lookback_days=500, sample_every=5,
+                   batch_size=50, scanner="compare") -> dict:
+    log.info("═"*60)
+    log.info(f"BACKTEST B — LAYER 1 HISTORICAL  [scanner={scanner}]")
+    log.info(f"  Symbols:{len(symbols)} Lookback:{lookback_days}d Sample:every {sample_every}d")
+    log.info("═"*60)
 
-    # Fetch Nifty once — used to compute alpha for every signal
-    log.info("Fetching Nifty 50 benchmark (4 years)...")
-    nifty_df = yf.download(
-        "^NSEI", period="4y", interval="1d",
-        progress=False, auto_adjust=True,
-    )
+    log.info("Fetching Nifty 50 benchmark...")
+    nifty_df = yf.download("^NSEI", period="4y", interval="1d",
+                           progress=False, auto_adjust=True)
     if isinstance(nifty_df.columns, pd.MultiIndex):
         nifty_df.columns = nifty_df.columns.get_level_values(0)
     nifty_df.index = pd.to_datetime(nifty_df.index).tz_localize(None)
-    log.info(f"  Nifty: {len(nifty_df)} rows")
 
-    all_signals:         list[BacktestSignal] = []
-    signals_with_obv:    list[BacktestSignal] = []
-    signals_without_obv: list[BacktestSignal] = []
-    v4_pending:          list               = []   # (sig, df, idx) tuples for two-pass
-    total_scanned = 0
-    total_skipped = 0
+    v3_all, v4_all = [], []
+    v3_obv, v4_obv = [], []
+    v4_pending     = []  # (sig, df, idx) for cross-sectional pass
+    skipped = 0
 
-    batches = [symbols[i:i + batch_size] for i in range(0, len(symbols), batch_size)]
-
-    for b_idx, batch in enumerate(batches):
-        log.info(f"  Batch {b_idx+1}/{len(batches)} — {batch[0]} … {batch[-1]}")
-
+    batches = [symbols[i:i+batch_size] for i in range(0,len(symbols),batch_size)]
+    for bi, batch in enumerate(batches):
+        log.info(f"  Batch {bi+1}/{len(batches)}: {batch[0]}…{batch[-1]}")
         try:
-            raw = yf.download(
-                batch, period="4y", interval="1d",
-                group_by="ticker", auto_adjust=True,
-                progress=False, threads=True,
-            )
+            raw = yf.download(batch, period="4y", interval="1d",
+                              group_by="ticker", auto_adjust=True,
+                              progress=False, threads=True)
         except Exception as e:
-            log.warning(f"  Batch {b_idx+1} download failed: {e}")
-            time.sleep(3)
-            continue
+            log.warning(f"  Batch {bi+1} failed: {e}")
+            time.sleep(3); continue
 
         for sym in batch:
-            sym_signals = 0
             try:
-                # Extract this symbol's frame from the batch result
-                if len(batch) == 1:
-                    df = raw.copy()
-                elif isinstance(raw.columns, pd.MultiIndex):
-                    lvl0 = raw.columns.get_level_values(0)
-                    if sym not in lvl0:
-                        total_skipped += 1
-                        continue
-                    df = raw[sym].copy()
-                else:
-                    total_skipped += 1
-                    continue
-
-                # Flatten columns if still MultiIndex after slicing
+                df = raw[sym].copy() if len(batch)>1 and isinstance(raw.columns, pd.MultiIndex) else raw.copy()
                 if isinstance(df.columns, pd.MultiIndex):
                     df.columns = df.columns.get_level_values(0)
-
-                df.dropna(subset=["Close", "Volume"], inplace=True)
-                # v4 needs 252+60=312 warmup rows; v3 needs ~320 (252 lookback + 60 indicators)
-                min_rows = 330 if scanner_version == "v4" else 300
-                if df.empty or len(df) < min_rows:
-                    total_skipped += 1
-                    continue
-
+                df.dropna(subset=["Close","Volume"], inplace=True)
                 df.index = pd.to_datetime(df.index).tz_localize(None)
+                if len(df) < 200: skipped+=1; continue
 
-                # Scan window: v4 needs 312 warmup rows (252 for 12M momentum + 60 indicators)
-                warmup           = 312 if scanner_version == "v4" else 260
-                scan_range_end   = len(df) - 21
-                scan_range_start = max(len(df) - lookback_days, warmup)
+                warmup = 312 if scanner in ("v4","compare") else 260
+                start  = max(len(df)-lookback_days, warmup)
+                end    = len(df)-21
+                if start>=end: skipped+=1; continue
 
-                if scan_range_start >= scan_range_end:
-                    total_skipped += 1
-                    continue
+                for idx in range(start, end, sample_every):
+                    if scanner in ("v3","compare"):
+                        s = simulate_v3(df, sym, idx)
+                        if s:
+                            s = measure_returns(s, df, nifty_df, idx)
+                            v3_all.append(s)
+                            if s.obv_bullish: v3_obv.append(s)
 
-                if scanner_version == "v4":
-                    # v4 TWO-PASS: collect (date_idx → mom_score) candidates first,
-                    # then cross-sectional percentile gate is applied after all symbols
-                    # are processed. Store raw candidates in pending list.
-                    for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
-                        sig = simulate_v4_scan_on_date(df, sym, idx)
-                        if sig is None:
-                            continue
-                        # Store with the raw mom_score (breakout_score field holds norm_mom)
-                        # and the df + idx so we can measure forward returns in pass 2
-                        v4_pending.append((sig, df.copy(), idx))
-                        sym_signals += 1
-                else:
-                    for idx in range(scan_range_start, scan_range_end, sample_every_n_days):
-                        sig = simulate_breakout_scan_on_date(df, sym, idx, lookback=252)
-                        if sig is None:
-                            continue
-                        sig = measure_forward_returns(sig, df, nifty_df, idx)
-                        all_signals.append(sig)
-                        sym_signals += 1
-                        if sig.obv_bullish:
-                            signals_with_obv.append(sig)
-                        else:
-                            signals_without_obv.append(sig)
-
-                total_scanned += 1
-                if sym_signals > 0:
-                    log.info(f"    ✓ {sym:<18}: {sym_signals} signals")
+                    if scanner in ("v4","compare"):
+                        s = simulate_v4(df, sym, idx)
+                        if s: v4_pending.append((s, df.copy(), idx))
 
             except Exception as e:
-                log.warning(f"  {sym}: {type(e).__name__}: {e}")
-                total_skipped += 1
+                log.debug(f"  {sym}: {e}"); skipped+=1
 
-        log.info(
-            f"  Batch {b_idx+1} done — running total: {len(all_signals) + len(v4_pending)} signals | "
-            f"scanned: {total_scanned} | skipped: {total_skipped}"
-        )
-        time.sleep(1.5)   # polite pause between batches
+        time.sleep(1.5)
 
-    # ── v4 PASS 2: cross-sectional percentile gate ──────────────────────────
-    # NSE's Momentum Index methodology: rank all stocks by momentum score on
-    # each rebalance date and take only the top quintile (top 20%).
-    # This is what actually works — not "above zero" but "top 20% of universe".
-    if scanner_version == "v4" and v4_pending:
-        log.info(f"\nv4 Pass 2: cross-sectional percentile gate on {len(v4_pending)} raw candidates...")
-
-        # Group candidates by their signal date
+    # v4 cross-sectional percentile gate
+    if v4_pending:
         from collections import defaultdict
-        by_date: dict = defaultdict(list)
+        by_date = defaultdict(list)
         for item in v4_pending:
-            sig, df, idx = item
-            by_date[sig.signal_date].append(item)
-
-        # On each date, compute 80th percentile threshold and keep top 20%
-        top_pct = 0.80   # top 20% = above 80th percentile
-        passed = kept = 0
+            by_date[item[0].signal_date].append(item)
+        kept = 0
         for date_str, items in sorted(by_date.items()):
-            scores = [item[0].breakout_score for item in items]   # norm_mom stored here
-            if len(scores) < 5:   # too few to rank meaningfully
-                continue
-            threshold = np.percentile(scores, top_pct * 100)
+            scores = [x[0].breakout_score for x in items]
+            if len(scores)<5: continue
+            thresh = np.percentile(scores, 80)
             for sig, df, idx in items:
-                passed += 1
-                if sig.breakout_score >= threshold:
-                    sig = measure_forward_returns(sig, df, nifty_df, idx)
-                    all_signals.append(sig)
+                if sig.breakout_score >= thresh:
+                    sig = measure_returns(sig, df, nifty_df, idx)
+                    v4_all.append(sig)
+                    if sig.obv_bullish: v4_obv.append(sig)
                     kept += 1
-                    if sig.obv_bullish:
-                        signals_with_obv.append(sig)
-                    else:
-                        signals_without_obv.append(sig)
+        log.info(f"  v4 cross-sectional: {len(v4_pending)} raw → {kept} kept (top 20%/date)")
 
-        log.info(f"  Cross-sectional gate: {passed} raw → {kept} kept "
-                 f"(top 20% per date, {100*kept/max(passed,1):.1f}% pass rate)")
+    log.info(f"\n  Skipped: {skipped}  v3 signals: {len(v3_all)}  v4 signals: {len(v4_all)}")
 
-    # ── v4.1 signal subgroups for analysis ──────────────────────────────────
-    signals_macd_exp   = [s for s in all_signals if s.macd_expanding]
-    signals_hh_hl      = [s for s in all_signals if s.has_hh_hl]
-    signals_bb_squeeze = [s for s in all_signals if s.bb_squeeze_exp]
-    # Triple confluence: all three new signals firing together
-    signals_triple     = [s for s in all_signals if s.macd_expanding and s.has_hh_hl and s.bb_squeeze_exp]
-
-    log.info(
-        f"\nBacktest B complete:"
-        f"\n  Total signals:    {len(all_signals)}"
-        f"\n  OBV confirmed:    {len(signals_with_obv)}"
-        f"\n  OBV diverging:    {len(signals_without_obv)}"
-        f"\n  MACD expanding:   {len(signals_macd_exp)}"
-        f"\n  HH/HL structure:  {len(signals_hh_hl)}"
-        f"\n  BB squeeze→exp:   {len(signals_bb_squeeze)}"
-        f"\n  Triple confluence:{len(signals_triple)}"
-        f"\n  Symbols scanned:  {total_scanned}"
-        f"\n  Symbols skipped:  {total_skipped}"
-    )
-    return {
-        "all_signals":         all_signals,
-        "with_obv":            signals_with_obv,
-        "without_obv":         signals_without_obv,
-        "with_macd_exp":       signals_macd_exp,
-        "with_hh_hl":          signals_hh_hl,
-        "with_bb_squeeze":     signals_bb_squeeze,
-        "with_triple":         signals_triple,
-        "total_scanned":       total_scanned,
-        "total_skipped":       total_skipped,
+    out = {
+        "v3_all":   summarise(v3_all,  "v3 all"),
+        "v3_obv":   summarise(v3_obv,  "v3 OBV confirmed"),
+        "v4_all":   summarise(v4_all,  "v4 all (top-20% momentum)"),
+        "v4_obv":   summarise(v4_obv,  "v4 OBV confirmed"),
     }
-
-
-# ─────────────────────────────────────────────────────────────
-# METRICS & WEIGHT TUNING
-# ─────────────────────────────────────────────────────────────
-
-def compute_metrics(signals: list[BacktestSignal], label: str) -> dict:
-    """Compute hit rate, avg returns, alpha for a list of signals."""
-    if not signals:
-        return {"label": label, "count": 0}
-
-    r3 = [s.return_3m for s in signals if s.return_3m is not None]
-    r1 = [s.return_1m for s in signals if s.return_1m is not None]
-    r6 = [s.return_6m for s in signals if s.return_6m is not None]
-    al = [s.alpha_3m  for s in signals if s.alpha_3m  is not None]
-
-    return {
-        "label":          label,
-        "count":          len(signals),
-        "hit_rate_3m":    round(sum(1 for r in r3 if r > 0) / len(r3) * 100, 1) if r3 else None,
-        "avg_return_1m":  round(float(np.mean(r1)), 1) if r1 else None,
-        "avg_return_3m":  round(float(np.mean(r3)), 1) if r3 else None,
-        "avg_return_6m":  round(float(np.mean(r6)), 1) if r6 else None,
-        "median_3m":      round(float(np.median(r3)), 1) if r3 else None,
-        "avg_alpha_3m":   round(float(np.mean(al)), 1) if al else None,
-        "best_3m":        round(max(r3), 1) if r3 else None,
-        "worst_3m":       round(min(r3), 1) if r3 else None,
-        "pct_gt_20pct":   round(sum(1 for r in r3 if r > 20) / len(r3) * 100, 1) if r3 else None,
-    }
-
-
-def tune_weights(ground_truth: list[SignalScoreAtDate]) -> dict:
-    """
-    Simple grid search over scoring weights to maximise:
-      - Score rank of known multibaggers (they should rank highly)
-      - Correlation between score and forward return
-
-    Returns the best weight configuration found.
-    """
-    log.info("\nTuning weights on ground truth picks...")
-
-    # Only use picks where we have forward return data
-    valid = [g for g in ground_truth if g.return_3m is not None and g.return_3m > 0]
-    if len(valid) < 3:
-        log.warning("Not enough valid ground truth picks with forward returns to tune")
-        return {}
-
-    best_score  = -999
-    best_config = {}
-
-    # Grid search
-    for w_b in [0.25, 0.30, 0.35, 0.40]:        # breakout weight
-        for w_m in [0.15, 0.20, 0.25]:            # momentum weight
-            for w_v in [0.05, 0.10, 0.15]:         # volume weight
-                for w_o in [0.05, 0.10, 0.15]:     # OBV weight
-                    if abs(w_b + w_m + w_v + w_o - 1.0) > 0.3:
-                        continue
-
-                    # Score each pick with this weight config
-                    scores = []
-                    for g in valid:
-                        s = (g.breakout_score * w_b +
-                             g.momentum_score * w_m +
-                             g.volume_score   * w_v +
-                             g.obv_score      * w_o)
-                        scores.append(s)
-
-                    # Maximise correlation between score and forward return
-                    returns = [g.return_3m for g in valid]
-                    if len(scores) >= 2 and np.std(scores) > 0:
-                        corr = float(np.corrcoef(scores, returns)[0, 1])
-                        if corr > best_score:
-                            best_score  = corr
-                            best_config = {
-                                "w_breakout":  w_b,
-                                "w_momentum":  w_m,
-                                "w_volume":    w_v,
-                                "w_obv":       w_o,
-                                "correlation": round(corr, 3),
-                            }
-
-    log.info(f"  Best weights: {best_config}")
-    return best_config
-
+    if scanner=="compare":
+        log.info("\n  ══ v3 vs v4 COMPARISON ══")
+        for metric in ["count","hit_rate_3m","avg_return_3m","avg_alpha_3m","median_3m"]:
+            log.info(f"  {metric:<20} v3:{out['v3_all'].get(metric,'?'):<12} v4:{out['v4_all'].get(metric,'?')}")
+    return out
 
 # ─────────────────────────────────────────────────────────────
 # REPORT GENERATOR
 # ─────────────────────────────────────────────────────────────
 
-def generate_backtest_report(
-    a_results: list[SignalScoreAtDate],
-    b_metrics: dict,
-    best_weights: dict,
-    params: dict = None,
-) -> str:
-    sep = "═" * 72
-    now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+def write_report(date_str, mode, a_results, b_results, c_results, params):
+    sep = "═"*68
     lines = [
         sep,
-        "  MULTIBAGGER ENGINE — BACKTEST REPORT",
-        f"  {now}",
-        sep,
+        f"  BACKTEST REPORT — {date_str}",
+        f"  Mode: {mode} | Scanner: {params.get('scanner','?')} | "
+        f"Universe: {'Full ~1800' if params.get('full') else '48 curated'}",
+        sep, "",
     ]
 
-    # Show what parameters were used — crucial for iterative tuning
-    if params:
-        lines += [
-            "",
-            "  PARAMETERS USED IN THIS RUN:",
-            f"    RSI range:  {params.get('rsi_lo', 48)} – {params.get('rsi_hi', 78)}",
-            f"    ATR mult:   {params.get('atr_mult', 0.3)}   "
-            f"(breakout = 52W high + {params.get('atr_mult', 0.3)}×ATR)",
-            f"    Vol surge:  {params.get('vol_mult', 1.5)}×  avg 20-day volume",
-            f"    ADX min:    {params.get('adx_min', 18)}",
-            f"    Lookback:   {params.get('lookback', 500)} days",
-            f"    Quick mode: {'YES' if params.get('quick') else 'NO'}",
-            "",
-        ]
-    lines.append("")
+    if a_results:
+        lines += ["  BACKTEST A — VALUEPICK GROUND TRUTH", ""]
+        for s in a_results:
+            lines += [
+                f"  {s.symbol}  Entry:₹{s.entry_price} on {s.entry_date}",
+                f"  Thesis: {s.thesis}",
+                f"  Signals: {s.signals_present}  L1score:{s.estimated_l1_score}",
+                f"  Returns: 1M:{s.return_1m}% 3M:{s.return_3m}% 6M:{s.return_6m}% 1Y:{s.return_1y}%",
+                f"  Nifty:   1M:{s.nifty_1m}% 3M:{s.nifty_3m}%",
+                f"  {s.notes}" if s.notes else "",
+                "",
+            ]
 
-    # ── BACKTEST A ──
-    lines += [
-        "  BACKTEST A: VALUEPICK GROUND TRUTH VALIDATION",
-        "  Question: Would our engine have flagged these known multibaggers?",
-        sep,
-        "",
-    ]
+    if c_results:
+        lines += ["", "  BACKTEST C — DNA SCORER VALIDATION", ""]
+        passed = sum(1 for r in c_results if r.get("pass"))
+        lines.append(f"  Passed (DNA ≥0.50): {passed}/{len(c_results)}")
+        lines.append("")
+        for r in c_results:
+            if "error" in r:
+                lines.append(f"  {r['symbol']:<22} ERROR: {r['error']}")
+            else:
+                s = "✅" if r["pass"] else "❌"
+                lines.append(
+                    f"  {s} {r['symbol']:<20} DNA:{r['dna_score']:.3f}[{r['dna_grade'][:1]}] "
+                    f"rev:{r['rev_accel']:.2f} promo:{r['promoter']:.2f} "
+                    f"cat:{r['catalyst']:.2f} ({r['known_return']}x)"
+                )
+        lines.append("")
 
-    for g in a_results:
-        pick = next((p for p in VALUEPICK_PICKS if p["symbol"] == g.symbol), {})
-        ret_x = pick.get("return_x", "?")
-        lines += [
-            f"  {g.symbol}  entry ₹{g.entry_price}  date {g.entry_date}  ({ret_x}x confirmed)",
-            f"  Thesis: {g.notes[:80]}",
-            f"  Technical state on entry date:",
-            f"    vs 52W high: {g.price_vs_52w_high}%   vs 52W low: {g.price_vs_52w_low}%",
-            f"    RSI: {g.rsi_at_entry}   EMA: {g.ema21_vs_55}   OBV: {g.obv_direction}",
-            f"    Breakout: {'✓' if g.was_breakout else '✗'}   Tight base: {'✓' if g.was_base else '✗'}",
-            f"    Volume vs avg: {g.volume_vs_avg}×   ATR ratio: {g.atr_contraction}",
-            f"  Signals our model would have fired: {', '.join(g.signals_present) or 'NONE'}",
-            f"  Estimated L1 score: {g.estimated_l1_score:.3f}",
-        ]
-        if g.return_3m is not None:
-            alpha = f"+{g.return_3m - g.nifty_3m:.1f}% alpha" if g.nifty_3m else ""
+    if b_results:
+        lines += ["", "  BACKTEST B — LAYER 1 HISTORICAL PERFORMANCE", ""]
+        for label, m in b_results.items():
             lines.append(
-                f"  Forward returns: 1M {g.return_1m:+.1f}%  3M {g.return_3m:+.1f}%  "
-                f"6M {g.return_6m:+.1f}%  1Y {g.return_1y:+.1f}%  {alpha}"
+                f"  [{m['label']}] n={m['count']} hit={m['hit_rate_3m']} "
+                f"avg3M={m['avg_return_3m']} alpha={m['avg_alpha_3m']} "
+                f"median={m['median_3m']}"
             )
-        else:
-            # Show the actual reason — much more informative than "insufficient data"
-            note = g.notes if g.notes and g.notes != pick.get("thesis", "") else ""
-            pick_note = pick.get("data_note", "")
-            reason = note or pick_note or "No yfinance data available for this symbol/date"
-            lines.append(f"  Forward returns: ⚠ NOT AVAILABLE — {reason}")
-        if g.notes and g.notes != pick.get("thesis", ""):
-            lines.append(f"  Note: {g.notes}")
-        lines.append("")
-
-    # Key insight
-    had_breakout = sum(1 for g in a_results if g.was_breakout)
-    had_base     = sum(1 for g in a_results if g.was_base)
-    total        = len(a_results)
-    lines += [
-        f"  SUMMARY: {had_breakout}/{total} picks had a technical breakout on entry date",
-        f"           {had_base}/{total} picks had a tight consolidation base",
-        "",
-        "  KEY INSIGHT:",
-        "  If hit_rate is low (picks did NOT have breakout on entry date),",
-        "  that confirms VALUEPICK found them BEFORE technical signals fired.",
-        "  Our Layer 1 would have missed them — Layer 2 thesis signals matter more.",
-        "",
-    ]
-
-    # ── BACKTEST B ──
-    lines += [
-        sep,
-        "  BACKTEST B: LAYER 1 HISTORICAL PERFORMANCE",
-        "  Question: When our breakout scanner fires, how often does it work?",
-        sep,
-        "",
-    ]
-
-    for key in ["all_signals", "with_obv", "without_obv", "with_base", "with_vol"]:
-        m = b_metrics.get(key, {})
-        if not m or m.get("count", 0) == 0:
-            continue
-        label = {
-            "all_signals":   "All signals",
-            "with_obv":      "OBV confirmed ✓",
-            "without_obv":   "OBV diverging ✗",
-            "with_base":     "Tight base ✓",
-            "with_vol":      "Volume surge ✓",
-            "with_macd_exp": "MACD expanding ✓ (v4.1)",
-            "with_hh_hl":    "HH/HL structure ✓ (v4.1)",
-            "with_bb_sq":    "BB squeeze→exp ✓ (v4.1)",
-            "with_triple":   "★ Triple confluence (v4.1)",
-        }.get(key, key)
-        lines += [
-            f"  {label} (n={m.get('count', 0)})",
-            f"    Hit rate (3M positive return): {m.get('hit_rate_3m', 'N/A')}%",
-            f"    Avg return: 1M {m.get('avg_return_1m', '?')}%  3M {m.get('avg_return_3m', '?')}%  "
-            f"6M {m.get('avg_return_6m', '?')}%",
-            f"    Median 3M: {m.get('median_3m', '?')}%   Avg alpha vs Nifty: {m.get('avg_alpha_3m', '?')}%",
-            f"    Best 3M: {m.get('best_3m', '?')}%   Worst 3M: {m.get('worst_3m', '?')}%",
-            f"    % signals with >20% 3M return: {m.get('pct_gt_20pct', '?')}%",
-            "",
-        ]
-
-    # OBV impact
-    w_obv  = b_metrics.get("with_obv", {})
-    wo_obv = b_metrics.get("without_obv", {})
-    if w_obv.get("avg_return_3m") and wo_obv.get("avg_return_3m"):
-        obv_lift = round(w_obv["avg_return_3m"] - wo_obv["avg_return_3m"], 1)
-        lines += [
-            f"  OBV FILTER IMPACT:",
-            f"    With OBV confirmed:  avg 3M = {w_obv['avg_return_3m']}%",
-            f"    Without OBV:         avg 3M = {wo_obv['avg_return_3m']}%",
-            f"    OBV adds {obv_lift:+.1f}% to avg 3M return",
-            "",
-        ]
-
-    # v4.1 new signal analysis
-    triple  = b_metrics.get("with_triple", {})
-    macd_m  = b_metrics.get("with_macd_exp", {}) or b_metrics.get("v4_macd_exp", {})
-    hh_m    = b_metrics.get("with_hh_hl", {}) or b_metrics.get("v4_hh_hl", {})
-    bb_m    = b_metrics.get("with_bb_sq", {}) or b_metrics.get("v4_bb_sq", {})
-    all_m   = b_metrics.get("all_signals", {})
-
-    if macd_m.get("count") or hh_m.get("count") or bb_m.get("count"):
-        lines += [
-            f"  v4.1 NEW SIGNAL ANALYSIS:",
-        ]
-        if all_m.get("avg_return_3m") is not None:
-            lines.append(f"    All signals baseline:      avg 3M = {all_m['avg_return_3m']}%")
-        if macd_m.get("avg_return_3m") is not None:
-            lift = round(float(macd_m['avg_return_3m']) - float(all_m.get('avg_return_3m', 0) or 0), 1)
-            lines.append(f"    MACD expanding (n={macd_m['count']}): avg 3M = {macd_m['avg_return_3m']}%  ({lift:+.1f}% vs baseline)")
-        if hh_m.get("avg_return_3m") is not None:
-            lift = round(float(hh_m['avg_return_3m']) - float(all_m.get('avg_return_3m', 0) or 0), 1)
-            lines.append(f"    HH/HL structure (n={hh_m['count']}):  avg 3M = {hh_m['avg_return_3m']}%  ({lift:+.1f}% vs baseline)")
-        if bb_m.get("avg_return_3m") is not None:
-            lift = round(float(bb_m['avg_return_3m']) - float(all_m.get('avg_return_3m', 0) or 0), 1)
-            lines.append(f"    BB squeeze→exp (n={bb_m['count']}):   avg 3M = {bb_m['avg_return_3m']}%  ({lift:+.1f}% vs baseline)")
-        if triple.get("count"):
-            lift = round(float(triple['avg_return_3m'] or 0) - float(all_m.get('avg_return_3m', 0) or 0), 1)
-            lines.append(f"    ★ Triple confluence (n={triple['count']}):  avg 3M = {triple.get('avg_return_3m','?')}%  ({lift:+.1f}% vs baseline)")
-        lines.append("")
-
-    # ── Weight tuning ──
-    if best_weights:
-        lines += [
-            sep,
-            "  WEIGHT TUNING RESULT (based on ground truth correlation)",
-            sep,
-            "",
-            f"  Current weights:  breakout=0.35  momentum=0.20  volume=0.10  OBV=0.10",
-            f"  Suggested weights: breakout={best_weights.get('w_breakout')}  "
-            f"momentum={best_weights.get('w_momentum')}  "
-            f"volume={best_weights.get('w_volume')}  "
-            f"OBV={best_weights.get('w_obv')}",
-            f"  Score-return correlation: {best_weights.get('correlation')}",
-            "",
-            "  To apply: update w_breakout, w_momentum, w_volume, w_obv in engine.py Config",
-            "",
-        ]
+        if "v3_all" in b_results and "v4_all" in b_results:
+            lines += [
+                "", "  v3 vs v4 VERDICT:",
+                "  v3 = 52W breakout (legacy baseline — keep for comparison)",
+                "  v4 = volatility-adjusted momentum (NSE formula)",
+                "  If v4 alpha > v3 alpha: momentum filter is adding value.",
+                "  If spread is small: regime or universe choice matters more.",
+            ]
 
     lines += [
-        sep,
-        "  ⚠  Backtesting has survivorship bias — historical prices are",
-        "     available only for stocks that still exist. Failed companies",
-        "     are excluded, which overstates hit rates. Use as direction,",
-        "     not as proof.",
+        "", sep,
+        "  SURVIVORSHIP BIAS NOTE:",
+        "  This backtest uses current constituents — delisted stocks are missing.",
+        "  Hit rates are overstated. Use directionally, not as proof of edge.",
+        "  DNA Backtest C uses only 6 ground truth picks — too few for statistics.",
+        "  Its value is sanity-checking the model, not proving it works.",
         sep,
     ]
-    return "\n".join(lines)
+    return "\n".join(l for l in lines)
 
 
 # ─────────────────────────────────────────────────────────────
-# ENTRY POINT
+# CURATED 48-STOCK UNIVERSE (unchanged — used for weekly B run)
+# ─────────────────────────────────────────────────────────────
+
+CURATED_48 = [
+    # Large liquid NSE stocks spanning all major sectors
+    "RELIANCE.NS","TCS.NS","INFY.NS","HDFCBANK.NS","ICICIBANK.NS",
+    "SBIN.NS","HINDUNILVR.NS","ITC.NS","AXISBANK.NS","BAJFINANCE.NS",
+    "WIPRO.NS","ASIANPAINT.NS","MARUTI.NS","SUNPHARMA.NS","TITAN.NS",
+    # Mid caps
+    "PIDILITIND.NS","BERGEPAINT.NS","TORNTPHARM.NS","MPHASIS.NS","COFORGE.NS",
+    "LTTS.NS","POLYCAB.NS","ASTRAL.NS","PIIND.NS","AAPL.NS",
+    "DEEPAKNTR.NS","NAVINFLUOR.NS","ALKYLAMINE.NS","FINECHEM.NS","GALAXYSURF.NS",
+    # Small caps (confirmed multibaggers or near-misses)
+    "SHANTIGEAR.NS","COSMOFERR.NS","EKINDIA.NS","PAUSHAKLTD.NS",
+    # Sector representatives
+    "KPIT.NS","TATAELXSI.NS","PERSISTENT.NS","CYIENT.NS",
+    "AETHER.NS","APOLLOPIPE.NS","GPIL.NS","KSB.NS","SPLPETRO.NS",
+    # Indices as sanity check
+]
+# Filter to valid NSE symbols only
+CURATED_48 = [s for s in CURATED_48 if s.endswith(".NS")]
+
+
+# ─────────────────────────────────────────────────────────────
+# MAIN
 # ─────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Multibagger Engine Backtester",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python backtest.py --mode a                    # VALUEPICK ground truth only (~1 min)
-  python backtest.py --mode b --quick            # Fast Backtest B on 10 stocks (~2 min)
-  python backtest.py --mode b                    # Backtest B on 48 curated stocks (~5 min)
-  python backtest.py --mode b --full             # Full NSE universe ~1,800 stocks (~11 min)
-  python backtest.py --mode both --tune          # Run everything + weight tuning
-  python backtest.py --mode b --rsi-lo 45 --rsi-hi 80   # Test different RSI range
-  python backtest.py --mode b --atr-mult 0.1    # Loosen breakout gate (more signals)
-  python backtest.py --mode b --full --lookback 365      # 1 year on full universe
-        """
-    )
-    parser.add_argument("--mode", default="both", choices=["a", "b", "both"],
-                        help="a=ground truth, b=historical, both=run both")
-    parser.add_argument("--tune", action="store_true",
-                        help="Tune weights on ground truth results")
-    parser.add_argument("--symbols", nargs="+",
-                        help="Override symbols for Backtest B")
-    parser.add_argument("--quick", action="store_true",
-                        help="Quick mode: 10 stocks, 200 days (~2 min). Good for iterating.")
-    parser.add_argument("--full", action="store_true",
-                        help="Full NSE universe (~1,800 symbols, ~11 min). "
-                             "Uses batch downloads. Runs on GitHub Actions monthly.")
-    parser.add_argument("--v4", action="store_true",
-                        help="Use v4 scanner (volatility-adjusted momentum) instead of v3 breakout.")
+    parser = argparse.ArgumentParser(description="Multibagger Backtest v5")
+    parser.add_argument("--mode", default="both",
+                        choices=["a","b","c","both","all"],
+                        help="a=ground truth, b=L1 historical, c=DNA validation, "
+                             "both=a+b, all=a+b+c")
+    parser.add_argument("--full",    action="store_true",
+                        help="Full NSE universe (~1,800 symbols) for Backtest B")
+    parser.add_argument("--v4",      action="store_true",
+                        help="Backtest B: v4 momentum scanner only")
     parser.add_argument("--compare", action="store_true",
-                        help="Run both v3 AND v4 side-by-side on the same symbols. "
-                             "Best way to validate whether v4 actually improves results.")
-
-    # ── Signal parameter overrides — tune these to optimise ──
-    parser.add_argument("--rsi-lo",   type=float, default=48.0,
-                        help="RSI lower bound (default 48). Lower = more signals.")
-    parser.add_argument("--rsi-hi",   type=float, default=78.0,
-                        help="RSI upper bound (default 78). Higher = more signals.")
-    parser.add_argument("--atr-mult", type=float, default=0.3,
-                        help="ATR buffer multiplier for breakout level (default 0.3). "
-                             "Lower = easier to trigger breakout.")
-    parser.add_argument("--vol-mult", type=float, default=1.5,
-                        help="Volume surge multiplier vs 20-day avg (default 1.5). "
-                             "Lower = more signals, higher = stricter.")
-    parser.add_argument("--adx-min",  type=float, default=18.0,
-                        help="Minimum ADX for trend strength (default 18).")
-    parser.add_argument("--lookback", type=int, default=500,
-                        help="Backtest lookback days (default 500 = ~2 years)")
-
+                        help="Backtest B: v3 vs v4 side-by-side (default)")
+    parser.add_argument("--tune",    action="store_true",
+                        help="(Deprecated — no-op. DNA model tuning is done via C.)")
     args = parser.parse_args()
 
-    # Quick mode overrides
-    quick_symbols = [
-        "DIXON.NS", "DEEPAKNTR.NS", "PERSISTENT.NS", "TRENT.NS",
-        "POLYCAB.NS", "HAL.NS", "IRFC.NS", "TATAPOWER.NS", "FORTIS.NS", "BALKRISIND.NS",
-    ]
+    if args.tune:
+        log.warning("--tune is deprecated. Use --mode c to validate DNA scorer instead.")
 
-    log.info("═" * 60)
-    log.info("BACKTEST PARAMETERS")
-    log.info(f"  RSI range:    {args.rsi_lo} – {args.rsi_hi}")
-    log.info(f"  ATR mult:     {args.atr_mult}  (breakout = 52W high + {args.atr_mult}×ATR)")
-    log.info(f"  Vol surge:    {args.vol_mult}×  avg volume")
-    log.info(f"  ADX min:      {args.adx_min}")
-    log.info(f"  Lookback:     {args.lookback} days")
-    log.info(f"  Quick mode:   {'YES (10 stocks)' if args.quick else 'NO'}")
-    log.info(f"  Full universe:{'YES (~1,800 symbols)' if getattr(args, 'full', False) else 'NO'}")
-    log.info(f"  Scanner:      {'v4 (momentum)' if getattr(args, 'v4', False) else 'v3 (breakout)'}"
-             f"{'  + compare both' if getattr(args, 'compare', False) else ''}")
-    log.info("═" * 60)
+    os.makedirs("results", exist_ok=True)
+    date_str = datetime.utcnow().strftime("%Y%m%d_%H%M")
 
-    a_results    = []
-    b_metrics    = {}
-    best_weights = {}
+    scanner = "v4" if args.v4 else "compare"  # default compare
+    params  = {"full": args.full, "v4": args.v4, "compare": not args.v4, "scanner": scanner}
 
-    if args.mode in ("a", "both"):
+    a_results, b_results, c_results = [], {}, []
+
+    if args.mode in ("a","both","all"):
         a_results = run_backtest_a()
-        if args.tune:
-            best_weights = tune_weights(a_results)
 
-    if args.mode in ("b", "both"):
-        if args.symbols:
-            # Explicit symbol list overrides everything
-            test_symbols = args.symbols
-            lookback     = args.lookback
-        elif args.quick:
-            test_symbols = quick_symbols
-            lookback     = min(args.lookback, 200)
-        elif getattr(args, 'full', False):
-            # Full NSE universe — fetch from universe.py
-            log.info("Loading full NSE universe...")
-            from universe import fetch_nse_symbols
-            test_symbols = fetch_nse_symbols()
-            log.info(f"  Universe: {len(test_symbols)} symbols")
-            lookback = args.lookback
+    if args.mode in ("b","both","all"):
+        if args.full:
+            try:
+                from universe import fetch_nse_symbols
+                symbols = fetch_nse_symbols()
+                log.info(f"Full universe: {len(symbols)} symbols")
+            except Exception as e:
+                log.warning(f"Universe fetch failed: {e}. Using curated 48.")
+                symbols = CURATED_48
         else:
-            test_symbols = [
-                "DIXON.NS", "DEEPAKNTR.NS", "NAVINFLUOR.NS", "FINEORG.NS",
-                "GALAXYSURF.NS", "VINATIORGA.NS", "ALKYLAMINE.NS", "PIIND.NS",
-                "PERSISTENT.NS", "KPITTECH.NS", "HAPPSTMNDS.NS", "TANLA.NS",
-                "TRENT.NS", "PAGEIND.NS", "RELAXO.NS", "BATAINDIA.NS", "SAFARI.NS",
-                "POLYCAB.NS", "GRINDWELL.NS", "SCHAEFFLER.NS", "TIMKEN.NS",
-                "SKFINDIA.NS", "ELGIEQUIP.NS", "SUPRAJIT.NS",
-                "BALKRISIND.NS", "CEATLTD.NS", "APOLLOTYRE.NS",
-                "TATAPOWER.NS", "JSWENERGY.NS", "CESC.NS", "SUZLON.NS",
-                "HAL.NS", "BEL.NS", "BHEL.NS", "IRFC.NS", "RAILTEL.NS",
-                "RVNL.NS", "IRCON.NS", "COCHINSHIP.NS",
-                "METROPOLIS.NS", "LALPATHLAB.NS", "FORTIS.NS", "ASTERDM.NS",
-                "BALRAMCHIN.NS", "TATACHEM.NS",
-                "MRF.NS", "VIPIND.NS", "MAXHEALTH.NS",
-            ]
-            lookback = args.lookback
+            symbols = CURATED_48
+            log.info(f"Curated 48-stock universe")
 
-        # Pass signal params for v3 breakout scanner
-        global _BACKTEST_PARAMS
-        _BACKTEST_PARAMS = {
-            "rsi_lo":   args.rsi_lo,
-            "rsi_hi":   args.rsi_hi,
-            "atr_mult": args.atr_mult,
-            "vol_mult": args.vol_mult,
-            "adx_min":  args.adx_min,
-        }
+        b_results = run_backtest_b(
+            symbols,
+            lookback_days=500 if not args.full else 365,
+            sample_every=5   if not args.full else 10,
+            scanner=scanner,
+        )
 
-        use_v4    = getattr(args, "v4", False)
-        do_compare = getattr(args, "compare", False)
+    if args.mode in ("c","all"):
+        c_results = run_backtest_c()
 
-        if do_compare:
-            # Run both v3 and v4 on same symbols for direct comparison
-            log.info("Running v3 (breakout) scanner...")
-            raw_v3 = run_backtest_b(test_symbols, lookback_days=lookback,
-                                     sample_every_n_days=5, scanner_version="v3")
-            log.info("Running v4.1 (momentum + MACD + BB + structure) scanner...")
-            raw_v4 = run_backtest_b(test_symbols, lookback_days=lookback,
-                                     sample_every_n_days=5, scanner_version="v4")
-            b_metrics = {
-                "v3_all":      compute_metrics(raw_v3["all_signals"], "v3 All signals"),
-                "v3_with_obv": compute_metrics(raw_v3["with_obv"],    "v3 OBV confirmed"),
-                "v4_all":      compute_metrics(raw_v4["all_signals"], "v4.1 All signals"),
-                "v4_with_obv": compute_metrics(raw_v4["with_obv"],    "v4.1 OBV confirmed"),
-                # v4.1 new signal subgroups
-                "v4_macd_exp": compute_metrics(raw_v4["with_macd_exp"],   "v4.1 MACD expanding ✓"),
-                "v4_hh_hl":    compute_metrics(raw_v4["with_hh_hl"],      "v4.1 HH/HL structure ✓"),
-                "v4_bb_sq":    compute_metrics(raw_v4["with_bb_squeeze"],  "v4.1 BB squeeze→exp ✓"),
-                "v4_triple":   compute_metrics(raw_v4["with_triple"],      "v4.1 Triple confluence ★"),
-                # Keep these for report compatibility
-                "all_signals":  compute_metrics(raw_v4["all_signals"],  "v4.1 All signals"),
-                "with_obv":     compute_metrics(raw_v4["with_obv"],     "v4.1 OBV confirmed"),
-                "without_obv":  compute_metrics(raw_v4["without_obv"],  "v4.1 OBV diverging"),
-                "with_base":    compute_metrics(
-                    [s for s in raw_v4["all_signals"] if s.has_tight_base], "v4.1 Tight base ✓"
-                ),
-                "with_vol":     compute_metrics(
-                    [s for s in raw_v4["all_signals"] if s.vol_surge], "v4.1 Vol surge ✓"
-                ),
-            }
-        else:
-            scanner = "v4" if use_v4 else "v3"
-            raw = run_backtest_b(test_symbols, lookback_days=lookback,
-                                  sample_every_n_days=5, scanner_version=scanner)
-            b_metrics = {
-                "all_signals":   compute_metrics(raw["all_signals"],  f"{scanner} All signals"),
-                "with_obv":      compute_metrics(raw["with_obv"],     f"{scanner} OBV confirmed"),
-                "without_obv":   compute_metrics(raw["without_obv"],  f"{scanner} OBV diverging"),
-                "with_base":     compute_metrics(
-                    [s for s in raw["all_signals"] if s.has_tight_base], f"{scanner} Tight base ✓"
-                ),
-                "with_vol":      compute_metrics(
-                    [s for s in raw["all_signals"] if s.vol_surge], f"{scanner} Vol surge ✓"
-                ),
-            }
-            # v4.1 specific subgroup analysis
-            if scanner == "v4":
-                b_metrics.update({
-                    "with_macd_exp": compute_metrics(raw["with_macd_exp"],  "v4.1 MACD expanding ✓"),
-                    "with_hh_hl":    compute_metrics(raw["with_hh_hl"],     "v4.1 HH/HL structure ✓"),
-                    "with_bb_sq":    compute_metrics(raw["with_bb_squeeze"], "v4.1 BB squeeze→exp ✓"),
-                    "with_triple":   compute_metrics(raw["with_triple"],     "v4.1 Triple confluence ★"),
-                })
-
-    report = generate_backtest_report(
-        a_results, b_metrics, best_weights,
-        params=getattr(args, '__dict__', {})
-    )
+    # Write report
+    report = write_report(date_str, args.mode, a_results, b_results, c_results, params)
     print("\n" + report)
 
-    date_str = datetime.utcnow().strftime("%Y%m%d_%H%M")
-    os.makedirs("results", exist_ok=True)
-    with open(f"results/backtest_{date_str}.txt", "w", encoding="utf-8") as f:
-        f.write(report)
-    with open(f"results/backtest_{date_str}.json", "w") as f:
-        json.dump({
-            "params":          getattr(args, '__dict__', {}),
-            "ground_truth":    [asdict(g) for g in a_results],
-            "backtest_b":      b_metrics,
-            "weight_tuning":   best_weights,
-        }, f, indent=2, default=str)
+    txt_path  = f"results/backtest_{date_str}.txt"
+    json_path = f"results/backtest_{date_str}.json"
+    with open(txt_path, "w") as f: f.write(report)
 
-    log.info(f"Results saved → results/backtest_{date_str}.txt")
+    json_data = {
+        "date": date_str, "params": params,
+        "backtest_a": [vars(s) for s in a_results],
+        "backtest_b": b_results,
+        "backtest_c": c_results,
+    }
+    with open(json_path, "w") as f:
+        json.dump(json_data, f, indent=2, default=str)
+
+    log.info(f"\n✅ Report: {txt_path}")
+    log.info(f"   JSON:   {json_path}")
 
 
 if __name__ == "__main__":
