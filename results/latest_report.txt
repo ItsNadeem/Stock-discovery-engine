@@ -1,85 +1,29 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-03-31 14:04 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-04-01 14:10 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
   Index below 200EMA, down >10% in 3 months. High false breakout risk — be very selective. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    22331.0  1M: -12.4%  3M: -14.2%
+  Nifty 50:    22679.0  1M: -9.9%  3M: -12.6%
 ════════════════════════════════════════════════════════════════════════
-  Top 9 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 2 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  SOUTHWEST.NS      Score: 0.664   MCap: N/A
-    Price ₹212.87     RSI 55.9    ADX 33.9    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.37  6M: +59.0%  12M: +90.5%  3M: +10.5%
-    MACD: ↑Expanding  BB%B: 0.84  BBSqueeze: –  Structure: HH/HL✓  +DI:26/-DI:14
+#01  SOUTHWEST.NS      Score: 0.648   MCap: N/A
+    Price ₹217.01     RSI 53.8    ADX 32.0    Sector: Unknown  SectorMom3M: None%
+    MomScore: 1.51  6M: +65.9%  12M: +99.0%  3M: +10.0%
+    MACD: ↑Expanding  BB%B: 0.89  BBSqueeze: –  Structure: HH/HL✓  +DI:23/-DI:15
     RS Days: 4  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 4× when Nifty fell | 📈 Strong Trend ADX 33.9 (+DI 26.2 / -DI 14.3)
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 4× when Nifty fell | 📈 Strong Trend ADX 32.0 (+DI 23.1 / -DI 14.7)
 
-#02  TDPOWERSYS.NS     Score: 0.603   MCap: N/A
-    Price ₹851.35     RSI 50.9    ADX 26.3    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.62  6M: +48.1%  12M: +103.5%  3M: +22.7%
-    MACD: Positive  BB%B: 0.55  BBSqueeze: –  Structure: HH/HL✓  +DI:22/-DI:24
-    RS Days: 3  OBV: ✓  52W Break: ✗
+#02  AEROFLEX.NS       Score: 0.466   MCap: N/A
+    Price ₹250.64     RSI 62.0    ADX 25.9    Sector: Other  SectorMom3M: None%
+    MomScore: 0.88  6M: +39.4%  12M: +42.4%  3M: +27.7%
+    MACD: –  BB%B: 0.82  BBSqueeze: –  Structure: HH/HL✓  +DI:37/-DI:19
+    RS Days: 2  OBV: ✗  52W Break: ✗
     Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 3× when Nifty fell
-
-#03  STAR.NS           Score: 0.525   MCap: N/A
-    Price ₹937.75     RSI 69.0    ADX 33.4    Sector: Unknown  SectorMom3M: None%
-    MomScore: 0.48  6M: +11.7%  12M: +29.7%  3M: +4.9%
-    MACD: ↑Expanding  BB%B: 0.87  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:28/-DI:6
-    RS Days: 7  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 💪 RS: Rose 7× when Nifty fell | 📈 Strong Trend ADX 33.4 (+DI 27.6 / -DI 5.6)
-
-#04  GPIL.NS           Score: 0.463   MCap: N/A
-    Price ₹268.8      RSI 59.2    ADX 31.0    Sector: Other  SectorMom3M: None%
-    MomScore: 0.60  6M: +3.5%  12M: +44.6%  3M: +4.8%
-    MACD: Positive  BB%B: 0.81  BBSqueeze: –  Structure: HH/HL✓  +DI:36/-DI:12
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 31.0 (+DI 36.0 / -DI 12.1)
-
-#05  WAAREEENER.NS     Score: 0.416   MCap: N/A
-    Price ₹3109.8     RSI 76.4    ADX 40.2    Sector: Unknown  SectorMom3M: None%
-    MomScore: 0.19  6M: -9.7%  12M: +28.0%  3M: +4.3%
-    MACD: Positive  BB%B: 0.76  BBSqueeze: –  Structure: HH/HL✓  +DI:37/-DI:14
-    RS Days: 3  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 40.2 (+DI 37.2 / -DI 14.0)
-
-#06  KSB.NS            Score: 0.413   MCap: N/A
-    Price ₹796.85     RSI 62.9    ADX 30.1    Sector: Unknown  SectorMom3M: None%
-    MomScore: 0.08  6M: -6.2%  12M: +10.9%  3M: +6.9%
-    MACD: Positive  BB%B: 0.76  BBSqueeze: –  Structure: HH/HL✓  +DI:34/-DI:16
-    RS Days: 5  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 5× when Nifty fell | 📈 Strong Trend ADX 30.1 (+DI 34.3 / -DI 16.4)
-
-#07  OIL.NS            Score: 0.413   MCap: N/A
-    Price ₹475.45     RSI 50.7    ADX 27.2    Sector: Energy  SectorMom3M: -0.7%
-    MomScore: 0.67  6M: +17.3%  12M: +22.7%  3M: +18.8%
-    MACD: –  BB%B: 0.47  BBSqueeze: Yes  Structure: HH/HL✓  +DI:19/-DI:14
-    RS Days: 7  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  💪 RS: Rose 7× when Nifty fell | 🔵 Volatility Compression / Tight Base
-
-#08  APOLLOPIPE.NS     Score: 0.405   MCap: N/A
-    Price ₹414.65     RSI 55.7    ADX 64.4    Sector: Other  SectorMom3M: None%
-    MomScore: 0.22  6M: +12.5%  12M: +8.4%  3M: +40.3%
-    MACD: –  BB%B: 0.71  BBSqueeze: –  Structure: HH/HL✓  +DI:14/-DI:9
-    RS Days: 7  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  💪 RS: Rose 7× when Nifty fell | 📈 Strong Trend ADX 64.4 (+DI 13.7 / -DI 9.2) | ⚡ 3M Return +40.3%
-
-#09  SPLPETRO.NS       Score: 0.400   MCap: N/A
-    Price ₹738.4      RSI 59.2    ADX 34.8    Sector: Unknown  SectorMom3M: None%
-    MomScore: 0.05  6M: -12.9%  12M: +17.0%  3M: +15.6%
-    MACD: ↑Expanding  BB%B: 0.99  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:11
-    RS Days: 3  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 34.8 (+DI 35.3 / -DI 11.3)
+    ▶  ⚡ 3M Return +27.7%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
