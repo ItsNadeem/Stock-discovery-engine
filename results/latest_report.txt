@@ -1,37 +1,37 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-04-03 13:51 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-04-06 13:56 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
   Index below 200EMA, down >10% in 3 months. High false breakout risk — be very selective. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    22713.0  1M: -8.7%  3M: -12.4%
+  Nifty 50:    22968.0  1M: -6.2%  3M: -12.1%
 ════════════════════════════════════════════════════════════════════════
   Top 3 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  TAKE.NS           Score: 0.704   MCap: N/A
-    Price ₹41.21      RSI 56.3    ADX 28.1    Sector: Unknown  SectorMom3M: None%
-    MomScore: 7.53  6M: +295.1%  12M: +427.0%  3M: +4.0%
-    MACD: ↑Expanding  BB%B: 0.83  BBSqueeze: Yes  Structure: –  +DI:54/-DI:26
+#01  TAKE.NS           Score: 0.706   MCap: N/A
+    Price ₹42.03      RSI 51.5    ADX 27.5    Sector: Pharma  SectorMom3M: -3.1%
+    MomScore: 7.85  6M: +283.8%  12M: +466.4%  3M: +5.2%
+    MACD: ↑Expanding  BB%B: 0.89  BBSqueeze: Yes  Structure: –  +DI:50/-DI:29
     RS Days: 5  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
     ▶  💪 RS: Rose 5× when Nifty fell | 🔵 Volatility Compression / Tight Base
 
-#02  TDPOWERSYS.NS     Score: 0.668   MCap: N/A
-    Price ₹863.4      RSI 60.4    ADX 25.6    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.74  6M: +50.0%  12M: +110.8%  3M: +23.0%
-    MACD: ↑Expanding  BB%B: 0.68  BBSqueeze: –  Structure: HH/HL✓  +DI:25/-DI:24
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL)
-
-#03  SOUTHWEST.NS      Score: 0.657   MCap: N/A
-    Price ₹216.92     RSI 53.0    ADX 27.9    Sector: Energy  SectorMom3M: 1.2%
-    MomScore: 1.61  6M: +65.0%  12M: +111.0%  3M: +12.6%
-    MACD: Positive  BB%B: 0.85  BBSqueeze: –  Structure: HH/HL✓  +DI:20/-DI:17
+#02  SOUTHWEST.NS      Score: 0.651   MCap: N/A
+    Price ₹219.42     RSI 58.1    ADX 25.9    Sector: Unknown  SectorMom3M: None%
+    MomScore: 1.65  6M: +65.1%  12M: +113.4%  3M: +13.6%
+    MACD: Positive  BB%B: 0.87  BBSqueeze: –  Structure: HH/HL✓  +DI:21/-DI:14
     RS Days: 4  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
     ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 4× when Nifty fell
+
+#03  AEROFLEX.NS       Score: 0.584   MCap: N/A
+    Price ₹255.15     RSI 57.9    ADX 25.4    Sector: Other  SectorMom3M: None%
+    MomScore: 1.00  6M: +46.4%  12M: +46.1%  3M: +32.5%
+    MACD: ↑Expanding  BB%B: 0.84  BBSqueeze: –  Structure: HH/HL✓  +DI:31/-DI:22
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | ⚡ 3M Return +32.5%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
