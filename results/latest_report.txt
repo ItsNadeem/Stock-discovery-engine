@@ -1,61 +1,21 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-04-09 14:04 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-04-10 14:06 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, -9.4% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23775.0  1M: -1.1%  3M: -9.4%
+  Index below 200EMA, -8.1% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    24051.0  1M: -0.9%  3M: -8.1%
 ════════════════════════════════════════════════════════════════════════
-  Top 6 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 1 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  PFOCUS.NS         Score: 0.726   MCap: N/A
-    Price ₹319.1      RSI 70.6    ADX 30.4    Sector: Unknown  SectorMom3M: None%
-    MomScore: 2.68  6M: +80.9%  12M: +244.8%  3M: +33.5%
-    MACD: Positive  BB%B: 0.65  BBSqueeze: –  Structure: HH/HL✓  +DI:32/-DI:14
-    RS Days: 3  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 30.4 (+DI 31.9 / -DI 14.0) | ⚡ 3M Return +33.5%
-
-#02  TAKE.NS           Score: 0.703   MCap: N/A
-    Price ₹44.59      RSI 72.3    ADX 28.6    Sector: Unknown  SectorMom3M: None%
-    MomScore: 8.42  6M: +252.2%  12M: +535.2%  3M: +9.8%
-    MACD: ↑Expanding  BB%B: 1.01  BBSqueeze: Yes  Structure: –  +DI:72/-DI:28
-    RS Days: 5  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  💪 RS: Rose 5× when Nifty fell | 🔵 Volatility Compression / Tight Base
-
-#03  GVT&D.NS          Score: 0.698   MCap: N/A
-    Price ₹3911.3     RSI 58.1    ADX 25.2    Sector: Other  SectorMom3M: None%
-    MomScore: 2.19  6M: +24.3%  12M: +161.9%  3M: +26.9%
-    MACD: Positive  BB%B: 0.93  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:38/-DI:12
+#01  KRISHANA.NS       Score: 0.669   MCap: ₹3538.0 Cr
+    Price ₹572.2      RSI 68.6    ADX 37.3    Sector: Other  SectorMom3M: None%
+    MomScore: 1.67  6M: +17.0%  12M: +139.0%  3M: +10.5%
+    MACD: Positive  BB%B: 0.86  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:41/-DI:10
     RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | ⚡ 3M Return +26.9%
-
-#04  KRISHANA.NS       Score: 0.694   MCap: N/A
-    Price ₹584.35     RSI 74.3    ADX 33.4    Sector: Other  SectorMom3M: None%
-    MomScore: 1.88  6M: +26.0%  12M: +149.2%  3M: +11.6%
-    MACD: ↑Expanding  BB%B: 0.98  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:45/-DI:6
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 33.4 (+DI 45.0 / -DI 6.0)
-
-#05  TMB.NS            Score: 0.656   MCap: N/A
-    Price ₹641.65     RSI 56.2    ADX 25.1    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.82  6M: +51.0%  12M: +57.6%  3M: +19.9%
-    MACD: ↑Expanding  BB%B: 0.85  BBSqueeze: –  Structure: HH/HL✓  +DI:30/-DI:18
-    RS Days: 1  OBV: ✗  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL)
-
-#06  FEDERALBNK.NS     Score: 0.620   MCap: N/A
-    Price ₹283.3      RSI 61.0    ADX 40.5    Sector: Financial Services  SectorMom3M: None%
-    MomScore: 1.87  6M: +46.3%  12M: +48.4%  3M: +10.4%
-    MACD: ↑Expanding  BB%B: 0.99  BBSqueeze: –  Structure: HH/HL✓  +DI:33/-DI:22
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: ?%   D/E: ?   FCF Yield: N/A%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 40.5 (+DI 33.0 / -DI 22.2)
+    Fundamental Score: 0.58   ROE: 38.1%   D/E: 1.31   FCF Yield: -10.49%
+    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 37.3 (+DI 40.9 / -DI 9.8) | 💰 Rev Growth 60.9% | ✅ ROE 38.1%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
