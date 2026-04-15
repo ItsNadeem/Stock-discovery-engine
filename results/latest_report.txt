@@ -1,29 +1,28 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-04-14 14:08 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-04-15 14:45 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
-  MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, -8.8% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23843.0  1M: -0.1%  3M: -8.8%
+  MARKET REGIME:  ⚪ UNKNOWN
+  Could not fetch market data from yfinance
 ════════════════════════════════════════════════════════════════════════
   Top 2 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  SOUTHWEST.NS      Score: 0.725   MCap: ₹730.0 Cr
-    Price ₹242.12     RSI 77.8    ADX 39.3    Sector: Energy  SectorMom3M: 4.0%
-    MomScore: 1.94  6M: +92.8%  12M: +116.3%  3M: +28.5%
-    MACD: ↑Expanding  BB%B: 1.02  BBSqueeze: –  Structure: HH/HL✓  +DI:28/-DI:5
-    RS Days: 3  OBV: ✓  52W Break: ✓
-    Fundamental Score: 0.42   ROE: None%   D/E: 0.52   FCF Yield: None%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | ★ OBV + Volume + 52W Breakout | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 39.3 (+DI 27.8 / -DI 5.4)
+#01  KRISHANA.NS       Score: 0.734   MCap: ₹3775.0 Cr
+    Price ₹610.5      RSI 76.1    ADX 44.3    Sector: Other  SectorMom3M: None%
+    MomScore: 1.90  6M: +17.1%  12M: +161.2%  3M: +18.3%
+    MACD: ↑Expanding  BB%B: 0.95  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:41/-DI:10
+    RS Days: 1  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.58   ROE: 38.1%   D/E: 1.31   FCF Yield: -10.09%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 44.3 (+DI 41.2 / -DI 10.5) | 💰 Rev Growth 59.8% | ✅ ROE 38.1%
 
-#02  KRISHANA.NS       Score: 0.700   MCap: ₹3588.0 Cr
-    Price ₹580.25     RSI 74.1    ADX 40.8    Sector: Other  SectorMom3M: None%
-    MomScore: 1.75  6M: +16.3%  12M: +147.6%  3M: +11.1%
-    MACD: Positive  BB%B: 0.86  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:39/-DI:11
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.58   ROE: 38.1%   D/E: 1.31   FCF Yield: -10.34%
-    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 40.8 (+DI 38.9 / -DI 11.2) | 💰 Rev Growth 59.8% | ✅ ROE 38.1%
+#02  SOUTHWEST.NS      Score: 0.732   MCap: ₹731.0 Cr
+    Price ₹242.55     RSI 74.3    ADX 42.1    Sector: Energy  SectorMom3M: 9.4%
+    MomScore: 2.00  6M: +87.3%  12M: +127.1%  3M: +33.9%
+    MACD: ↑Expanding  BB%B: 0.95  BBSqueeze: –  Structure: HH/HL✓  +DI:27/-DI:5
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.42   ROE: None%   D/E: 0.52   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 42.1 (+DI 27.3 / -DI 5.4) | ⚡ 3M Return +33.9%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.

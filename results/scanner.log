@@ -25500,3 +25500,983 @@ Enriching top 30 with Screener.in...
 2026-04-14 14:27:53,666 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 50 total in history
 2026-04-14 14:27:53,671 [INFO] 
 ✅ Done — L1:2 L2:15 Conviction:0 WatchNow:0
+2026-04-15 13:56:19,650 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-04-15 13:56:19,650 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-04-15 13:56:19,650 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-04-15 13:56:19,650 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-04-15 13:56:19,651 [INFO] 
+▶ Market regime...
+2026-04-15 13:56:49,667 [ERROR] Failed to get ticker '^CNXSC' reason: Failed to perform, curl: (28) Operation timed out after 30002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 13:57:19,676 [ERROR] 
+1 Failed download:
+2026-04-15 13:57:19,676 [ERROR] ['^CNXSC']: Timeout('Failed to perform, curl: (28) Operation timed out after 30002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.')
+2026-04-15 13:58:05,976 [ERROR] Failed to get ticker '^NSEI' reason: Failed to perform, curl: (28) Operation timed out after 30000 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 13:58:36,164 [ERROR] 
+1 Failed download:
+2026-04-15 13:58:36,165 [ERROR] ['^NSEI']: Timeout('Failed to perform, curl: (28) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.')
+2026-04-15 13:58:36,167 [INFO]   UNKNOWN — Could not fetch market data from yfinance
+2026-04-15 13:58:36,167 [INFO] Fetching NSE equity list from NSE archives...
+2026-04-15 13:58:36,649 [INFO] Fetched 2258 NSE symbols
+2026-04-15 13:58:36,649 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-04-15 13:58:36,650 [INFO] ══════════════════════════════════════════════════════
+2026-04-15 13:58:36,650 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-04-15 13:58:36,650 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-04-15 13:58:36,650 [INFO] ══════════════════════════════════════════════════════
+2026-04-15 13:58:36,652 [INFO] Loaded 2258 symbols from cache
+2026-04-15 13:58:36,652 [INFO] Universe: 2258 NSE symbols
+2026-04-15 13:58:36,652 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-04-15 13:58:37,059 [INFO]   Nifty returns loaded: 58 days
+2026-04-15 13:58:37,059 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-04-15 13:58:49,992 [INFO]   Sector momentum: {'IT': -16.8, 'Pharma': -2.3, 'Auto': -6.8, 'Metals': 12.7, 'Energy': 9.4, 'FMCG': -8.9, 'Realty': -13.2, 'Infra': -1.7, 'Media': -3.3, 'Midcap': -3.0}
+2026-04-15 13:58:49,992 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-04-15 13:58:49,992 [INFO]   Batch 1/46 (50 symbols)...
+2026-04-15 14:01:59,786 [INFO]   Batch 2/46 (50 symbols)...
+2026-04-15 14:02:09,794 [ERROR] Failed to get ticker 'AEGISVOPAK.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:09,796 [ERROR] Failed to get ticker 'AHLUCONT.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:09,797 [ERROR] Failed to get ticker 'AJANTPHARM.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:09,798 [ERROR] Failed to get ticker 'AKI.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:19,798 [ERROR] $AEGISVOPAK.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:19,799 [ERROR] $AHLUCONT.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:19,801 [ERROR] $AJANTPHARM.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:19,803 [ERROR] $AKI.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:22,715 [ERROR] Failed to get ticker 'AGIIL.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:23,031 [ERROR] $AGIIL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:29,807 [ERROR] Failed to get ticker 'AGARIND.NS' reason: Failed to perform, curl: (28) Operation timed out after 10000 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:29,808 [ERROR] Failed to get ticker 'AIROLAM.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:29,809 [ERROR] Failed to get ticker 'ADVENZYMES.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:33,037 [ERROR] Failed to get ticker 'ALGOQUANT.NS' reason: Failed to perform, curl: (28) Connection timed out after 10003 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:39,812 [ERROR] $AGARIND.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:39,814 [ERROR] $ADVENZYMES.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:39,817 [ERROR] $AIROLAM.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:43,042 [ERROR] $ALGOQUANT.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:49,820 [ERROR] Failed to get ticker 'AIAENG.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:49,821 [ERROR] Failed to get ticker 'AEPL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:49,822 [ERROR] Failed to get ticker 'AFFORDABLE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:53,046 [ERROR] Failed to get ticker 'ADSL.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:02:59,824 [ERROR] $AIAENG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:59,826 [ERROR] $AEPL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:02:59,827 [ERROR] $AFFORDABLE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:03,049 [ERROR] $ADSL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:09,832 [ERROR] Failed to get ticker 'ADVAIT.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:09,833 [ERROR] Failed to get ticker 'AEROFLEX.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:09,835 [ERROR] Failed to get ticker 'AKSHARCHEM.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:13,054 [ERROR] Failed to get ticker 'AGI.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:19,836 [ERROR] $ADVAIT.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:19,838 [ERROR] $AEROFLEX.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:19,839 [ERROR] $AKSHARCHEM.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:23,058 [ERROR] $AGI.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:29,845 [ERROR] Failed to get ticker 'AKSHOPTFBR.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:29,846 [ERROR] Failed to get ticker 'AFSL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:29,847 [ERROR] Failed to get ticker 'AJMERA.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:33,064 [ERROR] Failed to get ticker 'AJAXENGG.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:39,850 [ERROR] $AFSL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:39,851 [ERROR] $AKSHOPTFBR.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:39,853 [ERROR] $AJMERA.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:43,069 [ERROR] $AJAXENGG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:46,164 [ERROR] Failed to get ticker 'ADVANIHOTR.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:49,860 [ERROR] Failed to get ticker 'AIRAN.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:49,860 [ERROR] Failed to get ticker 'AFIL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:53,074 [ERROR] Failed to get ticker 'ADVENTHTL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:53,601 [ERROR] $AIRAN.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:53,603 [ERROR] $AFIL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:55,863 [ERROR] $ADVENTHTL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:56,167 [ERROR] $ADVANIHOTR.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:03:58,867 [ERROR] Failed to get ticker 'AKG.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:03:59,121 [ERROR] Failed to get ticker 'AHLWEST.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:05,868 [ERROR] Failed to get ticker 'AHCL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:06,172 [ERROR] Failed to get ticker 'AGROPHOS.NS' reason: Failed to perform, curl: (28) Connection timed out after 10003 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:08,871 [ERROR] $AKG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:09,125 [ERROR] $AHLWEST.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:15,871 [ERROR] $AHCL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:16,176 [ERROR] $AGROPHOS.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:18,877 [ERROR] Failed to get ticker 'AEGISLOG.NS' reason: Failed to perform, curl: (28) Connection timed out after 10003 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:19,130 [ERROR] Failed to get ticker 'AFCONS.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:25,876 [ERROR] Failed to get ticker 'ADVANCE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:26,180 [ERROR] Failed to get ticker 'AFFLE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:28,881 [ERROR] $AEGISLOG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:29,134 [ERROR] $AFCONS.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:35,880 [ERROR] $ADVANCE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:36,184 [ERROR] $AFFLE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:38,887 [ERROR] Failed to get ticker 'AGARWALEYE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:39,139 [ERROR] Failed to get ticker 'AKSHAR.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:45,883 [ERROR] Failed to get ticker 'AKUMS.NS' reason: Failed to perform, curl: (28) Operation timed out after 10001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:46,189 [ERROR] Failed to get ticker 'ALANKIT.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:48,891 [ERROR] $AGARWALEYE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:49,144 [ERROR] $AKSHAR.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:55,887 [ERROR] $AKUMS.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:56,194 [ERROR] $ALANKIT.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:04:58,896 [ERROR] Failed to get ticker 'ALBERTDAVD.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:04:59,149 [ERROR] Failed to get ticker 'ALEMBICLTD.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:05,892 [ERROR] Failed to get ticker 'AIIL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:06,199 [ERROR] Failed to get ticker 'AETHER.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:08,901 [ERROR] $ALBERTDAVD.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:09,155 [ERROR] $ALEMBICLTD.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:15,895 [ERROR] $AIIL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:16,203 [ERROR] $AETHER.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:18,905 [ERROR] Failed to get ticker 'ADROITINFO.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:19,159 [ERROR] Failed to get ticker 'AHLEAST.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:25,900 [ERROR] Failed to get ticker 'AHLADA.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:26,207 [ERROR] Failed to get ticker 'AGRITECH.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:05:28,910 [ERROR] $ADROITINFO.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:29,163 [ERROR] $AHLEAST.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:35,903 [ERROR] $AHLADA.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:36,212 [ERROR] $AGRITECH.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:37,465 [ERROR] 
+45 Failed downloads:
+2026-04-15 14:05:37,465 [ERROR] ['AEGISVOPAK.NS', 'AHLUCONT.NS', 'AJANTPHARM.NS', 'AKI.NS', 'AGIIL.NS', 'AGARIND.NS', 'ADVENZYMES.NS', 'AIROLAM.NS', 'ALGOQUANT.NS', 'AIAENG.NS', 'AEPL.NS', 'AFFORDABLE.NS', 'ADSL.NS', 'ADVAIT.NS', 'AEROFLEX.NS', 'AKSHARCHEM.NS', 'AGI.NS', 'AFSL.NS', 'AKSHOPTFBR.NS', 'AJMERA.NS', 'AJAXENGG.NS', 'AIRAN.NS', 'AFIL.NS', 'ADVENTHTL.NS', 'ADVANIHOTR.NS', 'AKG.NS', 'AHLWEST.NS', 'AHCL.NS', 'AGROPHOS.NS', 'AEGISLOG.NS', 'AFCONS.NS', 'ADVANCE.NS', 'AFFLE.NS', 'AGARWALEYE.NS', 'AKSHAR.NS', 'AKUMS.NS', 'ALANKIT.NS', 'ALBERTDAVD.NS', 'ALEMBICLTD.NS', 'AIIL.NS', 'AETHER.NS', 'ADROITINFO.NS', 'AHLEAST.NS', 'AHLADA.NS', 'AGRITECH.NS']: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:05:42,422 [INFO]   Batch 3/46 (50 symbols)...
+2026-04-15 14:06:01,046 [INFO]     ✓ ANGELONE.NS      ₹297.76   MomScore=0.91  6M=+34%  12M=+43%  Sector=Financial Services  ADX=27.6
+2026-04-15 14:06:15,757 [INFO]     ✓ APOLLOPIPE.NS    ₹454.3    MomScore=0.55  6M=+37%  12M=+16%  Sector=Other  ADX=36.6
+2026-04-15 14:06:18,379 [INFO]   Batch 4/46 (50 symbols)...
+2026-04-15 14:07:07,568 [INFO]   Batch 5/46 (50 symbols)...
+2026-04-15 14:07:17,579 [ERROR] Failed to get ticker 'AWFIS.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:17,579 [ERROR] Failed to get ticker 'ATL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:17,580 [ERROR] Failed to get ticker 'BAJAJHIND.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:17,581 [ERROR] Failed to get ticker 'ATULAUTO.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:27,583 [ERROR] $AWFIS.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:27,583 [ERROR] $ATL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:27,586 [ERROR] $BAJAJHIND.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:27,586 [ERROR] $ATULAUTO.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:28,134 [ERROR] Failed to get ticker 'BAJAJINDEF.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:28,690 [ERROR] Failed to get ticker 'BAJFINANCE.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:37,592 [ERROR] Failed to get ticker 'AYE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:37,593 [ERROR] Failed to get ticker 'BAGFILMS.NS' reason: Failed to perform, curl: (28) Operation timed out after 10001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:38,137 [ERROR] $BAJAJINDEF.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:38,695 [ERROR] $BAJFINANCE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:47,596 [ERROR] $BAGFILMS.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:47,598 [ERROR] $AYE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:48,141 [ERROR] Failed to get ticker 'AVALON.NS' reason: Failed to perform, curl: (28) Connection timed out after 10000 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:48,703 [ERROR] Failed to get ticker 'AVROIND.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:57,602 [ERROR] Failed to get ticker 'BAJAJCON.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:57,604 [ERROR] Failed to get ticker 'AVANTIFEED.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:07:58,144 [ERROR] $AVALON.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:07:58,707 [ERROR] $AVROIND.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:07,606 [ERROR] $BAJAJCON.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:07,609 [ERROR] $AVANTIFEED.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:08,152 [ERROR] Failed to get ticker 'BAJAJELEC.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:08,712 [ERROR] Failed to get ticker 'ATLANTAELE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:17,613 [ERROR] Failed to get ticker 'AVANTEL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:17,613 [ERROR] Failed to get ticker 'AXISCADES.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:18,157 [ERROR] $BAJAJELEC.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:18,718 [ERROR] $ATLANTAELE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:27,619 [ERROR] $AXISCADES.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:27,619 [ERROR] $AVANTEL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:28,162 [ERROR] Failed to get ticker 'AZAD.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:28,723 [ERROR] Failed to get ticker 'BAFNAPH.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:37,625 [ERROR] Failed to get ticker 'AURIONPRO.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:37,626 [ERROR] Failed to get ticker 'BALAJITELE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:38,167 [ERROR] $AZAD.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:38,729 [ERROR] $BAFNAPH.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:47,630 [ERROR] $BALAJITELE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:47,631 [ERROR] $AURIONPRO.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:48,173 [ERROR] Failed to get ticker 'BALAMINES.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:48,733 [ERROR] Failed to get ticker 'AURUM.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:57,637 [ERROR] Failed to get ticker 'AVG.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:57,638 [ERROR] Failed to get ticker 'AXITA.NS' reason: Failed to perform, curl: (28) Connection timed out after 10003 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:08:58,177 [ERROR] $BALAMINES.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:58,428 [ERROR] $AVG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:08:58,737 [ERROR] $AURUM.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:07,642 [ERROR] $AXITA.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:08,182 [ERROR] Failed to get ticker 'BAJEL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:08,432 [ERROR] Failed to get ticker 'AURIGROW.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:08,745 [ERROR] Failed to get ticker 'ATLASCYCLE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:17,646 [ERROR] Failed to get ticker 'AVONMORE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:18,186 [ERROR] $BAJEL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:18,437 [ERROR] $AURIGROW.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:18,749 [ERROR] $ATLASCYCLE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:27,650 [ERROR] $AVONMORE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:28,191 [ERROR] Failed to get ticker 'BAJAJHCARE.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:28,442 [ERROR] Failed to get ticker 'AVADHSUGAR.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:28,755 [ERROR] Failed to get ticker 'AUROPHARMA.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:37,655 [ERROR] Failed to get ticker 'ATUL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:38,195 [ERROR] $BAJAJHCARE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:38,759 [ERROR] $AUROPHARMA.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:43,637 [ERROR] Failed to get ticker 'AUBANK.NS' reason: Failed to perform, curl: (28) Connection timed out after 10003 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:47,659 [ERROR] $ATUL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:48,200 [ERROR] Failed to get ticker 'AUTOIND.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:48,764 [ERROR] Failed to get ticker 'AWL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:53,641 [ERROR] $AUBANK.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:57,664 [ERROR] Failed to get ticker 'ATLANTAA.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:09:58,204 [ERROR] $AUTOIND.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:09:58,768 [ERROR] $AWL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:03,646 [ERROR] Failed to get ticker 'AXISBANK.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:07,668 [ERROR] $ATLANTAA.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:08,209 [ERROR] Failed to get ticker 'AVL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:08,774 [ERROR] Failed to get ticker 'AWHCL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:13,649 [ERROR] $AXISBANK.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:17,674 [ERROR] Failed to get ticker 'AVTNPL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:18,212 [ERROR] $AVL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:18,776 [ERROR] $AWHCL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:18,971 [ERROR] Failed to get ticker 'BAJAJ-AUTO.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:19,703 [ERROR] Failed to get ticker 'BALAJEE.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:27,678 [ERROR] $AVTNPL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:28,217 [ERROR] Failed to get ticker 'BALAXI.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:28,975 [ERROR] $BAJAJ-AUTO.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:29,706 [ERROR] $BALAJEE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:37,682 [ERROR] Failed to get ticker 'AUSOMENT.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:38,220 [ERROR] $BALAXI.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:38,980 [ERROR] Failed to get ticker 'BAJAJHLDNG.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:39,711 [ERROR] Failed to get ticker 'AYMSYNTEX.NS' reason: Failed to perform, curl: (28) Connection timed out after 10000 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:47,686 [ERROR] $AUSOMENT.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:48,225 [ERROR] Failed to get ticker 'BAJAJHFL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:48,983 [ERROR] $BAJAJHLDNG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:49,714 [ERROR] $AYMSYNTEX.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:57,691 [ERROR] Failed to get ticker 'AUTOAXLES.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:58,227 [ERROR] $BAJAJHFL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:10:58,988 [ERROR] Failed to get ticker 'BAJAJFINSV.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:10:59,719 [ERROR] Failed to get ticker 'BAIDFIN.NS' reason: Failed to perform, curl: (28) Connection timed out after 10001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:11:07,064 [ERROR] $BAIDFIN.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:11:07,694 [ERROR] $AUTOAXLES.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:11:08,993 [ERROR] $BAJAJFINSV.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:11:09,001 [ERROR] 
+49 Failed downloads:
+2026-04-15 14:11:09,001 [ERROR] ['AWFIS.NS', 'ATL.NS', 'BAJAJHIND.NS', 'ATULAUTO.NS', 'BAJAJINDEF.NS', 'BAJFINANCE.NS', 'BAGFILMS.NS', 'AYE.NS', 'AVALON.NS', 'AVROIND.NS', 'BAJAJCON.NS', 'AVANTIFEED.NS', 'BAJAJELEC.NS', 'ATLANTAELE.NS', 'AXISCADES.NS', 'AVANTEL.NS', 'AZAD.NS', 'BAFNAPH.NS', 'BALAJITELE.NS', 'AURIONPRO.NS', 'BALAMINES.NS', 'AVG.NS', 'AURUM.NS', 'AXITA.NS', 'BAJEL.NS', 'AURIGROW.NS', 'ATLASCYCLE.NS', 'AVONMORE.NS', 'BAJAJHCARE.NS', 'AUROPHARMA.NS', 'ATUL.NS', 'AUBANK.NS', 'AUTOIND.NS', 'AWL.NS', 'ATLANTAA.NS', 'AXISBANK.NS', 'AVL.NS', 'AWHCL.NS', 'AVTNPL.NS', 'BAJAJ-AUTO.NS', 'BALAJEE.NS', 'BALAXI.NS', 'AUSOMENT.NS', 'BAJAJHLDNG.NS', 'AYMSYNTEX.NS', 'BAJAJHFL.NS', 'BAIDFIN.NS', 'AUTOAXLES.NS', 'BAJAJFINSV.NS']: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:11:41,079 [INFO]   Batch 6/46 (50 symbols)...
+2026-04-15 14:11:57,304 [INFO]     ✓ BANDHANBNK.NS    ₹173.77   MomScore=0.37  6M=+6%  12M=+21%  Sector=Financial Services  ADX=41.4
+2026-04-15 14:12:03,881 [INFO]     ✓ BEL.NS           ₹447.65   MomScore=1.40  6M=+10%  12M=+66%  Sector=Other  ADX=33.7
+2026-04-15 14:12:06,984 [INFO]     ✓ BHAGYANGR.NS     ₹192.63   MomScore=2.33  6M=+91%  12M=+178%  Sector=Other  ADX=29.9
+2026-04-15 14:12:09,989 [INFO]   Batch 7/46 (50 symbols)...
+2026-04-15 14:12:45,087 [INFO]     ✓ BLISSGVS.NS      ₹257.42   MomScore=1.63  6M=+64%  12M=+122%  Sector=Pharma  ADX=28.5
+2026-04-15 14:12:48,630 [INFO]     ✓ BODALCHEM.NS     ₹67.56    MomScore=0.29  6M=+11%  12M=+12%  Sector=Other  ADX=67.6
+2026-04-15 14:13:11,198 [INFO]   Batch 8/46 (50 symbols)...
+2026-04-15 14:13:43,581 [INFO]   Batch 9/46 (50 symbols)...
+2026-04-15 14:14:11,971 [INFO]   Batch 10/46 (50 symbols)...
+2026-04-15 14:17:58,739 [INFO]     ✓ CUPID.NS         ₹93.4     MomScore=7.16  6M=+94%  12M=+712%  Sector=Unknown  ADX=32.3
+2026-04-15 14:26:57,583 [INFO]     ✓ DEEPINDS.NS      ₹489.95   MomScore=0.17  6M=+1%  12M=+15%  Sector=Energy  ADX=81.1
+2026-04-15 14:26:59,584 [INFO]   Batch 11/46 (50 symbols)...
+2026-04-15 14:27:09,591 [ERROR] Failed to get ticker 'DHANBANK.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:09,594 [ERROR] Failed to get ticker 'DIGJAMLMTD.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:09,595 [ERROR] Failed to get ticker 'DIXON.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:11,034 [ERROR] Failed to get ticker 'DEN.NS' reason: Failed to perform, curl: (28) Operation timed out after 10000 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:19,599 [ERROR] $DIXON.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:27:26,304 [ERROR] Failed to get ticker 'DHRUV.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:27,424 [ERROR] Failed to get ticker 'DELHIVERY.NS' reason: Failed to perform, curl: (28) Operation timed out after 10001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:29,604 [ERROR] Failed to get ticker 'DGCONTENT.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:32,509 [ERROR] Failed to get ticker 'DELTAMAGNT.NS' reason: Failed to perform, curl: (7) Failed to connect to query2.finance.yahoo.com port 443 after 4 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:36,307 [ERROR] $DHRUV.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:27:37,429 [ERROR] $DELHIVERY.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:27:39,609 [ERROR] $DGCONTENT.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:27:45,374 [ERROR] Failed to get ticker 'DEVIT.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:45,920 [ERROR] Failed to get ticker 'DIVISLAB.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:45,947 [ERROR] Failed to get ticker 'DELPHIFX.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:46,188 [ERROR] Failed to get ticker 'DPWIRES.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:46,190 [ERROR] Failed to get ticker 'DOMS.NS' reason: Failed to perform, curl: (35) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:53,020 [ERROR] Failed to get ticker 'DENTA.NS' reason: Failed to perform, curl: (7) Failed to connect to query2.finance.yahoo.com port 443 after 3 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:53,109 [ERROR] Failed to get ticker 'DIACABS.NS' reason: Failed to perform, curl: (7) Failed to connect to query2.finance.yahoo.com port 443 after 3 ms: Could not connect to server. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:27:56,077 [ERROR] Failed to get ticker 'DIGISPICE.NS' reason: Failed to perform, curl: (56) Recv failure: Connection reset by peer. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:28:00,861 [ERROR] 
+4 Failed downloads:
+2026-04-15 14:28:00,861 [ERROR] ['DIXON.NS', 'DHRUV.NS', 'DELHIVERY.NS', 'DGCONTENT.NS']: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:00,953 [INFO]   Batch 12/46 (50 symbols)...
+2026-04-15 14:31:10,963 [ERROR] Failed to get ticker 'ELDEHSG.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:10,963 [ERROR] Failed to get ticker 'ELLEN.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:10,964 [ERROR] Failed to get ticker 'EMAMIPAP.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:10,965 [ERROR] Failed to get ticker 'EDELWEISS.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:20,968 [ERROR] $ELDEHSG.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:20,970 [ERROR] $EMAMIPAP.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:20,972 [ERROR] $EDELWEISS.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:20,972 [ERROR] $ELLEN.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:30,979 [ERROR] Failed to get ticker 'DSSL.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:30,980 [ERROR] Failed to get ticker 'EMMBI.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:30,981 [ERROR] Failed to get ticker 'EMSLIMITED.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:30,982 [ERROR] Failed to get ticker 'ELECTHERM.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:40,986 [ERROR] $DSSL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:40,989 [ERROR] $ELECTHERM.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:40,989 [ERROR] $EMSLIMITED.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:40,989 [ERROR] $EMMBI.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:31:50,997 [ERROR] Failed to get ticker 'DYNAMATECH.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:50,998 [ERROR] Failed to get ticker 'EMMVEE.NS' reason: Failed to perform, curl: (28) Operation timed out after 10000 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:50,998 [ERROR] Failed to get ticker 'EIHOTEL.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:31:50,999 [ERROR] Failed to get ticker 'DYNPRO.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:32:01,002 [ERROR] $EMMVEE.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:32:01,003 [ERROR] $DYNAMATECH.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:32:01,005 [ERROR] $EIHOTEL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:32:05,160 [ERROR] 
+11 Failed downloads:
+2026-04-15 14:32:05,160 [ERROR] ['ELDEHSG.NS', 'EMAMIPAP.NS', 'EDELWEISS.NS', 'ELLEN.NS', 'DSSL.NS', 'ELECTHERM.NS', 'EMSLIMITED.NS', 'EMMBI.NS', 'EMMVEE.NS', 'DYNAMATECH.NS', 'EIHOTEL.NS']: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:32:17,015 [INFO]   Batch 13/46 (50 symbols)...
+2026-04-15 14:33:22,724 [INFO]     ✓ EPL.NS           ₹234.45   MomScore=0.62  6M=+12%  12M=+27%  Sector=Unknown  ADX=45.7
+2026-04-15 14:33:28,617 [INFO]     ✓ FACT.NS          ₹866.15   MomScore=0.48  6M=-3%  12M=+48%  Sector=Other  ADX=26.8
+2026-04-15 14:33:29,882 [INFO]     ✓ FEDERALBNK.NS    ₹286.85   MomScore=1.75  6M=+38%  12M=+51%  Sector=Financial Services  ADX=29.8
+2026-04-15 14:33:35,294 [INFO]   Batch 14/46 (50 symbols)...
+2026-04-15 14:33:45,301 [ERROR] Failed to get ticker 'GANDHAR.NS' reason: Failed to perform, curl: (28) Operation timed out after 10000 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:33:45,427 [ERROR] Failed to get ticker 'GALAXYSURF.NS' reason: Failed to perform, curl: (28) Operation timed out after 10001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:33:45,678 [ERROR] Failed to get ticker 'FUSION.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:33:55,683 [ERROR] $FUSION.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:33:59,995 [ERROR] Failed to get ticker 'FORCEMOT.NS' reason: Failed to perform, curl: (28) Connection timed out after 10002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:34:03,870 [ERROR] Failed to get ticker 'GFLLIMITED.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:34:05,688 [ERROR] Failed to get ticker 'GHCLTEXTIL.NS' reason: Failed to perform, curl: (28) Operation timed out after 10001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:34:05,984 [ERROR] Failed to get ticker 'FOCUS.NS' reason: Failed to perform, curl: (28) Operation timed out after 10003 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:34:14,360 [ERROR] Failed to get ticker 'FLUOROCHEM.NS' reason: Failed to perform, curl: (28) Operation timed out after 10001 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:34:15,831 [ERROR] Failed to get ticker 'GCSL.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:34:24,363 [ERROR] $FLUOROCHEM.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:34:25,835 [ERROR] $GCSL.NS: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:34:25,840 [ERROR] 
+3 Failed downloads:
+2026-04-15 14:34:25,840 [ERROR] ['FUSION.NS', 'FLUOROCHEM.NS', 'GCSL.NS']: possibly delisted; no price data found  (period=2y)
+2026-04-15 14:35:59,479 [INFO]   Batch 15/46 (50 symbols)...
+2026-04-15 14:36:09,953 [ERROR] Failed to get ticker 'GPIL.NS' reason: Failed to perform, curl: (28) Operation timed out after 10000 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:36:10,455 [ERROR] Failed to get ticker 'GILLANDERS.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:36:11,007 [ERROR] Failed to get ticker 'GLOBE.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:36:14,925 [ERROR] Failed to get ticker 'GLOBALE.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:36:20,785 [ERROR] Failed to get ticker 'GNFC.NS' reason: Failed to perform, curl: (28) Operation timed out after 10002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.
+2026-04-15 14:36:24,494 [INFO]     ✓ GICRE.NS         ₹399.15   MomScore=0.25  6M=+6%  12M=+6%  Sector=Financial Services  ADX=27.5
+2026-04-15 14:36:30,082 [INFO]     ✓ GMDCLTD.NS       ₹622.3    MomScore=1.35  6M=-1%  12M=+142%  Sector=Energy  ADX=27.4
+2026-04-15 14:36:31,352 [INFO]     ✓ GODAVARIB.NS     ₹315.0    MomScore=1.09  6M=+26%  12M=+94%  Sector=Other  ADX=30.9
+2026-04-15 14:36:35,627 [INFO]     ✓ GPIL.NS          ₹303.35   MomScore=1.19  6M=+25%  12M=+69%  Sector=Other  ADX=42.6
+2026-04-15 14:36:37,982 [INFO]   Batch 16/46 (50 symbols)...
+2026-04-15 14:36:48,481 [INFO]     ✓ GUJALKALI.NS     ₹654.65   MomScore=0.36  6M=+18%  12M=+7%  Sector=Other  ADX=63.7
+2026-04-15 14:36:50,717 [INFO]     ✓ GVT&D.NS         ₹4134.5   MomScore=3.01  6M=+36%  12M=+220%  Sector=Other  ADX=33.1
+2026-04-15 14:36:55,712 [INFO]   Batch 17/46 (50 symbols)...
+2026-04-15 14:37:03,018 [INFO]     ✓ HEG.NS           ₹590.75   MomScore=0.49  6M=+10%  12M=+30%  Sector=Other  ADX=34.1
+2026-04-15 14:37:06,552 [INFO]     ✓ HINDALCO.NS      ₹1011.45  MomScore=2.03  6M=+31%  12M=+81%  Sector=Other  ADX=30.3
+2026-04-15 14:37:12,682 [INFO]   Batch 18/46 (50 symbols)...
+2026-04-15 14:37:28,067 [INFO]   Batch 19/46 (50 symbols)...
+2026-04-15 14:37:33,302 [INFO]     ✓ INDIANB.NS       ₹946.0    MomScore=1.63  6M=+24%  12M=+80%  Sector=Financial Services  ADX=28.4
+2026-04-15 14:37:44,198 [INFO]   Batch 20/46 (50 symbols)...
+2026-04-15 14:37:57,907 [INFO]     ✓ JAYNECOIND.NS    ₹91.64    MomScore=1.65  6M=+26%  12M=+198%  Sector=Other  ADX=29.2
+2026-04-15 14:38:02,626 [INFO]   Batch 21/46 (50 symbols)...
+2026-04-15 14:38:15,509 [INFO]     ✓ KAJARIACER.NS    ₹1160.1   MomScore=0.72  6M=-4%  12M=+49%  Sector=Other  ADX=32.8
+2026-04-15 14:38:19,698 [INFO]   Batch 22/46 (50 symbols)...
+2026-04-15 14:38:35,792 [INFO]   Batch 23/46 (50 symbols)...
+2026-04-15 14:38:41,234 [INFO]     ✓ KRISHANA.NS      ₹610.5    MomScore=1.90  6M=+17%  12M=+161%  Sector=Other  ADX=44.3
+2026-04-15 14:38:49,692 [INFO]     ✓ LAURUSLABS.NS    ₹1117.6   MomScore=2.16  6M=+29%  12M=+100%  Sector=Pharma  ADX=28.0
+2026-04-15 14:38:52,979 [INFO]   Batch 24/46 (50 symbols)...
+2026-04-15 14:39:07,093 [INFO]     ✓ MAHABANK.NS      ₹71.39    MomScore=1.45  6M=+28%  12M=+71%  Sector=Financial Services  ADX=25.6
+2026-04-15 14:39:09,805 [INFO]   Batch 25/46 (50 symbols)...
+2026-04-15 14:39:13,701 [INFO]     ✓ MAHLOG.NS        ₹409.35   MomScore=0.90  6M=+14%  12M=+56%  Sector=Other  ADX=29.3
+2026-04-15 14:39:14,118 [INFO]     ✓ MAHSEAMLES.NS    ₹637.2    MomScore=0.17  6M=+9%  12M=+1%  Sector=Other  ADX=28.1
+2026-04-15 14:39:25,992 [INFO]   Batch 26/46 (50 symbols)...
+2026-04-15 14:39:41,979 [INFO]   Batch 27/46 (50 symbols)...
+2026-04-15 14:39:48,783 [INFO]     ✓ MSPL.NS          ₹34.98    MomScore=0.20  6M=-6%  12M=+24%  Sector=Other  ADX=32.5
+2026-04-15 14:39:58,601 [INFO]     ✓ NATCOPHARM.NS    ₹1091.5   MomScore=1.08  6M=+35%  12M=+43%  Sector=Pharma  ADX=30.5
+2026-04-15 14:40:02,186 [INFO]   Batch 28/46 (50 symbols)...
+2026-04-15 14:40:05,989 [ERROR] $NBIFIN.NS: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-15 14:40:05,999 [ERROR] 
+1 Failed download:
+2026-04-15 14:40:05,999 [ERROR] ['NBIFIN.NS']: possibly delisted; no price data found  (period=2y) (Yahoo error = "No data found, symbol may be delisted")
+2026-04-15 14:40:21,151 [INFO]   Batch 29/46 (50 symbols)...
+2026-04-15 14:40:33,222 [INFO]     ✓ ONGC.NS          ₹287.6    MomScore=1.38  6M=+24%  12M=+38%  Sector=Energy  ADX=41.5
+2026-04-15 14:40:39,006 [INFO]   Batch 30/46 (50 symbols)...
+2026-04-15 14:40:47,619 [INFO]     ✓ PARAS.NS         ₹754.85   MomScore=0.67  6M=+5%  12M=+65%  Sector=Other  ADX=34.1
+2026-04-15 14:40:53,505 [INFO]   Batch 31/46 (50 symbols)...
+2026-04-15 14:41:09,648 [INFO]   Batch 32/46 (50 symbols)...
+2026-04-15 14:41:25,680 [INFO]   Batch 33/46 (50 symbols)...
+2026-04-15 14:41:45,822 [INFO]   Batch 34/46 (50 symbols)...
+2026-04-15 14:42:01,187 [INFO]   Batch 35/46 (50 symbols)...
+2026-04-15 14:42:06,909 [INFO]     ✓ SAIL.NS          ₹166.95   MomScore=1.24  6M=+22%  12M=+62%  Sector=Other  ADX=25.2
+2026-04-15 14:42:10,187 [INFO]     ✓ SAMMAANCAP.NS    ₹156.44   MomScore=0.55  6M=-3%  12M=+52%  Sector=Financial Services  ADX=27.8
+2026-04-15 14:42:13,093 [INFO]     ✓ SARDAEN.NS       ₹583.35   MomScore=0.35  6M=+2%  12M=+28%  Sector=Other  ADX=28.9
+2026-04-15 14:42:14,510 [INFO]     ✓ SATIN.NS         ₹160.24   MomScore=0.35  6M=+8%  12M=+11%  Sector=Financial Services  ADX=25.2
+2026-04-15 14:42:14,962 [INFO]     ✓ SBC.NS           ₹33.01    MomScore=3.75  6M=+44%  12M=+169%  Sector=Other  ADX=53.9
+2026-04-15 14:42:15,157 [INFO]     ✓ SBCL.NS          ₹518.3    MomScore=0.31  6M=+3%  12M=+23%  Sector=Other  ADX=32.9
+2026-04-15 14:42:17,157 [INFO]   Batch 36/46 (50 symbols)...
+2026-04-15 14:42:32,702 [INFO]     ✓ SHARDACROP.NS    ₹1092.7   MomScore=1.46  6M=+34%  12M=+130%  Sector=Other  ADX=34.0
+2026-04-15 14:42:36,444 [INFO]   Batch 37/46 (50 symbols)...
+2026-04-15 14:42:45,965 [INFO]     ✓ SIEMENS.NS       ₹3576.1   MomScore=0.59  6M=+11%  12M=+24%  Sector=Other  ADX=28.3
+2026-04-15 14:42:53,479 [INFO]   Batch 38/46 (50 symbols)...
+2026-04-15 14:43:02,841 [INFO]     ✓ SOUTHWEST.NS     ₹242.55   MomScore=2.00  6M=+87%  12M=+127%  Sector=Energy  ADX=42.1
+2026-04-15 14:43:03,669 [INFO]     ✓ SPARC.NS         ₹150.78   MomScore=0.23  6M=+18%  12M=+6%  Sector=Pharma  ADX=28.2
+2026-04-15 14:43:12,819 [INFO]   Batch 39/46 (50 symbols)...
+2026-04-15 14:43:28,749 [INFO]   Batch 40/46 (50 symbols)...
+2026-04-15 14:43:45,987 [INFO]   Batch 41/46 (50 symbols)...
+2026-04-15 14:44:03,716 [INFO]   Batch 42/46 (50 symbols)...
+2026-04-15 14:44:21,462 [INFO]   Batch 43/46 (50 symbols)...
+2026-04-15 14:44:40,016 [INFO]   Batch 44/46 (50 symbols)...
+2026-04-15 14:44:56,460 [INFO]   Batch 45/46 (50 symbols)...
+2026-04-15 14:45:12,667 [INFO]   Batch 46/46 (8 symbols)...
+2026-04-15 14:45:17,353 [INFO] Stage 1 complete. Momentum candidates: 42
+2026-04-15 14:45:17,354 [INFO] Cross-sectional gate (top 20%): 42 → 9 (threshold: 1.734)
+2026-04-15 14:45:17,354 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-04-15 14:45:19,234 [INFO]   ✓ KRISHANA.NS      score=0.734  mom=1.90  fscore=0.582  FCF=-10.09%
+2026-04-15 14:45:20,188 [INFO]   ✓ SOUTHWEST.NS     score=0.732  mom=2.00  fscore=0.425  FCF=None%
+2026-04-15 14:45:20,488 [INFO] Stage 2 complete. 2 passed → top 2
+2026-04-15 14:45:20,489 [INFO] Results written to results/
+2026-04-15 14:45:20,490 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-04-15 14:45:20,490 [INFO] Initialising public data fetcher...
+2026-04-15 14:45:40,850 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-04-15 14:45:40,851 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-04-15 14:45:40,851 [INFO] Layer 2 v5: scanning 2258 symbols...
+2026-04-15 14:45:43,999 [INFO]   DNA 20MICRONS.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:45:46,549 [INFO]   DNA 3IINFOLTD.NS: 0.362 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:45:49,961 [INFO]   DNA A2ZINFRA.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:45:51,826 [INFO]   DNA AAATECH.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:45:53,911 [INFO]   DNA AAKASH.NS: 0.443 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:46:05,378 [INFO]   DNA AAREYDRUGS.NS: 0.425 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-04-15 14:46:08,275 [INFO]   DNA AARTECH.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:46:15,929 [INFO]   DNA ACCURACY.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:46:15,929 [INFO]   [36/2258] ✓ ACCURACY.NS DNA=0.452(C) P=8/9 anns=0
+2026-04-15 14:46:18,579 [INFO]   DNA ACL.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:46:24,003 [INFO]   DNA ADROITINFO.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:46:24,003 [INFO]   [51/2258] ✓ ADROITINFO.NS DNA=0.451(C) P=3/9 anns=0
+2026-04-15 14:46:26,186 [INFO]   DNA ADSL.NS: 0.415 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:46:28,857 [INFO]   DNA ADVANCE.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:46:31,311 [INFO]   DNA ADVANIHOTR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:46:31,312 [INFO]   [55/2258] ✓ ADVANIHOTR.NS DNA=0.460(C) P=5/9 anns=0
+2026-04-15 14:46:35,590 [INFO]   DNA AERONEU.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:46:35,590 [INFO]   [64/2258] ✓ AERONEU.NS DNA=0.464(C) P=8/9 anns=0
+2026-04-15 14:46:38,239 [INFO]   DNA AFFORDABLE.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:46:46,749 [INFO]   DNA AGARIND.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:46:46,749 [INFO]   [71/2258] ✓ AGARIND.NS DNA=0.489(C) P=5/9 anns=0
+2026-04-15 14:46:50,336 [INFO]   DNA AHCL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:46:53,221 [INFO]   DNA AIRAN.NS: 0.446 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:46:58,003 [INFO]   DNA AKG.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:47:00,335 [INFO]   DNA AKI.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:47:02,438 [INFO]   DNA AKSHOPTFBR.NS: 0.354 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:47:06,090 [INFO]   DNA ALANKIT.NS: 0.379 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:47:14,533 [INFO]   DNA AMANTA.NS: 0.438 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:47:18,091 [INFO]   DNA AMDIND.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:47:18,091 [INFO]   [119/2258] ✓ AMDIND.NS DNA=0.502(C) P=9/9 anns=0
+2026-04-15 14:47:20,636 [INFO]   DNA AMJLAND.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:47:20,636 [INFO]   [121/2258] ✓ AMJLAND.NS DNA=0.491(C) P=9/9 anns=0
+2026-04-15 14:47:24,377 [INFO]   DNA ANIKINDS.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:47:24,377 [INFO]   [129/2258] ✓ ANIKINDS.NS DNA=0.482(C) P=6/9 anns=0
+2026-04-15 14:47:26,515 [INFO]   DNA ANMOL.NS: 0.467 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:47:26,516 [INFO]   [131/2258] ✓ ANMOL.NS DNA=0.467(C) P=4/9 anns=0
+2026-04-15 14:47:33,037 [INFO]   DNA APTECHT.NS: 0.433 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:47:37,866 [INFO]   DNA ARCHIES.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:47:47,147 [INFO]   DNA ASHIMASYN.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:47:47,147 [INFO]   [180/2258] ✓ ASHIMASYN.NS DNA=0.491(C) P=2/9 anns=0
+2026-04-15 14:47:49,613 [INFO]   DNA ASHOKAMET.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:47:57,089 [INFO]   DNA ATL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:47:57,090 [INFO]   [201/2258] ✓ ATL.NS DNA=0.463(C) P=5/9 anns=0
+2026-04-15 14:48:01,977 [INFO]   DNA AUTOIND.NS: 0.406 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:48:04,093 [INFO]   DNA AVG.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:48:04,093 [INFO]   [219/2258] ✓ AVG.NS DNA=0.460(C) P=7/9 anns=0
+2026-04-15 14:48:08,445 [INFO]   DNA AXITA.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:48:11,321 [INFO]   DNA BAGFILMS.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:48:12,953 [INFO]   DNA BAIDFIN.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:48:12,954 [INFO]   [235/2258] ✓ BAIDFIN.NS DNA=0.454(C) P=6/9 anns=0
+2026-04-15 14:48:17,581 [INFO]   DNA BALAJEE.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:48:17,581 [INFO]   [247/2258] ✓ BALAJEE.NS DNA=0.464(C) P=5/9 anns=0
+2026-04-15 14:48:20,263 [INFO]   DNA BALAXI.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:48:23,810 [INFO]   DNA BALKRISHNA.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:48:23,810 [INFO]   [251/2258] ✓ BALKRISHNA.NS DNA=0.482(C) P=3/9 anns=0
+2026-04-15 14:48:30,867 [INFO]   DNA BANSWRAS.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:48:30,867 [INFO]   [266/2258] ✓ BANSWRAS.NS DNA=0.484(C) P=5/9 anns=0
+2026-04-15 14:48:33,971 [INFO]   DNA BASML.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:48:39,041 [INFO]   DNA BCPL.NS: 0.450 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-04-15 14:48:39,042 [INFO]   [278/2258] ✓ BCPL.NS DNA=0.450(C) P=3/9 anns=0
+2026-04-15 14:48:43,936 [INFO]   DNA BESTAGRO.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:48:46,703 [INFO]   DNA BHAGERIA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:48:49,926 [INFO]   DNA BHARATGEAR.NS: 0.432 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:48:54,698 [INFO]   DNA BIGBLOC.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:48:58,144 [INFO]   DNA BIOFILCHEM.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:48:58,144 [INFO]   [311/2258] ✓ BIOFILCHEM.NS DNA=0.452(C) P=4/9 anns=0
+2026-04-15 14:48:59,833 [INFO]   DNA BIRLACABLE.NS: 0.422 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:49:05,855 [INFO]   DNA BMWVENTLTD.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:49:05,855 [INFO]   [330/2258] ✓ BMWVENTLTD.NS DNA=0.463(C) P=9/9 anns=0
+2026-04-15 14:49:10,179 [INFO]   DNA BPL.NS: 0.413 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:49:12,519 [INFO]   DNA BRNL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:49:14,126 [INFO]   DNA BROOKS.NS: 0.419 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:49:18,282 [INFO]   DNA BTML.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:49:18,283 [INFO]   [352/2258] ✓ BTML.NS DNA=0.472(C) P=5/9 anns=0
+2026-04-15 14:49:20,782 [INFO]   DNA BVCL.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:49:20,783 [INFO]   [355/2258] ✓ BVCL.NS DNA=0.485(C) P=6/9 anns=0
+2026-04-15 14:49:23,634 [INFO]   DNA BYKE.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:49:26,900 [INFO]   DNA CALSOFT.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:49:31,386 [INFO]   DNA CAPTRUST.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:49:31,387 [INFO]   [369/2258] ✓ CAPTRUST.NS DNA=0.472(C) P=3/9 anns=0
+2026-04-15 14:49:35,375 [INFO]   DNA CCCL.NS: 0.453 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:49:35,375 [INFO]   [377/2258] ✓ CCCL.NS DNA=0.453(C) P=7/9 anns=0
+2026-04-15 14:49:36,945 [INFO]   DNA CCHHL.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:49:40,018 [INFO]   DNA CELEBRITY.NS: 0.425 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:49:42,309 [INFO]   DNA CENTEXT.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:49:45,257 [INFO]   DNA CEREBRAINT.NS: 0.375 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:49:47,365 [INFO]   DNA CEWATER.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:49:52,475 [INFO]   DNA CHEMCON.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:49:52,476 [INFO]   [403/2258] ✓ CHEMCON.NS DNA=0.469(C) P=8/9 anns=0
+2026-04-15 14:49:58,783 [INFO]   DNA CLEDUCATE.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:49:58,784 [INFO]   [419/2258] ✓ CLEDUCATE.NS DNA=0.451(C) P=3/9 anns=0
+2026-04-15 14:50:02,747 [INFO]   DNA COFFEEDAY.NS: 0.356 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:50:05,494 [INFO]   DNA COMPUSOFT.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:50:05,494 [INFO]   [432/2258] ✓ COMPUSOFT.NS DNA=0.502(C) P=5/9 anns=0
+2026-04-15 14:50:07,080 [INFO]   DNA COMSYN.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:50:13,002 [INFO]   DNA CORDSCABLE.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:50:16,128 [INFO]   DNA COUNCODOS.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:50:16,128 [INFO]   [444/2258] ✓ COUNCODOS.NS DNA=0.476(C) P=4/9 anns=0
+2026-04-15 14:50:24,203 [INFO]   DNA CSLFINANCE.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:50:24,204 [INFO]   [458/2258] ✓ CSLFINANCE.NS DNA=0.463(C) P=3/9 anns=0
+2026-04-15 14:50:26,207 [INFO]   DNA CTE.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:50:26,208 [INFO]   [459/2258] ✓ CTE.NS DNA=0.464(C) P=4/9 anns=0
+2026-04-15 14:50:29,152 [INFO]   DNA CUBEXTUB.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:50:31,920 [INFO]   DNA CYBERTECH.NS: 0.413 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:50:39,442 [INFO]   DNA DBEIL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:50:39,442 [INFO]   [479/2258] ✓ DBEIL.NS DNA=0.467(C) P=4/9 anns=0
+2026-04-15 14:50:43,137 [INFO]   DNA DCI.NS: 0.397 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:50:45,757 [INFO]   DNA DCMSIL.NS: 0.357 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-04-15 14:50:48,000 [INFO]   DNA DCMSRIND.NS: 0.442 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=1.00
+2026-04-15 14:50:55,365 [INFO]   DNA DENTA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:50:57,228 [INFO]   DNA DEVIT.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:50:59,244 [INFO]   DNA DEVX.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:50:59,245 [INFO]   [509/2258] ✓ DEVX.NS DNA=0.491(C) P=8/9 anns=0
+2026-04-15 14:51:04,579 [INFO]   DNA DIGIDRIVE.NS: 0.475 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:51:04,579 [INFO]   [523/2258] ✓ DIGIDRIVE.NS DNA=0.475(C) P=4/9 anns=0
+2026-04-15 14:51:06,653 [INFO]   DNA DIGISPICE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:51:06,654 [INFO]   [524/2258] ✓ DIGISPICE.NS DNA=0.487(C) P=3/9 anns=0
+2026-04-15 14:51:11,191 [INFO]   DNA DJML.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:51:14,954 [INFO]   DNA DMCC.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:51:18,275 [INFO]   DNA DONEAR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:51:18,275 [INFO]   [542/2258] ✓ DONEAR.NS DNA=0.460(C) P=6/9 anns=0
+2026-04-15 14:51:22,140 [INFO]   DNA DRCSYSTEMS.NS: 0.446 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:51:25,204 [INFO]   DNA DREAMFOLKS.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:51:25,205 [INFO]   [547/2258] ✓ DREAMFOLKS.NS DNA=0.469(C) P=3/9 anns=0
+2026-04-15 14:51:27,460 [INFO]   DNA DSFCL.NS: 0.348 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.30
+2026-04-15 14:51:32,839 [INFO]   DNA DYNPRO.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:51:37,415 [INFO]   DNA EIFFL.NS: 0.338 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:51:43,217 [INFO]   DNA ELGIRUBCO.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:51:45,791 [INFO]   DNA ELIN.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:51:54,806 [INFO]   DNA ENERGYDEV.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:52:01,549 [INFO]   DNA ESSARSHPNG.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:52:01,550 [INFO]   [609/2258] ✓ ESSARSHPNG.NS DNA=0.463(C) P=5/9 anns=0
+2026-04-15 14:52:07,306 [INFO]   DNA EXXARO.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:52:07,306 [INFO]   [625/2258] ✓ EXXARO.NS DNA=0.513(C) P=5/9 anns=0
+2026-04-15 14:52:09,433 [INFO]   DNA FABTECH.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:52:09,433 [INFO]   [626/2258] ✓ FABTECH.NS DNA=0.463(C) P=3/9 anns=0
+2026-04-15 14:52:13,039 [INFO]   DNA FIBERWEB.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:52:13,039 [INFO]   [637/2258] ✓ FIBERWEB.NS DNA=0.469(C) P=6/9 anns=0
+2026-04-15 14:52:21,915 [INFO]   DNA FMNL.NS: 0.509 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:52:21,915 [INFO]   [654/2258] ✓ FMNL.NS DNA=0.509(C) P=5/9 anns=0
+2026-04-15 14:52:25,194 [INFO]   DNA FOCUS.NS: 0.363 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:52:26,827 [INFO]   DNA FOODSIN.NS: 0.373 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:52:33,771 [INFO]   DNA GANESHBE.NS: 0.405 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:52:47,673 [INFO]   DNA GANESHCP.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:52:47,674 [INFO]   [673/2258] ✓ GANESHCP.NS DNA=0.460(C) P=7/9 anns=0
+2026-04-15 14:52:52,125 [INFO]   DNA GAUDIUMIVF.NS: 0.434 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-04-15 14:52:54,637 [INFO]   DNA GEEKAYWIRE.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:52:57,753 [INFO]   DNA GENCON.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:52:59,791 [INFO]   DNA GENSOL.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:53:04,053 [INFO]   DNA GICL.NS: 0.366 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:53:15,468 [INFO]   DNA GINNIFILA.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:53:21,004 [INFO]   DNA GLOBECIVIL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:53:21,004 [INFO]   [717/2258] ✓ GLOBECIVIL.NS DNA=0.467(C) P=7/9 anns=0
+2026-04-15 14:53:23,159 [INFO]   DNA GLOTTIS.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:53:31,112 [INFO]   DNA GOKUL.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:53:31,112 [INFO]   [739/2258] ✓ GOKUL.NS DNA=0.484(C) P=8/9 anns=0
+2026-04-15 14:53:33,617 [INFO]   DNA GOLDTECH.NS: 0.446 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:53:36,931 [INFO]   DNA GOYALALUM.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:53:36,931 [INFO]   [746/2258] ✓ GOYALALUM.NS DNA=0.485(C) P=7/9 anns=0
+2026-04-15 14:53:46,791 [INFO]   DNA GSLSU.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:53:46,791 [INFO]   [769/2258] ✓ GSLSU.NS DNA=0.467(C) P=2/9 anns=0
+2026-04-15 14:53:48,958 [INFO]   DNA GSS.NS: 0.388 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:53:53,069 [INFO]   DNA GTL.NS: 0.375 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:53:57,207 [INFO]   DNA GULFPETRO.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:54:00,945 [INFO]   DNA GVPTECH.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:54:08,385 [INFO]   DNA HCL-INSYS.NS: 0.389 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:54:12,691 [INFO]   DNA HECPROJECT.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:54:18,843 [INFO]   DNA HILINFRA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:54:18,843 [INFO]   [830/2258] ✓ HILINFRA.NS DNA=0.467(C) P=2/9 anns=0
+2026-04-15 14:54:21,857 [INFO]   DNA HILTON.NS: 0.350 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:54:24,116 [INFO]   DNA HINDCON.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:54:30,459 [INFO]   DNA HLVLTD.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:54:30,460 [INFO]   [848/2258] ✓ HLVLTD.NS DNA=0.466(C) P=5/9 anns=0
+2026-04-15 14:54:35,878 [INFO]   DNA HPAL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:54:45,786 [INFO]   DNA IGCL.NS: 0.507 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:54:45,786 [INFO]   [886/2258] ✓ IGCL.NS DNA=0.507(C) P=8/9 anns=0
+2026-04-15 14:54:52,199 [INFO]   DNA IL&FSENGG.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:54:52,199 [INFO]   [895/2258] ✓ IL&FSENGG.NS DNA=0.467(C) P=4/9 anns=0
+2026-04-15 14:55:01,422 [INFO]   DNA INDOAMIN.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:55:03,569 [INFO]   DNA INDOFARM.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:55:06,442 [INFO]   DNA INDOUS.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:55:06,442 [INFO]   [925/2258] ✓ INDOUS.NS DNA=0.487(C) P=7/9 anns=0
+2026-04-15 14:55:10,250 [INFO]   DNA INDOWIND.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:55:12,584 [INFO]   DNA INDTERRAIN.NS: 0.426 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:55:17,562 [INFO]   DNA INNOVISION.NS: 0.331 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-04-15 14:55:21,535 [INFO]   DNA INTENTECH.NS: 0.344 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:55:28,604 [INFO]   DNA IRIS.NS: 0.419 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:55:30,868 [INFO]   DNA IRISDOREME.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:55:35,283 [INFO]   DNA IVC.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:55:35,283 [INFO]   [971/2258] ✓ IVC.NS DNA=0.454(C) P=4/9 anns=0
+2026-04-15 14:55:39,828 [INFO]   DNA JAIPURKURT.NS: 0.425 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:55:43,691 [INFO]   DNA JAYSREETEA.NS: 0.471 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:55:43,691 [INFO]   [989/2258] ✓ JAYSREETEA.NS DNA=0.471(C) P=5/9 anns=0
+2026-04-15 14:55:45,930 [INFO]   DNA JETFREIGHT.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:55:48,341 [INFO]   DNA JHS.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:55:54,979 [INFO]   DNA JKIPL.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:55:54,979 [INFO]   [1007/2258] ✓ JKIPL.NS DNA=0.468(C) P=3/9 anns=0
+2026-04-15 14:56:06,559 [INFO]   DNA KAMATHOTEL.NS: 0.447 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:56:09,021 [INFO]   DNA KAMDHENU.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:56:12,262 [INFO]   DNA KAMOPAINTS.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:56:17,617 [INFO]   DNA KAVDEFENCE.NS: 0.472 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:56:17,617 [INFO]   [1058/2258] ✓ KAVDEFENCE.NS DNA=0.472(C) P=6/9 anns=0
+2026-04-15 14:56:20,706 [INFO]   DNA KCPSUGIND.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:56:31,323 [INFO]   DNA KELLTONTEC.NS: 0.391 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:56:35,978 [INFO]   DNA KESORAMIND.NS: 0.429 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:56:38,106 [INFO]   DNA KHADIM.NS: 0.457 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:56:38,106 [INFO]   [1073/2258] ✓ KHADIM.NS DNA=0.457(C) P=6/9 anns=0
+2026-04-15 14:56:39,950 [INFO]   DNA KHAICHEM.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:56:42,478 [INFO]   DNA KILITCH.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:56:42,478 [INFO]   [1078/2258] ✓ KILITCH.NS DNA=0.463(C) P=4/9 anns=0
+2026-04-15 14:56:46,798 [INFO]   DNA KMSUGAR.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:56:46,798 [INFO]   [1090/2258] ✓ KMSUGAR.NS DNA=0.451(C) P=8/9 anns=0
+2026-04-15 14:56:48,234 [INFO]   DNA KNAGRI.NS: 0.338 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:56:50,264 [INFO]   DNA KOHINOOR.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:56:54,511 [INFO]   DNA KOPRAN.NS: 0.367 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:56:56,874 [INFO]   DNA KOTARISUG.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:56:58,900 [INFO]   DNA KOTHARIPET.NS: 0.366 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:57:00,798 [INFO]   DNA KOTHARIPRO.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:57:00,798 [INFO]   [1100/2258] ✓ KOTHARIPRO.NS DNA=0.463(C) P=4/9 anns=0
+2026-04-15 14:57:15,923 [INFO]   DNA KOTYARK.NS: 0.332 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:57:20,720 [INFO]   DNA KRITI.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:57:22,411 [INFO]   DNA KRITIKA.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:57:24,774 [INFO]   DNA KRONOX.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:57:27,487 [INFO]   DNA KRYSTAL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:57:27,487 [INFO]   [1120/2258] ✓ KRYSTAL.NS DNA=0.483(C) P=7/9 anns=0
+2026-04-15 14:57:30,522 [INFO]   DNA KSOLVES.NS: 0.390 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:57:32,617 [INFO]   DNA KSR.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-04-15 14:57:32,617 [INFO]   [1127/2258] ✓ KSR.NS DNA=0.473(C) P=1/9 anns=0
+2026-04-15 14:57:35,261 [INFO]   DNA KUANTUM.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:57:38,464 [INFO]   DNA LAL.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:57:38,465 [INFO]   [1133/2258] ✓ LAL.NS DNA=0.482(C) P=3/9 anns=0
+2026-04-15 14:57:40,980 [INFO]   DNA LANCORHOL.NS: 0.459 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:57:40,980 [INFO]   [1136/2258] ✓ LANCORHOL.NS DNA=0.459(C) P=3/9 anns=0
+2026-04-15 14:57:43,430 [INFO]   DNA LASA.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:57:43,430 [INFO]   [1140/2258] ✓ LASA.NS DNA=0.452(C) P=4/9 anns=0
+2026-04-15 14:57:46,301 [INFO]   DNA LATTEYS.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:57:48,242 [INFO]   DNA LAXMICOT.NS: 0.333 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.65
+2026-04-15 14:57:50,919 [INFO]   DNA LAXMIINDIA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:57:55,155 [INFO]   DNA LEXUS.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:57:58,747 [INFO]   DNA LIBAS.NS: 0.425 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:58:00,658 [INFO]   DNA LIBERTSHOE.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:58:00,658 [INFO]   [1157/2258] ✓ LIBERTSHOE.NS DNA=0.460(C) P=6/9 anns=0
+2026-04-15 14:58:06,853 [INFO]   DNA LPDC.NS: 0.529 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:58:06,854 [INFO]   [1175/2258] ✓ LPDC.NS DNA=0.529(C) P=3/9 anns=0
+2026-04-15 14:58:11,434 [INFO]   DNA LYKALABS.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:58:16,394 [INFO]   DNA MAGNUM.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:58:18,940 [INFO]   DNA MAHAPEXLTD.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:58:18,941 [INFO]   [1199/2258] ✓ MAHAPEXLTD.NS DNA=0.472(C) P=5/9 anns=0
+2026-04-15 14:58:22,825 [INFO]   DNA MAHEPC.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:58:24,341 [INFO]   DNA MAHESHWARI.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 14:58:28,578 [INFO]   DNA MANAKALUCO.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:58:28,579 [INFO]   [1211/2258] ✓ MANAKALUCO.NS DNA=0.467(C) P=3/9 anns=0
+2026-04-15 14:58:31,201 [INFO]   DNA MANAKSIA.NS: 0.493 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:58:31,201 [INFO]   [1213/2258] ✓ MANAKSIA.NS DNA=0.493(C) P=3/9 anns=0
+2026-04-15 14:58:33,450 [INFO]   DNA MANBA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:58:33,450 [INFO]   [1217/2258] ✓ MANBA.NS DNA=0.463(C) P=5/9 anns=0
+2026-04-15 14:58:35,155 [INFO]   DNA MANCREDIT.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:58:35,156 [INFO]   [1218/2258] ✓ MANCREDIT.NS DNA=0.487(C) P=4/9 anns=0
+2026-04-15 14:58:37,439 [INFO]   DNA MANGALAM.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:58:37,440 [INFO]   [1219/2258] ✓ MANGALAM.NS DNA=0.452(C) P=8/9 anns=0
+2026-04-15 14:58:40,409 [INFO]   DNA MANOMAY.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 14:58:43,261 [INFO]   DNA MANUGRAPH.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 14:58:43,261 [INFO]   [1227/2258] ✓ MANUGRAPH.NS DNA=0.485(C) P=4/9 anns=0
+2026-04-15 14:58:46,416 [INFO]   DNA MARKOLINES.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:58:46,416 [INFO]   [1234/2258] ✓ MARKOLINES.NS DNA=0.454(C) P=3/9 anns=0
+2026-04-15 14:58:54,264 [INFO]   DNA MBLINFRA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:58:56,238 [INFO]   DNA MCL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:58:57,700 [INFO]   DNA MCLEODRUSS.NS: 0.305 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:59:01,160 [INFO]   DNA MEDICAMEQ.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:59:01,160 [INFO]   [1259/2258] ✓ MEDICAMEQ.NS DNA=0.454(C) P=2/9 anns=0
+2026-04-15 14:59:04,605 [INFO]   DNA MEDICO.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:59:04,605 [INFO]   [1260/2258] ✓ MEDICO.NS DNA=0.487(C) P=6/9 anns=0
+2026-04-15 14:59:07,765 [INFO]   DNA MEIL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:59:07,766 [INFO]   [1264/2258] ✓ MEIL.NS DNA=0.463(C) P=6/9 anns=0
+2026-04-15 14:59:12,719 [INFO]   DNA MGEL.NS: 0.440 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:59:18,238 [INFO]   DNA MINDTECK.NS: 0.422 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 14:59:20,584 [INFO]   DNA MIRZAINT.NS: 0.441 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:59:22,707 [INFO]   DNA MKPL.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 14:59:22,707 [INFO]   [1284/2258] ✓ MKPL.NS DNA=0.464(C) P=2/9 anns=0
+2026-04-15 14:59:28,474 [INFO]   DNA MODISONLTD.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:59:30,727 [INFO]   DNA MOKSH.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 14:59:32,830 [INFO]   DNA MOLDTECH.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 14:59:32,830 [INFO]   [1298/2258] ✓ MOLDTECH.NS DNA=0.454(C) P=6/9 anns=0
+2026-04-15 14:59:36,827 [INFO]   DNA MONEYBOXX.NS: 0.385 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 14:59:45,372 [INFO]   DNA MUFTI.NS: 0.453 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 14:59:45,372 [INFO]   [1320/2258] ✓ MUFTI.NS DNA=0.453(C) P=6/9 anns=0
+2026-04-15 15:00:00,029 [INFO]   DNA MUKKA.NS: 0.440 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:00:04,762 [INFO]   DNA MUNJALAU.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:00:06,756 [INFO]   DNA MUNJALSHOW.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:00:06,756 [INFO]   [1325/2258] ✓ MUNJALSHOW.NS DNA=0.460(C) P=5/9 anns=0
+2026-04-15 15:00:09,820 [INFO]   DNA MUTHOOTCAP.NS: 0.507 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:00:09,820 [INFO]   [1327/2258] ✓ MUTHOOTCAP.NS DNA=0.507(C) P=3/9 anns=0
+2026-04-15 15:00:22,973 [INFO]   DNA NECCLTD.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:00:22,973 [INFO]   [1362/2258] ✓ NECCLTD.NS DNA=0.467(C) P=5/9 anns=0
+2026-04-15 15:00:25,052 [INFO]   DNA NECLIFE.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:00:25,052 [INFO]   [1363/2258] ✓ NECLIFE.NS DNA=0.460(C) P=6/9 anns=0
+2026-04-15 15:00:31,459 [INFO]   DNA NIBL.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:00:31,460 [INFO]   [1382/2258] ✓ NIBL.NS DNA=0.460(C) P=5/9 anns=0
+2026-04-15 15:00:33,666 [INFO]   DNA NILAINFRA.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:00:33,667 [INFO]   [1385/2258] ✓ NILAINFRA.NS DNA=0.491(C) P=8/9 anns=0
+2026-04-15 15:00:37,886 [INFO]   DNA NILASPACES.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:00:39,762 [INFO]   DNA NIMBSPROJ.NS: 0.355 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.30
+2026-04-15 15:00:42,403 [INFO]   DNA NIRAJ.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:00:42,403 [INFO]   [1391/2258] ✓ NIRAJ.NS DNA=0.467(C) P=3/9 anns=0
+2026-04-15 15:00:49,517 [INFO]   DNA NOVAAGRI.NS: 0.435 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:00:52,495 [INFO]   DNA NRL.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:00:58,462 [INFO]   DNA OCCLLTD.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:01:01,414 [INFO]   DNA OILCOUNTUB.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:01:01,414 [INFO]   [1425/2258] ✓ OILCOUNTUB.NS DNA=0.482(C) P=7/9 anns=0
+2026-04-15 15:01:04,254 [INFO]   DNA OMAXAUTO.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:01:06,235 [INFO]   DNA OMFREIGHT.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:01:09,364 [INFO]   DNA ONMOBILE.NS: 0.412 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:01:11,679 [INFO]   DNA ONWARDTEC.NS: 0.390 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:01:14,483 [INFO]   DNA ORIENTALTL.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:01:19,069 [INFO]   DNA ORIENTCER.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:01:23,642 [INFO]   DNA ORIENTPPR.NS: 0.392 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:01:31,884 [INFO]   DNA OSWALAGRO.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:01:34,637 [INFO]   DNA OSWALSEEDS.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:01:37,667 [INFO]   DNA PAKKA.NS: 0.386 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:01:43,190 [INFO]   DNA PARSVNATH.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:01:43,190 [INFO]   [1481/2258] ✓ PARSVNATH.NS DNA=0.478(C) P=5/9 anns=0
+2026-04-15 15:01:45,745 [INFO]   DNA PASUPTAC.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:01:45,745 [INFO]   [1483/2258] ✓ PASUPTAC.NS DNA=0.460(C) P=5/9 anns=0
+2026-04-15 15:01:49,407 [INFO]   DNA PATELRMART.NS: 0.440 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:01:51,139 [INFO]   DNA PATINTLOG.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:01:52,952 [INFO]   DNA PAVNAIND.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:01:52,952 [INFO]   [1489/2258] ✓ PAVNAIND.NS DNA=0.464(C) P=4/9 anns=0
+2026-04-15 15:01:57,123 [INFO]   DNA PENINLAND.NS: 0.493 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:01:57,123 [INFO]   [1497/2258] ✓ PENINLAND.NS DNA=0.493(C) P=1/9 anns=0
+2026-04-15 15:02:03,159 [INFO]   DNA PIGL.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:02:06,878 [INFO]   DNA PILITA.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:02:06,878 [INFO]   [1514/2258] ✓ PILITA.NS DNA=0.451(C) P=9/9 anns=0
+2026-04-15 15:02:10,493 [INFO]   DNA PIONEEREMB.NS: 0.475 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:02:10,494 [INFO]   [1516/2258] ✓ PIONEEREMB.NS DNA=0.475(C) P=7/9 anns=0
+2026-04-15 15:02:13,448 [INFO]   DNA PLAZACABLE.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:02:13,448 [INFO]   [1523/2258] ✓ PLAZACABLE.NS DNA=0.467(C) P=7/9 anns=0
+2026-04-15 15:02:21,722 [INFO]   DNA PPL.NS: 0.392 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:02:24,689 [INFO]   DNA PRAENG.NS: 0.414 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:02:29,329 [INFO]   DNA PRAXIS.NS: 0.490 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:02:29,330 [INFO]   [1552/2258] ✓ PRAXIS.NS DNA=0.490(C) P=2/9 anns=0
+2026-04-15 15:02:33,570 [INFO]   DNA PREMIERPOL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:02:35,959 [INFO]   DNA PRIMO.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:02:39,199 [INFO]   DNA PRITIKAUTO.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:02:45,046 [INFO]   DNA PVSL.NS: 0.470 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:02:45,046 [INFO]   [1583/2258] ✓ PVSL.NS DNA=0.470(C) P=5/9 anns=0
+2026-04-15 15:02:50,623 [INFO]   DNA RADHIKAJWE.NS: 0.440 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:02:53,982 [INFO]   DNA RADIANTCMS.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:02:56,019 [INFO]   DNA RADIOCITY.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:02:56,020 [INFO]   [1596/2258] ✓ RADIOCITY.NS DNA=0.467(C) P=6/9 anns=0
+2026-04-15 15:03:02,709 [INFO]   DNA RAJSREESUG.NS: 0.495 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:03:02,710 [INFO]   [1605/2258] ✓ RAJSREESUG.NS DNA=0.495(C) P=5/9 anns=0
+2026-04-15 15:03:04,375 [INFO]   DNA RAJTV.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:03:04,375 [INFO]   [1606/2258] ✓ RAJTV.NS DNA=0.505(C) P=3/9 anns=0
+2026-04-15 15:03:07,277 [INFO]   DNA RAMANEWS.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:03:07,277 [INFO]   [1608/2258] ✓ RAMANEWS.NS DNA=0.486(C) P=5/9 anns=0
+2026-04-15 15:03:09,325 [INFO]   DNA RAMAPHO.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:03:13,815 [INFO]   DNA RANASUG.NS: 0.329 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:03:18,333 [INFO]   DNA RBZJEWEL.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:03:24,004 [INFO]   DNA RELIABLE.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:03:26,906 [INFO]   DNA REMSONSIND.NS: 0.510 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:03:26,906 [INFO]   [1641/2258] ✓ REMSONSIND.NS DNA=0.510(C) P=5/9 anns=0
+2026-04-15 15:03:29,130 [INFO]   DNA REPL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:03:34,900 [INFO]   DNA RITCO.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:03:34,900 [INFO]   [1655/2258] ✓ RITCO.NS DNA=0.463(C) P=2/9 anns=0
+2026-04-15 15:03:37,406 [INFO]   DNA RKDL.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:03:37,406 [INFO]   [1657/2258] ✓ RKDL.NS DNA=0.482(C) P=5/9 anns=0
+2026-04-15 15:03:39,447 [INFO]   DNA RKEC.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:03:42,349 [INFO]   DNA RKSWAMY.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:03:42,349 [INFO]   [1660/2258] ✓ RKSWAMY.NS DNA=0.463(C) P=3/9 anns=0
+2026-04-15 15:03:45,152 [INFO]   DNA RNBDENIMS.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:03:45,152 [INFO]   [1664/2258] ✓ RNBDENIMS.NS DNA=0.460(C) P=8/9 anns=0
+2026-04-15 15:03:49,406 [INFO]   DNA ROSSELLIND.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:03:49,406 [INFO]   [1670/2258] ✓ ROSSELLIND.NS DNA=0.513(C) P=6/9 anns=0
+2026-04-15 15:03:53,159 [INFO]   DNA RPPINFRA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:03:53,159 [INFO]   [1677/2258] ✓ RPPINFRA.NS DNA=0.467(C) P=5/9 anns=0
+2026-04-15 15:03:55,863 [INFO]   DNA RPPL.NS: 0.425 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:04:00,155 [INFO]   DNA RSSOFTWARE.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:04:02,365 [INFO]   DNA RSWM.NS: 0.408 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:04:05,569 [INFO]   DNA RUBFILA.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:04:05,569 [INFO]   [1688/2258] ✓ RUBFILA.NS DNA=0.454(C) P=6/9 anns=0
+2026-04-15 15:04:09,405 [INFO]   DNA RUCHINFRA.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:04:09,406 [INFO]   [1691/2258] ✓ RUCHINFRA.NS DNA=0.485(C) P=6/9 anns=0
+2026-04-15 15:04:11,735 [INFO]   DNA RUCHIRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:04:11,736 [INFO]   [1692/2258] ✓ RUCHIRA.NS DNA=0.487(C) P=6/9 anns=0
+2026-04-15 15:04:14,043 [INFO]   DNA RUDRA.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-04-15 15:04:16,316 [INFO]   DNA RUSHIL.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:04:21,028 [INFO]   DNA SADBHAV.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:04:26,420 [INFO]   DNA SAKHTISUG.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:04:29,593 [INFO]   DNA SAMBHAAV.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:04:29,594 [INFO]   [1722/2258] ✓ SAMBHAAV.NS DNA=0.485(C) P=8/9 anns=0
+2026-04-15 15:04:32,387 [INFO]   DNA SAMPANN.NS: 0.452 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:04:32,387 [INFO]   [1726/2258] ✓ SAMPANN.NS DNA=0.452(C) P=7/9 anns=0
+2026-04-15 15:04:37,506 [INFO]   DNA SARLAPOLY.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:04:39,833 [INFO]   DNA SATIA.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:04:41,719 [INFO]   DNA SAURASHCEM.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:04:41,719 [INFO]   [1748/2258] ✓ SAURASHCEM.NS DNA=0.469(C) P=5/9 anns=0
+2026-04-15 15:04:48,099 [INFO]   DNA SCHAND.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:04:48,099 [INFO]   [1757/2258] ✓ SCHAND.NS DNA=0.450(C) P=7/9 anns=0
+2026-04-15 15:04:52,487 [INFO]   DNA SECURKLOUD.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:04:59,065 [INFO]   DNA SGL.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:04:59,065 [INFO]   [1783/2258] ✓ SGL.NS DNA=0.482(C) P=7/9 anns=0
+2026-04-15 15:05:04,239 [INFO]   DNA SHALPAINTS.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:05:04,239 [INFO]   [1791/2258] ✓ SHALPAINTS.NS DNA=0.469(C) P=5/9 anns=0
+2026-04-15 15:05:06,001 [INFO]   DNA SHANKARA.NS: 0.490 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:05:06,001 [INFO]   [1792/2258] ✓ SHANKARA.NS DNA=0.490(C) P=6/9 anns=0
+2026-04-15 15:05:09,552 [INFO]   DNA SHEKHAWATI.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:05:09,553 [INFO]   [1799/2258] ✓ SHEKHAWATI.NS DNA=0.482(C) P=4/9 anns=0
+2026-04-15 15:05:13,803 [INFO]   DNA SHIVALIK.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:05:16,218 [INFO]   DNA SHIVAMAUTO.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:05:16,219 [INFO]   [1804/2258] ✓ SHIVAMAUTO.NS DNA=0.464(C) P=6/9 anns=0
+2026-04-15 15:05:20,381 [INFO]   DNA SHREERAMA.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:05:24,817 [INFO]   DNA SHYAMCENT.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:05:24,817 [INFO]   [1822/2258] ✓ SHYAMCENT.NS DNA=0.485(C) P=3/9 anns=0
+2026-04-15 15:05:30,365 [INFO]   DNA SIGMA.NS: 0.397 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:05:35,003 [INFO]   DNA SIL.NS: 0.444 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:05:38,527 [INFO]   DNA SINCLAIR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:05:38,528 [INFO]   [1841/2258] ✓ SINCLAIR.NS DNA=0.460(C) P=3/9 anns=0
+2026-04-15 15:05:42,070 [INFO]   DNA SINTERCOM.NS: 0.374 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:05:51,093 [INFO]   DNA SNOWMAN.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:05:57,643 [INFO]   DNA SPECIALITY.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:05:57,644 [INFO]   [1882/2258] ✓ SPECIALITY.NS DNA=0.486(C) P=7/9 anns=0
+2026-04-15 15:05:59,446 [INFO]   DNA SPENCERS.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:05:59,446 [INFO]   [1884/2258] ✓ SPENCERS.NS DNA=0.451(C) P=4/9 anns=0
+2026-04-15 15:06:01,915 [INFO]   DNA SRD.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:06:01,915 [INFO]   [1890/2258] ✓ SRD.NS DNA=0.487(C) P=4/9 anns=0
+2026-04-15 15:06:05,789 [INFO]   DNA SRTL.NS: 0.352 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.30
+2026-04-15 15:06:08,202 [INFO]   DNA SSDL.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:06:08,203 [INFO]   [1897/2258] ✓ SSDL.NS DNA=0.464(C) P=4/9 anns=0
+2026-04-15 15:06:11,290 [INFO]   DNA STANLEY.NS: 0.437 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:06:15,814 [INFO]   DNA STCINDIA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:06:15,814 [INFO]   [1906/2258] ✓ STCINDIA.NS DNA=0.463(C) P=2/9 anns=0
+2026-04-15 15:06:22,567 [INFO]   DNA SUBEXLTD.NS: 0.338 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:06:26,384 [INFO]   DNA SUMIT.NS: 0.389 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:06:32,528 [INFO]   DNA SUPERSPIN.NS: 0.333 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.65
+2026-04-15 15:06:35,864 [INFO]   DNA SUPREME.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:06:35,864 [INFO]   [1944/2258] ✓ SUPREME.NS DNA=0.478(C) P=4/9 anns=0
+2026-04-15 15:06:41,449 [INFO]   DNA SURANASOL.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:06:44,228 [INFO]   DNA SUTLEJTEX.NS: 0.441 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:06:51,198 [INFO]   DNA TARACHAND.NS: 0.386 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:06:55,431 [INFO]   DNA TARMAT.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:06:55,431 [INFO]   [1984/2258] ✓ TARMAT.NS DNA=0.505(C) P=5/9 anns=0
+2026-04-15 15:07:07,149 [INFO]   DNA TEXMOPIPES.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:07:09,792 [INFO]   DNA TFL.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:07:09,792 [INFO]   [2020/2258] ✓ TFL.NS DNA=0.505(C) P=3/9 anns=0
+2026-04-15 15:07:12,848 [INFO]   DNA TGBHOTELS.NS: 0.308 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.40
+2026-04-15 15:07:15,800 [INFO]   DNA THEMISMED.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:07:15,800 [INFO]   [2026/2258] ✓ THEMISMED.NS DNA=0.469(C) P=8/9 anns=0
+2026-04-15 15:07:18,473 [INFO]   DNA TICL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:07:18,473 [INFO]   [2032/2258] ✓ TICL.NS DNA=0.487(C) P=7/9 anns=0
+2026-04-15 15:07:19,989 [INFO]   DNA TIGERLOGS.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:07:19,989 [INFO]   [2033/2258] ✓ TIGERLOGS.NS DNA=0.467(C) P=5/9 anns=0
+2026-04-15 15:07:28,762 [INFO]   DNA TOLINS.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:07:28,762 [INFO]   [2054/2258] ✓ TOLINS.NS DNA=0.466(C) P=5/9 anns=0
+2026-04-15 15:07:31,879 [INFO]   DNA TPLPLASTEH.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:07:33,927 [INFO]   DNA TRACXN.NS: 0.395 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:07:36,179 [INFO]   DNA TRANSWORLD.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:07:36,179 [INFO]   [2063/2258] ✓ TRANSWORLD.NS DNA=0.467(C) P=9/9 anns=0
+2026-04-15 15:07:38,760 [INFO]   DNA TREEHOUSE.NS: 0.400 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:07:41,496 [INFO]   DNA TREL.NS: 0.507 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:07:41,496 [INFO]   [2067/2258] ✓ TREL.NS DNA=0.507(C) P=7/9 anns=0
+2026-04-15 15:07:45,152 [INFO]   DNA TRIGYN.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:07:49,080 [INFO]   DNA TTL.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:07:49,080 [INFO]   [2079/2258] ✓ TTL.NS DNA=0.464(C) P=5/9 anns=0
+2026-04-15 15:07:50,978 [INFO]   DNA TVSELECT.NS: 0.422 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:07:53,698 [INFO]   DNA TVTODAY.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:07:53,699 [INFO]   [2086/2258] ✓ TVTODAY.NS DNA=0.483(C) P=8/9 anns=0
+2026-04-15 15:07:56,009 [INFO]   DNA TVVISION.NS: 0.433 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.40 stage=0.85
+2026-04-15 15:08:01,100 [INFO]   DNA UFO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:08:05,000 [INFO]   DNA UGARSUGAR.NS: 0.409 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:08:09,153 [INFO]   DNA UMAEXPORTS.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:08:09,154 [INFO]   [2100/2258] ✓ UMAEXPORTS.NS DNA=0.482(C) P=2/9 anns=0
+2026-04-15 15:08:15,145 [INFO]   DNA UNITEDPOLY.NS: 0.338 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:08:17,848 [INFO]   DNA UNIVASTU.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:08:19,784 [INFO]   DNA UNIVPHOTO.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:08:22,306 [INFO]   DNA URJA.NS: 0.338 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:08:24,400 [INFO]   DNA USK.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:08:24,400 [INFO]   [2124/2258] ✓ USK.NS DNA=0.505(C) P=1/9 anns=0
+2026-04-15 15:08:27,313 [INFO]   DNA UYFINCORP.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:08:27,313 [INFO]   [2129/2258] ✓ UYFINCORP.NS DNA=0.487(C) P=3/9 anns=0
+2026-04-15 15:08:29,573 [INFO]   DNA VAISHALI.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:08:31,452 [INFO]   DNA VAKRANGEE.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:08:33,526 [INFO]   DNA VALIANTLAB.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:08:33,527 [INFO]   [2135/2258] ✓ VALIANTLAB.NS DNA=0.487(C) P=5/9 anns=0
+2026-04-15 15:08:36,388 [INFO]   DNA VALIANTORG.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:08:38,412 [INFO]   DNA VARDHACRLC.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:08:46,721 [INFO]   DNA VARDMNPOLY.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:08:46,722 [INFO]   [2138/2258] ✓ VARDMNPOLY.NS DNA=0.464(C) P=5/9 anns=0
+2026-04-15 15:08:49,361 [INFO]   DNA VASWANI.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:08:54,827 [INFO]   DNA VERTOZ.NS: 0.320 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-04-15 15:08:56,620 [INFO]   DNA VETO.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-04-15 15:08:58,728 [INFO]   DNA VGL.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:08:58,728 [INFO]   [2154/2258] ✓ VGL.NS DNA=0.464(C) P=8/9 anns=0
+2026-04-15 15:09:06,609 [INFO]   DNA VINEETLAB.NS: 0.395 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.85
+2026-04-15 15:09:09,283 [INFO]   DNA VIPCLOTHNG.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:09:11,471 [INFO]   DNA VIPULLTD.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-04-15 15:09:13,853 [INFO]   DNA VIRINCHI.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:09:16,242 [INFO]   DNA VISAKAIND.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:09:16,243 [INFO]   [2177/2258] ✓ VISAKAIND.NS DNA=0.456(C) P=6/9 anns=0
+2026-04-15 15:09:18,436 [INFO]   DNA VISHWARAJ.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:09:20,858 [INFO]   DNA VIVIMEDLAB.NS: 0.385 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:09:23,245 [INFO]   DNA VLEGOV.NS: 0.364 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-04-15 15:09:25,417 [INFO]   DNA VMSTMT.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-04-15 15:09:25,417 [INFO]   [2189/2258] ✓ VMSTMT.NS DNA=0.467(C) P=5/9 anns=0
+2026-04-15 15:09:29,294 [INFO]   DNA VPRPL.NS: 0.386 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:09:31,330 [INFO]   DNA VRAJ.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:09:43,101 [INFO]   DNA WSI.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:09:43,101 [INFO]   [2231/2258] ✓ WSI.NS DNA=0.463(C) P=1/9 anns=0
+2026-04-15 15:09:44,990 [INFO]   DNA XCHANGING.NS: 0.448 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:09:52,993 [INFO]   DNA XTGLOBAL.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:09:52,993 [INFO]   [2236/2258] ✓ XTGLOBAL.NS DNA=0.468(C) P=6/9 anns=0
+2026-04-15 15:09:56,976 [INFO]   DNA ZEEMEDIA.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:09:58,999 [INFO]   DNA ZENITHSTL.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-04-15 15:10:05,784 [INFO]   DNA ZIMLAB.NS: 0.410 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-04-15 15:10:08,483 [INFO]   DNA ZUARIIND.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-04-15 15:10:08,483 [INFO]   [2256/2258] ✓ ZUARIIND.NS DNA=0.456(C) P=2/9 anns=0
+2026-04-15 15:10:08,879 [INFO] 
+Enriching top 30 with Screener.in...
+2026-04-15 15:10:08,879 [INFO] Enriching 30 candidates with Screener.in data...
+2026-04-15 15:10:08,879 [INFO]   [1/30] Screener fetch: NILAINFRA
+2026-04-15 15:10:12,383 [INFO]   [2/30] Screener fetch: AMJLAND
+2026-04-15 15:10:15,821 [INFO]   [3/30] Screener fetch: TICL
+2026-04-15 15:10:19,265 [INFO]   [4/30] Screener fetch: VGL
+2026-04-15 15:10:22,746 [INFO]   [5/30] Screener fetch: IGCL
+2026-04-15 15:10:26,190 [INFO]   [6/30] Screener fetch: TREL
+2026-04-15 15:10:29,624 [INFO]   [7/30] Screener fetch: ROSSELLIND
+2026-04-15 15:10:33,105 [INFO]   [8/30] Screener fetch: RNBDENIMS
+2026-04-15 15:10:36,542 [INFO]   [9/30] Screener fetch: BMWVENTLTD
+2026-04-15 15:10:39,976 [INFO]   [10/30] Screener fetch: AMDIND
+2026-04-15 15:10:43,456 [INFO]   [11/30] Screener fetch: CCCL
+2026-04-15 15:10:46,893 [INFO]   [12/30] Screener fetch: TVTODAY
+2026-04-15 15:10:50,331 [INFO]   [13/30] Screener fetch: PLAZACABLE
+2026-04-15 15:10:53,811 [INFO]   [14/30] Screener fetch: SAMBHAAV
+2026-04-15 15:10:57,250 [INFO]   [15/30] Screener fetch: TOLINS
+2026-04-15 15:11:00,683 [INFO]   [16/30] Screener fetch: MEDICO
+2026-04-15 15:11:04,140 [INFO]   [17/30] Screener fetch: PASUPTAC
+2026-04-15 15:11:07,573 [INFO]   [18/30] Screener fetch: TRANSWORLD
+2026-04-15 15:11:11,037 [INFO]   [19/30] Screener fetch: OILCOUNTUB
+2026-04-15 15:11:14,459 [INFO]   [20/30] Screener fetch: SHANKARA
+2026-04-15 15:11:17,892 [INFO]   [21/30] Screener fetch: CHEMCON
+2026-04-15 15:11:21,358 [INFO]   [22/30] Screener fetch: XTGLOBAL
+2026-04-15 15:11:24,784 [INFO]   [23/30] Screener fetch: REMSONSIND
+2026-04-15 15:11:28,224 [INFO]   [24/30] Screener fetch: RADIOCITY
+2026-04-15 15:11:31,685 [INFO]   [25/30] Screener fetch: MANUGRAPH
+2026-04-15 15:11:35,108 [INFO]   [26/30] Screener fetch: NIBL
+2026-04-15 15:11:38,543 [INFO]   [27/30] Screener fetch: GOYALALUM
+2026-04-15 15:11:42,016 [INFO]   [28/30] Screener fetch: SPECIALITY
+2026-04-15 15:11:45,431 [INFO]   [29/30] Screener fetch: BAIDFIN
+2026-04-15 15:11:48,871 [INFO]   [30/30] Screener fetch: UYFINCORP
+2026-04-15 15:11:52,321 [INFO] Screener enrichment: 0/30 fetched successfully.
+2026-04-15 15:11:52,322 [INFO] Fetching concall signals for top 20...
+2026-04-15 15:11:54,777 [INFO]   🎙️ NILAINFRA.NS: concall=0.30 final=0.572
+2026-04-15 15:11:57,195 [INFO]   🎙️ AMJLAND.NS: concall=0.30 final=0.570
+2026-04-15 15:11:59,637 [INFO]   🎙️ TICL.NS: concall=0.30 final=0.568
+2026-04-15 15:12:02,074 [INFO]   🎙️ VGL.NS: concall=0.30 final=0.554
+2026-04-15 15:12:04,504 [INFO]   🎙️ IGCL.NS: concall=0.30 final=0.554
+2026-04-15 15:12:06,951 [INFO]   🎙️ TREL.NS: concall=0.30 final=0.550
+2026-04-15 15:12:09,381 [INFO]   🎙️ ROSSELLIND.NS: concall=0.30 final=0.546
+2026-04-15 15:12:11,828 [INFO]   🎙️ RNBDENIMS.NS: concall=0.30 final=0.545
+2026-04-15 15:12:14,263 [INFO]   🎙️ BMWVENTLTD.NS: concall=0.30 final=0.542
+2026-04-15 15:12:16,681 [INFO]   🎙️ AMDIND.NS: concall=0.30 final=0.541
+2026-04-15 15:12:19,130 [INFO]   🎙️ CCCL.NS: concall=0.30 final=0.539
+2026-04-15 15:12:21,580 [INFO]   🎙️ TVTODAY.NS: concall=0.30 final=0.538
+2026-04-15 15:12:23,988 [INFO]   🎙️ PLAZACABLE.NS: concall=0.30 final=0.537
+2026-04-15 15:12:26,428 [INFO]   🎙️ SAMBHAAV.NS: concall=0.30 final=0.536
+2026-04-15 15:12:28,890 [INFO]   🎙️ TOLINS.NS: concall=0.30 final=0.536
+2026-04-15 15:12:31,312 [INFO]   🎙️ MEDICO.NS: concall=0.30 final=0.535
+2026-04-15 15:12:33,735 [INFO]   🎙️ PASUPTAC.NS: concall=0.30 final=0.533
+2026-04-15 15:12:36,185 [INFO]   🎙️ TRANSWORLD.NS: concall=0.30 final=0.533
+2026-04-15 15:12:38,622 [INFO]   🎙️ OILCOUNTUB.NS: concall=0.30 final=0.532
+2026-04-15 15:12:41,059 [INFO]   🎙️ SHANKARA.NS: concall=0.30 final=0.528
+2026-04-15 15:12:41,061 [INFO] Layer 2 v5: 148 passed → 15 final
+2026-04-15 15:12:41,061 [INFO] 
+▶ Conviction plays...
+2026-04-15 15:12:41,061 [INFO]   0 conviction plays
+2026-04-15 15:12:41,061 [INFO] 
+▶ Persistence tracker...
+2026-04-15 15:12:41,061 [INFO] ▶ Running scan history tracker...
+2026-04-15 15:12:41,077 [INFO]   Tracker: 15 enriched, 9 watch_now (regime=UNKNOWN), 52 total in history
+2026-04-15 15:12:41,082 [INFO] 
+✅ Done — L1:2 L2:15 Conviction:0 WatchNow:9
