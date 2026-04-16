@@ -1,28 +1,21 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-04-15 14:45 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-04-16 14:16 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
-  MARKET REGIME:  ⚪ UNKNOWN
-  Could not fetch market data from yfinance
+  MARKET REGIME:  🔴 BEAR
+  Index below 200EMA, -5.8% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    24197.0  1M: +4.5%  3M: -5.8%
 ════════════════════════════════════════════════════════════════════════
-  Top 2 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 1 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  KRISHANA.NS       Score: 0.734   MCap: ₹3775.0 Cr
-    Price ₹610.5      RSI 76.1    ADX 44.3    Sector: Other  SectorMom3M: None%
-    MomScore: 1.90  6M: +17.1%  12M: +161.2%  3M: +18.3%
-    MACD: ↑Expanding  BB%B: 0.95  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:41/-DI:10
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.58   ROE: 38.1%   D/E: 1.31   FCF Yield: -10.09%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 44.3 (+DI 41.2 / -DI 10.5) | 💰 Rev Growth 59.8% | ✅ ROE 38.1%
-
-#02  SOUTHWEST.NS      Score: 0.732   MCap: ₹731.0 Cr
-    Price ₹242.55     RSI 74.3    ADX 42.1    Sector: Energy  SectorMom3M: 9.4%
-    MomScore: 2.00  6M: +87.3%  12M: +127.1%  3M: +33.9%
-    MACD: ↑Expanding  BB%B: 0.95  BBSqueeze: –  Structure: HH/HL✓  +DI:27/-DI:5
-    RS Days: 3  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.42   ROE: None%   D/E: 0.52   FCF Yield: None%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 42.1 (+DI 27.3 / -DI 5.4) | ⚡ 3M Return +33.9%
+#01  SHARDACROP.NS     Score: 0.594   MCap: ₹9931.0 Cr
+    Price ₹1100.8     RSI 72.6    ADX 31.8    Sector: Other  SectorMom3M: None%
+    MomScore: 1.40  6M: +34.9%  12M: +121.0%  3M: +37.5%
+    MACD: ↑Expanding  BB%B: 0.94  BBSqueeze: –  Structure: HH/HL✓  +DI:32/-DI:16
+    RS Days: 0  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.52   ROE: None%   D/E: 0.15   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 31.8 (+DI 32.3 / -DI 16.5) | ⚡ 3M Return +37.5% | 💰 Rev Growth 38.7%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
