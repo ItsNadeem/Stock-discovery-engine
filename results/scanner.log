@@ -32441,3 +32441,273 @@ Enriching top 30 with Screener.in...
 2026-05-06 14:15:34,331 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 68 total in history
 2026-05-06 14:15:34,337 [INFO] 
 ✅ Done — L1:20 L2:15 Conviction:0 WatchNow:0
+2026-05-07 13:58:19,716 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-05-07 13:58:19,716 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-05-07 13:58:19,716 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-05-07 13:58:19,716 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-05-07 13:58:19,716 [INFO] 
+▶ Market regime...
+2026-05-07 13:58:20,218 [INFO]   BEAR — Index below 200EMA, -3.0% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+2026-05-07 13:58:20,218 [INFO] Fetching NSE equity list from NSE archives...
+2026-05-07 13:58:20,507 [INFO] Fetched 2365 NSE symbols
+2026-05-07 13:58:20,508 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-05-07 13:58:20,509 [INFO] ══════════════════════════════════════════════════════
+2026-05-07 13:58:20,509 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-05-07 13:58:20,509 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-05-07 13:58:20,509 [INFO] ══════════════════════════════════════════════════════
+2026-05-07 13:58:20,511 [INFO] Loaded 2365 symbols from cache
+2026-05-07 13:58:20,511 [INFO] Universe: 2365 NSE symbols
+2026-05-07 13:58:20,511 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-05-07 13:58:20,585 [INFO]   Nifty returns loaded: 58 days
+2026-05-07 13:58:20,585 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-05-07 13:58:21,905 [INFO]   Sector momentum: {'IT': -23.7, 'Pharma': 12.0, 'Auto': 2.2, 'Metals': 13.9, 'Energy': 18.9, 'FMCG': 0.9, 'Realty': 6.4, 'Infra': 4.2, 'Media': 8.1, 'Midcap': 6.5}
+2026-05-07 13:58:21,905 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-05-07 13:58:21,905 [INFO]   Batch 1/48 (50 symbols)...
+2026-05-07 13:58:25,683 [INFO]     ✓ AADHARHFC.NS     ₹500.45   MomScore=0.07  6M=-2%  12M=+5%  Sector=Financial Services  ADX=34.2
+2026-05-07 13:58:33,373 [INFO]   Batch 2/48 (50 symbols)...
+2026-05-07 13:58:35,633 [INFO]     ✓ ADANIPORTS.NS    ₹1732.8   MomScore=0.89  6M=+20%  12M=+29%  Sector=Other  ADX=52.1
+2026-05-07 13:58:38,223 [INFO]     ✓ AEROFLEX.NS      ₹413.6    MomScore=2.60  6M=+118%  12M=+151%  Sector=Other  ADX=40.2
+2026-05-07 13:58:44,798 [INFO]   Batch 3/48 (50 symbols)...
+2026-05-07 13:58:50,178 [INFO]     ✓ AMBER.NS         ₹8842.5   MomScore=0.72  6M=+11%  12M=+45%  Sector=FMCG  ADX=60.3
+2026-05-07 13:58:51,975 [INFO]     ✓ ANDHRSUGAR.NS    ₹102.31   MomScore=1.22  6M=+27%  12M=+47%  Sector=Other  ADX=84.9
+2026-05-07 13:58:53,581 [INFO]     ✓ ANURAS.NS        ₹1367.0   MomScore=1.61  6M=+27%  12M=+57%  Sector=Other  ADX=38.1
+2026-05-07 13:58:56,368 [INFO]   Batch 4/48 (50 symbols)...
+2026-05-07 13:59:02,431 [INFO]     ✓ ARTEMISMED.NS    ₹264.81   MomScore=0.14  6M=+5%  12M=+5%  Sector=Other  ADX=55.4
+2026-05-07 13:59:04,148 [INFO]     ✓ ASHAPURMIN.NS    ₹664.25   MomScore=0.81  6M=-2%  12M=+90%  Sector=Other  ADX=65.1
+2026-05-07 13:59:04,339 [INFO]     ✓ ASHIANA.NS       ₹373.5    MomScore=1.20  6M=+33%  12M=+42%  Sector=Realty  ADX=47.6
+2026-05-07 13:59:08,121 [INFO]   Batch 5/48 (50 symbols)...
+2026-05-07 13:59:10,702 [INFO]     ✓ ASTERDM.NS       ₹738.55   MomScore=0.81  6M=+9%  12M=+42%  Sector=Pharma  ADX=41.6
+2026-05-07 13:59:14,799 [INFO]     ✓ AVL.NS           ₹556.2    MomScore=0.46  6M=-2%  12M=+36%  Sector=FMCG  ADX=42.3
+2026-05-07 13:59:15,971 [INFO]     ✓ AXISCADES.NS     ₹2132.7   MomScore=1.96  6M=+36%  12M=+164%  Sector=Other  ADX=59.3
+2026-05-07 13:59:17,734 [INFO]     ✓ BAJAJ-AUTO.NS    ₹10605.0  MomScore=1.23  6M=+19%  12M=+37%  Sector=FMCG  ADX=38.5
+2026-05-07 13:59:20,119 [INFO]   Batch 6/48 (50 symbols)...
+2026-05-07 13:59:24,253 [INFO]     ✓ BAJFINANCE.NS    ₹972.75   MomScore=0.05  6M=-7%  12M=+10%  Sector=Financial Services  ADX=42.6
+2026-05-07 13:59:25,670 [INFO]     ✓ BALRAMCHIN.NS    ₹525.5    MomScore=0.17  6M=+15%  12M=-4%  Sector=FMCG  ADX=29.2
+2026-05-07 13:59:30,224 [INFO]     ✓ BEML.NS          ₹2000.2   MomScore=0.18  6M=-8%  12M=+24%  Sector=Other  ADX=58.5
+2026-05-07 13:59:32,224 [INFO]   Batch 7/48 (50 symbols)...
+2026-05-07 13:59:37,917 [INFO]     ✓ BHARATWIRE.NS    ₹237.11   MomScore=0.42  6M=+13%  12M=+33%  Sector=Other  ADX=69.9
+2026-05-07 13:59:41,071 [INFO]     ✓ BLISSGVS.NS      ₹272.0    MomScore=1.83  6M=+76%  12M=+133%  Sector=Pharma  ADX=26.1
+2026-05-07 13:59:41,255 [INFO]     ✓ BLKASHYAP.NS     ₹62.28    MomScore=0.01  6M=+6%  12M=-4%  Sector=Other  ADX=35.2
+2026-05-07 13:59:41,521 [INFO]     ✓ BLSE.NS          ₹200.81   MomScore=0.38  6M=+1%  12M=+37%  Sector=Other  ADX=56.9
+2026-05-07 13:59:44,582 [INFO]   Batch 8/48 (50 symbols)...
+2026-05-07 13:59:53,937 [INFO]     ✓ CARBORUNIV.NS    ₹1003.4   MomScore=0.18  6M=+12%  12M=-0%  Sector=Other  ADX=69.1
+2026-05-07 13:59:56,935 [INFO]   Batch 9/48 (50 symbols)...
+2026-05-07 14:00:02,625 [INFO]     ✓ CGCL.NS          ₹200.14   MomScore=0.23  6M=-2%  12M=+18%  Sector=Financial Services  ADX=52.0
+2026-05-07 14:00:04,007 [INFO]     ✓ CHENNPETRO.NS    ₹1076.2   MomScore=0.90  6M=+14%  12M=+75%  Sector=Energy  ADX=30.3
+2026-05-07 14:00:04,786 [INFO]     ✓ CIEINDIA.NS      ₹481.35   MomScore=0.55  6M=+11%  12M=+20%  Sector=FMCG  ADX=29.2
+2026-05-07 14:00:06,029 [INFO]     ✓ CLSEL.NS         ₹298.45   MomScore=0.04  6M=+6%  12M=-3%  Sector=FMCG  ADX=55.8
+2026-05-07 14:00:06,620 [INFO]     ✓ COALINDIA.NS     ₹466.65   MomScore=1.26  6M=+25%  12M=+30%  Sector=Energy  ADX=34.0
+2026-05-07 14:00:09,087 [INFO]   Batch 10/48 (50 symbols)...
+2026-05-07 14:00:15,459 [INFO]     ✓ CREDITACC.NS     ₹1490.4   MomScore=0.41  6M=+6%  12M=+27%  Sector=Financial Services  ADX=50.1
+2026-05-07 14:00:17,011 [INFO]     ✓ CUMMINSIND.NS    ₹5403.0   MomScore=2.11  6M=+24%  12M=+86%  Sector=Other  ADX=48.7
+2026-05-07 14:00:18,401 [INFO]     ✓ DALMIASUG.NS     ₹388.4    MomScore=0.25  6M=+14%  12M=+5%  Sector=FMCG  ADX=44.3
+2026-05-07 14:00:20,789 [INFO]   Batch 11/48 (50 symbols)...
+2026-05-07 14:00:23,685 [INFO]     ✓ DATAPATTNS.NS    ₹4250.1   MomScore=1.50  6M=+54%  12M=+86%  Sector=Other  ADX=62.2
+2026-05-07 14:00:26,813 [INFO]     ✓ DEEDEV.NS        ₹457.7    MomScore=1.71  6M=+78%  12M=+104%  Sector=Other  ADX=62.4
+2026-05-07 14:00:29,236 [INFO]     ✓ DHANBANK.NS      ₹32.2     MomScore=0.48  6M=+22%  12M=+13%  Sector=Financial Services  ADX=65.9
+2026-05-07 14:00:30,077 [INFO]     ✓ DIACABS.NS       ₹169.9    MomScore=1.16  6M=+10%  12M=+91%  Sector=Other  ADX=77.8
+2026-05-07 14:00:32,814 [INFO]   Batch 12/48 (50 symbols)...
+2026-05-07 14:00:36,606 [INFO]     ✓ DIVISLAB.NS      ₹6702.5   MomScore=0.23  6M=-0%  12M=+11%  Sector=Pharma  ADX=68.5
+2026-05-07 14:00:45,061 [INFO]   Batch 13/48 (50 symbols)...
+2026-05-07 14:00:51,945 [INFO]     ✓ ENGINERSIN.NS    ₹261.35   MomScore=0.99  6M=+32%  12M=+48%  Sector=Other  ADX=76.2
+2026-05-07 14:00:53,339 [INFO]     ✓ EQUITASBNK.NS    ₹73.28    MomScore=0.50  6M=+21%  12M=+14%  Sector=Financial Services  ADX=68.0
+2026-05-07 14:00:56,982 [INFO]   Batch 14/48 (50 symbols)...
+2026-05-07 14:01:05,661 [INFO]     ✓ FORTIS.NS        ₹947.7    MomScore=0.57  6M=-8%  12M=+39%  Sector=Pharma  ADX=52.0
+2026-05-07 14:01:08,372 [INFO]   Batch 15/48 (50 symbols)...
+2026-05-07 14:01:11,825 [INFO]     ✓ GANDHAR.NS       ₹153.0    MomScore=0.28  6M=+15%  12M=+6%  Sector=Energy  ADX=27.8
+2026-05-07 14:01:17,989 [INFO]     ✓ GENUSPOWER.NS    ₹332.0    MomScore=0.08  6M=-6%  12M=+12%  Sector=Other  ADX=58.6
+2026-05-07 14:01:18,279 [INFO]     ✓ GESHIP.NS        ₹1552.4   MomScore=1.86  6M=+45%  12M=+71%  Sector=Other  ADX=36.2
+2026-05-07 14:01:20,764 [INFO]     ✓ GLENMARK.NS      ₹2371.6   MomScore=1.58  6M=+25%  12M=+69%  Sector=Pharma  ADX=46.0
+2026-05-07 14:01:23,019 [INFO]   Batch 16/48 (50 symbols)...
+2026-05-07 14:01:30,589 [INFO]     ✓ GOKULAGRO.NS     ₹237.0    MomScore=1.52  6M=+41%  12M=+102%  Sector=FMCG  ADX=65.0
+2026-05-07 14:01:30,908 [INFO]     ✓ GOLDIAM.NS       ₹417.35   MomScore=0.23  6M=+11%  12M=+12%  Sector=FMCG  ADX=54.1
+2026-05-07 14:01:35,872 [INFO]   Batch 17/48 (50 symbols)...
+2026-05-07 14:01:42,200 [INFO]     ✓ GULPOLY.NS       ₹188.12   MomScore=0.29  6M=+24%  12M=-2%  Sector=Other  ADX=49.7
+2026-05-07 14:01:43,874 [INFO]     ✓ HARDWYN.NS       ₹23.93    MomScore=1.71  6M=+63%  12M=+82%  Sector=Other  ADX=80.7
+2026-05-07 14:01:45,268 [INFO]     ✓ HBLENGINE.NS     ₹848.2    MomScore=0.64  6M=-15%  12M=+77%  Sector=Other  ADX=41.7
+2026-05-07 14:01:47,533 [INFO]   Batch 18/48 (50 symbols)...
+2026-05-07 14:01:51,924 [INFO]     ✓ HEMIPROP.NS      ₹147.11   MomScore=0.23  6M=+6%  12M=+15%  Sector=Realty  ADX=29.2
+2026-05-07 14:01:59,029 [INFO]   Batch 19/48 (50 symbols)...
+2026-05-07 14:02:05,522 [INFO]     ✓ IKS.NS           ₹1695.7   MomScore=0.26  6M=+3%  12M=+15%  Sector=Unknown  ADX=48.1
+2026-05-07 14:02:08,509 [INFO]   Batch 20/48 (50 symbols)...
+2026-05-07 14:02:13,342 [INFO]     ✓ INDUSINDBK.NS    ₹946.95   MomScore=0.54  6M=+19%  12M=+12%  Sector=Unknown  ADX=54.9
+2026-05-07 14:02:14,313 [INFO]     ✓ INOXGREEN.NS     ₹192.8    MomScore=0.08  6M=-29%  12M=+37%  Sector=Unknown  ADX=75.8
+2026-05-07 14:02:14,401 [INFO]     ✓ INOXINDIA.NS     ₹1554.5   MomScore=1.44  6M=+31%  12M=+57%  Sector=Unknown  ADX=55.4
+2026-05-07 14:02:17,738 [INFO]   Batch 21/48 (50 symbols)...
+2026-05-07 14:02:21,181 [INFO]     ✓ IRMENERGY.NS     ₹320.5    MomScore=0.15  6M=+1%  12M=+15%  Sector=Unknown  ADX=69.0
+2026-05-07 14:02:21,809 [INFO]     ✓ ITI.NS           ₹303.65   MomScore=0.12  6M=-7%  12M=+18%  Sector=Unknown  ADX=56.6
+2026-05-07 14:02:22,748 [INFO]     ✓ J&KBANK.NS       ₹139.63   MomScore=1.11  6M=+30%  12M=+48%  Sector=Financial Services  ADX=34.0
+2026-05-07 14:02:23,303 [INFO]     ✓ JAICORPLTD.NS    ₹121.64   MomScore=0.16  6M=-28%  12M=+44%  Sector=Other  ADX=48.7
+2026-05-07 14:02:24,733 [INFO]     ✓ JAYNECOIND.NS    ₹114.93   MomScore=1.76  6M=+47%  12M=+181%  Sector=Other  ADX=87.6
+2026-05-07 14:02:25,063 [INFO]     ✓ JBCHEPHARM.NS    ₹2143.2   MomScore=1.41  6M=+26%  12M=+38%  Sector=Pharma  ADX=52.2
+2026-05-07 14:02:28,715 [INFO]   Batch 22/48 (50 symbols)...
+2026-05-07 14:02:31,954 [INFO]     ✓ JMFINANCIL.NS    ₹142.85   MomScore=0.34  6M=-14%  12M=+45%  Sector=Unknown  ADX=38.4
+2026-05-07 14:02:32,050 [INFO]     ✓ JNKINDIA.NS      ₹362.1    MomScore=0.29  6M=+24%  12M=+3%  Sector=Unknown  ADX=79.8
+2026-05-07 14:02:33,438 [INFO]     ✓ JUBLINGREA.NS    ₹756.85   MomScore=0.25  6M=+10%  12M=+10%  Sector=Unknown  ADX=55.2
+2026-05-07 14:02:37,238 [INFO]   Batch 23/48 (50 symbols)...
+2026-05-07 14:02:44,143 [INFO]     ✓ KIMS.NS          ₹706.85   MomScore=0.07  6M=-3%  12M=+7%  Sector=Pharma  ADX=31.0
+2026-05-07 14:02:45,149 [INFO]     ✓ KIRLOSENG.NS     ₹1727.9   MomScore=2.41  6M=+73%  12M=+135%  Sector=Other  ADX=56.8
+2026-05-07 14:02:45,993 [INFO]     ✓ KMEW.NS          ₹2161.4   MomScore=2.54  6M=+82%  12M=+211%  Sector=Other  ADX=33.8
+2026-05-07 14:02:46,189 [INFO]     ✓ KMSUGAR.NS       ₹31.02    MomScore=0.42  6M=+12%  12M=+13%  Sector=FMCG  ADX=44.8
+2026-05-07 14:02:46,853 [INFO]     ✓ KOLTEPATIL.NS    ₹384.25   MomScore=0.05  6M=-11%  12M=+14%  Sector=Realty  ADX=58.3
+2026-05-07 14:02:48,853 [INFO]   Batch 24/48 (50 symbols)...
+2026-05-07 14:02:52,811 [INFO]     ✓ KPIL.NS          ₹1297.9   MomScore=0.61  6M=+3%  12M=+35%  Sector=Unknown  ADX=63.6
+2026-05-07 14:02:53,227 [INFO]     ✓ KRBL.NS          ₹377.95   MomScore=0.30  6M=+1%  12M=+25%  Sector=Unknown  ADX=56.6
+2026-05-07 14:02:53,466 [INFO]     ✓ KRISHANA.NS      ₹680.5    MomScore=1.72  6M=+35%  12M=+130%  Sector=Unknown  ADX=49.5
+2026-05-07 14:02:54,453 [INFO]     ✓ KRYSTAL.NS       ₹614.35   MomScore=0.22  6M=+3%  12M=+17%  Sector=Unknown  ADX=62.6
+2026-05-07 14:02:55,117 [INFO]     ✓ KTKBANK.NS       ₹266.8    MomScore=1.42  6M=+50%  12M=+41%  Sector=Unknown  ADX=48.8
+2026-05-07 14:02:55,836 [INFO]     ✓ LALPATHLAB.NS    ₹1565.5   MomScore=0.24  6M=+0%  12M=+13%  Sector=Unknown  ADX=50.0
+2026-05-07 14:02:58,413 [INFO]   Batch 25/48 (50 symbols)...
+2026-05-07 14:03:00,776 [INFO]     ✓ LAURUSLABS.NS    ₹1206.5   MomScore=2.05  6M=+24%  12M=+96%  Sector=Unknown  ADX=34.3
+2026-05-07 14:03:02,568 [INFO]     ✓ LINCOLN.NS       ₹670.65   MomScore=0.59  6M=+26%  12M=+19%  Sector=Unknown  ADX=55.4
+2026-05-07 14:03:02,909 [INFO]     ✓ LLOYDSENGG.NS    ₹61.27    MomScore=0.17  6M=+3%  12M=+13%  Sector=Unknown  ADX=69.5
+2026-05-07 14:03:03,047 [INFO]     ✓ LLOYDSENT.NS     ₹69.88    MomScore=0.32  6M=+0%  12M=+37%  Sector=Unknown  ADX=69.4
+2026-05-07 14:03:03,183 [INFO]     ✓ LLOYDSME.NS      ₹1726.7   MomScore=0.96  6M=+31%  12M=+40%  Sector=Unknown  ADX=81.8
+2026-05-07 14:03:04,315 [INFO]     ✓ LTF.NS           ₹303.65   MomScore=1.44  6M=+9%  12M=+85%  Sector=Unknown  ADX=41.2
+2026-05-07 14:03:04,453 [INFO]     ✓ LTFOODS.NS       ₹432.2    MomScore=0.35  6M=+4%  12M=+26%  Sector=Unknown  ADX=33.5
+2026-05-07 14:03:07,664 [INFO]   Batch 26/48 (50 symbols)...
+2026-05-07 14:03:15,409 [INFO]     ✓ MARINE.NS        ₹235.72   MomScore=0.21  6M=-2%  12M=+22%  Sector=Other  ADX=68.1
+2026-05-07 14:03:16,220 [INFO]     ✓ MASFIN.NS        ₹347.25   MomScore=0.66  6M=+9%  12M=+31%  Sector=Financial Services  ADX=54.1
+2026-05-07 14:03:18,393 [INFO]   Batch 27/48 (50 symbols)...
+2026-05-07 14:03:22,853 [INFO]     ✓ MAWANASUG.NS     ₹114.45   MomScore=0.94  6M=+31%  12M=+32%  Sector=Unknown  ADX=53.9
+2026-05-07 14:03:23,869 [INFO]     ✓ MCLEODRUSS.NS    ₹60.57    MomScore=0.69  6M=-4%  12M=+80%  Sector=Unknown  ADX=64.9
+2026-05-07 14:03:25,632 [INFO]     ✓ METROPOLIS.NS    ₹505.6    MomScore=0.37  6M=+3%  12M=+19%  Sector=Unknown  ADX=50.2
+2026-05-07 14:03:26,403 [INFO]     ✓ MIDHANI.NS       ₹413.7    MomScore=0.42  6M=+6%  12M=+31%  Sector=Unknown  ADX=62.4
+2026-05-07 14:03:29,237 [INFO]   Batch 28/48 (50 symbols)...
+2026-05-07 14:03:34,182 [INFO]     ✓ MSPL.NS          ₹40.18    MomScore=0.74  6M=+20%  12M=+48%  Sector=Unknown  ADX=33.8
+2026-05-07 14:03:34,757 [INFO]     ✓ MUFIN.NS         ₹118.62   MomScore=0.69  6M=-1%  12M=+58%  Sector=Unknown  ADX=53.2
+2026-05-07 14:03:35,655 [INFO]     ✓ MUTHOOTMF.NS     ₹208.5    MomScore=0.73  6M=+24%  12M=+39%  Sector=Unknown  ADX=42.5
+2026-05-07 14:03:38,234 [INFO]   Batch 29/48 (50 symbols)...
+2026-05-07 14:03:41,437 [INFO]     ✓ NATCOPHARM.NS    ₹1155.2   MomScore=1.08  6M=+39%  12M=+36%  Sector=Unknown  ADX=29.9
+2026-05-07 14:03:46,604 [INFO]     ✓ NH.NS            ₹1856.2   MomScore=0.13  6M=+4%  12M=+5%  Sector=Pharma  ADX=32.2
+2026-05-07 14:03:49,003 [INFO]   Batch 30/48 (50 symbols)...
+2026-05-07 14:03:52,990 [INFO]     ✓ NLCINDIA.NS      ₹328.7    MomScore=1.21  6M=+28%  12M=+49%  Sector=Unknown  ADX=60.4
+2026-05-07 14:03:53,133 [INFO]     ✓ NMDC.NS          ₹90.14    MomScore=1.19  6M=+22%  12M=+43%  Sector=Unknown  ADX=33.9
+2026-05-07 14:03:53,223 [INFO]     ✓ NOCIL.NS         ₹188.84   MomScore=0.16  6M=+4%  12M=+7%  Sector=Unknown  ADX=78.1
+2026-05-07 14:03:54,015 [INFO]     ✓ NRBBEARING.NS    ₹300.15   MomScore=0.76  6M=+11%  12M=+44%  Sector=Unknown  ADX=61.8
+2026-05-07 14:03:54,313 [INFO]     ✓ NSLNISP.NS       ₹44.24    MomScore=0.29  6M=-3%  12M=+26%  Sector=Unknown  ADX=48.8
+2026-05-07 14:03:58,010 [INFO]   Batch 31/48 (50 symbols)...
+2026-05-07 14:04:00,928 [INFO]     ✓ ONEPOINT.NS      ₹59.55    MomScore=0.36  6M=+27%  12M=+4%  Sector=Unknown  ADX=44.4
+2026-05-07 14:04:05,209 [INFO]     ✓ PAISALO.NS       ₹49.55    MomScore=0.93  6M=+32%  12M=+47%  Sector=Financial Services  ADX=89.6
+2026-05-07 14:04:09,029 [INFO]   Batch 32/48 (50 symbols)...
+2026-05-07 14:04:14,137 [INFO]     ✓ PHOENIXLTD.NS    ₹1829.5   MomScore=0.31  6M=+7%  12M=+10%  Sector=Unknown  ADX=37.5
+2026-05-07 14:04:18,052 [INFO]   Batch 33/48 (50 symbols)...
+2026-05-07 14:04:20,967 [INFO]     ✓ POLYCAB.NS       ₹9003.0   MomScore=1.27  6M=+18%  12M=+56%  Sector=Unknown  ADX=48.8
+2026-05-07 14:04:22,269 [INFO]     ✓ PRAJIND.NS       ₹403.6    MomScore=0.07  6M=+19%  12M=-13%  Sector=Unknown  ADX=58.5
+2026-05-07 14:04:22,995 [INFO]     ✓ PRECWIRE.NS      ₹405.7    MomScore=2.67  6M=+81%  12M=+198%  Sector=Unknown  ADX=63.1
+2026-05-07 14:04:23,156 [INFO]     ✓ PREMEXPLN.NS     ₹559.45   MomScore=0.18  6M=-15%  12M=+36%  Sector=Unknown  ADX=47.0
+2026-05-07 14:04:26,599 [INFO]   Batch 34/48 (50 symbols)...
+2026-05-07 14:04:30,836 [INFO]     ✓ RADICO.NS        ₹3407.0   MomScore=0.72  6M=+9%  12M=+39%  Sector=Unknown  ADX=72.9
+2026-05-07 14:04:32,894 [INFO]     ✓ RAMRAT.NS        ₹454.0    MomScore=1.52  6M=+45%  12M=+77%  Sector=Unknown  ADX=72.1
+2026-05-07 14:04:33,320 [INFO]     ✓ RATEGAIN.NS      ₹634.2    MomScore=0.48  6M=-1%  12M=+41%  Sector=Unknown  ADX=37.3
+2026-05-07 14:04:35,529 [INFO]   Batch 35/48 (50 symbols)...
+2026-05-07 14:04:38,390 [INFO]     ✓ RBLBANK.NS       ₹345.75   MomScore=1.15  6M=+5%  12M=+70%  Sector=Unknown  ADX=37.3
+2026-05-07 14:04:41,203 [INFO]     ✓ RISHABH.NS       ₹502.5    MomScore=1.10  6M=+23%  12M=+96%  Sector=Unknown  ADX=42.2
+2026-05-07 14:04:44,742 [INFO]   Batch 36/48 (50 symbols)...
+2026-05-07 14:04:47,601 [INFO]     ✓ RPSGVENT.NS      ₹984.6    MomScore=0.44  6M=+20%  12M=+23%  Sector=Unknown  ADX=30.4
+2026-05-07 14:04:47,688 [INFO]     ✓ RPTECH.NS        ₹511.95   MomScore=2.13  6M=+56%  12M=+90%  Sector=Unknown  ADX=66.1
+2026-05-07 14:04:50,756 [INFO]     ✓ SAILIFE.NS       ₹1089.7   MomScore=1.01  6M=+18%  12M=+52%  Sector=Unknown  ADX=42.9
+2026-05-07 14:04:53,283 [INFO]   Batch 37/48 (50 symbols)...
+2026-05-07 14:04:56,767 [INFO]     ✓ SANGHVIMOV.NS    ₹337.75   MomScore=0.09  6M=-16%  12M=+26%  Sector=Unknown  ADX=47.9
+2026-05-07 14:04:57,653 [INFO]     ✓ SARDAEN.NS       ₹593.95   MomScore=0.58  6M=+12%  12M=+34%  Sector=Unknown  ADX=40.5
+2026-05-07 14:04:58,130 [INFO]     ✓ SATIN.NS         ₹203.79   MomScore=0.90  6M=+30%  12M=+24%  Sector=Unknown  ADX=72.3
+2026-05-07 14:04:59,346 [INFO]     ✓ SCHNEIDER.NS     ₹1343.4   MomScore=2.11  6M=+56%  12M=+129%  Sector=Unknown  ADX=81.2
+2026-05-07 14:04:59,437 [INFO]     ✓ SCI.NS           ₹319.6    MomScore=1.26  6M=+28%  12M=+92%  Sector=Unknown  ADX=65.5
+2026-05-07 14:04:59,574 [INFO]     ✓ SCILAL.NS        ₹52.07    MomScore=0.13  6M=+1%  12M=+8%  Sector=Unknown  ADX=50.2
+2026-05-07 14:05:01,930 [INFO]   Batch 38/48 (50 symbols)...
+2026-05-07 14:05:05,119 [INFO]     ✓ SETCO.NS         ₹26.9     MomScore=0.93  6M=+42%  12M=+46%  Sector=Unknown  ADX=34.7
+2026-05-07 14:05:11,673 [INFO]   Batch 39/48 (50 symbols)...
+2026-05-07 14:05:14,766 [INFO]     ✓ SHRIRAMPPS.NS    ₹91.52    MomScore=0.17  6M=-4%  12M=+18%  Sector=Unknown  ADX=57.8
+2026-05-07 14:05:17,399 [INFO]     ✓ SIS.NS           ₹398.15   MomScore=0.81  6M=+22%  12M=+25%  Sector=Unknown  ADX=84.2
+2026-05-07 14:05:20,483 [INFO]   Batch 40/48 (50 symbols)...
+2026-05-07 14:05:22,968 [INFO]     ✓ SOBHA.NS         ₹1451.0   MomScore=0.00  6M=-10%  12M=+11%  Sector=Unknown  ADX=57.6
+2026-05-07 14:05:24,327 [INFO]     ✓ SOUTHBANK.NS     ₹41.76    MomScore=0.96  6M=+11%  12M=+66%  Sector=Unknown  ADX=36.9
+2026-05-07 14:05:24,616 [INFO]     ✓ SPANDANA.NS      ₹279.05   MomScore=0.13  6M=+12%  12M=-1%  Sector=Unknown  ADX=38.5
+2026-05-07 14:05:25,358 [INFO]     ✓ SPMLINFRA.NS     ₹221.68   MomScore=0.20  6M=-4%  12M=+26%  Sector=Unknown  ADX=72.2
+2026-05-07 14:05:25,494 [INFO]     ✓ SPORTKING.NS     ₹155.64   MomScore=1.02  6M=+57%  12M=+42%  Sector=Unknown  ADX=49.5
+2026-05-07 14:05:26,554 [INFO]     ✓ STARCEMENT.NS    ₹238.56   MomScore=0.06  6M=-7%  12M=+10%  Sector=Unknown  ADX=40.2
+2026-05-07 14:05:29,073 [INFO]   Batch 41/48 (50 symbols)...
+2026-05-07 14:05:41,008 [INFO]     ✓ SUNPHARMA.NS     ₹1834.4   MomScore=0.27  6M=+9%  12M=+2%  Sector=Pharma  ADX=33.7
+2026-05-07 14:05:45,790 [INFO]   Batch 42/48 (50 symbols)...
+2026-05-07 14:05:50,385 [INFO]     ✓ TANLA.NS         ₹574.0    MomScore=0.11  6M=-7%  12M=+18%  Sector=Unknown  ADX=46.3
+2026-05-07 14:05:51,703 [INFO]     ✓ TATAINVEST.NS    ₹732.5    MomScore=0.16  6M=-8%  12M=+22%  Sector=Unknown  ADX=63.8
+2026-05-07 14:05:55,559 [INFO]   Batch 43/48 (50 symbols)...
+2026-05-07 14:05:59,155 [INFO]     ✓ TEMBO.NS         ₹605.95   MomScore=0.37  6M=-6%  12M=+40%  Sector=Other  ADX=52.4
+2026-05-07 14:06:00,102 [INFO]     ✓ TFCILTD.NS       ₹83.69    MomScore=1.23  6M=+20%  12M=+101%  Sector=Financial Services  ADX=52.5
+2026-05-07 14:06:01,764 [INFO]     ✓ THERMAX.NS       ₹4182.3   MomScore=1.00  6M=+30%  12M=+30%  Sector=Other  ADX=69.7
+2026-05-07 14:06:02,528 [INFO]     ✓ TI.NS            ₹469.55   MomScore=0.59  6M=-11%  12M=+61%  Sector=FMCG  ADX=31.4
+2026-05-07 14:06:04,623 [INFO]     ✓ TITAGARH.NS      ₹844.3    MomScore=0.11  6M=-7%  12M=+15%  Sector=Other  ADX=45.9
+2026-05-07 14:06:04,931 [INFO]     ✓ TMB.NS           ₹743.65   MomScore=1.84  6M=+49%  12M=+68%  Sector=Financial Services  ADX=41.7
+2026-05-07 14:06:05,464 [INFO]     ✓ TNPL.NS          ₹157.0    MomScore=0.32  6M=+1%  12M=+21%  Sector=Other  ADX=71.6
+2026-05-07 14:06:07,465 [INFO]   Batch 44/48 (50 symbols)...
+2026-05-07 14:06:10,751 [INFO]     ✓ TORNTPHARM.NS    ₹4362.7   MomScore=1.38  6M=+21%  12M=+34%  Sector=Unknown  ADX=38.7
+2026-05-07 14:06:15,655 [INFO]     ✓ UGARSUGAR.NS     ₹44.99    MomScore=0.14  6M=+5%  12M=+4%  Sector=FMCG  ADX=58.5
+2026-05-07 14:06:18,209 [INFO]   Batch 45/48 (50 symbols)...
+2026-05-07 14:06:21,534 [INFO]     ✓ UNITEDPOLY.NS    ₹33.22    MomScore=0.57  6M=-18%  12M=+82%  Sector=Unknown  ADX=56.1
+2026-05-07 14:06:21,822 [INFO]     ✓ UNIVCABLES.NS    ₹1076.1   MomScore=1.61  6M=+48%  12M=+116%  Sector=Unknown  ADX=57.1
+2026-05-07 14:06:26,413 [INFO]   Batch 46/48 (50 symbols)...
+2026-05-07 14:06:31,208 [INFO]   Batch 47/48 (50 symbols)...
+2026-05-07 14:06:33,416 [INFO]     ✓ VTL.NS           ₹596.45   MomScore=0.91  6M=+34%  12M=+30%  Sector=Unknown  ADX=63.2
+2026-05-07 14:06:33,587 [INFO]     ✓ WELENT.NS        ₹524.45   MomScore=0.01  6M=-7%  12M=+8%  Sector=Unknown  ADX=79.2
+2026-05-07 14:06:33,627 [INFO]     ✓ WELSPUNLIV.NS    ₹132.24   MomScore=0.08  6M=+1%  12M=+7%  Sector=Unknown  ADX=30.7
+2026-05-07 14:06:33,740 [INFO]     ✓ WINDMACHIN.NS    ₹316.5    MomScore=0.09  6M=+8%  12M=-0%  Sector=Unknown  ADX=56.8
+2026-05-07 14:06:33,908 [INFO]     ✓ YATHARTH.NS      ₹822.25   MomScore=0.97  6M=+1%  12M=+73%  Sector=Unknown  ADX=46.2
+2026-05-07 14:06:33,947 [INFO]     ✓ YESBANK.NS       ₹22.51    MomScore=0.41  6M=-2%  12M=+27%  Sector=Unknown  ADX=59.5
+2026-05-07 14:06:36,002 [INFO]   Batch 48/48 (15 symbols)...
+2026-05-07 14:06:38,947 [INFO] Stage 1 complete. Momentum candidates: 144
+2026-05-07 14:06:38,947 [INFO] Cross-sectional gate (top 20%): 144 → 29 (threshold: 1.261)
+2026-05-07 14:06:38,947 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-05-07 14:06:38,956 [INFO]   ✓ AEROFLEX.NS      score=0.761  mom=2.60  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:39,270 [INFO]   ✓ ANURAS.NS        score=0.690  mom=1.61  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:39,577 [INFO]   ✓ AXISCADES.NS     score=0.746  mom=1.96  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:39,885 [INFO]   ✓ BLISSGVS.NS      score=0.655  mom=1.83  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:40,193 [INFO]   ✓ COALINDIA.NS     score=0.660  mom=1.26  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:40,503 [INFO]   ✓ CUMMINSIND.NS    score=0.710  mom=2.11  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:40,811 [INFO]   ✓ DATAPATTNS.NS    score=0.691  mom=1.50  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:41,119 [INFO]   ✓ DEEDEV.NS        score=0.729  mom=1.71  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:41,428 [INFO]   ✓ GESHIP.NS        score=0.702  mom=1.86  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:41,736 [INFO]   ✓ GLENMARK.NS      score=0.649  mom=1.58  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:42,045 [INFO]   ✓ GOKULAGRO.NS     score=0.686  mom=1.52  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:42,353 [INFO]   ✓ HARDWYN.NS       score=0.623  mom=1.71  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:42,661 [INFO]   ✓ INOXINDIA.NS     score=0.568  mom=1.44  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:42,970 [INFO]   ✓ JAYNECOIND.NS    score=0.714  mom=1.76  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:43,278 [INFO]   ✓ JBCHEPHARM.NS    score=0.586  mom=1.41  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:43,588 [INFO]   ✓ KIRLOSENG.NS     score=0.703  mom=2.41  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:43,900 [INFO]   ✓ KMEW.NS          score=0.699  mom=2.54  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:44,209 [INFO]   ✓ KRISHANA.NS      score=0.622  mom=1.72  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:44,516 [INFO]   ✓ KTKBANK.NS       score=0.643  mom=1.42  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:44,826 [INFO]   ✓ LAURUSLABS.NS    score=0.713  mom=2.05  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:45,136 [INFO]   ✓ LTF.NS           score=0.578  mom=1.44  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:45,445 [INFO]   ✓ POLYCAB.NS       score=0.637  mom=1.27  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:45,753 [INFO]   ✓ PRECWIRE.NS      score=0.693  mom=2.67  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:46,062 [INFO]   ✓ RAMRAT.NS        score=0.674  mom=1.52  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:46,370 [INFO]   ✓ RPTECH.NS        score=0.779  mom=2.13  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:46,681 [INFO]   ✓ SCHNEIDER.NS     score=0.780  mom=2.11  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:46,989 [INFO]   ✓ TMB.NS           score=0.685  mom=1.84  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:47,297 [INFO]   ✓ TORNTPHARM.NS    score=0.590  mom=1.38  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:47,605 [INFO]   ✓ UNIVCABLES.NS    score=0.677  mom=1.61  fscore=0.500  FCF=N/A%
+2026-05-07 14:06:47,905 [INFO] Stage 2 complete. 29 passed → top 20
+2026-05-07 14:06:47,910 [INFO] Results written to results/
+2026-05-07 14:06:47,911 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-05-07 14:06:47,911 [INFO] Initialising public data fetcher...
+2026-05-07 14:07:08,130 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-05-07 14:07:08,130 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-05-07 14:07:08,130 [INFO] Layer 2 v5: scanning 2365 symbols...
+2026-05-07 14:08:37,847 [INFO] 
+Enriching top 0 with Screener.in...
+2026-05-07 14:08:37,847 [INFO] Enriching 0 candidates with Screener.in data...
+2026-05-07 14:08:37,847 [INFO] Screener enrichment: 0/0 fetched successfully.
+2026-05-07 14:08:37,847 [INFO] Fetching concall signals for top 0...
+2026-05-07 14:08:37,848 [INFO] Layer 2 v5: 0 passed → 0 final
+2026-05-07 14:08:37,848 [INFO] 
+▶ Conviction plays...
+2026-05-07 14:08:37,848 [INFO]   0 conviction plays
+2026-05-07 14:08:37,848 [INFO] 
+▶ Persistence tracker...
+2026-05-07 14:08:37,848 [INFO] ▶ Running scan history tracker...
+2026-05-07 14:08:37,865 [INFO]   Tracker: 0 enriched, 0 watch_now (regime=BEAR), 68 total in history
+2026-05-07 14:08:37,869 [INFO] 
+✅ Done — L1:20 L2:0 Conviction:0 WatchNow:0
