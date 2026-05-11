@@ -32972,3 +32972,845 @@ Enriching top 0 with Screener.in...
 2026-05-08 14:08:35,585 [INFO]   Tracker: 0 enriched, 0 watch_now (regime=BEAR), 68 total in history
 2026-05-08 14:08:35,588 [INFO] 
 ✅ Done — L1:20 L2:0 Conviction:0 WatchNow:0
+2026-05-11 14:06:28,631 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-05-11 14:06:28,631 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-05-11 14:06:28,631 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-05-11 14:06:28,631 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-05-11 14:06:28,631 [INFO] 
+▶ Market regime...
+2026-05-11 14:06:29,135 [INFO]   BEAR — Index below 200EMA, -7.6% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+2026-05-11 14:06:29,135 [INFO] Fetching NSE equity list from NSE archives...
+2026-05-11 14:06:29,627 [INFO] Fetched 2388 NSE symbols
+2026-05-11 14:06:29,629 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-05-11 14:06:29,629 [INFO] ══════════════════════════════════════════════════════
+2026-05-11 14:06:29,629 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-05-11 14:06:29,629 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-05-11 14:06:29,629 [INFO] ══════════════════════════════════════════════════════
+2026-05-11 14:06:29,631 [INFO] Loaded 2388 symbols from cache
+2026-05-11 14:06:29,631 [INFO] Universe: 2388 NSE symbols
+2026-05-11 14:06:29,631 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-05-11 14:06:29,697 [INFO]   Nifty returns loaded: 58 days
+2026-05-11 14:06:29,697 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-05-11 14:06:31,641 [INFO]   Sector momentum: {'IT': -19.3, 'Pharma': 9.2, 'Auto': -3.9, 'Metals': 7.3, 'Energy': 10.1, 'FMCG': 0.6, 'Realty': -3.1, 'Infra': -2.4, 'Media': 3.0, 'Midcap': 2.1}
+2026-05-11 14:06:31,641 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-05-11 14:06:31,641 [INFO]   Batch 1/48 (50 symbols)...
+2026-05-11 14:06:42,247 [INFO]     ✓ ABSLAMC.NS       ₹1059.3   MomScore=1.54  6M=+38%  12M=+68%  Sector=Financial Services  ADX=42.1
+2026-05-11 14:06:44,815 [INFO]     ✓ ADANIENT.NS      ₹2500.2   MomScore=0.22  6M=+8%  12M=+6%  Sector=Energy  ADX=81.7
+2026-05-11 14:06:47,085 [INFO]   Batch 2/48 (50 symbols)...
+2026-05-11 14:06:50,351 [INFO]     ✓ ADANIPORTS.NS    ₹1767.3   MomScore=1.03  6M=+23%  12M=+33%  Sector=Other  ADX=50.3
+2026-05-11 14:06:54,139 [INFO]     ✓ AEROFLEX.NS      ₹398.6    MomScore=2.56  6M=+121%  12M=+150%  Sector=Other  ADX=42.1
+2026-05-11 14:07:02,358 [INFO]   Batch 3/48 (50 symbols)...
+2026-05-11 14:07:09,495 [INFO]     ✓ AMBER.NS         ₹8539.5   MomScore=0.67  6M=+9%  12M=+43%  Sector=FMCG  ADX=58.1
+2026-05-11 14:07:11,885 [INFO]     ✓ ANDHRSUGAR.NS    ₹99.5     MomScore=1.03  6M=+21%  12M=+41%  Sector=Other  ADX=84.0
+2026-05-11 14:07:14,066 [INFO]     ✓ ANURAS.NS        ₹1361.1   MomScore=1.55  6M=+27%  12M=+55%  Sector=Other  ADX=43.7
+2026-05-11 14:07:14,813 [INFO]     ✓ APEX.NS          ₹494.5    MomScore=1.88  6M=+109%  12M=+135%  Sector=FMCG  ADX=53.0
+2026-05-11 14:07:16,813 [INFO]   Batch 4/48 (50 symbols)...
+2026-05-11 14:07:20,742 [INFO]     ✓ APOLLOHOSP.NS    ₹8082.0   MomScore=0.50  6M=+4%  12M=+16%  Sector=Pharma  ADX=30.7
+2026-05-11 14:07:20,972 [INFO]     ✓ APOLLOPIPE.NS    ₹487.7    MomScore=0.94  6M=+66%  12M=+25%  Sector=Other  ADX=41.1
+2026-05-11 14:07:26,063 [INFO]     ✓ ARVIND.NS        ₹440.85   MomScore=0.82  6M=+42%  12M=+19%  Sector=FMCG  ADX=34.0
+2026-05-11 14:07:27,560 [INFO]     ✓ ASHAPURMIN.NS    ₹656.05   MomScore=0.91  6M=+6%  12M=+93%  Sector=Other  ADX=63.0
+2026-05-11 14:07:32,066 [INFO]   Batch 5/48 (50 symbols)...
+2026-05-11 14:07:38,324 [INFO]     ✓ ATULAUTO.NS      ₹492.75   MomScore=0.19  6M=+8%  12M=+8%  Sector=FMCG  ADX=63.7
+2026-05-11 14:07:39,094 [INFO]     ✓ AUROPHARMA.NS    ₹1486.6   MomScore=1.01  6M=+29%  12M=+23%  Sector=Pharma  ADX=33.3
+2026-05-11 14:07:42,754 [INFO]     ✓ AXISCADES.NS     ₹2072.3   MomScore=1.98  6M=+41%  12M=+161%  Sector=Other  ADX=54.3
+2026-05-11 14:07:44,221 [INFO]     ✓ BAJAJ-AUTO.NS    ₹10595.5  MomScore=1.31  6M=+22%  12M=+38%  Sector=FMCG  ADX=39.5
+2026-05-11 14:07:46,612 [INFO]   Batch 6/48 (50 symbols)...
+2026-05-11 14:07:52,027 [INFO]     ✓ BALAMINES.NS     ₹1414.4   MomScore=0.14  6M=-1%  12M=+13%  Sector=Other  ADX=64.4
+2026-05-11 14:07:52,852 [INFO]     ✓ BALMLAWRIE.NS    ₹195.53   MomScore=0.06  6M=+1%  12M=+2%  Sector=Other  ADX=66.6
+2026-05-11 14:07:54,050 [INFO]     ✓ BANCOINDIA.NS    ₹622.35   MomScore=0.48  6M=-22%  12M=+74%  Sector=FMCG  ADX=45.6
+2026-05-11 14:07:54,234 [INFO]     ✓ BANDHANBNK.NS    ₹201.23   MomScore=0.80  6M=+32%  12M=+27%  Sector=Financial Services  ADX=58.8
+2026-05-11 14:08:01,311 [INFO]   Batch 7/48 (50 symbols)...
+2026-05-11 14:08:04,444 [INFO]     ✓ BEML.NS          ₹1910.7   MomScore=0.22  6M=-4%  12M=+23%  Sector=Other  ADX=60.3
+2026-05-11 14:08:08,036 [INFO]     ✓ BHARATWIRE.NS    ₹252.83   MomScore=0.66  6M=+27%  12M=+46%  Sector=Other  ADX=67.8
+2026-05-11 14:08:15,877 [INFO]   Batch 8/48 (50 symbols)...
+2026-05-11 14:08:27,785 [INFO]     ✓ CARBORUNIV.NS    ₹1039.0   MomScore=0.34  6M=+16%  12M=+6%  Sector=Other  ADX=63.9
+2026-05-11 14:08:28,186 [INFO]     ✓ CARRARO.NS       ₹589.3    MomScore=0.75  6M=+13%  12M=+53%  Sector=FMCG  ADX=49.5
+2026-05-11 14:08:30,609 [INFO]   Batch 9/48 (50 symbols)...
+2026-05-11 14:08:35,432 [INFO]     ✓ CEIGALL.NS       ₹366.7    MomScore=1.49  6M=+46%  12M=+44%  Sector=Other  ADX=94.0
+2026-05-11 14:08:38,357 [INFO]     ✓ CGCL.NS          ₹191.1    MomScore=0.19  6M=-3%  12M=+18%  Sector=Financial Services  ADX=54.9
+2026-05-11 14:08:45,630 [INFO]   Batch 10/48 (50 symbols)...
+2026-05-11 14:08:48,985 [INFO]     ✓ COALINDIA.NS     ₹464.45   MomScore=1.29  6M=+26%  12M=+30%  Sector=Energy  ADX=38.1
+2026-05-11 14:08:49,185 [INFO]     ✓ COASTCORP.NS     ₹62.39    MomScore=1.22  6M=+57%  12M=+76%  Sector=FMCG  ADX=54.6
+2026-05-11 14:08:49,378 [INFO]     ✓ COCHINSHIP.NS    ₹1716.5   MomScore=0.23  6M=+1%  12M=+18%  Sector=Other  ADX=71.0
+2026-05-11 14:08:51,307 [INFO]     ✓ CONCOR.NS        ₹530.0    MomScore=0.05  6M=+3%  12M=-1%  Sector=Other  ADX=70.0
+2026-05-11 14:08:53,908 [INFO]     ✓ CRAFTSMAN.NS     ₹8806.0   MomScore=1.52  6M=+30%  12M=+83%  Sector=FMCG  ADX=59.2
+2026-05-11 14:08:56,759 [INFO]     ✓ CUMMINSIND.NS    ₹5238.5   MomScore=2.11  6M=+22%  12M=+87%  Sector=Other  ADX=45.5
+2026-05-11 14:08:56,969 [INFO]     ✓ CUPID.NS         ₹130.96   MomScore=7.53  6M=+167%  12M=+671%  Sector=FMCG  ADX=74.3
+2026-05-11 14:09:00,339 [INFO]   Batch 11/48 (50 symbols)...
+2026-05-11 14:09:10,240 [INFO]     ✓ DEEDEV.NS        ₹492.7    MomScore=2.14  6M=+100%  12M=+129%  Sector=Other  ADX=59.1
+2026-05-11 14:09:12,944 [INFO]     ✓ DHAMPURSUG.NS    ₹159.0    MomScore=0.66  6M=+20%  12M=+28%  Sector=FMCG  ADX=42.8
+2026-05-11 14:09:16,345 [INFO]   Batch 12/48 (50 symbols)...
+2026-05-11 14:09:19,350 [INFO]     ✓ DIACABS.NS       ₹174.75   MomScore=1.27  6M=+17%  12M=+93%  Sector=Other  ADX=75.2
+2026-05-11 14:09:27,305 [INFO]     ✓ DYCL.NS          ₹410.8    MomScore=0.55  6M=+9%  12M=+51%  Sector=Other  ADX=71.0
+2026-05-11 14:09:30,779 [INFO]   Batch 13/48 (50 symbols)...
+2026-05-11 14:09:34,727 [INFO]     ✓ EIEL.NS          ₹219.17   MomScore=0.03  6M=-8%  12M=+11%  Sector=Other  ADX=39.9
+2026-05-11 14:09:41,021 [INFO]     ✓ ENGINERSIN.NS    ₹248.4    MomScore=0.92  6M=+29%  12M=+45%  Sector=Other  ADX=72.1
+2026-05-11 14:09:42,707 [INFO]     ✓ EQUITASBNK.NS    ₹69.8     MomScore=0.40  6M=+15%  12M=+12%  Sector=Financial Services  ADX=74.0
+2026-05-11 14:09:45,305 [INFO]   Batch 14/48 (50 symbols)...
+2026-05-11 14:09:49,429 [INFO]     ✓ EUREKAFORB.NS    ₹533.25   MomScore=0.10  6M=-2%  12M=+8%  Sector=FMCG  ADX=42.2
+2026-05-11 14:09:50,436 [INFO]     ✓ EVEREADY.NS      ₹335.75   MomScore=0.00  6M=-10%  12M=+10%  Sector=Other  ADX=70.2
+2026-05-11 14:10:00,316 [INFO]   Batch 15/48 (50 symbols)...
+2026-05-11 14:10:05,254 [INFO]     ✓ FUSION.NS        ₹218.36   MomScore=0.70  6M=+22%  12M=+39%  Sector=Financial Services  ADX=71.4
+2026-05-11 14:10:05,453 [INFO]     ✓ GABRIEL.NS       ₹1125.1   MomScore=0.79  6M=-8%  12M=+94%  Sector=FMCG  ADX=53.6
+2026-05-11 14:10:06,513 [INFO]     ✓ GANDHAR.NS       ₹145.8    MomScore=0.18  6M=+11%  12M=+3%  Sector=Energy  ADX=28.4
+2026-05-11 14:10:11,130 [INFO]     ✓ GENUSPOWER.NS    ₹327.4    MomScore=0.10  6M=-8%  12M=+16%  Sector=Other  ADX=58.0
+2026-05-11 14:10:11,562 [INFO]     ✓ GESHIP.NS        ₹1582.3   MomScore=2.29  6M=+53%  12M=+86%  Sector=Other  ADX=37.9
+2026-05-11 14:10:15,395 [INFO]   Batch 16/48 (50 symbols)...
+2026-05-11 14:10:25,146 [INFO]     ✓ GODREJIND.NS     ₹1146.05  MomScore=0.10  6M=+6%  12M=+2%  Sector=Other  ADX=74.6
+2026-05-11 14:10:25,932 [INFO]     ✓ GOKULAGRO.NS     ₹238.9    MomScore=1.58  6M=+37%  12M=+110%  Sector=FMCG  ADX=74.3
+2026-05-11 14:10:26,358 [INFO]     ✓ GOLDIAM.NS       ₹416.15   MomScore=0.38  6M=+18%  12M=+19%  Sector=FMCG  ADX=48.2
+2026-05-11 14:10:26,743 [INFO]     ✓ GOODLUCK.NS      ₹1389.8   MomScore=1.09  6M=+14%  12M=+96%  Sector=Other  ADX=53.4
+2026-05-11 14:10:30,175 [INFO]   Batch 17/48 (50 symbols)...
+2026-05-11 14:10:40,753 [INFO]     ✓ GULPOLY.NS       ₹192.65   MomScore=0.32  6M=+23%  12M=+2%  Sector=Other  ADX=51.3
+2026-05-11 14:10:41,436 [INFO]     ✓ GVT&D.NS         ₹4432.9   MomScore=2.67  6M=+48%  12M=+174%  Sector=Other  ADX=67.7
+2026-05-11 14:10:44,739 [INFO]   Batch 18/48 (50 symbols)...
+2026-05-11 14:10:50,567 [INFO]     ✓ HBLENGINE.NS     ₹829.7    MomScore=0.53  6M=-16%  12M=+66%  Sector=Other  ADX=43.2
+2026-05-11 14:10:57,529 [INFO]     ✓ HINDOILEXP.NS    ₹165.11   MomScore=0.03  6M=+9%  12M=-7%  Sector=Energy  ADX=38.6
+2026-05-11 14:11:00,492 [INFO]   Batch 19/48 (50 symbols)...
+2026-05-11 14:11:05,608 [INFO]     ✓ HONASA.NS        ₹352.95   MomScore=0.91  6M=+26%  12M=+40%  Sector=FMCG  ADX=35.9
+2026-05-11 14:11:06,760 [INFO]     ✓ HSCL.NS          ₹615.95   MomScore=1.24  6M=+35%  12M=+45%  Sector=Other  ADX=83.9
+2026-05-11 14:11:09,440 [INFO]     ✓ ICIL.NS          ₹294.8    MomScore=0.01  6M=+8%  12M=-7%  Sector=FMCG  ADX=48.9
+2026-05-11 14:11:11,244 [INFO]     ✓ IFCI.NS          ₹63.02    MomScore=0.72  6M=+16%  12M=+55%  Sector=Financial Services  ADX=40.5
+2026-05-11 14:11:14,966 [INFO]   Batch 20/48 (50 symbols)...
+2026-05-11 14:11:20,380 [INFO]     ✓ INDGN.NS         ₹543.0    MomScore=0.01  6M=+2%  12M=-2%  Sector=Pharma  ADX=44.1
+2026-05-11 14:11:20,986 [INFO]     ✓ INDIAGLYCO.NS    ₹1110.8   MomScore=0.92  6M=+14%  12M=+63%  Sector=Other  ADX=65.9
+2026-05-11 14:11:24,292 [INFO]     ✓ INDOTECH.NS      ₹2730.0   MomScore=0.72  6M=+64%  12M=+23%  Sector=Other  ADX=87.0
+2026-05-11 14:11:26,191 [INFO]     ✓ INDUSINDBK.NS    ₹922.3    MomScore=0.49  6M=+17%  12M=+11%  Sector=Financial Services  ADX=61.1
+2026-05-11 14:11:30,475 [INFO]   Batch 21/48 (50 symbols)...
+2026-05-11 14:11:35,648 [INFO]     ✓ IOLCP.NS         ₹108.77   MomScore=0.98  6M=+22%  12M=+73%  Sector=Pharma  ADX=55.7
+2026-05-11 14:11:36,199 [INFO]     ✓ IPL.NS           ₹179.11   MomScore=0.31  6M=-3%  12M=+29%  Sector=Other  ADX=46.5
+2026-05-11 14:11:40,422 [INFO]     ✓ J&KBANK.NS       ₹136.92   MomScore=1.23  6M=+33%  12M=+52%  Sector=Financial Services  ADX=32.6
+2026-05-11 14:11:41,144 [INFO]     ✓ JAICORPLTD.NS    ₹116.64   MomScore=0.18  6M=-25%  12M=+43%  Sector=Other  ADX=48.2
+2026-05-11 14:11:44,975 [INFO]   Batch 22/48 (50 symbols)...
+2026-05-11 14:11:48,961 [INFO]     ✓ JBMA.NS          ₹681.65   MomScore=0.10  6M=+6%  12M=+2%  Sector=FMCG  ADX=33.9
+2026-05-11 14:11:52,610 [INFO]     ✓ JKPAPER.NS       ₹391.45   MomScore=0.42  6M=+1%  12M=+32%  Sector=Other  ADX=31.4
+2026-05-11 14:11:53,434 [INFO]     ✓ JMFINANCIL.NS    ₹140.93   MomScore=0.36  6M=-12%  12M=+44%  Sector=Financial Services  ADX=43.0
+2026-05-11 14:11:53,665 [INFO]     ✓ JNKINDIA.NS      ₹370.3    MomScore=0.41  6M=+29%  12M=+9%  Sector=Other  ADX=77.2
+2026-05-11 14:11:57,323 [INFO]     ✓ JUBLINGREA.NS    ₹740.45   MomScore=0.25  6M=+12%  12M=+8%  Sector=Other  ADX=55.5
+2026-05-11 14:12:00,939 [INFO]   Batch 23/48 (50 symbols)...
+2026-05-11 14:12:13,524 [INFO]     ✓ KIMS.NS          ₹777.85   MomScore=0.45  6M=+8%  12M=+21%  Sector=Pharma  ADX=32.7
+2026-05-11 14:12:16,859 [INFO]   Batch 24/48 (50 symbols)...
+2026-05-11 14:12:20,202 [INFO]     ✓ KIRLPNU.NS       ₹1522.1   MomScore=1.12  6M=+38%  12M=+38%  Sector=Other  ADX=80.7
+2026-05-11 14:12:21,251 [INFO]     ✓ KMEW.NS          ₹2197.4   MomScore=2.36  6M=+63%  12M=+209%  Sector=Other  ADX=35.9
+2026-05-11 14:12:21,451 [INFO]     ✓ KMSUGAR.NS       ₹29.65    MomScore=0.32  6M=+8%  12M=+11%  Sector=FMCG  ADX=48.0
+2026-05-11 14:12:24,412 [INFO]     ✓ KPIL.NS          ₹1262.1   MomScore=0.50  6M=-1%  12M=+32%  Sector=Other  ADX=57.6
+2026-05-11 14:12:25,199 [INFO]     ✓ KRBL.NS          ₹361.15   MomScore=0.23  6M=-4%  12M=+23%  Sector=FMCG  ADX=54.3
+2026-05-11 14:12:25,805 [INFO]     ✓ KRISHANA.NS      ₹680.55   MomScore=1.68  6M=+35%  12M=+127%  Sector=Other  ADX=45.0
+2026-05-11 14:12:27,357 [INFO]     ✓ KROSS.NS         ₹224.73   MomScore=0.71  6M=+27%  12M=+43%  Sector=FMCG  ADX=30.6
+2026-05-11 14:12:31,675 [INFO]   Batch 25/48 (50 symbols)...
+2026-05-11 14:12:35,652 [INFO]     ✓ LALPATHLAB.NS    ₹1652.4   MomScore=0.41  6M=+7%  12M=+17%  Sector=Pharma  ADX=47.2
+2026-05-11 14:12:37,493 [INFO]     ✓ LAURUSLABS.NS    ₹1266.8   MomScore=2.35  6M=+29%  12M=+108%  Sector=Pharma  ADX=35.5
+2026-05-11 14:12:40,740 [INFO]     ✓ LICHSGFIN.NS     ₹585.6    MomScore=0.04  6M=+3%  12M=-1%  Sector=Financial Services  ADX=41.7
+2026-05-11 14:12:41,501 [INFO]     ✓ LINCOLN.NS       ₹699.6    MomScore=0.73  6M=+31%  12M=+24%  Sector=Pharma  ADX=63.2
+2026-05-11 14:12:41,891 [INFO]     ✓ LLOYDSENGG.NS    ₹66.16    MomScore=0.33  6M=+9%  12M=+23%  Sector=Other  ADX=68.6
+2026-05-11 14:12:42,115 [INFO]     ✓ LLOYDSENT.NS     ₹71.49    MomScore=0.44  6M=+3%  12M=+48%  Sector=Other  ADX=61.3
+2026-05-11 14:12:42,329 [INFO]     ✓ LLOYDSME.NS      ₹1743.7   MomScore=1.01  6M=+33%  12M=+42%  Sector=Other  ADX=79.8
+2026-05-11 14:12:44,535 [INFO]     ✓ LTF.NS           ₹295.0    MomScore=1.31  6M=+7%  12M=+78%  Sector=Financial Services  ADX=41.1
+2026-05-11 14:12:44,780 [INFO]     ✓ LTFOODS.NS       ₹416.3    MomScore=0.26  6M=+1%  12M=+22%  Sector=FMCG  ADX=31.3
+2026-05-11 14:12:46,780 [INFO]   Batch 26/48 (50 symbols)...
+2026-05-11 14:12:53,642 [INFO]     ✓ MAHABANK.NS      ₹81.42    MomScore=1.63  6M=+44%  12M=+67%  Sector=Financial Services  ADX=47.5
+2026-05-11 14:12:56,384 [INFO]     ✓ MANAKALUCO.NS    ₹35.71    MomScore=0.54  6M=+31%  12M=+42%  Sector=Other  ADX=69.8
+2026-05-11 14:12:57,912 [INFO]     ✓ MANAPPURAM.NS    ₹305.45   MomScore=0.73  6M=+12%  12M=+34%  Sector=Financial Services  ADX=60.2
+2026-05-11 14:13:02,206 [INFO]   Batch 27/48 (50 symbols)...
+2026-05-11 14:13:06,229 [INFO]     ✓ MARINE.NS        ₹234.25   MomScore=0.36  6M=+2%  12M=+31%  Sector=Other  ADX=71.8
+2026-05-11 14:13:06,591 [INFO]     ✓ MARKSANS.NS      ₹203.28   MomScore=0.01  6M=+10%  12M=-10%  Sector=Pharma  ADX=41.1
+2026-05-11 14:13:07,139 [INFO]     ✓ MASFIN.NS        ₹347.4    MomScore=0.76  6M=+15%  12M=+31%  Sector=Financial Services  ADX=62.9
+2026-05-11 14:13:10,636 [INFO]     ✓ MCLEODRUSS.NS    ₹57.73    MomScore=0.64  6M=-8%  12M=+79%  Sector=FMCG  ADX=58.2
+2026-05-11 14:13:11,231 [INFO]     ✓ MEDANTA.NS       ₹1239.2   MomScore=0.06  6M=-1%  12M=+4%  Sector=Pharma  ADX=60.2
+2026-05-11 14:13:16,690 [INFO]   Batch 28/48 (50 symbols)...
+2026-05-11 14:13:21,058 [INFO]     ✓ MIDHANI.NS       ₹407.0    MomScore=0.48  6M=+10%  12M=+33%  Sector=Other  ADX=63.5
+2026-05-11 14:13:23,175 [INFO]     ✓ MMTC.NS          ₹66.7     MomScore=0.25  6M=+1%  12M=+24%  Sector=Other  ADX=54.4
+2026-05-11 14:13:27,212 [INFO]     ✓ MOTILALOFS.NS    ₹860.7    MomScore=0.19  6M=-12%  12M=+27%  Sector=Financial Services  ADX=48.8
+2026-05-11 14:13:28,509 [INFO]     ✓ MSPL.NS          ₹41.91    MomScore=0.90  6M=+25%  12M=+56%  Sector=Other  ADX=35.4
+2026-05-11 14:13:29,087 [INFO]     ✓ MTARTECH.NS      ₹6520.0   MomScore=5.58  6M=+175%  12M=+372%  Sector=Other  ADX=73.4
+2026-05-11 14:13:29,651 [INFO]     ✓ MUFIN.NS         ₹116.14   MomScore=0.77  6M=-4%  12M=+67%  Sector=Financial Services  ADX=44.8
+2026-05-11 14:13:31,810 [INFO]   Batch 29/48 (50 symbols)...
+2026-05-11 14:13:35,018 [INFO]     ✓ MUKANDLTD.NS     ₹137.04   MomScore=0.46  6M=+2%  12M=+40%  Sector=Other  ADX=35.6
+2026-05-11 14:13:36,711 [INFO]     ✓ MUTHOOTMF.NS     ₹188.6    MomScore=0.39  6M=+10%  12M=+24%  Sector=Financial Services  ADX=46.4
+2026-05-11 14:13:47,174 [INFO]   Batch 30/48 (50 symbols)...
+2026-05-11 14:13:52,263 [INFO]     ✓ NH.NS            ₹1886.4   MomScore=0.12  6M=+4%  12M=+4%  Sector=Pharma  ADX=26.3
+2026-05-11 14:13:55,466 [INFO]     ✓ NITINSPIN.NS     ₹486.75   MomScore=1.24  6M=+52%  12M=+36%  Sector=FMCG  ADX=63.7
+2026-05-11 14:13:58,365 [INFO]     ✓ NRBBEARING.NS    ₹326.6    MomScore=1.06  6M=+20%  12M=+59%  Sector=FMCG  ADX=62.8
+2026-05-11 14:13:58,996 [INFO]     ✓ NSLNISP.NS       ₹43.04    MomScore=0.29  6M=-1%  12M=+24%  Sector=Other  ADX=45.1
+2026-05-11 14:14:01,733 [INFO]   Batch 31/48 (50 symbols)...
+2026-05-11 14:14:05,491 [INFO]     ✓ NYKAA.NS         ₹270.25   MomScore=0.85  6M=+10%  12M=+38%  Sector=FMCG  ADX=39.2
+2026-05-11 14:14:07,980 [INFO]     ✓ OLECTRA.NS       ₹1370.0   MomScore=0.11  6M=-10%  12M=+20%  Sector=Other  ADX=48.1
+2026-05-11 14:14:08,413 [INFO]     ✓ OMAXE.NS         ₹86.58    MomScore=0.28  6M=+8%  12M=+19%  Sector=Realty  ADX=71.6
+2026-05-11 14:14:09,638 [INFO]     ✓ ONEPOINT.NS      ₹60.8     MomScore=0.36  6M=+22%  12M=+9%  Sector=Other  ADX=43.7
+2026-05-11 14:14:17,359 [INFO]   Batch 32/48 (50 symbols)...
+2026-05-11 14:14:20,630 [INFO]     ✓ PAISALO.NS       ₹48.66    MomScore=1.02  6M=+33%  12M=+52%  Sector=Financial Services  ADX=82.5
+2026-05-11 14:14:31,611 [INFO]   Batch 33/48 (50 symbols)...
+2026-05-11 14:14:37,528 [INFO]     ✓ PNBHOUSING.NS    ₹1072.8   MomScore=0.27  6M=+18%  12M=+2%  Sector=Financial Services  ADX=79.0
+2026-05-11 14:14:43,609 [INFO]     ✓ PREMEXPLN.NS     ₹525.7    MomScore=0.17  6M=-8%  12M=+29%  Sector=Other  ADX=47.1
+2026-05-11 14:14:46,013 [INFO]   Batch 34/48 (50 symbols)...
+2026-05-11 14:14:49,514 [INFO]     ✓ PRICOLLTD.NS     ₹612.35   MomScore=0.83  6M=+14%  12M=+45%  Sector=FMCG  ADX=27.9
+2026-05-11 14:14:56,743 [INFO]     ✓ RADICO.NS        ₹3489.7   MomScore=0.71  6M=+9%  12M=+38%  Sector=FMCG  ADX=65.3
+2026-05-11 14:15:00,964 [INFO]   Batch 35/48 (50 symbols)...
+2026-05-11 14:15:04,834 [INFO]     ✓ RALLIS.NS        ₹267.1    MomScore=0.24  6M=+8%  12M=+12%  Sector=Other  ADX=32.8
+2026-05-11 14:15:07,387 [INFO]     ✓ RATNAVEER.NS     ₹177.92   MomScore=0.66  6M=+20%  12M=+40%  Sector=Other  ADX=61.1
+2026-05-11 14:15:08,421 [INFO]     ✓ RBLBANK.NS       ₹337.5    MomScore=1.11  6M=+4%  12M=+68%  Sector=Financial Services  ADX=38.5
+2026-05-11 14:15:16,388 [INFO]   Batch 36/48 (50 symbols)...
+2026-05-11 14:15:21,112 [INFO]     ✓ RKFORGE.NS       ₹621.8    MomScore=0.34  6M=+17%  12M=+7%  Sector=Other  ADX=53.2
+2026-05-11 14:15:31,800 [INFO]   Batch 37/48 (50 symbols)...
+2026-05-11 14:15:42,243 [INFO]     ✓ SANGHVIMOV.NS    ₹330.25   MomScore=0.16  6M=-11%  12M=+26%  Sector=Other  ADX=47.9
+2026-05-11 14:15:47,414 [INFO]   Batch 38/48 (50 symbols)...
+2026-05-11 14:15:50,655 [INFO]     ✓ SBCL.NS          ₹599.7    MomScore=0.82  6M=+29%  12M=+44%  Sector=Other  ADX=78.9
+2026-05-11 14:15:52,843 [INFO]     ✓ SCI.NS           ₹340.65   MomScore=1.56  6M=+34%  12M=+113%  Sector=Other  ADX=62.0
+2026-05-11 14:15:53,058 [INFO]     ✓ SCILAL.NS        ₹51.62    MomScore=0.18  6M=+2%  12M=+10%  Sector=Realty  ADX=51.9
+2026-05-11 14:15:55,282 [INFO]     ✓ SENCO.NS         ₹334.25   MomScore=0.05  6M=+2%  12M=+1%  Sector=FMCG  ADX=39.3
+2026-05-11 14:15:56,236 [INFO]     ✓ SETCO.NS         ₹26.0     MomScore=0.79  6M=+41%  12M=+34%  Sector=FMCG  ADX=30.8
+2026-05-11 14:16:01,742 [INFO]   Batch 39/48 (50 symbols)...
+2026-05-11 14:16:07,185 [INFO]     ✓ SHILPAMED.NS     ₹456.15   MomScore=0.91  6M=+24%  12M=+45%  Sector=Pharma  ADX=51.5
+2026-05-11 14:16:09,778 [INFO]     ✓ SHREEPUSHK.NS    ₹388.3    MomScore=0.56  6M=-0%  12M=+64%  Sector=Other  ADX=55.0
+2026-05-11 14:16:11,287 [INFO]     ✓ SHRIRAMPPS.NS    ₹92.54    MomScore=0.29  6M=-0%  12M=+23%  Sector=Realty  ADX=60.0
+2026-05-11 14:16:14,296 [INFO]     ✓ SILGO.NS         ₹76.33    MomScore=0.86  6M=+14%  12M=+55%  Sector=FMCG  ADX=50.6
+2026-05-11 14:16:17,204 [INFO]   Batch 40/48 (50 symbols)...
+2026-05-11 14:16:23,107 [INFO]     ✓ SKYGOLD.NS       ₹505.2    MomScore=1.20  6M=+45%  12M=+67%  Sector=FMCG  ADX=65.0
+2026-05-11 14:16:27,462 [INFO]     ✓ SOUTHBANK.NS     ₹40.02    MomScore=0.91  6M=+9%  12M=+64%  Sector=Financial Services  ADX=36.7
+2026-05-11 14:16:28,029 [INFO]     ✓ SPANDANA.NS      ₹277.03   MomScore=0.22  6M=+16%  12M=+1%  Sector=Financial Services  ADX=45.3
+2026-05-11 14:16:31,728 [INFO]   Batch 41/48 (50 symbols)...
+2026-05-11 14:16:34,621 [INFO]     ✓ SPMLINFRA.NS     ₹211.64   MomScore=0.21  6M=-4%  12M=+26%  Sector=Other  ADX=63.9
+2026-05-11 14:16:34,826 [INFO]     ✓ SPORTKING.NS     ₹149.86   MomScore=1.05  6M=+51%  12M=+42%  Sector=FMCG  ADX=43.2
+2026-05-11 14:16:46,259 [INFO]   Batch 42/48 (50 symbols)...
+2026-05-11 14:16:49,577 [INFO]     ✓ SUNFLAG.NS       ₹383.5    MomScore=1.34  6M=+48%  12M=+68%  Sector=Other  ADX=75.8
+2026-05-11 14:16:49,809 [INFO]     ✓ SUNPHARMA.NS     ₹1872.7   MomScore=0.45  6M=+12%  12M=+6%  Sector=Pharma  ADX=37.2
+2026-05-11 14:16:53,664 [INFO]     ✓ SUVEN.NS         ₹217.83   MomScore=0.65  6M=+13%  12M=+58%  Sector=Pharma  ADX=59.1
+2026-05-11 14:17:01,024 [INFO]   Batch 43/48 (50 symbols)...
+2026-05-11 14:17:05,998 [INFO]     ✓ TATASTEEL.NS     ₹212.08   MomScore=1.26  6M=+20%  12M=+49%  Sector=Other  ADX=40.7
+2026-05-11 14:17:08,572 [INFO]     ✓ TDPOWERSYS.NS    ₹1178.7   MomScore=2.66  6M=+48%  12M=+190%  Sector=Other  ADX=88.9
+2026-05-11 14:17:11,264 [INFO]     ✓ TFCILTD.NS       ₹80.81    MomScore=1.20  6M=+19%  12M=+98%  Sector=Financial Services  ADX=51.5
+2026-05-11 14:17:13,316 [INFO]     ✓ THERMAX.NS       ₹4545.1   MomScore=1.25  6M=+39%  12M=+42%  Sector=Other  ADX=69.0
+2026-05-11 14:17:15,955 [INFO]   Batch 44/48 (50 symbols)...
+2026-05-11 14:17:22,240 [INFO]     ✓ TITAGARH.NS      ₹815.3    MomScore=0.16  6M=-5%  12M=+17%  Sector=Other  ADX=47.5
+2026-05-11 14:17:22,581 [INFO]     ✓ TMB.NS           ₹681.45   MomScore=1.48  6M=+38%  12M=+58%  Sector=Financial Services  ADX=43.1
+2026-05-11 14:17:23,353 [INFO]     ✓ TNPL.NS          ₹156.05   MomScore=0.35  6M=+2%  12M=+22%  Sector=Other  ADX=75.4
+2026-05-11 14:17:24,222 [INFO]     ✓ TORNTPHARM.NS    ₹4517.1   MomScore=1.66  6M=+28%  12M=+38%  Sector=Pharma  ADX=43.4
+2026-05-11 14:17:31,286 [INFO]   Batch 45/48 (50 symbols)...
+2026-05-11 14:17:37,730 [INFO]     ✓ UGARSUGAR.NS     ₹43.14    MomScore=0.12  6M=+2%  12M=+5%  Sector=FMCG  ADX=60.8
+2026-05-11 14:17:40,492 [INFO]     ✓ UNIMECH.NS       ₹997.3    MomScore=0.12  6M=+0%  12M=+10%  Sector=Other  ADX=74.6
+2026-05-11 14:17:41,683 [INFO]     ✓ UNITEDPOLY.NS    ₹32.63    MomScore=0.50  6M=-22%  12M=+78%  Sector=FMCG  ADX=59.7
+2026-05-11 14:17:42,491 [INFO]     ✓ UNIVCABLES.NS    ₹1106.75  MomScore=1.97  6M=+52%  12M=+140%  Sector=Other  ADX=57.7
+2026-05-11 14:17:43,738 [INFO]     ✓ USHAMART.NS      ₹477.65   MomScore=0.87  6M=+3%  12M=+58%  Sector=Other  ADX=46.0
+2026-05-11 14:17:46,389 [INFO]   Batch 46/48 (50 symbols)...
+2026-05-11 14:18:00,840 [INFO]   Batch 47/48 (50 symbols)...
+2026-05-11 14:18:08,858 [INFO]     ✓ WALCHANNAG.NS    ₹240.55   MomScore=0.69  6M=+44%  12M=+33%  Sector=Other  ADX=78.6
+2026-05-11 14:18:10,925 [INFO]     ✓ WELSPUNLIV.NS    ₹136.08   MomScore=0.09  6M=+7%  12M=+2%  Sector=FMCG  ADX=29.8
+2026-05-11 14:18:14,729 [INFO]   Batch 48/48 (38 symbols)...
+2026-05-11 14:18:17,301 [INFO]     ✓ WINDMACHIN.NS    ₹305.5    MomScore=0.02  6M=+4%  12M=-2%  Sector=Other  ADX=53.2
+2026-05-11 14:18:18,045 [INFO]     ✓ WOCKPHARMA.NS    ₹1625.6   MomScore=0.49  6M=+20%  12M=+30%  Sector=Pharma  ADX=62.0
+2026-05-11 14:18:20,446 [INFO]     ✓ YATHARTH.NS      ₹856.4    MomScore=1.17  6M=+8%  12M=+82%  Sector=Pharma  ADX=48.5
+2026-05-11 14:18:24,563 [INFO]     ✓ ZYDUSLIFE.NS     ₹956.95   MomScore=0.28  6M=+2%  12M=+9%  Sector=Pharma  ADX=37.9
+2026-05-11 14:18:26,750 [INFO] Stage 1 complete. Momentum candidates: 159
+2026-05-11 14:18:26,750 [INFO] Cross-sectional gate (top 20%): 159 → 32 (threshold: 1.231)
+2026-05-11 14:18:26,750 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-05-11 14:18:27,557 [INFO]   ✓ APEX.NS          score=0.619  mom=1.88  fscore=0.360  FCF=None%
+2026-05-11 14:18:28,015 [INFO]   ✓ AXISCADES.NS     score=0.729  mom=1.98  fscore=0.342  FCF=None%
+2026-05-11 14:18:28,676 [INFO]   ✓ CEIGALL.NS       score=0.632  mom=1.49  fscore=0.343  FCF=None%
+2026-05-11 14:18:29,841 [INFO]   ✓ DEEDEV.NS        score=0.759  mom=2.14  fscore=0.481  FCF=None%
+2026-05-11 14:18:30,288 [INFO]   ✓ DIACABS.NS       score=0.651  mom=1.27  fscore=0.511  FCF=None%
+2026-05-11 14:18:30,954 [INFO]   ✓ GOKULAGRO.NS     score=0.600  mom=1.58  fscore=0.384  FCF=None%
+2026-05-11 14:18:31,954 [INFO]   ✓ KRISHANA.NS      score=0.727  mom=1.68  fscore=0.580  FCF=-9.05%
+2026-05-11 14:18:33,506 [INFO]   ✓ SUNFLAG.NS       score=0.594  mom=1.34  fscore=0.327  FCF=None%
+2026-05-11 14:18:34,533 [INFO]   ✓ TMB.NS           score=0.479  mom=1.48  fscore=0.549  FCF=None%
+2026-05-11 14:18:35,279 [INFO]   ✓ UNIVCABLES.NS    score=0.717  mom=1.97  fscore=0.389  FCF=None%
+2026-05-11 14:18:35,579 [INFO] Stage 2 complete. 10 passed → top 10
+2026-05-11 14:18:35,581 [INFO] Results written to results/
+2026-05-11 14:18:35,582 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-05-11 14:18:35,582 [INFO] Initialising public data fetcher...
+2026-05-11 14:18:55,792 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-05-11 14:18:55,792 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-05-11 14:18:55,792 [INFO] Layer 2 v5: scanning 2388 symbols...
+2026-05-11 14:18:57,551 [INFO]   DNA 20MICRONS.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:18:59,715 [INFO]   DNA 3IINFOLTD.NS: 0.362 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:19:02,002 [INFO]   DNA A2ZINFRA.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:19:03,181 [INFO]   DNA AAATECH.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:19:04,766 [INFO]   DNA AAKASH.NS: 0.458 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=1.00
+2026-05-11 14:19:04,766 [INFO]   [13/2388] ✓ AAKASH.NS DNA=0.458(C) P=8/9 anns=0
+2026-05-11 14:19:06,852 [INFO]   DNA AARTECH.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:19:06,852 [INFO]   [17/2388] ✓ AARTECH.NS DNA=0.505(C) P=6/9 anns=0
+2026-05-11 14:19:09,395 [INFO]   DNA ABAN.NS: 0.458 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=1.00
+2026-05-11 14:19:09,395 [INFO]   [24/2388] ✓ ABAN.NS DNA=0.458(C) P=7/9 anns=0
+2026-05-11 14:19:11,898 [INFO]   DNA ABCOTS.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:19:11,898 [INFO]   [29/2388] ✓ ABCOTS.NS DNA=0.487(C) P=2/9 anns=0
+2026-05-11 14:19:15,290 [INFO]   DNA ACCURACY.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:19:15,290 [INFO]   [40/2388] ✓ ACCURACY.NS DNA=0.452(C) P=8/9 anns=0
+2026-05-11 14:19:17,044 [INFO]   DNA ACL.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:19:22,100 [INFO]   DNA ADROITINFO.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:19:22,100 [INFO]   [56/2388] ✓ ADROITINFO.NS DNA=0.451(C) P=3/9 anns=0
+2026-05-11 14:19:23,550 [INFO]   DNA ADSL.NS: 0.415 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:19:25,243 [INFO]   DNA ADVANCE.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:19:27,265 [INFO]   DNA ADVANIHOTR.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:19:27,265 [INFO]   [60/2388] ✓ ADVANIHOTR.NS DNA=0.487(C) P=5/9 anns=0
+2026-05-11 14:19:29,613 [INFO]   DNA AEPL.NS: 0.408 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-05-11 14:19:31,915 [INFO]   DNA AERONEU.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:19:31,915 [INFO]   [69/2388] ✓ AERONEU.NS DNA=0.466(C) P=8/9 anns=0
+2026-05-11 14:19:34,075 [INFO]   DNA AFFORDABLE.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:19:35,951 [INFO]   DNA AGARIND.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:19:35,952 [INFO]   [76/2388] ✓ AGARIND.NS DNA=0.489(C) P=5/9 anns=0
+2026-05-11 14:19:38,453 [INFO]   DNA AHCL.NS: 0.433 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:19:40,965 [INFO]   DNA AIRAN.NS: 0.446 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:19:43,917 [INFO]   DNA AKG.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:19:45,482 [INFO]   DNA AKI.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:19:45,482 [INFO]   [99/2388] ✓ AKI.NS DNA=0.476(C) P=3/9 anns=0
+2026-05-11 14:19:48,714 [INFO]   DNA AKSHOPTFBR.NS: 0.329 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:19:50,113 [INFO]   DNA ALANKIT.NS: 0.379 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:19:53,765 [INFO]   DNA ALPA.NS: 0.467 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:19:53,766 [INFO]   [118/2388] ✓ ALPA.NS DNA=0.467(C) P=4/9 anns=0
+2026-05-11 14:19:58,931 [INFO]   DNA ANMOL.NS: 0.467 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:19:58,931 [INFO]   [139/2388] ✓ ANMOL.NS DNA=0.467(C) P=4/9 anns=0
+2026-05-11 14:20:05,334 [INFO]   DNA APTECHT.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:20:05,335 [INFO]   [158/2388] ✓ APTECHT.NS DNA=0.460(C) P=6/9 anns=0
+2026-05-11 14:20:07,294 [INFO]   DNA ARCHIDPLY.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:20:08,479 [INFO]   DNA ARCHIES.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:20:08,480 [INFO]   [162/2388] ✓ ARCHIES.NS DNA=0.476(C) P=7/9 anns=0
+2026-05-11 14:20:10,261 [INFO]   DNA ARIES.NS: 0.405 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:20:15,798 [INFO]   DNA ASHIMASYN.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:20:15,799 [INFO]   [190/2388] ✓ ASHIMASYN.NS DNA=0.491(C) P=2/9 anns=0
+2026-05-11 14:20:17,508 [INFO]   DNA ASHOKAMET.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:20:24,372 [INFO]   DNA ATL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:20:24,373 [INFO]   [212/2388] ✓ ATL.NS DNA=0.463(C) P=5/9 anns=0
+2026-05-11 14:20:28,292 [INFO]   DNA AUTOIND.NS: 0.433 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:20:30,300 [INFO]   DNA AVG.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:20:30,301 [INFO]   [231/2388] ✓ AVG.NS DNA=0.460(C) P=7/9 anns=0
+2026-05-11 14:20:32,135 [INFO]   DNA AVROIND.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:20:32,136 [INFO]   [234/2388] ✓ AVROIND.NS DNA=0.511(C) P=4/9 anns=0
+2026-05-11 14:20:34,954 [INFO]   DNA AXITA.NS: 0.434 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:20:37,623 [INFO]   DNA BAGFILMS.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:20:37,624 [INFO]   [246/2388] ✓ BAGFILMS.NS DNA=0.452(C) P=4/9 anns=0
+2026-05-11 14:20:39,111 [INFO]   DNA BAIDFIN.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:20:39,111 [INFO]   [247/2388] ✓ BAIDFIN.NS DNA=0.454(C) P=6/9 anns=0
+2026-05-11 14:20:44,412 [INFO]   DNA BALAJEE.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:20:44,413 [INFO]   [260/2388] ✓ BALAJEE.NS DNA=0.491(C) P=5/9 anns=0
+2026-05-11 14:20:46,136 [INFO]   DNA BALAXI.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:20:47,449 [INFO]   DNA BALKRISHNA.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:20:47,449 [INFO]   [264/2388] ✓ BALKRISHNA.NS DNA=0.484(C) P=3/9 anns=0
+2026-05-11 14:20:51,325 [INFO]   DNA BANSWRAS.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:20:53,316 [INFO]   DNA BASML.NS: 0.414 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:20:56,610 [INFO]   DNA BCPL.NS: 0.450 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-05-11 14:20:56,610 [INFO]   [292/2388] ✓ BCPL.NS DNA=0.450(C) P=3/9 anns=0
+2026-05-11 14:21:01,873 [INFO]   DNA BESTAGRO.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:21:04,485 [INFO]   DNA BHAGERIA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:21:06,604 [INFO]   DNA BHARATGEAR.NS: 0.459 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:21:06,604 [INFO]   [317/2388] ✓ BHARATGEAR.NS DNA=0.459(C) P=9/9 anns=0
+2026-05-11 14:21:11,577 [INFO]   DNA BIRLACABLE.NS: 0.397 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:21:19,202 [INFO]   DNA BMWVENTLTD.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:21:23,011 [INFO]   DNA BPL.NS: 0.413 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:21:24,966 [INFO]   DNA BRNL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:21:24,967 [INFO]   [371/2388] ✓ BRNL.NS DNA=0.487(C) P=8/9 anns=0
+2026-05-11 14:21:26,139 [INFO]   DNA BROOKS.NS: 0.477 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:21:26,139 [INFO]   [372/2388] ✓ BROOKS.NS DNA=0.477(C) P=4/9 anns=0
+2026-05-11 14:21:28,274 [INFO]   DNA BTML.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:21:28,274 [INFO]   [377/2388] ✓ BTML.NS DNA=0.472(C) P=5/9 anns=0
+2026-05-11 14:21:30,730 [INFO]   DNA BYKE.NS: 0.458 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:21:30,730 [INFO]   [382/2388] ✓ BYKE.NS DNA=0.458(C) P=3/9 anns=0
+2026-05-11 14:21:37,479 [INFO]   DNA CCCL.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:21:37,480 [INFO]   [403/2388] ✓ CCCL.NS DNA=0.473(C) P=6/9 anns=0
+2026-05-11 14:21:38,697 [INFO]   DNA CCHHL.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:21:38,697 [INFO]   [404/2388] ✓ CCHHL.NS DNA=0.466(C) P=5/9 anns=0
+2026-05-11 14:21:40,804 [INFO]   DNA CELEBRITY.NS: 0.496 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:21:40,805 [INFO]   [410/2388] ✓ CELEBRITY.NS DNA=0.496(C) P=5/9 anns=0
+2026-05-11 14:21:42,546 [INFO]   DNA CENTEXT.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:21:45,508 [INFO]   DNA CEWATER.NS: 0.452 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:21:45,508 [INFO]   [422/2388] ✓ CEWATER.NS DNA=0.452(C) P=5/9 anns=0
+2026-05-11 14:21:47,991 [INFO]   DNA CHEMCON.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:21:47,991 [INFO]   [429/2388] ✓ CHEMCON.NS DNA=0.469(C) P=8/9 anns=0
+2026-05-11 14:21:52,537 [INFO]   DNA CLEDUCATE.NS: 0.513 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=1.00
+2026-05-11 14:21:52,537 [INFO]   [446/2388] ✓ CLEDUCATE.NS DNA=0.513(C) P=3/9 anns=0
+2026-05-11 14:21:57,088 [INFO]   DNA COFFEEDAY.NS: 0.403 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:21:59,754 [INFO]   DNA COMPUSOFT.NS: 0.529 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:21:59,754 [INFO]   [462/2388] ✓ COMPUSOFT.NS DNA=0.529(C) P=5/9 anns=0
+2026-05-11 14:22:01,012 [INFO]   DNA COMSYN.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:22:04,313 [INFO]   DNA COUNCODOS.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:22:04,313 [INFO]   [474/2388] ✓ COUNCODOS.NS DNA=0.476(C) P=4/9 anns=0
+2026-05-11 14:22:08,039 [INFO]   DNA CSLFINANCE.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:22:08,039 [INFO]   [488/2388] ✓ CSLFINANCE.NS DNA=0.463(C) P=3/9 anns=0
+2026-05-11 14:22:09,271 [INFO]   DNA CTE.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:22:09,271 [INFO]   [489/2388] ✓ CTE.NS DNA=0.464(C) P=4/9 anns=0
+2026-05-11 14:22:11,034 [INFO]   DNA CUBEXTUB.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:22:12,938 [INFO]   DNA CYBERMEDIA.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:22:12,938 [INFO]   [495/2388] ✓ CYBERMEDIA.NS DNA=0.460(C) P=2/9 anns=0
+2026-05-11 14:22:14,423 [INFO]   DNA CYBERTECH.NS: 0.389 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:22:20,140 [INFO]   DNA DBEIL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:22:20,140 [INFO]   [510/2388] ✓ DBEIL.NS DNA=0.467(C) P=4/9 anns=0
+2026-05-11 14:22:21,694 [INFO]   DNA DBOL.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:22:21,695 [INFO]   [512/2388] ✓ DBOL.NS DNA=0.468(C) P=4/9 anns=0
+2026-05-11 14:22:23,645 [INFO]   DNA DCI.NS: 0.422 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:22:25,727 [INFO]   DNA DCMSIL.NS: 0.357 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-05-11 14:22:26,914 [INFO]   DNA DCMSRIND.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:22:26,914 [INFO]   [523/2388] ✓ DCMSRIND.NS DNA=0.478(C) P=5/9 anns=0
+2026-05-11 14:22:31,761 [INFO]   DNA DENTA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:22:33,208 [INFO]   DNA DEVIT.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:22:34,361 [INFO]   DNA DEVX.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:22:34,361 [INFO]   [541/2388] ✓ DEVX.NS DNA=0.491(C) P=8/9 anns=0
+2026-05-11 14:22:40,128 [INFO]   DNA DIGIDRIVE.NS: 0.502 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:22:40,128 [INFO]   [556/2388] ✓ DIGIDRIVE.NS DNA=0.502(C) P=4/9 anns=0
+2026-05-11 14:22:41,370 [INFO]   DNA DIGISPICE.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:22:46,540 [INFO]   DNA DONEAR.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:22:46,541 [INFO]   [577/2388] ✓ DONEAR.NS DNA=0.487(C) P=6/9 anns=0
+2026-05-11 14:22:48,106 [INFO]   DNA DPWIRES.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:22:48,106 [INFO]   [580/2388] ✓ DPWIRES.NS DNA=0.467(C) P=7/9 anns=0
+2026-05-11 14:22:49,565 [INFO]   DNA DRCSYSTEMS.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:22:49,565 [INFO]   [582/2388] ✓ DRCSYSTEMS.NS DNA=0.466(C) P=9/9 anns=0
+2026-05-11 14:22:50,903 [INFO]   DNA DREAMFOLKS.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:22:50,903 [INFO]   [583/2388] ✓ DREAMFOLKS.NS DNA=0.469(C) P=3/9 anns=0
+2026-05-11 14:22:52,389 [INFO]   DNA DSFCL.NS: 0.348 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.30
+2026-05-11 14:22:58,946 [INFO]   DNA EIFFL.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:23:02,282 [INFO]   DNA ELGIRUBCO.NS: 0.414 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:23:04,131 [INFO]   DNA ELIN.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:23:06,569 [INFO]   DNA EMAMIREAL.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:23:09,746 [INFO]   DNA ENERGYDEV.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:23:15,369 [INFO]   DNA ESSARSHPNG.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:23:15,369 [INFO]   [652/2388] ✓ ESSARSHPNG.NS DNA=0.463(C) P=5/9 anns=0
+2026-05-11 14:23:19,906 [INFO]   DNA EXXARO.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:23:19,906 [INFO]   [668/2388] ✓ EXXARO.NS DNA=0.513(C) P=5/9 anns=0
+2026-05-11 14:23:21,211 [INFO]   DNA FABTECH.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:23:21,212 [INFO]   [669/2388] ✓ FABTECH.NS DNA=0.484(C) P=5/9 anns=0
+2026-05-11 14:23:28,522 [INFO]   DNA FMNL.NS: 0.509 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:23:28,523 [INFO]   [700/2388] ✓ FMNL.NS DNA=0.509(C) P=5/9 anns=0
+2026-05-11 14:23:31,404 [INFO]   DNA FOCUS.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:23:32,834 [INFO]   DNA FOODSIN.NS: 0.400 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:23:37,555 [INFO]   DNA GANESHBE.NS: 0.405 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:23:41,627 [INFO]   DNA GEEKAYWIRE.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:23:43,014 [INFO]   DNA GENCON.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:23:44,447 [INFO]   DNA GENSOL.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:23:44,447 [INFO]   [738/2388] ✓ GENSOL.NS DNA=0.451(C) P=6/9 anns=0
+2026-05-11 14:23:47,680 [INFO]   DNA GICL.NS: 0.366 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:23:51,056 [INFO]   DNA GINNIFILA.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:23:51,056 [INFO]   [752/2388] ✓ GINNIFILA.NS DNA=0.466(C) P=6/9 anns=0
+2026-05-11 14:23:54,817 [INFO]   DNA GLOBECIVIL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:23:54,818 [INFO]   [765/2388] ✓ GLOBECIVIL.NS DNA=0.467(C) P=7/9 anns=0
+2026-05-11 14:23:56,400 [INFO]   DNA GLOTTIS.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:23:59,161 [INFO]   DNA GOACARBON.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:24:02,244 [INFO]   DNA GOKUL.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:24:02,244 [INFO]   [788/2388] ✓ GOKUL.NS DNA=0.466(C) P=8/9 anns=0
+2026-05-11 14:24:04,004 [INFO]   DNA GOLDTECH.NS: 0.446 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:24:05,787 [INFO]   DNA GOYALALUM.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:24:05,787 [INFO]   [796/2388] ✓ GOYALALUM.NS DNA=0.485(C) P=7/9 anns=0
+2026-05-11 14:24:13,536 [INFO]   DNA GSLSU.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:24:13,536 [INFO]   [823/2388] ✓ GSLSU.NS DNA=0.467(C) P=2/9 anns=0
+2026-05-11 14:24:14,989 [INFO]   DNA GSS.NS: 0.388 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:24:16,498 [INFO]   DNA GTL.NS: 0.375 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:24:18,004 [INFO]   DNA GTPL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:24:18,004 [INFO]   [830/2388] ✓ GTPL.NS DNA=0.483(C) P=5/9 anns=0
+2026-05-11 14:24:20,688 [INFO]   DNA GULFPETRO.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:24:22,584 [INFO]   DNA GVPTECH.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:24:29,319 [INFO]   DNA HCL-INSYS.NS: 0.413 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:24:32,558 [INFO]   DNA HECPROJECT.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:24:36,547 [INFO]   DNA HILINFRA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:24:36,547 [INFO]   [888/2388] ✓ HILINFRA.NS DNA=0.467(C) P=2/9 anns=0
+2026-05-11 14:24:37,800 [INFO]   DNA HILTON.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:24:39,659 [INFO]   DNA HINDCON.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:24:44,518 [INFO]   DNA HLVLTD.NS: 0.493 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:24:44,518 [INFO]   [906/2388] ✓ HLVLTD.NS DNA=0.493(C) P=5/9 anns=0
+2026-05-11 14:24:47,422 [INFO]   DNA HPAL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:24:54,356 [INFO]   DNA IGCL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:24:54,356 [INFO]   [944/2388] ✓ IGCL.NS DNA=0.483(C) P=8/9 anns=0
+2026-05-11 14:24:58,924 [INFO]   DNA IL&FSENGG.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:24:58,924 [INFO]   [953/2388] ✓ IL&FSENGG.NS DNA=0.467(C) P=4/9 anns=0
+2026-05-11 14:25:05,452 [INFO]   DNA INDOFARM.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:25:07,591 [INFO]   DNA INDOUS.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=1.00
+2026-05-11 14:25:07,591 [INFO]   [983/2388] ✓ INDOUS.NS DNA=0.502(C) P=7/9 anns=0
+2026-05-11 14:25:08,819 [INFO]   DNA INDOWIND.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:25:10,792 [INFO]   DNA INDTERRAIN.NS: 0.498 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:25:10,792 [INFO]   [988/2388] ✓ INDTERRAIN.NS DNA=0.498(C) P=4/9 anns=0
+2026-05-11 14:25:13,441 [INFO]   DNA INNOVISION.NS: 0.408 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-05-11 14:25:17,928 [INFO]   DNA INTENTECH.NS: 0.344 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:25:22,307 [INFO]   DNA IRIS.NS: 0.419 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:25:23,592 [INFO]   DNA IRISDOREME.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:25:26,745 [INFO]   DNA IVC.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:25:29,978 [INFO]   DNA JAIPURKURT.NS: 0.452 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:25:29,978 [INFO]   [1042/2388] ✓ JAIPURKURT.NS DNA=0.452(C) P=5/9 anns=0
+2026-05-11 14:25:32,791 [INFO]   DNA JAYSREETEA.NS: 0.453 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:25:32,792 [INFO]   [1050/2388] ✓ JAYSREETEA.NS DNA=0.453(C) P=5/9 anns=0
+2026-05-11 14:25:36,423 [INFO]   DNA JHS.NS: 0.432 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:25:40,358 [INFO]   DNA JKIPL.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:25:40,358 [INFO]   [1068/2388] ✓ JKIPL.NS DNA=0.468(C) P=3/9 anns=0
+2026-05-11 14:25:51,177 [INFO]   DNA KAMATHOTEL.NS: 0.474 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:25:51,177 [INFO]   [1109/2388] ✓ KAMATHOTEL.NS DNA=0.474(C) P=7/9 anns=0
+2026-05-11 14:25:52,489 [INFO]   DNA KAMDHENU.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:25:53,650 [INFO]   DNA KAMOPAINTS.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:25:56,747 [INFO]   DNA KAVDEFENCE.NS: 0.472 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:25:56,747 [INFO]   [1121/2388] ✓ KAVDEFENCE.NS DNA=0.472(C) P=6/9 anns=0
+2026-05-11 14:25:58,462 [INFO]   DNA KCPSUGIND.NS: 0.434 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:26:01,357 [INFO]   DNA KESORAMIND.NS: 0.429 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:26:03,093 [INFO]   DNA KHADIM.NS: 0.484 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:26:03,093 [INFO]   [1137/2388] ✓ KHADIM.NS DNA=0.484(C) P=6/9 anns=0
+2026-05-11 14:26:04,381 [INFO]   DNA KHAICHEM.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:26:06,272 [INFO]   DNA KILITCH.NS: 0.458 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:26:06,272 [INFO]   [1142/2388] ✓ KILITCH.NS DNA=0.458(C) P=4/9 anns=0
+2026-05-11 14:26:12,418 [INFO]   DNA KNAGRI.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:26:13,835 [INFO]   DNA KOHINOOR.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:26:13,836 [INFO]   [1161/2388] ✓ KOHINOOR.NS DNA=0.476(C) P=5/9 anns=0
+2026-05-11 14:26:15,717 [INFO]   DNA KOPRAN.NS: 0.382 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:26:17,144 [INFO]   DNA KOTARISUG.NS: 0.434 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:26:18,593 [INFO]   DNA KOTHARIPRO.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:26:22,776 [INFO]   DNA KRITI.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:26:24,098 [INFO]   DNA KRITIKA.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:26:25,409 [INFO]   DNA KRITINUT.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:26:26,728 [INFO]   DNA KRONOX.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:26:29,614 [INFO]   DNA KSOLVES.NS: 0.435 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:26:31,424 [INFO]   DNA KUANTUM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:26:31,425 [INFO]   [1200/2388] ✓ KUANTUM.NS DNA=0.463(C) P=4/9 anns=0
+2026-05-11 14:26:35,072 [INFO]   DNA LAL.NS: 0.529 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:26:35,072 [INFO]   [1205/2388] ✓ LAL.NS DNA=0.529(C) P=3/9 anns=0
+2026-05-11 14:26:37,064 [INFO]   DNA LANCORHOL.NS: 0.459 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:26:37,065 [INFO]   [1208/2388] ✓ LANCORHOL.NS DNA=0.459(C) P=3/9 anns=0
+2026-05-11 14:26:39,189 [INFO]   DNA LASA.NS: 0.467 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:26:39,190 [INFO]   [1212/2388] ✓ LASA.NS DNA=0.467(C) P=4/9 anns=0
+2026-05-11 14:26:40,590 [INFO]   DNA LATTEYS.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:26:42,049 [INFO]   DNA LAXMICOT.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-05-11 14:26:43,524 [INFO]   DNA LAXMIINDIA.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:26:44,995 [INFO]   DNA LCCINFOTEC.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:26:46,936 [INFO]   DNA LEXUS.NS: 0.443 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=1.00
+2026-05-11 14:26:48,908 [INFO]   DNA LIBAS.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:26:50,539 [INFO]   DNA LIBERTSHOE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:26:50,539 [INFO]   [1229/2388] ✓ LIBERTSHOE.NS DNA=0.487(C) P=6/9 anns=0
+2026-05-11 14:26:52,665 [INFO]   DNA LINC.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:26:52,665 [INFO]   [1233/2388] ✓ LINC.NS DNA=0.489(C) P=7/9 anns=0
+2026-05-11 14:26:56,652 [INFO]   DNA LOVABLE.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:26:56,652 [INFO]   [1245/2388] ✓ LOVABLE.NS DNA=0.476(C) P=6/9 anns=0
+2026-05-11 14:26:58,028 [INFO]   DNA LPDC.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:26:58,029 [INFO]   [1247/2388] ✓ LPDC.NS DNA=0.484(C) P=3/9 anns=0
+2026-05-11 14:27:02,561 [INFO]   DNA LYKALABS.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:27:05,195 [INFO]   DNA MADHUCON.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:27:05,195 [INFO]   [1266/2388] ✓ MADHUCON.NS DNA=0.452(C) P=4/9 anns=0
+2026-05-11 14:27:06,821 [INFO]   DNA MAGNUM.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:27:08,313 [INFO]   DNA MAHAPEXLTD.NS: 0.443 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=1.00
+2026-05-11 14:27:09,734 [INFO]   DNA MAHEPC.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:27:12,885 [INFO]   DNA MANAKALUCO.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:27:14,376 [INFO]   DNA MANAKSIA.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:27:14,376 [INFO]   [1287/2388] ✓ MANAKSIA.NS DNA=0.468(C) P=3/9 anns=0
+2026-05-11 14:27:15,755 [INFO]   DNA MANAKSTEEL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:27:17,598 [INFO]   DNA MANBA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:27:17,599 [INFO]   [1291/2388] ✓ MANBA.NS DNA=0.463(C) P=5/9 anns=0
+2026-05-11 14:27:18,815 [INFO]   DNA MANCREDIT.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:27:18,816 [INFO]   [1292/2388] ✓ MANCREDIT.NS DNA=0.487(C) P=4/9 anns=0
+2026-05-11 14:27:20,401 [INFO]   DNA MANGALAM.NS: 0.467 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:27:20,402 [INFO]   [1293/2388] ✓ MANGALAM.NS DNA=0.467(C) P=8/9 anns=0
+2026-05-11 14:27:22,804 [INFO]   DNA MANOMAY.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:27:22,804 [INFO]   [1298/2388] ✓ MANOMAY.NS DNA=0.511(C) P=8/9 anns=0
+2026-05-11 14:27:27,515 [INFO]   DNA MARKOLINES.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:27:27,515 [INFO]   [1308/2388] ✓ MARKOLINES.NS DNA=0.454(C) P=3/9 anns=0
+2026-05-11 14:27:32,917 [INFO]   DNA MBLINFRA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:27:34,634 [INFO]   DNA MCL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:27:35,993 [INFO]   DNA MCLEODRUSS.NS: 0.332 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:27:38,241 [INFO]   DNA MEDICAMEQ.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:27:39,567 [INFO]   DNA MEDICO.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:27:39,568 [INFO]   [1335/2388] ✓ MEDICO.NS DNA=0.457(C) P=6/9 anns=0
+2026-05-11 14:27:43,418 [INFO]   DNA MGEL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:27:47,881 [INFO]   DNA MINDTECK.NS: 0.397 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:27:49,357 [INFO]   DNA MIRZAINT.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:27:49,357 [INFO]   [1359/2388] ✓ MIRZAINT.NS DNA=0.468(C) P=6/9 anns=0
+2026-05-11 14:27:51,213 [INFO]   DNA MKPL.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:27:51,213 [INFO]   [1362/2388] ✓ MKPL.NS DNA=0.491(C) P=2/9 anns=0
+2026-05-11 14:27:55,882 [INFO]   DNA MOKSH.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:27:59,962 [INFO]   DNA MOLDTECH.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:28:02,947 [INFO]   DNA MONEYBOXX.NS: 0.385 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:28:08,759 [INFO]   DNA MUFTI.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:28:08,760 [INFO]   [1400/2388] ✓ MUFTI.NS DNA=0.513(C) P=6/9 anns=0
+2026-05-11 14:28:11,790 [INFO]   DNA MUKKA.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:28:13,757 [INFO]   DNA MURUDCERA.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:28:15,106 [INFO]   DNA MUTHOOTCAP.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:28:15,106 [INFO]   [1407/2388] ✓ MUTHOOTCAP.NS DNA=0.513(C) P=3/9 anns=0
+2026-05-11 14:28:19,641 [INFO]   DNA NATHBIOGEN.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:28:23,306 [INFO]   DNA NCLIND.NS: 0.412 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:28:25,539 [INFO]   DNA NECCLTD.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:28:25,539 [INFO]   [1444/2388] ✓ NECCLTD.NS DNA=0.467(C) P=5/9 anns=0
+2026-05-11 14:28:26,831 [INFO]   DNA NECLIFE.NS: 0.475 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:28:26,831 [INFO]   [1445/2388] ✓ NECLIFE.NS DNA=0.475(C) P=6/9 anns=0
+2026-05-11 14:28:34,153 [INFO]   DNA NILAINFRA.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:28:34,153 [INFO]   [1468/2388] ✓ NILAINFRA.NS DNA=0.491(C) P=8/9 anns=0
+2026-05-11 14:28:35,453 [INFO]   DNA NILASPACES.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:28:36,903 [INFO]   DNA NIMBSPROJ.NS: 0.355 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.30
+2026-05-11 14:28:38,622 [INFO]   DNA NIRAJ.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:28:38,622 [INFO]   [1475/2388] ✓ NIRAJ.NS DNA=0.467(C) P=3/9 anns=0
+2026-05-11 14:28:42,793 [INFO]   DNA NOVAAGRI.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:28:42,793 [INFO]   [1490/2388] ✓ NOVAAGRI.NS DNA=0.460(C) P=5/9 anns=0
+2026-05-11 14:28:44,721 [INFO]   DNA NRL.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:28:49,797 [INFO]   DNA OCCLLTD.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:28:51,983 [INFO]   DNA OILCOUNTUB.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:28:51,984 [INFO]   [1512/2388] ✓ OILCOUNTUB.NS DNA=0.457(C) P=7/9 anns=0
+2026-05-11 14:28:54,304 [INFO]   DNA OMFREIGHT.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:28:57,045 [INFO]   DNA ONMOBILE.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:28:58,387 [INFO]   DNA ONWARDTEC.NS: 0.390 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:29:00,525 [INFO]   DNA ORIENTALTL.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:29:02,483 [INFO]   DNA ORIENTCER.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:29:02,483 [INFO]   [1535/2388] ✓ ORIENTCER.NS DNA=0.463(C) P=6/9 anns=0
+2026-05-11 14:29:04,713 [INFO]   DNA ORIENTPPR.NS: 0.416 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:29:06,887 [INFO]   DNA OSIAHYPER.NS: 0.432 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:29:08,252 [INFO]   DNA OSWALAGRO.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:29:09,949 [INFO]   DNA OSWALSEEDS.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:29:13,244 [INFO]   DNA PAKKA.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:29:17,478 [INFO]   DNA PARSVNATH.NS: 0.498 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:29:17,478 [INFO]   [1568/2388] ✓ PARSVNATH.NS DNA=0.498(C) P=5/9 anns=0
+2026-05-11 14:29:18,957 [INFO]   DNA PASUPTAC.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:29:20,586 [INFO]   DNA PATELRMART.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:29:21,809 [INFO]   DNA PATINTLOG.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:29:23,691 [INFO]   DNA PAVNAIND.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:29:23,691 [INFO]   [1576/2388] ✓ PAVNAIND.NS DNA=0.491(C) P=4/9 anns=0
+2026-05-11 14:29:26,402 [INFO]   DNA PENINLAND.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:29:26,403 [INFO]   [1584/2388] ✓ PENINLAND.NS DNA=0.513(C) P=1/9 anns=0
+2026-05-11 14:29:30,298 [INFO]   DNA PIGL.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:29:30,298 [INFO]   [1598/2388] ✓ PIGL.NS DNA=0.454(C) P=5/9 anns=0
+2026-05-11 14:29:33,636 [INFO]   DNA PILITA.NS: 0.458 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:29:33,637 [INFO]   [1601/2388] ✓ PILITA.NS DNA=0.458(C) P=9/9 anns=0
+2026-05-11 14:29:35,596 [INFO]   DNA PIONEEREMB.NS: 0.502 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:29:35,596 [INFO]   [1603/2388] ✓ PIONEEREMB.NS DNA=0.502(C) P=7/9 anns=0
+2026-05-11 14:29:38,224 [INFO]   DNA PLASTIBLEN.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:29:44,488 [INFO]   DNA PPL.NS: 0.392 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:29:46,384 [INFO]   DNA PRAENG.NS: 0.458 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:29:46,385 [INFO]   [1638/2388] ✓ PRAENG.NS DNA=0.458(C) P=8/9 anns=0
+2026-05-11 14:29:48,605 [INFO]   DNA PRAXIS.NS: 0.509 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:29:48,605 [INFO]   [1643/2388] ✓ PRAXIS.NS DNA=0.509(C) P=2/9 anns=0
+2026-05-11 14:29:53,464 [INFO]   DNA PRIMO.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:29:55,739 [INFO]   DNA PRITIKAUTO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:29:57,603 [INFO]   DNA PROZONER.NS: 0.493 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:29:57,603 [INFO]   [1662/2388] ✓ PROZONER.NS DNA=0.493(C) P=5/9 anns=0
+2026-05-11 14:30:01,513 [INFO]   DNA PVSL.NS: 0.477 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:30:01,513 [INFO]   [1675/2388] ✓ PVSL.NS DNA=0.477(C) P=5/9 anns=0
+2026-05-11 14:30:04,985 [INFO]   DNA RADHIKAJWE.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:30:04,986 [INFO]   [1687/2388] ✓ RADHIKAJWE.NS DNA=0.467(C) P=6/9 anns=0
+2026-05-11 14:30:06,433 [INFO]   DNA RADIANTCMS.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:30:08,018 [INFO]   DNA RADIOCITY.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:30:08,019 [INFO]   [1690/2388] ✓ RADIOCITY.NS DNA=0.467(C) P=6/9 anns=0
+2026-05-11 14:30:11,571 [INFO]   DNA RAJSREESUG.NS: 0.502 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:30:11,572 [INFO]   [1700/2388] ✓ RAJSREESUG.NS DNA=0.502(C) P=5/9 anns=0
+2026-05-11 14:30:14,344 [INFO]   DNA RAJTV.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:30:14,344 [INFO]   [1701/2388] ✓ RAJTV.NS DNA=0.505(C) P=3/9 anns=0
+2026-05-11 14:30:16,224 [INFO]   DNA RAMANEWS.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:30:16,224 [INFO]   [1704/2388] ✓ RAMANEWS.NS DNA=0.513(C) P=5/9 anns=0
+2026-05-11 14:30:17,468 [INFO]   DNA RAMAPHO.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:30:19,759 [INFO]   DNA RANASUG.NS: 0.356 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:30:22,821 [INFO]   DNA RBZJEWEL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:30:26,035 [INFO]   DNA RELIABLE.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:30:28,290 [INFO]   DNA REMSONSIND.NS: 0.492 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:30:28,290 [INFO]   [1738/2388] ✓ REMSONSIND.NS DNA=0.492(C) P=5/9 anns=0
+2026-05-11 14:30:30,486 [INFO]   DNA REPRO.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:30:30,486 [INFO]   [1742/2388] ✓ REPRO.NS DNA=0.483(C) P=4/9 anns=0
+2026-05-11 14:30:35,410 [INFO]   DNA RITCO.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:30:37,113 [INFO]   DNA RKEC.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:30:38,485 [INFO]   DNA RKSWAMY.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:30:38,485 [INFO]   [1758/2388] ✓ RKSWAMY.NS DNA=0.463(C) P=3/9 anns=0
+2026-05-11 14:30:40,356 [INFO]   DNA RNBDENIMS.NS: 0.526 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=1.00
+2026-05-11 14:30:40,356 [INFO]   [1762/2388] ✓ RNBDENIMS.NS DNA=0.526(C) P=8/9 anns=0
+2026-05-11 14:30:42,814 [INFO]   DNA ROSSELLIND.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:30:42,814 [INFO]   [1768/2388] ✓ ROSSELLIND.NS DNA=0.468(C) P=6/9 anns=0
+2026-05-11 14:30:45,274 [INFO]   DNA RPPINFRA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:30:45,275 [INFO]   [1775/2388] ✓ RPPINFRA.NS DNA=0.467(C) P=5/9 anns=0
+2026-05-11 14:30:46,633 [INFO]   DNA RPPL.NS: 0.452 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:30:46,633 [INFO]   [1776/2388] ✓ RPPL.NS DNA=0.452(C) P=5/9 anns=0
+2026-05-11 14:30:49,066 [INFO]   DNA RSSOFTWARE.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:30:50,422 [INFO]   DNA RSWM.NS: 0.435 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:30:52,285 [INFO]   DNA RUBFILA.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:30:54,026 [INFO]   DNA RUCHINFRA.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:30:55,404 [INFO]   DNA RUCHIRA.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:30:56,620 [INFO]   DNA RUDRA.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-05-11 14:30:58,067 [INFO]   DNA RUSHIL.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:31:02,304 [INFO]   DNA SADBHAV.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:31:06,399 [INFO]   DNA SAKHTISUG.NS: 0.458 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:31:06,400 [INFO]   [1816/2388] ✓ SAKHTISUG.NS DNA=0.458(C) P=5/9 anns=0
+2026-05-11 14:31:08,790 [INFO]   DNA SAMBHAAV.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:31:08,790 [INFO]   [1823/2388] ✓ SAMBHAAV.NS DNA=0.485(C) P=8/9 anns=0
+2026-05-11 14:31:10,744 [INFO]   DNA SAMPANN.NS: 0.515 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:31:10,744 [INFO]   [1827/2388] ✓ SAMPANN.NS DNA=0.515(C) P=6/9 anns=0
+2026-05-11 14:31:16,217 [INFO]   DNA SARLAPOLY.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:31:17,899 [INFO]   DNA SATIA.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:31:19,259 [INFO]   DNA SAURASHCEM.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:31:19,259 [INFO]   [1850/2388] ✓ SAURASHCEM.NS DNA=0.469(C) P=5/9 anns=0
+2026-05-11 14:31:23,905 [INFO]   DNA SCHAND.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:31:26,682 [INFO]   DNA SECURKLOUD.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:31:31,854 [INFO]   DNA SGL.NS: 0.509 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:31:31,854 [INFO]   [1888/2388] ✓ SGL.NS DNA=0.509(C) P=7/9 anns=0
+2026-05-11 14:31:34,709 [INFO]   DNA SHALPAINTS.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:31:34,709 [INFO]   [1896/2388] ✓ SHALPAINTS.NS DNA=0.469(C) P=5/9 anns=0
+2026-05-11 14:31:35,958 [INFO]   DNA SHANKARA.NS: 0.498 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:31:35,958 [INFO]   [1897/2388] ✓ SHANKARA.NS DNA=0.498(C) P=6/9 anns=0
+2026-05-11 14:31:40,338 [INFO]   DNA SHEKHAWATI.NS: 0.509 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:31:40,339 [INFO]   [1906/2388] ✓ SHEKHAWATI.NS DNA=0.509(C) P=4/9 anns=0
+2026-05-11 14:31:42,718 [INFO]   DNA SHIVALIK.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:31:44,145 [INFO]   DNA SHIVAMAUTO.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:31:44,145 [INFO]   [1912/2388] ✓ SHIVAMAUTO.NS DNA=0.491(C) P=6/9 anns=0
+2026-05-11 14:31:47,473 [INFO]   DNA SHREERAMA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:31:47,474 [INFO]   [1923/2388] ✓ SHREERAMA.NS DNA=0.467(C) P=5/9 anns=0
+2026-05-11 14:31:50,237 [INFO]   DNA SHYAMCENT.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:31:50,237 [INFO]   [1931/2388] ✓ SHYAMCENT.NS DNA=0.485(C) P=3/9 anns=0
+2026-05-11 14:31:52,082 [INFO]   DNA SICALLOG.NS: 0.478 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-05-11 14:31:52,082 [INFO]   [1935/2388] ✓ SICALLOG.NS DNA=0.478(C) P=6/9 anns=0
+2026-05-11 14:31:53,866 [INFO]   DNA SIGIND.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:31:53,866 [INFO]   [1938/2388] ✓ SIGIND.NS DNA=0.505(C) P=6/9 anns=0
+2026-05-11 14:31:55,153 [INFO]   DNA SIGMA.NS: 0.397 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:31:57,435 [INFO]   DNA SIL.NS: 0.471 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:31:57,436 [INFO]   [1945/2388] ✓ SIL.NS DNA=0.471(C) P=6/9 anns=0
+2026-05-11 14:32:01,689 [INFO]   DNA SINCLAIR.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:32:01,690 [INFO]   [1952/2388] ✓ SINCLAIR.NS DNA=0.487(C) P=3/9 anns=0
+2026-05-11 14:32:03,350 [INFO]   DNA SINTERCOM.NS: 0.401 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:32:08,406 [INFO]   DNA SNOWMAN.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:32:12,489 [INFO]   DNA SONAMLTD.NS: 0.389 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:32:14,342 [INFO]   DNA SOUTHWEST.NS: 0.433 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:32:16,583 [INFO]   DNA SPECIALITY.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:32:16,583 [INFO]   [1995/2388] ✓ SPECIALITY.NS DNA=0.468(C) P=7/9 anns=0
+2026-05-11 14:32:18,164 [INFO]   DNA SPENCERS.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:32:18,164 [INFO]   [1997/2388] ✓ SPENCERS.NS DNA=0.478(C) P=4/9 anns=0
+2026-05-11 14:32:21,882 [INFO]   DNA SRD.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:32:21,882 [INFO]   [2003/2388] ✓ SRD.NS DNA=0.487(C) P=4/9 anns=0
+2026-05-11 14:32:24,368 [INFO]   DNA SRTL.NS: 0.456 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-05-11 14:32:24,369 [INFO]   [2010/2388] ✓ SRTL.NS DNA=0.456(C) P=6/9 anns=0
+2026-05-11 14:32:25,630 [INFO]   DNA SSDL.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:32:25,630 [INFO]   [2011/2388] ✓ SSDL.NS DNA=0.491(C) P=4/9 anns=0
+2026-05-11 14:32:28,612 [INFO]   DNA STCINDIA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:32:28,613 [INFO]   [2020/2388] ✓ STCINDIA.NS DNA=0.463(C) P=2/9 anns=0
+2026-05-11 14:32:32,692 [INFO]   DNA SUBEXLTD.NS: 0.313 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:32:35,698 [INFO]   DNA SUMIT.NS: 0.414 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:32:40,659 [INFO]   DNA SUPERSPIN.NS: 0.432 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:32:42,109 [INFO]   DNA SUPREME.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:32:42,110 [INFO]   [2058/2388] ✓ SUPREME.NS DNA=0.478(C) P=4/9 anns=0
+2026-05-11 14:32:45,926 [INFO]   DNA SUTLEJTEX.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:32:45,926 [INFO]   [2072/2388] ✓ SUTLEJTEX.NS DNA=0.468(C) P=6/9 anns=0
+2026-05-11 14:32:51,077 [INFO]   DNA TAKE.NS: 0.356 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:32:53,092 [INFO]   DNA TARACHAND.NS: 0.412 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:32:56,599 [INFO]   DNA TARMAT.NS: 0.520 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=1.00
+2026-05-11 14:32:56,599 [INFO]   [2101/2388] ✓ TARMAT.NS DNA=0.520(C) P=5/9 anns=0
+2026-05-11 14:33:04,194 [INFO]   DNA TEXMOPIPES.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:33:05,694 [INFO]   DNA TFL.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:33:05,694 [INFO]   [2138/2388] ✓ TFL.NS DNA=0.505(C) P=3/9 anns=0
+2026-05-11 14:33:06,820 [INFO]   DNA TGBHOTELS.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-05-11 14:33:09,670 [INFO]   DNA THOMASCOTT.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:33:09,671 [INFO]   [2149/2388] ✓ THOMASCOTT.NS DNA=0.467(C) P=3/9 anns=0
+2026-05-11 14:33:12,916 [INFO]   DNA TICL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:33:12,916 [INFO]   [2152/2388] ✓ TICL.NS DNA=0.487(C) P=7/9 anns=0
+2026-05-11 14:33:14,287 [INFO]   DNA TIGERLOGS.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:33:18,302 [INFO]   DNA TIRUPATIFL.NS: 0.341 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:33:20,459 [INFO]   DNA TNPETRO.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:33:20,460 [INFO]   [2171/2388] ✓ TNPETRO.NS DNA=0.450(C) P=4/9 anns=0
+2026-05-11 14:33:22,391 [INFO]   DNA TOLINS.NS: 0.493 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:33:22,391 [INFO]   [2175/2388] ✓ TOLINS.NS DNA=0.493(C) P=5/9 anns=0
+2026-05-11 14:33:24,587 [INFO]   DNA TPLPLASTEH.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:33:25,788 [INFO]   DNA TRACXN.NS: 0.395 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:33:27,388 [INFO]   DNA TRANSWORLD.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:33:27,388 [INFO]   [2185/2388] ✓ TRANSWORLD.NS DNA=0.467(C) P=9/9 anns=0
+2026-05-11 14:33:28,766 [INFO]   DNA TREEHOUSE.NS: 0.487 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=1.00
+2026-05-11 14:33:28,766 [INFO]   [2187/2388] ✓ TREEHOUSE.NS DNA=0.487(C) P=2/9 anns=0
+2026-05-11 14:33:30,261 [INFO]   DNA TREL.NS: 0.507 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:33:30,261 [INFO]   [2189/2388] ✓ TREL.NS DNA=0.507(C) P=7/9 anns=0
+2026-05-11 14:33:32,037 [INFO]   DNA TRIGYN.NS: 0.369 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:33:36,312 [INFO]   DNA TTL.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:33:36,313 [INFO]   [2201/2388] ✓ TTL.NS DNA=0.511(C) P=5/9 anns=0
+2026-05-11 14:33:39,234 [INFO]   DNA TVTODAY.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:33:39,235 [INFO]   [2208/2388] ✓ TVTODAY.NS DNA=0.463(C) P=8/9 anns=0
+2026-05-11 14:33:42,452 [INFO]   DNA UFO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:33:43,697 [INFO]   DNA UGARSUGAR.NS: 0.436 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:33:45,831 [INFO]   DNA UMAEXPORTS.NS: 0.509 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:33:45,831 [INFO]   [2223/2388] ✓ UMAEXPORTS.NS DNA=0.509(C) P=2/9 anns=0
+2026-05-11 14:33:49,306 [INFO]   DNA UNITEDPOLY.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:33:50,957 [INFO]   DNA UNIVASTU.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:33:53,064 [INFO]   DNA URAVIDEF.NS: 0.555 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:33:53,064 [INFO]   [2244/2388] ✓ URAVIDEF.NS DNA=0.555(C) P=3/9 anns=0
+2026-05-11 14:33:54,505 [INFO]   DNA URJA.NS: 0.338 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:33:56,097 [INFO]   DNA USK.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:33:56,097 [INFO]   [2248/2388] ✓ USK.NS DNA=0.505(C) P=1/9 anns=0
+2026-05-11 14:33:59,720 [INFO]   DNA UYFINCORP.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:33:59,721 [INFO]   [2253/2388] ✓ UYFINCORP.NS DNA=0.487(C) P=3/9 anns=0
+2026-05-11 14:34:01,604 [INFO]   DNA VAISHALI.NS: 0.423 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:34:02,805 [INFO]   DNA VAKRANGEE.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:34:04,338 [INFO]   DNA VALIANTLAB.NS: 0.458 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:34:04,338 [INFO]   [2259/2388] ✓ VALIANTLAB.NS DNA=0.458(C) P=5/9 anns=0
+2026-05-11 14:34:06,240 [INFO]   DNA VARDMNPOLY.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:34:06,240 [INFO]   [2262/2388] ✓ VARDMNPOLY.NS DNA=0.491(C) P=5/9 anns=0
+2026-05-11 14:34:08,112 [INFO]   DNA VASWANI.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:34:11,677 [INFO]   DNA VERTOZ.NS: 0.320 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:34:13,193 [INFO]   DNA VETO.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:34:14,488 [INFO]   DNA VGL.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:34:14,488 [INFO]   [2279/2388] ✓ VGL.NS DNA=0.491(C) P=8/9 anns=0
+2026-05-11 14:34:18,680 [INFO]   DNA VINEETLAB.NS: 0.350 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.40
+2026-05-11 14:34:20,251 [INFO]   DNA VIPCLOTHNG.NS: 0.458 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:34:20,252 [INFO]   [2298/2388] ✓ VIPCLOTHNG.NS DNA=0.458(C) P=6/9 anns=0
+2026-05-11 14:34:21,649 [INFO]   DNA VIPULLTD.NS: 0.452 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-05-11 14:34:21,649 [INFO]   [2300/2388] ✓ VIPULLTD.NS DNA=0.452(C) P=4/9 anns=0
+2026-05-11 14:34:25,009 [INFO]   DNA VIRINCHI.NS: 0.389 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-05-11 14:34:26,403 [INFO]   DNA VISAKAIND.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:34:28,080 [INFO]   DNA VISASTEEL.NS: 0.438 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:34:29,438 [INFO]   DNA VISHWARAJ.NS: 0.432 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:34:31,065 [INFO]   DNA VIVIMEDLAB.NS: 0.400 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:34:32,620 [INFO]   DNA VLEGOV.NS: 0.364 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-05-11 14:34:34,426 [INFO]   DNA VMSTMT.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:34:34,426 [INFO]   [2314/2388] ✓ VMSTMT.NS DNA=0.467(C) P=5/9 anns=0
+2026-05-11 14:34:36,150 [INFO]   DNA VPRPL.NS: 0.386 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:34:38,607 [INFO]   DNA VRAJ.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-05-11 14:34:40,377 [INFO]   DNA VSTL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:34:40,378 [INFO]   [2322/2388] ✓ VSTL.NS DNA=0.467(C) P=4/9 anns=0
+2026-05-11 14:34:50,156 [INFO]   DNA WSI.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:34:50,156 [INFO]   [2359/2388] ✓ WSI.NS DNA=0.463(C) P=1/9 anns=0
+2026-05-11 14:34:51,655 [INFO]   DNA XCHANGING.NS: 0.448 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-05-11 14:34:54,694 [INFO]   DNA ZEELEARN.NS: 0.414 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-05-11 14:34:56,040 [INFO]   DNA ZEEMEDIA.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:34:57,633 [INFO]   DNA ZENITHSTL.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-05-11 14:35:00,991 [INFO]   DNA ZUARIIND.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-05-11 14:35:00,992 [INFO]   [2386/2388] ✓ ZUARIIND.NS DNA=0.456(C) P=2/9 anns=0
+2026-05-11 14:35:01,396 [INFO] 
+Enriching top 30 with Screener.in...
+2026-05-11 14:35:01,397 [INFO] Enriching 30 candidates with Screener.in data...
+2026-05-11 14:35:01,397 [INFO]   [1/30] Screener fetch: DRCSYSTEMS
+2026-05-11 14:35:04,868 [INFO]   [2/30] Screener fetch: RNBDENIMS
+2026-05-11 14:35:08,304 [INFO]   [3/30] Screener fetch: TICL
+2026-05-11 14:35:11,838 [INFO]   [4/30] Screener fetch: VGL
+2026-05-11 14:35:15,209 [INFO]   [5/30] Screener fetch: BRNL
+2026-05-11 14:35:18,767 [INFO]   [6/30] Screener fetch: SICALLOG
+2026-05-11 14:35:22,254 [INFO]   [7/30] Screener fetch: TREL
+2026-05-11 14:35:25,683 [INFO]   [8/30] Screener fetch: TOLINS
+2026-05-11 14:35:29,086 [INFO]   [9/30] Screener fetch: IGCL
+2026-05-11 14:35:32,495 [INFO]   [10/30] Screener fetch: NILAINFRA
+2026-05-11 14:35:35,910 [INFO]   [11/30] Screener fetch: CCCL
+2026-05-11 14:35:39,348 [INFO]   [12/30] Screener fetch: BHARATGEAR
+2026-05-11 14:35:42,717 [INFO]   [13/30] Screener fetch: FABTECH
+2026-05-11 14:35:46,162 [INFO]   [14/30] Screener fetch: SAMBHAAV
+2026-05-11 14:35:49,549 [INFO]   [15/30] Screener fetch: SIGIND
+2026-05-11 14:35:52,939 [INFO]   [16/30] Screener fetch: TRANSWORLD
+2026-05-11 14:35:56,350 [INFO]   [17/30] Screener fetch: AARTECH
+2026-05-11 14:35:59,757 [INFO]   [18/30] Screener fetch: TVTODAY
+2026-05-11 14:36:03,180 [INFO]   [19/30] Screener fetch: CHEMCON
+2026-05-11 14:36:06,601 [INFO]   [20/30] Screener fetch: INDOUS
+2026-05-11 14:36:10,026 [INFO]   [21/30] Screener fetch: TARMAT
+2026-05-11 14:36:13,495 [INFO]   [22/30] Screener fetch: RADIOCITY
+2026-05-11 14:36:17,065 [INFO]   [23/30] Screener fetch: GOYALALUM
+2026-05-11 14:36:20,534 [INFO]   [24/30] Screener fetch: DPWIRES
+2026-05-11 14:36:23,970 [INFO]   [25/30] Screener fetch: MUFTI
+2026-05-11 14:36:27,381 [INFO]   [26/30] Screener fetch: ORIENTCER
+2026-05-11 14:36:30,828 [INFO]   [27/30] Screener fetch: BAIDFIN
+2026-05-11 14:36:34,268 [INFO]   [28/30] Screener fetch: UYFINCORP
+2026-05-11 14:36:37,637 [INFO]   [29/30] Screener fetch: SGL
+2026-05-11 14:36:41,196 [INFO]   [30/30] Screener fetch: MEDICO
+2026-05-11 14:36:44,782 [INFO] Screener enrichment: 0/30 fetched successfully.
+2026-05-11 14:36:44,783 [INFO] Fetching concall signals for top 20...
+2026-05-11 14:36:47,223 [INFO]   🎙️ DRCSYSTEMS.NS: concall=0.30 final=0.580
+2026-05-11 14:36:49,680 [INFO]   🎙️ RNBDENIMS.NS: concall=0.30 final=0.575
+2026-05-11 14:36:52,209 [INFO]   🎙️ TICL.NS: concall=0.30 final=0.568
+2026-05-11 14:36:54,580 [INFO]   🎙️ VGL.NS: concall=0.30 final=0.566
+2026-05-11 14:36:57,036 [INFO]   🎙️ BRNL.NS: concall=0.30 final=0.557
+2026-05-11 14:36:59,513 [INFO]   🎙️ SICALLOG.NS: concall=0.30 final=0.552
+2026-05-11 14:37:01,883 [INFO]   🎙️ TREL.NS: concall=0.30 final=0.550
+2026-05-11 14:37:04,448 [INFO]   🎙️ TOLINS.NS: concall=0.30 final=0.548
+2026-05-11 14:37:06,925 [INFO]   🎙️ IGCL.NS: concall=0.30 final=0.543
+2026-05-11 14:37:09,307 [INFO]   🎙️ NILAINFRA.NS: concall=0.30 final=0.539
+2026-05-11 14:37:11,782 [INFO]   🎙️ CCCL.NS: concall=0.30 final=0.537
+2026-05-11 14:37:14,262 [INFO]   🎙️ BHARATGEAR.NS: concall=0.30 final=0.537
+2026-05-11 14:37:16,712 [INFO]   🎙️ FABTECH.NS: concall=0.30 final=0.537
+2026-05-11 14:37:19,198 [INFO]   🎙️ SAMBHAAV.NS: concall=0.30 final=0.536
+2026-05-11 14:37:21,742 [INFO]   🎙️ SIGIND.NS: concall=0.30 final=0.534
+2026-05-11 14:37:24,278 [INFO]   🎙️ TRANSWORLD.NS: concall=0.30 final=0.533
+2026-05-11 14:37:26,760 [INFO]   🎙️ AARTECH.NS: concall=0.30 final=0.531
+2026-05-11 14:37:29,251 [INFO]   🎙️ TVTODAY.NS: concall=0.30 final=0.529
+2026-05-11 14:37:31,831 [INFO]   🎙️ CHEMCON.NS: concall=0.30 final=0.527
+2026-05-11 14:37:34,280 [INFO]   🎙️ INDOUS.NS: concall=0.30 final=0.527
+2026-05-11 14:37:34,282 [INFO] Layer 2 v5: 169 passed → 15 final
+2026-05-11 14:37:34,282 [INFO] 
+▶ Conviction plays...
+2026-05-11 14:37:34,282 [INFO]   0 conviction plays
+2026-05-11 14:37:34,283 [INFO] 
+▶ Persistence tracker...
+2026-05-11 14:37:34,283 [INFO] ▶ Running scan history tracker...
+2026-05-11 14:37:34,300 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 70 total in history
+2026-05-11 14:37:34,307 [INFO] 
+✅ Done — L1:10 L2:15 Conviction:0 WatchNow:0
