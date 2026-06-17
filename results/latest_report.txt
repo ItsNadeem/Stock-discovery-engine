@@ -1,53 +1,37 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-06-16 15:14 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-06-17 14:36 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, +0.5% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23989.0  1M: +1.5%  3M: +0.5%
+  Index below 200EMA, +4.0% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    24086.0  1M: +2.0%  3M: +4.0%
 ════════════════════════════════════════════════════════════════════════
-  Top 5 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 3 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  TMB.NS            Score: 0.741   MCap: ₹12069.0 Cr
-    Price ₹762.15     RSI 79.0    ADX 67.3    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.86  6M: +51.4%  12M: +73.3%  3M: +28.5%
-    MACD: Positive  BB%B: 0.78  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:35/-DI:6
-    RS Days: 2  OBV: ✗  52W Break: ✗
-    Fundamental Score: 0.54   ROE: 14.0%   D/E: None   FCF Yield: None%
-    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 67.3 (+DI 34.6 / -DI 5.8) | ⚡ 3M Return +28.5%
-
-#02  SAKAR.NS          Score: 0.678   MCap: ₹1806.0 Cr
-    Price ₹822.95     RSI 56.0    ADX 35.1    Sector: Pharma  SectorMom3M: 3.5%
-    MomScore: 2.56  6M: +94.9%  12M: +163.3%  3M: +59.7%
-    MACD: –  BB%B: 0.68  BBSqueeze: Yes  Structure: HH/HL✓  +DI:23/-DI:18
-    RS Days: 2  OBV: ✗  52W Break: ✗
-    Fundamental Score: 0.42   ROE: 10.0%   D/E: 0.22   FCF Yield: 0.38%
-    ▶  🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 35.1 (+DI 23.3 / -DI 17.9) | ⚡ 3M Return +59.7% | 💰 Rev Growth 40.1%
-
-#03  UNIPARTS.NS       Score: 0.632   MCap: ₹3023.0 Cr
-    Price ₹670.3      RSI 78.1    ADX 44.9    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.46  6M: +40.4%  12M: +79.8%  3M: +52.5%
-    MACD: ↑Expanding  BB%B: 0.88  BBSqueeze: –  Structure: HH/HL✓  +DI:25/-DI:12
+#01  UNIPARTS.NS       Score: 0.634   MCap: ₹3012.0 Cr
+    Price ₹667.9      RSI 76.4    ADX 44.9    Sector: Unknown  SectorMom3M: None%
+    MomScore: 1.54  6M: +38.4%  12M: +86.8%  3M: +48.6%
+    MACD: Positive  BB%B: 0.84  BBSqueeze: –  Structure: HH/HL✓  +DI:25/-DI:12
     RS Days: 0  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.56   ROE: 18.0%   D/E: 0.18   FCF Yield: 3.95%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 44.9 (+DI 25.0 / -DI 12.4) | ⚡ 3M Return +52.5% | 💰 Rev Growth 34.1%
+    Fundamental Score: 0.56   ROE: 18.0%   D/E: 0.18   FCF Yield: 3.96%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 44.9 (+DI 25.2 / -DI 11.9) | ⚡ 3M Return +48.6% | 💰 Rev Growth 34.1%
 
-#04  CEIGALL.NS        Score: 0.613   MCap: ₹6452.0 Cr
-    Price ₹370.35     RSI 64.4    ADX 41.7    Sector: Other  SectorMom3M: None%
-    MomScore: 1.67  6M: +60.5%  12M: +42.7%  3M: +39.2%
-    MACD: Positive  BB%B: 0.79  BBSqueeze: –  Structure: HH/HL✓  +DI:25/-DI:12
+#02  CEIGALL.NS        Score: 0.620   MCap: ₹6489.0 Cr
+    Price ₹372.5      RSI 65.3    ADX 44.0    Sector: Other  SectorMom3M: None%
+    MomScore: 1.71  6M: +58.7%  12M: +47.2%  3M: +36.8%
+    MACD: Positive  BB%B: 0.82  BBSqueeze: –  Structure: HH/HL✓  +DI:24/-DI:12
     RS Days: 0  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.46   ROE: 15.5%   D/E: 0.61   FCF Yield: 1.67%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 41.7 (+DI 24.9 / -DI 12.5) | ⚡ 3M Return +39.2% | 💰 Rev Growth 37.1%
+    Fundamental Score: 0.46   ROE: 15.5%   D/E: 0.61   FCF Yield: 1.66%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 44.0 (+DI 24.1 / -DI 12.3) | ⚡ 3M Return +36.8% | 💰 Rev Growth 37.1%
 
-#05  MAYURUNIQ.NS      Score: 0.597   MCap: ₹3580.0 Cr
-    Price ₹823.95     RSI 60.5    ADX 51.8    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.47  6M: +66.4%  12M: +40.7%  3M: +63.5%
-    MACD: ↑Expanding  BB%B: 0.93  BBSqueeze: –  Structure: HH/HL✓  +DI:23/-DI:16
-    RS Days: 0  OBV: ✓  52W Break: ✓
+#03  MAYURUNIQ.NS      Score: 0.600   MCap: ₹3592.0 Cr
+    Price ₹826.75     RSI 61.0    ADX 47.2    Sector: Unknown  SectorMom3M: None%
+    MomScore: 1.49  6M: +68.1%  12M: +40.8%  3M: +64.7%
+    MACD: ↑Expanding  BB%B: 0.90  BBSqueeze: –  Structure: HH/HL✓  +DI:23/-DI:15
+    RS Days: 0  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.35   ROE: 18.4%   D/E: 0.69   FCF Yield: -0.32%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 51.8 (+DI 23.4 / -DI 15.6) | ⚡ 3M Return +63.5%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 47.2 (+DI 23.4 / -DI 14.9) | ⚡ 3M Return +64.7%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
