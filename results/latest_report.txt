@@ -1,37 +1,69 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-07-22 15:35 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-07-23 15:45 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, -1.6% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23996.0  1M: +0.7%  3M: -1.6%
+  Index below 200EMA, -1.3% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    23870.0  1M: -0.6%  3M: -1.3%
 ════════════════════════════════════════════════════════════════════════
-  Top 3 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 7 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  TMB.NS            Score: 0.681   MCap: ₹12837.0 Cr
-    Price ₹810.65     RSI 63.9    ADX 44.3    Sector: Financial Services  SectorMom3M: None%
-    MomScore: 1.95  6M: +52.4%  12M: +85.0%  3M: +18.2%
-    MACD: Positive  BB%B: 0.80  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:33/-DI:7
+#01  SOTL.NS           Score: 0.670   MCap: ₹4423.0 Cr
+    Price ₹645.1      RSI 71.0    ADX 32.1    Sector: Other  SectorMom3M: None%
+    MomScore: 1.71  6M: +83.2%  12M: +62.0%  3M: +75.2%
+    MACD: ↑Expanding  BB%B: 1.00  BBSqueeze: –  Structure: HH/HL✓  +DI:45/-DI:9
+    RS Days: 1  OBV: ✓  52W Break: ✓
+    Fundamental Score: 0.39   ROE: 10.5%   D/E: 0.1   FCF Yield: 1.65%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | ★ OBV + Volume + 52W Breakout | 📈 Strong Trend ADX 32.1 (+DI 44.9 / -DI 9.4) | ⚡ 3M Return +75.2%
+
+#02  HIRECT.NS         Score: 0.669   MCap: ₹4417.0 Cr
+    Price ₹1285.0     RSI 70.0    ADX 39.0    Sector: Other  SectorMom3M: None%
+    MomScore: 1.63  6M: +106.0%  12M: +93.0%  3M: +39.3%
+    MACD: Positive  BB%B: 0.83  BBSqueeze: –  Structure: HH/HL✓  +DI:44/-DI:16
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.43   ROE: 21.1%   D/E: 1.19   FCF Yield: -2.71%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 39.0 (+DI 43.6 / -DI 16.4) | ⚡ 3M Return +39.3% | 💰 Rev Growth 51.2%
+
+#03  TMB.NS            Score: 0.664   MCap: ₹12659.0 Cr
+    Price ₹799.4      RSI 54.9    ADX 46.3    Sector: Financial Services  SectorMom3M: None%
+    MomScore: 1.86  6M: +48.4%  12M: +82.8%  3M: +10.0%
+    MACD: Positive  BB%B: 0.69  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:26/-DI:10
     RS Days: 0  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.54   ROE: 14.0%   D/E: None   FCF Yield: None%
-    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 44.3 (+DI 32.8 / -DI 7.3)
+    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 46.3 (+DI 26.4 / -DI 10.4)
 
-#02  HIRECT.NS         Score: 0.645   MCap: ₹4394.0 Cr
-    Price ₹1278.4     RSI 63.1    ADX 37.0    Sector: Other  SectorMom3M: None%
-    MomScore: 1.57  6M: +99.9%  12M: +92.3%  3M: +36.8%
-    MACD: Positive  BB%B: 0.85  BBSqueeze: –  Structure: HH/HL✓  +DI:43/-DI:19
+#04  CYIENTDLM.NS      Score: 0.637   MCap: ₹5279.0 Cr
+    Price ₹665.1      RSI 74.0    ADX 67.3    Sector: Other  SectorMom3M: None%
+    MomScore: 1.46  6M: +83.4%  12M: +40.2%  3M: +69.4%
+    MACD: ↑Expanding  BB%B: 0.96  BBSqueeze: –  Structure: HH/HL✓  +DI:44/-DI:2
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.44   ROE: None%   D/E: 0.17   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 67.3 (+DI 44.2 / -DI 2.5) | ⚡ 3M Return +69.4% | 💰 Rev Growth 34.3%
+
+#05  IRISDOREME.NS     Score: 0.625   MCap: ₹799.0 Cr
+    Price ₹46.83      RSI 73.1    ADX 40.3    Sector: FMCG  SectorMom3M: -1.1%
+    MomScore: 1.28  6M: +48.0%  12M: +49.3%  3M: +29.9%
+    MACD: Positive  BB%B: 0.79  BBSqueeze: –  Structure: HH/HL✓  +DI:18/-DI:15
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.50   ROE: 14.5%   D/E: 0.24   FCF Yield: -3.36%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 40.3 (+DI 18.5 / -DI 15.3) | ⚡ 3M Return +29.9% | 💰 Rev Growth 50.4%
+
+#06  PANAMAPET.NS      Score: 0.603   MCap: ₹3029.0 Cr
+    Price ₹500.75     RSI 71.0    ADX 29.7    Sector: Energy  SectorMom3M: -0.4%
+    MomScore: 1.24  6M: +76.9%  12M: +40.5%  3M: +83.2%
+    MACD: ↑Expanding  BB%B: 1.27  BBSqueeze: –  Structure: HH/HL✓  +DI:41/-DI:13
     RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.43   ROE: 21.1%   D/E: 1.19   FCF Yield: -2.73%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 37.0 (+DI 43.4 / -DI 18.8) | ⚡ 3M Return +36.8% | 💰 Rev Growth 51.2%
+    Fundamental Score: 0.40   ROE: 15.6%   D/E: 0.08   FCF Yield: -6.45%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | ⚡ 3M Return +83.2% | 🛡️ Nearly Debt-Free
 
-#03  SOTL.NS           Score: 0.496   MCap: ₹4087.0 Cr
-    Price ₹596.15     RSI 66.9    ADX 32.5    Sector: Other  SectorMom3M: None%
-    MomScore: 1.38  6M: +71.6%  12M: +43.8%  3M: +60.2%
-    MACD: –  BB%B: 0.75  BBSqueeze: –  Structure: HH/HL✓  +DI:41/-DI:10
-    RS Days: 0  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.39   ROE: 10.5%   D/E: 0.1   FCF Yield: 1.78%
-    ▶  📈 Strong Trend ADX 32.5 (+DI 41.2 / -DI 10.2) | ⚡ 3M Return +60.2% | 🛡️ Nearly Debt-Free
+#07  FCL.NS            Score: 0.588   MCap: ₹4880.0 Cr
+    Price ₹41.91      RSI 60.5    ADX 40.9    Sector: Other  SectorMom3M: None%
+    MomScore: 1.27  6M: +93.0%  12M: +53.0%  3M: +82.4%
+    MACD: ↑Expanding  BB%B: 1.03  BBSqueeze: Yes  Structure: HH/HL✓  +DI:24/-DI:16
+    RS Days: 1  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.45   ROE: 14.9%   D/E: 0.87   FCF Yield: -1.55%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 40.9 (+DI 24.0 / -DI 16.4) | ⚡ 3M Return +82.4%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
