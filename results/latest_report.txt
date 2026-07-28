@@ -1,53 +1,53 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-07-27 16:07 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-07-28 15:44 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, +0.4% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23996.0  1M: -0.2%  3M: +0.4%
+  Index below 200EMA, -0.4% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    23985.0  1M: +0.2%  3M: -0.4%
 ════════════════════════════════════════════════════════════════════════
   Top 5 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  TMB.NS            Score: 0.729   MCap: ₹14151.0 Cr
-    Price ₹893.65     RSI 72.6    ADX 50.1    Sector: Financial Services  SectorMom3M: None%
-    MomScore: 2.29  6M: +64.5%  12M: +103.8%  3M: +22.8%
-    MACD: ↑Expanding  BB%B: 1.22  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:45/-DI:10
-    RS Days: 0  OBV: ✓  52W Break: ✓
-    Fundamental Score: 0.54   ROE: 14.0%   D/E: None   FCF Yield: None%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | ★ OBV + Volume + 52W Breakout | 📈 Strong Trend ADX 50.1 (+DI 45.4 / -DI 9.7)
+#01  TMB.NS            Score: 0.718   MCap: ₹13948.0 Cr
+    Price ₹880.8      RSI 73.8    ADX 53.9    Sector: Unknown  SectorMom3M: None%
+    MomScore: 2.18  6M: +60.7%  12M: +100.1%  3M: +21.1%
+    MACD: ↑Expanding  BB%B: 1.03  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:43/-DI:8
+    RS Days: 0  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.52   ROE: 14.5%   D/E: None   FCF Yield: None%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 53.9 (+DI 43.3 / -DI 8.4)
 
-#02  HIRECT.NS         Score: 0.717   MCap: ₹4579.0 Cr
-    Price ₹1332.3     RSI 77.9    ADX 41.0    Sector: Other  SectorMom3M: None%
-    MomScore: 1.83  6M: +120.6%  12M: +103.4%  3M: +41.5%
-    MACD: ↑Expanding  BB%B: 0.86  BBSqueeze: –  Structure: HH/HL✓  +DI:47/-DI:14
-    RS Days: 2  OBV: ✓  52W Break: ✓
-    Fundamental Score: 0.42   ROE: 21.1%   D/E: 1.19   FCF Yield: -2.62%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 41.0 (+DI 47.2 / -DI 13.7) | ⚡ 3M Return +41.5% | 💰 Rev Growth 51.2%
+#02  HIRECT.NS         Score: 0.696   MCap: ₹4508.0 Cr
+    Price ₹1311.5     RSI 79.8    ADX 40.9    Sector: Other  SectorMom3M: None%
+    MomScore: 1.82  6M: +126.2%  12M: +96.0%  3M: +39.3%
+    MACD: Positive  BB%B: 0.79  BBSqueeze: –  Structure: HH/HL✓  +DI:48/-DI:13
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.43   ROE: 21.1%   D/E: 1.19   FCF Yield: -2.66%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 40.9 (+DI 47.5 / -DI 13.4) | ⚡ 3M Return +39.3% | 💰 Rev Growth 51.2%
 
-#03  IRISDOREME.NS     Score: 0.679   MCap: ₹824.0 Cr
-    Price ₹48.29      RSI 71.0    ADX 35.5    Sector: FMCG  SectorMom3M: 0.0%
-    MomScore: 1.37  6M: +52.0%  12M: +52.2%  3M: +36.8%
-    MACD: ↑Expanding  BB%B: 0.95  BBSqueeze: –  Structure: HH/HL✓  +DI:22/-DI:14
+#03  IRISDOREME.NS     Score: 0.647   MCap: ₹825.0 Cr
+    Price ₹48.32      RSI 75.3    ADX 33.3    Sector: FMCG  SectorMom3M: -1.4%
+    MomScore: 1.47  6M: +55.4%  12M: +55.6%  3M: +34.0%
+    MACD: Positive  BB%B: 0.92  BBSqueeze: Yes  Structure: HH/HL✓  +DI:21/-DI:14
     RS Days: 2  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.50   ROE: 14.5%   D/E: 0.24   FCF Yield: -3.25%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 35.5 (+DI 21.5 / -DI 14.3) | ⚡ 3M Return +36.8% | 💰 Rev Growth 50.4%
+    ▶  📈 MACD Positive + HH/HL Structure | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 33.3 (+DI 20.9 / -DI 14.3) | ⚡ 3M Return +34.0%
 
-#04  SOTL.NS           Score: 0.676   MCap: ₹4452.0 Cr
-    Price ₹649.35     RSI 72.0    ADX 38.2    Sector: Other  SectorMom3M: None%
-    MomScore: 1.74  6M: +86.8%  12M: +60.2%  3M: +79.4%
-    MACD: ↑Expanding  BB%B: 0.92  BBSqueeze: –  Structure: HH/HL✓  +DI:32/-DI:11
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.39   ROE: 10.5%   D/E: 0.1   FCF Yield: 1.64%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 38.2 (+DI 31.7 / -DI 11.4) | ⚡ 3M Return +79.4% | 🛡️ Nearly Debt-Free
+#04  IBULLSLTD.NS      Score: 0.634   MCap: ₹6628.0 Cr
+    Price ₹29.61      RSI 56.3    ADX 38.0    Sector: Realty  SectorMom3M: 17.8%
+    MomScore: 2.22  6M: +165.8%  12M: +98.7%  3M: +50.1%
+    MACD: –  BB%B: 0.49  BBSqueeze: Yes  Structure: HH/HL✓  +DI:17/-DI:21
+    RS Days: 1  OBV: ✗  52W Break: ✗
+    Fundamental Score: 0.61   ROE: None%   D/E: 0.15   FCF Yield: None%
+    ▶  🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 38.0 (+DI 16.7 / -DI 20.9) | ⚡ 3M Return +50.1% | 💰 Rev Growth 1922000.0%
 
-#05  IBULLSLTD.NS      Score: 0.658   MCap: ₹6975.0 Cr
-    Price ₹31.16      RSI 60.0    ADX 41.3    Sector: Realty  SectorMom3M: 15.3%
-    MomScore: 2.32  6M: +172.4%  12M: +103.7%  3M: +57.9%
-    MACD: –  BB%B: 0.85  BBSqueeze: Yes  Structure: HH/HL✓  +DI:16/-DI:20
+#05  SOTL.NS           Score: 0.623   MCap: ₹4248.0 Cr
+    Price ₹619.65     RSI 65.0    ADX 41.3    Sector: Unknown  SectorMom3M: None%
+    MomScore: 1.58  6M: +80.1%  12M: +54.6%  3M: +71.2%
+    MACD: Positive  BB%B: 0.72  BBSqueeze: –  Structure: HH/HL✓  +DI:31/-DI:12
     RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.60   ROE: None%   D/E: 0.15   FCF Yield: None%
-    ▶  🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 41.3 (+DI 16.3 / -DI 19.6) | ⚡ 3M Return +57.9% | 💰 Rev Growth 1922000.0%
+    Fundamental Score: 0.39   ROE: 10.5%   D/E: 0.1   FCF Yield: 1.71%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 41.3 (+DI 30.8 / -DI 12.4) | ⚡ 3M Return +71.2% | 🛡️ Nearly Debt-Free
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
