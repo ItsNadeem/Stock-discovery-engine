@@ -1,53 +1,85 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-08-04 15:47 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-08-05 15:45 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🟡 NEUTRAL
   Mixed signals. Favour high-conviction setups only. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    24615.0  1M: +0.9%  3M: +1.2%
+  Nifty 50:    24625.0  1M: +3.1%  3M: +1.2%
 ════════════════════════════════════════════════════════════════════════
-  Top 5 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 9 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  RPTECH.NS         Score: 0.740   MCap: ₹5739.0 Cr
-    Price ₹870.9      RSI 66.7    ADX 26.7    Sector: Unknown  SectorMom3M: None%
-    MomScore: 4.23  6M: +138.6%  12M: +205.9%  3M: +64.1%
-    MACD: ↑Expanding  BB%B: 1.04  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:33/-DI:10
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.49   ROE: 14.9%   D/E: 0.49   FCF Yield: -0.82%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | ⚡ 3M Return +64.1% | 💰 Rev Growth 51.0%
+#01  RPTECH.NS         Score: 0.774   MCap: ₹5950.0 Cr
+    Price ₹902.85     RSI 73.6    ADX 30.3    Sector: IT  SectorMom3M: 8.1%
+    MomScore: 4.25  6M: +132.9%  12M: +214.3%  3M: +65.9%
+    MACD: ↑Expanding  BB%B: 1.09  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:41/-DI:6
+    RS Days: 2  OBV: ✓  52W Break: ✓
+    Fundamental Score: 0.49   ROE: 14.9%   D/E: 0.49   FCF Yield: -0.79%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | ★ OBV + Volume + 52W Breakout | 📈 Strong Trend ADX 30.3 (+DI 41.1 / -DI 6.3) | ⚡ 3M Return +65.9%
 
-#02  KTKBANK.NS        Score: 0.691   MCap: ₹11196.0 Cr
-    Price ₹296.05     RSI 65.4    ADX 41.0    Sector: Unknown  SectorMom3M: None%
-    MomScore: 1.83  6M: +52.3%  12M: +68.5%  3M: +14.2%
-    MACD: ↑Expanding  BB%B: 1.05  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:21/-DI:7
+#02  BLSE.NS           Score: 0.718   MCap: ₹2893.0 Cr
+    Price ₹319.15     RSI 71.5    ADX 35.7    Sector: Other  SectorMom3M: None%
+    MomScore: 1.91  6M: +94.6%  12M: +74.5%  3M: +59.4%
+    MACD: ↑Expanding  BB%B: 1.11  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:33/-DI:16
+    RS Days: 3  OBV: ✓  52W Break: ✓
+    Fundamental Score: 0.36   ROE: 12.7%   D/E: 1.08   FCF Yield: 1.36%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 35.7 (+DI 33.0 / -DI 16.5) | ⚡ 3M Return +59.4%
+
+#03  KTKBANK.NS        Score: 0.708   MCap: ₹11332.0 Cr
+    Price ₹299.65     RSI 68.4    ADX 42.6    Sector: Financial Services  SectorMom3M: None%
+    MomScore: 1.87  6M: +50.5%  12M: +72.7%  3M: +19.1%
+    MACD: ↑Expanding  BB%B: 1.08  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:23/-DI:6
     RS Days: 2  OBV: ✓  52W Break: ✓
     Fundamental Score: 0.54   ROE: None%   D/E: None   FCF Yield: None%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 41.0 (+DI 21.2 / -DI 6.7) | 💰 Rev Growth 26.1%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 42.6 (+DI 23.4 / -DI 5.9) | 💰 Rev Growth 26.1%
 
-#03  BLSE.NS           Score: 0.683   MCap: ₹2733.0 Cr
-    Price ₹301.45     RSI 65.4    ADX 35.6    Sector: Other  SectorMom3M: None%
-    MomScore: 1.69  6M: +83.8%  12M: +64.8%  3M: +50.6%
-    MACD: Positive  BB%B: 0.90  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:27/-DI:18
-    RS Days: 3  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.36   ROE: 12.7%   D/E: 1.08   FCF Yield: 1.44%
-    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 35.6 (+DI 26.6 / -DI 17.5) | ⚡ 3M Return +50.6%
-
-#04  APCOTEXIND.NS     Score: 0.672   MCap: ₹3247.0 Cr
-    Price ₹626.2      RSI 68.9    ADX 65.9    Sector: Other  SectorMom3M: None%
-    MomScore: 1.44  6M: +73.7%  12M: +49.0%  3M: +21.6%
-    MACD: Positive  BB%B: 0.81  BBSqueeze: –  Structure: HH/HL✓  +DI:34/-DI:4
+#04  APCOTEXIND.NS     Score: 0.679   MCap: ₹3264.0 Cr
+    Price ₹629.5      RSI 66.9    ADX 70.6    Sector: Other  SectorMom3M: None%
+    MomScore: 1.40  6M: +69.3%  12M: +49.8%  3M: +28.6%
+    MACD: Positive  BB%B: 0.80  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:4
     RS Days: 3  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.51   ROE: None%   D/E: 0.16   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 65.9 (+DI 34.1 / -DI 3.6) | 💰 Rev Growth 39.9%
+    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 70.6 (+DI 35.2 / -DI 3.6) | ⚡ 3M Return +28.6%
 
-#05  GAEL.NS           Score: 0.594   MCap: ₹8082.0 Cr
-    Price ₹176.21     RSI 71.2    ADX 57.3    Sector: FMCG  SectorMom3M: -0.1%
-    MomScore: 1.36  6M: +32.9%  12M: +60.2%  3M: +5.9%
-    MACD: Positive  BB%B: 0.93  BBSqueeze: –  Structure: HH/HL✓  +DI:40/-DI:10
+#05  SKYGOLD.NS        Score: 0.663   MCap: ₹10510.0 Cr
+    Price ₹678.6      RSI 63.6    ADX 41.2    Sector: FMCG  SectorMom3M: -0.3%
+    MomScore: 2.63  6M: +111.6%  12M: +147.3%  3M: +34.3%
+    MACD: –  BB%B: 0.83  BBSqueeze: Yes  Structure: HH/HL✓  +DI:28/-DI:16
+    RS Days: 1  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.58   ROE: 29.8%   D/E: 0.72   FCF Yield: 1.31%
+    ▶  🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 41.2 (+DI 28.0 / -DI 15.7) | ⚡ 3M Return +34.3% | 💰 Rev Growth 80.6%
+
+#06  CNL.NS            Score: 0.640   MCap: ₹1699.0 Cr
+    Price ₹1131.65    RSI 75.1    ADX 71.8    Sector: IT  SectorMom3M: 8.1%
+    MomScore: 1.73  6M: +68.3%  12M: +74.9%  3M: +79.1%
+    MACD: ↑Expanding  BB%B: 1.06  BBSqueeze: –  Structure: HH/HL✓  +DI:39/-DI:10
+    RS Days: 2  OBV: ✓  52W Break: ✓
+    Fundamental Score: 0.32   ROE: None%   D/E: 0.84   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 71.8 (+DI 38.7 / -DI 10.0) | ⚡ 3M Return +79.1%
+
+#07  TALBROAUTO.NS     Score: 0.607   MCap: ₹2706.0 Cr
+    Price ₹438.3      RSI 70.4    ADX 26.6    Sector: FMCG  SectorMom3M: -0.3%
+    MomScore: 1.42  6M: +66.7%  12M: +52.0%  3M: +35.0%
+    MACD: ↑Expanding  BB%B: 1.20  BBSqueeze: Yes  Structure: HH/HL✓  +DI:32/-DI:10
+    RS Days: 1  OBV: ✓  52W Break: ✓
+    Fundamental Score: 0.39   ROE: 15.1%   D/E: 0.11   FCF Yield: 0.76%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | ★ OBV + Volume + 52W Breakout | 🔵 Volatility Compression / Tight Base | ⚡ 3M Return +35.0%
+
+#08  HIRECT.NS         Score: 0.605   MCap: ₹4573.0 Cr
+    Price ₹1330.4     RSI 58.9    ADX 46.2    Sector: Other  SectorMom3M: None%
+    MomScore: 1.31  6M: +101.4%  12M: +45.2%  3M: +42.4%
+    MACD: Positive  BB%B: 0.71  BBSqueeze: –  Structure: HH/HL✓  +DI:33/-DI:14
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.42   ROE: 21.1%   D/E: 1.19   FCF Yield: -2.62%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 46.2 (+DI 32.6 / -DI 13.8) | ⚡ 3M Return +42.4% | 💰 Rev Growth 51.2%
+
+#09  GAEL.NS           Score: 0.588   MCap: ₹8019.0 Cr
+    Price ₹174.83     RSI 71.0    ADX 59.2    Sector: FMCG  SectorMom3M: -0.3%
+    MomScore: 1.31  6M: +31.4%  12M: +58.9%  3M: +4.6%
+    MACD: Positive  BB%B: 0.86  BBSqueeze: –  Structure: HH/HL✓  +DI:38/-DI:11
     RS Days: 2  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.42   ROE: None%   D/E: 0.13   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 57.3 (+DI 40.0 / -DI 10.0) | 🛡️ Nearly Debt-Free
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 59.2 (+DI 38.0 / -DI 11.2) | 🛡️ Nearly Debt-Free
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
