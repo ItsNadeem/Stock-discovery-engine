@@ -1,13 +1,13 @@
 [
   {
     "symbol": "MHLXMIRU.NS",
-    "price": 155.03,
-    "market_cap_cr": 165.0,
-    "avg_volume": 81268,
+    "price": 155.84,
+    "market_cap_cr": 166.0,
+    "avg_volume": 81350,
     "price_stage": "\ud83d\udfe1 EARLY UPTREND",
     "sector": "FMCG",
     "composite_score": 0.5683,
-    "scanned_at": "2026-08-10T14:56:43.513449",
+    "scanned_at": "2026-08-11T15:04:53.604964",
     "dna": {
       "dna_score": 0.464,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
@@ -20,15 +20,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9165Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9166Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 0.65,
-      "price_stage_desc": "\ud83d\udfe1 Early uptrend (41% above 52W low, 33% below high)",
+      "price_stage_desc": "\ud83d\udfe1 Early uptrend (42% above 52W low, 33% below high)",
       "sector_score": 0.45,
-      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-0.4% 3M)",
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "FMCG",
-      "market_cap_cr": 164.6461184
+      "market_cap_cr": 165.506368
     },
     "piotroski_score": 8,
     "piotroski_01": 0.889,
@@ -69,13 +69,13 @@
     "screener_roce": null,
     "all_flags": [],
     "persistence": {
-      "days_in_watchlist": 15,
-      "streak": 6,
+      "days_in_watchlist": 16,
+      "streak": 7,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260630",
       "peak_score": 0.589,
-      "price_since_first_pct": 28.0,
+      "price_since_first_pct": 28.7,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 10% above low)",
         "\ud83d\udfe2 Deep base (near 52W low, 19% above low)",
@@ -89,18 +89,18 @@
   },
   {
     "symbol": "REMSONSIND.NS",
-    "price": 88.71,
-    "market_cap_cr": 311.0,
-    "avg_volume": 157307,
+    "price": 90.55,
+    "market_cap_cr": 318.0,
+    "avg_volume": 158063,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "FMCG",
     "composite_score": 0.5592,
-    "scanned_at": "2026-08-10T14:59:41.942658",
+    "scanned_at": "2026-08-11T15:07:49.324856",
     "dna": {
       "dna_score": 0.484,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
       "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 16% above low)"
+        "\ud83d\udfe2 Deep base (near 52W low, 19% above low)"
       ],
       "disqualifiers": [],
       "rev_accel_score": 0.3,
@@ -110,15 +110,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9311Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9318Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 16% above low)",
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 19% above low)",
       "sector_score": 0.45,
-      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-0.4% 3M)",
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "FMCG",
-      "market_cap_cr": 311.089152
+      "market_cap_cr": 317.5416832
     },
     "piotroski_score": 9,
     "piotroski_01": 1.0,
@@ -158,16 +158,16 @@
     "screener_flags": [],
     "screener_roce": null,
     "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 16% above low)"
+      "\ud83d\udfe2 Deep base (near 52W low, 19% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 3,
-      "streak": 2,
-      "score_trend": "rising",
-      "score_7d_delta": 0.021,
+      "days_in_watchlist": 4,
+      "streak": 3,
+      "score_trend": "stable",
+      "score_7d_delta": 0.014,
       "first_seen": "20260529",
       "peak_score": 0.571,
-      "price_since_first_pct": -6.0,
+      "price_since_first_pct": -4.0,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 20% above low)",
         "\ud83d\udc41\ufe0f UNDISCOVERED: 1.4% institutional \u2014 Lynch sweet spot",
@@ -186,20 +186,110 @@
     }
   },
   {
-    "symbol": "DRCSYSTEMS.NS",
-    "price": 12.98,
-    "market_cap_cr": 187.0,
-    "avg_volume": 45810,
+    "symbol": "BIGBLOC.NS",
+    "price": 46.55,
+    "market_cap_cr": 659.0,
+    "avg_volume": 95983,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
-    "sector": "IT",
-    "composite_score": 0.5562,
-    "scanned_at": "2026-08-10T14:51:23.324703",
+    "sector": "Other",
+    "composite_score": 0.5524,
+    "scanned_at": "2026-08-11T14:54:57.702130",
     "dna": {
-      "dna_score": 0.511,
+      "dna_score": 0.478,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
       "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 5% above low)",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
+        "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
+      ],
+      "disqualifiers": [],
+      "rev_accel_score": 0.3,
+      "rev_accel_desc": "No Screener data",
+      "promoter_score": 0.7,
+      "promoter_desc": "\ud83d\udc65 Promoter 81% holding, minimal/no pledge \u2014 won't sell",
+      "catalyst_score": 0.1,
+      "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
+      "mcap_score": 0.65,
+      "mcap_desc": "\u20b9659Cr \u2014 moderate headroom for 3\u20135x",
+      "price_stage_score": 1.0,
+      "price_stage_desc": "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
+      "sector_score": 0.5,
+      "sector_desc": "Sector 'Other' not mapped",
+      "discovery_score": 0.35,
+      "discovery_desc": "Institutional ownership data unavailable",
+      "sector": "Other",
+      "market_cap_cr": 659.0350848
+    },
+    "piotroski_score": 6,
+    "piotroski_01": 0.667,
+    "lynch_score": 1.0,
+    "debt_score": 1.0,
+    "group": null,
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 81.0,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "bse_code": null,
+    "announcement_count": 0,
+    "concall": {
+      "concall_score": 0.3,
+      "tier1_signals": [],
+      "tier2_signals": [],
+      "negative_signals": [],
+      "concall_flag": null,
+      "manual_review": false,
+      "concall_count": 0,
+      "has_concall_data": false
+    },
+    "screener": null,
+    "screener_flags": [],
+    "screener_roce": null,
+    "all_flags": [
+      "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
+    ],
+    "persistence": {
+      "days_in_watchlist": 3,
+      "streak": 0,
+      "score_trend": "stable",
+      "score_7d_delta": 0.012,
+      "first_seen": "20260708",
+      "peak_score": 0.552,
+      "price_since_first_pct": -0.6,
+      "all_catalysts": [
+        "\ud83d\udfe2 Deep base (near 52W low, 22% above low)",
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
+        "\ud83d\udfe2 Deep base (near 52W low, 23% above low)",
+        "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
+      ],
+      "latest_catalyst_score": 0.1,
+      "latest_dna_score": 0.478
+    }
+  },
+  {
+    "symbol": "DRCSYSTEMS.NS",
+    "price": 12.76,
+    "market_cap_cr": 184.0,
+    "avg_volume": 46128,
+    "price_stage": "\ud83d\udfe2 DEEP BASE",
+    "sector": "IT",
+    "composite_score": 0.5521,
+    "scanned_at": "2026-08-11T14:59:04.081296",
+    "dna": {
+      "dna_score": 0.502,
+      "dna_grade": "C \u2014 Monitor, not yet actionable",
+      "dna_flags": [
+        "\ud83d\udfe2 Deep base (near 52W low, 4% above low)"
       ],
       "disqualifiers": [],
       "rev_accel_score": 0.3,
@@ -209,15 +299,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9187Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9184Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 5% above low)",
-      "sector_score": 0.9,
-      "sector_desc": "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 4% above low)",
+      "sector_score": 0.75,
+      "sector_desc": "\u2705 IT: Bull trend, above 200EMA, +14.0% 3M",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "IT",
-      "market_cap_cr": 187.0175616
+      "market_cap_cr": 183.8477824
     },
     "piotroski_score": 5,
     "piotroski_01": 0.556,
@@ -257,17 +347,16 @@
     "screener_flags": [],
     "screener_roce": null,
     "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 5% above low)",
-      "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
+      "\ud83d\udfe2 Deep base (near 52W low, 4% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 15,
-      "streak": 4,
+      "days_in_watchlist": 16,
+      "streak": 5,
       "score_trend": "stable",
-      "score_7d_delta": 0.0,
+      "score_7d_delta": -0.001,
       "first_seen": "20260316",
       "peak_score": 0.629,
-      "price_since_first_pct": 3.4,
+      "price_since_first_pct": 1.7,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 23% above low)",
         "\ud83d\udfe2 Deep base (near 52W low, 21% above low)",
@@ -290,27 +379,27 @@
         "\ud83d\udfe2 Deep base (near 52W low, 12% above low)",
         "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +13.2% 1M",
         "\ud83d\udfe2 Deep base (near 52W low, 5% above low)",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
+        "\ud83d\udfe2 Deep base (near 52W low, 4% above low)"
       ],
       "latest_catalyst_score": 0.1,
-      "latest_dna_score": 0.511
+      "latest_dna_score": 0.502
     }
   },
   {
     "symbol": "ADROITINFO.NS",
-    "price": 10.08,
+    "price": 10.17,
     "market_cap_cr": 58.0,
-    "avg_volume": 37950,
+    "avg_volume": 37924,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "IT",
-    "composite_score": 0.5536,
-    "scanned_at": "2026-08-10T14:48:06.426641",
+    "composite_score": 0.5496,
+    "scanned_at": "2026-08-11T14:49:53.136653",
     "dna": {
-      "dna_score": 0.496,
+      "dna_score": 0.487,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
       "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 22% above low)",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
       ],
       "disqualifiers": [],
       "rev_accel_score": 0.3,
@@ -322,13 +411,13 @@
       "mcap_score": 1.0,
       "mcap_desc": "\u20b958Cr \u2014 ideal multibagger size (30\u2013150 Cr)",
       "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 22% above low)",
-      "sector_score": 0.9,
-      "sector_desc": "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
+      "sector_score": 0.75,
+      "sector_desc": "\u2705 IT: Bull trend, above 200EMA, +14.0% 3M",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "IT",
-      "market_cap_cr": 57.7265792
+      "market_cap_cr": 58.2419968
     },
     "piotroski_score": 7,
     "piotroski_01": 0.778,
@@ -368,17 +457,16 @@
     "screener_flags": [],
     "screener_roce": null,
     "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 22% above low)",
-      "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
+      "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 14,
-      "streak": 3,
+      "days_in_watchlist": 15,
+      "streak": 4,
       "score_trend": "stable",
-      "score_7d_delta": 0.0,
+      "score_7d_delta": -0.001,
       "first_seen": "20260505",
       "peak_score": 0.56,
-      "price_since_first_pct": 1.1,
+      "price_since_first_pct": 2.0,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 21% above low)",
         "\ud83d\udfe2 Deep base (near 52W low, 7% above low)",
@@ -401,21 +489,22 @@
         "\ud83d\udfe2 Deep base (near 52W low, 19% above low)",
         "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +13.2% 1M",
         "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +12.6% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
       ],
       "latest_catalyst_score": 0.1,
-      "latest_dna_score": 0.496
+      "latest_dna_score": 0.487
     }
   },
   {
     "symbol": "RNBDENIMS.NS",
-    "price": 9.06,
-    "market_cap_cr": 259.0,
-    "avg_volume": 436866,
+    "price": 8.98,
+    "market_cap_cr": 256.0,
+    "avg_volume": 434853,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "FMCG",
     "composite_score": 0.5484,
-    "scanned_at": "2026-08-10T14:59:54.168743",
+    "scanned_at": "2026-08-11T15:08:02.818674",
     "dna": {
       "dna_score": 0.525,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
@@ -431,15 +520,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9259Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9256Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 1.0,
       "price_stage_desc": "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
       "sector_score": 0.45,
-      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-0.4% 3M)",
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
       "discovery_score": 1.0,
       "discovery_desc": "\ud83d\udc41\ufe0f UNDISCOVERED: 1.8% institutional \u2014 Lynch sweet spot",
       "sector": "FMCG",
-      "market_cap_cr": 258.7427584
+      "market_cap_cr": 256.4580352
     },
     "piotroski_score": 5,
     "piotroski_01": 0.556,
@@ -483,13 +572,13 @@
       "\ud83d\udc41\ufe0f UNDISCOVERED: 1.8% institutional \u2014 Lynch sweet spot"
     ],
     "persistence": {
-      "days_in_watchlist": 9,
-      "streak": 6,
+      "days_in_watchlist": 10,
+      "streak": 7,
       "score_trend": "stable",
-      "score_7d_delta": 0.008,
+      "score_7d_delta": 0.004,
       "first_seen": "20260415",
       "peak_score": 0.575,
-      "price_since_first_pct": -42.1,
+      "price_since_first_pct": -42.7,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 0% above low)",
         "\ud83d\udfe2 Deep base (near 52W low, -0% above low)",
@@ -511,13 +600,13 @@
   },
   {
     "symbol": "VGL.NS",
-    "price": 60.92,
-    "market_cap_cr": 314.0,
-    "avg_volume": 171270,
+    "price": 60.76,
+    "market_cap_cr": 313.0,
+    "avg_volume": 168400,
     "price_stage": "\ud83d\udfe1 EARLY UPTREND",
     "sector": "FMCG",
     "composite_score": 0.5461,
-    "scanned_at": "2026-08-10T15:04:21.053955",
+    "scanned_at": "2026-08-11T15:11:51.775311",
     "dna": {
       "dna_score": 0.464,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
@@ -530,15 +619,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9314Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9313Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 0.65,
-      "price_stage_desc": "\ud83d\udfe1 Early uptrend (30% above 52W low, 36% below high)",
+      "price_stage_desc": "\ud83d\udfe1 Early uptrend (29% above 52W low, 36% below high)",
       "sector_score": 0.45,
-      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-0.4% 3M)",
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "FMCG",
-      "market_cap_cr": 313.912704
+      "market_cap_cr": 313.088256
     },
     "piotroski_score": 6,
     "piotroski_01": 0.667,
@@ -579,13 +668,13 @@
     "screener_roce": null,
     "all_flags": [],
     "persistence": {
-      "days_in_watchlist": 15,
-      "streak": 6,
+      "days_in_watchlist": 16,
+      "streak": 7,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260401",
       "peak_score": 0.566,
-      "price_since_first_pct": 19.7,
+      "price_since_first_pct": 19.3,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 8% above low)",
         "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +2.5% 1M",
@@ -604,13 +693,13 @@
   },
   {
     "symbol": "RAJTV.NS",
-    "price": 10.33,
-    "market_cap_cr": 54.0,
-    "avg_volume": 83582,
+    "price": 10.16,
+    "market_cap_cr": 53.0,
+    "avg_volume": 84118,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "Other",
     "composite_score": 0.5459,
-    "scanned_at": "2026-08-10T14:59:25.307644",
+    "scanned_at": "2026-08-11T15:07:34.355062",
     "dna": {
       "dna_score": 0.52,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
@@ -625,7 +714,7 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 1.0,
-      "mcap_desc": "\u20b954Cr \u2014 ideal multibagger size (30\u2013150 Cr)",
+      "mcap_desc": "\u20b953Cr \u2014 ideal multibagger size (30\u2013150 Cr)",
       "price_stage_score": 1.0,
       "price_stage_desc": "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
       "sector_score": 0.5,
@@ -633,7 +722,7 @@
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "Other",
-      "market_cap_cr": 53.6264832
+      "market_cap_cr": 52.7439552
     },
     "piotroski_score": 8,
     "piotroski_01": 0.889,
@@ -676,13 +765,13 @@
       "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
     ],
     "persistence": {
-      "days_in_watchlist": 15,
-      "streak": 6,
+      "days_in_watchlist": 16,
+      "streak": 7,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260526",
       "peak_score": 0.546,
-      "price_since_first_pct": -50.8,
+      "price_since_first_pct": -51.6,
       "all_catalysts": [
         "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
       ],
@@ -691,19 +780,213 @@
     }
   },
   {
+    "symbol": "BHARATGEAR.NS",
+    "price": 105.03,
+    "market_cap_cr": 161.0,
+    "avg_volume": 96970,
+    "price_stage": "\ud83d\udfe2 DEEP BASE",
+    "sector": "FMCG",
+    "composite_score": 0.5452,
+    "scanned_at": "2026-08-11T14:54:46.943854",
+    "dna": {
+      "dna_score": 0.477,
+      "dna_grade": "C \u2014 Monitor, not yet actionable",
+      "dna_flags": [
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
+        "\ud83d\udc41\ufe0f UNDISCOVERED: 1.2% institutional \u2014 Lynch sweet spot"
+      ],
+      "disqualifiers": [],
+      "rev_accel_score": 0.3,
+      "rev_accel_desc": "No Screener data",
+      "promoter_score": 0.55,
+      "promoter_desc": "\ud83d\udc65 Promoter 56%, low pledge",
+      "catalyst_score": 0.1,
+      "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
+      "mcap_score": 0.85,
+      "mcap_desc": "\u20b9161Cr \u2014 good headroom for 5\u201310x",
+      "price_stage_score": 0.85,
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
+      "sector_score": 0.45,
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
+      "discovery_score": 1.0,
+      "discovery_desc": "\ud83d\udc41\ufe0f UNDISCOVERED: 1.2% institutional \u2014 Lynch sweet spot",
+      "sector": "FMCG",
+      "market_cap_cr": 161.274176
+    },
+    "piotroski_score": 9,
+    "piotroski_01": 1.0,
+    "lynch_score": 1.0,
+    "debt_score": 0.45,
+    "group": null,
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 56.5,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "bse_code": null,
+    "announcement_count": 0,
+    "concall": {
+      "concall_score": 0.3,
+      "tier1_signals": [],
+      "tier2_signals": [],
+      "negative_signals": [],
+      "concall_flag": null,
+      "manual_review": false,
+      "concall_count": 0,
+      "has_concall_data": false
+    },
+    "screener": null,
+    "screener_flags": [],
+    "screener_roce": null,
+    "all_flags": [
+      "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
+      "\ud83d\udc41\ufe0f UNDISCOVERED: 1.2% institutional \u2014 Lynch sweet spot"
+    ],
+    "persistence": {
+      "days_in_watchlist": 1,
+      "streak": 0,
+      "score_trend": "stable",
+      "score_7d_delta": 0.003,
+      "first_seen": "20260407",
+      "peak_score": 0.545,
+      "price_since_first_pct": 10.7,
+      "all_catalysts": [
+        "\ud83d\udc41\ufe0f UNDISCOVERED: 1.2% institutional \u2014 Lynch sweet spot",
+        "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +2.5% 1M",
+        "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +8.8% 1M",
+        "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +12.2% 1M",
+        "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +10.4% 1M",
+        "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +7.5% 1M",
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
+      ],
+      "latest_catalyst_score": 0.1,
+      "latest_dna_score": 0.477
+    }
+  },
+  {
+    "symbol": "ASMS.NS",
+    "price": 7.36,
+    "market_cap_cr": 224.0,
+    "avg_volume": 373339,
+    "price_stage": "\ud83d\udfe2 DEEP BASE",
+    "sector": "IT",
+    "composite_score": 0.5449,
+    "scanned_at": "2026-08-11T14:52:37.519313",
+    "dna": {
+      "dna_score": 0.517,
+      "dna_grade": "C \u2014 Monitor, not yet actionable",
+      "dna_flags": [
+        "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
+      ],
+      "disqualifiers": [],
+      "rev_accel_score": 0.3,
+      "rev_accel_desc": "No Screener data",
+      "promoter_score": 0.7,
+      "promoter_desc": "\ud83d\udc65 Promoter 68% holding, minimal/no pledge \u2014 won't sell",
+      "catalyst_score": 0.1,
+      "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
+      "mcap_score": 0.85,
+      "mcap_desc": "\u20b9224Cr \u2014 good headroom for 5\u201310x",
+      "price_stage_score": 1.0,
+      "price_stage_desc": "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
+      "sector_score": 0.75,
+      "sector_desc": "\u2705 IT: Bull trend, above 200EMA, +14.0% 3M",
+      "discovery_score": 0.35,
+      "discovery_desc": "Institutional ownership data unavailable",
+      "sector": "IT",
+      "market_cap_cr": 224.1684736
+    },
+    "piotroski_score": 5,
+    "piotroski_01": 0.556,
+    "lynch_score": 1.0,
+    "debt_score": 0.65,
+    "group": null,
+    "public_data": {
+      "insider_net_shares": 0,
+      "insider_buy_count": 0,
+      "insider_value_cr": 0.0,
+      "promoter_buying": false,
+      "insider_score": 0.3,
+      "pledge_pct": null,
+      "promoter_held_pct": 67.5,
+      "is_high_pledge": false,
+      "pledge_score": 0.5,
+      "has_bulk_deal": false,
+      "institutional_buying": false,
+      "bulk_net_value_cr": 0.0,
+      "bulk_score": 0.3,
+      "public_score": 0.36,
+      "public_flags": []
+    },
+    "bse_code": null,
+    "announcement_count": 0,
+    "concall": {
+      "concall_score": 0.3,
+      "tier1_signals": [],
+      "tier2_signals": [],
+      "negative_signals": [],
+      "concall_flag": null,
+      "manual_review": false,
+      "concall_count": 0,
+      "has_concall_data": false
+    },
+    "screener": null,
+    "screener_flags": [],
+    "screener_roce": null,
+    "all_flags": [
+      "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
+    ],
+    "persistence": {
+      "days_in_watchlist": 11,
+      "streak": 0,
+      "score_trend": "stable",
+      "score_7d_delta": -0.001,
+      "first_seen": "20260609",
+      "peak_score": 0.549,
+      "price_since_first_pct": 1.2,
+      "all_catalysts": [
+        "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +4.4% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +4.9% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +5.3% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +7.7% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +12.5% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +11.9% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +16.3% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +14.0% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +13.2% 1M",
+        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +12.6% 1M"
+      ],
+      "latest_catalyst_score": 0.1,
+      "latest_dna_score": 0.517
+    }
+  },
+  {
     "symbol": "NILAINFRA.NS",
-    "price": 7.42,
-    "market_cap_cr": 292.0,
-    "avg_volume": 218928,
+    "price": 7.37,
+    "market_cap_cr": 290.0,
+    "avg_volume": 213311,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "Realty",
     "composite_score": 0.5447,
-    "scanned_at": "2026-08-10T14:57:33.120501",
+    "scanned_at": "2026-08-11T15:05:43.068545",
     "dna": {
       "dna_score": 0.502,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
       "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 25% above low)"
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
       ],
       "disqualifiers": [],
       "rev_accel_score": 0.3,
@@ -713,15 +996,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9292Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9290Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 25% above low)",
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
       "sector_score": 0.75,
-      "sector_desc": "\u2705 Realty: Bull trend, above 200EMA, +14.8% 3M",
+      "sector_desc": "\u2705 Realty: Bull trend, above 200EMA, +13.7% 3M",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "Realty",
-      "market_cap_cr": 292.2658048
+      "market_cap_cr": 290.2963456
     },
     "piotroski_score": 7,
     "piotroski_01": 0.778,
@@ -761,16 +1044,16 @@
     "screener_flags": [],
     "screener_roce": null,
     "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 25% above low)"
+      "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 8,
-      "streak": 1,
+      "days_in_watchlist": 9,
+      "streak": 2,
       "score_trend": "stable",
-      "score_7d_delta": -0.009,
+      "score_7d_delta": -0.004,
       "first_seen": "20260401",
       "peak_score": 0.572,
-      "price_since_first_pct": 15.2,
+      "price_since_first_pct": 14.4,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 8% above low)",
         "\ud83d\udfe2 Deep base (near 52W low, 15% above low)",
@@ -785,7 +1068,8 @@
         "\u2b50 Realty: EARLY UPCYCLE \u2014 recovering from below 200EMA, +7.4% 1M",
         "\u2b50 Realty: EARLY UPCYCLE \u2014 recovering from below 200EMA, +8.4% 1M",
         "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
-        "\ud83d\udfe2 Deep base (near 52W low, 25% above low)"
+        "\ud83d\udfe2 Deep base (near 52W low, 25% above low)",
+        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
       ],
       "latest_catalyst_score": 0.1,
       "latest_dna_score": 0.502
@@ -793,13 +1077,13 @@
   },
   {
     "symbol": "ORIENTCER.NS",
-    "price": 42.77,
-    "market_cap_cr": 512.0,
-    "avg_volume": 60095,
+    "price": 42.9,
+    "market_cap_cr": 513.0,
+    "avg_volume": 59897,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "Other",
     "composite_score": 0.5407,
-    "scanned_at": "2026-08-10T14:58:06.996727",
+    "scanned_at": "2026-08-11T15:06:14.688738",
     "dna": {
       "dna_score": 0.463,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
@@ -814,7 +1098,7 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.65,
-      "mcap_desc": "\u20b9512Cr \u2014 moderate headroom for 3\u20135x",
+      "mcap_desc": "\u20b9513Cr \u2014 moderate headroom for 3\u20135x",
       "price_stage_score": 0.85,
       "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
       "sector_score": 0.5,
@@ -822,7 +1106,7 @@
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "Other",
-      "market_cap_cr": 511.6968448
+      "market_cap_cr": 513.2521984
     },
     "piotroski_score": 8,
     "piotroski_01": 0.889,
@@ -865,13 +1149,13 @@
       "\ud83d\udfe2 Deep base (near 52W low, 24% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 15,
-      "streak": 6,
+      "days_in_watchlist": 16,
+      "streak": 7,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260609",
       "peak_score": 0.541,
-      "price_since_first_pct": 12.3,
+      "price_since_first_pct": 12.7,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 11% above low)",
         "\ud83d\udfe2 Deep base (near 52W low, 16% above low)",
@@ -890,18 +1174,18 @@
   },
   {
     "symbol": "LPDC.NS",
-    "price": 6.3,
+    "price": 6.35,
     "market_cap_cr": 85.0,
-    "avg_volume": 41539,
+    "avg_volume": 41878,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "Realty",
     "composite_score": 0.5377,
-    "scanned_at": "2026-08-10T14:55:54.625471",
+    "scanned_at": "2026-08-11T15:04:03.956222",
     "dna": {
       "dna_score": 0.52,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
       "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 14% above low)"
+        "\ud83d\udfe2 Deep base (near 52W low, 15% above low)"
       ],
       "disqualifiers": [],
       "rev_accel_score": 0.3,
@@ -913,13 +1197,13 @@
       "mcap_score": 1.0,
       "mcap_desc": "\u20b985Cr \u2014 ideal multibagger size (30\u2013150 Cr)",
       "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 14% above low)",
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 15% above low)",
       "sector_score": 0.75,
-      "sector_desc": "\u2705 Realty: Bull trend, above 200EMA, +14.8% 3M",
+      "sector_desc": "\u2705 Realty: Bull trend, above 200EMA, +13.7% 3M",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "Realty",
-      "market_cap_cr": 84.5101952
+      "market_cap_cr": 85.1809024
     },
     "piotroski_score": 6,
     "piotroski_01": 0.667,
@@ -959,16 +1243,16 @@
     "screener_flags": [],
     "screener_roce": null,
     "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 14% above low)"
+      "\ud83d\udfe2 Deep base (near 52W low, 15% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 8,
-      "streak": 7,
+      "days_in_watchlist": 9,
+      "streak": 8,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260618",
       "peak_score": 0.542,
-      "price_since_first_pct": -6.7,
+      "price_since_first_pct": -5.9,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 22% above low)",
         "\u2b50 Realty: EARLY UPCYCLE \u2014 recovering from below 200EMA, +8.4% 1M",
@@ -990,18 +1274,18 @@
   },
   {
     "symbol": "SINCLAIR.NS",
-    "price": 76.98,
-    "market_cap_cr": 395.0,
-    "avg_volume": 37148,
+    "price": 77.6,
+    "market_cap_cr": 398.0,
+    "avg_volume": 36809,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "FMCG",
     "composite_score": 0.5368,
-    "scanned_at": "2026-08-10T15:01:54.164638",
+    "scanned_at": "2026-08-11T15:09:29.445011",
     "dna": {
       "dna_score": 0.484,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
       "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 9% above low)"
+        "\ud83d\udfe2 Deep base (near 52W low, 10% above low)"
       ],
       "disqualifiers": [],
       "rev_accel_score": 0.3,
@@ -1011,15 +1295,15 @@
       "catalyst_score": 0.1,
       "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
       "mcap_score": 0.85,
-      "mcap_desc": "\u20b9395Cr \u2014 good headroom for 5\u201310x",
+      "mcap_desc": "\u20b9398Cr \u2014 good headroom for 5\u201310x",
       "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 9% above low)",
+      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 10% above low)",
       "sector_score": 0.45,
-      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-0.4% 3M)",
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "FMCG",
-      "market_cap_cr": 394.5995008
+      "market_cap_cr": 397.7775872
     },
     "piotroski_score": 5,
     "piotroski_01": 0.556,
@@ -1059,18 +1343,19 @@
     "screener_flags": [],
     "screener_roce": null,
     "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 9% above low)"
+      "\ud83d\udfe2 Deep base (near 52W low, 10% above low)"
     ],
     "persistence": {
-      "days_in_watchlist": 2,
-      "streak": 1,
+      "days_in_watchlist": 3,
+      "streak": 2,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260807",
       "peak_score": 0.537,
-      "price_since_first_pct": -0.1,
+      "price_since_first_pct": 0.7,
       "all_catalysts": [
-        "\ud83d\udfe2 Deep base (near 52W low, 9% above low)"
+        "\ud83d\udfe2 Deep base (near 52W low, 9% above low)",
+        "\ud83d\udfe2 Deep base (near 52W low, 10% above low)"
       ],
       "latest_catalyst_score": 0.1,
       "latest_dna_score": 0.484
@@ -1078,13 +1363,13 @@
   },
   {
     "symbol": "UMAEXPORTS.NS",
-    "price": 20.01,
+    "price": 20.14,
     "market_cap_cr": 68.0,
-    "avg_volume": 53726,
+    "avg_volume": 53768,
     "price_stage": "\ud83d\udfe2 DEEP BASE",
     "sector": "FMCG",
     "composite_score": 0.5365,
-    "scanned_at": "2026-08-10T15:03:51.686804",
+    "scanned_at": "2026-08-11T15:11:23.514926",
     "dna": {
       "dna_score": 0.517,
       "dna_grade": "C \u2014 Monitor, not yet actionable",
@@ -1103,11 +1388,11 @@
       "price_stage_score": 1.0,
       "price_stage_desc": "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone",
       "sector_score": 0.45,
-      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-0.4% 3M)",
+      "sector_desc": "\ud83d\udfe1 FMCG: Neutral (-1.5% 3M)",
       "discovery_score": 0.35,
       "discovery_desc": "Institutional ownership data unavailable",
       "sector": "FMCG",
-      "market_cap_cr": 67.653472
+      "market_cap_cr": 68.0929984
     },
     "piotroski_score": 8,
     "piotroski_01": 0.889,
@@ -1150,13 +1435,13 @@
       "\ud83d\udfe2 DEEP BASE + coiling (near 52W low, ATR contracted) \u2014 ideal entry zone"
     ],
     "persistence": {
-      "days_in_watchlist": 7,
-      "streak": 6,
+      "days_in_watchlist": 8,
+      "streak": 7,
       "score_trend": "stable",
       "score_7d_delta": 0.0,
       "first_seen": "20260707",
       "peak_score": 0.542,
-      "price_since_first_pct": -7.9,
+      "price_since_first_pct": -7.3,
       "all_catalysts": [
         "\ud83d\udfe2 Deep base (near 52W low, 17% above low)",
         "\u2b50 FMCG: EARLY UPCYCLE \u2014 recovering from below 200EMA, +4.0% 1M",
@@ -1164,291 +1449,6 @@
       ],
       "latest_catalyst_score": 0.1,
       "latest_dna_score": 0.517
-    }
-  },
-  {
-    "symbol": "XCHANGING.NS",
-    "price": 68.02,
-    "market_cap_cr": 758.0,
-    "avg_volume": 97572,
-    "price_stage": "\ud83d\udfe0 MID CYCLE",
-    "sector": "IT",
-    "composite_score": 0.5365,
-    "scanned_at": "2026-08-10T15:04:57.725646",
-    "dna": {
-      "dna_score": 0.468,
-      "dna_grade": "C \u2014 Monitor, not yet actionable",
-      "dna_flags": [
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
-        "\ud83d\udc41\ufe0f UNDISCOVERED: 0.0% institutional \u2014 Lynch sweet spot"
-      ],
-      "disqualifiers": [],
-      "rev_accel_score": 0.3,
-      "rev_accel_desc": "No Screener data",
-      "promoter_score": 0.7,
-      "promoter_desc": "\ud83d\udc65 Promoter 75% holding, minimal/no pledge \u2014 won't sell",
-      "catalyst_score": 0.1,
-      "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
-      "mcap_score": 0.65,
-      "mcap_desc": "\u20b9758Cr \u2014 moderate headroom for 3\u20135x",
-      "price_stage_score": 0.4,
-      "price_stage_desc": "\ud83d\udfe0 Mid-cycle (42% above low, 29% below high)",
-      "sector_score": 0.9,
-      "sector_desc": "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
-      "discovery_score": 1.0,
-      "discovery_desc": "\ud83d\udc41\ufe0f UNDISCOVERED: 0.0% institutional \u2014 Lynch sweet spot",
-      "sector": "IT",
-      "market_cap_cr": 757.7679872
-    },
-    "piotroski_score": 8,
-    "piotroski_01": 0.889,
-    "lynch_score": 0.58,
-    "debt_score": 1.0,
-    "group": null,
-    "public_data": {
-      "insider_net_shares": 0,
-      "insider_buy_count": 0,
-      "insider_value_cr": 0.0,
-      "promoter_buying": false,
-      "insider_score": 0.3,
-      "pledge_pct": null,
-      "promoter_held_pct": 75.0,
-      "is_high_pledge": false,
-      "pledge_score": 0.5,
-      "has_bulk_deal": false,
-      "institutional_buying": false,
-      "bulk_net_value_cr": 0.0,
-      "bulk_score": 0.3,
-      "public_score": 0.36,
-      "public_flags": []
-    },
-    "bse_code": null,
-    "announcement_count": 0,
-    "concall": {
-      "concall_score": 0.3,
-      "tier1_signals": [],
-      "tier2_signals": [],
-      "negative_signals": [],
-      "concall_flag": null,
-      "manual_review": false,
-      "concall_count": 0,
-      "has_concall_data": false
-    },
-    "screener": null,
-    "screener_flags": [],
-    "screener_roce": null,
-    "all_flags": [
-      "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M",
-      "\ud83d\udc41\ufe0f UNDISCOVERED: 0.0% institutional \u2014 Lynch sweet spot"
-    ],
-    "persistence": {
-      "days_in_watchlist": 14,
-      "streak": 6,
-      "score_trend": "stable",
-      "score_7d_delta": 0.0,
-      "first_seen": "20260401",
-      "peak_score": 0.56,
-      "price_since_first_pct": 28.0,
-      "all_catalysts": [
-        "\ud83d\udfe2 Deep base (near 52W low, 11% above low)",
-        "\ud83d\udc41\ufe0f UNDISCOVERED: 0.0% institutional \u2014 Lynch sweet spot",
-        "\ud83d\udfe2 Deep base (near 52W low, 20% above low)",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +4.4% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +2.7% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +4.9% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +5.3% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +7.7% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +12.5% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +11.9% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +16.3% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +12.6% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +14.0% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +13.2% 1M",
-        "\u2b50 IT: EARLY UPCYCLE \u2014 recovering from below 200EMA, +9.0% 1M"
-      ],
-      "latest_catalyst_score": 0.1,
-      "latest_dna_score": 0.468
-    }
-  },
-  {
-    "symbol": "MALUPAPER.NS",
-    "price": 31.84,
-    "market_cap_cr": 56.0,
-    "avg_volume": 31537,
-    "price_stage": "\ud83d\udfe2 DEEP BASE",
-    "sector": "Other",
-    "composite_score": 0.534,
-    "scanned_at": "2026-08-10T14:56:09.650168",
-    "dna": {
-      "dna_score": 0.505,
-      "dna_grade": "C \u2014 Monitor, not yet actionable",
-      "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 17% above low)"
-      ],
-      "disqualifiers": [],
-      "rev_accel_score": 0.3,
-      "rev_accel_desc": "No Screener data",
-      "promoter_score": 0.7,
-      "promoter_desc": "\ud83d\udc65 Promoter 74% holding, minimal/no pledge \u2014 won't sell",
-      "catalyst_score": 0.1,
-      "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
-      "mcap_score": 1.0,
-      "mcap_desc": "\u20b956Cr \u2014 ideal multibagger size (30\u2013150 Cr)",
-      "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 17% above low)",
-      "sector_score": 0.5,
-      "sector_desc": "Sector 'Other' not mapped",
-      "discovery_score": 0.35,
-      "discovery_desc": "Institutional ownership data unavailable",
-      "sector": "Other",
-      "market_cap_cr": 55.6388224
-    },
-    "piotroski_score": 7,
-    "piotroski_01": 0.778,
-    "lynch_score": 0.58,
-    "debt_score": 0.8,
-    "group": null,
-    "public_data": {
-      "insider_net_shares": 0,
-      "insider_buy_count": 0,
-      "insider_value_cr": 0.0,
-      "promoter_buying": false,
-      "insider_score": 0.3,
-      "pledge_pct": null,
-      "promoter_held_pct": 73.9,
-      "is_high_pledge": false,
-      "pledge_score": 0.5,
-      "has_bulk_deal": false,
-      "institutional_buying": false,
-      "bulk_net_value_cr": 0.0,
-      "bulk_score": 0.3,
-      "public_score": 0.36,
-      "public_flags": []
-    },
-    "bse_code": null,
-    "announcement_count": 0,
-    "concall": {
-      "concall_score": 0.3,
-      "tier1_signals": [],
-      "tier2_signals": [],
-      "negative_signals": [],
-      "concall_flag": null,
-      "manual_review": false,
-      "concall_count": 0,
-      "has_concall_data": false
-    },
-    "screener": null,
-    "screener_flags": [],
-    "screener_roce": null,
-    "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 17% above low)"
-    ],
-    "persistence": {
-      "days_in_watchlist": 5,
-      "streak": 0,
-      "score_trend": "stable",
-      "score_7d_delta": 0.0,
-      "first_seen": "20260803",
-      "peak_score": 0.534,
-      "price_since_first_pct": -4.0,
-      "all_catalysts": [
-        "\ud83d\udfe2 Deep base (near 52W low, 22% above low)",
-        "\ud83d\udfe2 Deep base (near 52W low, 23% above low)",
-        "\ud83d\udfe2 Deep base (near 52W low, 24% above low)",
-        "\ud83d\udfe2 Deep base (near 52W low, 17% above low)"
-      ],
-      "latest_catalyst_score": 0.1,
-      "latest_dna_score": 0.505
-    }
-  },
-  {
-    "symbol": "DIGISPICE.NS",
-    "price": 17.79,
-    "market_cap_cr": 371.0,
-    "avg_volume": 86982,
-    "price_stage": "\ud83d\udfe2 DEEP BASE",
-    "sector": "Financial Services",
-    "composite_score": 0.5339,
-    "scanned_at": "2026-08-10T14:51:11.301761",
-    "dna": {
-      "dna_score": 0.487,
-      "dna_grade": "C \u2014 Monitor, not yet actionable",
-      "dna_flags": [
-        "\ud83d\udfe2 Deep base (near 52W low, 16% above low)"
-      ],
-      "disqualifiers": [],
-      "rev_accel_score": 0.3,
-      "rev_accel_desc": "No Screener data",
-      "promoter_score": 0.7,
-      "promoter_desc": "\ud83d\udc65 Promoter 81% holding, minimal/no pledge \u2014 won't sell",
-      "catalyst_score": 0.1,
-      "catalyst_desc": "\u26aa No specific catalyst found in BSE announcements",
-      "mcap_score": 0.85,
-      "mcap_desc": "\u20b9371Cr \u2014 good headroom for 5\u201310x",
-      "price_stage_score": 0.85,
-      "price_stage_desc": "\ud83d\udfe2 Deep base (near 52W low, 16% above low)",
-      "sector_score": 0.5,
-      "sector_desc": "Financial Services: insufficient data",
-      "discovery_score": 0.35,
-      "discovery_desc": "Institutional ownership data unavailable",
-      "sector": "Financial Services",
-      "market_cap_cr": 371.1052288
-    },
-    "piotroski_score": 7,
-    "piotroski_01": 0.778,
-    "lynch_score": 0.58,
-    "debt_score": 1.0,
-    "group": null,
-    "public_data": {
-      "insider_net_shares": 0,
-      "insider_buy_count": 0,
-      "insider_value_cr": 0.0,
-      "promoter_buying": false,
-      "insider_score": 0.3,
-      "pledge_pct": null,
-      "promoter_held_pct": 81.3,
-      "is_high_pledge": false,
-      "pledge_score": 0.5,
-      "has_bulk_deal": false,
-      "institutional_buying": false,
-      "bulk_net_value_cr": 0.0,
-      "bulk_score": 0.3,
-      "public_score": 0.36,
-      "public_flags": []
-    },
-    "bse_code": null,
-    "announcement_count": 0,
-    "concall": {
-      "concall_score": 0.3,
-      "tier1_signals": [],
-      "tier2_signals": [],
-      "negative_signals": [],
-      "concall_flag": null,
-      "manual_review": false,
-      "concall_count": 0,
-      "has_concall_data": false
-    },
-    "screener": null,
-    "screener_flags": [],
-    "screener_roce": null,
-    "all_flags": [
-      "\ud83d\udfe2 Deep base (near 52W low, 16% above low)"
-    ],
-    "persistence": {
-      "days_in_watchlist": 3,
-      "streak": 0,
-      "score_trend": "stable",
-      "score_7d_delta": 0.0,
-      "first_seen": "20260805",
-      "peak_score": 0.534,
-      "price_since_first_pct": 4.8,
-      "all_catalysts": [
-        "\ud83d\udfe2 Deep base (near 52W low, 10% above low)",
-        "\ud83d\udfe2 Deep base (near 52W low, 12% above low)",
-        "\ud83d\udfe2 Deep base (near 52W low, 16% above low)"
-      ],
-      "latest_catalyst_score": 0.1,
-      "latest_dna_score": 0.487
     }
   }
 ]
