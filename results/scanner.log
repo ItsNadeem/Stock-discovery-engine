@@ -67925,3 +67925,415 @@ Enriching top 30 with Screener.in...
 2026-08-13 14:58:33,577 [INFO]   Tracker: 15 enriched, 3 watch_now (regime=BEAR), 164 total in history
 2026-08-13 14:58:33,584 [INFO] 
 ✅ Done — L1:17 L2:15 Conviction:0 WatchNow:3
+2026-08-14 14:26:33,181 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-08-14 14:26:33,181 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-08-14 14:26:33,182 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-08-14 14:26:33,182 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-08-14 14:26:33,182 [INFO] 
+▶ Market regime...
+2026-08-14 14:26:33,601 [INFO]   BEAR — Index below 200EMA, +3.0% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+2026-08-14 14:26:33,601 [INFO] Fetching NSE equity list from NSE archives...
+2026-08-14 14:26:33,925 [INFO] Fetched 2406 NSE symbols
+2026-08-14 14:26:33,926 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-08-14 14:26:33,926 [INFO] ══════════════════════════════════════════════════════
+2026-08-14 14:26:33,927 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-08-14 14:26:33,927 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-08-14 14:26:33,927 [INFO] ══════════════════════════════════════════════════════
+2026-08-14 14:26:33,929 [INFO] Loaded 2406 symbols from cache
+2026-08-14 14:26:33,929 [INFO] Universe: 2406 NSE symbols
+2026-08-14 14:26:33,929 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-08-14 14:26:33,993 [INFO]   Nifty returns loaded: 65 days
+2026-08-14 14:26:33,993 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-08-14 14:26:36,295 [INFO]   Sector momentum: {'IT': 10.5, 'Pharma': 7.4, 'Auto': 10.1, 'Metals': 0.9, 'Energy': -1.6, 'FMCG': -1.9, 'Realty': 14.5, 'Infra': 1.1, 'Media': 11.2, 'Midcap': 5.8}
+2026-08-14 14:26:36,295 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-08-14 14:26:36,295 [INFO]   Batch 1/49 (50 symbols)...
+2026-08-14 14:26:42,019 [INFO]     ✓ AARTIIND.NS      ₹534.1    MomScore=0.86  6M=+20%  12M=+44%  Sector=Other  ADX=29.0
+2026-08-14 14:26:42,276 [INFO]     ✓ AARTIPHARM.NS    ₹851.2    MomScore=0.21  6M=+20%  12M=-0%  Sector=Pharma  ADX=42.6
+2026-08-14 14:26:43,892 [INFO]     ✓ ABB.NS           ₹7649.0   MomScore=1.51  6M=+34%  12M=+54%  Sector=Other  ADX=48.3
+2026-08-14 14:26:50,268 [INFO]   Batch 2/49 (50 symbols)...
+2026-08-14 14:27:04,176 [INFO]   Batch 3/49 (50 symbols)...
+2026-08-14 14:27:08,930 [INFO]     ✓ ALIVUS.NS        ₹1386.7   MomScore=1.70  6M=+51%  12M=+50%  Sector=Pharma  ADX=43.5
+2026-08-14 14:27:13,548 [INFO]     ✓ ANDHRSUGAR.NS    ₹101.88   MomScore=0.82  6M=+36%  12M=+26%  Sector=Other  ADX=31.8
+2026-08-14 14:27:17,663 [INFO]   Batch 4/49 (50 symbols)...
+2026-08-14 14:27:21,097 [INFO]     ✓ APARINDS.NS      ₹16691.0  MomScore=1.83  6M=+76%  12M=+89%  Sector=Other  ADX=58.9
+2026-08-14 14:27:21,850 [INFO]     ✓ APLAPOLLO.NS     ₹2083.3   MomScore=0.48  6M=-7%  12M=+32%  Sector=Other  ADX=43.0
+2026-08-14 14:27:26,280 [INFO]     ✓ ARTEMISMED.NS    ₹314.75   MomScore=0.87  6M=+34%  12M=+28%  Sector=Other  ADX=73.7
+2026-08-14 14:27:26,814 [INFO]     ✓ ARVIND.NS        ₹571.85   MomScore=1.90  6M=+56%  12M=+93%  Sector=FMCG  ADX=29.1
+2026-08-14 14:27:27,167 [INFO]     ✓ ARVSMART.NS      ₹655.6    MomScore=0.33  6M=+13%  12M=+9%  Sector=Realty  ADX=37.1
+2026-08-14 14:27:29,052 [INFO]     ✓ ASHOKLEY.NS      ₹171.64   MomScore=0.44  6M=-15%  12M=+47%  Sector=Other  ADX=44.2
+2026-08-14 14:27:29,222 [INFO]     ✓ ASIANENE.NS      ₹374.4    MomScore=0.45  6M=+32%  12M=+9%  Sector=Energy  ADX=47.4
+2026-08-14 14:27:31,377 [INFO]   Batch 5/49 (50 symbols)...
+2026-08-14 14:27:35,114 [INFO]     ✓ ASTERDM.NS       ₹822.35   MomScore=1.30  6M=+38%  12M=+37%  Sector=Pharma  ADX=26.0
+2026-08-14 14:27:36,382 [INFO]     ✓ ATHERENERG.NS    ₹1511.5   MomScore=3.93  6M=+113%  12M=+277%  Sector=FMCG  ADX=56.4
+2026-08-14 14:27:37,510 [INFO]     ✓ AUBANK.NS        ₹1081.9   MomScore=0.99  6M=+9%  12M=+49%  Sector=Financial Services  ADX=26.6
+2026-08-14 14:27:37,856 [INFO]     ✓ AUROPHARMA.NS    ₹1622.1   MomScore=1.83  6M=+40%  12M=+56%  Sector=Pharma  ADX=33.5
+2026-08-14 14:27:39,007 [INFO]     ✓ AVADHSUGAR.NS    ₹653.15   MomScore=1.80  6M=+90%  12M=+53%  Sector=FMCG  ADX=45.1
+2026-08-14 14:27:44,333 [INFO]   Batch 6/49 (50 symbols)...
+2026-08-14 14:27:59,426 [INFO]   Batch 7/49 (50 symbols)...
+2026-08-14 14:28:04,905 [INFO]     ✓ BEML.NS          ₹1874.4   MomScore=0.05  6M=+8%  12M=-4%  Sector=Other  ADX=30.5
+2026-08-14 14:28:05,433 [INFO]     ✓ BERGEPAINT.NS    ₹545.1    MomScore=0.35  6M=+19%  12M=+1%  Sector=Other  ADX=60.2
+2026-08-14 14:28:07,845 [INFO]     ✓ BHARATSE.NS      ₹248.05   MomScore=1.35  6M=+53%  12M=+113%  Sector=FMCG  ADX=27.5
+2026-08-14 14:28:14,824 [INFO]   Batch 8/49 (50 symbols)...
+2026-08-14 14:28:26,057 [INFO]     ✓ CARBORUNIV.NS    ₹1151.6   MomScore=1.08  6M=+40%  12M=+36%  Sector=Other  ADX=37.3
+2026-08-14 14:28:28,057 [INFO]   Batch 9/49 (50 symbols)...
+2026-08-14 14:28:33,104 [INFO]     ✓ CASTROLIND.NS    ₹186.82   MomScore=0.03  6M=+6%  12M=-6%  Sector=Energy  ADX=74.2
+2026-08-14 14:28:34,307 [INFO]     ✓ CEATLTD.NS       ₹3688.8   MomScore=0.17  6M=-7%  12M=+19%  Sector=FMCG  ADX=52.1
+2026-08-14 14:28:38,665 [INFO]     ✓ CHENNPETRO.NS    ₹1321.9   MomScore=1.68  6M=+58%  12M=+110%  Sector=Energy  ADX=34.1
+2026-08-14 14:28:43,636 [INFO]   Batch 10/49 (50 symbols)...
+2026-08-14 14:28:50,762 [INFO]     ✓ COSMOFIRST.NS    ₹938.35   MomScore=0.33  6M=+35%  12M=-8%  Sector=FMCG  ADX=50.8
+2026-08-14 14:28:56,421 [INFO]   Batch 11/49 (50 symbols)...
+2026-08-14 14:29:00,343 [INFO]     ✓ CYIENTDLM.NS     ₹696.65   MomScore=1.80  6M=+92%  12M=+62%  Sector=Other  ADX=69.1
+2026-08-14 14:29:01,034 [INFO]     ✓ DALMIASUG.NS     ₹422.4    MomScore=0.78  6M=+42%  12M=+23%  Sector=FMCG  ADX=44.8
+2026-08-14 14:29:02,685 [INFO]     ✓ DBOL.NS          ₹119.8    MomScore=0.82  6M=+21%  12M=+52%  Sector=FMCG  ADX=27.3
+2026-08-14 14:29:06,120 [INFO]     ✓ DEEPINDS.NS      ₹668.7    MomScore=0.94  6M=+64%  12M=+23%  Sector=Energy  ADX=72.7
+2026-08-14 14:29:07,736 [INFO]     ✓ DEVYANI.NS       ₹143.76   MomScore=0.03  6M=+9%  12M=-6%  Sector=FMCG  ADX=64.9
+2026-08-14 14:29:09,937 [INFO]   Batch 12/49 (50 symbols)...
+2026-08-14 14:29:14,865 [INFO]     ✓ DIACABS.NS       ₹368.5    MomScore=3.48  6M=+179%  12M=+146%  Sector=Other  ADX=70.7
+2026-08-14 14:29:21,895 [INFO]     ✓ DYCL.NS          ₹450.2    MomScore=0.55  6M=+49%  12M=+13%  Sector=Other  ADX=30.7
+2026-08-14 14:29:24,050 [INFO]   Batch 13/49 (50 symbols)...
+2026-08-14 14:29:28,097 [INFO]     ✓ E2E.NS           ₹666.75   MomScore=3.29  6M=+161%  12M=+229%  Sector=Unknown  ADX=66.4
+2026-08-14 14:29:28,954 [INFO]     ✓ EICHERMOT.NS     ₹8066.5   MomScore=0.84  6M=+1%  12M=+44%  Sector=Unknown  ADX=75.3
+2026-08-14 14:29:32,418 [INFO]     ✓ EMCURE.NS        ₹1932.3   MomScore=1.11  6M=+32%  12M=+39%  Sector=Pharma  ADX=53.3
+2026-08-14 14:29:34,617 [INFO]     ✓ ENTERO.NS        ₹1416.6   MomScore=0.43  6M=+23%  12M=+10%  Sector=Pharma  ADX=39.1
+2026-08-14 14:29:37,144 [INFO]   Batch 14/49 (50 symbols)...
+2026-08-14 14:29:40,466 [INFO]     ✓ ETERNAL.NS       ₹318.5    MomScore=0.24  6M=+12%  12M=+4%  Sector=Unknown  ADX=38.7
+2026-08-14 14:29:41,620 [INFO]     ✓ EXIDEIND.NS      ₹476.1    MomScore=1.15  6M=+42%  12M=+27%  Sector=Unknown  ADX=46.1
+2026-08-14 14:29:42,345 [INFO]     ✓ FCL.NS           ₹43.36    MomScore=1.44  6M=+81%  12M=+88%  Sector=Unknown  ADX=29.3
+2026-08-14 14:29:43,719 [INFO]     ✓ FINCABLES.NS     ₹1246.85  MomScore=1.26  6M=+52%  12M=+49%  Sector=Unknown  ADX=45.5
+2026-08-14 14:29:46,505 [INFO]   Batch 15/49 (50 symbols)...
+2026-08-14 14:29:53,551 [INFO]     ✓ GAYAPROJ.NS      ₹21.16    MomScore=3.09  6M=+67%  12M=+156%  Sector=Other  ADX=30.4
+2026-08-14 14:29:57,853 [INFO]   Batch 16/49 (50 symbols)...
+2026-08-14 14:30:02,826 [INFO]     ✓ GIPCL.NS         ₹175.77   MomScore=0.25  6M=+24%  12M=-7%  Sector=Unknown  ADX=27.8
+2026-08-14 14:30:03,557 [INFO]     ✓ GLENMARK.NS      ₹2318.4   MomScore=0.51  6M=+14%  12M=+13%  Sector=Unknown  ADX=31.4
+2026-08-14 14:30:06,332 [INFO]     ✓ GNFC.NS          ₹568.95   MomScore=0.66  6M=+22%  12M=+17%  Sector=Other  ADX=36.0
+2026-08-14 14:30:12,390 [INFO]   Batch 17/49 (50 symbols)...
+2026-08-14 14:30:16,272 [INFO]     ✓ GRAPHITE.NS      ₹721.6    MomScore=0.61  6M=+9%  12M=+39%  Sector=Unknown  ADX=68.3
+2026-08-14 14:30:16,493 [INFO]     ✓ GRASIM.NS        ₹3248.7   MomScore=0.66  6M=+11%  12M=+18%  Sector=Unknown  ADX=40.3
+2026-08-14 14:30:16,826 [INFO]     ✓ GRAVITA.NS       ₹1794.3   MomScore=0.13  6M=+8%  12M=+1%  Sector=Unknown  ADX=35.9
+2026-08-14 14:30:21,768 [INFO]     ✓ GULFPETRO.NS     ₹61.65    MomScore=1.58  6M=+77%  12M=+51%  Sector=Energy  ADX=48.3
+2026-08-14 14:30:23,013 [INFO]     ✓ HAL.NS           ₹5029.9   MomScore=0.67  6M=+21%  12M=+16%  Sector=Other  ADX=41.2
+2026-08-14 14:30:25,177 [INFO]   Batch 18/49 (50 symbols)...
+2026-08-14 14:30:28,393 [INFO]     ✓ HARSHA.NS        ₹412.25   MomScore=0.11  6M=+7%  12M=-0%  Sector=Unknown  ADX=34.1
+2026-08-14 14:30:31,157 [INFO]     ✓ HEROMOTOCO.NS    ₹5790.0   MomScore=0.65  6M=+5%  12M=+29%  Sector=Unknown  ADX=93.9
+2026-08-14 14:30:32,620 [INFO]     ✓ HINDALCO.NS      ₹1029.5   MomScore=1.08  6M=+7%  12M=+54%  Sector=Unknown  ADX=42.3
+2026-08-14 14:30:32,962 [INFO]     ✓ HINDCOPPER.NS    ₹529.05   MomScore=1.03  6M=-11%  12M=+123%  Sector=Unknown  ADX=30.9
+2026-08-14 14:30:34,962 [INFO]   Batch 19/49 (50 symbols)...
+2026-08-14 14:30:37,843 [INFO]     ✓ HINDZINC.NS      ₹561.9    MomScore=0.42  6M=-4%  12M=+35%  Sector=Unknown  ADX=45.4
+2026-08-14 14:30:45,366 [INFO]   Batch 20/49 (50 symbols)...
+2026-08-14 14:30:48,062 [INFO]     ✓ IIFL.NS          ₹631.15   MomScore=0.85  6M=+24%  12M=+42%  Sector=Unknown  ADX=64.1
+2026-08-14 14:30:49,586 [INFO]     ✓ INDGN.NS         ₹555.8    MomScore=0.27  6M=+18%  12M=-3%  Sector=Unknown  ADX=36.7
+2026-08-14 14:30:50,111 [INFO]     ✓ INDIANB.NS       ₹894.95   MomScore=0.60  6M=+4%  12M=+36%  Sector=Unknown  ADX=36.9
+2026-08-14 14:30:50,664 [INFO]     ✓ INDIGOPNTS.NS    ₹1148.7   MomScore=0.31  6M=+15%  12M=+7%  Sector=Unknown  ADX=43.8
+2026-08-14 14:30:55,371 [INFO]   Batch 21/49 (50 symbols)...
+2026-08-14 14:31:05,492 [INFO]   Batch 22/49 (50 symbols)...
+2026-08-14 14:31:16,397 [INFO]   Batch 23/49 (50 symbols)...
+2026-08-14 14:31:19,289 [INFO]     ✓ KABRAEXTRU.NS    ₹517.4    MomScore=1.87  6M=+102%  12M=+104%  Sector=Unknown  ADX=58.2
+2026-08-14 14:31:26,680 [INFO]   Batch 24/49 (50 symbols)...
+2026-08-14 14:31:31,875 [INFO]     ✓ KOLTEPATIL.NS    ₹477.7    MomScore=0.74  6M=+34%  12M=+17%  Sector=Unknown  ADX=42.7
+2026-08-14 14:31:33,114 [INFO]     ✓ KPIL.NS          ₹1352.2   MomScore=0.65  6M=+24%  12M=+15%  Sector=Unknown  ADX=36.3
+2026-08-14 14:31:33,462 [INFO]     ✓ KPRMILL.NS       ₹1110.0   MomScore=0.44  6M=+24%  12M=+12%  Sector=Unknown  ADX=29.0
+2026-08-14 14:31:37,599 [INFO]   Batch 25/49 (50 symbols)...
+2026-08-14 14:31:40,725 [INFO]     ✓ KTKBANK.NS       ₹309.65   MomScore=2.08  6M=+53%  12M=+85%  Sector=Unknown  ADX=59.4
+2026-08-14 14:31:41,598 [INFO]     ✓ LALPATHLAB.NS    ₹1916.3   MomScore=0.91  6M=+34%  12M=+20%  Sector=Unknown  ADX=69.9
+2026-08-14 14:31:41,877 [INFO]     ✓ LANDMARK.NS      ₹511.65   MomScore=0.26  6M=+20%  12M=+4%  Sector=Unknown  ADX=31.4
+2026-08-14 14:31:47,290 [INFO]   Batch 26/49 (50 symbols)...
+2026-08-14 14:31:56,719 [INFO]   Batch 27/49 (50 symbols)...
+2026-08-14 14:31:59,540 [INFO]     ✓ MANINDS.NS       ₹599.45   MomScore=0.67  6M=+40%  12M=+35%  Sector=Unknown  ADX=31.5
+2026-08-14 14:32:06,444 [INFO]   Batch 28/49 (50 symbols)...
+2026-08-14 14:32:11,359 [INFO]     ✓ MMFL.NS          ₹589.75   MomScore=1.46  6M=+25%  12M=+95%  Sector=Unknown  ADX=37.9
+2026-08-14 14:32:14,808 [INFO]     ✓ MOREPENLAB.NS    ₹84.19    MomScore=1.93  6M=+118%  12M=+81%  Sector=Pharma  ADX=47.5
+2026-08-14 14:32:15,278 [INFO]     ✓ MOTILALOFS.NS    ₹903.7    MomScore=0.20  6M=+15%  12M=-0%  Sector=Financial Services  ADX=60.7
+2026-08-14 14:32:17,745 [INFO]   Batch 29/49 (50 symbols)...
+2026-08-14 14:32:22,021 [INFO]     ✓ MTARTECH.NS      ₹7056.0   MomScore=3.87  6M=+98%  12M=+376%  Sector=Unknown  ADX=37.4
+2026-08-14 14:32:30,644 [INFO]   Batch 30/49 (50 symbols)...
+2026-08-14 14:32:34,443 [INFO]     ✓ NELCO.NS         ₹1024.6   MomScore=0.95  6M=+61%  12M=+22%  Sector=Unknown  ADX=43.0
+2026-08-14 14:32:35,025 [INFO]     ✓ NETWEB.NS        ₹5007.2   MomScore=1.71  6M=+62%  12M=+140%  Sector=Unknown  ADX=40.3
+2026-08-14 14:32:37,098 [INFO]     ✓ NIACL.NS         ₹179.08   MomScore=0.22  6M=+20%  12M=-1%  Sector=Financial Services  ADX=36.3
+2026-08-14 14:32:38,544 [INFO]     ✓ NILKAMAL.NS      ₹1860.0   MomScore=0.68  6M=+28%  12M=+17%  Sector=FMCG  ADX=61.0
+2026-08-14 14:32:43,737 [INFO]   Batch 31/49 (50 symbols)...
+2026-08-14 14:32:47,310 [INFO]     ✓ NSLNISP.NS       ₹44.5     MomScore=0.40  6M=+10%  12M=+24%  Sector=Unknown  ADX=26.4
+2026-08-14 14:32:48,866 [INFO]     ✓ OIL.NS           ₹468.5    MomScore=0.29  6M=+4%  12M=+13%  Sector=Unknown  ADX=42.9
+2026-08-14 14:32:53,546 [INFO]   Batch 32/49 (50 symbols)...
+2026-08-14 14:33:04,917 [INFO]   Batch 33/49 (50 symbols)...
+2026-08-14 14:33:09,051 [INFO]     ✓ PIDILITIND.NS    ₹1693.0   MomScore=0.57  6M=+14%  12M=+10%  Sector=Unknown  ADX=40.2
+2026-08-14 14:33:11,929 [INFO]     ✓ PNB.NS           ₹118.0    MomScore=0.30  6M=+2%  12M=+14%  Sector=Financial Services  ADX=49.4
+2026-08-14 14:33:13,561 [INFO]     ✓ POLICYBZR.NS     ₹1741.0   MomScore=0.16  6M=+12%  12M=-2%  Sector=Financial Services  ADX=31.9
+2026-08-14 14:33:18,769 [INFO]   Batch 34/49 (50 symbols)...
+2026-08-14 14:33:22,414 [INFO]     ✓ PRECWIRE.NS      ₹458.35   MomScore=2.07  6M=+65%  12M=+166%  Sector=Unknown  ADX=34.7
+2026-08-14 14:33:23,365 [INFO]     ✓ PRICOLLTD.NS     ₹792.05   MomScore=1.49  6M=+28%  12M=+88%  Sector=Unknown  ADX=65.9
+2026-08-14 14:33:23,610 [INFO]     ✓ PRIMO.NS         ₹25.62    MomScore=0.13  6M=+16%  12M=-5%  Sector=Unknown  ADX=35.3
+2026-08-14 14:33:25,275 [INFO]     ✓ PTC.NS           ₹161.47   MomScore=0.06  6M=-0%  12M=+4%  Sector=Unknown  ADX=35.3
+2026-08-14 14:33:27,014 [INFO]     ✓ QUESS.NS         ₹337.8    MomScore=1.39  6M=+68%  12M=+28%  Sector=Unknown  ADX=40.0
+2026-08-14 14:33:29,825 [INFO]   Batch 35/49 (50 symbols)...
+2026-08-14 14:33:34,387 [INFO]     ✓ RAMRAT.NS        ₹475.05   MomScore=1.14  6M=+48%  12M=+42%  Sector=Unknown  ADX=34.6
+2026-08-14 14:33:39,793 [INFO]   Batch 36/49 (50 symbols)...
+2026-08-14 14:33:45,158 [INFO]     ✓ RKFORGE.NS       ₹732.6    MomScore=0.78  6M=+28%  12M=+26%  Sector=Other  ADX=78.4
+2026-08-14 14:33:49,240 [INFO]     ✓ RRKABEL.NS       ₹2785.6   MomScore=3.03  6M=+96%  12M=+128%  Sector=Other  ADX=76.2
+2026-08-14 14:33:52,459 [INFO]   Batch 37/49 (50 symbols)...
+2026-08-14 14:34:02,316 [INFO]     ✓ SALSTEEL.NS      ₹66.42    MomScore=3.18  6M=+40%  12M=+318%  Sector=Other  ADX=31.3
+2026-08-14 14:34:04,949 [INFO]     ✓ SANSERA.NS       ₹3924.6   MomScore=3.50  6M=+74%  12M=+208%  Sector=FMCG  ADX=41.1
+2026-08-14 14:34:07,263 [INFO]   Batch 38/49 (50 symbols)...
+2026-08-14 14:34:12,043 [INFO]     ✓ SBCL.NS          ₹1040.1   MomScore=1.96  6M=+103%  12M=+108%  Sector=Unknown  ADX=47.7
+2026-08-14 14:34:13,105 [INFO]     ✓ SCHNEIDER.NS     ₹1369.2   MomScore=1.35  6M=+74%  12M=+54%  Sector=Unknown  ADX=29.2
+2026-08-14 14:34:19,798 [INFO]   Batch 39/49 (50 symbols)...
+2026-08-14 14:34:22,835 [INFO]     ✓ SHAILY.NS        ₹3365.0   MomScore=1.48  6M=+56%  12M=+102%  Sector=Unknown  ADX=74.8
+2026-08-14 14:34:23,177 [INFO]     ✓ SHALPAINTS.NS    ₹91.39    MomScore=0.57  6M=+46%  12M=+24%  Sector=Unknown  ADX=57.8
+2026-08-14 14:34:30,272 [INFO]     ✓ SIEMENS.NS       ₹3940.0   MomScore=0.93  6M=+26%  12M=+31%  Sector=Other  ADX=53.1
+2026-08-14 14:34:32,636 [INFO]   Batch 40/49 (50 symbols)...
+2026-08-14 14:34:38,967 [INFO]     ✓ SKIPPER.NS       ₹525.35   MomScore=0.51  6M=+38%  12M=+2%  Sector=Unknown  ADX=25.8
+2026-08-14 14:34:39,265 [INFO]     ✓ SKYGOLD.NS       ₹773.4    MomScore=2.93  6M=+108%  12M=+183%  Sector=Unknown  ADX=40.9
+2026-08-14 14:34:43,537 [INFO]   Batch 41/49 (50 symbols)...
+2026-08-14 14:34:50,116 [INFO]     ✓ STYLAMIND.NS     ₹3642.0   MomScore=2.55  6M=+65%  12M=+114%  Sector=Unknown  ADX=63.4
+2026-08-14 14:34:52,922 [INFO]   Batch 42/49 (50 symbols)...
+2026-08-14 14:34:56,287 [INFO]     ✓ SUNFLAG.NS       ₹355.15   MomScore=0.72  6M=+40%  12M=+23%  Sector=Unknown  ADX=42.8
+2026-08-14 14:34:56,958 [INFO]     ✓ SUPRAJIT.NS      ₹524.6    MomScore=0.72  6M=+24%  12M=+22%  Sector=Unknown  ADX=34.1
+2026-08-14 14:34:58,862 [INFO]     ✓ SUVEN.NS         ₹342.35   MomScore=1.47  6M=+125%  12M=+44%  Sector=Unknown  ADX=39.8
+2026-08-14 14:35:00,483 [INFO]     ✓ SYRMA.NS         ₹1465.2   MomScore=2.17  6M=+68%  12M=+118%  Sector=Unknown  ADX=29.8
+2026-08-14 14:35:02,483 [INFO]   Batch 43/49 (50 symbols)...
+2026-08-14 14:35:12,106 [INFO]   Batch 44/49 (50 symbols)...
+2026-08-14 14:35:18,744 [INFO]     ✓ TITAN.NS         ₹5056.2   MomScore=1.45  6M=+21%  12M=+46%  Sector=FMCG  ADX=66.5
+2026-08-14 14:35:24,291 [INFO]   Batch 45/49 (50 symbols)...
+2026-08-14 14:35:32,610 [INFO]     ✓ UFBL.NS          ₹754.9    MomScore=2.77  6M=+192%  12M=+200%  Sector=FMCG  ADX=27.1
+2026-08-14 14:35:33,488 [INFO]     ✓ UJJIVANSFB.NS    ₹72.47    MomScore=1.12  6M=+18%  12M=+68%  Sector=Financial Services  ADX=40.2
+2026-08-14 14:35:35,361 [INFO]     ✓ UNIMECH.NS       ₹1522.6   MomScore=1.00  6M=+53%  12M=+42%  Sector=Other  ADX=42.8
+2026-08-14 14:35:35,543 [INFO]     ✓ UNIONBANK.NS     ₹187.38   MomScore=0.76  6M=+7%  12M=+43%  Sector=Financial Services  ADX=42.7
+2026-08-14 14:35:35,873 [INFO]     ✓ UNIPARTS.NS      ₹816.0    MomScore=2.30  6M=+62%  12M=+134%  Sector=Other  ADX=48.5
+2026-08-14 14:35:36,062 [INFO]     ✓ UNITDSPR.NS      ₹1536.0   MomScore=0.61  6M=+9%  12M=+19%  Sector=FMCG  ADX=73.4
+2026-08-14 14:35:38,391 [INFO]   Batch 46/49 (50 symbols)...
+2026-08-14 14:35:42,085 [INFO]     ✓ UNIVASTU.NS      ₹160.69   MomScore=2.71  6M=+141%  12M=+91%  Sector=Unknown  ADX=60.6
+2026-08-14 14:35:42,421 [INFO]     ✓ UNOMINDA.NS      ₹1240.0   MomScore=0.25  6M=-0%  12M=+16%  Sector=Unknown  ADX=36.4
+2026-08-14 14:35:43,481 [INFO]     ✓ UTTAMSUGAR.NS    ₹264.29   MomScore=0.38  6M=+20%  12M=+9%  Sector=Unknown  ADX=35.9
+2026-08-14 14:35:43,584 [INFO]     ✓ UYFINCORP.NS     ₹21.08    MomScore=0.68  6M=+44%  12M=+19%  Sector=Unknown  ADX=46.6
+2026-08-14 14:35:50,154 [INFO]   Batch 47/49 (50 symbols)...
+2026-08-14 14:35:58,858 [INFO]     ✓ VSSL.NS          ₹353.35   MomScore=1.09  6M=+35%  12M=+40%  Sector=Other  ADX=56.4
+2026-08-14 14:36:03,032 [INFO]   Batch 48/49 (50 symbols)...
+2026-08-14 14:36:08,592 [INFO]     ✓ WINDLAS.NS       ₹949.45   MomScore=0.35  6M=+21%  12M=+4%  Sector=Unknown  ADX=35.1
+2026-08-14 14:36:09,461 [INFO]     ✓ WSTCSTPAPR.NS    ₹611.35   MomScore=0.92  6M=+43%  12M=+25%  Sector=Unknown  ADX=62.5
+2026-08-14 14:36:11,784 [INFO]     ✓ ZENTEC.NS        ₹1857.2   MomScore=0.90  6M=+38%  12M=+30%  Sector=Unknown  ADX=28.7
+2026-08-14 14:36:14,311 [INFO]   Batch 49/49 (6 symbols)...
+2026-08-14 14:36:17,515 [INFO] Stage 1 complete. Momentum candidates: 116
+2026-08-14 14:36:17,516 [INFO] Cross-sectional gate (top 20%): 116 → 24 (threshold: 1.797)
+2026-08-14 14:36:17,516 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-08-14 14:36:17,602 [INFO]   ✓ APARINDS.NS      score=0.709  mom=1.83  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:17,986 [INFO]   ✓ ARVIND.NS        score=0.734  mom=1.90  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:18,370 [INFO]   ✓ ATHERENERG.NS    score=0.732  mom=3.93  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:18,756 [INFO]   ✓ AUROPHARMA.NS    score=0.680  mom=1.83  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:19,152 [INFO]   ✓ AVADHSUGAR.NS    score=0.725  mom=1.80  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:19,539 [INFO]   ✓ CYIENTDLM.NS     score=0.627  mom=1.80  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:19,975 [INFO]   ✓ DIACABS.NS       score=0.762  mom=3.48  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:20,373 [INFO]   ✓ E2E.NS           score=0.808  mom=3.29  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:20,762 [INFO]   ✓ GAYAPROJ.NS      score=0.696  mom=3.09  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:21,151 [INFO]   ✓ KABRAEXTRU.NS    score=0.704  mom=1.87  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:21,546 [INFO]   ✓ KTKBANK.NS       score=0.742  mom=2.08  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:22,022 [INFO]   ✓ MOREPENLAB.NS    score=0.744  mom=1.93  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:22,409 [INFO]   ✓ MTARTECH.NS      score=0.756  mom=3.87  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:22,848 [INFO]   ✓ PRECWIRE.NS      score=0.755  mom=2.07  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:23,238 [INFO]   ✓ RRKABEL.NS       score=0.752  mom=3.03  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:23,632 [INFO]   ✓ SALSTEEL.NS      score=0.757  mom=3.18  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:24,016 [INFO]   ✓ SANSERA.NS       score=0.777  mom=3.50  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:24,402 [INFO]   ✓ SBCL.NS          score=0.755  mom=1.96  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:25,029 [INFO]   ✓ SKYGOLD.NS       score=0.751  mom=2.93  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:25,416 [INFO]   ✓ STYLAMIND.NS     score=0.750  mom=2.55  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:25,853 [INFO]   ✓ SYRMA.NS         score=0.751  mom=2.17  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:26,237 [INFO]   ✓ UFBL.NS          score=0.763  mom=2.77  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:26,657 [INFO]   ✓ UNIPARTS.NS      score=0.693  mom=2.30  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:27,131 [INFO]   ✓ UNIVASTU.NS      score=0.751  mom=2.71  fscore=0.500  FCF=N/A%
+2026-08-14 14:36:27,431 [INFO] Stage 2 complete. 24 passed → top 20
+2026-08-14 14:36:27,435 [INFO] Results written to results/
+2026-08-14 14:36:27,435 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-08-14 14:36:27,435 [INFO] Initialising public data fetcher...
+2026-08-14 14:36:47,657 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-08-14 14:36:47,657 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-08-14 14:36:47,657 [INFO] Layer 2 v5: scanning 2406 symbols...
+2026-08-14 14:37:02,475 [INFO]   DNA AKG.NS: 0.356 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-08-14 14:37:04,798 [INFO]   DNA AKSHOPTFBR.NS: 0.374 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.40
+2026-08-14 14:37:08,728 [INFO]   DNA ALPINETEX.NS: 0.429 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-08-14 14:37:15,623 [INFO]   DNA APTECHT.NS: 0.408 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:37:16,907 [INFO]   DNA AQYLON.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:37:16,907 [INFO]   [164/2406] ✓ AQYLON.NS DNA=0.463(C) P=6/9 anns=0
+2026-08-14 14:37:23,250 [INFO]   DNA ASHIMASYN.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:37:23,250 [INFO]   [195/2406] ✓ ASHIMASYN.NS DNA=0.482(C) P=3/9 anns=0
+2026-08-14 14:37:28,550 [INFO]   DNA ATL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:37:28,550 [INFO]   [217/2406] ✓ ATL.NS DNA=0.463(C) P=4/9 anns=0
+2026-08-14 14:37:29,906 [INFO]   DNA ATLANTAA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:37:29,906 [INFO]   [218/2406] ✓ ATLANTAA.NS DNA=0.467(C) P=3/9 anns=0
+2026-08-14 14:37:33,725 [INFO]   DNA AVG.NS: 0.419 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-08-14 14:37:35,017 [INFO]   DNA AVROIND.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:37:35,017 [INFO]   [238/2406] ✓ AVROIND.NS DNA=0.502(C) P=5/9 anns=0
+2026-08-14 14:37:36,986 [INFO]   DNA AXITA.NS: 0.422 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=1.00
+2026-08-14 14:37:40,742 [INFO]   DNA BAIDFIN.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:37:40,742 [INFO]   [251/2406] ✓ BAIDFIN.NS DNA=0.454(C) P=4/9 anns=0
+2026-08-14 14:38:06,359 [INFO]   DNA CHEMCON.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:38:06,360 [INFO]   [433/2406] ✓ CHEMCON.NS DNA=0.469(C) P=6/9 anns=0
+2026-08-14 14:38:10,259 [INFO]   DNA CLEDUCATE.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:38:10,259 [INFO]   [449/2406] ✓ CLEDUCATE.NS DNA=0.451(C) P=6/9 anns=0
+2026-08-14 14:38:13,948 [INFO]   DNA COASTCORP.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:38:15,175 [INFO]   DNA COFFEEDAY.NS: 0.356 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:38:18,516 [INFO]   DNA CORALFINAC.NS: 0.500 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-08-14 14:38:18,516 [INFO]   [473/2406] ✓ CORALFINAC.NS DNA=0.500(C) P=5/9 anns=0
+2026-08-14 14:38:21,207 [INFO]   DNA CORDSCABLE.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-08-14 14:38:24,468 [INFO]   DNA COUNCODOS.NS: 0.442 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-08-14 14:38:26,095 [INFO]   DNA CPCAP.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-08-14 14:38:29,796 [INFO]   DNA CSM.NS: 0.355 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-08-14 14:38:33,466 [INFO]   DNA CUBEXTUB.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:38:38,117 [INFO]   DNA CYBERTECH.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:38:43,461 [INFO]   DNA DBEIL.NS: 0.357 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:38:46,895 [INFO]   DNA DCMSIL.NS: 0.405 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:38:48,296 [INFO]   DNA DCMSRIND.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:38:48,296 [INFO]   [530/2406] ✓ DCMSRIND.NS DNA=0.451(C) P=7/9 anns=0
+2026-08-14 14:38:51,787 [INFO]   DNA DENTA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:38:52,846 [INFO]   DNA DEVIT.NS: 0.529 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:38:52,846 [INFO]   [547/2406] ✓ DEVIT.NS DNA=0.529(C) P=4/9 anns=0
+2026-08-14 14:38:54,130 [INFO]   DNA DEVX.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:38:54,130 [INFO]   [548/2406] ✓ DEVX.NS DNA=0.502(C) P=9/9 anns=0
+2026-08-14 14:38:59,167 [INFO]   DNA DIGIDRIVE.NS: 0.495 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:38:59,167 [INFO]   [563/2406] ✓ DIGIDRIVE.NS DNA=0.495(C) P=4/9 anns=0
+2026-08-14 14:39:00,373 [INFO]   DNA DIGISPICE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:39:00,373 [INFO]   [564/2406] ✓ DIGISPICE.NS DNA=0.487(C) P=7/9 anns=0
+2026-08-14 14:39:02,694 [INFO]   DNA DJML.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-08-14 14:39:04,723 [INFO]   DNA DMCC.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:39:07,149 [INFO]   DNA DONEAR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:07,149 [INFO]   [583/2406] ✓ DONEAR.NS DNA=0.460(C) P=7/9 anns=0
+2026-08-14 14:39:08,315 [INFO]   DNA DPSCLTD.NS: 0.436 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:09,608 [INFO]   DNA DPWIRES.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:39:09,608 [INFO]   [586/2406] ✓ DPWIRES.NS DNA=0.467(C) P=6/9 anns=0
+2026-08-14 14:39:11,084 [INFO]   DNA DRCSYSTEMS.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:39:11,085 [INFO]   [588/2406] ✓ DRCSYSTEMS.NS DNA=0.511(C) P=5/9 anns=0
+2026-08-14 14:39:12,276 [INFO]   DNA DREAMFOLKS.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:39:12,276 [INFO]   [589/2406] ✓ DREAMFOLKS.NS DNA=0.513(C) P=4/9 anns=0
+2026-08-14 14:39:13,611 [INFO]   DNA DSFCL.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:39:13,611 [INFO]   [592/2406] ✓ DSFCL.NS DNA=0.454(C) P=4/9 anns=0
+2026-08-14 14:39:15,590 [INFO]   DNA DWARKESH.NS: 0.364 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:39:19,439 [INFO]   DNA ECOSMOBLTY.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:19,439 [INFO]   [607/2406] ✓ ECOSMOBLTY.NS DNA=0.473(C) P=6/9 anns=0
+2026-08-14 14:39:21,223 [INFO]   DNA EIFFL.NS: 0.338 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:39:23,966 [INFO]   DNA ELGIRUBCO.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-08-14 14:39:25,117 [INFO]   DNA ELIN.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:25,117 [INFO]   [626/2406] ✓ ELIN.NS DNA=0.450(C) P=6/9 anns=0
+2026-08-14 14:39:27,336 [INFO]   DNA EMAMIPAP.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:39:30,478 [INFO]   DNA ENERGYDEV.NS: 0.476 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-08-14 14:39:30,479 [INFO]   [643/2406] ✓ ENERGYDEV.NS DNA=0.476(C) P=5/9 anns=0
+2026-08-14 14:39:31,745 [INFO]   DNA ENIL.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:31,746 [INFO]   [645/2406] ✓ ENIL.NS DNA=0.473(C) P=6/9 anns=0
+2026-08-14 14:39:36,631 [INFO]   DNA ESSARSHPNG.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:39:36,631 [INFO]   [658/2406] ✓ ESSARSHPNG.NS DNA=0.487(C) P=2/9 anns=0
+2026-08-14 14:39:39,314 [INFO]   DNA EVERESTIND.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:39:39,314 [INFO]   [668/2406] ✓ EVERESTIND.NS DNA=0.469(C) P=4/9 anns=0
+2026-08-14 14:39:41,675 [INFO]   DNA EXXARO.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:39:41,675 [INFO]   [674/2406] ✓ EXXARO.NS DNA=0.513(C) P=6/9 anns=0
+2026-08-14 14:39:42,962 [INFO]   DNA FABTECH.NS: 0.504 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:42,962 [INFO]   [675/2406] ✓ FABTECH.NS DNA=0.504(C) P=5/9 anns=0
+2026-08-14 14:39:45,806 [INFO]   DNA FIBERWEB.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:39:45,806 [INFO]   [688/2406] ✓ FIBERWEB.NS DNA=0.469(C) P=5/9 anns=0
+2026-08-14 14:39:51,111 [INFO]   DNA FMNL.NS: 0.500 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-08-14 14:39:51,111 [INFO]   [705/2406] ✓ FMNL.NS DNA=0.500(C) P=7/9 anns=0
+2026-08-14 14:39:52,302 [INFO]   DNA FOCUS.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:53,676 [INFO]   DNA FOODSIN.NS: 0.393 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:57,904 [INFO]   DNA GANESHCP.NS: 0.480 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:39:57,904 [INFO]   [725/2406] ✓ GANESHCP.NS DNA=0.480(C) P=6/9 anns=0
+2026-08-14 14:40:02,944 [INFO]   DNA GEEKAYWIRE.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:40:04,241 [INFO]   DNA GENCON.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:40:04,241 [INFO]   [741/2406] ✓ GENCON.NS DNA=0.487(C) P=6/9 anns=0
+2026-08-14 14:40:08,046 [INFO]   DNA GENSOL.NS: 0.496 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:40:08,046 [INFO]   [744/2406] ✓ GENSOL.NS DNA=0.496(C) P=6/9 anns=0
+2026-08-14 14:40:12,136 [INFO]   DNA GICL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:40:13,680 [INFO]   DNA GINNIFILA.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-08-14 14:40:16,278 [INFO]   DNA GLOBAL.NS: 0.338 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:40:17,946 [INFO]   DNA GLOBECIVIL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:40:17,946 [INFO]   [770/2406] ✓ GLOBECIVIL.NS DNA=0.467(C) P=4/9 anns=0
+2026-08-14 14:40:19,425 [INFO]   DNA GLOTTIS.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:40:23,778 [INFO]   DNA GOKUL.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:40:23,778 [INFO]   [793/2406] ✓ GOKUL.NS DNA=0.484(C) P=7/9 anns=0
+2026-08-14 14:40:25,182 [INFO]   DNA GOLDTECH.NS: 0.491 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:40:25,182 [INFO]   [797/2406] ✓ GOLDTECH.NS DNA=0.491(C) P=2/9 anns=0
+2026-08-14 14:40:28,372 [INFO]   DNA GOYALALUM.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-08-14 14:40:28,372 [INFO]   [801/2406] ✓ GOYALALUM.NS DNA=0.505(C) P=3/9 anns=0
+2026-08-14 14:40:33,963 [INFO]   DNA GSLSU.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-08-14 14:40:33,963 [INFO]   [828/2406] ✓ GSLSU.NS DNA=0.485(C) P=5/9 anns=0
+2026-08-14 14:40:35,655 [INFO]   DNA GTL.NS: 0.350 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.40
+2026-08-14 14:40:37,067 [INFO]   DNA GTPL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:40:37,067 [INFO]   [834/2406] ✓ GTPL.NS DNA=0.483(C) P=5/9 anns=0
+2026-08-14 14:40:40,164 [INFO]   DNA GVPTECH.NS: 0.432 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-08-14 14:40:44,017 [INFO]   DNA HARDWYN.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:40:47,369 [INFO]   DNA HCL-INSYS.NS: 0.493 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=1.00
+2026-08-14 14:40:47,369 [INFO]   [869/2406] ✓ HCL-INSYS.NS DNA=0.493(C) P=2/9 anns=0
+2026-08-14 14:40:50,506 [INFO]   DNA HERANBA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-08-14 14:40:50,507 [INFO]   [882/2406] ✓ HERANBA.NS DNA=0.463(C) P=4/9 anns=0
+2026-08-14 14:40:53,333 [INFO]   DNA HILINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-08-14 14:40:53,333 [INFO]   [894/2406] ✓ HILINFRA.NS DNA=0.487(C) P=5/9 anns=0
+2026-08-14 14:40:54,358 [INFO]   DNA HILTON.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-08-14 14:40:59,674 [INFO]   DNA HLVLTD.NS: 0.501 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-08-14 14:40:59,674 [INFO]   [912/2406] ✓ HLVLTD.NS DNA=0.501(C) P=6/9 anns=0
+2026-08-14 14:41:01,691 [INFO]   DNA HMVL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-08-14 14:41:04,427 [INFO]   DNA HPAL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-08-14 14:41:04,427 [INFO]   [921/2406] ✓ HPAL.NS DNA=0.467(C) P=7/9 anns=0
+2026-08-14 14:41:10,326 [INFO]   DNA IGCL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-08-14 14:41:10,327 [INFO]   [950/2406] ✓ IGCL.NS DNA=0.463(C) P=5/9 anns=0
+2026-08-14 14:42:14,569 [INFO] 
+Enriching top 30 with Screener.in...
+2026-08-14 14:42:14,569 [INFO] Enriching 30 candidates with Screener.in data...
+2026-08-14 14:42:14,569 [INFO]   [1/30] Screener fetch: DEVX
+2026-08-14 14:42:17,976 [INFO]   [2/30] Screener fetch: DRCSYSTEMS
+2026-08-14 14:42:21,381 [INFO]   [3/30] Screener fetch: FMNL
+2026-08-14 14:42:24,789 [INFO]   [4/30] Screener fetch: HILINFRA
+2026-08-14 14:42:28,192 [INFO]   [5/30] Screener fetch: DIGISPICE
+2026-08-14 14:42:31,584 [INFO]   [6/30] Screener fetch: FABTECH
+2026-08-14 14:42:34,991 [INFO]   [7/30] Screener fetch: AQYLON
+2026-08-14 14:42:38,384 [INFO]   [8/30] Screener fetch: ECOSMOBLTY
+2026-08-14 14:42:41,779 [INFO]   [9/30] Screener fetch: CORALFINAC
+2026-08-14 14:42:45,176 [INFO]   [10/30] Screener fetch: CHEMCON
+2026-08-14 14:42:48,572 [INFO]   [11/30] Screener fetch: HPAL
+2026-08-14 14:42:51,964 [INFO]   [12/30] Screener fetch: GOKUL
+2026-08-14 14:42:55,363 [INFO]   [13/30] Screener fetch: HLVLTD
+2026-08-14 14:42:58,767 [INFO]   [14/30] Screener fetch: AVROIND
+2026-08-14 14:43:02,172 [INFO]   [15/30] Screener fetch: DEVIT
+2026-08-14 14:43:05,596 [INFO]   [16/30] Screener fetch: GOYALALUM
+2026-08-14 14:43:08,996 [INFO]   [17/30] Screener fetch: ENIL
+2026-08-14 14:43:12,413 [INFO]   [18/30] Screener fetch: GANESHCP
+2026-08-14 14:43:15,819 [INFO]   [19/30] Screener fetch: DPWIRES
+2026-08-14 14:43:19,237 [INFO]   [20/30] Screener fetch: DREAMFOLKS
+2026-08-14 14:43:22,630 [INFO]   [21/30] Screener fetch: EXXARO
+2026-08-14 14:43:26,055 [INFO]   [22/30] Screener fetch: GSLSU
+2026-08-14 14:43:29,450 [INFO]   [23/30] Screener fetch: ELIN
+2026-08-14 14:43:32,860 [INFO]   [24/30] Screener fetch: GENCON
+2026-08-14 14:43:36,262 [INFO]   [25/30] Screener fetch: IGCL
+2026-08-14 14:43:39,687 [INFO]   [26/30] Screener fetch: GENSOL
+2026-08-14 14:43:43,114 [INFO]   [27/30] Screener fetch: DONEAR
+2026-08-14 14:43:46,534 [INFO]   [28/30] Screener fetch: BAIDFIN
+2026-08-14 14:43:49,935 [INFO]   [29/30] Screener fetch: ATL
+2026-08-14 14:43:53,349 [INFO]   [30/30] Screener fetch: FIBERWEB
+2026-08-14 14:43:56,751 [INFO] Screener enrichment: 0/30 fetched successfully.
+2026-08-14 14:43:56,752 [INFO] Fetching concall signals for top 20...
+2026-08-14 14:43:59,150 [INFO]   🎙️ DEVX.NS: concall=0.30 final=0.563
+2026-08-14 14:44:01,545 [INFO]   🎙️ DRCSYSTEMS.NS: concall=0.30 final=0.556
+2026-08-14 14:44:03,944 [INFO]   🎙️ FMNL.NS: concall=0.30 final=0.552
+2026-08-14 14:44:06,338 [INFO]   🎙️ HILINFRA.NS: concall=0.30 final=0.545
+2026-08-14 14:44:08,738 [INFO]   🎙️ DIGISPICE.NS: concall=0.30 final=0.534
+2026-08-14 14:44:11,136 [INFO]   🎙️ FABTECH.NS: concall=0.30 final=0.534
+2026-08-14 14:44:13,525 [INFO]   🎙️ AQYLON.NS: concall=0.30 final=0.530
+2026-08-14 14:44:15,924 [INFO]   🎙️ ECOSMOBLTY.NS: concall=0.30 final=0.530
+2026-08-14 14:44:18,322 [INFO]   🎙️ CORALFINAC.NS: concall=0.30 final=0.530
+2026-08-14 14:44:20,738 [INFO]   🎙️ CHEMCON.NS: concall=0.30 final=0.529
+2026-08-14 14:44:23,133 [INFO]   🎙️ HPAL.NS: concall=0.30 final=0.525
+2026-08-14 14:44:25,532 [INFO]   🎙️ GOKUL.NS: concall=0.30 final=0.523
+2026-08-14 14:44:27,926 [INFO]   🎙️ HLVLTD.NS: concall=0.30 final=0.520
+2026-08-14 14:44:30,352 [INFO]   🎙️ AVROIND.NS: concall=0.30 final=0.518
+2026-08-14 14:44:32,752 [INFO]   🎙️ DEVIT.NS: concall=0.30 final=0.517
+2026-08-14 14:44:35,142 [INFO]   🎙️ GOYALALUM.NS: concall=0.30 final=0.517
+2026-08-14 14:44:37,539 [INFO]   🎙️ ENIL.NS: concall=0.30 final=0.516
+2026-08-14 14:44:39,963 [INFO]   🎙️ GANESHCP.NS: concall=0.30 final=0.515
+2026-08-14 14:44:42,357 [INFO]   🎙️ DPWIRES.NS: concall=0.30 final=0.514
+2026-08-14 14:44:44,771 [INFO]   🎙️ DREAMFOLKS.NS: concall=0.30 final=0.512
+2026-08-14 14:44:44,772 [INFO] Layer 2 v5: 44 passed → 15 final
+2026-08-14 14:44:44,772 [INFO] 
+▶ Conviction plays...
+2026-08-14 14:44:44,772 [INFO]   0 conviction plays
+2026-08-14 14:44:44,773 [INFO] 
+▶ Persistence tracker...
+2026-08-14 14:44:44,773 [INFO] ▶ Running scan history tracker...
+2026-08-14 14:44:44,810 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 166 total in history
+2026-08-14 14:44:44,817 [INFO] 
+✅ Done — L1:20 L2:15 Conviction:0 WatchNow:0
