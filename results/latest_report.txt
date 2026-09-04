@@ -1,133 +1,173 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-09-03 17:22 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-09-04 17:13 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, +2.2% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23873.0  1M: -3.1%  3M: +2.2%
+  Index below 200EMA, +2.8% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    23898.0  1M: -2.7%  3M: +2.8%
 ════════════════════════════════════════════════════════════════════════
-  Top 15 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 20 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  CONFIPET.NS       Score: 0.769   MCap: ₹2800.0 Cr
-    Price ₹84.28      RSI 72.8    ADX 28.8    Sector: Energy  SectorMom3M: None%
-    MomScore: 2.11  6M: +183.5%  12M: +73.3%  3M: +11.6%
-    MACD: ↑Expanding  BB%B: 0.91  BBSqueeze: –  Structure: HH/HL✓  +DI:32/-DI:5
+#01  RATNAVEER.NS      Score: 0.739   MCap: N/A
+    Price ₹304.75     RSI 74.9    ADX 69.8    Sector: Other  SectorMom3M: None%
+    MomScore: 2.35  6M: +123.8%  12M: +109.5%  3M: +87.0%
+    MACD: ↑Expanding  BB%B: 0.83  BBSqueeze: –  Structure: HH/HL✓  +DI:36/-DI:12
     RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.50   ROE: None%   D/E: 0.49   FCF Yield: None%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💰 Rev Growth 116.6%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 69.8 (+DI 35.5 / -DI 11.6) | ⚡ 3M Return +87.0%
 
-#02  GHCLTEXTIL.NS     Score: 0.761   MCap: ₹1319.0 Cr
-    Price ₹138.02     RSI 75.9    ADX 53.7    Sector: FMCG  SectorMom3M: None%
-    MomScore: 2.09  6M: +92.2%  12M: +74.5%  3M: +43.4%
-    MACD: Positive  BB%B: 0.92  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:2
+#02  SBCL.NS           Score: 0.731   MCap: N/A
+    Price ₹1121.1     RSI 66.6    ADX 49.6    Sector: Other  SectorMom3M: None%
+    MomScore: 2.68  6M: +171.6%  12M: +120.0%  3M: +57.2%
+    MACD: ↑Expanding  BB%B: 0.96  BBSqueeze: –  Structure: HH/HL✓  +DI:28/-DI:9
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 49.6 (+DI 28.3 / -DI 9.4) | ⚡ 3M Return +57.2%
+
+#03  MODISONLTD.NS     Score: 0.728   MCap: N/A
+    Price ₹469.95     RSI 70.9    ADX 77.7    Sector: Other  SectorMom3M: None%
+    MomScore: 4.20  6M: +273.7%  12M: +196.6%  3M: +52.6%
+    MACD: Positive  BB%B: 0.77  BBSqueeze: –  Structure: HH/HL✓  +DI:49/-DI:15
     RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.56   ROE: None%   D/E: 0.09   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 53.7 (+DI 34.7 / -DI 2.4) | ⚡ 3M Return +43.4% | 💰 Rev Growth 52.7%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 77.7 (+DI 49.3 / -DI 15.4) | ⚡ 3M Return +52.6%
 
-#03  MODISONLTD.NS     Score: 0.761   MCap: ₹1605.0 Cr
-    Price ₹494.65     RSI 79.4    ADX 78.9    Sector: Other  SectorMom3M: None%
-    MomScore: 4.42  6M: +282.5%  12M: +210.4%  3M: +52.6%
-    MACD: Positive  BB%B: 0.89  BBSqueeze: –  Structure: HH/HL✓  +DI:54/-DI:10
+#04  SAILIFE.NS        Score: 0.718   MCap: N/A
+    Price ₹1584.3     RSI 73.5    ADX 29.4    Sector: Other  SectorMom3M: None%
+    MomScore: 2.16  6M: +55.8%  12M: +86.7%  3M: +33.3%
+    MACD: ↑Expanding  BB%B: 1.03  BBSqueeze: –  Structure: HH/HL✓  +DI:34/-DI:8
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | ⚡ 3M Return +33.3%
+
+#05  TMB.NS            Score: 0.716   MCap: N/A
+    Price ₹932.45     RSI 70.7    ADX 31.5    Sector: Financial Services  SectorMom3M: None%
+    MomScore: 2.40  6M: +59.6%  12M: +122.2%  3M: +22.4%
+    MACD: ↑Expanding  BB%B: 0.91  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:40/-DI:5
     RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.43   ROE: None%   D/E: 0.64   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 78.9 (+DI 54.4 / -DI 9.7) | ⚡ 3M Return +52.6% | 💰 Rev Growth 101.6%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 📈 Strong Trend ADX 31.5 (+DI 39.5 / -DI 5.4)
 
-#04  TMB.NS            Score: 0.757   MCap: ₹14924.0 Cr
-    Price ₹942.45     RSI 72.1    ADX 28.0    Sector: Financial Services  SectorMom3M: None%
-    MomScore: 2.36  6M: +52.0%  12M: +126.8%  3M: +22.7%
-    MACD: ↑Expanding  BB%B: 1.05  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:40/-DI:9
-    RS Days: 2  OBV: ✓  52W Break: ✓
-    Fundamental Score: 0.51   ROE: 14.5%   D/E: None   FCF Yield: None%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | ★ OBV + Volume + 52W Breakout
+#06  KIRLOSENG.NS      Score: 0.712   MCap: N/A
+    Price ₹2201.9     RSI 58.2    ADX 36.3    Sector: Other  SectorMom3M: None%
+    MomScore: 2.15  6M: +51.7%  12M: +147.4%  3M: +21.4%
+    MACD: ↑Expanding  BB%B: 0.90  BBSqueeze: Yes  Structure: HH/HL✓  +DI:27/-DI:9
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 36.3 (+DI 26.9 / -DI 8.8)
 
-#05  INDOBORAX.NS      Score: 0.748   MCap: ₹1646.0 Cr
-    Price ₹512.8      RSI 73.3    ADX 56.8    Sector: Other  SectorMom3M: None%
-    MomScore: 2.80  6M: +129.0%  12M: +143.1%  3M: +55.8%
-    MACD: Positive  BB%B: 0.77  BBSqueeze: –  Structure: HH/HL✓  +DI:38/-DI:7
+#07  INDOBORAX.NS      Score: 0.710   MCap: N/A
+    Price ₹514.9      RSI 75.6    ADX 59.2    Sector: Other  SectorMom3M: None%
+    MomScore: 2.68  6M: +128.4%  12M: +132.5%  3M: +55.4%
+    MACD: Positive  BB%B: 0.76  BBSqueeze: –  Structure: HH/HL✓  +DI:37/-DI:6
     RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.43   ROE: 13.9%   D/E: 0.37   FCF Yield: 1.09%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 56.8 (+DI 37.9 / -DI 6.8) | ⚡ 3M Return +55.8% | 💰 Rev Growth 25.2%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 59.2 (+DI 37.4 / -DI 6.2) | ⚡ 3M Return +55.4%
 
-#06  IOLCP.NS          Score: 0.745   MCap: ₹5766.0 Cr
-    Price ₹196.43     RSI 74.8    ADX 42.2    Sector: Pharma  SectorMom3M: 9.9%
-    MomScore: 2.50  6M: +165.5%  12M: +96.4%  3M: +47.9%
-    MACD: Positive  BB%B: 0.90  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:36/-DI:7
+#08  GHCLTEXTIL.NS     Score: 0.705   MCap: N/A
+    Price ₹136.72     RSI 72.1    ADX 58.7    Sector: FMCG  SectorMom3M: None%
+    MomScore: 2.08  6M: +92.1%  12M: +73.9%  3M: +46.2%
+    MACD: Positive  BB%B: 0.83  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:5
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 58.7 (+DI 34.7 / -DI 5.3) | ⚡ 3M Return +46.2%
+
+#09  MARINE.NS         Score: 0.702   MCap: N/A
+    Price ₹432.15     RSI 78.6    ADX 79.8    Sector: Other  SectorMom3M: None%
+    MomScore: 2.79  6M: +134.0%  12M: +147.3%  3M: +80.7%
+    MACD: Positive  BB%B: 0.93  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:5
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 79.8 (+DI 35.1 / -DI 4.7) | ⚡ 3M Return +80.7%
+
+#10  MOREPENLAB.NS     Score: 0.701   MCap: N/A
+    Price ₹113.74     RSI 75.5    ADX 73.7    Sector: Other  SectorMom3M: None%
+    MomScore: 2.94  6M: +191.0%  12M: +129.7%  3M: +130.4%
+    MACD: Positive  BB%B: 0.88  BBSqueeze: –  Structure: HH/HL✓  +DI:36/-DI:3
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 73.7 (+DI 35.8 / -DI 2.9) | ⚡ 3M Return +130.4%
+
+#11  SHILPAMED.NS      Score: 0.692   MCap: N/A
+    Price ₹964.15     RSI 76.6    ADX 65.6    Sector: Other  SectorMom3M: None%
+    MomScore: 3.92  6M: +189.6%  12M: +129.4%  3M: +72.6%
+    MACD: ↑Expanding  BB%B: 0.96  BBSqueeze: –  Structure: HH/HL✓  +DI:37/-DI:1
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 65.6 (+DI 37.0 / -DI 1.0) | ⚡ 3M Return +72.6%
+
+#12  NITINSPIN.NS      Score: 0.687   MCap: N/A
+    Price ₹639.05     RSI 74.0    ADX 59.2    Sector: Other  SectorMom3M: None%
+    MomScore: 2.23  6M: +78.8%  12M: +91.4%  3M: +21.9%
+    MACD: Positive  BB%B: 0.81  BBSqueeze: –  Structure: HH/HL✓  +DI:38/-DI:5
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 59.2 (+DI 37.6 / -DI 4.9)
+
+#13  CONFIPET.NS       Score: 0.685   MCap: N/A
+    Price ₹82.48      RSI 67.6    ADX 33.0    Sector: Energy  SectorMom3M: None%
+    MomScore: 2.11  6M: +186.3%  12M: +70.8%  3M: +13.1%
+    MACD: Positive  BB%B: 0.80  BBSqueeze: –  Structure: HH/HL✓  +DI:32/-DI:5
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 33.0 (+DI 31.5 / -DI 5.0)
+
+#14  CYIENTDLM.NS      Score: 0.681   MCap: N/A
+    Price ₹856.95     RSI 76.8    ADX 51.0    Sector: Other  SectorMom3M: None%
+    MomScore: 3.41  6M: +197.5%  12M: +99.2%  3M: +96.3%
+    MACD: Positive  BB%B: 0.87  BBSqueeze: –  Structure: HH/HL✓  +DI:40/-DI:10
     RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.48   ROE: None%   D/E: 0.08   FCF Yield: None%
-    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 42.2 (+DI 36.5 / -DI 6.8) | ⚡ 3M Return +47.9% | 💰 Rev Growth 37.1%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 51.0 (+DI 40.4 / -DI 9.6) | ⚡ 3M Return +96.3%
 
-#07  MARINE.NS         Score: 0.722   MCap: ₹5710.0 Cr
-    Price ₹430.4      RSI 75.8    ADX 80.5    Sector: Other  SectorMom3M: None%
-    MomScore: 2.72  6M: +124.5%  12M: +149.6%  3M: +76.4%
-    MACD: Positive  BB%B: 0.96  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:5
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.49   ROE: None%   D/E: 0.18   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 80.5 (+DI 35.3 / -DI 4.7) | ⚡ 3M Return +76.4% | 💰 Rev Growth 55.2%
-
-#08  CYIENTDLM.NS      Score: 0.717   MCap: ₹6639.0 Cr
-    Price ₹836.55     RSI 78.8    ADX 50.4    Sector: Other  SectorMom3M: None%
-    MomScore: 3.14  6M: +182.9%  12M: +90.2%  3M: +88.6%
-    MACD: Positive  BB%B: 0.83  BBSqueeze: –  Structure: HH/HL✓  +DI:38/-DI:10
+#15  ATHERENERG.NS     Score: 0.678   MCap: N/A
+    Price ₹1584.0     RSI 59.5    ADX 38.5    Sector: FMCG  SectorMom3M: None%
+    MomScore: 3.61  6M: +132.4%  12M: +225.2%  3M: +52.0%
+    MACD: Positive  BB%B: 0.62  BBSqueeze: –  Structure: HH/HL✓  +DI:34/-DI:20
     RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.42   ROE: None%   D/E: 0.17   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 50.4 (+DI 38.2 / -DI 9.9) | ⚡ 3M Return +88.6% | 💰 Rev Growth 34.3%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 38.5 (+DI 33.6 / -DI 19.8) | ⚡ 3M Return +52.0%
 
-#09  INDSWFTLAB.NS     Score: 0.715   MCap: ₹3241.0 Cr
-    Price ₹372.7      RSI 71.7    ADX 79.2    Sector: Pharma  SectorMom3M: 9.9%
-    MomScore: 4.00  6M: +172.4%  12M: +276.3%  3M: +130.2%
-    MACD: Positive  BB%B: 0.78  BBSqueeze: –  Structure: HH/HL✓  +DI:39/-DI:3
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.27   ROE: None%   D/E: 1.48   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 79.2 (+DI 39.3 / -DI 3.0) | ⚡ 3M Return +130.2% | 💰 Rev Growth 25.4%
+#16  TFCILTD.NS        Score: 0.676   MCap: N/A
+    Price ₹143.26     RSI 78.6    ADX 75.9    Sector: Other  SectorMom3M: None%
+    MomScore: 2.40  6M: +126.1%  12M: +111.4%  3M: +94.1%
+    MACD: –  BB%B: 0.76  BBSqueeze: –  Structure: HH/HL✓  +DI:31/-DI:7
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 75.9 (+DI 31.3 / -DI 7.2) | ⚡ 3M Return +94.1%
 
-#10  UNIPARTS.NS       Score: 0.705   MCap: ₹4059.0 Cr
-    Price ₹899.9      RSI 68.4    ADX 50.2    Sector: Other  SectorMom3M: None%
-    MomScore: 2.85  6M: +98.6%  12M: +135.8%  3M: +42.1%
-    MACD: ↑Expanding  BB%B: 0.97  BBSqueeze: –  Structure: HH/HL✓  +DI:26/-DI:5
+#17  SPORTKING.NS      Score: 0.676   MCap: N/A
+    Price ₹229.22     RSI 70.2    ADX 32.9    Sector: FMCG  SectorMom3M: None%
+    MomScore: 2.34  6M: +116.1%  12M: +104.6%  3M: +35.4%
+    MACD: Positive  BB%B: 0.81  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:29/-DI:11
     RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.46   ROE: None%   D/E: 0.18   FCF Yield: None%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 50.2 (+DI 26.0 / -DI 5.3) | ⚡ 3M Return +42.1% | 💰 Rev Growth 26.9%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 📈 Strong Trend ADX 32.9 (+DI 28.6 / -DI 11.1) | ⚡ 3M Return +35.4%
 
-#11  SPORTKING.NS      Score: 0.702   MCap: ₹2935.0 Cr
-    Price ₹230.6      RSI 73.6    ADX 29.8    Sector: FMCG  SectorMom3M: None%
-    MomScore: 2.31  6M: +109.1%  12M: +108.9%  3M: +29.7%
-    MACD: ↑Expanding  BB%B: 0.86  BBSqueeze: –  Structure: HH/HL✓  +DI:30/-DI:11
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.38   ROE: None%   D/E: 0.42   FCF Yield: None%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | ⚡ 3M Return +29.7%
-
-#12  NITINSPIN.NS      Score: 0.688   MCap: ₹3599.0 Cr
-    Price ₹640.25     RSI 74.6    ADX 55.6    Sector: FMCG  SectorMom3M: None%
-    MomScore: 2.09  6M: +71.6%  12M: +88.4%  3M: +18.8%
-    MACD: Positive  BB%B: 0.85  BBSqueeze: –  Structure: HH/HL✓  +DI:38/-DI:5
-    RS Days: 2  OBV: ✓  52W Break: ✓
-    Fundamental Score: 0.29   ROE: None%   D/E: 0.76   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 📈 Strong Trend ADX 55.6 (+DI 37.9 / -DI 4.8)
-
-#13  IRISDOREME.NS     Score: 0.687   MCap: ₹1024.0 Cr
-    Price ₹59.98      RSI 59.8    ADX 42.7    Sector: FMCG  SectorMom3M: None%
-    MomScore: 2.27  6M: +86.7%  12M: +87.1%  3M: +66.5%
-    MACD: –  BB%B: 0.94  BBSqueeze: Yes  Structure: HH/HL✓  +DI:18/-DI:17
+#18  IRISDOREME.NS     Score: 0.643   MCap: N/A
+    Price ₹63.58      RSI 69.3    ADX 36.9    Sector: FMCG  SectorMom3M: None%
+    MomScore: 2.62  6M: +104.4%  12M: +98.4%  3M: +78.0%
+    MACD: –  BB%B: 1.33  BBSqueeze: Yes  Structure: HH/HL✓  +DI:23/-DI:16
     RS Days: 3  OBV: ✓  52W Break: ✓
-    Fundamental Score: 0.39   ROE: None%   D/E: 0.24   FCF Yield: None%
-    ▶  💪 RS: Rose 3× when Nifty fell | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 42.7 (+DI 17.5 / -DI 17.0) | ⚡ 3M Return +66.5%
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  💪 RS: Rose 3× when Nifty fell | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 36.9 (+DI 22.6 / -DI 15.8) | ⚡ 3M Return +78.0%
 
-#14  COMSYN.NS         Score: 0.621   MCap: ₹1221.0 Cr
-    Price ₹302.7      RSI 62.3    ADX 53.7    Sector: FMCG  SectorMom3M: None%
-    MomScore: 2.09  6M: +97.8%  12M: +108.7%  3M: +87.0%
-    MACD: –  BB%B: 0.79  BBSqueeze: –  Structure: HH/HL✓  +DI:23/-DI:18
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.33   ROE: None%   D/E: 0.72   FCF Yield: None%
-    ▶  📈 Strong Trend ADX 53.7 (+DI 23.3 / -DI 17.6) | ⚡ 3M Return +87.0%
+#19  INDSWFTLAB.NS     Score: 0.640   MCap: N/A
+    Price ₹355.95     RSI 62.9    ADX 79.9    Sector: Pharma  SectorMom3M: 9.0%
+    MomScore: 3.56  6M: +154.6%  12M: +247.0%  3M: +118.6%
+    MACD: –  BB%B: 0.67  BBSqueeze: –  Structure: HH/HL✓  +DI:35/-DI:8
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  📈 Strong Trend ADX 79.9 (+DI 35.0 / -DI 7.5) | ⚡ 3M Return +118.6%
 
-#15  BLSE.NS           Score: 0.597   MCap: ₹2934.0 Cr
-    Price ₹323.65     RSI 58.4    ADX 30.4    Sector: Other  SectorMom3M: None%
-    MomScore: 2.64  6M: +146.2%  12M: +84.6%  3M: +40.0%
-    MACD: –  BB%B: 0.76  BBSqueeze: Yes  Structure: HH/HL✓  +DI:22/-DI:11
-    RS Days: 1  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.31   ROE: None%   D/E: 1.08   FCF Yield: None%
-    ▶  🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 30.4 (+DI 21.9 / -DI 11.2) | ⚡ 3M Return +40.0%
+#20  ANANDRATHI.NS     Score: 0.621   MCap: N/A
+    Price ₹2215.9     RSI 61.9    ADX 45.3    Sector: Financial Services  SectorMom3M: None%
+    MomScore: 2.14  6M: +40.9%  12M: +50.5%  3M: +27.5%
+    MACD: –  BB%B: 0.88  BBSqueeze: Yes  Structure: HH/HL✓  +DI:18/-DI:9
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  💪 RS: Rose 3× when Nifty fell | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 45.3 (+DI 17.5 / -DI 8.9) | ⚡ 3M Return +27.5%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
