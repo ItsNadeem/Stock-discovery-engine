@@ -86260,3 +86260,1973 @@ Enriching top 30 with Screener.in...
 2026-09-08 17:59:33,946 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 183 total in history
 2026-09-08 17:59:33,952 [INFO] 
 ✅ Done — L1:11 L2:15 Conviction:0 WatchNow:0
+2026-09-09 17:10:22,718 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-09-09 17:10:22,718 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-09-09 17:10:22,718 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-09-09 17:10:22,718 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-09-09 17:10:22,718 [INFO] 
+▶ Market regime...
+2026-09-09 17:10:23,229 [INFO]   BEAR — Index below 200EMA, -0.8% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+2026-09-09 17:10:23,229 [INFO] Fetching NSE equity list from NSE archives...
+2026-09-09 17:10:23,307 [INFO] Fetched 2571 NSE symbols
+2026-09-09 17:10:23,308 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-09-09 17:10:23,308 [INFO] ══════════════════════════════════════════════════════
+2026-09-09 17:10:23,308 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-09-09 17:10:23,308 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-09-09 17:10:23,308 [INFO] ══════════════════════════════════════════════════════
+2026-09-09 17:10:23,310 [INFO] Loaded 2571 symbols from cache
+2026-09-09 17:10:23,310 [INFO] Universe: 2571 NSE symbols
+2026-09-09 17:10:23,310 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-09-09 17:10:23,409 [INFO]   Nifty returns loaded: 66 days
+2026-09-09 17:10:23,409 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-09-09 17:10:25,331 [INFO]   Sector momentum: {'IT': 4.0, 'Pharma': 9.5, 'Midcap': 4.2}
+2026-09-09 17:10:25,331 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-09-09 17:10:25,331 [INFO]   Batch 1/52 (50 symbols)...
+2026-09-09 17:10:56,452 [INFO]     ✓ 63MOONS.NS       ₹865.05   MomScore=0.38  6M=+45%  12M=-6%  Sector=IT  ADX=44.3
+2026-09-09 17:10:57,325 [INFO]     ✓ AAREYDRUGS.NS    ₹99.98    MomScore=0.89  6M=+44%  12M=+45%  Sector=Pharma  ADX=28.1
+2026-09-09 17:10:58,011 [INFO]     ✓ AARTIDRUGS.NS    ₹423.45   MomScore=0.15  6M=+20%  12M=-11%  Sector=Pharma  ADX=30.2
+2026-09-09 17:11:04,022 [INFO]     ✓ ACMESOLAR.NS     ₹401.6    MomScore=1.35  6M=+67%  12M=+34%  Sector=IT  ADX=31.7
+2026-09-09 17:11:06,567 [INFO]   Batch 2/52 (50 symbols)...
+2026-09-09 17:11:13,675 [INFO]     ✓ AEGISVOPAK.NS    ₹297.65   MomScore=0.81  6M=+54%  12M=+22%  Sector=Energy  ADX=33.5
+2026-09-09 17:11:14,465 [INFO]     ✓ AEROENTER.NS     ₹142.95   MomScore=1.62  6M=+102%  12M=+69%  Sector=Other  ADX=27.4
+2026-09-09 17:11:17,562 [INFO]     ✓ AGARWALEYE.NS    ₹513.7    MomScore=0.66  6M=+16%  12M=+21%  Sector=Pharma  ADX=36.3
+2026-09-09 17:11:23,316 [INFO]   Batch 3/52 (50 symbols)...
+2026-09-09 17:11:37,967 [INFO]   Batch 4/52 (50 symbols)...
+2026-09-09 17:11:50,874 [INFO]     ✓ ARTEMISMED.NS    ₹354.3    MomScore=1.62  6M=+57%  12M=+58%  Sector=Other  ADX=28.8
+2026-09-09 17:11:54,116 [INFO]   Batch 5/52 (50 symbols)...
+2026-09-09 17:11:56,865 [INFO]     ✓ ASAHIINDIA.NS    ₹968.75   MomScore=0.41  6M=+12%  12M=+16%  Sector=FMCG  ADX=29.7
+2026-09-09 17:11:59,537 [INFO]     ✓ ASIANENE.NS      ₹535.5    MomScore=1.44  6M=+91%  12M=+50%  Sector=Energy  ADX=50.0
+2026-09-09 17:12:09,497 [INFO]   Batch 6/52 (50 symbols)...
+2026-09-09 17:12:14,876 [INFO]     ✓ AXISCADES.NS     ₹1875.7   MomScore=0.54  6M=+29%  12M=+24%  Sector=Other  ADX=31.4
+2026-09-09 17:12:19,599 [INFO]     ✓ BALAMINES.NS     ₹2359.3   MomScore=1.70  6M=+129%  12M=+58%  Sector=Other  ADX=58.6
+2026-09-09 17:12:24,563 [INFO]   Batch 7/52 (50 symbols)...
+2026-09-09 17:12:32,304 [INFO]     ✓ BEML.NS          ₹2097.8   MomScore=0.44  6M=+30%  12M=+4%  Sector=Other  ADX=53.2
+2026-09-09 17:12:32,888 [INFO]     ✓ BEPL.NS          ₹133.56   MomScore=1.38  6M=+62%  12M=+33%  Sector=Other  ADX=30.5
+2026-09-09 17:12:39,115 [INFO]   Batch 8/52 (50 symbols)...
+2026-09-09 17:12:42,977 [INFO]     ✓ BIRLACABLE.NS    ₹356.85   MomScore=2.68  6M=+165%  12M=+127%  Sector=IT  ADX=32.0
+2026-09-09 17:12:44,958 [INFO]     ✓ BLISSGVS.NS      ₹692.85   MomScore=4.77  6M=+221%  12M=+351%  Sector=Pharma  ADX=46.0
+2026-09-09 17:12:46,779 [INFO]     ✓ BLUSPRING.NS     ₹130.52   MomScore=2.12  6M=+178%  12M=+65%  Sector=Other  ADX=29.1
+2026-09-09 17:12:53,391 [INFO]   Batch 9/52 (50 symbols)...
+2026-09-09 17:12:58,992 [INFO]     ✓ CALSOFT.NS       ₹35.15    MomScore=2.35  6M=+181%  12M=+122%  Sector=IT  ADX=73.3
+2026-09-09 17:13:01,259 [INFO]     ✓ CAPLIPOINT.NS    ₹2723.1   MomScore=1.35  6M=+62%  12M=+28%  Sector=Pharma  ADX=38.9
+2026-09-09 17:13:09,021 [INFO]   Batch 10/52 (50 symbols)...
+2026-09-09 17:13:12,642 [INFO]     ✓ CGCL.NS          ₹272.4    MomScore=1.56  6M=+61%  12M=+46%  Sector=Financial Services  ADX=39.2
+2026-09-09 17:13:14,801 [INFO]     ✓ CHENNPETRO.NS    ₹1604.4   MomScore=2.08  6M=+79%  12M=+133%  Sector=Energy  ADX=34.7
+2026-09-09 17:13:17,889 [INFO]     ✓ CLSEL.NS         ₹305.2    MomScore=0.33  6M=+21%  12M=+8%  Sector=FMCG  ADX=32.9
+2026-09-09 17:13:20,044 [INFO]     ✓ COFFEEDAY.NS     ₹33.15    MomScore=0.01  6M=+30%  12M=-29%  Sector=FMCG  ADX=31.6
+2026-09-09 17:13:22,231 [INFO]     ✓ CONFIPET.NS      ₹90.66    MomScore=1.96  6M=+156%  12M=+86%  Sector=Energy  ADX=48.6
+2026-09-09 17:13:24,671 [INFO]   Batch 11/52 (50 symbols)...
+2026-09-09 17:13:33,844 [INFO]     ✓ CUB.NS           ₹231.67   MomScore=1.08  6M=+28%  12M=+55%  Sector=Financial Services  ADX=34.9
+2026-09-09 17:13:35,272 [INFO]     ✓ CYBERMEDIA.NS    ₹22.73    MomScore=0.88  6M=+67%  12M=+38%  Sector=Other  ADX=68.4
+2026-09-09 17:13:38,341 [INFO]     ✓ DATAPATTNS.NS    ₹4883.2   MomScore=1.38  6M=+45%  12M=+93%  Sector=Other  ADX=27.8
+2026-09-09 17:13:41,480 [INFO]   Batch 12/52 (50 symbols)...
+2026-09-09 17:13:45,696 [INFO]     ✓ DCBBANK.NS       ₹228.1    MomScore=1.51  6M=+32%  12M=+85%  Sector=Financial Services  ADX=61.9
+2026-09-09 17:13:50,529 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7020.prod.media.ne1.yahoo.com -->
+  <!-- timestamp: 1788974030.384 -->
+  <!-- url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/DELPHIFX.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=DELPHIFX.NS&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '794akb1la34ue';
+    var crid = '794akb1la34ue';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7020.prod.media.ne1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:13:58,399 [INFO]   Batch 13/52 (50 symbols)...
+2026-09-09 17:14:08,455 [INFO]     ✓ DYCL.NS          ₹456.5    MomScore=0.61  6M=+60%  12M=+8%  Sector=Other  ADX=44.7
+2026-09-09 17:14:10,824 [INFO]     ✓ EDELWEISS.NS     ₹133.63   MomScore=0.52  6M=+24%  12M=+17%  Sector=Financial Services  ADX=46.3
+2026-09-09 17:14:13,612 [INFO]   Batch 14/52 (50 symbols)...
+2026-09-09 17:14:23,988 [INFO]     ✓ ENGINERSIN.NS    ₹273.1    MomScore=0.88  6M=+37%  12M=+38%  Sector=Other  ADX=58.9
+2026-09-09 17:14:29,138 [INFO]   Batch 15/52 (50 symbols)...
+2026-09-09 17:14:34,418 [INFO]     ✓ EXICOM.NS        ₹180.42   MomScore=1.10  6M=+108%  12M=+25%  Sector=Other  ADX=33.4
+2026-09-09 17:14:39,277 [INFO]     ✓ FINCABLES.NS     ₹1353.4   MomScore=1.36  6M=+52%  12M=+63%  Sector=Other  ADX=44.1
+2026-09-09 17:14:41,852 [INFO]     ✓ FMGOETZE.NS      ₹455.45   MomScore=0.42  6M=+39%  12M=-4%  Sector=FMCG  ADX=51.3
+2026-09-09 17:14:44,953 [INFO]   Batch 16/52 (50 symbols)...
+2026-09-09 17:14:50,907 [INFO]     ✓ GANDHAR.NS       ₹265.85   MomScore=1.94  6M=+106%  12M=+84%  Sector=Energy  ADX=45.1
+2026-09-09 17:14:54,057 [INFO]     ✓ GAYAPROJ.NS      ₹23.64    MomScore=3.48  6M=+86%  12M=+169%  Sector=Other  ADX=32.0
+2026-09-09 17:14:54,704 [INFO]     ✓ GEEKAYWIRE.NS    ₹27.91    MomScore=0.06  6M=+32%  12M=-26%  Sector=Other  ADX=51.7
+2026-09-09 17:14:56,950 [INFO]     ✓ GFLLIMITED.NS    ₹57.35    MomScore=0.33  6M=+30%  12M=-4%  Sector=Financial Services  ADX=57.0
+2026-09-09 17:14:57,540 [INFO]     ✓ GHCLTEXTIL.NS    ₹133.67   MomScore=1.99  6M=+83%  12M=+76%  Sector=FMCG  ADX=60.3
+2026-09-09 17:15:00,415 [INFO]   Batch 17/52 (50 symbols)...
+2026-09-09 17:15:04,643 [INFO]     ✓ GLAND.NS         ₹3026.2   MomScore=2.21  6M=+84%  12M=+62%  Sector=Pharma  ADX=29.2
+2026-09-09 17:15:05,410 [INFO]     ✓ GLOBAL.NS        ₹125.94   MomScore=1.35  6M=+20%  12M=+98%  Sector=FMCG  ADX=39.5
+2026-09-09 17:15:09,069 [INFO]     ✓ GNFC.NS          ₹574.6    MomScore=0.93  6M=+38%  12M=+18%  Sector=Other  ADX=43.6
+2026-09-09 17:15:10,764 [INFO]     ✓ GODREJAGRO.NS    ₹674.65   MomScore=0.14  6M=+15%  12M=-6%  Sector=FMCG  ADX=52.8
+2026-09-09 17:15:12,962 [INFO]     ✓ GOODLUCK.NS      ₹515.8    MomScore=0.75  6M=+47%  12M=+23%  Sector=Other  ADX=26.7
+2026-09-09 17:15:17,609 [INFO]   Batch 18/52 (50 symbols)...
+2026-09-09 17:15:21,285 [INFO]     ✓ GRANULES.NS      ₹884.8    MomScore=2.15  6M=+51%  12M=+71%  Sector=Pharma  ADX=34.7
+2026-09-09 17:15:21,470 [INFO]     ✓ GRAPHITE.NS      ₹844.65   MomScore=1.15  6M=+32%  12M=+66%  Sector=Other  ADX=30.3
+2026-09-09 17:15:34,128 [INFO]   Batch 19/52 (50 symbols)...
+2026-09-09 17:15:37,706 [INFO]     ✓ HARSHA.NS        ₹453.4    MomScore=0.65  6M=+28%  12M=+13%  Sector=Other  ADX=43.7
+2026-09-09 17:15:43,631 [INFO]     ✓ HERITGFOOD.NS    ₹380.1    MomScore=0.04  6M=+24%  12M=-21%  Sector=FMCG  ADX=42.1
+2026-09-09 17:15:45,908 [INFO]     ✓ HIKAL.NS         ₹240.69   MomScore=0.28  6M=+34%  12M=-7%  Sector=Pharma  ADX=49.5
+2026-09-09 17:15:49,784 [INFO]   Batch 20/52 (50 symbols)...
+2026-09-09 17:15:53,548 [INFO]     ✓ HINDZINC.NS      ₹605.4    MomScore=0.63  6M=+6%  12M=+42%  Sector=Other  ADX=25.8
+2026-09-09 17:16:00,665 [INFO]     ✓ ICIL.NS          ₹445.55   MomScore=1.35  6M=+80%  12M=+86%  Sector=FMCG  ADX=38.4
+2026-09-09 17:16:02,437 [INFO]     ✓ IFCI.NS          ₹88.96    MomScore=1.22  6M=+65%  12M=+68%  Sector=Financial Services  ADX=62.1
+2026-09-09 17:16:04,437 [INFO]   Batch 21/52 (50 symbols)...
+2026-09-09 17:16:08,964 [INFO]     ✓ IIFLCAPS.NS      ₹338.05   MomScore=0.33  6M=+14%  12M=+12%  Sector=Financial Services  ADX=50.0
+2026-09-09 17:16:16,654 [INFO]     ✓ INDOCO.NS        ₹231.18   MomScore=0.02  6M=+19%  12M=-16%  Sector=Pharma  ADX=38.6
+2026-09-09 17:16:21,635 [INFO]   Batch 22/52 (50 symbols)...
+2026-09-09 17:16:29,643 [INFO]     ✓ IONEXCHANG.NS    ₹437.45   MomScore=0.35  6M=+23%  12M=+5%  Sector=Other  ADX=57.5
+2026-09-09 17:16:29,866 [INFO]     ✓ IPCALAB.NS       ₹1963.6   MomScore=1.23  6M=+26%  12M=+49%  Sector=Pharma  ADX=54.0
+2026-09-09 17:16:37,025 [INFO]   Batch 23/52 (50 symbols)...
+2026-09-09 17:16:39,919 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7020.prod.media.ne1.yahoo.com -->
+  <!-- timestamp: 1788974199.800 -->
+  <!-- url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/JAGRAN.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=JAGRAN.NS&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '76eae39la353n';
+    var crid = '76eae39la353n';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7020.prod.media.ne1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:16:45,689 [INFO]     ✓ JINDRILL.NS      ₹673.75   MomScore=0.38  6M=+27%  12M=+11%  Sector=Energy  ADX=44.1
+2026-09-09 17:16:47,996 [INFO]     ✓ JKPAPER.NS       ₹408.85   MomScore=0.37  6M=+22%  12M=+4%  Sector=Other  ADX=64.3
+2026-09-09 17:16:53,098 [INFO]   Batch 24/52 (50 symbols)...
+2026-09-09 17:16:58,827 [INFO]     ✓ JYOTICNC.NS      ₹1009.05  MomScore=0.48  6M=+33%  12M=+11%  Sector=Other  ADX=54.1
+2026-09-09 17:17:02,272 [INFO]     ✓ KAMDHENU.NS      ₹39.38    MomScore=1.33  6M=+75%  12M=+39%  Sector=Other  ADX=25.9
+2026-09-09 17:17:09,339 [INFO]   Batch 25/52 (50 symbols)...
+2026-09-09 17:17:16,343 [INFO]     ✓ KIRIINDUS.NS     ₹550.75   MomScore=0.39  6M=+37%  12M=+2%  Sector=Other  ADX=74.6
+2026-09-09 17:17:16,869 [INFO]     ✓ KIRLOSENG.NS     ₹2219.9   MomScore=2.27  6M=+53%  12M=+157%  Sector=Other  ADX=39.2
+2026-09-09 17:17:20,415 [INFO]     ✓ KOPRAN.NS        ₹234.37   MomScore=1.27  6M=+92%  12M=+32%  Sector=Pharma  ADX=32.7
+2026-09-09 17:17:22,448 [INFO]     ✓ KPIL.NS          ₹1408.5   MomScore=0.64  6M=+24%  12M=+12%  Sector=Other  ADX=57.2
+2026-09-09 17:17:25,017 [INFO]   Batch 26/52 (50 symbols)...
+2026-09-09 17:17:40,298 [INFO]   Batch 27/52 (50 symbols)...
+2026-09-09 17:17:55,551 [INFO]   Batch 28/52 (50 symbols)...
+2026-09-09 17:18:01,228 [INFO]     ✓ MAHSEAMLES.NS    ₹676.2    MomScore=0.64  6M=+23%  12M=+8%  Sector=Other  ADX=84.3
+2026-09-09 17:18:03,233 [INFO]     ✓ MANAKSTEEL.NS    ₹109.54   MomScore=1.61  6M=+94%  12M=+85%  Sector=Other  ADX=81.1
+2026-09-09 17:18:03,419 [INFO]     ✓ MANALIPETC.NS    ₹87.15    MomScore=1.11  6M=+77%  12M=+22%  Sector=Other  ADX=62.8
+2026-09-09 17:18:04,413 [INFO]     ✓ MANGLMCEM.NS     ₹1049.6   MomScore=0.99  6M=+24%  12M=+36%  Sector=Other  ADX=46.0
+2026-09-09 17:18:04,826 [INFO]     ✓ MANINDS.NS       ₹792.55   MomScore=1.60  6M=+90%  12M=+90%  Sector=Other  ADX=85.0
+2026-09-09 17:18:05,615 [INFO]     ✓ MANOMAY.NS       ₹229.73   MomScore=0.49  6M=+5%  12M=+40%  Sector=FMCG  ADX=28.4
+2026-09-09 17:18:06,357 [INFO]     ✓ MANYAVAR.NS      ₹581.35   MomScore=0.57  6M=+60%  12M=-20%  Sector=FMCG  ADX=47.4
+2026-09-09 17:18:07,651 [INFO]     ✓ MARKSANS.NS      ₹330.15   MomScore=2.21  6M=+91%  12M=+95%  Sector=Pharma  ADX=51.5
+2026-09-09 17:18:10,426 [INFO]   Batch 29/52 (50 symbols)...
+2026-09-09 17:18:26,975 [INFO]   Batch 30/52 (50 symbols)...
+2026-09-09 17:18:30,278 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7048.prod.media.ne1.yahoo.com -->
+  <!-- timestamp: 1788974310.159 -->
+  <!-- url: https://query1.finance.yahoo.com/v7/finance/quote?symbols=MIRZAINT.NS&formatted=false&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '3532p71la3576';
+    var crid = '3532p71la3576';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7048.prod.media.ne1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:18:36,110 [INFO]     ✓ MOL.NS           ₹63.54    MomScore=0.21  6M=+42%  12M=-21%  Sector=Other  ADX=50.8
+2026-09-09 17:18:37,659 [INFO]     ✓ MOREPENLAB.NS    ₹116.54   MomScore=2.90  6M=+190%  12M=+128%  Sector=Pharma  ADX=75.0
+2026-09-09 17:18:40,900 [INFO]     ✓ MSTCLTD.NS       ₹764.1    MomScore=1.31  6M=+78%  12M=+48%  Sector=Other  ADX=64.0
+2026-09-09 17:18:44,448 [INFO]   Batch 31/52 (50 symbols)...
+2026-09-09 17:18:59,229 [INFO]   Batch 32/52 (50 symbols)...
+2026-09-09 17:19:05,166 [INFO]     ✓ NIACL.NS         ₹205.51   MomScore=0.63  6M=+50%  12M=+8%  Sector=Financial Services  ADX=61.7
+2026-09-09 17:19:08,489 [INFO]     ✓ NITINSPIN.NS     ₹651.25   MomScore=2.30  6M=+81%  12M=+96%  Sector=FMCG  ADX=59.7
+2026-09-09 17:19:10,297 [INFO]     ✓ NORTHARC.NS      ₹308.35   MomScore=0.71  6M=+32%  12M=+24%  Sector=Financial Services  ADX=46.6
+2026-09-09 17:19:14,371 [INFO]   Batch 33/52 (50 symbols)...
+2026-09-09 17:19:21,726 [INFO]     ✓ OMAXE.NS         ₹121.36   MomScore=0.93  6M=+62%  12M=+40%  Sector=Realty  ADX=60.6
+2026-09-09 17:19:31,059 [INFO]   Batch 34/52 (50 symbols)...
+2026-09-09 17:19:35,743 [INFO]     ✓ PAISALO.NS       ₹79.92    MomScore=3.03  6M=+148%  12M=+113%  Sector=Financial Services  ADX=33.9
+2026-09-09 17:19:37,979 [INFO]     ✓ PARACABLES.NS    ₹66.45    MomScore=1.22  6M=+100%  12M=+44%  Sector=IT  ADX=25.6
+2026-09-09 17:19:42,789 [INFO]     ✓ PDMJEPAPER.NS    ₹96.74    MomScore=0.04  6M=+27%  12M=-24%  Sector=Other  ADX=29.3
+2026-09-09 17:19:46,440 [INFO]   Batch 35/52 (50 symbols)...
+2026-09-09 17:19:56,054 [INFO]     ✓ PNGJL.NS         ₹611.45   MomScore=0.15  6M=+8%  12M=+3%  Sector=FMCG  ADX=46.3
+2026-09-09 17:20:01,764 [INFO]   Batch 36/52 (50 symbols)...
+2026-09-09 17:20:08,031 [INFO]     ✓ PREMEXPLN.NS     ₹666.6    MomScore=0.54  6M=+39%  12M=+20%  Sector=Other  ADX=36.3
+2026-09-09 17:20:14,978 [INFO]     ✓ QPOWER.NS        ₹1513.2   MomScore=1.36  6M=+84%  12M=+64%  Sector=Other  ADX=57.4
+2026-09-09 17:20:17,457 [INFO]   Batch 37/52 (50 symbols)...
+2026-09-09 17:20:21,909 [INFO]     ✓ RADHIKAJWE.NS    ₹87.14    MomScore=0.34  6M=+40%  12M=-7%  Sector=FMCG  ADX=34.6
+2026-09-09 17:20:23,133 [INFO]     ✓ RAIN.NS          ₹222.5    MomScore=1.40  6M=+88%  12M=+61%  Sector=Other  ADX=26.8
+2026-09-09 17:20:28,617 [INFO]     ✓ RAYMOND.NS       ₹808.45   MomScore=1.57  6M=+114%  12M=+33%  Sector=Other  ADX=40.6
+2026-09-09 17:20:29,623 [INFO]     ✓ RBZJEWEL.NS      ₹173.6    MomScore=0.72  6M=+47%  12M=+26%  Sector=FMCG  ADX=50.1
+2026-09-09 17:20:30,479 [INFO]     ✓ REDINGTON.NS     ₹378.05   MomScore=1.16  6M=+57%  12M=+59%  Sector=IT  ADX=32.9
+2026-09-09 17:20:33,719 [INFO]   Batch 38/52 (50 symbols)...
+2026-09-09 17:20:39,543 [INFO]     ✓ RGL.NS           ₹147.19   MomScore=0.58  6M=+41%  12M=+24%  Sector=FMCG  ADX=67.1
+2026-09-09 17:20:41,274 [INFO]     ✓ RISHABH.NS       ₹815.9    MomScore=1.74  6M=+104%  12M=+72%  Sector=IT  ADX=49.8
+2026-09-09 17:20:44,689 [INFO]     ✓ ROSSTECH.NS      ₹1193.7   MomScore=1.15  6M=+66%  12M=+75%  Sector=Other  ADX=41.1
+2026-09-09 17:20:48,778 [INFO]   Batch 39/52 (50 symbols)...
+2026-09-09 17:21:04,682 [INFO]   Batch 40/52 (50 symbols)...
+2026-09-09 17:21:13,097 [INFO]     ✓ SBCL.NS          ₹1136.5   MomScore=2.66  6M=+163%  12M=+127%  Sector=Other  ADX=44.1
+2026-09-09 17:21:16,433 [INFO]     ✓ SEAMECLTD.NS     ₹1772.6   MomScore=1.73  6M=+34%  12M=+90%  Sector=Other  ADX=35.3
+2026-09-09 17:21:19,744 [INFO]   Batch 41/52 (50 symbols)...
+2026-09-09 17:21:26,933 [INFO]     ✓ SHAHALLOYS.NS    ₹100.53   MomScore=1.32  6M=+76%  12M=+61%  Sector=Other  ADX=79.7
+2026-09-09 17:21:31,609 [INFO]     ✓ SHILPAMED.NS     ₹960.6    MomScore=3.93  6M=+189%  12M=+132%  Sector=Pharma  ADX=67.6
+2026-09-09 17:21:35,770 [INFO]   Batch 42/52 (50 symbols)...
+2026-09-09 17:21:44,261 [INFO]     ✓ SIGACHI.NS       ₹35.27    MomScore=0.84  6M=+81%  12M=+12%  Sector=Pharma  ADX=63.3
+2026-09-09 17:21:51,339 [INFO]   Batch 43/52 (50 symbols)...
+2026-09-09 17:21:56,250 [INFO]     ✓ SMCGLOBAL.NS     ₹83.93    MomScore=0.45  6M=+16%  12M=+26%  Sector=Financial Services  ADX=26.2
+2026-09-09 17:21:57,775 [INFO]     ✓ SOLARA.NS        ₹690.5    MomScore=0.62  6M=+54%  12M=+2%  Sector=Pharma  ADX=73.4
+2026-09-09 17:22:07,046 [INFO]   Batch 44/52 (50 symbols)...
+2026-09-09 17:22:10,322 [INFO]     ✓ SSWL.NS          ₹371.45   MomScore=1.91  6M=+90%  12M=+66%  Sector=FMCG  ADX=49.5
+2026-09-09 17:22:23,639 [INFO]   Batch 45/52 (50 symbols)...
+2026-09-09 17:22:40,017 [INFO]   Batch 46/52 (50 symbols)...
+2026-09-09 17:22:48,811 [INFO]     ✓ TDPOWERSYS.NS    ₹755.1    MomScore=2.49  6M=+86%  12M=+176%  Sector=Other  ADX=39.3
+2026-09-09 17:22:51,227 [INFO]     ✓ TEJASNET.NS      ₹575.9    MomScore=0.25  6M=+31%  12M=-2%  Sector=IT  ADX=35.2
+2026-09-09 17:22:52,410 [INFO]     ✓ TEXINFRA.NS      ₹115.23   MomScore=0.92  6M=+25%  12M=+22%  Sector=Realty  ADX=43.7
+2026-09-09 17:22:52,879 [INFO]     ✓ TEXRAIL.NS       ₹115.16   MomScore=0.03  6M=+20%  12M=-18%  Sector=Other  ADX=44.0
+2026-09-09 17:22:53,143 [INFO]     ✓ TFCILTD.NS       ₹141.69   MomScore=2.23  6M=+116%  12M=+105%  Sector=Financial Services  ADX=70.7
+2026-09-09 17:22:56,684 [INFO]   Batch 47/52 (50 symbols)...
+2026-09-09 17:23:04,526 [INFO]     ✓ TMB.NS           ₹922.25   MomScore=2.28  6M=+51%  12M=+121%  Sector=Financial Services  ADX=38.2
+2026-09-09 17:23:05,104 [INFO]     ✓ TNPETRO.NS       ₹137.6    MomScore=1.35  6M=+65%  12M=+35%  Sector=Other  ADX=71.4
+2026-09-09 17:23:05,327 [INFO]     ✓ TNPL.NS          ₹155.34   MomScore=0.17  6M=+14%  12M=-4%  Sector=Other  ADX=37.2
+2026-09-09 17:23:11,335 [INFO]   Batch 48/52 (50 symbols)...
+2026-09-09 17:23:23,969 [INFO]     ✓ UNIMECH.NS       ₹1586.4   MomScore=1.42  6M=+85%  12M=+50%  Sector=Other  ADX=30.7
+2026-09-09 17:23:27,132 [INFO]   Batch 49/52 (50 symbols)...
+2026-09-09 17:23:36,920 [INFO]     ✓ VARROC.NS        ₹839.4    MomScore=1.53  6M=+69%  12M=+40%  Sector=FMCG  ADX=41.1
+2026-09-09 17:23:43,685 [INFO]   Batch 50/52 (50 symbols)...
+2026-09-09 17:23:48,503 [INFO]     ✓ VIMTALABS.NS     ₹628.15   MomScore=0.20  6M=+43%  12M=-24%  Sector=Pharma  ADX=30.9
+2026-09-09 17:23:48,879 [INFO]     ✓ VINCOFE.NS       ₹178.4    MomScore=0.84  6M=+42%  12M=+24%  Sector=FMCG  ADX=59.6
+2026-09-09 17:23:56,555 [INFO]     ✓ VSSL.NS          ₹362.75   MomScore=1.34  6M=+52%  12M=+42%  Sector=Other  ADX=39.3
+2026-09-09 17:23:58,775 [INFO]   Batch 51/52 (50 symbols)...
+2026-09-09 17:24:05,331 [INFO]     ✓ WELCORP.NS       ₹2608.5   MomScore=5.14  6M=+210%  12M=+196%  Sector=Other  ADX=73.9
+2026-09-09 17:24:09,888 [INFO]     ✓ WSTCSTPAPR.NS    ₹667.55   MomScore=1.50  6M=+69%  12M=+38%  Sector=Other  ADX=58.1
+2026-09-09 17:24:10,502 [INFO]     ✓ XPROINDIA.NS     ₹1301.4   MomScore=0.56  6M=+52%  12M=+5%  Sector=Other  ADX=39.3
+2026-09-09 17:24:14,035 [INFO]   Batch 52/52 (21 symbols)...
+2026-09-09 17:24:19,838 [INFO]     ✓ ZYDUSWELL.NS     ₹554.2    MomScore=0.71  6M=+43%  12M=+12%  Sector=FMCG  ADX=36.0
+2026-09-09 17:24:21,838 [INFO] Stage 1 complete. Momentum candidates: 118
+2026-09-09 17:24:21,839 [INFO] Cross-sectional gate (top 20%): 118 → 24 (threshold: 1.736)
+2026-09-09 17:24:21,839 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-09-09 17:24:22,127 [INFO]   ✓ BIRLACABLE.NS    score=0.800  mom=2.68  fscore=0.515  FCF=None%
+2026-09-09 17:24:22,830 [INFO]   ✓ BLUSPRING.NS     score=0.664  mom=2.12  fscore=0.365  FCF=None%
+2026-09-09 17:24:23,604 [INFO]   ✓ CONFIPET.NS      score=0.783  mom=1.96  fscore=0.503  FCF=None%
+2026-09-09 17:24:24,158 [INFO]   ✓ GANDHAR.NS       score=0.677  mom=1.94  fscore=0.552  FCF=None%
+2026-09-09 17:24:24,986 [INFO]   ✓ GAYAPROJ.NS      score=0.774  mom=3.48  fscore=0.632  FCF=None%
+2026-09-09 17:24:25,752 [INFO]   ✓ GHCLTEXTIL.NS    score=0.751  mom=1.99  fscore=0.565  FCF=None%
+2026-09-09 17:24:27,096 [INFO]   ✓ MARKSANS.NS      score=0.665  mom=2.21  fscore=0.501  FCF=None%
+2026-09-09 17:24:27,683 [INFO]   ✓ MOREPENLAB.NS    score=0.728  mom=2.90  fscore=0.451  FCF=None%
+2026-09-09 17:24:28,175 [INFO]   ✓ NITINSPIN.NS     score=0.694  mom=2.30  fscore=0.295  FCF=None%
+2026-09-09 17:24:29,461 [INFO]   ✓ SSWL.NS          score=0.711  mom=1.91  fscore=0.395  FCF=None%
+2026-09-09 17:24:30,380 [INFO]   ✓ TMB.NS           score=0.724  mom=2.28  fscore=0.515  FCF=None%
+2026-09-09 17:24:30,859 [INFO] Stage 2 complete. 11 passed → top 11
+2026-09-09 17:24:30,861 [INFO] Results written to results/
+2026-09-09 17:24:30,862 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-09-09 17:24:30,862 [INFO] Initialising public data fetcher...
+2026-09-09 17:24:51,105 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-09-09 17:24:51,105 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-09-09 17:24:51,105 [INFO] Layer 2 v5: scanning 2571 symbols...
+2026-09-09 17:24:53,379 [INFO]   DNA 3IINFOLTD.NS: 0.331 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:24:55,420 [INFO]   DNA A2ZINFRA.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:24:58,604 [INFO]   DNA AARTECH.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:25:00,923 [INFO]   DNA AARTISURF.NS: 0.385 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:25:02,190 [INFO]   DNA AARVI.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:25:02,191 [INFO]   [22/2571] ✓ AARVI.NS DNA=0.487(C) P=7/9 anns=0
+2026-09-09 17:25:03,874 [INFO]   DNA ABAN.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:25:06,279 [INFO]   DNA ABCOTS.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:25:06,279 [INFO]   [30/2571] ✓ ABCOTS.NS DNA=0.460(C) P=7/9 anns=0
+2026-09-09 17:25:08,007 [INFO]   DNA ABINFRA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:25:16,418 [INFO]   DNA ADSL.NS: 0.468 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=1.00
+2026-09-09 17:25:16,418 [INFO]   [60/2571] ✓ ADSL.NS DNA=0.468(C) P=3/9 anns=0
+2026-09-09 17:25:19,199 [INFO]   DNA ADVANCE.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:25:21,065 [INFO]   DNA ADVANIHOTR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:25:21,066 [INFO]   [63/2571] ✓ ADVANIHOTR.NS DNA=0.460(C) P=5/9 anns=0
+2026-09-09 17:25:22,583 [INFO]   DNA ADVENTHTL.NS: 0.424 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=1.00
+2026-09-09 17:25:24,522 [INFO]   DNA AEPL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:25:24,522 [INFO]   [69/2571] ✓ AEPL.NS DNA=0.463(C) P=6/9 anns=0
+2026-09-09 17:25:26,355 [INFO]   DNA AERONEU.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:25:26,356 [INFO]   [73/2571] ✓ AERONEU.NS DNA=0.484(C) P=7/9 anns=0
+2026-09-09 17:25:28,629 [INFO]   DNA AFIL.NS: 0.435 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:25:30,159 [INFO]   DNA AGARIND.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:25:30,159 [INFO]   [81/2571] ✓ AGARIND.NS DNA=0.456(C) P=6/9 anns=0
+2026-09-09 17:25:35,705 [INFO]   DNA AIRAN.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:25:35,705 [INFO]   [96/2571] ✓ AIRAN.NS DNA=0.464(C) P=3/9 anns=0
+2026-09-09 17:25:40,315 [INFO]   DNA AKG.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:25:41,395 [INFO]   DNA AKI.NS: 0.424 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:25:43,509 [INFO]   DNA ALANKIT.NS: 0.364 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:25:47,941 [INFO]   DNA ALPINETEX.NS: 0.429 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:25:50,706 [INFO]   DNA AMBALALSA.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:25:52,786 [INFO]   DNA AMDIND.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:25:52,786 [INFO]   [138/2571] ✓ AMDIND.NS DNA=0.457(C) P=5/9 anns=0
+2026-09-09 17:25:56,686 [INFO]   DNA ANMOL.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:25:59,461 [INFO]   DNA ANNAPURNA.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:01,046 [INFO]   DNA ANNU.NS: 0.355 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:26:07,866 [INFO]   DNA APTECHT.NS: 0.433 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:26:09,728 [INFO]   DNA ARCHIDPLY.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:26:19,331 [INFO]   DNA ASHIMASYN.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:26:19,331 [INFO]   [208/2571] ✓ ASHIMASYN.NS DNA=0.457(C) P=3/9 anns=0
+2026-09-09 17:26:22,818 [INFO]   DNA ASMS.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:22,818 [INFO]   [218/2571] ✓ ASMS.NS DNA=0.484(C) P=5/9 anns=0
+2026-09-09 17:26:26,137 [INFO]   DNA ATALREAL.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:26,137 [INFO]   [228/2571] ✓ ATALREAL.NS DNA=0.454(C) P=2/9 anns=0
+2026-09-09 17:26:27,829 [INFO]   DNA ATL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:26:27,829 [INFO]   [232/2571] ✓ ATL.NS DNA=0.463(C) P=5/9 anns=0
+2026-09-09 17:26:29,194 [INFO]   DNA ATLANTAA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:29,194 [INFO]   [233/2571] ✓ ATLANTAA.NS DNA=0.487(C) P=3/9 anns=0
+2026-09-09 17:26:33,045 [INFO]   DNA AUTOIND.NS: 0.406 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:26:37,337 [INFO]   DNA AVG.NS: 0.419 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:26:40,394 [INFO]   DNA AXITA.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:42,350 [INFO]   DNA AZADIND.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:26:45,715 [INFO]   DNA BAJAJINDEF.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:26:45,715 [INFO]   [280/2571] ✓ BAJAJINDEF.NS DNA=0.463(C) P=6/9 anns=0
+2026-09-09 17:26:47,436 [INFO]   DNA BALAJEE.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:47,436 [INFO]   [284/2571] ✓ BALAJEE.NS DNA=0.484(C) P=2/9 anns=0
+2026-09-09 17:26:49,170 [INFO]   DNA BALAXI.NS: 0.423 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:26:52,628 [INFO]   DNA BANG.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:26:52,628 [INFO]   [298/2571] ✓ BANG.NS DNA=0.482(C) P=4/9 anns=0
+2026-09-09 17:26:56,302 [INFO]   DNA BANSWRAS.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:26:56,302 [INFO]   [303/2571] ✓ BANSWRAS.NS DNA=0.484(C) P=8/9 anns=0
+2026-09-09 17:26:57,745 [INFO]   DNA BASML.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:26:59,173 [INFO]   DNA BATLIBOI.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:27:04,693 [INFO]   DNA BESTAGRO.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:27:07,976 [INFO]   DNA BHARATGEAR.NS: 0.492 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=1.00
+2026-09-09 17:27:07,976 [INFO]   [341/2571] ✓ BHARATGEAR.NS DNA=0.492(C) P=9/9 anns=0
+2026-09-09 17:27:10,582 [INFO]   DNA BI.NS: 0.396 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:27:11,877 [INFO]   DNA BIGBLOC.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:27:11,877 [INFO]   [349/2571] ✓ BIGBLOC.NS DNA=0.463(C) P=6/9 anns=0
+2026-09-09 17:27:15,545 [INFO]   DNA BIOFILCHEM.NS: 0.487 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:27:15,546 [INFO]   [355/2571] ✓ BIOFILCHEM.NS DNA=0.487(C) P=5/9 anns=0
+2026-09-09 17:27:17,674 [INFO]   DNA BIRLAPREC.NS: 0.399 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:27:22,780 [INFO]   DNA BMWVENTLTD.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:27:22,780 [INFO]   [378/2571] ✓ BMWVENTLTD.NS DNA=0.463(C) P=6/9 anns=0
+2026-09-09 17:27:26,613 [INFO]   DNA BPL.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:27:32,189 [INFO]   DNA BTML.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:27:33,578 [INFO]   DNA BTTL.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:27:35,139 [INFO]   DNA BURNPUR.NS: 0.375 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:27:36,656 [INFO]   DNA BVCL.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:27:36,656 [INFO]   [410/2571] ✓ BVCL.NS DNA=0.485(C) P=7/9 anns=0
+2026-09-09 17:27:37,787 [INFO]   DNA BYKE.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:27:37,787 [INFO]   [411/2571] ✓ BYKE.NS DNA=0.451(C) P=9/9 anns=0
+2026-09-09 17:27:39,815 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7134.prod.media.bf1.yahoo.com -->
+  <!-- timestamp: 1788974859.745 -->
+  <!-- url: https://query1.finance.yahoo.com/v7/finance/quote?symbols=CAPILLARY.NS&formatted=false&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '53c2ip5la35ob';
+    var crid = '53c2ip5la35ob';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7134.prod.media.bf1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:27:42,498 [INFO]   DNA CAPTRUST.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:27:42,499 [INFO]   [424/2571] ✓ CAPTRUST.NS DNA=0.460(C) P=4/9 anns=0
+2026-09-09 17:27:45,521 [INFO]   DNA CCCL.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:27:45,521 [INFO]   [432/2571] ✓ CCCL.NS DNA=0.473(C) P=6/9 anns=0
+2026-09-09 17:27:49,217 [INFO]   DNA CENTEXT.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:27:53,327 [INFO]   DNA CEWATER.NS: 0.480 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:27:53,328 [INFO]   [451/2571] ✓ CEWATER.NS DNA=0.480(C) P=2/9 anns=0
+2026-09-09 17:27:58,465 [INFO]   DNA CIFL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:27:58,466 [INFO]   [470/2571] ✓ CIFL.NS DNA=0.463(C) P=4/9 anns=0
+2026-09-09 17:27:59,591 [INFO]   DNA CINELINE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:27:59,592 [INFO]   [471/2571] ✓ CINELINE.NS DNA=0.487(C) P=8/9 anns=0
+2026-09-09 17:28:02,843 [INFO]   DNA COASTCORP.NS: 0.431 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:28:04,369 [INFO]   DNA COFFEEDAY.NS: 0.331 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:28:06,063 [INFO]   DNA COMFINTE.NS: 0.399 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:28:11,951 [INFO]   DNA COUNCODOS.NS: 0.442 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:28:16,520 [INFO]   DNA CSLFINANCE.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:28:16,520 [INFO]   [524/2571] ✓ CSLFINANCE.NS DNA=0.463(C) P=2/9 anns=0
+2026-09-09 17:28:17,841 [INFO]   DNA CSM.NS: 0.431 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:28:19,407 [INFO]   DNA CUBEXTUB.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:28:21,030 [INFO]   DNA CYBERMEDIA.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:28:21,030 [INFO]   [532/2571] ✓ CYBERMEDIA.NS DNA=0.460(C) P=6/9 anns=0
+2026-09-09 17:28:27,421 [INFO]   DNA DBEIL.NS: 0.357 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:28:31,561 [INFO]   DNA DCI.NS: 0.440 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:28:33,476 [INFO]   DNA DCMSIL.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:28:34,634 [INFO]   DNA DCMSRIND.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:28:34,635 [INFO]   [560/2571] ✓ DCMSRIND.NS DNA=0.451(C) P=7/9 anns=0
+2026-09-09 17:28:39,245 [INFO]   DNA DENTA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:28:40,234 [INFO]   DNA DEVIT.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:28:40,235 [INFO]   [579/2571] ✓ DEVIT.NS DNA=0.502(C) P=4/9 anns=0
+2026-09-09 17:28:41,432 [INFO]   DNA DEVX.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:28:41,432 [INFO]   [580/2571] ✓ DEVX.NS DNA=0.502(C) P=9/9 anns=0
+2026-09-09 17:28:46,402 [INFO]   DNA DIGISPICE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:28:46,402 [INFO]   [599/2571] ✓ DIGISPICE.NS DNA=0.487(C) P=7/9 anns=0
+2026-09-09 17:28:50,802 [INFO]   DNA DJML.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:28:54,326 [INFO]   DNA DPSCLTD.NS: 0.409 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:28:55,459 [INFO]   DNA DPWIRES.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=1.00
+2026-09-09 17:28:55,460 [INFO]   [621/2571] ✓ DPWIRES.NS DNA=0.502(C) P=6/9 anns=0
+2026-09-09 17:28:56,879 [INFO]   DNA DRCSYSTEMS.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:28:56,879 [INFO]   [623/2571] ✓ DRCSYSTEMS.NS DNA=0.484(C) P=5/9 anns=0
+2026-09-09 17:28:58,096 [INFO]   DNA DREAMFOLKS.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:28:58,096 [INFO]   [624/2571] ✓ DREAMFOLKS.NS DNA=0.513(C) P=4/9 anns=0
+2026-09-09 17:29:00,082 [INFO]   DNA DSFCL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:29:00,082 [INFO]   [627/2571] ✓ DSFCL.NS DNA=0.487(C) P=4/9 anns=0
+2026-09-09 17:29:04,939 [INFO]   DNA ECOSMOBLTY.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:29:04,940 [INFO]   [645/2571] ✓ ECOSMOBLTY.NS DNA=0.473(C) P=6/9 anns=0
+2026-09-09 17:29:08,600 [INFO]   DNA EIFFL.NS: 0.338 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:29:09,324 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7020.prod.media.ne1.yahoo.com -->
+  <!-- timestamp: 1788974949.216 -->
+  <!-- url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/EIHOTEL.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=EIHOTEL.NS&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '1t6d0t9la35r5';
+    var crid = '1t6d0t9la35r5';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7020.prod.media.ne1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:29:13,030 [INFO]   DNA ELGIRUBCO.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:29:14,382 [INFO]   DNA ELIN.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:29:14,383 [INFO]   [665/2571] ✓ ELIN.NS DNA=0.450(C) P=6/9 anns=0
+2026-09-09 17:29:19,157 [INFO]   DNA ENERGYDEV.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:29:19,158 [INFO]   [683/2571] ✓ ENERGYDEV.NS DNA=0.469(C) P=7/9 anns=0
+2026-09-09 17:29:20,621 [INFO]   DNA ENIL.NS: 0.363 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:29:25,205 [INFO]   DNA ESSARSHPNG.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:29:25,205 [INFO]   [700/2571] ✓ ESSARSHPNG.NS DNA=0.487(C) P=2/9 anns=0
+2026-09-09 17:29:29,669 [INFO]   DNA EVERESTIND.NS: 0.469 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:29:29,669 [INFO]   [710/2571] ✓ EVERESTIND.NS DNA=0.469(C) P=4/9 anns=0
+2026-09-09 17:29:31,738 [INFO]   DNA EXXARO.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:29:31,738 [INFO]   [716/2571] ✓ EXXARO.NS DNA=0.513(C) P=6/9 anns=0
+2026-09-09 17:29:32,733 [INFO]   DNA FABTECH.NS: 0.504 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:29:32,733 [INFO]   [717/2571] ✓ FABTECH.NS DNA=0.504(C) P=5/9 anns=0
+2026-09-09 17:29:39,827 [INFO]   DNA FMNL.NS: 0.500 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:29:39,827 [INFO]   [747/2571] ✓ FMNL.NS DNA=0.500(C) P=7/9 anns=0
+2026-09-09 17:29:41,145 [INFO]   DNA FOCUS.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:29:42,169 [INFO]   DNA FOODSIN.NS: 0.373 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:29:47,430 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7134.prod.media.bf1.yahoo.com -->
+  <!-- timestamp: 1788974987.359 -->
+  <!-- url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/GANECOS.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=GANECOS.NS&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '1m6d1edla35sb';
+    var crid = '1m6d1edla35sb';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7134.prod.media.bf1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:29:49,028 [INFO]   DNA GANESHCP.NS: 0.480 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:29:49,029 [INFO]   [769/2571] ✓ GANESHCP.NS DNA=0.480(C) P=6/9 anns=0
+2026-09-09 17:29:52,753 [INFO]   DNA GEEKAYWIRE.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:29:54,164 [INFO]   DNA GENCON.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:29:54,164 [INFO]   [785/2571] ✓ GENCON.NS DNA=0.487(C) P=6/9 anns=0
+2026-09-09 17:29:55,497 [INFO]   DNA GENSOL.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:29:55,497 [INFO]   [787/2571] ✓ GENSOL.NS DNA=0.469(C) P=6/9 anns=0
+2026-09-09 17:29:58,517 [INFO]   DNA GICL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:30:01,776 [INFO]   DNA GINNIFILA.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:30:06,859 [INFO]   DNA GLOBECIVIL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:30:06,859 [INFO]   [815/2571] ✓ GLOBECIVIL.NS DNA=0.467(C) P=4/9 anns=0
+2026-09-09 17:30:08,515 [INFO]   DNA GLOTTIS.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:30:14,789 [INFO]   DNA GOLDTECH.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:30:14,790 [INFO]   [842/2571] ✓ GOLDTECH.NS DNA=0.464(C) P=2/9 anns=0
+2026-09-09 17:30:16,360 [INFO]   DNA GOYALALUM.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:30:16,360 [INFO]   [846/2571] ✓ GOYALALUM.NS DNA=0.505(C) P=3/9 anns=0
+2026-09-09 17:30:24,313 [INFO]   DNA GSLSU.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:30:24,313 [INFO]   [873/2571] ✓ GSLSU.NS DNA=0.505(C) P=5/9 anns=0
+2026-09-09 17:30:25,697 [INFO]   DNA GSS.NS: 0.379 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-09-09 17:30:27,024 [INFO]   DNA GTL.NS: 0.375 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:30:28,428 [INFO]   DNA GTPL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:30:28,429 [INFO]   [879/2571] ✓ GTPL.NS DNA=0.483(C) P=5/9 anns=0
+2026-09-09 17:30:32,144 [INFO]   DNA GVPTECH.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:30:36,559 [INFO]   DNA HARDWYN.NS: 0.478 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-09-09 17:30:36,559 [INFO]   [901/2571] ✓ HARDWYN.NS DNA=0.478(C) P=8/9 anns=0
+2026-09-09 17:30:39,351 [INFO]   DNA HAZOOR.NS: 0.366 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:30:42,112 [INFO]   DNA HCL-INSYS.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:30:42,112 [INFO]   [917/2571] ✓ HCL-INSYS.NS DNA=0.451(C) P=2/9 anns=0
+2026-09-09 17:30:45,882 [INFO]   DNA HERANBA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:30:45,882 [INFO]   [930/2571] ✓ HERANBA.NS DNA=0.463(C) P=4/9 anns=0
+2026-09-09 17:30:49,308 [INFO]   DNA HILINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:30:49,308 [INFO]   [942/2571] ✓ HILINFRA.NS DNA=0.487(C) P=5/9 anns=0
+2026-09-09 17:30:50,391 [INFO]   DNA HILTON.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:30:56,646 [INFO]   DNA HLVLTD.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:30:56,646 [INFO]   [962/2571] ✓ HLVLTD.NS DNA=0.486(C) P=6/9 anns=0
+2026-09-09 17:30:58,916 [INFO]   DNA HMVL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:31:01,198 [INFO]   DNA HPAL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:31:01,199 [INFO]   [972/2571] ✓ HPAL.NS DNA=0.467(C) P=7/9 anns=0
+2026-09-09 17:31:06,367 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7027.prod.media.bf1.yahoo.com -->
+  <!-- timestamp: 1788975066.291 -->
+  <!-- url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/IDFCFIRSTB.NS?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=IDFCFIRSTB.NS&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '382f92dla35uq';
+    var crid = '382f92dla35uq';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7027.prod.media.bf1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:31:10,590 [INFO]   DNA IGCL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:31:10,591 [INFO]   [1003/2571] ✓ IGCL.NS DNA=0.463(C) P=6/9 anns=0
+2026-09-09 17:31:18,610 [INFO]   DNA INDOFARM.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:31:21,084 [INFO]   DNA INDOWIND.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:31:22,791 [INFO]   DNA INDTERRAIN.NS: 0.489 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:31:22,791 [INFO]   [1049/2571] ✓ INDTERRAIN.NS DNA=0.489(C) P=6/9 anns=0
+2026-09-09 17:31:28,311 [INFO]   DNA INTENTECH.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:31:33,703 [INFO]   DNA IRIS.NS: 0.437 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:31:35,358 [INFO]   DNA ISFT.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:31:35,359 [INFO]   [1085/2571] ✓ ISFT.NS DNA=0.457(C) P=4/9 anns=0
+2026-09-09 17:31:37,053 [INFO]   DNA ISHANCH.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:31:37,053 [INFO]   [1087/2571] ✓ ISHANCH.NS DNA=0.472(C) P=5/9 anns=0
+2026-09-09 17:31:45,952 [INFO]   DNA JAYSREETEA.NS: 0.426 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:31:48,113 [INFO]   DNA JETFREIGHT.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:31:49,536 [INFO]   DNA JHS.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:31:49,537 [INFO]   [1120/2571] ✓ JHS.NS DNA=0.469(C) P=3/9 anns=0
+2026-09-09 17:31:53,016 [INFO]   DNA JITFINFRA.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:31:54,608 [INFO]   DNA JKIPL.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:31:54,608 [INFO]   [1133/2571] ✓ JKIPL.NS DNA=0.468(C) P=5/9 anns=0
+2026-09-09 17:32:07,548 [INFO]   DNA KAMATHOTEL.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:32:11,671 [INFO]   DNA KAVDEFENCE.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:32:11,671 [INFO]   [1190/2571] ✓ KAVDEFENCE.NS DNA=0.484(C) P=2/9 anns=0
+2026-09-09 17:32:12,786 [INFO]   DNA KAYA.NS: 0.392 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:32:14,928 [INFO]   DNA KDGREEN.NS: 0.405 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:32:18,471 [INFO]   DNA KELLTONTEC.NS: 0.409 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:32:20,046 [INFO]   DNA KESORAMIND.NS: 0.429 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:32:21,689 [INFO]   DNA KHADIM.NS: 0.457 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:32:21,689 [INFO]   [1207/2571] ✓ KHADIM.NS DNA=0.457(C) P=5/9 anns=0
+2026-09-09 17:32:23,085 [INFO]   DNA KHAICHEM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:32:23,085 [INFO]   [1208/2571] ✓ KHAICHEM.NS DNA=0.463(C) P=8/9 anns=0
+2026-09-09 17:32:28,498 [INFO]   DNA KMSUGAR.NS: 0.406 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:32:30,497 [INFO]   DNA KOHINOOR.NS: 0.424 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:32:31,606 [INFO]   DNA KOKUYOCMLN.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:32:31,606 [INFO]   [1235/2571] ✓ KOKUYOCMLN.NS DNA=0.489(C) P=9/9 anns=0
+2026-09-09 17:32:33,586 [INFO]   DNA KOTARISUG.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:32:35,456 [INFO]   DNA KOTYARK.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:32:41,112 [INFO]   DNA KRITIKA.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:32:42,725 [INFO]   DNA KRONOX.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:32:45,753 [INFO]   DNA KSOLVES.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:32:48,831 [INFO]   DNA KUANTUM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:32:48,831 [INFO]   [1274/2571] ✓ KUANTUM.NS DNA=0.463(C) P=4/9 anns=0
+2026-09-09 17:32:53,676 [INFO]   DNA LAMBODHARA.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:32:53,676 [INFO]   [1285/2571] ✓ LAMBODHARA.NS DNA=0.457(C) P=9/9 anns=0
+2026-09-09 17:32:55,414 [INFO]   DNA LANCER.NS: 0.401 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:32:56,936 [INFO]   DNA LANCORHOL.NS: 0.450 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:32:56,937 [INFO]   [1287/2571] ✓ LANCORHOL.NS DNA=0.450(D) P=6/9 anns=0
+2026-09-09 17:32:58,786 [INFO]   DNA LASA.NS: 0.487 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:32:58,786 [INFO]   [1291/2571] ✓ LASA.NS DNA=0.487(C) P=2/9 anns=0
+2026-09-09 17:33:00,546 [INFO]   DNA LATTEYS.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:33:02,793 [INFO]   DNA LAXMIINDIA.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:33:06,009 [INFO]   DNA LEENEE.NS: 0.414 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.30
+2026-09-09 17:33:07,296 [INFO]   DNA LEMERITE.NS: 0.422 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=1.00
+2026-09-09 17:33:09,032 [INFO]   DNA LEXUS.NS: 0.356 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-09-09 17:33:11,311 [INFO]   DNA LIBERTSHOE.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:33:11,311 [INFO]   [1312/2571] ✓ LIBERTSHOE.NS DNA=0.484(C) P=6/9 anns=0
+2026-09-09 17:33:13,117 [INFO]   DNA LINC.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:33:13,117 [INFO]   [1316/2571] ✓ LINC.NS DNA=0.489(C) P=7/9 anns=0
+2026-09-09 17:33:17,143 [INFO]   DNA LOTUSEYE.NS: 0.517 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=1.00
+2026-09-09 17:33:17,143 [INFO]   [1329/2571] ✓ LOTUSEYE.NS DNA=0.517(C) P=4/9 anns=0
+2026-09-09 17:33:21,423 [INFO]   DNA LYKALABS.NS: 0.424 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:33:23,173 [INFO]   DNA MAANALU.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:33:23,173 [INFO]   [1347/2571] ✓ MAANALU.NS DNA=0.489(C) P=6/9 anns=0
+2026-09-09 17:33:24,893 [INFO]   DNA MADHAVIPL.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:33:30,187 [INFO]   DNA MAHEPC.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=1.00
+2026-09-09 17:33:30,187 [INFO]   [1359/2571] ✓ MAHEPC.NS DNA=0.469(C) P=6/9 anns=0
+2026-09-09 17:33:33,161 [INFO]   DNA MALUPAPER.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:33:33,161 [INFO]   [1369/2571] ✓ MALUPAPER.NS DNA=0.460(C) P=7/9 anns=0
+2026-09-09 17:33:34,891 [INFO]   DNA MANAKALUCO.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:33:37,465 [INFO]   DNA MANBA.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:33:39,007 [INFO]   DNA MANCREDIT.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:33:40,405 [INFO]   DNA MANGALAM.NS: 0.423 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:33:43,188 [INFO]   DNA MANOMAY.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:33:51,740 [INFO]   DNA MBLINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:33:51,741 [INFO]   [1414/2571] ✓ MBLINFRA.NS DNA=0.487(C) P=5/9 anns=0
+2026-09-09 17:33:53,035 [INFO]   DNA MCL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:33:54,123 [INFO]   DNA MCLEODRUSS.NS: 0.330 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:33:56,189 [INFO]   DNA MEDICAMEQ.NS: 0.400 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:33:57,498 [INFO]   DNA MEDICO.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:33:57,498 [INFO]   [1424/2571] ✓ MEDICO.NS DNA=0.502(C) P=7/9 anns=0
+2026-09-09 17:33:59,353 [INFO]   DNA MEGASTAR.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:34:00,473 [INFO]   DNA MEIL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:34:00,474 [INFO]   [1428/2571] ✓ MEIL.NS DNA=0.463(C) P=4/9 anns=0
+2026-09-09 17:34:02,526 [INFO]   DNA MERCURYEV.NS: 0.372 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:34:04,654 [INFO]   DNA MGEL.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:34:05,982 [INFO]   DNA MHLXMIRU.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:34:08,851 [INFO]   DNA MINALIND.NS: 0.447 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-09-09 17:34:10,121 [INFO]   DNA MINDTECK.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:34:10,121 [INFO]   [1450/2571] ✓ MINDTECK.NS DNA=0.460(C) P=4/9 anns=0
+2026-09-09 17:34:13,037 [INFO]   DNA MIRZAINT.NS: 0.501 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-09-09 17:34:13,038 [INFO]   [1451/2571] ✓ MIRZAINT.NS DNA=0.501(C) P=4/9 anns=0
+2026-09-09 17:34:16,642 [INFO]   DNA MODIS.NS: 0.433 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:34:18,690 [INFO]   DNA MOHITIND.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:34:18,691 [INFO]   [1468/2571] ✓ MOHITIND.NS DNA=0.469(C) P=6/9 anns=0
+2026-09-09 17:34:20,090 [INFO]   DNA MOKSH.NS: 0.425 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:34:22,023 [INFO]   DNA MOMSBELIEF.NS: 0.346 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:34:23,453 [INFO]   DNA MONEYBOXX.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:34:23,454 [INFO]   [1477/2571] ✓ MONEYBOXX.NS DNA=0.454(C) P=3/9 anns=0
+2026-09-09 17:34:28,513 [INFO]   DNA MUFTI.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:34:28,513 [INFO]   [1498/2571] ✓ MUFTI.NS DNA=0.486(C) P=7/9 anns=0
+2026-09-09 17:34:32,291 [INFO]   DNA MUNJALSHOW.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:34:32,291 [INFO]   [1504/2571] ✓ MUNJALSHOW.NS DNA=0.460(C) P=4/9 anns=0
+2026-09-09 17:34:35,658 [INFO]   DNA NAGREEKEXP.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:34:35,658 [INFO]   [1515/2571] ✓ NAGREEKEXP.NS DNA=0.502(C) P=4/9 anns=0
+2026-09-09 17:34:37,845 [INFO]   DNA NARMADA.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:34:37,845 [INFO]   [1521/2571] ✓ NARMADA.NS DNA=0.452(C) P=5/9 anns=0
+2026-09-09 17:34:43,153 [INFO]   DNA NECCLTD.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:34:44,281 [INFO]   DNA NECLIFE.NS: 0.475 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:34:44,281 [INFO]   [1545/2571] ✓ NECLIFE.NS DNA=0.475(C) P=3/9 anns=0
+2026-09-09 17:34:48,677 [INFO]   DNA NEUEON.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:34:52,059 [INFO]   DNA NIBL.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:34:52,059 [INFO]   [1565/2571] ✓ NIBL.NS DNA=0.505(C) P=4/9 anns=0
+2026-09-09 17:34:54,160 [INFO]   DNA NILAINFRA.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:34:54,160 [INFO]   [1569/2571] ✓ NILAINFRA.NS DNA=0.502(C) P=7/9 anns=0
+2026-09-09 17:34:55,256 [INFO]   DNA NILASPACES.NS: 0.445 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:34:57,666 [INFO]   DNA NIRAJ.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:34:57,666 [INFO]   [1576/2571] ✓ NIRAJ.NS DNA=0.467(C) P=4/9 anns=0
+2026-09-09 17:35:02,096 [INFO]   DNA NOVAAGRI.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:35:02,097 [INFO]   [1591/2571] ✓ NOVAAGRI.NS DNA=0.460(C) P=6/9 anns=0
+2026-09-09 17:35:09,078 [INFO]   DNA OILCOUNTUB.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:35:10,980 [INFO]   DNA OMAXAUTO.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:35:12,396 [INFO]   DNA OMFREIGHT.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:35:13,695 [INFO]   DNA OMINFRAL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:35:13,696 [INFO]   [1621/2571] ✓ OMINFRAL.NS DNA=0.483(C) P=4/9 anns=0
+2026-09-09 17:35:16,603 [INFO]   DNA ONMOBILE.NS: 0.471 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=1.00
+2026-09-09 17:35:16,604 [INFO]   [1631/2571] ✓ ONMOBILE.NS DNA=0.471(C) P=5/9 anns=0
+2026-09-09 17:35:17,740 [INFO]   DNA ONWARDTEC.NS: 0.408 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:35:19,626 [INFO]   DNA ORBTEXP.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:35:23,038 [INFO]   DNA ORIENTCER.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:35:24,771 [INFO]   DNA ORIENTPPR.NS: 0.416 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:35:28,626 [INFO]   DNA OSWALAGRO.NS: 0.445 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:35:30,274 [INFO]   DNA OSWALSEEDS.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:35:32,522 [INFO]   DNA PAKKA.NS: 0.430 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:35:35,700 [INFO]   DNA PAR.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:35:39,253 [INFO]   DNA PATELRMART.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:35:40,646 [INFO]   DNA PATINTLOG.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:35:42,154 [INFO]   DNA PAVNAIND.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:35:42,155 [INFO]   [1687/2571] ✓ PAVNAIND.NS DNA=0.484(C) P=3/9 anns=0
+2026-09-09 17:35:46,060 [INFO]   DNA PENINLAND.NS: 0.504 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:35:46,060 [INFO]   [1696/2571] ✓ PENINLAND.NS DNA=0.504(C) P=3/9 anns=0
+2026-09-09 17:35:51,980 [INFO]   DNA PIGL.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:35:51,980 [INFO]   [1713/2571] ✓ PIGL.NS DNA=0.454(C) P=1/9 anns=0
+2026-09-09 17:35:53,728 [INFO]   DNA PILITA.NS: 0.451 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:35:53,728 [INFO]   [1716/2571] ✓ PILITA.NS DNA=0.451(C) P=5/9 anns=0
+2026-09-09 17:35:59,121 [INFO]   DNA POEL.NS: 0.375 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:36:01,637 [INFO]   DNA PONNIERODE.NS: 0.426 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:36:04,070 [INFO]   DNA PPAP.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:36:04,070 [INFO]   [1750/2571] ✓ PPAP.NS DNA=0.464(C) P=7/9 anns=0
+2026-09-09 17:36:06,584 [INFO]   DNA PPL.NS: 0.367 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:36:08,514 [INFO]   DNA PRAENG.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:36:10,294 [INFO]   DNA PRAVEG.NS: 0.401 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:36:13,803 [INFO]   DNA PRIMO.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:36:15,133 [INFO]   DNA PRIORITY.NS: 0.328 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:36:16,777 [INFO]   DNA PRITIKAUTO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:36:18,321 [INFO]   DNA PROSTARM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:18,321 [INFO]   [1779/2571] ✓ PROSTARM.NS DNA=0.463(C) P=4/9 anns=0
+2026-09-09 17:36:19,727 [INFO]   DNA PROZONER.NS: 0.504 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:19,727 [INFO]   [1781/2571] ✓ PROZONER.NS DNA=0.504(C) P=7/9 anns=0
+2026-09-09 17:36:22,414 [INFO]   DNA PTL.NS: 0.478 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:22,414 [INFO]   [1789/2571] ✓ PTL.NS DNA=0.478(C) P=7/9 anns=0
+2026-09-09 17:36:24,420 [INFO]   DNA PVSL.NS: 0.470 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:24,420 [INFO]   [1794/2571] ✓ PVSL.NS DNA=0.470(C) P=5/9 anns=0
+2026-09-09 17:36:25,906 [INFO]   DNA PYRAMID.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:25,906 [INFO]   [1796/2571] ✓ PYRAMID.NS DNA=0.460(C) P=3/9 anns=0
+2026-09-09 17:36:30,367 [INFO]   DNA RADIANTCMS.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:30,367 [INFO]   [1807/2571] ✓ RADIANTCMS.NS DNA=0.456(C) P=4/9 anns=0
+2026-09-09 17:36:31,770 [INFO]   DNA RADIOCITY.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:36:35,180 [INFO]   DNA RAJSREESUG.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:36:35,180 [INFO]   [1819/2571] ✓ RAJSREESUG.NS DNA=0.450(C) P=5/9 anns=0
+2026-09-09 17:36:36,815 [INFO]   DNA RAMANEWS.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:36,815 [INFO]   [1822/2571] ✓ RAMANEWS.NS DNA=0.486(C) P=2/9 anns=0
+2026-09-09 17:36:38,110 [INFO]   DNA RAMAPHO.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:36:38,110 [INFO]   [1823/2571] ✓ RAMAPHO.NS DNA=0.463(C) P=5/9 anns=0
+2026-09-09 17:36:43,209 [INFO]   DNA RBZJEWEL.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:36:47,867 [INFO]   DNA RELIABLE.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:36:47,868 [INFO]   [1852/2571] ✓ RELIABLE.NS DNA=0.502(C) P=7/9 anns=0
+2026-09-09 17:36:50,136 [INFO]   DNA REMSONSIND.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:36:50,137 [INFO]   [1857/2571] ✓ REMSONSIND.NS DNA=0.464(C) P=9/9 anns=0
+2026-09-09 17:36:55,202 [INFO]   DNA RKEC.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:36:56,771 [INFO]   DNA RKSWAMY.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:36:56,771 [INFO]   [1878/2571] ✓ RKSWAMY.NS DNA=0.463(C) P=6/9 anns=0
+2026-09-09 17:36:58,184 [INFO]   DNA RMC.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:36:58,184 [INFO]   [1879/2571] ✓ RMC.NS DNA=0.454(C) P=4/9 anns=0
+2026-09-09 17:37:00,039 [INFO]   DNA RNBDENIMS.NS: 0.490 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:37:00,039 [INFO]   [1882/2571] ✓ RNBDENIMS.NS DNA=0.490(C) P=5/9 anns=0
+2026-09-09 17:37:02,251 [INFO]   DNA ROSSELLIND.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:37:02,251 [INFO]   [1888/2571] ✓ ROSSELLIND.NS DNA=0.468(C) P=7/9 anns=0
+2026-09-09 17:37:05,333 [INFO]   DNA RPPINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:37:05,333 [INFO]   [1895/2571] ✓ RPPINFRA.NS DNA=0.487(C) P=5/9 anns=0
+2026-09-09 17:37:06,628 [INFO]   DNA RPPL.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:37:08,427 [INFO]   DNA RRIL.NS: 0.429 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:37:13,205 [INFO]   DNA RUBFILA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:37:13,205 [INFO]   [1910/2571] ✓ RUBFILA.NS DNA=0.487(C) P=4/9 anns=0
+2026-09-09 17:37:16,040 [INFO]   DNA RUCHINFRA.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:37:16,040 [INFO]   [1913/2571] ✓ RUCHINFRA.NS DNA=0.460(C) P=8/9 anns=0
+2026-09-09 17:37:17,527 [INFO]   DNA RUCHIRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:37:17,528 [INFO]   [1914/2571] ✓ RUCHIRA.NS DNA=0.487(C) P=4/9 anns=0
+2026-09-09 17:37:18,666 [INFO]   DNA RUDRA.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:37:20,630 [INFO]   DNA RUSHIL.NS: 0.407 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:37:23,620 [INFO]   DNA SADBHAV.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:37:26,201 [INFO]   DNA SAHLIBHFI.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:37:26,202 [INFO]   [1932/2571] ✓ SAHLIBHFI.NS DNA=0.513(C) P=4/9 anns=0
+2026-09-09 17:37:28,736 [INFO]   DNA SAKHTISUG.NS: 0.406 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:37:31,489 [INFO]   DNA SAMBHAAV.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:37:31,489 [INFO]   [1947/2571] ✓ SAMBHAAV.NS DNA=0.505(C) P=6/9 anns=0
+2026-09-09 17:37:34,946 [INFO]   DNA SAMPANN.NS: 0.515 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:37:34,947 [INFO]   [1951/2571] ✓ SAMPANN.NS DNA=0.515(C) P=6/9 anns=0
+2026-09-09 17:37:40,341 [INFO]   DNA SATIA.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:37:41,609 [INFO]   DNA SAURASHCEM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:37:41,610 [INFO]   [1973/2571] ✓ SAURASHCEM.NS DNA=0.463(C) P=8/9 anns=0
+2026-09-09 17:37:45,554 [INFO]   DNA SCHAND.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:37:45,554 [INFO]   [1986/2571] ✓ SCHAND.NS DNA=0.450(C) P=6/9 anns=0
+2026-09-09 17:37:47,173 [INFO]   DNA SCODATUBES.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:37:47,173 [INFO]   [1990/2571] ✓ SCODATUBES.NS DNA=0.473(C) P=5/9 anns=0
+2026-09-09 17:37:53,104 [INFO]   DNA SETCO.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:37:57,908 [INFO]   DNA SHAHALLOYS.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:38:00,135 [INFO]   DNA SHANKARA.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:38:00,136 [INFO]   [2025/2571] ✓ SHANKARA.NS DNA=0.484(C) P=4/9 anns=0
+2026-09-09 17:38:03,482 [INFO]   DNA SHEKHAWATI.NS: 0.457 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:38:03,482 [INFO]   [2035/2571] ✓ SHEKHAWATI.NS DNA=0.457(C) P=4/9 anns=0
+2026-09-09 17:38:06,704 [INFO]   DNA SHIVALIK.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:38:07,828 [INFO]   DNA SHIVAMAUTO.NS: 0.464 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:38:07,829 [INFO]   [2046/2571] ✓ SHIVAMAUTO.NS DNA=0.464(C) P=4/9 anns=0
+2026-09-09 17:38:11,622 [INFO]   DNA SHRADHA.NS: 0.425 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:38:13,750 [INFO]   DNA SHREERAMA.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:38:13,750 [INFO]   [2058/2571] ✓ SHREERAMA.NS DNA=0.460(C) P=8/9 anns=0
+2026-09-09 17:38:15,262 [ERROR] HTTP Error 502: <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Yahoo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+      html {
+          height: 100%;
+      }
+      body {
+          background: #fafafc url(https://s.yimg.com/nn/img/sad-panda-201402200631.png) 50% 50%;
+          background-size: cover;
+          height: 100%;
+          text-align: center;
+          font: 300 18px "helvetica neue", helvetica, verdana, tahoma, arial, sans-serif;
+          margin: 0;
+      }
+      table {
+          height: 100%;
+          width: 100%;
+          table-layout: fixed;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: none;
+      }
+      h1 {
+          font-size: 42px;
+          font-weight: 400;
+          color: #400090;
+      }
+      p {
+          color: #1A1A1A;
+      }
+      #message-1 {
+          font-weight: bold;
+          margin: 0;
+      }
+      #message-2 {
+          display: inline-block;
+          *display: inline;
+          zoom: 1;
+          max-width: 17em;
+          _width: 17em;
+      }
+      </style>
+      <script>
+      
+      </script>
+  </head>
+  <body>
+  <!-- status code : 502 -->
+  <!-- Could Not Connect -->
+  <!-- host machine: media-router-api7020.prod.media.ne1.yahoo.com -->
+  <!-- timestamp: 1788975495.147 -->
+  <!-- url: https://query1.finance.yahoo.com/v7/finance/quote?symbols=SHRIRAMFIN.NS&formatted=false&lang=en-US&region=US&crumb=paQSXr.lgzw-->
+  <script type="text/javascript">
+    function buildUrl(url, parameters){
+      var qs = [];
+      for(var key in parameters) {
+        var value = parameters[key];
+        qs.push(encodeURIComponent(key) + "=" + encodeURIComponent(value));
+      }
+      url = url + "?" + qs.join('&');
+      return url;
+    }
+
+    function generateBRBMarkup(site) {
+      params.source = 'brb';
+      generateBeaconMarkup(params);
+      var englishHeader = 'Will be right back...';
+      var englishMessage1 = 'Thank you for your patience.';
+      var englishMessage2 = 'Our engineers are working quickly to resolve the issue.';
+      var defaultLogoStyle = '';
+      var siteDataMap = {
+        'default': {
+          logo: 'https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_205x58_frontpage.png',
+          logoAlt: 'Yahoo Logo',
+          logoStyle: defaultLogoStyle,
+          header: englishHeader,
+          message1: englishMessage1,
+          message2: englishMessage2
+        }
+      };
+
+      var siteDetails = siteDataMap['default'];
+
+      document.write('<table><tbody><tr><td>');
+      document.write('<div id="content">');
+      document.write('<img src="' + siteDetails['logo'] + '" alt="' + siteDetails['logoAlt'] + '" style="' + siteDetails['logoStyle'] + '">');
+      document.write('<h1 style="margin-top:20px;">' + siteDetails['header'] + '</h1>');
+      document.write('<p id="message-1">' + siteDetails['message1'] + '</p>');
+      document.write('<p id="message-2">' + siteDetails['message2'] + '</p>');
+      document.write('</div>');
+      document.write('</td></tr></tbody></table>');
+    }
+
+    function generateBeaconMarkup(params) {
+        document.write('<img src="' + buildUrl('//geo.yahoo.com/b', params) + '" style="display:none;" width="0px" height="0px"/>');
+        var beacon = new Image();
+        beacon.src = buildUrl('//bcn.fp.yahoo.com/p', params);
+    }
+
+    var hostname = window.location.hostname;
+    var device = 'desktop';
+    var ynet = ('-' === '1');
+    var prid = '1u6aevhla36c7';
+    var crid = '1u6aevhla36c7';
+    var time = new Date().getTime();
+    var params = {
+        s: '1197757129',
+        t: time,
+        err_url: document.URL,
+        err: '502',
+        test: '-',
+        ats_host: 'media-router-api7020.prod.media.ne1.yahoo.com',
+        prid: prid,
+        crid: crid,
+        message: 'Could Not Connect'
+    };
+
+    if(ynet) {
+        document.write('<div style="height: 5px; background-color: red;"></div>');
+    }
+    generateBRBMarkup(hostname, params);
+
+  </script>
+  <noscript>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <div id="englishContent">
+            <h1 style="margin-top:20px;">Will be right back...</h1>
+            <p id="message-1">Thank you for your patience.</p>
+            <p id="message-2">Our engineers are working quickly to resolve the issue.</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </noscript>
+  </body>
+</html>
+
+2026-09-09 17:38:18,370 [INFO]   DNA SICAGEN.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:38:18,370 [INFO]   [2071/2571] ✓ SICAGEN.NS DNA=0.468(C) P=6/9 anns=0
+2026-09-09 17:38:20,765 [INFO]   DNA SIGMA.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:38:23,026 [INFO]   DNA SIKKO.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:38:24,508 [INFO]   DNA SILGO.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:38:26,907 [INFO]   DNA SINCLAIR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:38:26,907 [INFO]   [2091/2571] ✓ SINCLAIR.NS DNA=0.460(C) P=5/9 anns=0
+2026-09-09 17:38:28,945 [INFO]   DNA SINTERCOM.NS: 0.374 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:38:35,507 [INFO]   DNA SNOWMAN.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:38:35,507 [INFO]   [2113/2571] ✓ SNOWMAN.NS DNA=0.456(C) P=5/9 anns=0
+2026-09-09 17:38:37,825 [INFO]   DNA SOLEX.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:38:39,381 [INFO]   DNA SOMICONVEY.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:38:39,381 [INFO]   [2122/2571] ✓ SOMICONVEY.NS DNA=0.505(C) P=7/9 anns=0
+2026-09-09 17:38:41,870 [INFO]   DNA SOUTHWEST.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:38:43,888 [INFO]   DNA SPECIALITY.NS: 0.441 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:38:45,586 [INFO]   DNA SPELS.NS: 0.372 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:38:46,859 [INFO]   DNA SPENCERS.NS: 0.471 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:38:46,860 [INFO]   [2137/2571] ✓ SPENCERS.NS DNA=0.471(C) P=4/9 anns=0
+2026-09-09 17:38:49,306 [INFO]   DNA SRD.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:38:49,306 [INFO]   [2143/2571] ✓ SRD.NS DNA=0.487(C) P=3/9 anns=0
+2026-09-09 17:38:51,558 [INFO]   DNA SRTL.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:38:51,558 [INFO]   [2150/2571] ✓ SRTL.NS DNA=0.502(C) P=6/9 anns=0
+2026-09-09 17:38:54,352 [INFO]   DNA SSDL.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:38:54,352 [INFO]   [2151/2571] ✓ SSDL.NS DNA=0.484(C) P=7/9 anns=0
+2026-09-09 17:38:56,365 [INFO]   DNA STANLEY.NS: 0.437 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:38:58,632 [INFO]   DNA STCINDIA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:38:58,632 [INFO]   [2160/2571] ✓ STCINDIA.NS DNA=0.463(C) P=4/9 anns=0
+2026-09-09 17:39:04,564 [INFO]   DNA SUMEETINDS.NS: 0.475 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-09-09 17:39:04,565 [INFO]   [2183/2571] ✓ SUMEETINDS.NS DNA=0.475(C) P=3/9 anns=0
+2026-09-09 17:39:06,012 [INFO]   DNA SUMIT.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:39:11,827 [INFO]   DNA SUPERSPIN.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:39:14,561 [INFO]   DNA SUPTANERY.NS: 0.447 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-09-09 17:39:18,454 [INFO]   DNA SURANAT&P.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:39:18,454 [INFO]   [2214/2571] ✓ SURANAT&P.NS DNA=0.484(C) P=3/9 anns=0
+2026-09-09 17:39:23,675 [INFO]   DNA SWISSMLTRY.NS: 0.429 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-09-09 17:39:26,941 [INFO]   DNA TAKE.NS: 0.449 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:39:28,881 [INFO]   DNA TARACHAND.NS: 0.436 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:39:31,469 [INFO]   DNA TARAPUR.NS: 0.356 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-09-09 17:39:33,564 [INFO]   DNA TARMAT.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:39:33,564 [INFO]   [2254/2571] ✓ TARMAT.NS DNA=0.460(C) P=6/9 anns=0
+2026-09-09 17:39:43,619 [INFO]   DNA TGBHOTELS.NS: 0.308 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.40
+2026-09-09 17:39:48,632 [INFO]   DNA THOMASCOTT.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:39:48,632 [INFO]   [2306/2571] ✓ THOMASCOTT.NS DNA=0.484(C) P=4/9 anns=0
+2026-09-09 17:39:50,200 [INFO]   DNA TICL.NS: 0.520 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=1.00
+2026-09-09 17:39:50,200 [INFO]   [2309/2571] ✓ TICL.NS DNA=0.520(C) P=2/9 anns=0
+2026-09-09 17:39:51,414 [INFO]   DNA TIGERLOGS.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:39:51,415 [INFO]   [2310/2571] ✓ TIGERLOGS.NS DNA=0.487(C) P=4/9 anns=0
+2026-09-09 17:39:52,953 [INFO]   DNA TIJARIA.NS: 0.311 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.40
+2026-09-09 17:39:57,377 [INFO]   DNA TOLINS.NS: 0.510 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:39:57,378 [INFO]   [2332/2571] ✓ TOLINS.NS DNA=0.510(C) P=5/9 anns=0
+2026-09-09 17:39:59,734 [INFO]   DNA TPLPLASTEH.NS: 0.415 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:40:01,144 [INFO]   DNA TRACXN.NS: 0.427 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:40:03,997 [INFO]   DNA TREL.NS: 0.498 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:40:03,997 [INFO]   [2348/2571] ✓ TREL.NS DNA=0.498(C) P=5/9 anns=0
+2026-09-09 17:40:07,312 [INFO]   DNA TRIGYN.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:40:10,398 [INFO]   DNA TTL.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:40:10,398 [INFO]   [2361/2571] ✓ TTL.NS DNA=0.484(C) P=4/9 anns=0
+2026-09-09 17:40:12,392 [INFO]   DNA TVSELECT.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:40:12,392 [INFO]   [2365/2571] ✓ TVSELECT.NS DNA=0.460(C) P=7/9 anns=0
+2026-09-09 17:40:14,496 [INFO]   DNA TVTODAY.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:40:14,496 [INFO]   [2370/2571] ✓ TVTODAY.NS DNA=0.489(C) P=6/9 anns=0
+2026-09-09 17:40:17,417 [INFO]   DNA UFO.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:40:17,417 [INFO]   [2380/2571] ✓ UFO.NS DNA=0.454(C) P=6/9 anns=0
+2026-09-09 17:40:18,737 [INFO]   DNA UGARSUGAR.NS: 0.408 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:40:20,624 [INFO]   DNA UMAEXPORTS.NS: 0.502 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:40:20,625 [INFO]   [2386/2571] ✓ UMAEXPORTS.NS DNA=0.502(C) P=8/9 anns=0
+2026-09-09 17:40:27,686 [INFO]   DNA URAVIDEF.NS: 0.528 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-09-09 17:40:27,687 [INFO]   [2407/2571] ✓ URAVIDEF.NS DNA=0.528(C) P=4/9 anns=0
+2026-09-09 17:40:29,788 [INFO]   DNA URJA.NS: 0.376 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:40:35,176 [INFO]   DNA VAISHALI.NS: 0.398 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:40:36,749 [INFO]   DNA VAKRANGEE.NS: 0.403 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:40:39,082 [INFO]   DNA VARDMNPOLY.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:40:39,083 [INFO]   [2427/2571] ✓ VARDMNPOLY.NS DNA=0.484(C) P=2/9 anns=0
+2026-09-09 17:40:40,811 [INFO]   DNA VASCONEQ.NS: 0.412 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:40:42,423 [INFO]   DNA VASWANI.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:40:42,424 [INFO]   [2431/2571] ✓ VASWANI.NS DNA=0.487(C) P=4/9 anns=0
+2026-09-09 17:40:46,386 [INFO]   DNA VERTOZ.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:40:48,036 [INFO]   DNA VETO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:40:49,799 [INFO]   DNA VGL.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:40:49,799 [INFO]   [2448/2571] ✓ VGL.NS DNA=0.484(C) P=6/9 anns=0
+2026-09-09 17:40:55,618 [INFO]   DNA VINEETLAB.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-09-09 17:40:57,801 [INFO]   DNA VIPCLOTHNG.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:40:59,509 [INFO]   DNA VIPULLTD.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-09-09 17:41:01,453 [INFO]   DNA VIRINCHI.NS: 0.407 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-09-09 17:41:03,137 [INFO]   DNA VISACHROME.NS: 0.453 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:41:03,138 [INFO]   [2474/2571] ✓ VISACHROME.NS DNA=0.453(C) P=5/9 anns=0
+2026-09-09 17:41:04,700 [INFO]   DNA VISAKAIND.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:41:07,061 [INFO]   DNA VISHAL.NS: 0.405 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:41:08,763 [INFO]   DNA VISHWARAJ.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:41:11,202 [INFO]   DNA VIVIMEDLAB.NS: 0.400 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:41:13,016 [INFO]   DNA VLEGOV.NS: 0.460 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=1.00
+2026-09-09 17:41:13,017 [INFO]   [2486/2571] ✓ VLEGOV.NS DNA=0.460(C) P=5/9 anns=0
+2026-09-09 17:41:15,259 [INFO]   DNA VMSTMT.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:41:15,259 [INFO]   [2490/2571] ✓ VMSTMT.NS DNA=0.467(C) P=6/9 anns=0
+2026-09-09 17:41:19,147 [INFO]   DNA VPRPL.NS: 0.386 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:41:21,419 [INFO]   DNA VRAJ.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-09-09 17:41:25,366 [INFO]   DNA VTMLTD.NS: 0.405 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-09-09 17:41:33,554 [INFO]   DNA WSI.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:41:33,554 [INFO]   [2540/2571] ✓ WSI.NS DNA=0.463(C) P=5/9 anns=0
+2026-09-09 17:41:35,066 [INFO]   DNA XCHANGING.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-09-09 17:41:35,066 [INFO]   [2542/2571] ✓ XCHANGING.NS DNA=0.466(C) P=8/9 anns=0
+2026-09-09 17:41:36,885 [INFO]   DNA XTGLOBAL.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:41:36,886 [INFO]   [2545/2571] ✓ XTGLOBAL.NS DNA=0.486(C) P=5/9 anns=0
+2026-09-09 17:41:42,531 [INFO]   DNA ZEELEARN.NS: 0.387 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-09-09 17:41:44,524 [INFO]   DNA ZEEMEDIA.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-09-09 17:41:46,650 [INFO]   DNA ZENITHSTL.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-09-09 17:41:49,383 [INFO] 
+Enriching top 30 with Screener.in...
+2026-09-09 17:41:49,383 [INFO] Enriching 30 candidates with Screener.in data...
+2026-09-09 17:41:49,383 [INFO]   [1/30] Screener fetch: SRTL
+2026-09-09 17:41:52,791 [INFO]   [2/30] Screener fetch: MEDICO
+2026-09-09 17:41:56,316 [INFO]   [3/30] Screener fetch: RELIABLE
+2026-09-09 17:41:59,656 [INFO]   [4/30] Screener fetch: SHREERAMA
+2026-09-09 17:42:03,136 [INFO]   [5/30] Screener fetch: REMSONSIND
+2026-09-09 17:42:06,563 [INFO]   [6/30] Screener fetch: CINELINE
+2026-09-09 17:42:10,100 [INFO]   [7/30] Screener fetch: KOKUYOCMLN
+2026-09-09 17:42:13,575 [INFO]   [8/30] Screener fetch: AARVI
+2026-09-09 17:42:17,013 [INFO]   [9/30] Screener fetch: BHARATGEAR
+2026-09-09 17:42:20,506 [INFO]   [10/30] Screener fetch: NILAINFRA
+2026-09-09 17:42:23,956 [INFO]   [11/30] Screener fetch: SSDL
+2026-09-09 17:42:27,358 [INFO]   [12/30] Screener fetch: TARMAT
+2026-09-09 17:42:30,812 [INFO]   [13/30] Screener fetch: DRCSYSTEMS
+2026-09-09 17:42:34,167 [INFO]   [14/30] Screener fetch: PTL
+2026-09-09 17:42:37,625 [INFO]   [15/30] Screener fetch: LAMBODHARA
+2026-09-09 17:42:40,981 [INFO]   [16/30] Screener fetch: XCHANGING
+2026-09-09 17:42:44,436 [INFO]   [17/30] Screener fetch: ASMS
+2026-09-09 17:42:47,806 [INFO]   [18/30] Screener fetch: CYBERMEDIA
+2026-09-09 17:42:51,248 [INFO]   [19/30] Screener fetch: PPAP
+2026-09-09 17:42:54,603 [INFO]   [20/30] Screener fetch: DIGISPICE
+2026-09-09 17:42:58,056 [INFO]   [21/30] Screener fetch: SICAGEN
+2026-09-09 17:43:01,413 [INFO]   [22/30] Screener fetch: FABTECH
+2026-09-09 17:43:04,859 [INFO]   [23/30] Screener fetch: BANSWRAS
+2026-09-09 17:43:08,228 [INFO]   [24/30] Screener fetch: HARDWYN
+2026-09-09 17:43:11,593 [INFO]   [25/30] Screener fetch: HILINFRA
+2026-09-09 17:43:15,045 [INFO]   [26/30] Screener fetch: ECOSMOBLTY
+2026-09-09 17:43:18,403 [INFO]   [27/30] Screener fetch: UMAEXPORTS
+2026-09-09 17:43:21,873 [INFO]   [28/30] Screener fetch: DPWIRES
+2026-09-09 17:43:25,237 [INFO]   [29/30] Screener fetch: SOMICONVEY
+2026-09-09 17:43:28,683 [INFO]   [30/30] Screener fetch: DEVX
+2026-09-09 17:43:32,047 [INFO] Screener enrichment: 0/30 fetched successfully.
+2026-09-09 17:43:32,048 [INFO] Fetching concall signals for top 20...
+2026-09-09 17:43:34,495 [INFO]   🎙️ SRTL.NS: concall=0.30 final=0.563
+2026-09-09 17:43:36,893 [INFO]   🎙️ MEDICO.NS: concall=0.30 final=0.560
+2026-09-09 17:43:39,262 [INFO]   🎙️ RELIABLE.NS: concall=0.30 final=0.560
+2026-09-09 17:43:41,706 [INFO]   🎙️ SHREERAMA.NS: concall=0.30 final=0.551
+2026-09-09 17:43:44,148 [INFO]   🎙️ REMSONSIND.NS: concall=0.30 final=0.550
+2026-09-09 17:43:46,518 [INFO]   🎙️ CINELINE.NS: concall=0.30 final=0.549
+2026-09-09 17:43:48,873 [INFO]   🎙️ KOKUYOCMLN.NS: concall=0.30 final=0.549
+2026-09-09 17:43:51,315 [INFO]   🎙️ AARVI.NS: concall=0.30 final=0.546
+2026-09-09 17:43:53,679 [INFO]   🎙️ BHARATGEAR.NS: concall=0.30 final=0.545
+2026-09-09 17:43:56,127 [INFO]   🎙️ NILAINFRA.NS: concall=0.30 final=0.545
+2026-09-09 17:43:58,573 [INFO]   🎙️ SSDL.NS: concall=0.30 final=0.545
+2026-09-09 17:44:00,945 [INFO]   🎙️ TARMAT.NS: concall=0.30 final=0.544
+2026-09-09 17:44:03,304 [INFO]   🎙️ DRCSYSTEMS.NS: concall=0.30 final=0.544
+2026-09-09 17:44:05,840 [INFO]   🎙️ PTL.NS: concall=0.30 final=0.542
+2026-09-09 17:44:08,211 [INFO]   🎙️ LAMBODHARA.NS: concall=0.30 final=0.541
+2026-09-09 17:44:10,572 [INFO]   🎙️ XCHANGING.NS: concall=0.30 final=0.538
+2026-09-09 17:44:13,016 [INFO]   🎙️ ASMS.NS: concall=0.30 final=0.537
+2026-09-09 17:44:15,467 [INFO]   🎙️ CYBERMEDIA.NS: concall=0.30 final=0.536
+2026-09-09 17:44:17,830 [INFO]   🎙️ PPAP.NS: concall=0.30 final=0.535
+2026-09-09 17:44:20,273 [INFO]   🎙️ DIGISPICE.NS: concall=0.30 final=0.534
+2026-09-09 17:44:20,274 [INFO] Layer 2 v5: 165 passed → 15 final
+2026-09-09 17:44:20,274 [INFO] 
+▶ Conviction plays...
+2026-09-09 17:44:20,274 [INFO]   0 conviction plays
+2026-09-09 17:44:20,275 [INFO] 
+▶ Persistence tracker...
+2026-09-09 17:44:20,275 [INFO] ▶ Running scan history tracker...
+2026-09-09 17:44:20,316 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 184 total in history
+2026-09-09 17:44:20,322 [INFO] 
+✅ Done — L1:11 L2:15 Conviction:0 WatchNow:0
