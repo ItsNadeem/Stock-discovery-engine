@@ -103542,3 +103542,342 @@ Enriching top 0 with Screener.in...
 2026-09-24 18:03:08,549 [INFO]   Tracker: 0 enriched, 0 watch_now (regime=BEAR), 185 total in history
 2026-09-24 18:03:08,553 [INFO] 
 ✅ Done — L1:18 L2:0 Conviction:0 WatchNow:0
+2026-09-25 17:58:18,689 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-09-25 17:58:18,689 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-09-25 17:58:18,689 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-09-25 17:58:18,689 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-09-25 17:58:18,689 [INFO] 
+▶ Market regime...
+2026-09-25 17:58:19,099 [INFO]   BEAR — Index below 200EMA, -3.0% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+2026-09-25 17:58:19,099 [INFO] Fetching NSE equity list from NSE archives...
+2026-09-25 17:58:19,296 [INFO] Fetched 2585 NSE symbols
+2026-09-25 17:58:19,297 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-09-25 17:58:19,297 [INFO] ══════════════════════════════════════════════════════
+2026-09-25 17:58:19,297 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-09-25 17:58:19,297 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-09-25 17:58:19,297 [INFO] ══════════════════════════════════════════════════════
+2026-09-25 17:58:19,299 [INFO] Loaded 2585 symbols from cache
+2026-09-25 17:58:19,299 [INFO] Universe: 2585 NSE symbols
+2026-09-25 17:58:19,300 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-09-25 17:58:19,367 [INFO]   Nifty returns loaded: 65 days
+2026-09-25 17:58:19,367 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-09-25 17:58:20,717 [INFO]   Sector momentum: {'IT': 7.1, 'Pharma': 6.6, 'Midcap': -0.7}
+2026-09-25 17:58:20,717 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-09-25 17:58:20,717 [INFO]   Batch 1/52 (50 symbols)...
+2026-09-25 17:58:24,205 [INFO]     ✓ 3IINFOLTD.NS     ₹24.35    MomScore=1.01  6M=+70%  12M=+6%  Sector=IT  ADX=39.8
+2026-09-25 17:58:25,843 [INFO]     ✓ AAREYDRUGS.NS    ₹101.57   MomScore=1.09  6M=+82%  12M=+28%  Sector=Pharma  ADX=42.0
+2026-09-25 17:58:26,575 [INFO]     ✓ AARTIDRUGS.NS    ₹427.4    MomScore=0.13  6M=+23%  12M=-15%  Sector=Pharma  ADX=36.3
+2026-09-25 17:58:32,418 [INFO]     ✓ ACMESOLAR.NS     ₹442.9    MomScore=1.63  6M=+66%  12M=+58%  Sector=IT  ADX=41.3
+2026-09-25 17:58:34,975 [INFO]   Batch 2/52 (50 symbols)...
+2026-09-25 17:58:49,944 [INFO]   Batch 3/52 (50 symbols)...
+2026-09-25 17:58:55,309 [INFO]     ✓ AKUMS.NS         ₹819.55   MomScore=2.31  6M=+77%  12M=+75%  Sector=Pharma  ADX=27.4
+2026-09-25 17:59:04,462 [INFO]   Batch 4/52 (50 symbols)...
+2026-09-25 17:59:13,840 [INFO]     ✓ ARIHANTCAP.NS    ₹93.34    MomScore=0.54  6M=+61%  12M=-10%  Sector=Financial Services  ADX=33.3
+2026-09-25 17:59:14,293 [INFO]     ✓ ARIS.NS          ₹140.29   MomScore=0.24  6M=+36%  12M=-11%  Sector=Other  ADX=26.1
+2026-09-25 17:59:18,610 [INFO]   Batch 5/52 (50 symbols)...
+2026-09-25 17:59:26,825 [INFO]     ✓ ASTEC.NS         ₹739.0    MomScore=0.17  6M=+32%  12M=-11%  Sector=Other  ADX=50.8
+2026-09-25 17:59:33,959 [INFO]   Batch 6/52 (50 symbols)...
+2026-09-25 17:59:40,051 [INFO]     ✓ AXISCADES.NS     ₹1892.1   MomScore=0.33  6M=+20%  12M=+13%  Sector=Other  ADX=45.8
+2026-09-25 17:59:48,694 [INFO]   Batch 7/52 (50 symbols)...
+2026-09-25 17:59:59,841 [INFO]     ✓ BHAGERIA.NS      ₹394.6    MomScore=3.05  6M=+198%  12M=+122%  Sector=Other  ADX=71.5
+2026-09-25 18:00:04,732 [INFO]   Batch 8/52 (50 symbols)...
+2026-09-25 18:00:12,043 [INFO]     ✓ BLISSGVS.NS      ₹704.7    MomScore=4.87  6M=+208%  12M=+379%  Sector=Pharma  ADX=31.1
+2026-09-25 18:00:14,949 [INFO]     ✓ BODALCHEM.NS     ₹202.02   MomScore=4.76  6M=+295%  12M=+213%  Sector=Other  ADX=63.6
+2026-09-25 18:00:20,355 [INFO]   Batch 9/52 (50 symbols)...
+2026-09-25 18:00:30,930 [INFO]     ✓ CEIGALL.NS       ₹384.1    MomScore=1.38  6M=+42%  12M=+42%  Sector=Other  ADX=62.1
+2026-09-25 18:00:35,152 [INFO]   Batch 10/52 (50 symbols)...
+2026-09-25 18:00:44,983 [INFO]     ✓ COALINDIA.NS     ₹426.1    MomScore=0.29  6M=-3%  12M=+16%  Sector=Energy  ADX=42.7
+2026-09-25 18:00:49,753 [INFO]   Batch 11/52 (50 symbols)...
+2026-09-25 18:01:00,788 [INFO]     ✓ CYIENTDLM.NS     ₹931.4    MomScore=3.66  6M=+227%  12M=+108%  Sector=Other  ADX=48.1
+2026-09-25 18:01:04,940 [INFO]   Batch 12/52 (50 symbols)...
+2026-09-25 18:01:12,427 [INFO]     ✓ DEEPINDS.NS      ₹781.1    MomScore=1.34  6M=+75%  12M=+50%  Sector=Energy  ADX=27.7
+2026-09-25 18:01:17,160 [INFO]     ✓ DIACABS.NS       ₹354.5    MomScore=3.31  6M=+183%  12M=+128%  Sector=Other  ADX=40.0
+2026-09-25 18:01:19,919 [INFO]   Batch 13/52 (50 symbols)...
+2026-09-25 18:01:25,189 [INFO]     ✓ DIVISLAB.NS      ₹9619.5   MomScore=2.57  6M=+62%  12M=+61%  Sector=Pharma  ADX=32.8
+2026-09-25 18:01:25,687 [INFO]     ✓ DLF.NS           ₹683.0    MomScore=0.53  6M=+36%  12M=-4%  Sector=Realty  ADX=42.6
+2026-09-25 18:01:35,433 [INFO]   Batch 14/52 (50 symbols)...
+2026-09-25 18:01:45,123 [INFO]     ✓ ENGINERSIN.NS    ₹315.65   MomScore=1.37  6M=+58%  12M=+62%  Sector=Other  ADX=33.5
+2026-09-25 18:01:49,394 [INFO]   Batch 15/52 (50 symbols)...
+2026-09-25 18:01:56,385 [INFO]     ✓ FCL.NS           ₹60.48    MomScore=2.74  6M=+190%  12M=+148%  Sector=Other  ADX=38.8
+2026-09-25 18:01:58,206 [INFO]     ✓ FILATEX.NS       ₹106.94   MomScore=2.89  6M=+191%  12M=+98%  Sector=FMCG  ADX=42.0
+2026-09-25 18:01:58,508 [INFO]     ✓ FINCABLES.NS     ₹1460.9   MomScore=1.89  6M=+84%  12M=+79%  Sector=Other  ADX=33.7
+2026-09-25 18:02:02,617 [INFO]   Batch 16/52 (50 symbols)...
+2026-09-25 18:02:10,193 [INFO]     ✓ GANESHBE.NS      ₹130.84   MomScore=1.35  6M=+82%  12M=+44%  Sector=Other  ADX=31.7
+2026-09-25 18:02:17,625 [INFO]   Batch 17/52 (50 symbols)...
+2026-09-25 18:02:25,010 [INFO]     ✓ GLOBAL.NS        ₹135.4    MomScore=1.65  6M=+42%  12M=+104%  Sector=FMCG  ADX=56.9
+2026-09-25 18:02:26,818 [INFO]     ✓ GMMPFAUDLR.NS    ₹1505.2   MomScore=1.62  6M=+79%  12M=+37%  Sector=Other  ADX=86.4
+2026-09-25 18:02:31,081 [INFO]     ✓ GOODLUCK.NS      ₹525.65   MomScore=0.98  6M=+52%  12M=+33%  Sector=Other  ADX=54.3
+2026-09-25 18:02:33,536 [INFO]   Batch 18/52 (50 symbols)...
+2026-09-25 18:02:48,584 [INFO]   Batch 19/52 (50 symbols)...
+2026-09-25 18:02:54,675 [INFO]     ✓ HBLENGINE.NS     ₹806.0    MomScore=0.24  6M=+22%  12M=-1%  Sector=Other  ADX=41.2
+2026-09-25 18:02:58,301 [INFO]     ✓ HERITGFOOD.NS    ₹407.4    MomScore=0.24  6M=+33%  12M=-17%  Sector=FMCG  ADX=26.2
+2026-09-25 18:03:02,808 [INFO]   Batch 20/52 (50 symbols)...
+2026-09-25 18:03:17,000 [INFO]   Batch 21/52 (50 symbols)...
+2026-09-25 18:03:23,655 [INFO]     ✓ IIFLCAPS.NS      ₹346.7    MomScore=0.70  6M=+33%  12M=+21%  Sector=Financial Services  ADX=41.1
+2026-09-25 18:03:32,390 [INFO]   Batch 22/52 (50 symbols)...
+2026-09-25 18:03:35,984 [INFO]     ✓ INDSWFTLAB.NS    ₹404.35   MomScore=4.23  6M=+193%  12M=+290%  Sector=Pharma  ADX=33.2
+2026-09-25 18:03:42,976 [INFO]     ✓ IRISDOREME.NS    ₹66.15    MomScore=3.08  6M=+138%  12M=+109%  Sector=FMCG  ADX=29.1
+2026-09-25 18:03:43,630 [INFO]     ✓ ISFT.NS          ₹98.79    MomScore=0.76  6M=+78%  12M=-6%  Sector=FMCG  ADX=29.1
+2026-09-25 18:03:47,951 [INFO]   Batch 23/52 (50 symbols)...
+2026-09-25 18:03:52,733 [INFO]     ✓ JAMNAAUTO.NS     ₹138.2    MomScore=0.64  6M=+17%  12M=+38%  Sector=FMCG  ADX=35.9
+2026-09-25 18:03:53,188 [INFO]     ✓ JASH.NS          ₹593.85   MomScore=1.09  6M=+73%  12M=+16%  Sector=Other  ADX=32.7
+2026-09-25 18:03:55,699 [INFO]     ✓ JINDALSTEL.NS    ₹1164.8   MomScore=0.24  6M=+3%  12M=+11%  Sector=Other  ADX=44.2
+2026-09-25 18:03:59,500 [INFO]     ✓ JSFB.NS          ₹535.25   MomScore=0.74  6M=+49%  12M=+14%  Sector=Financial Services  ADX=25.4
+2026-09-25 18:04:01,500 [INFO]   Batch 24/52 (50 symbols)...
+2026-09-25 18:04:06,533 [INFO]     ✓ JSWINFRA.NS      ₹362.05   MomScore=0.82  6M=+46%  12M=+7%  Sector=Other  ADX=26.7
+2026-09-25 18:04:07,170 [INFO]     ✓ JTLIND.NS        ₹91.16    MomScore=0.95  6M=+88%  12M=+26%  Sector=Other  ADX=28.8
+2026-09-25 18:04:08,020 [INFO]     ✓ JUBLPHARMA.NS    ₹1071.95  MomScore=0.54  6M=+32%  12M=-0%  Sector=Pharma  ADX=59.9
+2026-09-25 18:04:09,570 [INFO]     ✓ KABRAEXTRU.NS    ₹846.4    MomScore=4.87  6M=+362%  12M=+210%  Sector=Other  ADX=30.1
+2026-09-25 18:04:11,581 [INFO]     ✓ KAMDHENU.NS      ₹39.96    MomScore=2.05  6M=+134%  12M=+44%  Sector=Other  ADX=31.2
+2026-09-25 18:04:15,259 [INFO]     ✓ KAVDEFENCE.NS    ₹82.34    MomScore=0.11  6M=+51%  12M=-39%  Sector=IT  ADX=66.0
+2026-09-25 18:04:17,690 [INFO]   Batch 25/52 (50 symbols)...
+2026-09-25 18:04:31,993 [INFO]   Batch 26/52 (50 symbols)...
+2026-09-25 18:04:38,082 [INFO]     ✓ KRISHANA.NS      ₹187.24   MomScore=1.76  6M=+88%  12M=+72%  Sector=Other  ADX=55.2
+2026-09-25 18:04:39,498 [INFO]     ✓ KROSS.NS         ₹267.87   MomScore=0.98  6M=+66%  12M=+30%  Sector=FMCG  ADX=39.0
+2026-09-25 18:04:40,889 [INFO]     ✓ KSL.NS           ₹964.7    MomScore=1.12  6M=+60%  12M=+22%  Sector=Other  ADX=25.4
+2026-09-25 18:04:46,792 [INFO]   Batch 27/52 (50 symbols)...
+2026-09-25 18:04:54,949 [INFO]     ✓ LLOYDSENGG.NS    ₹98.56    MomScore=1.99  6M=+138%  12M=+62%  Sector=Other  ADX=48.1
+2026-09-25 18:05:00,978 [INFO]   Batch 28/52 (50 symbols)...
+2026-09-25 18:05:07,259 [INFO]     ✓ MAHABANK.NS      ₹84.88    MomScore=1.29  6M=+33%  12M=+58%  Sector=Financial Services  ADX=25.0
+2026-09-25 18:05:08,687 [INFO]     ✓ MAHSEAMLES.NS    ₹715.65   MomScore=0.87  6M=+25%  12M=+19%  Sector=Other  ADX=50.6
+2026-09-25 18:05:12,465 [INFO]     ✓ MANINDS.NS       ₹1020.35  MomScore=2.80  6M=+194%  12M=+140%  Sector=Other  ADX=43.1
+2026-09-25 18:05:16,270 [INFO]   Batch 29/52 (50 symbols)...
+2026-09-25 18:05:23,057 [INFO]     ✓ MAXESTATES.NS    ₹594.65   MomScore=1.35  6M=+80%  12M=+30%  Sector=Realty  ADX=40.2
+2026-09-25 18:05:31,711 [INFO]   Batch 30/52 (50 symbols)...
+2026-09-25 18:05:47,080 [INFO]   Batch 31/52 (50 symbols)...
+2026-09-25 18:05:52,663 [INFO]     ✓ MUKANDLTD.NS     ₹167.05   MomScore=0.92  6M=+37%  12M=+27%  Sector=Other  ADX=32.9
+2026-09-25 18:05:55,169 [INFO]     ✓ MVGJL.NS         ₹224.38   MomScore=0.95  6M=+70%  12M=+13%  Sector=FMCG  ADX=64.5
+2026-09-25 18:05:55,337 [INFO]     ✓ MWL.NS           ₹43.07    MomScore=2.06  6M=+65%  12M=+85%  Sector=Other  ADX=51.3
+2026-09-25 18:06:02,615 [INFO]   Batch 32/52 (50 symbols)...
+2026-09-25 18:06:07,776 [INFO]     ✓ NELCO.NS         ₹976.5    MomScore=0.94  6M=+76%  12M=+10%  Sector=IT  ADX=25.2
+2026-09-25 18:06:15,977 [INFO]     ✓ NOCIL.NS         ₹188.41   MomScore=0.25  6M=+16%  12M=+5%  Sector=Other  ADX=61.5
+2026-09-25 18:06:18,518 [INFO]   Batch 33/52 (50 symbols)...
+2026-09-25 18:06:34,907 [INFO]   Batch 34/52 (50 symbols)...
+2026-09-25 18:06:41,465 [INFO]     ✓ PAISALO.NS       ₹89.02    MomScore=3.29  6M=+152%  12M=+128%  Sector=Financial Services  ADX=66.1
+2026-09-25 18:06:45,552 [INFO]     ✓ PASUPTAC.NS      ₹75.87    MomScore=1.38  6M=+86%  12M=+64%  Sector=FMCG  ADX=59.4
+2026-09-25 18:06:48,968 [INFO]   Batch 35/52 (50 symbols)...
+2026-09-25 18:06:52,758 [INFO]     ✓ PCBL.NS          ₹339.6    MomScore=0.27  6M=+34%  12M=-9%  Sector=Other  ADX=30.3
+2026-09-25 18:06:53,609 [INFO]     ✓ PENIND.NS        ₹184.9    MomScore=0.19  6M=+41%  12M=-24%  Sector=Other  ADX=26.8
+2026-09-25 18:06:54,979 [INFO]     ✓ PFOCUS.NS        ₹315.45   MomScore=0.55  6M=-6%  12M=+65%  Sector=Other  ADX=47.3
+2026-09-25 18:07:03,801 [INFO]   Batch 36/52 (50 symbols)...
+2026-09-25 18:07:13,200 [INFO]     ✓ PREMEXPLN.NS     ₹680.35   MomScore=0.70  6M=+62%  12M=+10%  Sector=Other  ADX=57.9
+2026-09-25 18:07:19,303 [INFO]   Batch 37/52 (50 symbols)...
+2026-09-25 18:07:26,653 [INFO]     ✓ RADICO.NS        ₹4557.1   MomScore=1.89  6M=+70%  12M=+54%  Sector=FMCG  ADX=31.7
+2026-09-25 18:07:33,945 [INFO]   Batch 38/52 (50 symbols)...
+2026-09-25 18:07:38,211 [INFO]     ✓ RBLBANK.NS       ₹415.05   MomScore=1.44  6M=+38%  12M=+51%  Sector=Financial Services  ADX=30.4
+2026-09-25 18:07:39,151 [INFO]     ✓ REDINGTON.NS     ₹407.25   MomScore=1.73  6M=+106%  12M=+55%  Sector=IT  ADX=45.6
+2026-09-25 18:07:41,368 [INFO]     ✓ REMSONSIND.NS    ₹116.8    MomScore=0.25  6M=+32%  12M=-6%  Sector=FMCG  ADX=32.1
+2026-09-25 18:07:42,900 [INFO]     ✓ RGL.NS           ₹167.47   MomScore=0.93  6M=+64%  12M=+42%  Sector=FMCG  ADX=75.6
+2026-09-25 18:07:46,478 [INFO]     ✓ ROLEXRINGS.NS    ₹195.35   MomScore=1.23  6M=+67%  12M=+45%  Sector=Other  ADX=30.5
+2026-09-25 18:07:48,786 [INFO]   Batch 39/52 (50 symbols)...
+2026-09-25 18:07:52,842 [INFO]     ✓ ROSSTECH.NS      ₹1402.7   MomScore=1.46  6M=+98%  12M=+82%  Sector=Other  ADX=78.1
+2026-09-25 18:07:55,003 [INFO]     ✓ RRKABEL.NS       ₹2528.3   MomScore=2.46  6M=+90%  12M=+101%  Sector=Other  ADX=61.7
+2026-09-25 18:08:01,407 [INFO]     ✓ SAILIFE.NS       ₹1592.2   MomScore=2.14  6M=+63%  12M=+81%  Sector=Pharma  ADX=29.9
+2026-09-25 18:08:03,407 [INFO]   Batch 40/52 (50 symbols)...
+2026-09-25 18:08:11,723 [INFO]     ✓ SANSERA.NS       ₹4662.4   MomScore=3.96  6M=+118%  12M=+211%  Sector=FMCG  ADX=36.2
+2026-09-25 18:08:18,592 [INFO]   Batch 41/52 (50 symbols)...
+2026-09-25 18:08:30,697 [INFO]     ✓ SHAREINDIA.NS    ₹209.62   MomScore=1.15  6M=+64%  12M=+59%  Sector=Financial Services  ADX=67.3
+2026-09-25 18:08:34,397 [INFO]   Batch 42/52 (50 symbols)...
+2026-09-25 18:08:45,103 [INFO]     ✓ SIGMAADV.NS      ₹946.0    MomScore=9.02  6M=+541%  12M=+472%  Sector=Other  ADX=33.7
+2026-09-25 18:08:49,184 [INFO]   Batch 43/52 (50 symbols)...
+2026-09-25 18:08:52,039 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:52,179 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:52,366 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:52,487 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:52,685 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:52,800 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:52,967 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:53,091 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:53,269 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:53,479 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:53,703 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:53,943 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:54,162 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:54,396 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:54,596 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:54,717 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:54,922 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:55,056 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:55,254 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:55,378 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:55,624 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:55,762 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:55,953 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:56,138 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:56,318 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:56,458 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:56,661 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:56,797 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:57,055 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:57,201 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:57,421 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:57,570 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:57,786 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:57,913 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:58,195 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:58,369 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:58,559 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:08:58,683 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:08:59,159 [INFO]     ✓ SMCGLOBAL.NS     ₹85.6     MomScore=0.84  6M=+55%  12M=+24%  Sector=Financial Services  ADX=51.7
+2026-09-25 18:08:59,690 [INFO]     ✓ SMSPHARMA.NS     ₹475.0    MomScore=0.98  6M=+27%  12M=+70%  Sector=Pharma  ADX=52.8
+2026-09-25 18:09:00,321 [INFO]     ✓ SOLARA.NS        ₹739.15   MomScore=0.78  6M=+61%  12M=+10%  Sector=Pharma  ADX=39.6
+2026-09-25 18:09:02,557 [INFO]     ✓ SOTL.NS          ₹713.2    MomScore=2.16  6M=+130%  12M=+81%  Sector=Other  ADX=52.3
+2026-09-25 18:09:06,433 [INFO]   Batch 44/52 (50 symbols)...
+2026-09-25 18:09:09,638 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:09,772 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:09,835 [INFO]     ✓ SPLPETRO.NS      ₹880.0    MomScore=0.31  6M=+20%  12M=+5%  Sector=Other  ADX=61.6
+2026-09-25 18:09:09,958 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:10,113 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:10,351 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:10,514 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:10,739 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:10,884 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:11,051 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:11,179 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:11,390 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:11,553 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:11,797 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:11,916 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:12,101 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:12,250 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:12,425 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:12,584 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:12,755 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:13,010 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:13,272 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:13,383 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:13,646 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:13,762 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:13,990 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:14,108 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:14,299 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:14,558 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:14,622 [INFO]     ✓ SSWL.NS          ₹378.75   MomScore=1.94  6M=+102%  12M=+60%  Sector=Other  ADX=36.5
+2026-09-25 18:09:14,812 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:14,990 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:15,279 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:15,391 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:15,586 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:15,768 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:16,035 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:16,198 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:16,488 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:16,621 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:16,816 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:16,932 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:17,219 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:17,378 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:17,664 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:17,839 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:18,107 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:18,247 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:18,562 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:18,721 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:18,813 [INFO]     ✓ STEELCAS.NS      ₹376.5    MomScore=1.55  6M=+67%  12M=+74%  Sector=Other  ADX=52.5
+2026-09-25 18:09:19,029 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:19,168 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:19,385 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:19,505 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:19,732 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:19,860 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:20,052 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:20,269 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:20,436 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:20,553 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:20,784 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:21,050 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:21,244 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:21,428 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:21,652 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:21,796 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:22,383 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:22,593 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:22,763 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:22,874 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:23,133 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:23,256 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:23,495 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:23,662 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:23,919 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:24,073 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:24,353 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:24,506 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:24,600 [INFO]     ✓ SUBEXLTD.NS      ₹21.41    MomScore=2.32  6M=+187%  12M=+75%  Sector=Other  ADX=54.4
+2026-09-25 18:09:24,778 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:24,939 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:25,147 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:25,281 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-09-25 18:09:25,486 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-09-25 18:09:27,686 [INFO]   Batch 45/52 (50 symbols)...
+2026-09-25 18:09:30,473 [INFO]     ✓ SUPRIYA.NS       ₹985.2    MomScore=1.02  6M=+64%  12M=+33%  Sector=Unknown  ADX=51.5
+2026-09-25 18:09:30,520 [INFO]     ✓ SURAJEST.NS      ₹221.75   MomScore=0.04  6M=+26%  12M=-23%  Sector=Unknown  ADX=48.6
+2026-09-25 18:09:33,008 [INFO]   Batch 46/52 (50 symbols)...
+2026-09-25 18:09:35,977 [INFO]     ✓ SYNCOMF.NS       ₹20.05    MomScore=1.20  6M=+80%  12M=+19%  Sector=Unknown  ADX=29.5
+2026-09-25 18:09:36,333 [INFO]     ✓ TARSONS.NS       ₹332.75   MomScore=0.89  6M=+85%  12M=+8%  Sector=Unknown  ADX=29.7
+2026-09-25 18:09:36,583 [INFO]     ✓ TBZ.NS           ₹655.6    MomScore=5.22  6M=+424%  12M=+256%  Sector=Unknown  ADX=67.4
+2026-09-25 18:09:38,918 [INFO]   Batch 47/52 (50 symbols)...
+2026-09-25 18:09:42,341 [INFO]     ✓ TEXRAIL.NS       ₹125.67   MomScore=0.37  6M=+43%  12M=-10%  Sector=Unknown  ADX=36.0
+2026-09-25 18:09:42,642 [INFO]     ✓ TI.NS            ₹581.7    MomScore=0.93  6M=+37%  12M=+27%  Sector=Unknown  ADX=37.2
+2026-09-25 18:09:42,907 [INFO]     ✓ TIPSMUSIC.NS     ₹668.95   MomScore=0.60  6M=+30%  12M=+15%  Sector=Unknown  ADX=30.3
+2026-09-25 18:09:43,090 [INFO]     ✓ TNPETRO.NS       ₹132.93   MomScore=1.14  6M=+61%  12M=+24%  Sector=Unknown  ADX=42.9
+2026-09-25 18:09:45,261 [INFO]   Batch 48/52 (50 symbols)...
+2026-09-25 18:09:49,004 [INFO]     ✓ TVSMOTOR.NS      ₹4157.3   MomScore=0.81  6M=+21%  12M=+22%  Sector=Unknown  ADX=41.6
+2026-09-25 18:09:49,237 [INFO]     ✓ UGARSUGAR.NS     ₹64.03    MomScore=1.32  6M=+64%  12M=+50%  Sector=Unknown  ADX=28.5
+2026-09-25 18:09:51,356 [INFO]   Batch 49/52 (50 symbols)...
+2026-09-25 18:09:55,056 [INFO]     ✓ UTTAMSUGAR.NS    ₹293.15   MomScore=0.43  6M=+21%  12M=+17%  Sector=Unknown  ADX=48.7
+2026-09-25 18:09:57,544 [INFO]   Batch 50/52 (50 symbols)...
+2026-09-25 18:10:01,261 [INFO]     ✓ VINCOFE.NS       ₹184.15   MomScore=0.71  6M=+36%  12M=+21%  Sector=Unknown  ADX=27.8
+2026-09-25 18:10:03,689 [INFO]   Batch 51/52 (50 symbols)...
+2026-09-25 18:10:08,056 [INFO]     ✓ WELSPUNLIV.NS    ₹224.68   MomScore=2.01  6M=+94%  12M=+88%  Sector=Unknown  ADX=33.7
+2026-09-25 18:10:08,177 [INFO]     ✓ WHEELS.NS        ₹2296.4   MomScore=2.96  6M=+134%  12M=+167%  Sector=Unknown  ADX=75.8
+2026-09-25 18:10:08,324 [INFO]     ✓ WOCKPHARMA.NS    ₹2265.6   MomScore=1.26  6M=+79%  12M=+54%  Sector=Unknown  ADX=36.2
+2026-09-25 18:10:10,324 [INFO]   Batch 52/52 (35 symbols)...
+2026-09-25 18:10:13,648 [INFO]     ✓ YATHARTH.NS      ₹1121.4   MomScore=1.46  6M=+68%  12M=+44%  Sector=Unknown  ADX=60.5
+2026-09-25 18:10:16,113 [INFO] Stage 1 complete. Momentum candidates: 99
+2026-09-25 18:10:16,113 [INFO] Cross-sectional gate (top 20%): 99 → 20 (threshold: 2.221)
+2026-09-25 18:10:16,114 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-09-25 18:10:16,126 [INFO]   ✓ AKUMS.NS         score=0.693  mom=2.31  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:16,440 [INFO]   ✓ BHAGERIA.NS      score=0.771  mom=3.05  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:16,754 [INFO]   ✓ BLISSGVS.NS      score=0.677  mom=4.87  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:17,068 [INFO]   ✓ BODALCHEM.NS     score=0.683  mom=4.76  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:17,382 [INFO]   ✓ CYIENTDLM.NS     score=0.645  mom=3.66  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:17,698 [INFO]   ✓ DIACABS.NS       score=0.623  mom=3.31  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:18,012 [INFO]   ✓ DIVISLAB.NS      score=0.630  mom=2.57  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:18,563 [INFO]   ✓ FCL.NS           score=0.670  mom=2.74  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:18,877 [INFO]   ✓ FILATEX.NS       score=0.691  mom=2.89  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:19,192 [INFO]   ✓ INDSWFTLAB.NS    score=0.652  mom=4.23  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:19,506 [INFO]   ✓ IRISDOREME.NS    score=0.714  mom=3.08  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:19,831 [INFO]   ✓ KABRAEXTRU.NS    score=0.717  mom=4.87  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:20,177 [INFO]   ✓ MANINDS.NS       score=0.703  mom=2.80  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:20,492 [INFO]   ✓ PAISALO.NS       score=0.733  mom=3.29  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:20,847 [INFO]   ✓ RRKABEL.NS       score=0.678  mom=2.46  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:21,162 [INFO]   ✓ SANSERA.NS       score=0.727  mom=3.96  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:21,476 [INFO]   ✓ SIGMAADV.NS      score=0.743  mom=9.02  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:21,790 [INFO]   ✓ SUBEXLTD.NS      score=0.653  mom=2.32  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:22,108 [INFO]   ✓ TBZ.NS           score=0.733  mom=5.22  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:22,422 [INFO]   ✓ WHEELS.NS        score=0.689  mom=2.96  fscore=0.500  FCF=N/A%
+2026-09-25 18:10:22,722 [INFO] Stage 2 complete. 20 passed → top 20
+2026-09-25 18:10:22,727 [INFO] Results written to results/
+2026-09-25 18:10:22,728 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-09-25 18:10:22,728 [INFO] Initialising public data fetcher...
+2026-09-25 18:10:43,526 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-09-25 18:10:43,526 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-09-25 18:10:43,526 [INFO] Layer 2 v5: scanning 2585 symbols...
+2026-09-25 18:12:42,993 [INFO] 
+Enriching top 0 with Screener.in...
+2026-09-25 18:12:42,993 [INFO] Enriching 0 candidates with Screener.in data...
+2026-09-25 18:12:42,993 [INFO] Screener enrichment: 0/0 fetched successfully.
+2026-09-25 18:12:42,993 [INFO] Fetching concall signals for top 0...
+2026-09-25 18:12:42,993 [INFO] Layer 2 v5: 0 passed → 0 final
+2026-09-25 18:12:42,993 [INFO] 
+▶ Conviction plays...
+2026-09-25 18:12:42,993 [INFO]   0 conviction plays
+2026-09-25 18:12:42,993 [INFO] 
+▶ Persistence tracker...
+2026-09-25 18:12:42,993 [INFO] ▶ Running scan history tracker...
+2026-09-25 18:12:43,034 [INFO]   Tracker: 0 enriched, 0 watch_now (regime=BEAR), 185 total in history
+2026-09-25 18:12:43,038 [INFO] 
+✅ Done — L1:20 L2:0 Conviction:0 WatchNow:0
