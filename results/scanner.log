@@ -122613,3 +122613,1200 @@ Enriching top 30 with Screener.in...
 2026-10-14 18:46:41,335 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 202 total in history
 2026-10-14 18:46:41,341 [INFO] 
 ✅ Done — L1:10 L2:15 Conviction:0 WatchNow:0
+2026-10-15 17:47:14,543 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-10-15 17:47:14,543 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-10-15 17:47:14,543 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-10-15 17:47:14,543 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-10-15 17:47:14,543 [INFO] 
+▶ Market regime...
+2026-10-15 17:47:15,333 [INFO]   BEAR — Index below 200EMA, -5.5% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+2026-10-15 17:47:15,333 [INFO] Fetching NSE equity list from NSE archives...
+2026-10-15 17:47:15,751 [INFO] Fetched 2605 NSE symbols
+2026-10-15 17:47:15,752 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-10-15 17:47:15,752 [INFO] ══════════════════════════════════════════════════════
+2026-10-15 17:47:15,752 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-10-15 17:47:15,752 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-10-15 17:47:15,752 [INFO] ══════════════════════════════════════════════════════
+2026-10-15 17:47:15,753 [INFO] Loaded 2605 symbols from cache
+2026-10-15 17:47:15,753 [INFO] Universe: 2605 NSE symbols
+2026-10-15 17:47:15,753 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-10-15 17:47:15,907 [INFO]   Nifty returns loaded: 65 days
+2026-10-15 17:47:15,907 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-10-15 17:47:19,297 [INFO]   Sector momentum: {'IT': 5.1, 'Pharma': 0.7, 'Midcap': -5.4}
+2026-10-15 17:47:19,297 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-10-15 17:47:19,297 [INFO]   Batch 1/53 (50 symbols)...
+2026-10-15 17:47:26,318 [INFO]     ✓ AAATECH.NS       ₹113.78   MomScore=0.32  6M=+16%  12M=+13%  Sector=IT  ADX=49.0
+2026-10-15 17:47:31,304 [INFO]     ✓ ABDL.NS          ₹739.25   MomScore=0.91  6M=+38%  12M=+37%  Sector=FMCG  ADX=44.8
+2026-10-15 17:47:38,379 [INFO]   Batch 2/53 (50 symbols)...
+2026-10-15 17:48:06,056 [INFO]   Batch 3/53 (50 symbols)...
+2026-10-15 17:48:29,214 [INFO]   Batch 4/53 (50 symbols)...
+2026-10-15 17:48:51,142 [INFO]   Batch 5/53 (50 symbols)...
+2026-10-15 17:49:10,397 [INFO]     ✓ AURUM.NS         ₹239.1    MomScore=1.11  6M=+34%  12M=+45%  Sector=Realty  ADX=50.4
+2026-10-15 17:49:12,671 [INFO]   Batch 6/53 (50 symbols)...
+2026-10-15 17:49:32,487 [INFO]     ✓ BALRAMCHIN.NS    ₹726.0    MomScore=1.27  6M=+50%  12M=+52%  Sector=FMCG  ADX=27.3
+2026-10-15 17:49:34,795 [INFO]   Batch 7/53 (50 symbols)...
+2026-10-15 17:49:42,024 [INFO]     ✓ BBOX.NS          ₹880.2    MomScore=1.39  6M=+66%  12M=+61%  Sector=IT  ADX=60.4
+2026-10-15 17:49:52,632 [INFO]   Batch 8/53 (50 symbols)...
+2026-10-15 17:50:03,602 [INFO]     ✓ BLKASHYAP.NS     ₹58.78    MomScore=0.18  6M=+17%  12M=+1%  Sector=Other  ADX=27.2
+2026-10-15 17:50:12,010 [INFO]   Batch 9/53 (50 symbols)...
+2026-10-15 17:50:31,715 [INFO]   Batch 10/53 (50 symbols)...
+2026-10-15 17:50:48,476 [INFO]     ✓ COFORGE.NS       ₹1934.3   MomScore=0.78  6M=+48%  12M=+13%  Sector=IT  ADX=32.6
+2026-10-15 17:50:51,760 [INFO]   Batch 11/53 (50 symbols)...
+2026-10-15 17:51:07,496 [INFO]     ✓ CUBEXTUB.NS      ₹210.91   MomScore=1.86  6M=+122%  12M=+121%  Sector=Other  ADX=76.5
+2026-10-15 17:51:09,192 [INFO]     ✓ CYIENT.NS        ₹1189.8   MomScore=0.36  6M=+23%  12M=+2%  Sector=Other  ADX=26.8
+2026-10-15 17:51:09,584 [INFO]     ✓ CYIENTDLM.NS     ₹1030.1   MomScore=3.59  6M=+206%  12M=+125%  Sector=Other  ADX=28.8
+2026-10-15 17:51:10,802 [INFO]     ✓ DALMIASUG.NS     ₹482.35   MomScore=0.64  6M=+28%  12M=+33%  Sector=FMCG  ADX=37.0
+2026-10-15 17:51:13,705 [INFO]   Batch 12/53 (50 symbols)...
+2026-10-15 17:51:30,912 [INFO]     ✓ DHAMPURSUG.NS    ₹196.99   MomScore=1.01  6M=+41%  12M=+40%  Sector=FMCG  ADX=44.1
+2026-10-15 17:51:31,188 [INFO]     ✓ DHANBANK.NS      ₹33.42    MomScore=0.67  6M=+25%  12M=+32%  Sector=Financial Services  ADX=47.3
+2026-10-15 17:51:35,408 [INFO]   Batch 13/53 (50 symbols)...
+2026-10-15 17:51:43,326 [INFO]     ✓ DMCC.NS          ₹318.3    MomScore=0.19  6M=+12%  12M=+8%  Sector=Other  ADX=46.9
+2026-10-15 17:51:48,975 [INFO]     ✓ DWARKESH.NS      ₹46.65    MomScore=0.07  6M=-2%  12M=+8%  Sector=FMCG  ADX=31.5
+2026-10-15 17:51:49,913 [INFO]     ✓ E2E.NS           ₹710.9    MomScore=2.34  6M=+162%  12M=+105%  Sector=IT  ADX=29.3
+2026-10-15 17:51:52,871 [INFO]   Batch 14/53 (50 symbols)...
+2026-10-15 17:52:08,643 [INFO]   Batch 15/53 (50 symbols)...
+2026-10-15 17:52:23,855 [INFO]     ✓ FILATEX.NS       ₹105.98   MomScore=2.41  6M=+139%  12M=+107%  Sector=FMCG  ADX=55.6
+2026-10-15 17:52:28,156 [INFO]   Batch 16/53 (50 symbols)...
+2026-10-15 17:52:36,724 [INFO]     ✓ FSL.NS           ₹281.75   MomScore=0.03  6M=+15%  12M=-12%  Sector=IT  ADX=30.2
+2026-10-15 17:52:39,412 [INFO]     ✓ GANDHAR.NS       ₹299.1    MomScore=2.19  6M=+103%  12M=+119%  Sector=Energy  ADX=27.9
+2026-10-15 17:52:49,083 [INFO]   Batch 17/53 (50 symbols)...
+2026-10-15 17:53:08,306 [INFO]   Batch 18/53 (50 symbols)...
+2026-10-15 17:53:13,658 [INFO]     ✓ GOODLUCK.NS      ₹577.2    MomScore=0.89  6M=+46%  12M=+35%  Sector=Other  ADX=27.1
+2026-10-15 17:53:14,986 [INFO]     ✓ GPPL.NS          ₹168.09   MomScore=0.37  6M=+10%  12M=+12%  Sector=Other  ADX=32.2
+2026-10-15 17:53:28,348 [INFO]   Batch 19/53 (50 symbols)...
+2026-10-15 17:53:32,964 [INFO]     ✓ HAL.NS           ₹4910.0   MomScore=0.27  6M=+13%  12M=+2%  Sector=Other  ADX=29.7
+2026-10-15 17:53:44,859 [INFO]   Batch 20/53 (50 symbols)...
+2026-10-15 17:53:49,194 [INFO]     ✓ HIKAL.NS         ₹216.47   MomScore=0.02  6M=+15%  12M=-13%  Sector=Pharma  ADX=34.0
+2026-10-15 17:54:01,165 [INFO]   Batch 21/53 (50 symbols)...
+2026-10-15 17:54:18,260 [INFO]   Batch 22/53 (50 symbols)...
+2026-10-15 17:54:40,776 [INFO]   Batch 23/53 (50 symbols)...
+2026-10-15 17:54:51,289 [INFO]     ✓ JAMNAAUTO.NS     ₹142.54   MomScore=0.72  6M=+13%  12M=+50%  Sector=FMCG  ADX=37.5
+2026-10-15 17:54:54,708 [INFO]     ✓ JGCHEM.NS        ₹629.45   MomScore=1.18  6M=+68%  12M=+48%  Sector=Other  ADX=26.0
+2026-10-15 17:55:03,081 [INFO]   Batch 24/53 (50 symbols)...
+2026-10-15 17:55:16,151 [INFO]     ✓ KABRAEXTRU.NS    ₹814.7    MomScore=3.80  6M=+234%  12M=+221%  Sector=Other  ADX=33.7
+2026-10-15 17:55:24,616 [INFO]   Batch 25/53 (50 symbols)...
+2026-10-15 17:55:28,460 [INFO]     ✓ KARURVYSYA.NS    ₹345.65   MomScore=1.12  6M=+24%  12M=+57%  Sector=Financial Services  ADX=40.5
+2026-10-15 17:55:29,045 [INFO]     ✓ KAVDEFENCE.NS    ₹92.46    MomScore=0.14  6M=+36%  12M=-19%  Sector=IT  ADX=51.8
+2026-10-15 17:55:44,327 [INFO]   Batch 26/53 (50 symbols)...
+2026-10-15 17:55:47,862 [INFO]     ✓ KOTAKBANK.NS     ₹447.95   MomScore=0.54  6M=+18%  12M=+5%  Sector=Financial Services  ADX=44.9
+2026-10-15 17:55:52,344 [INFO]     ✓ KRISHANA.NS      ₹211.95   MomScore=1.84  6M=+66%  12M=+93%  Sector=Other  ADX=25.7
+2026-10-15 17:55:54,654 [INFO]     ✓ KROSS.NS         ₹271.0    MomScore=0.84  6M=+42%  12M=+43%  Sector=FMCG  ADX=30.1
+2026-10-15 17:56:03,810 [INFO]   Batch 27/53 (50 symbols)...
+2026-10-15 17:56:22,549 [INFO]   Batch 28/53 (50 symbols)...
+2026-10-15 17:56:41,738 [INFO]   Batch 29/53 (50 symbols)...
+2026-10-15 17:56:50,494 [INFO]     ✓ MAWANASUG.NS     ₹172.57   MomScore=1.84  6M=+76%  12M=+98%  Sector=FMCG  ADX=40.5
+2026-10-15 17:57:01,945 [INFO]   Batch 30/53 (50 symbols)...
+2026-10-15 17:57:24,648 [INFO]   Batch 31/53 (50 symbols)...
+2026-10-15 17:57:31,305 [INFO]     ✓ MRPL.NS          ₹174.79   MomScore=0.23  6M=-0%  12M=+23%  Sector=Energy  ADX=31.3
+2026-10-15 17:57:47,541 [INFO]   Batch 32/53 (50 symbols)...
+2026-10-15 17:57:52,420 [INFO]     ✓ NAZARA.NS        ₹406.7    MomScore=1.42  6M=+56%  12M=+52%  Sector=Other  ADX=38.0
+2026-10-15 17:57:57,280 [INFO]     ✓ NETWEB.NS        ₹4712.1   MomScore=0.43  6M=+27%  12M=+19%  Sector=IT  ADX=32.9
+2026-10-15 17:58:06,250 [INFO]   Batch 33/53 (50 symbols)...
+2026-10-15 17:58:14,893 [INFO]     ✓ NUVAMA.NS        ₹1717.2   MomScore=0.67  6M=+27%  12M=+23%  Sector=Financial Services  ADX=40.2
+2026-10-15 17:58:22,904 [INFO]   Batch 34/53 (50 symbols)...
+2026-10-15 17:58:34,433 [INFO]     ✓ PANAMAPET.NS     ₹491.35   MomScore=1.53  6M=+80%  12M=+79%  Sector=Energy  ADX=34.4
+2026-10-15 17:58:39,260 [INFO]   Batch 35/53 (50 symbols)...
+2026-10-15 17:58:57,321 [INFO]     ✓ PIXTRANS.NS      ₹1809.4   MomScore=0.67  6M=+19%  12M=+26%  Sector=Other  ADX=43.5
+2026-10-15 17:59:01,138 [INFO]   Batch 36/53 (50 symbols)...
+2026-10-15 17:59:06,502 [INFO]     ✓ PNBHOUSING.NS    ₹1183.9   MomScore=1.08  6M=+34%  12M=+36%  Sector=Financial Services  ADX=35.0
+2026-10-15 17:59:18,448 [INFO]     ✓ PREMEXPLN.NS     ₹690.6    MomScore=0.46  6M=+40%  12M=+8%  Sector=Other  ADX=53.5
+2026-10-15 17:59:19,398 [INFO]     ✓ PREMIERPOL.NS    ₹106.13   MomScore=1.78  6M=+92%  12M=+137%  Sector=Other  ADX=44.7
+2026-10-15 17:59:23,891 [INFO]   Batch 37/53 (50 symbols)...
+2026-10-15 17:59:46,113 [INFO]   Batch 38/53 (50 symbols)...
+2026-10-15 18:00:09,819 [INFO]   Batch 39/53 (50 symbols)...
+2026-10-15 18:00:32,391 [INFO]   Batch 40/53 (50 symbols)...
+2026-10-15 18:00:39,151 [INFO]     ✓ SAGILITY.NS      ₹45.6     MomScore=0.12  6M=+6%  12M=+2%  Sector=Pharma  ADX=33.5
+2026-10-15 18:00:54,666 [INFO]   Batch 41/53 (50 symbols)...
+2026-10-15 18:01:18,562 [INFO]   Batch 42/53 (50 symbols)...
+2026-10-15 18:01:40,502 [INFO]   Batch 43/53 (50 symbols)...
+2026-10-15 18:01:56,600 [INFO]     ✓ SMCGLOBAL.NS     ₹108.43   MomScore=1.20  6M=+71%  12M=+56%  Sector=Financial Services  ADX=81.7
+2026-10-15 18:02:04,076 [INFO]   Batch 44/53 (50 symbols)...
+2026-10-15 18:02:23,851 [INFO]   Batch 45/53 (50 symbols)...
+2026-10-15 18:02:34,264 [INFO]     ✓ SUNTV.NS         ₹629.15   MomScore=0.17  6M=+0%  12M=+11%  Sector=Other  ADX=79.9
+2026-10-15 18:02:41,601 [INFO]   Batch 46/53 (50 symbols)...
+2026-10-15 18:02:57,323 [INFO]   Batch 47/53 (50 symbols)...
+2026-10-15 18:03:01,579 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:01,918 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:02,493 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:02,866 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:03,285 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:03,551 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:03,980 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:04,263 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:04,390 [INFO]     ✓ TDPOWERSYS.NS    ₹734.75   MomScore=1.74  6M=+52%  12M=+141%  Sector=Other  ADX=32.9
+2026-10-15 18:03:04,760 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:05,188 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:05,622 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:06,002 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:06,358 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:06,643 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:07,089 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:07,426 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:07,902 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:08,235 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:08,700 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:08,976 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:09,519 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:09,834 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:10,186 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:10,463 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:10,834 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:11,149 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:11,519 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:11,795 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:12,315 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:12,594 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:12,960 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:13,310 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:13,716 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:13,987 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:14,401 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:14,713 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:15,072 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:15,447 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:15,796 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:16,101 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:16,517 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:16,805 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:17,212 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:17,495 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:17,602 [INFO]     ✓ TFCILTD.NS       ₹157.82   MomScore=2.35  6M=+125%  12M=+114%  Sector=Other  ADX=39.5
+2026-10-15 18:03:17,907 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:18,248 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:18,668 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:19,006 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:19,363 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:19,656 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:20,047 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:20,420 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:20,767 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:21,032 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:21,392 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:21,667 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:22,086 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:22,347 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:22,773 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:23,223 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:23,645 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:23,921 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:24,400 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:24,727 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:33,244 [INFO]   Batch 48/53 (50 symbols)...
+2026-10-15 18:03:53,045 [INFO]   Batch 49/53 (50 symbols)...
+2026-10-15 18:03:57,304 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:57,644 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:58,044 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:03:58,437 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:03:58,822 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:14,479 [INFO]     ✓ UYFINCORP.NS     ₹24.79    MomScore=1.79  6M=+72%  12M=+67%  Sector=Financial Services  ADX=53.1
+2026-10-15 18:04:17,506 [INFO]   Batch 50/53 (50 symbols)...
+2026-10-15 18:04:21,943 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:22,255 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:22,630 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:23,025 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:23,546 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:23,787 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:24,152 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:24,402 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:24,790 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:25,050 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:25,502 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:25,747 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:26,094 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:26,391 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:26,860 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:27,127 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:27,549 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:27,799 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:28,201 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:28,455 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:28,826 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:29,094 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:29,474 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:29,732 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:30,106 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:30,457 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:30,870 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:31,128 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:31,490 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:31,755 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:32,156 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:32,552 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:33,029 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:33,278 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:33,660 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:33,976 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:34,465 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:34,720 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:35,091 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:35,352 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:35,906 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:36,230 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:36,678 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:36,935 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:37,331 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:37,591 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:37,984 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:38,254 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:38,649 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:38,906 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:39,272 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:39,549 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:40,081 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:40,319 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:40,673 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:40,907 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:41,306 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:41,561 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:41,937 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:42,179 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:42,584 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:42,831 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:43,263 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:43,506 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:43,880 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:44,177 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:44,566 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:44,888 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:45,266 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:45,516 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:45,873 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:46,126 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:46,497 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:46,762 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:47,141 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:47,452 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:47,890 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:48,137 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:48,588 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:48,828 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:49,264 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:49,578 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:49,937 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:50,189 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:50,560 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:50,861 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:51,231 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:51,470 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:51,860 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:52,209 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:52,561 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:52,864 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:53,216 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:53,467 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:53,852 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:54,106 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:54,467 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:54,722 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:55,087 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:04:55,345 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:04:57,437 [INFO]   Batch 51/53 (50 symbols)...
+2026-10-15 18:05:01,904 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:02,198 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:02,842 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:03,087 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:03,430 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:03,617 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:03,961 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:04,164 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:04,530 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:04,753 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:05,208 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:05,405 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:05,761 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:05,950 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:06,420 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:06,619 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:07,029 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:07,288 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:07,688 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:07,911 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:08,252 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:08,431 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:08,783 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:08,975 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:09,362 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:09,577 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:10,029 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:10,247 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:10,594 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:10,865 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:11,344 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:11,566 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:11,916 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:12,132 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:24,293 [INFO]   Batch 52/53 (50 symbols)...
+2026-10-15 18:05:27,747 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:27,874 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:28,138 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:28,305 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:28,568 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:28,722 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:28,920 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:29,074 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:29,297 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:29,456 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:29,693 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:29,829 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:30,069 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:30,254 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:30,483 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:30,646 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:30,966 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:31,189 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:31,457 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:31,642 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:31,852 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:32,030 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:39,424 [INFO]     ✓ ZIMLAB.NS        ₹140.3    MomScore=1.73  6M=+85%  12M=+94%  Sector=Pharma  ADX=34.3
+2026-10-15 18:05:41,955 [INFO]   Batch 53/53 (5 symbols)...
+2026-10-15 18:05:42,840 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:43,048 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:43,281 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:43,449 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:43,672 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:43,821 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:44,144 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:44,290 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:44,647 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:44,816 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:46,877 [INFO] Stage 1 complete. Momentum candidates: 48
+2026-10-15 18:05:46,878 [INFO] Cross-sectional gate (top 20%): 48 → 10 (threshold: 1.782)
+2026-10-15 18:05:46,878 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-10-15 18:05:47,056 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:47,289 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:47,349 [INFO]   ✓ CUBEXTUB.NS      score=0.683  mom=1.86  fscore=0.245  FCF=None%
+2026-10-15 18:05:47,879 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:48,060 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:48,122 [INFO]   ✓ CYIENTDLM.NS     score=0.686  mom=3.59  fscore=0.245  FCF=None%
+2026-10-15 18:05:48,637 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:48,823 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:48,876 [INFO]   ✓ E2E.NS           score=0.713  mom=2.34  fscore=0.245  FCF=None%
+2026-10-15 18:05:49,377 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:49,539 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:49,602 [INFO]   ✓ FILATEX.NS       score=0.573  mom=2.41  fscore=0.245  FCF=None%
+2026-10-15 18:05:50,141 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:50,318 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:50,374 [INFO]   ✓ GANDHAR.NS       score=0.717  mom=2.19  fscore=0.245  FCF=None%
+2026-10-15 18:05:50,865 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:51,155 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:51,209 [INFO]   ✓ KABRAEXTRU.NS    score=0.626  mom=3.80  fscore=0.245  FCF=None%
+2026-10-15 18:05:51,708 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:51,850 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:51,919 [INFO]   ✓ KRISHANA.NS      score=0.624  mom=1.84  fscore=0.245  FCF=None%
+2026-10-15 18:05:52,503 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:52,683 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:52,749 [INFO]   ✓ MAWANASUG.NS     score=0.646  mom=1.84  fscore=0.245  FCF=None%
+2026-10-15 18:05:53,220 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:53,385 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:53,449 [INFO]   ✓ TFCILTD.NS       score=0.722  mom=2.35  fscore=0.245  FCF=None%
+2026-10-15 18:05:53,961 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:05:54,132 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:05:54,191 [INFO]   ✓ UYFINCORP.NS     score=0.681  mom=1.79  fscore=0.245  FCF=None%
+2026-10-15 18:05:54,491 [INFO] Stage 2 complete. 10 passed → top 10
+2026-10-15 18:05:54,493 [INFO] Results written to results/
+2026-10-15 18:05:54,494 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-10-15 18:05:54,494 [INFO] Initialising public data fetcher...
+2026-10-15 18:06:14,795 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-10-15 18:06:14,795 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-10-15 18:06:14,795 [INFO] Layer 2 v5: scanning 2605 symbols...
+2026-10-15 18:06:14,968 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:15,198 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:15,536 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:15,741 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:16,044 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:16,193 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:16,481 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:16,665 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:16,948 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:17,102 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:17,377 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:17,550 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:17,806 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:17,964 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:18,257 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:18,407 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:18,706 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:18,884 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:19,182 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:19,343 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:19,635 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:19,893 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:20,125 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:20,313 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:20,611 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:20,755 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:21,026 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:21,307 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:21,616 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:21,844 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:22,155 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:22,330 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:22,563 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:22,743 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:23,079 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:23,254 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:23,494 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:23,646 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:23,872 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:24,056 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:24,326 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:24,464 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:24,758 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:24,918 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:25,147 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:25,357 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:25,717 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:25,900 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:26,212 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:26,437 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:26,663 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:26,805 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:27,066 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:27,250 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:27,484 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:27,711 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:27,982 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:28,161 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:28,393 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:28,632 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:28,944 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:29,086 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:29,362 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:29,553 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:29,809 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:29,963 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:30,205 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:30,414 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:30,696 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:30,911 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:31,171 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:31,318 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:31,546 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:31,738 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:31,961 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:32,148 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:32,393 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:32,536 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:36,147 [INFO]   DNA ACSTECH.NS: 0.399 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:06:36,456 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:36,639 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:38,408 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:38,680 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:38,918 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:39,120 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:39,389 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:39,654 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:40,006 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:40,216 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:40,516 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:40,757 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:41,073 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:41,287 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:41,551 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:41,787 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:42,040 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:42,226 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:42,486 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:42,712 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:42,981 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:43,191 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:43,471 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:43,711 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:43,964 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:44,150 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:44,413 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:44,607 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:44,847 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:45,052 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:45,365 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:45,560 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:45,905 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:46,118 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:46,359 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:46,560 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:46,850 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:47,023 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:47,282 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:47,465 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:47,844 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:49,065 [INFO]   DNA AEPL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:06:49,066 [INFO]   [71/2605] ✓ AEPL.NS DNA=0.487(C) P=6/9 anns=0
+2026-10-15 18:06:50,813 [INFO]   DNA AERONEU.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:06:50,813 [INFO]   [75/2605] ✓ AERONEU.NS DNA=0.487(C) P=7/9 anns=0
+2026-10-15 18:06:51,049 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:51,264 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:51,460 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:51,602 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:51,802 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:51,982 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:52,283 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:52,500 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:52,732 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:52,903 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:53,192 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:53,421 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:53,783 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:54,020 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:54,322 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:54,505 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:54,738 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:54,893 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:55,110 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:55,272 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:55,505 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:55,671 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:55,892 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:56,245 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:56,485 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:56,634 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:56,858 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:57,214 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:57,436 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:57,615 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:57,873 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:06:58,018 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:06:58,299 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:01,080 [INFO]   DNA AIRAN.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:01,080 [INFO]   [100/2605] ✓ AIRAN.NS DNA=0.511(C) P=3/9 anns=0
+2026-10-15 18:07:05,169 [INFO]   DNA AKG.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:07:06,223 [INFO]   DNA AKI.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:07:06,223 [INFO]   [109/2605] ✓ AKI.NS DNA=0.452(C) P=2/9 anns=0
+2026-10-15 18:07:07,445 [INFO]   DNA AKSHOPTFBR.NS: 0.374 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:07:08,542 [INFO]   DNA ALANKIT.NS: 0.401 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:10,775 [INFO]   DNA ALKALI.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:07:10,775 [INFO]   [121/2605] ✓ ALKALI.NS DNA=0.460(C) P=8/9 anns=0
+2026-10-15 18:07:13,756 [INFO]   DNA ALPHAGEO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:07:14,331 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:14,498 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:14,847 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:15,026 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:15,264 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:15,463 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:15,711 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:15,914 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:16,151 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:16,325 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:16,542 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:16,734 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:17,813 [INFO]   DNA AMBALALSA.NS: 0.433 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:18,114 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:18,364 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:18,635 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:18,827 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:19,192 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:19,419 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:19,763 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:19,955 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:20,198 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:20,394 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:20,726 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:20,894 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:21,427 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:21,597 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:21,889 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:26,665 [INFO]   DNA ANMOL.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:07:26,665 [INFO]   [154/2605] ✓ ANMOL.NS DNA=0.452(C) P=7/9 anns=0
+2026-10-15 18:07:27,760 [INFO]   DNA ANNAPURNA.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:28,760 [INFO]   DNA ANNU.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:07:34,543 [INFO]   DNA APTECHT.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:07:46,403 [INFO]   DNA ASHIMASYN.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:46,404 [INFO]   [215/2605] ✓ ASHIMASYN.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:07:46,624 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:47,043 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:07:47,319 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:07:50,752 [INFO]   DNA ASMS.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:50,752 [INFO]   [225/2605] ✓ ASMS.NS DNA=0.511(C) P=5/9 anns=0
+2026-10-15 18:07:54,352 [INFO]   DNA ATALREAL.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:54,352 [INFO]   [235/2605] ✓ ATALREAL.NS DNA=0.454(C) P=2/9 anns=0
+2026-10-15 18:07:56,029 [INFO]   DNA ATL.NS: 0.438 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:07:56,991 [INFO]   DNA ATLANTAA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:07:56,991 [INFO]   [240/2605] ✓ ATLANTAA.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:07:58,104 [INFO]   DNA ATLASCYCLE.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:08:03,837 [INFO]   DNA AUTOIND.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:08:07,427 [INFO]   DNA AVROIND.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:08:07,427 [INFO]   [263/2605] ✓ AVROIND.NS DNA=0.505(C) P=5/9 anns=0
+2026-10-15 18:08:10,501 [INFO]   DNA AXITA.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:08:12,907 [INFO]   DNA AZADIND.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:08:14,931 [INFO]   DNA BAIDFIN.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:08:14,931 [INFO]   [278/2605] ✓ BAIDFIN.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:08:15,240 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:08:15,482 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:08:15,747 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:08:15,952 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:08:16,242 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:08:16,422 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:08:16,746 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:08:16,895 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:08:17,149 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:08:17,353 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-10-15 18:08:17,591 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-10-15 18:08:19,984 [INFO]   DNA BALAJEE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:08:19,984 [INFO]   [291/2605] ✓ BALAJEE.NS DNA=0.487(C) P=2/9 anns=0
+2026-10-15 18:08:21,495 [INFO]   DNA BALAXI.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:08:23,005 [INFO]   DNA BALPHARMA.NS: 0.439 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:08:26,686 [INFO]   DNA BANG.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:08:26,687 [INFO]   [305/2605] ✓ BANG.NS DNA=0.505(C) P=4/9 anns=0
+2026-10-15 18:08:28,535 [INFO]   DNA BANSWRAS.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:08:28,536 [INFO]   [310/2605] ✓ BANSWRAS.NS DNA=0.487(C) P=8/9 anns=0
+2026-10-15 18:08:29,939 [INFO]   DNA BASML.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:08:36,587 [INFO]   DNA BESTAGRO.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:08:39,164 [INFO]   DNA BHAGYANGR.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:08:39,164 [INFO]   [345/2605] ✓ BHAGYANGR.NS DNA=0.467(C) P=9/9 anns=0
+2026-10-15 18:08:43,913 [INFO]   DNA BI.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:08:44,868 [INFO]   DNA BIGBLOC.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:08:44,869 [INFO]   [357/2605] ✓ BIGBLOC.NS DNA=0.463(C) P=6/9 anns=0
+2026-10-15 18:08:46,821 [INFO]   DNA BIOFILCHEM.NS: 0.469 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:08:46,822 [INFO]   [363/2605] ✓ BIOFILCHEM.NS DNA=0.469(C) P=5/9 anns=0
+2026-10-15 18:08:48,606 [INFO]   DNA BIRLAPREC.NS: 0.399 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:08:55,367 [INFO]   DNA BORANA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:08:55,367 [INFO]   [394/2605] ✓ BORANA.NS DNA=0.463(C) P=6/9 anns=0
+2026-10-15 18:08:59,303 [INFO]   DNA BPL.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:08:59,304 [INFO]   [401/2605] ✓ BPL.NS DNA=0.478(C) P=1/9 anns=0
+2026-10-15 18:09:02,159 [INFO]   DNA BROOKS.NS: 0.416 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:09:04,212 [INFO]   DNA BTML.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:09:05,618 [INFO]   DNA BURNPUR.NS: 0.323 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.40 stage=0.85
+2026-10-15 18:09:06,747 [INFO]   DNA BVCL.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:09:06,748 [INFO]   [419/2605] ✓ BVCL.NS DNA=0.460(C) P=7/9 anns=0
+2026-10-15 18:09:07,903 [INFO]   DNA BYKE.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:09:07,903 [INFO]   [420/2605] ✓ BYKE.NS DNA=0.454(C) P=9/9 anns=0
+2026-10-15 18:09:11,529 [INFO]   DNA CAPTRUST.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:09:11,530 [INFO]   [433/2605] ✓ CAPTRUST.NS DNA=0.460(C) P=4/9 anns=0
+2026-10-15 18:09:13,806 [INFO]   DNA CCCL.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:09:13,806 [INFO]   [440/2605] ✓ CCCL.NS DNA=0.473(C) P=6/9 anns=0
+2026-10-15 18:09:18,379 [INFO]   DNA CENTEXT.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:09:18,380 [INFO]   [451/2605] ✓ CENTEXT.NS DNA=0.454(C) P=5/9 anns=0
+2026-10-15 18:09:20,779 [INFO]   DNA CEWATER.NS: 0.507 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:09:20,780 [INFO]   [458/2605] ✓ CEWATER.NS DNA=0.507(C) P=2/9 anns=0
+2026-10-15 18:09:21,920 [INFO]   DNA CFEL.NS: 0.474 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-10-15 18:09:21,921 [INFO]   [459/2605] ✓ CFEL.NS DNA=0.474(C) P=6/9 anns=0
+2026-10-15 18:09:26,717 [INFO]   DNA CIFL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:09:26,717 [INFO]   [477/2605] ✓ CIFL.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:09:27,597 [INFO]   DNA CINELINE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:09:27,597 [INFO]   [478/2605] ✓ CINELINE.NS DNA=0.487(C) P=8/9 anns=0
+2026-10-15 18:09:31,252 [INFO]   DNA COASTCORP.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:09:31,253 [INFO]   [491/2605] ✓ COASTCORP.NS DNA=0.454(C) P=5/9 anns=0
+2026-10-15 18:09:32,490 [INFO]   DNA COFFEEDAY.NS: 0.359 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:09:34,162 [INFO]   DNA COMFINTE.NS: 0.399 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:09:36,994 [INFO]   DNA COMPUSOFT.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:09:36,994 [INFO]   [501/2605] ✓ COMPUSOFT.NS DNA=0.505(C) P=6/9 anns=0
+2026-10-15 18:09:39,618 [INFO]   DNA CORDSCABLE.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:09:41,304 [INFO]   DNA COUNCODOS.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:09:44,237 [INFO]   DNA CRESTO.NS: 0.311 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.40
+2026-10-15 18:09:46,425 [INFO]   DNA CSLFINANCE.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:09:46,425 [INFO]   [532/2605] ✓ CSLFINANCE.NS DNA=0.463(C) P=2/9 anns=0
+2026-10-15 18:09:47,306 [INFO]   DNA CSM.NS: 0.458 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:09:47,306 [INFO]   [533/2605] ✓ CSM.NS DNA=0.458(C) P=5/9 anns=0
+2026-10-15 18:09:49,742 [INFO]   DNA CYBERMEDIA.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:09:49,743 [INFO]   [540/2605] ✓ CYBERMEDIA.NS DNA=0.485(C) P=6/9 anns=0
+2026-10-15 18:09:55,288 [INFO]   DNA DBEIL.NS: 0.377 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:09:57,382 [INFO]   DNA DCI.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:09:59,321 [INFO]   DNA DCMSIL.NS: 0.405 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:10:00,315 [INFO]   DNA DCMSRIND.NS: 0.474 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:00,315 [INFO]   [568/2605] ✓ DCMSRIND.NS DNA=0.474(C) P=7/9 anns=0
+2026-10-15 18:10:05,336 [INFO]   DNA DENTA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:10:05,336 [INFO]   [586/2605] ✓ DENTA.NS DNA=0.463(C) P=6/9 anns=0
+2026-10-15 18:10:06,185 [INFO]   DNA DEVIT.NS: 0.529 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:10:06,186 [INFO]   [587/2605] ✓ DEVIT.NS DNA=0.529(C) P=4/9 anns=0
+2026-10-15 18:10:07,107 [INFO]   DNA DEVX.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:10:13,532 [INFO]   DNA DIGISPICE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:13,532 [INFO]   [607/2605] ✓ DIGISPICE.NS DNA=0.487(C) P=7/9 anns=0
+2026-10-15 18:10:14,595 [INFO]   DNA DIGJAMLMTD.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:10:14,596 [INFO]   [609/2605] ✓ DIGJAMLMTD.NS DNA=0.486(C) P=6/9 anns=0
+2026-10-15 18:10:16,651 [INFO]   DNA DJML.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:10:18,355 [INFO]   DNA DMCC.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:10:20,077 [INFO]   DNA DOLLEX.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:10:22,024 [INFO]   DNA DPSCLTD.NS: 0.436 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:10:22,759 [INFO]   DNA DPWIRES.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:10:23,723 [INFO]   DNA DRCSYSTEMS.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:23,723 [INFO]   [632/2605] ✓ DRCSYSTEMS.NS DNA=0.511(C) P=5/9 anns=0
+2026-10-15 18:10:24,781 [INFO]   DNA DREAMFOLKS.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:24,781 [INFO]   [633/2605] ✓ DREAMFOLKS.NS DNA=0.513(C) P=4/9 anns=0
+2026-10-15 18:10:26,083 [INFO]   DNA DSFCL.NS: 0.429 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:10:31,656 [INFO]   DNA EBIX.NS: 0.482 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:10:31,656 [INFO]   [651/2605] ✓ EBIX.NS DNA=0.482(C) P=2/9 anns=0
+2026-10-15 18:10:33,282 [INFO]   DNA ECOSMOBLTY.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:10:33,282 [INFO]   [654/2605] ✓ ECOSMOBLTY.NS DNA=0.473(C) P=6/9 anns=0
+2026-10-15 18:10:38,090 [INFO]   DNA ELGIRUBCO.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:10:39,106 [INFO]   DNA ELIN.NS: 0.480 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:39,107 [INFO]   [675/2605] ✓ ELIN.NS DNA=0.480(C) P=6/9 anns=0
+2026-10-15 18:10:49,436 [INFO]   DNA ESSARSHPNG.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:49,436 [INFO]   [710/2605] ✓ ESSARSHPNG.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:10:53,363 [INFO]   DNA EXXARO.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:10:53,363 [INFO]   [726/2605] ✓ EXXARO.NS DNA=0.513(C) P=6/9 anns=0
+2026-10-15 18:10:54,244 [INFO]   DNA FABTECH.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:10:54,244 [INFO]   [727/2605] ✓ FABTECH.NS DNA=0.486(C) P=5/9 anns=0
+2026-10-15 18:11:02,931 [INFO]   DNA FMNL.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:11:02,931 [INFO]   [757/2605] ✓ FMNL.NS DNA=0.505(C) P=7/9 anns=0
+2026-10-15 18:11:03,982 [INFO]   DNA FOCUS.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:11:05,088 [INFO]   DNA FOODSIN.NS: 0.420 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:11:10,121 [INFO]   DNA GANESHBE.NS: 0.436 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:11:10,958 [INFO]   DNA GANESHCP.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:11:10,958 [INFO]   [779/2605] ✓ GANESHCP.NS DNA=0.483(C) P=6/9 anns=0
+2026-10-15 18:11:13,766 [INFO]   DNA GAUDIUMIVF.NS: 0.466 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:11:13,766 [INFO]   [788/2605] ✓ GAUDIUMIVF.NS DNA=0.466(C) P=5/9 anns=0
+2026-10-15 18:11:15,859 [INFO]   DNA GEEKAYWIRE.NS: 0.365 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:11:16,779 [INFO]   DNA GEMAROMA.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:11:16,779 [INFO]   [794/2605] ✓ GEMAROMA.NS DNA=0.489(C) P=7/9 anns=0
+2026-10-15 18:11:17,730 [INFO]   DNA GENCON.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:11:17,731 [INFO]   [795/2605] ✓ GENCON.NS DNA=0.487(C) P=6/9 anns=0
+2026-10-15 18:11:18,938 [INFO]   DNA GENSOL.NS: 0.496 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:11:18,938 [INFO]   [797/2605] ✓ GENSOL.NS DNA=0.496(C) P=6/9 anns=0
+2026-10-15 18:11:23,455 [INFO]   DNA GICL.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:11:25,028 [INFO]   DNA GINNIFILA.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:11:28,953 [INFO]   DNA GLOBECIVIL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:11:28,953 [INFO]   [826/2605] ✓ GLOBECIVIL.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:11:30,331 [INFO]   DNA GLOTTIS.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:11:33,087 [INFO]   DNA GOACARBON.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:11:36,754 [INFO]   DNA GOKUL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:11:36,754 [INFO]   [849/2605] ✓ GOKUL.NS DNA=0.487(C) P=7/9 anns=0
+2026-10-15 18:11:40,659 [INFO]   DNA GOYALALUM.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:11:40,659 [INFO]   [857/2605] ✓ GOYALALUM.NS DNA=0.505(C) P=3/9 anns=0
+2026-10-15 18:11:43,640 [INFO]   DNA GRAVISSHO.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:11:47,756 [INFO]   DNA GSLSU.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:11:47,757 [INFO]   [884/2605] ✓ GSLSU.NS DNA=0.505(C) P=5/9 anns=0
+2026-10-15 18:11:49,071 [INFO]   DNA GSS.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-10-15 18:11:50,252 [INFO]   DNA GTL.NS: 0.375 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:11:51,434 [INFO]   DNA GTPL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:11:51,434 [INFO]   [891/2605] ✓ GTPL.NS DNA=0.483(C) P=5/9 anns=0
+2026-10-15 18:11:56,367 [INFO]   DNA GVPTECH.NS: 0.452 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:11:56,367 [INFO]   [903/2605] ✓ GVPTECH.NS DNA=0.452(C) P=3/9 anns=0
+2026-10-15 18:11:59,625 [INFO]   DNA HARDWYN.NS: 0.478 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-10-15 18:11:59,625 [INFO]   [913/2605] ✓ HARDWYN.NS DNA=0.478(C) P=8/9 anns=0
+2026-10-15 18:12:02,547 [INFO]   DNA HAZOOR.NS: 0.351 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:12:05,017 [INFO]   DNA HCL-INSYS.NS: 0.478 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:12:05,018 [INFO]   [929/2605] ✓ HCL-INSYS.NS DNA=0.478(C) P=2/9 anns=0
+2026-10-15 18:12:08,463 [INFO]   DNA HERANBA.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:12:08,463 [INFO]   [942/2605] ✓ HERANBA.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:12:13,559 [INFO]   DNA HILINFRA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:12:13,560 [INFO]   [955/2605] ✓ HILINFRA.NS DNA=0.467(C) P=5/9 anns=0
+2026-10-15 18:12:14,502 [INFO]   DNA HILTON.NS: 0.395 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:12:15,383 [INFO]   DNA HIMATSEIDE.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:12:17,268 [INFO]   DNA HINDCON.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:12:20,799 [INFO]   DNA HLVLTD.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:12:20,799 [INFO]   [975/2605] ✓ HLVLTD.NS DNA=0.489(C) P=6/9 anns=0
+2026-10-15 18:12:22,236 [INFO]   DNA HMVL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:12:24,414 [INFO]   DNA HPAL.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:12:24,414 [INFO]   [985/2605] ✓ HPAL.NS DNA=0.467(C) P=7/9 anns=0
+2026-10-15 18:12:32,942 [INFO]   DNA IGCL.NS: 0.507 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:12:32,942 [INFO]   [1016/2605] ✓ IGCL.NS DNA=0.507(C) P=6/9 anns=0
+2026-10-15 18:12:40,794 [INFO]   DNA INDOFARM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:12:40,794 [INFO]   [1049/2605] ✓ INDOFARM.NS DNA=0.463(C) P=8/9 anns=0
+2026-10-15 18:12:44,668 [INFO]   DNA INDOWIND.NS: 0.496 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:12:44,669 [INFO]   [1057/2605] ✓ INDOWIND.NS DNA=0.496(C) P=5/9 anns=0
+2026-10-15 18:12:46,434 [INFO]   DNA INDTERRAIN.NS: 0.492 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:12:46,434 [INFO]   [1061/2605] ✓ INDTERRAIN.NS DNA=0.492(C) P=6/9 anns=0
+2026-10-15 18:12:49,154 [INFO]   DNA INNOVISION.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:12:49,155 [INFO]   [1070/2605] ✓ INNOVISION.NS DNA=0.463(C) P=5/9 anns=0
+2026-10-15 18:12:51,424 [INFO]   DNA INTENTECH.NS: 0.434 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:12:56,807 [INFO]   DNA ISHANCH.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:12:56,807 [INFO]   [1099/2605] ✓ ISHANCH.NS DNA=0.472(C) P=5/9 anns=0
+2026-10-15 18:13:02,498 [INFO]   DNA IVC.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:13:03,709 [INFO]   DNA IWP.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:13:06,184 [INFO]   DNA JAIPURKURT.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:13:08,847 [INFO]   DNA JAYSREETEA.NS: 0.474 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:13:08,847 [INFO]   [1126/2605] ✓ JAYSREETEA.NS DNA=0.474(C) P=4/9 anns=0
+2026-10-15 18:13:10,171 [INFO]   DNA JETFREIGHT.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:13:11,244 [INFO]   DNA JHS.NS: 0.452 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:13:11,244 [INFO]   [1131/2605] ✓ JHS.NS DNA=0.452(C) P=3/9 anns=0
+2026-10-15 18:13:26,272 [INFO]   DNA KAMATHOTEL.NS: 0.405 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:13:28,909 [INFO]   DNA KANPRPLA.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:13:32,600 [INFO]   DNA KAVDEFENCE.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:13:33,480 [INFO]   DNA KAYA.NS: 0.395 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:13:35,100 [INFO]   DNA KCPSUGIND.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:13:36,204 [INFO]   DNA KDGREEN.NS: 0.408 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:13:37,979 [INFO]   DNA KELLTONTEC.NS: 0.436 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:13:39,461 [INFO]   DNA KESORAMIND.NS: 0.462 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:13:39,461 [INFO]   [1218/2605] ✓ KESORAMIND.NS DNA=0.462(C) P=3/9 anns=0
+2026-10-15 18:13:40,816 [INFO]   DNA KHADIM.NS: 0.460 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:13:40,816 [INFO]   [1221/2605] ✓ KHADIM.NS DNA=0.460(C) P=5/9 anns=0
+2026-10-15 18:13:41,879 [INFO]   DNA KHAICHEM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:13:41,879 [INFO]   [1222/2605] ✓ KHAICHEM.NS DNA=0.463(C) P=8/9 anns=0
+2026-10-15 18:13:47,650 [INFO]   DNA KMSUGAR.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:13:47,650 [INFO]   [1244/2605] ✓ KMSUGAR.NS DNA=0.487(C) P=7/9 anns=0
+2026-10-15 18:13:49,202 [INFO]   DNA KOHINOOR.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:13:50,081 [INFO]   DNA KOKUYOCMLN.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:13:50,082 [INFO]   [1249/2605] ✓ KOKUYOCMLN.NS DNA=0.489(C) P=9/9 anns=0
+2026-10-15 18:13:53,103 [INFO]   DNA KOTARISUG.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:13:54,167 [INFO]   DNA KOTHARIPET.NS: 0.341 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:13:55,859 [INFO]   DNA KOTYARK.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:14:03,249 [INFO]   DNA KSOLVES.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:14:03,249 [INFO]   [1285/2605] ✓ KSOLVES.NS DNA=0.454(C) P=5/9 anns=0
+2026-10-15 18:14:04,188 [INFO]   DNA KSR.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:14:04,188 [INFO]   [1286/2605] ✓ KSR.NS DNA=0.460(C) P=7/9 anns=0
+2026-10-15 18:14:05,347 [INFO]   DNA KUANTUM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:14:05,348 [INFO]   [1288/2605] ✓ KUANTUM.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:14:08,134 [INFO]   DNA LAL.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:14:08,134 [INFO]   [1296/2605] ✓ LAL.NS DNA=0.460(C) P=4/9 anns=0
+2026-10-15 18:14:09,886 [INFO]   DNA LANCER.NS: 0.401 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:14:12,367 [INFO]   DNA LANCORHOL.NS: 0.435 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:14:14,468 [INFO]   DNA LATTEYS.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:14:16,143 [INFO]   DNA LAXMIINDIA.NS: 0.443 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:14:18,332 [INFO]   DNA LEMERITE.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:14:21,135 [INFO]   DNA LIBERTSHOE.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:14:21,135 [INFO]   [1326/2605] ✓ LIBERTSHOE.NS DNA=0.487(C) P=6/9 anns=0
+2026-10-15 18:14:31,290 [INFO]   DNA MAANALU.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:14:31,290 [INFO]   [1361/2605] ✓ MAANALU.NS DNA=0.489(C) P=6/9 anns=0
+2026-10-15 18:14:32,779 [INFO]   DNA MADHAVIPL.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:14:34,675 [INFO]   DNA MAGNUM.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:14:34,675 [INFO]   [1369/2605] ✓ MAGNUM.NS DNA=0.505(C) P=3/9 anns=0
+2026-10-15 18:14:38,509 [INFO]   DNA MALUPAPER.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:14:38,509 [INFO]   [1383/2605] ✓ MALUPAPER.NS DNA=0.505(C) P=7/9 anns=0
+2026-10-15 18:14:39,851 [INFO]   DNA MANAKALUCO.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:14:39,851 [INFO]   [1385/2605] ✓ MANAKALUCO.NS DNA=0.467(C) P=6/9 anns=0
+2026-10-15 18:14:40,960 [INFO]   DNA MANAKSIA.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:14:40,960 [INFO]   [1387/2605] ✓ MANAKSIA.NS DNA=0.468(C) P=3/9 anns=0
+2026-10-15 18:14:43,066 [INFO]   DNA MANCREDIT.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:14:43,998 [INFO]   DNA MANGALAM.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:14:48,321 [INFO]   DNA MANUGRAPH.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:14:48,322 [INFO]   [1403/2605] ✓ MANUGRAPH.NS DNA=0.460(C) P=6/9 anns=0
+2026-10-15 18:14:55,221 [INFO]   DNA MBLINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:14:55,222 [INFO]   [1429/2605] ✓ MBLINFRA.NS DNA=0.487(C) P=5/9 anns=0
+2026-10-15 18:14:56,469 [INFO]   DNA MCL.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:14:57,359 [INFO]   DNA MCLEODRUSS.NS: 0.308 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:14:59,276 [INFO]   DNA MEDICAMEQ.NS: 0.432 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:15:00,548 [INFO]   DNA MEDICO.NS: 0.510 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:15:00,549 [INFO]   [1439/2605] ✓ MEDICO.NS DNA=0.510(C) P=7/9 anns=0
+2026-10-15 18:15:02,260 [INFO]   DNA MEIL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:15:02,260 [INFO]   [1443/2605] ✓ MEIL.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:15:03,092 [INFO]   DNA MENNPIS.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:15:04,932 [INFO]   DNA MERCURYEV.NS: 0.375 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:15:11,312 [INFO]   DNA MINDTECK.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:15:11,312 [INFO]   [1465/2605] ✓ MINDTECK.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:15:12,408 [INFO]   DNA MIRZAINT.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:15:12,408 [INFO]   [1466/2605] ✓ MIRZAINT.NS DNA=0.513(C) P=4/9 anns=0
+2026-10-15 18:15:17,605 [INFO]   DNA MOHITIND.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:15:17,605 [INFO]   [1483/2605] ✓ MOHITIND.NS DNA=0.472(C) P=6/9 anns=0
+2026-10-15 18:15:19,004 [INFO]   DNA MOKSH.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:15:20,590 [INFO]   DNA MOLDTECH.NS: 0.385 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:15:21,697 [INFO]   DNA MOMSBELIEF.NS: 0.405 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:15:22,943 [INFO]   DNA MONEYBOXX.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:15:27,174 [INFO]   DNA MOTOGENFIN.NS: 0.486 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:15:27,174 [INFO]   [1501/2605] ✓ MOTOGENFIN.NS DNA=0.486(C) P=4/9 anns=0
+2026-10-15 18:15:31,413 [INFO]   DNA MUFTI.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:15:31,413 [INFO]   [1516/2605] ✓ MUFTI.NS DNA=0.489(C) P=7/9 anns=0
+2026-10-15 18:15:33,590 [INFO]   DNA MUNJALSHOW.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:15:33,590 [INFO]   [1522/2605] ✓ MUNJALSHOW.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:15:36,620 [INFO]   DNA NAGREEKEXP.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:15:36,621 [INFO]   [1533/2605] ✓ NAGREEKEXP.NS DNA=0.505(C) P=4/9 anns=0
+2026-10-15 18:15:37,905 [INFO]   DNA NAHARINDUS.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:15:39,675 [INFO]   DNA NARMADA.NS: 0.487 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=1.00
+2026-10-15 18:15:39,676 [INFO]   [1539/2605] ✓ NARMADA.NS DNA=0.487(C) P=5/9 anns=0
+2026-10-15 18:15:45,449 [INFO]   DNA NCLIND.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:15:45,449 [INFO]   [1556/2605] ✓ NCLIND.NS DNA=0.456(C) P=8/9 anns=0
+2026-10-15 18:15:47,109 [INFO]   DNA NDTV.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:15:47,110 [INFO]   [1561/2605] ✓ NDTV.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:15:48,260 [INFO]   DNA NECCLTD.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:15:49,163 [INFO]   DNA NECLIFE.NS: 0.477 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:15:49,163 [INFO]   [1564/2605] ✓ NECLIFE.NS DNA=0.477(C) P=3/9 anns=0
+2026-10-15 18:15:51,881 [INFO]   DNA NEUEON.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:15:53,492 [INFO]   DNA NGIL.NS: 0.427 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:15:55,447 [INFO]   DNA NIBL.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:15:55,447 [INFO]   [1584/2605] ✓ NIBL.NS DNA=0.505(C) P=4/9 anns=0
+2026-10-15 18:15:57,069 [INFO]   DNA NILAINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:15:57,069 [INFO]   [1588/2605] ✓ NILAINFRA.NS DNA=0.487(C) P=7/9 anns=0
+2026-10-15 18:15:58,103 [INFO]   DNA NILASPACES.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:15:59,532 [INFO]   DNA NIMBSPROJ.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:16:00,761 [INFO]   DNA NIRAJ.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:16:00,761 [INFO]   [1595/2605] ✓ NIRAJ.NS DNA=0.467(C) P=3/9 anns=0
+2026-10-15 18:16:04,419 [INFO]   DNA NITYAS.NS: 0.331 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:16:07,132 [INFO]   DNA NOVAAGRI.NS: 0.480 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:16:07,132 [INFO]   [1611/2605] ✓ NOVAAGRI.NS DNA=0.480(C) P=6/9 anns=0
+2026-10-15 18:16:14,092 [INFO]   DNA OMAXAUTO.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:16:15,647 [INFO]   DNA OMINFRAL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:16:15,647 [INFO]   [1641/2605] ✓ OMINFRAL.NS DNA=0.483(C) P=4/9 anns=0
+2026-10-15 18:16:16,950 [INFO]   DNA OMPOWER.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:16:16,950 [INFO]   [1643/2605] ✓ OMPOWER.NS DNA=0.463(C) P=3/9 anns=0
+2026-10-15 18:16:20,933 [INFO]   DNA ONMOBILE.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:16:24,757 [INFO]   DNA ORIENTCER.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:16:24,758 [INFO]   [1663/2605] ✓ ORIENTCER.NS DNA=0.463(C) P=8/9 anns=0
+2026-10-15 18:16:26,363 [INFO]   DNA ORIENTPPR.NS: 0.436 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:16:27,590 [INFO]   DNA ORIRAIL.NS: 0.408 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:16:29,465 [INFO]   DNA OSWALAGRO.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:16:30,761 [INFO]   DNA OSWALSEEDS.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:16:32,570 [INFO]   DNA PAKKA.NS: 0.430 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:16:35,187 [INFO]   DNA PAR.NS: 0.405 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:16:40,910 [INFO]   DNA PATINTLOG.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:16:42,280 [INFO]   DNA PAVNAIND.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:16:42,280 [INFO]   [1709/2605] ✓ PAVNAIND.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:16:45,233 [INFO]   DNA PENINLAND.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:16:45,234 [INFO]   [1718/2605] ✓ PENINLAND.NS DNA=0.489(C) P=3/9 anns=0
+2026-10-15 18:16:49,621 [INFO]   DNA PIGL.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:16:49,621 [INFO]   [1735/2605] ✓ PIGL.NS DNA=0.454(C) P=1/9 anns=0
+2026-10-15 18:16:51,017 [INFO]   DNA PILITA.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:16:51,017 [INFO]   [1738/2605] ✓ PILITA.NS DNA=0.454(C) P=5/9 anns=0
+2026-10-15 18:16:53,717 [INFO]   DNA PLASTIBLEN.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:16:54,764 [INFO]   DNA PLAZACABLE.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:16:59,334 [INFO]   DNA POEL.NS: 0.399 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:17:01,665 [INFO]   DNA PONNIERODE.NS: 0.429 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:17:04,616 [INFO]   DNA PRAENG.NS: 0.472 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:17:04,616 [INFO]   [1777/2605] ✓ PRAENG.NS DNA=0.472(C) P=7/9 anns=0
+2026-10-15 18:17:06,563 [INFO]   DNA PRAVEG.NS: 0.401 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:17:10,499 [INFO]   DNA PRIORITY.NS: 0.434 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:17:13,449 [INFO]   DNA PRITIKAUTO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:17:14,893 [INFO]   DNA PROSTARM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:14,893 [INFO]   [1803/2605] ✓ PROSTARM.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:17:17,927 [INFO]   DNA PTL.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:17,927 [INFO]   [1813/2605] ✓ PTL.NS DNA=0.463(C) P=7/9 anns=0
+2026-10-15 18:17:19,775 [INFO]   DNA PVSL.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:19,775 [INFO]   [1818/2605] ✓ PVSL.NS DNA=0.473(C) P=5/9 anns=0
+2026-10-15 18:17:20,832 [INFO]   DNA PYRAMID.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:20,832 [INFO]   [1820/2605] ✓ PYRAMID.NS DNA=0.463(C) P=3/9 anns=0
+2026-10-15 18:17:21,789 [INFO]   DNA QMSMEDI.NS: 0.362 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:17:23,351 [INFO]   DNA QUICKHEAL.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:23,351 [INFO]   [1825/2605] ✓ QUICKHEAL.NS DNA=0.513(C) P=4/9 anns=0
+2026-10-15 18:17:25,086 [INFO]   DNA RACE.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:17:26,506 [INFO]   DNA RADHIKAJWE.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:17:27,514 [INFO]   DNA RADIANTCMS.NS: 0.480 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:27,514 [INFO]   [1832/2605] ✓ RADIANTCMS.NS DNA=0.480(C) P=4/9 anns=0
+2026-10-15 18:17:28,973 [INFO]   DNA RADIOCITY.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:28,974 [INFO]   [1834/2605] ✓ RADIOCITY.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:17:31,959 [INFO]   DNA RAJSREESUG.NS: 0.498 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:17:31,959 [INFO]   [1844/2605] ✓ RAJSREESUG.NS DNA=0.498(C) P=5/9 anns=0
+2026-10-15 18:17:32,954 [INFO]   DNA RAJTV.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:17:32,954 [INFO]   [1845/2605] ✓ RAJTV.NS DNA=0.505(C) P=8/9 anns=0
+2026-10-15 18:17:34,214 [INFO]   DNA RAMANEWS.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:34,214 [INFO]   [1847/2605] ✓ RAMANEWS.NS DNA=0.489(C) P=2/9 anns=0
+2026-10-15 18:17:35,218 [INFO]   DNA RAMAPHO.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:35,218 [INFO]   [1848/2605] ✓ RAMAPHO.NS DNA=0.487(C) P=5/9 anns=0
+2026-10-15 18:17:39,172 [INFO]   DNA RANASUG.NS: 0.377 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:44,872 [INFO]   DNA RELIABLE.NS: 0.484 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:17:44,872 [INFO]   [1877/2605] ✓ RELIABLE.NS DNA=0.484(C) P=7/9 anns=0
+2026-10-15 18:17:46,851 [INFO]   DNA REMSONSIND.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:17:46,851 [INFO]   [1882/2605] ✓ REMSONSIND.NS DNA=0.467(C) P=9/9 anns=0
+2026-10-15 18:17:48,486 [INFO]   DNA REPRO.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:17:48,486 [INFO]   [1887/2605] ✓ REPRO.NS DNA=0.450(C) P=3/9 anns=0
+2026-10-15 18:17:51,491 [INFO]   DNA RITCO.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:17:54,365 [INFO]   DNA RKEC.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:17:55,637 [INFO]   DNA RKSWAMY.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:17:55,637 [INFO]   [1904/2605] ✓ RKSWAMY.NS DNA=0.463(C) P=6/9 anns=0
+2026-10-15 18:17:56,500 [INFO]   DNA RMC.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:56,500 [INFO]   [1905/2605] ✓ RMC.NS DNA=0.454(C) P=4/9 anns=0
+2026-10-15 18:17:57,661 [INFO]   DNA RNBDENIMS.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:57,662 [INFO]   [1908/2605] ✓ RNBDENIMS.NS DNA=0.513(C) P=5/9 anns=0
+2026-10-15 18:17:59,577 [INFO]   DNA ROSSELLIND.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:17:59,577 [INFO]   [1914/2605] ✓ ROSSELLIND.NS DNA=0.513(C) P=7/9 anns=0
+2026-10-15 18:18:02,123 [INFO]   DNA RPPINFRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:18:02,124 [INFO]   [1921/2605] ✓ RPPINFRA.NS DNA=0.487(C) P=5/9 anns=0
+2026-10-15 18:18:03,211 [INFO]   DNA RPPL.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:18:07,918 [INFO]   DNA RUBFILA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:18:07,918 [INFO]   [1936/2605] ✓ RUBFILA.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:18:09,169 [INFO]   DNA RUCHINFRA.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:18:09,169 [INFO]   [1939/2605] ✓ RUCHINFRA.NS DNA=0.460(C) P=8/9 anns=0
+2026-10-15 18:18:10,095 [INFO]   DNA RUCHIRA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:18:10,095 [INFO]   [1940/2605] ✓ RUCHIRA.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:18:11,135 [INFO]   DNA RUDRA.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:18:11,135 [INFO]   [1941/2605] ✓ RUDRA.NS DNA=0.467(C) P=6/9 anns=0
+2026-10-15 18:18:13,036 [INFO]   DNA RUSHIL.NS: 0.430 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:18:17,267 [INFO]   DNA SADBHAV.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:18:19,483 [INFO]   DNA SAHLIBHFI.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:18:19,484 [INFO]   [1959/2605] ✓ SAHLIBHFI.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:18:22,242 [INFO]   DNA SAKHTISUG.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:18:24,996 [INFO]   DNA SAMBHAAV.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:18:24,996 [INFO]   [1974/2605] ✓ SAMBHAAV.NS DNA=0.505(C) P=6/9 anns=0
+2026-10-15 18:18:31,123 [INFO]   DNA SATIA.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:18:32,280 [INFO]   DNA SAURASHCEM.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:18:32,280 [INFO]   [1999/2605] ✓ SAURASHCEM.NS DNA=0.463(C) P=8/9 anns=0
+2026-10-15 18:18:35,811 [INFO]   DNA SBGLP.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:18:35,811 [INFO]   [2005/2605] ✓ SBGLP.NS DNA=0.487(C) P=6/9 anns=0
+2026-10-15 18:18:38,199 [INFO]   DNA SCHAND.NS: 0.450 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:18:38,199 [INFO]   [2012/2605] ✓ SCHAND.NS DNA=0.450(C) P=6/9 anns=0
+2026-10-15 18:18:39,736 [INFO]   DNA SCODATUBES.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:18:39,736 [INFO]   [2016/2605] ✓ SCODATUBES.NS DNA=0.473(C) P=4/9 anns=0
+2026-10-15 18:18:40,777 [INFO]   DNA SCPL.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:18:47,730 [INFO]   DNA SHAHALLOYS.NS: 0.434 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:18:49,384 [INFO]   DNA SHALPAINTS.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:18:51,837 [INFO]   DNA SHANKARA.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:18:51,837 [INFO]   [2051/2605] ✓ SHANKARA.NS DNA=0.513(C) P=4/9 anns=0
+2026-10-15 18:18:54,748 [INFO]   DNA SHEKHAWATI.NS: 0.460 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:18:54,748 [INFO]   [2061/2605] ✓ SHEKHAWATI.NS DNA=0.460(C) P=4/9 anns=0
+2026-10-15 18:18:56,824 [INFO]   DNA SHINDL.NS: 0.375 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:18:58,290 [INFO]   DNA SHIVACEM.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:18:59,299 [INFO]   DNA SHIVALIK.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:19:00,281 [INFO]   DNA SHIVAMAUTO.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:19:00,281 [INFO]   [2072/2605] ✓ SHIVAMAUTO.NS DNA=0.467(C) P=4/9 anns=0
+2026-10-15 18:19:02,849 [INFO]   DNA SHRADHA.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:19:04,664 [INFO]   DNA SHREERAMA.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:19:08,209 [INFO]   DNA SICAGEN.NS: 0.468 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:19:08,209 [INFO]   [2097/2605] ✓ SICAGEN.NS DNA=0.468(C) P=6/9 anns=0
+2026-10-15 18:19:09,219 [INFO]   DNA SICALLOG.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:19:12,599 [INFO]   DNA SIGIND.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:19:13,797 [INFO]   DNA SIGMA.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:19:13,797 [INFO]   [2103/2605] ✓ SIGMA.NS DNA=0.487(C) P=5/9 anns=0
+2026-10-15 18:19:16,181 [INFO]   DNA SILGO.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:19:23,231 [INFO]   DNA SNOWMAN.NS: 0.456 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:19:23,232 [INFO]   [2138/2605] ✓ SNOWMAN.NS DNA=0.456(C) P=5/9 anns=0
+2026-10-15 18:19:25,454 [INFO]   DNA SOLEX.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:19:26,979 [INFO]   DNA SOMICONVEY.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:19:26,980 [INFO]   [2147/2605] ✓ SOMICONVEY.NS DNA=0.505(C) P=7/9 anns=0
+2026-10-15 18:19:27,894 [INFO]   DNA SONA.NS: 0.401 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:19:31,714 [INFO]   DNA SOUTHWEST.NS: 0.385 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:19:33,996 [INFO]   DNA SPENCERS.NS: 0.474 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:19:33,996 [INFO]   [2162/2605] ✓ SPENCERS.NS DNA=0.474(C) P=4/9 anns=0
+2026-10-15 18:19:36,234 [INFO]   DNA SRD.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:19:36,234 [INFO]   [2168/2605] ✓ SRD.NS DNA=0.487(C) P=3/9 anns=0
+2026-10-15 18:19:37,118 [INFO]   DNA SREEL.NS: 0.438 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:19:38,953 [INFO]   DNA SRIT.NS: 0.355 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:19:40,032 [INFO]   DNA SRTL.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:19:40,032 [INFO]   [2176/2605] ✓ SRTL.NS DNA=0.505(C) P=6/9 anns=0
+2026-10-15 18:19:41,025 [INFO]   DNA SSDL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:19:42,744 [INFO]   DNA STANLEY.NS: 0.440 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:19:51,605 [INFO]   DNA SUMEETINDS.NS: 0.478 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=1.00
+2026-10-15 18:19:51,605 [INFO]   [2211/2605] ✓ SUMEETINDS.NS DNA=0.478(C) P=3/9 anns=0
+2026-10-15 18:19:52,778 [INFO]   DNA SUMIT.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:19:58,358 [INFO]   DNA SUPREMEINF.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:19:58,358 [INFO]   [2235/2605] ✓ SUPREMEINF.NS DNA=0.473(C) P=3/9 anns=0
+2026-10-15 18:19:59,503 [INFO]   DNA SUPTANERY.NS: 0.450 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.30
+2026-10-15 18:19:59,503 [INFO]   [2237/2605] ✓ SUPTANERY.NS DNA=0.450(C) P=5/9 anns=0
+2026-10-15 18:20:01,361 [INFO]   DNA SURANAT&P.NS: 0.511 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:01,361 [INFO]   [2242/2605] ✓ SURANAT&P.NS DNA=0.511(C) P=3/9 anns=0
+2026-10-15 18:20:03,308 [INFO]   DNA SUTLEJTEX.NS: 0.444 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:20:08,503 [INFO]   DNA SWASTIKAIN.NS: 0.331 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:20:10,011 [INFO]   DNA SWISSMLTRY.NS: 0.432 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.30
+2026-10-15 18:20:13,334 [INFO]   DNA TAKE.NS: 0.477 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:13,334 [INFO]   [2274/2605] ✓ TAKE.NS DNA=0.477(C) P=3/9 anns=0
+2026-10-15 18:20:15,124 [INFO]   DNA TARACHAND.NS: 0.410 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:16,150 [INFO]   DNA TARAPUR.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:20:17,499 [INFO]   DNA TARMAT.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:20:17,499 [INFO]   [2283/2605] ✓ TARMAT.NS DNA=0.505(C) P=6/9 anns=0
+2026-10-15 18:20:27,634 [INFO]   DNA TEXMOPIPES.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:20:29,080 [INFO]   DNA TGBHOTELS.NS: 0.356 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.40 stage=0.85
+2026-10-15 18:20:32,326 [INFO]   DNA THOMASCOTT.NS: 0.463 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:20:32,327 [INFO]   [2335/2605] ✓ THOMASCOTT.NS DNA=0.463(C) P=4/9 anns=0
+2026-10-15 18:20:33,527 [INFO]   DNA TICL.NS: 0.485 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:20:33,527 [INFO]   [2338/2605] ✓ TICL.NS DNA=0.485(C) P=2/9 anns=0
+2026-10-15 18:20:34,542 [INFO]   DNA TIGERLOGS.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:34,542 [INFO]   [2339/2605] ✓ TIGERLOGS.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:20:41,190 [INFO]   DNA TNTELE.NS: 0.529 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:20:41,190 [INFO]   [2360/2605] ✓ TNTELE.NS DNA=0.529(C) P=4/9 anns=0
+2026-10-15 18:20:42,493 [INFO]   DNA TOLINS.NS: 0.513 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:42,493 [INFO]   [2362/2605] ✓ TOLINS.NS DNA=0.513(C) P=5/9 anns=0
+2026-10-15 18:20:44,770 [INFO]   DNA TPLPLASTEH.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:20:45,730 [INFO]   DNA TRACXN.NS: 0.454 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:45,730 [INFO]   [2370/2605] ✓ TRACXN.NS DNA=0.454(C) P=4/9 anns=0
+2026-10-15 18:20:48,443 [INFO]   DNA TREL.NS: 0.483 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:20:48,443 [INFO]   [2378/2605] ✓ TREL.NS DNA=0.483(C) P=5/9 anns=0
+2026-10-15 18:20:50,126 [INFO]   DNA TRIGYN.NS: 0.414 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:20:53,088 [INFO]   DNA TTL.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:20:53,088 [INFO]   [2392/2605] ✓ TTL.NS DNA=0.487(C) P=4/9 anns=0
+2026-10-15 18:20:54,750 [INFO]   DNA TVSELECT.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:20:54,750 [INFO]   [2396/2605] ✓ TVSELECT.NS DNA=0.487(C) P=7/9 anns=0
+2026-10-15 18:20:58,191 [INFO]   DNA TVTODAY.NS: 0.489 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:20:58,192 [INFO]   [2401/2605] ✓ TVTODAY.NS DNA=0.489(C) P=6/9 anns=0
+2026-10-15 18:20:59,933 [INFO]   DNA UCAL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:21:02,234 [INFO]   DNA UFO.NS: 0.454 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:21:02,234 [INFO]   [2411/2605] ✓ UFO.NS DNA=0.454(C) P=6/9 anns=0
+2026-10-15 18:21:03,131 [INFO]   DNA UGARSUGAR.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:21:05,003 [INFO]   DNA UMAEXPORTS.NS: 0.520 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=1.00
+2026-10-15 18:21:05,003 [INFO]   [2417/2605] ✓ UMAEXPORTS.NS DNA=0.520(C) P=8/9 anns=0
+2026-10-15 18:21:06,833 [INFO]   DNA UNIDT.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:21:10,187 [INFO]   DNA UNIVASTU.NS: 0.367 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:21:12,595 [INFO]   DNA URJA.NS: 0.403 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:21:13,804 [INFO]   DNA USK.NS: 0.505 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:21:13,804 [INFO]   [2442/2605] ✓ USK.NS DNA=0.505(C) P=7/9 anns=0
+2026-10-15 18:21:18,372 [INFO]   DNA VAISHALI.NS: 0.380 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:21:19,341 [INFO]   DNA VAKRANGEE.NS: 0.430 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:21:21,269 [INFO]   DNA VARDMNPOLY.NS: 0.487 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:21:21,269 [INFO]   [2458/2605] ✓ VARDMNPOLY.NS DNA=0.487(C) P=2/9 anns=0
+2026-10-15 18:21:22,778 [INFO]   DNA VASCONEQ.NS: 0.412 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:21:24,672 [INFO]   DNA VEDAVAAG.NS: 0.397 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.30
+2026-10-15 18:21:27,557 [INFO]   DNA VERANDA.NS: 0.420 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:21:28,452 [INFO]   DNA VERTOZ.NS: 0.434 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:21:29,503 [INFO]   DNA VETO.NS: 0.409 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:21:30,658 [INFO]   DNA VGL.NS: 0.442 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.40
+2026-10-15 18:21:35,144 [INFO]   DNA VINEETLAB.NS: 0.383 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.40
+2026-10-15 18:21:38,087 [INFO]   DNA VIPCLOTHNG.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:21:39,194 [INFO]   DNA VIPULLTD.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:21:40,491 [INFO]   DNA VIRINCHI.NS: 0.434 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:21:41,813 [INFO]   DNA VISACHROME.NS: 0.473 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:21:41,813 [INFO]   [2507/2605] ✓ VISACHROME.NS DNA=0.473(C) P=6/9 anns=0
+2026-10-15 18:21:42,680 [INFO]   DNA VISAKAIND.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:21:44,176 [INFO]   DNA VISHAL.NS: 0.408 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:21:45,194 [INFO]   DNA VISHWARAJ.NS: 0.408 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:21:47,212 [INFO]   DNA VIVIMEDLAB.NS: 0.382 (D) | rev=0.30 promo=0.20 cat=0.10 mcap=1.00 stage=0.65
+2026-10-15 18:21:48,484 [INFO]   DNA VLEGOV.NS: 0.472 (C) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:21:48,484 [INFO]   [2519/2605] ✓ VLEGOV.NS DNA=0.472(C) P=5/9 anns=0
+2026-10-15 18:21:50,154 [INFO]   DNA VMSTMT.NS: 0.467 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:21:50,155 [INFO]   [2523/2605] ✓ VMSTMT.NS DNA=0.467(C) P=6/9 anns=0
+2026-10-15 18:21:51,095 [INFO]   DNA VNL.NS: 0.331 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:21:53,228 [INFO]   DNA VPRPL.NS: 0.430 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:21:55,847 [INFO]   DNA VTMLTD.NS: 0.408 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.30
+2026-10-15 18:21:58,021 [INFO]   DNA WANBURY.NS: 0.453 (C) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:21:58,022 [INFO]   [2545/2605] ✓ WANBURY.NS DNA=0.453(C) P=6/9 anns=0
+2026-10-15 18:22:06,580 [INFO]   DNA WSI.NS: 0.418 (D) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:22:07,765 [INFO]   DNA XCHANGING.NS: 0.493 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.65 stage=0.65
+2026-10-15 18:22:07,766 [INFO]   [2576/2605] ✓ XCHANGING.NS DNA=0.493(C) P=8/9 anns=0
+2026-10-15 18:22:09,164 [INFO]   DNA XTGLOBAL.NS: 0.537 (C) | rev=0.30 promo=0.70 cat=0.10 mcap=0.85 stage=0.85
+2026-10-15 18:22:09,164 [INFO]   [2579/2605] ✓ XTGLOBAL.NS DNA=0.537(C) P=5/9 anns=0
+2026-10-15 18:22:12,485 [INFO]   DNA ZEELEARN.NS: 0.390 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.85 stage=0.65
+2026-10-15 18:22:13,636 [INFO]   DNA ZEEMEDIA.NS: 0.406 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=0.65 stage=0.85
+2026-10-15 18:22:14,699 [INFO]   DNA ZENITHSTL.NS: 0.428 (D) | rev=0.30 promo=0.35 cat=0.10 mcap=1.00 stage=0.85
+2026-10-15 18:22:19,378 [INFO]   DNA ZUARIIND.NS: 0.411 (D) | rev=0.30 promo=0.55 cat=0.10 mcap=0.65 stage=0.40
+2026-10-15 18:22:19,833 [INFO] 
+Enriching top 30 with Screener.in...
+2026-10-15 18:22:19,833 [INFO] Enriching 30 candidates with Screener.in data...
+2026-10-15 18:22:19,833 [INFO]   [1/30] Screener fetch: SRTL
+2026-10-15 18:22:23,378 [INFO]   [2/30] Screener fetch: TARMAT
+2026-10-15 18:22:26,831 [INFO]   [3/30] Screener fetch: MEDICO
+2026-10-15 18:22:30,292 [INFO]   [4/30] Screener fetch: BHAGYANGR
+2026-10-15 18:22:33,801 [INFO]   [5/30] Screener fetch: DRCSYSTEMS
+2026-10-15 18:22:37,325 [INFO]   [6/30] Screener fetch: RELIABLE
+2026-10-15 18:22:40,734 [INFO]   [7/30] Screener fetch: REMSONSIND
+2026-10-15 18:22:44,176 [INFO]   [8/30] Screener fetch: XCHANGING
+2026-10-15 18:22:47,637 [INFO]   [9/30] Screener fetch: CINELINE
+2026-10-15 18:22:51,162 [INFO]   [10/30] Screener fetch: KOKUYOCMLN
+2026-10-15 18:22:54,598 [INFO]   [11/30] Screener fetch: ASMS
+2026-10-15 18:22:58,045 [INFO]   [12/30] Screener fetch: CYBERMEDIA
+2026-10-15 18:23:01,502 [INFO]   [13/30] Screener fetch: ALKALI
+2026-10-15 18:23:04,917 [INFO]   [14/30] Screener fetch: BYKE
+2026-10-15 18:23:08,434 [INFO]   [15/30] Screener fetch: RAJTV
+2026-10-15 18:23:11,841 [INFO]   [16/30] Screener fetch: NILAINFRA
+2026-10-15 18:23:15,354 [INFO]   [17/30] Screener fetch: UMAEXPORTS
+2026-10-15 18:23:18,804 [INFO]   [18/30] Screener fetch: BANSWRAS
+2026-10-15 18:23:22,276 [INFO]   [19/30] Screener fetch: RNBDENIMS
+2026-10-15 18:23:25,733 [INFO]   [20/30] Screener fetch: PTL
+2026-10-15 18:23:29,124 [INFO]   [21/30] Screener fetch: SBGLP
+2026-10-15 18:23:32,539 [INFO]   [22/30] Screener fetch: MALUPAPER
+2026-10-15 18:23:35,930 [INFO]   [23/30] Screener fetch: DIGISPICE
+2026-10-15 18:23:39,330 [INFO]   [24/30] Screener fetch: SICAGEN
+2026-10-15 18:23:42,816 [INFO]   [25/30] Screener fetch: MOTOGENFIN
+2026-10-15 18:23:46,205 [INFO]   [26/30] Screener fetch: HARDWYN
+2026-10-15 18:23:49,652 [INFO]   [27/30] Screener fetch: BORANA
+2026-10-15 18:23:53,066 [INFO]   [28/30] Screener fetch: ROSSELLIND
+2026-10-15 18:23:56,438 [INFO]   [29/30] Screener fetch: RAMAPHO
+2026-10-15 18:23:59,856 [INFO]   [30/30] Screener fetch: ECOSMOBLTY
+2026-10-15 18:24:03,270 [INFO] Screener enrichment: 0/30 fetched successfully.
+2026-10-15 18:24:03,271 [INFO] Fetching concall signals for top 20...
+2026-10-15 18:24:05,655 [INFO]   🎙️ SRTL.NS: concall=0.30 final=0.565
+2026-10-15 18:24:08,058 [INFO]   🎙️ TARMAT.NS: concall=0.30 final=0.565
+2026-10-15 18:24:10,591 [INFO]   🎙️ MEDICO.NS: concall=0.30 final=0.564
+2026-10-15 18:24:12,997 [INFO]   🎙️ BHAGYANGR.NS: concall=0.30 final=0.559
+2026-10-15 18:24:15,395 [INFO]   🎙️ DRCSYSTEMS.NS: concall=0.30 final=0.556
+2026-10-15 18:24:17,887 [INFO]   🎙️ RELIABLE.NS: concall=0.30 final=0.552
+2026-10-15 18:24:20,344 [INFO]   🎙️ REMSONSIND.NS: concall=0.30 final=0.551
+2026-10-15 18:24:22,730 [INFO]   🎙️ XCHANGING.NS: concall=0.30 final=0.550
+2026-10-15 18:24:25,214 [INFO]   🎙️ CINELINE.NS: concall=0.30 final=0.549
+2026-10-15 18:24:27,607 [INFO]   🎙️ KOKUYOCMLN.NS: concall=0.30 final=0.549
+2026-10-15 18:24:30,073 [INFO]   🎙️ ASMS.NS: concall=0.30 final=0.549
+2026-10-15 18:24:32,530 [INFO]   🎙️ CYBERMEDIA.NS: concall=0.30 final=0.547
+2026-10-15 18:24:34,923 [INFO]   🎙️ ALKALI.NS: concall=0.30 final=0.545
+2026-10-15 18:24:37,324 [INFO]   🎙️ BYKE.NS: concall=0.30 final=0.543
+2026-10-15 18:24:39,860 [INFO]   🎙️ RAJTV.NS: concall=0.30 final=0.539
+2026-10-15 18:24:42,266 [INFO]   🎙️ NILAINFRA.NS: concall=0.30 final=0.538
+2026-10-15 18:24:44,650 [INFO]   🎙️ UMAEXPORTS.NS: concall=0.30 final=0.538
+2026-10-15 18:24:47,112 [INFO]   🎙️ BANSWRAS.NS: concall=0.30 final=0.537
+2026-10-15 18:24:49,584 [INFO]   🎙️ RNBDENIMS.NS: concall=0.30 final=0.536
+2026-10-15 18:24:51,967 [INFO]   🎙️ PTL.NS: concall=0.30 final=0.535
+2026-10-15 18:24:51,968 [INFO] Layer 2 v5: 180 passed → 15 final
+2026-10-15 18:24:51,968 [INFO] 
+▶ Conviction plays...
+2026-10-15 18:24:51,968 [INFO]   0 conviction plays
+2026-10-15 18:24:51,969 [INFO] 
+▶ Persistence tracker...
+2026-10-15 18:24:51,969 [INFO] ▶ Running scan history tracker...
+2026-10-15 18:24:51,997 [INFO]   Tracker: 15 enriched, 0 watch_now (regime=BEAR), 202 total in history
+2026-10-15 18:24:52,002 [INFO] 
+✅ Done — L1:10 L2:15 Conviction:0 WatchNow:0
