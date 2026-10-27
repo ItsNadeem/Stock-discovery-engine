@@ -1,29 +1,37 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-10-26 19:39 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-10-27 18:58 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, -4.9% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    22600.0  1M: -3.6%  3M: -4.9%
+  Index below 200EMA, -5.2% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    22753.0  1M: -1.3%  3M: -5.2%
 ════════════════════════════════════════════════════════════════════════
-  Top 2 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 3 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  CUBEXTUB.NS       Score: 0.710   MCap: ₹302.0 Cr
-    Price ₹212.17     RSI 69.3    ADX 63.4    Sector: Other  SectorMom3M: None%
-    MomScore: 1.97  6M: +134.9%  12M: +124.9%  3M: +175.6%
-    MACD: Positive  BB%B: 0.76  BBSqueeze: –  Structure: –  +DI:59/-DI:21
-    RS Days: 6  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.40   ROE: None%   D/E: 0.52   FCF Yield: None%
-    ▶  💪 RS: Rose 6× when Nifty fell | 📈 Strong Trend ADX 63.4 (+DI 58.6 / -DI 21.0) | ⚡ 3M Return +175.6% | 💰 Rev Growth 30.3%
-
-#02  ONWARDTEC.NS      Score: 0.658   MCap: ₹934.0 Cr
-    Price ₹436.45     RSI 78.5    ADX 62.8    Sector: IT  SectorMom3M: 11.2%
-    MomScore: 1.35  6M: +86.5%  12M: +43.8%  3M: +50.2%
-    MACD: Positive  BB%B: 0.87  BBSqueeze: –  Structure: HH/HL✓  +DI:47/-DI:7
+#01  CUBEXTUB.NS       Score: 0.714   MCap: ₹296.0 Cr
+    Price ₹211.1      RSI 73.8    ADX 61.8    Sector: Other  SectorMom3M: None%
+    MomScore: 1.98  6M: +136.4%  12M: +125.1%  3M: +172.6%
+    MACD: Positive  BB%B: 0.73  BBSqueeze: –  Structure: –  +DI:63/-DI:16
     RS Days: 5  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.53   ROE: 19.9%   D/E: 0.18   FCF Yield: 6.31%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 5× when Nifty fell | 📈 Strong Trend ADX 62.8 (+DI 46.6 / -DI 6.9) | ⚡ 3M Return +50.2%
+    Fundamental Score: 0.40   ROE: None%   D/E: 0.52   FCF Yield: None%
+    ▶  💪 RS: Rose 5× when Nifty fell | 📈 Strong Trend ADX 61.8 (+DI 62.7 / -DI 15.7) | ⚡ 3M Return +172.6% | 💰 Rev Growth 30.3%
+
+#02  OAL.NS            Score: 0.690   MCap: ₹2106.0 Cr
+    Price ₹628.05     RSI 72.9    ADX 29.5    Sector: Other  SectorMom3M: None%
+    MomScore: 1.78  6M: +101.8%  12M: +81.6%  3M: +60.2%
+    MACD: ↑Expanding  BB%B: 0.94  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:32/-DI:14
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.29   ROE: None%   D/E: 0.61   FCF Yield: None%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 💪 RS: Rose 3× when Nifty fell | ⚡ 3M Return +60.2%
+
+#03  BLUSPRING.NS      Score: 0.530   MCap: ₹2306.0 Cr
+    Price ₹148.36     RSI 53.0    ADX 38.3    Sector: Other  SectorMom3M: None%
+    MomScore: 1.90  6M: +136.1%  12M: +89.8%  3M: +35.7%
+    MACD: –  BB%B: 0.42  BBSqueeze: –  Structure: HH/HL✓  +DI:16/-DI:19
+    RS Days: 3  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.36   ROE: None%   D/E: 0.18   FCF Yield: None%
+    ▶  💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 38.3 (+DI 16.4 / -DI 19.4) | ⚡ 3M Return +35.7% | 🛡️ Nearly Debt-Free
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
