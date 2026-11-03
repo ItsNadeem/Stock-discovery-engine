@@ -1,53 +1,61 @@
 ════════════════════════════════════════════════════════════════════════
   MULTIBAGGER DISCOVERY ENGINE v4  —  NSE NIGHTLY SCAN
-  2026-11-02 22:39 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
+  2026-11-03 20:27 UTC  |  Volatility-Adjusted Momentum + Sector Filter + Fundamentals
 ════════════════════════════════════════════════════════════════════════
   MARKET REGIME:  🔴 BEAR
-  Index below 200EMA, -5.5% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
-  Nifty 50:    23053.0  1M: +1.9%  3M: -5.5%
+  Index below 200EMA, -5.4% in 3 months. Caution. (Smallcap 100 data unavailable — using Nifty 50)
+  Nifty 50:    23441.0  1M: +4.5%  3M: -5.4%
 ════════════════════════════════════════════════════════════════════════
-  Top 5 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
+  Top 6 candidates  (Breakout × OBV × Relative Strength × Fundamentals)
 ════════════════════════════════════════════════════════════════════════
 
-#01  ACUTAAS.NS        Score: 0.703   MCap: N/A
-    Price ₹4003.6     RSI 78.3    ADX 41.8    Sector: Other  SectorMom3M: None%
-    MomScore: 2.05  6M: +54.5%  12M: +138.0%  3M: +29.0%
-    MACD: ↑Expanding  BB%B: 1.08  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:37/-DI:10
+#01  SETL.NS           Score: 0.683   MCap: N/A
+    Price ₹400.6      RSI 57.3    ADX 38.2    Sector: Other  SectorMom3M: None%
+    MomScore: 2.93  6M: +186.7%  12M: +123.9%  3M: +43.8%
+    MACD: ↑Expanding  BB%B: 0.67  BBSqueeze: –  Structure: HH/HL✓  +DI:28/-DI:25
+    RS Days: 2  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 38.2 (+DI 27.7 / -DI 24.9) | ⚡ 3M Return +43.8%
+
+#02  ACUTAAS.NS        Score: 0.671   MCap: N/A
+    Price ₹3892.6     RSI 73.6    ADX 41.9    Sector: Other  SectorMom3M: None%
+    MomScore: 1.82  6M: +45.6%  12M: +125.0%  3M: +25.0%
+    MACD: Positive  BB%B: 0.92  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:35/-DI:11
     RS Days: 3  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
-    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 41.8 (+DI 37.1 / -DI 9.5) | ⚡ 3M Return +29.0%
+    ▶  🔵 Bollinger Squeeze Expanding — Breakout Imminent | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 41.9 (+DI 35.0 / -DI 11.0)
 
-#02  ALIVUS.NS         Score: 0.616   MCap: N/A
-    Price ₹1415.3     RSI 64.3    ADX 55.6    Sector: Pharma  SectorMom3M: 2.2%
-    MomScore: 1.55  6M: +36.8%  12M: +54.2%  3M: +22.4%
-    MACD: ↑Expanding  BB%B: 0.89  BBSqueeze: –  Structure: HH/HL✓  +DI:27/-DI:18
-    RS Days: 2  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
-    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 📈 Strong Trend ADX 55.6 (+DI 26.8 / -DI 18.2)
-
-#03  FEDERALBNK.NS     Score: 0.557   MCap: N/A
-    Price ₹339.7      RSI 58.3    ADX 42.9    Sector: Financial Services  SectorMom3M: None%
-    MomScore: 1.34  6M: +18.8%  12M: +49.9%  3M: -5.0%
-    MACD: Positive  BB%B: 0.61  BBSqueeze: –  Structure: HH/HL✓  +DI:21/-DI:10
-    RS Days: 4  OBV: ✓  52W Break: ✗
-    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
-    ▶  📈 MACD Positive + HH/HL Structure | 💪 RS: Rose 4× when Nifty fell | 📈 Strong Trend ADX 42.9 (+DI 21.4 / -DI 10.1)
-
-#04  BLISSGVS.NS       Score: 0.541   MCap: N/A
-    Price ₹647.5      RSI 48.1    ADX 39.2    Sector: Pharma  SectorMom3M: 2.2%
-    MomScore: 3.74  6M: +134.4%  12M: +324.9%  3M: +39.1%
-    MACD: –  BB%B: 0.42  BBSqueeze: Yes  Structure: HH/HL✓  +DI:21/-DI:19
+#03  SAILIFE.NS        Score: 0.657   MCap: N/A
+    Price ₹1542.3     RSI 63.1    ADX 46.3    Sector: Pharma  SectorMom3M: 1.7%
+    MomScore: 1.73  6M: +42.6%  12M: +75.6%  3M: +15.7%
+    MACD: ↑Expanding  BB%B: 0.80  BBSqueeze: –  Structure: HH/HL✓  +DI:29/-DI:15
     RS Days: 3  OBV: ✗  52W Break: ✗
     Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
-    ▶  💪 RS: Rose 3× when Nifty fell | 🔵 Volatility Compression / Tight Base | 📈 Strong Trend ADX 39.2 (+DI 20.9 / -DI 19.2) | ⚡ 3M Return +39.1%
+    ▶  🚀 MACD Expanding + Structural Uptrend (HH/HL) | 💪 RS: Rose 3× when Nifty fell | 📈 Strong Trend ADX 46.3 (+DI 29.2 / -DI 14.9)
 
-#05  WSTCSTPAPR.NS     Score: 0.491   MCap: N/A
-    Price ₹815.45     RSI 56.6    ADX 60.7    Sector: Other  SectorMom3M: None%
-    MomScore: 1.57  6M: +69.5%  12M: +78.8%  3M: +43.9%
-    MACD: –  BB%B: 0.57  BBSqueeze: –  Structure: HH/HL✓  +DI:33/-DI:6
+#04  SONACOMS.NS       Score: 0.648   MCap: N/A
+    Price ₹905.95     RSI 73.7    ADX 25.4    Sector: Other  SectorMom3M: None%
+    MomScore: 2.27  6M: +57.9%  12M: +88.4%  3M: +15.4%
+    MACD: ↑Expanding  BB%B: 1.03  BBSqueeze: →Expanding!  Structure: HH/HL✓  +DI:40/-DI:12
+    RS Days: 1  OBV: ✓  52W Break: ✓
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  ★ MACD↑ + HH/HL + BB Squeeze Expanding (high-conviction setup)
+
+#05  WELSPUNLIV.NS     Score: 0.642   MCap: N/A
+    Price ₹242.34     RSI 60.6    ADX 26.9    Sector: Other  SectorMom3M: None%
+    MomScore: 1.85  6M: +87.3%  12M: +87.0%  3M: +56.7%
+    MACD: Positive  BB%B: 1.03  BBSqueeze: –  Structure: HH/HL✓  +DI:22/-DI:13
     RS Days: 2  OBV: ✓  52W Break: ✗
     Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
-    ▶  📈 Strong Trend ADX 60.7 (+DI 32.6 / -DI 6.2) | ⚡ 3M Return +43.9%
+    ▶  📈 MACD Positive + HH/HL Structure | ⚡ 3M Return +56.7%
+
+#06  TFCILTD.NS        Score: 0.642   MCap: N/A
+    Price ₹157.96     RSI 58.1    ADX 33.6    Sector: Other  SectorMom3M: None%
+    MomScore: 2.26  6M: +105.9%  12M: +124.9%  3M: +50.3%
+    MACD: –  BB%B: 0.71  BBSqueeze: –  Structure: HH/HL✓  +DI:19/-DI:19
+    RS Days: 4  OBV: ✓  52W Break: ✗
+    Fundamental Score: 0.24   ROE: None%   D/E: None   FCF Yield: None%
+    ▶  💪 RS: Rose 4× when Nifty fell | 📈 Strong Trend ADX 33.6 (+DI 18.9 / -DI 19.3) | ⚡ 3M Return +50.3%
 
 ════════════════════════════════════════════════════════════════════════
   ⚠  Educational use only. Not financial advice.
