@@ -157639,3 +157639,376 @@ Enriching top 0 with Screener.in...
 2026-11-04 20:38:57,289 [INFO]   Tracker: 0 enriched, 0 watch_now (regime=NEUTRAL), 207 total in history
 2026-11-04 20:38:57,295 [INFO] 
 ✅ Done — L1:8 L2:0 Conviction:0 WatchNow:0
+2026-11-05 20:41:21,751 [INFO] ╔══════════════════════════════════════════════════════╗
+2026-11-05 20:41:21,751 [INFO] ║  MULTIBAGGER DISCOVERY ENGINE v5                    ║
+2026-11-05 20:41:21,751 [INFO] ║  L1: Momentum  L2: DNA + Concall + Screener        ║
+2026-11-05 20:41:21,751 [INFO] ╚══════════════════════════════════════════════════════╝
+2026-11-05 20:41:21,751 [INFO] 
+▶ Market regime...
+2026-11-05 20:41:22,266 [INFO]   NEUTRAL — Mixed signals. Favour high-conviction setups only. (Smallcap 100 data unavailable — using Nifty 50)
+2026-11-05 20:41:22,266 [INFO] Fetching NSE equity list from NSE archives...
+2026-11-05 20:41:22,394 [INFO] Fetched 2630 NSE symbols
+2026-11-05 20:41:22,395 [INFO] 
+▶ Layer 1: Swing Breakout...
+2026-11-05 20:41:22,395 [INFO] ══════════════════════════════════════════════════════
+2026-11-05 20:41:22,395 [INFO]   MULTIBAGGER DISCOVERY ENGINE v4 — SCAN START
+2026-11-05 20:41:22,395 [INFO]   v4: Volatility-adjusted momentum | Sector filter | Liquidity gate
+2026-11-05 20:41:22,395 [INFO] ══════════════════════════════════════════════════════
+2026-11-05 20:41:22,397 [INFO] Loaded 2630 symbols from cache
+2026-11-05 20:41:22,397 [INFO] Universe: 2630 NSE symbols
+2026-11-05 20:41:22,397 [INFO] Fetching Nifty 50 returns for relative strength calculation...
+2026-11-05 20:41:22,505 [INFO]   Nifty returns loaded: 63 days
+2026-11-05 20:41:22,506 [INFO] Fetching sector momentum (NSE sector indices 3M returns)...
+2026-11-05 20:41:24,343 [INFO]   Sector momentum: {'IT': 2.1, 'Pharma': 2.9, 'Auto': -9.9, 'Metals': -5.8, 'Energy': -4.5, 'FMCG': -6.3, 'Realty': -3.7, 'Infra': -1.4, 'Midcap': -5.9}
+2026-11-05 20:41:24,343 [INFO] Stage 1: Volatility-adjusted momentum scan...
+2026-11-05 20:41:24,343 [INFO]   Batch 1/53 (50 symbols)...
+2026-11-05 20:41:29,144 [INFO]     ✓ 63MOONS.NS       ₹925.95   MomScore=0.36  6M=+25%  12M=+14%  Sector=IT  ADX=48.0
+2026-11-05 20:41:30,883 [INFO]     ✓ AARTIDRUGS.NS    ₹455.8    MomScore=0.10  6M=+14%  12M=-7%  Sector=Pharma  ADX=50.2
+2026-11-05 20:41:39,258 [INFO]   Batch 2/53 (50 symbols)...
+2026-11-05 20:41:42,441 [INFO]     ✓ ADANIPORTS.NS    ₹1910.0   MomScore=0.68  6M=+10%  12M=+32%  Sector=Other  ADX=41.1
+2026-11-05 20:41:53,446 [INFO]   Batch 3/53 (50 symbols)...
+2026-11-05 20:41:59,924 [INFO]     ✓ ALIVUS.NS        ₹1520.7   MomScore=1.76  6M=+36%  12M=+68%  Sector=Pharma  ADX=48.0
+2026-11-05 20:42:09,354 [INFO]   Batch 4/53 (50 symbols)...
+2026-11-05 20:42:23,983 [INFO]   Batch 5/53 (50 symbols)...
+2026-11-05 20:42:40,995 [INFO]   Batch 6/53 (50 symbols)...
+2026-11-05 20:42:55,331 [INFO]   Batch 7/53 (50 symbols)...
+2026-11-05 20:43:10,085 [INFO]   Batch 8/53 (50 symbols)...
+2026-11-05 20:43:13,946 [INFO]     ✓ BHARTIHEXA.NS    ₹1718.8   MomScore=0.10  6M=+15%  12M=-9%  Sector=Other  ADX=49.1
+2026-11-05 20:43:24,728 [INFO]   Batch 9/53 (50 symbols)...
+2026-11-05 20:43:25,658 [ERROR] HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: BRIGHTOUTD.NS"}}}
+2026-11-05 20:43:26,011 [ERROR] $BRIGHTOUTD.NS: No data found, symbol may be delisted
+2026-11-05 20:43:27,448 [ERROR] 
+1 Failed download:
+2026-11-05 20:43:27,448 [ERROR] ['BRIGHTOUTD.NS']: No data found, symbol may be delisted
+2026-11-05 20:43:30,764 [INFO]     ✓ BSE.NS           ₹3601.5   MomScore=0.55  6M=-6%  12M=+48%  Sector=Financial Services  ADX=34.9
+2026-11-05 20:43:40,052 [INFO]   Batch 10/53 (50 symbols)...
+2026-11-05 20:43:54,278 [INFO]   Batch 11/53 (50 symbols)...
+2026-11-05 20:43:57,107 [INFO]     ✓ COFORGE.NS       ₹2060.0   MomScore=0.98  6M=+61%  12M=+15%  Sector=IT  ADX=25.4
+2026-11-05 20:44:08,639 [INFO]   Batch 12/53 (50 symbols)...
+2026-11-05 20:44:24,568 [INFO]   Batch 13/53 (50 symbols)...
+2026-11-05 20:44:39,000 [INFO]   Batch 14/53 (50 symbols)...
+2026-11-05 20:44:49,649 [INFO]     ✓ EMCURE.NS        ₹2160.4   MomScore=1.38  6M=+30%  12M=+62%  Sector=Pharma  ADX=47.3
+2026-11-05 20:44:53,194 [INFO]   Batch 15/53 (50 symbols)...
+2026-11-05 20:44:56,173 [INFO]     ✓ ENGINERSIN.NS    ₹299.35   MomScore=0.72  6M=+16%  12M=+53%  Sector=Other  ADX=59.6
+2026-11-05 20:45:07,383 [INFO]   Batch 16/53 (50 symbols)...
+2026-11-05 20:45:23,218 [INFO]   Batch 17/53 (50 symbols)...
+2026-11-05 20:45:39,599 [INFO]   Batch 18/53 (50 symbols)...
+2026-11-05 20:45:53,844 [INFO]   Batch 19/53 (50 symbols)...
+2026-11-05 20:46:08,421 [INFO]   Batch 20/53 (50 symbols)...
+2026-11-05 20:46:23,726 [INFO]   Batch 21/53 (50 symbols)...
+2026-11-05 20:46:28,909 [INFO]     ✓ ICICIBANK.NS     ₹1424.1   MomScore=0.43  6M=+12%  12M=+5%  Sector=Financial Services  ADX=56.6
+2026-11-05 20:46:40,174 [INFO]   Batch 22/53 (50 symbols)...
+2026-11-05 20:46:49,001 [INFO]     ✓ INDSWFTLAB.NS    ₹370.55   MomScore=3.43  6M=+157%  12M=+259%  Sector=Pharma  ADX=41.9
+2026-11-05 20:46:56,077 [INFO]   Batch 23/53 (50 symbols)...
+2026-11-05 20:47:10,957 [INFO]   Batch 24/53 (50 symbols)...
+2026-11-05 20:47:21,793 [INFO]     ✓ JYOTICNC.NS      ₹1034.95  MomScore=0.56  6M=+34%  12M=+19%  Sector=Other  ADX=51.1
+2026-11-05 20:47:25,213 [INFO]   Batch 25/53 (50 symbols)...
+2026-11-05 20:47:40,318 [INFO]   Batch 26/53 (50 symbols)...
+2026-11-05 20:47:46,585 [INFO]     ✓ KOTAKBANK.NS     ₹459.4    MomScore=0.67  6M=+22%  12M=+7%  Sector=Financial Services  ADX=42.8
+2026-11-05 20:47:49,584 [INFO]     ✓ KRISHANA.NS      ₹240.29   MomScore=2.60  6M=+81%  12M=+139%  Sector=Other  ADX=42.0
+2026-11-05 20:47:54,043 [INFO]   Batch 27/53 (50 symbols)...
+2026-11-05 20:47:59,585 [INFO]     ✓ LALPATHLAB.NS    ₹2029.4   MomScore=1.05  6M=+29%  12M=+33%  Sector=Pharma  ADX=28.9
+2026-11-05 20:48:08,586 [INFO]   Batch 28/53 (50 symbols)...
+2026-11-05 20:48:15,041 [INFO]     ✓ LTTS.NS          ₹4133.5   MomScore=0.16  6M=+10%  12M=+2%  Sector=IT  ADX=80.7
+2026-11-05 20:48:23,184 [INFO]   Batch 29/53 (50 symbols)...
+2026-11-05 20:48:26,288 [INFO]     ✓ MANAKCOAT.NS     ₹150.93   MomScore=0.40  6M=+47%  12M=-11%  Sector=Other  ADX=28.6
+2026-11-05 20:48:39,027 [INFO]   Batch 30/53 (50 symbols)...
+2026-11-05 20:48:41,668 [INFO]     ✓ MCX.NS           ₹3315.0   MomScore=1.19  6M=+12%  12M=+81%  Sector=Financial Services  ADX=33.1
+2026-11-05 20:48:53,868 [INFO]   Batch 31/53 (50 symbols)...
+2026-11-05 20:49:08,790 [INFO]   Batch 32/53 (50 symbols)...
+2026-11-05 20:49:18,165 [INFO]     ✓ NELCAST.NS       ₹162.7    MomScore=0.36  6M=+13%  12M=+28%  Sector=Other  ADX=29.4
+2026-11-05 20:49:23,688 [INFO]   Batch 33/53 (50 symbols)...
+2026-11-05 20:49:38,185 [INFO]   Batch 34/53 (50 symbols)...
+2026-11-05 20:49:52,814 [INFO]   Batch 35/53 (50 symbols)...
+2026-11-05 20:50:00,793 [INFO]     ✓ PAYTM.NS         ₹1732.4   MomScore=1.10  6M=+56%  12M=+32%  Sector=IT  ADX=32.2
+2026-11-05 20:50:04,740 [INFO]     ✓ PHOENIXLTD.NS    ₹2079.5   MomScore=0.66  6M=+13%  12M=+22%  Sector=Realty  ADX=32.4
+2026-11-05 20:50:06,741 [INFO]   Batch 36/53 (50 symbols)...
+2026-11-05 20:50:19,254 [INFO]     ✓ PPLPHARMA.NS     ₹237.76   MomScore=0.79  6M=+44%  12M=+16%  Sector=Pharma  ADX=48.0
+2026-11-05 20:50:23,076 [INFO]   Batch 37/53 (50 symbols)...
+2026-11-05 20:50:38,471 [INFO]   Batch 38/53 (50 symbols)...
+2026-11-05 20:50:54,080 [INFO]   Batch 39/53 (50 symbols)...
+2026-11-05 20:51:08,563 [INFO]   Batch 40/53 (50 symbols)...
+2026-11-05 20:51:17,233 [INFO]     ✓ SAILIFE.NS       ₹1546.1   MomScore=1.64  6M=+43%  12M=+69%  Sector=Pharma  ADX=44.7
+2026-11-05 20:51:22,823 [INFO]   Batch 41/53 (50 symbols)...
+2026-11-05 20:51:29,221 [INFO]     ✓ SATIN.NS         ₹256.69   MomScore=1.31  6M=+32%  12M=+62%  Sector=Financial Services  ADX=27.9
+2026-11-05 20:51:38,940 [INFO]   Batch 42/53 (50 symbols)...
+2026-11-05 20:51:41,469 [INFO]     ✓ SETL.NS          ₹417.6    MomScore=3.04  6M=+195%  12M=+128%  Sector=Other  ADX=38.9
+2026-11-05 20:51:53,440 [INFO]   Batch 43/53 (50 symbols)...
+2026-11-05 20:52:03,097 [INFO]     ✓ SIMPLEXINF.NS    ₹270.25   MomScore=0.12  6M=+15%  12M=-1%  Sector=Other  ADX=33.2
+2026-11-05 20:52:08,527 [INFO]   Batch 44/53 (50 symbols)...
+2026-11-05 20:52:11,945 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:12,118 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:12,327 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:12,527 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:12,750 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:12,928 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:13,168 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:13,334 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:13,584 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:13,708 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:14,035 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:14,206 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:14,414 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:14,551 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:14,781 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:14,955 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:15,021 [INFO]     ✓ SMSPHARMA.NS     ₹525.5    MomScore=1.10  6M=+27%  12M=+82%  Sector=Other  ADX=36.0
+2026-11-05 20:52:15,195 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:15,315 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:15,538 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:15,706 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:15,986 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:16,119 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:16,335 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:16,508 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:16,694 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:16,878 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:17,112 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:17,271 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:17,493 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:17,698 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:17,955 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:18,123 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:18,351 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:18,535 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:18,817 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:18,966 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:19,346 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:19,562 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:19,877 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:20,107 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:20,282 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:20,436 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:20,497 [INFO]     ✓ SONACOMS.NS      ₹893.7    MomScore=2.17  6M=+54%  12M=+86%  Sector=Other  ADX=30.6
+2026-11-05 20:52:21,081 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:22,167 [INFO]     ✓ SOUTHBANK.NS     ₹55.85    MomScore=0.97  6M=+33%  12M=+44%  Sector=Financial Services  ADX=45.5
+2026-11-05 20:52:29,269 [INFO]   Batch 45/53 (50 symbols)...
+2026-11-05 20:52:32,574 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:32,741 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:32,818 [INFO]     ✓ SSWL.NS          ₹536.9    MomScore=2.88  6M=+152%  12M=+136%  Sector=Other  ADX=32.7
+2026-11-05 20:52:33,786 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:34,033 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:34,322 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:34,504 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:34,807 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:35,006 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:35,258 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:35,417 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:35,649 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:35,853 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:36,070 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:36,204 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:36,614 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:36,964 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:37,141 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:37,301 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:37,538 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:37,661 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:37,843 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:38,000 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:38,467 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:38,621 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:39,294 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:39,510 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:39,761 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:39,954 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:40,215 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:40,474 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:40,690 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:40,825 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:41,071 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:41,204 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:41,437 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:41,588 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:50,062 [INFO]   Batch 46/53 (50 symbols)...
+2026-11-05 20:52:52,381 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:52,526 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:52,715 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:52,920 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:53,092 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:53,288 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:53,468 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:53,638 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:53,823 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:53,956 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:54,209 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:54,359 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:54,626 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:54,962 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:55,258 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:55,488 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:55,757 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:55,964 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:56,276 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:56,428 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:56,655 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:56,793 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:57,071 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:57,217 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:57,414 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:57,574 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:57,836 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:58,021 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:58,297 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:58,430 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:58,658 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:58,837 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:59,052 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:59,321 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:52:59,577 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:52:59,802 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:00,021 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:00,225 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:00,465 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:00,621 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:00,837 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:01,170 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:01,473 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:01,626 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:01,895 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:02,025 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:02,418 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:02,684 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:02,928 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:03,094 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:03,316 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:03,532 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:03,835 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:04,016 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:04,447 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:05,329 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:05,666 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:05,943 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:06,175 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:06,632 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:06,936 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:07,220 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:07,532 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:07,720 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:07,906 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:08,030 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:08,261 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:08,445 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:08,847 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:09,112 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:09,348 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:09,523 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:09,754 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:10,019 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:10,254 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:10,434 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:10,602 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:10,774 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:11,075 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:11,270 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:11,525 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:11,686 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:11,907 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:12,124 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:12,322 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:12,478 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:12,757 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:12,919 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:13,102 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:13,280 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:13,525 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:13,673 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:13,911 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:14,140 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:14,409 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:14,617 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:14,859 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:15,090 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:15,283 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:15,523 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:17,615 [INFO]   Batch 47/53 (50 symbols)...
+2026-11-05 20:53:20,245 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:20,405 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:20,469 [INFO]     ✓ TANLA.NS         ₹659.1    MomScore=0.30  6M=+18%  12M=+9%  Sector=Other  ADX=73.0
+2026-11-05 20:53:20,605 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:20,741 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:20,977 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:21,173 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:21,427 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:21,598 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:21,826 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:21,954 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:22,163 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:22,301 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:22,617 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:22,779 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:23,039 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:23,197 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:23,412 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:23,558 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:23,804 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:23,965 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:24,209 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:24,380 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:24,589 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:24,752 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:25,016 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:25,153 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:25,414 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:25,579 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:25,869 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:25,997 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:26,244 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:26,401 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:26,684 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:26,815 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:27,064 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:27,250 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:27,473 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:27,615 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:28,669 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:28,813 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:29,099 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"Invalid Crumb"}}}
+2026-11-05 20:53:29,260 [ERROR] HTTP Error 401: {"finance":{"result":null,"error":{"code":"Unauthorized","description":"User is unable to access this feature - https://bit.ly/yahoo-finance-api-feedback"}}}
+2026-11-05 20:53:31,219 [INFO]     ✓ TFCILTD.NS       ₹160.89   MomScore=2.27  6M=+101%  12M=+130%  Sector=Unknown  ADX=28.4
+2026-11-05 20:53:33,294 [INFO]   Batch 48/53 (50 symbols)...
+2026-11-05 20:53:35,805 [INFO]     ✓ THELEELA.NS      ₹663.45   MomScore=1.70  6M=+56%  12M=+55%  Sector=Unknown  ADX=45.4
+2026-11-05 20:53:38,767 [INFO]   Batch 49/53 (50 symbols)...
+2026-11-05 20:53:41,559 [INFO]     ✓ TVSMOTOR.NS      ₹4331.2   MomScore=0.79  6M=+20%  12M=+24%  Sector=Unknown  ADX=33.5
+2026-11-05 20:53:42,173 [INFO]     ✓ UNIONBANK.NS     ₹183.89   MomScore=0.63  6M=+12%  12M=+30%  Sector=Unknown  ADX=37.8
+2026-11-05 20:53:44,174 [INFO]   Batch 50/53 (50 symbols)...
+2026-11-05 20:53:49,482 [INFO]   Batch 51/53 (50 symbols)...
+2026-11-05 20:53:55,176 [INFO]   Batch 52/53 (50 symbols)...
+2026-11-05 20:53:58,396 [INFO]     ✓ WELSPUNLIV.NS    ₹264.57   MomScore=2.09  6M=+99%  12M=+99%  Sector=Unknown  ADX=30.0
+2026-11-05 20:53:58,447 [INFO]     ✓ WESTLIFE.NS      ₹631.05   MomScore=0.43  6M=+28%  12M=+8%  Sector=Unknown  ADX=28.5
+2026-11-05 20:54:00,804 [INFO]   Batch 53/53 (30 symbols)...
+2026-11-05 20:54:04,956 [INFO] Stage 1 complete. Momentum candidates: 37
+2026-11-05 20:54:04,957 [INFO] Cross-sectional gate (top 20%): 37 → 8 (threshold: 1.745)
+2026-11-05 20:54:04,957 [INFO] Stage 2: Fundamental filter (ROE, D/E, FCF, MCap/Sales)...
+2026-11-05 20:54:04,974 [INFO]   ✓ ALIVUS.NS        score=0.684  mom=1.76  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:05,292 [INFO]   ✓ INDSWFTLAB.NS    score=0.703  mom=3.43  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:05,607 [INFO]   ✓ KRISHANA.NS      score=0.715  mom=2.60  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:05,922 [INFO]   ✓ SETL.NS          score=0.749  mom=3.04  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:06,236 [INFO]   ✓ SONACOMS.NS      score=0.680  mom=2.17  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:06,551 [INFO]   ✓ SSWL.NS          score=0.724  mom=2.88  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:06,870 [INFO]   ✓ TFCILTD.NS       score=0.806  mom=2.27  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:07,190 [INFO]   ✓ WELSPUNLIV.NS    score=0.751  mom=2.09  fscore=0.500  FCF=N/A%
+2026-11-05 20:54:07,491 [INFO] Stage 2 complete. 8 passed → top 8
+2026-11-05 20:54:07,493 [INFO] Results written to results/
+2026-11-05 20:54:07,493 [INFO] 
+▶ Public data (insider / bulk deals)...
+2026-11-05 20:54:07,493 [INFO] Initialising public data fetcher...
+2026-11-05 20:54:27,737 [WARNING] NSE session failed — insider/bulk signals unavailable. This is expected on GitHub-hosted runners (NSE blocks their IPs). Use a self-hosted runner for live insider data.
+2026-11-05 20:54:27,737 [INFO] 
+▶ Layer 2: Multibagger DNA scan...
+2026-11-05 20:54:27,737 [INFO] Layer 2 v5: scanning 2630 symbols...
+2026-11-05 20:56:31,726 [INFO] 
+Enriching top 0 with Screener.in...
+2026-11-05 20:56:31,726 [INFO] Enriching 0 candidates with Screener.in data...
+2026-11-05 20:56:31,726 [INFO] Screener enrichment: 0/0 fetched successfully.
+2026-11-05 20:56:31,726 [INFO] Fetching concall signals for top 0...
+2026-11-05 20:56:31,726 [INFO] Layer 2 v5: 0 passed → 0 final
+2026-11-05 20:56:31,726 [INFO] 
+▶ Conviction plays...
+2026-11-05 20:56:31,726 [INFO]   0 conviction plays
+2026-11-05 20:56:31,726 [INFO] 
+▶ Persistence tracker...
+2026-11-05 20:56:31,727 [INFO] ▶ Running scan history tracker...
+2026-11-05 20:56:31,769 [INFO]   Tracker: 0 enriched, 0 watch_now (regime=NEUTRAL), 207 total in history
+2026-11-05 20:56:31,774 [INFO] 
+✅ Done — L1:8 L2:0 Conviction:0 WatchNow:0
