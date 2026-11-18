@@ -1,13 +1,13 @@
 {
-  "regime": "NEUTRAL",
-  "regime_note": "Mixed signals. Favour high-conviction setups only. (Smallcap 100 data unavailable \u2014 using Nifty 50)",
+  "regime": "BULL",
+  "regime_note": "All EMAs stacked, index above 200EMA. Breakout conditions favourable. (Smallcap 100 data unavailable \u2014 using Nifty 50)",
   "smallcap100": null,
   "nifty50": {
-    "last": 25291.0,
-    "chg_1m_pct": 10.0,
-    "chg_3m_pct": 3.8,
+    "last": 25387.0,
+    "chg_1m_pct": 9.7,
+    "chg_3m_pct": 4.5,
     "above_50ema": true,
     "above_200ema": true,
-    "ema_stacked": false
+    "ema_stacked": true
   }
 }
